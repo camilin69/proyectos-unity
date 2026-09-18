@@ -35,3 +35,6 @@ __pycache__/
 # OS
 Thumbs.db
 .DS_Store
+
+# Builds de jugador (91.5: el paquete de entrega se registra por hash, no se versiona)
+Builds/

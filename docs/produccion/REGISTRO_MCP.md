@@ -62,6 +62,36 @@ Formato: ID · etapa · servidor/herramienta real · operación · archivos afec
 | OP-0051 | EX-04 | unityMCP · execute_code → `AssetIntegrator.Integrate` ×16 + `SandboxBuilder/RegionSceneBuilder/ShowcaseBuilder.Build()` | Reimport de FBX/texturas, materiales y prefabs regenerados; escenas reconstruidas con el cableado EX-05 | prefabs, materiales, escenas | tris 10588/7864/8202/15232…; clips 5/6/7/5/2/1/1; 0 avisos | verificado |
 | OP-0052 | EX-05 | Write + unityMCP · `TestRunnerBridge` | `NarrativePlayTests` (EVT-01 política U: sin control durante la apertura, omisible, CP-00 confirmado con EVT-01 en el snapshot, restaurar no repite; EVT-C1: D06 → DETECTADO/O03/activación de bots, una sola vez). Correcciones que destapó: el streamer reactivaba el control tras la apertura (ahora la apertura espera `Ready`); `PlayerController` consumía la pulsación antes de la corrutina (lectura directa de teclado + `RequestSkip`); el trigger CP-00 confirmaba antes que la apertura (el test espera el commit de la apertura) | `Tests/PlayMode/NarrativePlayTests.cs`, `OpeningSequence.cs` | Edit 21/21, Play 19/19 (`evidencia/tests_*.md` 03:59/04:07) | verificado |
 | OP-0053 | EX-05 | Write `EvidenceCapture` + unityMCP · execute_code | Captura automática de Game View en Play (EditorPrefs sobrevive al domain reload) → `docs/produccion/evidencia/*.png`. Destapó que `PlayerLook`/`PlayerController` sobreescribían el pivote de cámara cada frame (la apertura no se veía tumbada): ahora solo cuando la mirada/movimiento están habilitados | `evidencia/EX-04_showcase_atlas_fix.png` (bots/props con atlas corregido), `evidencia/EX-05_boot_opening.png` (vista tumbada, negro parcial 0–8 s) | evidencia | verificado |
+| OP-0054 | EX-05 | Write `PlayerBuilder` + unityMCP · execute_code (`BuildPipeline.BuildPlayer`) | Build Windows x64 Release (sin profiler, 91.4) con BOOT + 7 regiones; `Builds/` ignorado en git; informe con commit git, duración, tamaño | `evidencia/build_Release.json` | Succeeded, 472 s, 145 MB, 0 errores, 34 avisos (commit 4e9c9da) | verificado |
+| OP-0055 | EX-05 | Bash · `EsneiderProtocoloLazaro.exe -autotest` (ruta automática S1, 60 s tras 2 s de warmup, 1280×720 ventana, vsync 0, quality PC) | Medición 91.4 en el equipo real (i5-7500 / HD 630 / D3D11): **mediana 14.7 ms (68 fps), p95 19.7 ms, 3 hitches >100 ms** (mín. 0.35 fps: pausa aislada de carga inicial de región, se registra sin borrar), 3699 frames, reservado 540 MB / asignado 255 MB. Sin excepciones en el log del jugador | `evidencia/perf_Release_S1_C1.json`, `evidencia/player_Release_autotest.log` | cumple perfil local 720p/30 (≤33.3 / ≤40 ms) en el tramo S1; los otros 5 tramos y la sesión de 30 min quedan para EX-08 | verificado |
+| OP-0056 | EX-05 | Write | `PerfProbe`: 1280×720 en `-autotest`, omite la apertura para no disputar la posición, registra vsync/quality/minFps; BOOT muestrea 62 s | `Core/PerfProbe.cs`, `RegionSceneBuilder.cs` | compila | verificado |
+
+## Gate EX-05
+
+| Requisito 101.1 | Estado | Evidencia |
+|---|---|---|
+| Un tramo que reúna arte/combate/audio/save | Pasa | BOOT→REG-S1/REG-C1: criocámara hero + apertura EVT-01, Vigía/Custodio con FSM y clips, bancos de audio + PA en OBJ-065, CP-00/CP-01 con snapshot; `NarrativePlayTests`, `StreamingPlayTests`, `PersistencePlayTests` |
+| Performance destino medida | Pasa (tramo S1) | OP-0055: build real, no editor; 720p/30 cumplido con margen |
+| Contratos PIL 74.2 | Ver tabla | abajo |
+
+| REQ-PIL | Estado | Evidencia / pendiente |
+|---|---|---|
+| PIL-01 manos, cámara, salud | Pasa | brazos CHR-01 en viewmodel, `PlayerLook`, `Health`; build ejecutada |
+| PIL-02 criocámara abre con gesto/huella | Parcial | abre por clip `Cryo_Open` dentro de EVT-01; el gesto de huella (interacción) no está implementado; malla estado "Revisar" (no Tier A) |
+| PIL-03 linterna F, cono limitado | Pasa (código, sin prueba automática) | `PlayerController` alterna `Light` (spot 45°); pickup WPN-04 |
+| PIL-04 varilla, 3 golpes sin daño duplicado | Pasa | QA01 + AttackID dedup (`CoreContractTests`) |
+| PIL-05 Vigía FSM completa | Pasa | `EnemyAiPlayTests` (sospecha→confirmación→telegraph→red, búsqueda), muerte en QA01 |
+| PIL-06 Custodio 6 golpes, rayos 30 | Pasa | QA01, QA02 (90/60/30/0) |
+| PIL-07 puerta/altavoz: detección una vez, voz y alerta | Pasa | `Detection_FiresOnceWhenD06Opens_ActivatesUnits` |
+| PIL-08 carro Rigidbody + superficies | Parcial | carro OBJ-029 con Rigidbody y `PhysicsImpactLogger`, `SurfaceTag`; sin prueba automática de empuje/fricción → EX-06 |
+| PIL-09 salud, jeringa, derrota | Pasa | QA08, QA04 (captura ≤2.5 s) |
+| PIL-10 snapshot/retry | Pasa | QA09/QA10/QA11, `ReentryKeepsChanges_RetryRestoresSnapshot` |
+| PIL-11 luz neutra y de terror | Pasa | `Art_Showcase` (tecla L) y BOOT; capturas EX-04/EX-05 |
+| PIL-12 sin placeholders como finales | Pasa | `AUDIO_MANIFEST.json` (síntesis declarada), assets "Revisar" (gate EX-04) |
+| PIL-13 build + profiler en hardware documentado | Pasa (Release) | OP-0054/0055; build Development con profiler pendiente para diagnóstico (EX-08) |
+| PIL-14 evidencia de contactos | Pendiente | mano-grip, pie-suelo, tapa y puerta/riel sin captura dedicada → EX-06 (checklist 104) |
+
+Decisión de gate: **Pasa con pendientes no bloqueantes** (PIL-02 gesto de huella, PIL-08 prueba física, PIL-14 evidencia de contactos, build Development). Ninguna tasa FPS inventada: el único dato de rendimiento procede de la build Release en el equipo real.
 
 ## Gate EX-04
 

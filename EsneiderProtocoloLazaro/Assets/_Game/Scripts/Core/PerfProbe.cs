@@ -20,7 +20,20 @@ namespace Esneider.Core
         {
             _auto = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-autotest") >= 0;
             _pc = FindFirstObjectByType<Player.PlayerController>();
-            if (_auto && _pc != null) { _pc.motor.movementEnabled = false; }
+            if (_auto)
+            {
+                // 91.4: 1280×720 perfil local, ventana; se registra vsync/quality en el informe
+                Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
+                if (_pc != null) _pc.motor.movementEnabled = false;
+            }
+        }
+
+        void LateUpdate()
+        {
+            if (!_auto) return;
+            // la apertura no debe disputar la posición del jugador durante la medición automática
+            var opening = FindFirstObjectByType<World.OpeningSequence>();
+            if (opening != null && opening.IsPlaying) opening.RequestSkip();
         }
 
         void Update()
@@ -47,7 +60,7 @@ namespace Esneider.Core
             var report = new Report
             {
                 label = label, frames = _frames.Count, medianMs = med, p95Ms = p95, hitches = _hitches, fpsMedian = med > 0 ? 1000f / med : 0,
-                width = Screen.width, height = Screen.height, gpu = SystemInfo.graphicsDeviceName, api = SystemInfo.graphicsDeviceType.ToString(), cpu = SystemInfo.processorType,
+                width = Screen.width, height = Screen.height, vsync = QualitySettings.vSyncCount, quality = QualitySettings.names[QualitySettings.GetQualityLevel()], fullscreen = Screen.fullScreenMode.ToString(), minFps = _frames.Count > 0 ? 1000f / _frames[_frames.Count - 1] : 0, gpu = SystemInfo.graphicsDeviceName, api = SystemInfo.graphicsDeviceType.ToString(), cpu = SystemInfo.processorType,
                 totalReservedMB = UnityEngine.Profiling.Profiler.GetTotalReservedMemoryLong() / (1024f * 1024f), totalAllocatedMB = UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong() / (1024f * 1024f),
                 gfxMB = UnityEngine.Profiling.Profiler.GetAllocatedMemoryForGraphicsDriver() / (1024f * 1024f), isEditor = Application.isEditor, build = Application.version, region = World.RegionStreamer.Instance != null ? World.RegionStreamer.Instance.CurrentRegion : ""
             };
@@ -58,6 +71,6 @@ namespace Esneider.Core
         }
 
         [System.Serializable]
-        public class Report { public string label, gpu, api, cpu, build, region; public int frames, hitches, width, height; public float medianMs, p95Ms, fpsMedian, totalReservedMB, totalAllocatedMB, gfxMB; public bool isEditor; }
+        public class Report { public string label, gpu, api, cpu, build, region, quality, fullscreen; public int frames, hitches, width, height, vsync; public float medianMs, p95Ms, fpsMedian, minFps, totalReservedMB, totalAllocatedMB, gfxMB; public bool isEditor; }
     }
 }

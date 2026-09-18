@@ -252,7 +252,7 @@ namespace Esneider.EditorTools
             systems.AddComponent<CheckpointService>();
             AudioSetup.Attach(systems);
             systems.AddComponent<EventRunner>();
-            var probe = systems.AddComponent<PerfProbe>(); probe.label = "S1_C1"; probe.sampleSeconds = 40f;
+            var probe = systems.AddComponent<PerfProbe>(); probe.label = "S1_C1"; probe.sampleSeconds = 62f; // 91.4: 60 s tras 2 s de warmup
             var p01 = plan.Floor("P01").origin.ToVector3();
             probe.route = new[] { p01 + new Vector3(11, 0, 10), p01 + new Vector3(17, 0, 10), p01 + new Vector3(17, 0, 24), p01 + new Vector3(8, 0, 24), p01 + new Vector3(17, 0, 24), p01 + new Vector3(17, 0, 8), p01 + new Vector3(30, 0, 13) };
             // 16: niebla global moderada, ambiente bajo (luz de terror); la luz neutra de revisión vive en Art_Showcase
