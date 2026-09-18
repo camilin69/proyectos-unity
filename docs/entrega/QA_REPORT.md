@@ -51,9 +51,10 @@ Sesión de 30 min con 24 cambios regionales (`-perfsession 30`, `perf_Release_se
 1. Arte: sin escultura high→low ni texturizado pintado con intención (sigue siendo procedural, aunque ya no es blockout). Los robots necesitan textura de 2K para resolver el detalle añadido: a 1024 el atlas empaqueta el doble de islas y el texel density cae. Archivista a 34 600 tris, justo por debajo del mínimo de su rango. Cuatro props entre 3.1k y 4.1k, por encima del techo de 3k. Kit de mobiliario sin materiales/LOD; vidrio M060 opaco; hojas VIS de 82 pendientes (HUM).
 2. Animación: contactos cerrados y medidos (ver FIN-08). Queda sin implementar el giro de cabeza en patrulla (77.1) y el gesto de huella en la criocámara (PIL-02, abre por clip en EVT-01). Los clips siguen siendo procedurales: no hay captura de movimiento ni animación a mano, y fuera de la marcha (ataques, muerte, tambaleo) no existe un gate numérico equivalente al de contactos.
 3. Física: PIL-08 cerrado (`WorldPhysicsPlayTests` 5/5). Abierto: la varilla y los disparos no producen reacción sobre los props (84.2 RX-2), y una puerta puede cerrarse atravesando el carro.
-4. Señalética 87.1/87.2 (NAV-01…07) no fabricada; el mapa cubre la orientación.
-5. Interfaz en uGUI (81 recomienda UI Toolkit); mando no soportado; volúmenes por grupo no expuestos (solo maestro).
-6. Rendimiento: medido solo en el equipo de desarrollo (perfil local); 1080p/60 no evaluado; build Development con profiler generada pero sin captura de profiler adjunta.
-7. Datos: velocidades del jugador (9) marcadas VAL; métricas de gasto por tramo (80.3) sin jugadores.
-8. Técnica: GPU Resident Drawer desactivado por crash (OP-0067); audio WAV en git sin LFS (131 MB).
-9. Persistencia: pruebas de GUID duplicado y espacio insuficiente (89.5) no inyectadas; cierre durante escritura cubierto solo por truncado.
+4. Exterior ENV-EXIT: **fabricado**, no sólo lógica (plataforma transitable, parapeto en U con barandilla, cuatro escalones de ladera, placa NÉMESIS, dos siluetas de torre, cresta lejana y señal EVACUACIÓN, con `ExteriorAmbience` mezclando niebla, ambiente, sol y viento al abrir D29). Verificado por render desde el punto del jugador y en vista general (`EX-09_exterior_mirador.png`, `EX-09_exterior_general.png`). Nivel de acabado: blockout+, claramente más pobre que el interior; la llanura es plana y sin vegetación ni ruina.
+5. Señalética 87.1/87.2 (NAV-01…07) no fabricada; el mapa cubre la orientación.
+6. Interfaz en uGUI (81 recomienda UI Toolkit); mando no soportado; volúmenes por grupo no expuestos (solo maestro).
+7. Rendimiento: medido solo en el equipo de desarrollo (perfil local); 1080p/60 no evaluado; build Development con profiler generada pero sin captura de profiler adjunta.
+8. Datos: velocidades del jugador (9) marcadas VAL; métricas de gasto por tramo (80.3) sin jugadores.
+9. Técnica: GPU Resident Drawer desactivado por crash (OP-0067); audio WAV en git sin LFS (131 MB).
+10. Persistencia: pruebas de GUID duplicado y espacio insuficiente (89.5) no inyectadas; cierre durante escritura cubierto solo por truncado.
