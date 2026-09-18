@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-18
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-18
+  gddSource: 93
+  roomId: S4-R05
+  guid: 663b1a80-64de-f6b3-ed02-45e7e43b0038
+  policy: 0
+  trigger: Interactuar DOC-11/consola
+  action: Leer firma; habilita despertar V23
+  restore: Solo si V23 vivo
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

@@ -34,21 +34,21 @@ Columnas: condición de activación → entregable → evidencia exigida. Estado
 | Skill | Sistema / contrato del maestro | Condición | Entregable | Evidencia | Estado |
 |---|---|---|---|---|---|
 | unity-foundations, unity-scripting, unity-lifecycle, unity-3d-math, unity-async-patterns | 20 arquitectura, todo C# | Desde EX-01 | Scripts en `Assets/_Game/Scripts` | Compila sin errores, tests | P |
-| unity-game-architecture, unity-data-driven | 20.1, 95 datos centralizados | EX-01 | Servicios + ScriptableObjects de datos | Validadores 95.2 | P |
+| unity-game-architecture, unity-data-driven | 20.1, 95 datos centralizados | EX-01 | ScriptableObjects de definiciones + catálogo + validador | `DataValidator` PASA 0/0; `DATA_BASELINE.md` | A (EX-01: datos); servicios P |
 | unity-game-loop, unity-state-machines | GameFlow 20.1, 78 FSM | EX-02 | GameFlowController, EnemyBrain | QA-01..04 | P |
 | unity-input, unity-input-correctness | 9 controles, 81.3 | EX-02 | Input Actions | Demostración de controles | P |
 | unity-physics, unity-physics-queries | 20.2/20.3, 84, 96 | EX-02 | CharacterController, props Rigidbody, capas | QA-05/12/19 | P |
-| unity-ai-navigation, unity-npc-behavior | 14, 77, 78 | EX-02 | NavMesh + percepción | QA-13 | P |
+| unity-ai-navigation, unity-npc-behavior | 14, 77, 78 | EX-01/02 | NavMeshSurface sobre blockout (validación de transitabilidad); percepción/FSM en EX-02 | 24/24 tramos PathComplete | A (navegación de prueba); npc P |
 | unity-animation | 21, 49, 86 | EX-04 | Animator, transiciones con commit | Video cancelaciones | P |
 | unity-cinemachine | 9 cámara, 58 apertura | EX-02/05 | Cámara FP, apertura | Sin clipping | P |
 | unity-audio | 17, 50, 65.2 | EX-05 | AudioMixer, zonas reverb | Prueba auriculares | P |
 | unity-ui, unity-ui-patterns | 18, 81 | EX-02/07 | HUD UI Toolkit | Foco/estados | P |
 | unity-save-system, unity-scene-assets | 19, 88, 89 | EX-03 | CheckpointService, regiones aditivas | QA-09/10/11 | P |
-| unity-level-design, unity-procedural-gen | 68, 93 eventos | EX-01/06 | Triggers, flags | Reentrada sin repetición | P (procgen: solo variación de set dressing si se pide) |
+| unity-level-design, unity-procedural-gen | 68, 93 eventos | EX-01/06 | Blockout generado desde `bunker_plan.json` (`BlockoutBuilder`), marcadores con GUID, EventDefinitions | NavMesh CP-00→VICTORY completo; 141/141 marcadores libres | A (EX-01: blockout/marcadores); triggers P. procgen NA salvo set dressing |
 | unity-graphics, unity-lighting-vfx | 42, 71 URP | EX-04/05 | Materiales URP, luz baked + linterna | Capturas neutra/juego | P |
 | unity-performance, unity-platforms | 27, 91.4, 105.2 | EX-05/08 | Profiler, build Win x64 | Mediciones reales | P |
 | unity-testing | 28 | EX-02+ | Tests Edit/Play | Resultados | P |
-| unity-editor-tools | 68 planos, 66 registro | EX-01 | Gizmos/ventanas de autoría | — | P |
+| unity-editor-tools | 68 planos, 66 registro | EX-01 | Menús `Esneider/Blockout` y `Esneider/Data`, gizmos de `LevelMarker`, edición de TagManager (capas 20.3) | Escena y assets generados | A |
 | unity-packages-services | 71.2 | EX-00 | Manifest congelado | `TECH-BASELINE.md` | A |
 | unity-2d | — | — | — | — | NA: juego 3D primera persona |
 | unity-xr | — | — | — | — | NA: sin VR/AR (102.1 extensiones no encargadas) |

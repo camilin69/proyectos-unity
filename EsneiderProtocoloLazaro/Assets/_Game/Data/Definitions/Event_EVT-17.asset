@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-17
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-17
+  gddSource: 93
+  roomId: S3-R05
+  guid: d83274af-178b-9758-1866-674743aaa66a
+  policy: 3
+  trigger: Recoger escopeta disponible
+  action: Equipar, O07 y feedback; locker abierto
+  restore: Commits 86, no segunda entrega
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-C3
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-C3
+  gddSource: 93
+  roomId: C-03
+  guid: 23882906-ac99-9c44-fe50-7c96ed91ba53
+  policy: 0
+  trigger: Primera segunda mitad del corredor
+  action: Impacto remoto del boss 1 s
+  restore: "No sincronizar si ya muri\xF3"
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

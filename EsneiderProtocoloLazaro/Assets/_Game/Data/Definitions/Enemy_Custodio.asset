@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Enemy_Custodio
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EnemyDefinition
+  id: BOT-02
+  gddSource: 13/14/77/78/103.1
+  kind: 1
+  maxHp: 120
+  patrolSpeed: 0.6
+  chaseSpeed: 2.2
+  visionRangeLit: 12
+  visionAngleLit: 90
+  visionRangeAlert: 16
+  visionAngleAlert: 100
+  visionRangeDark: 6
+  visionRangeDarkAlert: 8
+  closeRange: 3
+  closeReaction: 0.35
+  searchSeconds: 12
+  combatSearchSeconds: 18
+  attackRangeMin: 4
+  attackRangeMax: 14
+  telegraph: 1
+  telegraphTutorial: 1
+  recovery: 1.6
+  cooldown: 3
+  attackDamage: 30
+  captureSeconds: 0
+  staggerSeconds: 0.3

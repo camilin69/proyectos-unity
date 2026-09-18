@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-13
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-13
+  gddSource: 93
+  roomId: S3-R02A
+  guid: 5c442e03-2e70-f2bb-a199-4d8b6cb38ca3
+  policy: 0
+  trigger: "Primera visi\xF3n del sujeto focal sin ataque"
+  action: "Respiraci\xF3n destacada 6 s y mano leve"
+  restore: "A respiraci\xF3n discreta posterior"
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

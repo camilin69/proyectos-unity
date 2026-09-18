@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Checkpoint_CP-00
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:CheckpointDefinition
+  id: CP-00
+  gddSource: 68.9/80/89
+  spaceId: P01
+  guid: 1d869903-a537-090e-1041-06151c6706c5
+  worldPosition: {x: 11, y: -24, z: 10}
+  yaw: 0
+  activation: "Fin de salida de c\xE1mara"
+  protection: Sin enemigos
+  isShelter: 0
+  guaranteeHp: 0
+  guaranteePistolTotal: 0
+  guaranteeShotgunTotal: 0

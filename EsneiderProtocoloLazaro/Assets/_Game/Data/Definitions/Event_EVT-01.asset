@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-01
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-01
+  gddSource: 93
+  roomId: S1-R01
+  guid: 94fd4ac4-52a2-d394-aa54-19ff35f74ab0
+  policy: 0
+  trigger: "Nueva campa\xF1a, opening no completado"
+  action: Apertura 58, control gradual, CP-00 al terminar
+  restore: CP-00 omite apertura y coloca player seguro
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

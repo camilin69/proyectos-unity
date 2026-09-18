@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-16
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-16
+  gddSource: 93
+  roomId: S3-R04
+  guid: 8c4e6cfc-ac49-1964-0661-10e0b0efd440
+  policy: 0
+  trigger: Iniciar primera lectura protegida DOC-09
+  action: V15 inactivo durante evento; flag al cerrar
+  restore: Flag persiste; no inmunidad por lectura
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

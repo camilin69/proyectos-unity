@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Boss_Archivista
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:BossDefinition
+  id: BOT-03
+  gddSource: 15/61/79/103.1
+  maxHp: 1200
+  phase2Threshold: 800
+  phase3Threshold: 400
+  phaseTransitionSeconds: 2
+  doubleSequenceGap: 0.8
+  doubleSequenceRecovery: 2.5
+  attacks:
+  - id: BOSS-RAYO
+    damage: 30
+    telegraph: 1.2
+    recovery: 2
+    radius: 0
+    phaseFrom: 1
+  - id: BOSS-BARRIDO
+    damage: 30
+    telegraph: 1.4
+    recovery: 2.2
+    radius: 0
+    phaseFrom: 1
+  - id: BOSS-CARGA
+    damage: 45
+    telegraph: 1.5
+    recovery: 2.4
+    radius: 0
+    phaseFrom: 3
+  - id: BOSS-PULSO
+    damage: 30
+    telegraph: 1.8
+    recovery: 2.4
+    radius: 6
+    phaseFrom: 3

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Region_S2-R02
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:RoomRegionDefinition
+  id: S2-R02
+  gddSource: 68.2/88.1
+  kind: 0
+  regionId: REG-S2
+  guid: f210656e-2584-3c07-6f1a-82b568cdae5d
+  floorId: P04
+  sectorId: S2
+  worldOrigin: {x: 76, y: -8, z: 1}
+  localRect:
+    serializedVersion: 2
+    x: 2
+    y: 2
+    width: 18
+    height: 20
+  height: 5.5
+  doorIds:
+  - D11
+  ownedEntityIds:
+  - V04
+  - K04
+  - PICK-W02
+  - A04
+  - H03
+  - R03

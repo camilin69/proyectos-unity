@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Checkpoint_CP-01
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:CheckpointDefinition
+  id: CP-01
+  gddSource: 68.9/80/89
+  spaceId: P02
+  guid: bc518dfd-553d-5c43-6008-29e1dc76ade9
+  worldPosition: {x: 28, y: -18, z: 12}
+  yaw: 0
+  activation: Varilla/linterna, antes de D06
+  protection: "Anuncio no repetido si ya progres\xF3"
+  isShelter: 0
+  guaranteeHp: 0
+  guaranteePistolTotal: 0
+  guaranteeShotgunTotal: 0

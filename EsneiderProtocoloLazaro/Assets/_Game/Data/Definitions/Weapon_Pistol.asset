@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Weapon_Pistol
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:WeaponDefinition
+  id: WPN-02
+  gddSource: 11/68/80/86/103.1
+  kind: 1
+  damage: 30
+  pellets: 1
+  range: 40
+  magazineSize: 12
+  reserveMax: 80
+  pickupLoaded: 10
+  pickupReserve: 10
+  attackCycle: 0.35
+  activeStart: 0
+  activeEnd: 0.05
+  reloadDuration: 1.9
+  reloadCommit: 1.35
+  shellEnter: 0
+  shellInsert: 0
+  shellInsertCommit: 0
+  shellExit: 0
+  pumpDuration: 0
+  noiseRadius: 28
+  viewmodelSocket: hand_R
+  clipIds: []

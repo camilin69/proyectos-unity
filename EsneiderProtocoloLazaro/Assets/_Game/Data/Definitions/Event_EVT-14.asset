@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-14
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-14
+  gddSource: 93
+  roomId: S3-R02B
+  guid: dac7c9c1-902c-4af4-623d-d88a2f937d67
+  policy: 0
+  trigger: Primera entrada opcional
+  action: Bomba inicia ciclo 3 s
+  restore: No permiso obligatorio
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

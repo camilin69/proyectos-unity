@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Checkpoint_CP-02
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:CheckpointDefinition
+  id: CP-02
+  gddSource: 68.9/80/89
+  spaceId: P04
+  guid: bdaafd9e-43f0-f4ff-b8a3-18bb929ee06b
+  worldPosition: {x: 86, y: -8, z: 26}
+  yaw: 0
+  activation: Recoger pistola y esperar estado seguro
+  protection: "No snapshot en contacto con patrulla. Correcci\xF3n PL-CP02-01: GDD (8,24) ca\xEDa en la esquina muro/enlace de almac\xE9n; movido 2 m al centro del enlace, dentro de la galer\xEDa"
+  isShelter: 0
+  guaranteeHp: 0
+  guaranteePistolTotal: 0
+  guaranteeShotgunTotal: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-02
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-02
+  gddSource: 93
+  roomId: S1-R02
+  guid: b155ac8c-d03c-d10b-e0b7-70204e8f7e72
+  policy: 3
+  trigger: Interactuar pickup linterna disponible
+  action: Equipar/aviso/flag equipo; termina al commit
+  restore: Recogida no reaparece
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Event_EVT-06
+  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  id: EVT-06
+  gddSource: 93
+  roomId: S2-R01
+  guid: 7e606a7e-7221-7b14-aefa-394a37db9fa6
+  policy: 0
+  trigger: Cruzar D08, K01 vivo
+  action: Primera lectura K01 sin quitar control
+  restore: Estado real del bot manda al retornar
+  priority: 0
+  cooldownSeconds: 0
+  commitFlag: 
+  fallback: 
