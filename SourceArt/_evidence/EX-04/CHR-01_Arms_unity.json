@@ -1,0 +1,24 @@
+{
+    "asset": "CHR-01_Arms",
+    "fbx": "Assets/_Game/Art/Models/CHR-01_Arms.fbx",
+    "prefab": "Assets/_Game/Prefabs/Player/CHR-01_Arms.prefab",
+    "tris": 15232,
+    "submeshes": 88,
+    "clips": 5,
+    "size": {
+        "x": 0.6115293502807617,
+        "y": 0.1119999811053276,
+        "z": 0.534235954284668
+    },
+    "clipNames": [
+        "Arms_CrowbarSwing",
+        "Arms_Grip",
+        "Arms_Idle",
+        "Arms_PistolReload",
+        "Arms_Syringe"
+    ],
+    "materials": [
+        "M_CHR-01_Arms"
+    ],
+    "warnings": []
+}

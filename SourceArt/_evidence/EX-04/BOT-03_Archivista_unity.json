@@ -1,0 +1,26 @@
+{
+    "asset": "BOT-03_Archivista",
+    "fbx": "Assets/_Game/Art/Models/BOT-03_Archivista.fbx",
+    "prefab": "Assets/_Game/Prefabs/Enemies/BOT-03_Archivista.prefab",
+    "tris": 8202,
+    "submeshes": 35,
+    "clips": 7,
+    "size": {
+        "x": 1.1799999475479126,
+        "y": 3.2322750091552734,
+        "z": 0.5681647658348083
+    },
+    "clipNames": [
+        "Archivista_Charge",
+        "Archivista_Death",
+        "Archivista_Idle",
+        "Archivista_Pulse",
+        "Archivista_Ray",
+        "Archivista_Sweep",
+        "Archivista_Walk"
+    ],
+    "materials": [
+        "M_BOT-03_Archivista"
+    ],
+    "warnings": []
+}

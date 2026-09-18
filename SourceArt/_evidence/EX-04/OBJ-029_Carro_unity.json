@@ -1,0 +1,18 @@
+{
+    "asset": "OBJ-029_Carro",
+    "fbx": "Assets/_Game/Art/Models/OBJ-029_Carro.fbx",
+    "prefab": "Assets/_Game/Prefabs/Environment/OBJ-029_Carro.prefab",
+    "tris": 808,
+    "submeshes": 22,
+    "clips": 0,
+    "size": {
+        "x": 1.059999942779541,
+        "y": 0.9190000295639038,
+        "z": 0.6000000238418579
+    },
+    "clipNames": [],
+    "materials": [
+        "M_OBJ-029_Carro"
+    ],
+    "warnings": []
+}

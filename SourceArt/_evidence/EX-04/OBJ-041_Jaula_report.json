@@ -1,0 +1,45 @@
+{
+  "asset": "OBJ-041_Jaula",
+  "tris": 2160,
+  "parts": 28,
+  "dims_m": [
+    2.582,
+    1.989,
+    2.4
+  ],
+  "materials": [
+    "M_Ceramic",
+    "M_Emitter",
+    "M_Rubber",
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-041_Jaula.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-041_Jaula.fbx",
+  "fbx_bytes": 276524,
+  "textures": {
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-041_Jaula_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-041_Jaula_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-041_Jaula_Metallic.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-041_Jaula_Normal.png"
+  },
+  "clips": [
+    "Cage_Open"
+  ],
+  "height_target_m": 0,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-041_Jaula_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-041_Jaula_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-041_Jaula_iso.png"
+  ],
+  "log": [
+    "bake BaseColor ok",
+    "bake Roughness ok",
+    "bake Metallic ok",
+    "bake Normal ok",
+    "blend ok",
+    "fbx ok 276524",
+    "sheet ok"
+  ]
+}

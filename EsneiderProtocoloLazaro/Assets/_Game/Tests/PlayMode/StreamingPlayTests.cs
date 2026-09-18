@@ -58,7 +58,8 @@ namespace Esneider.Tests
             var lever = GameObject.Find("Mech_MECH-LEVER-S1").GetComponent<Mechanism>();
             lever.Interact(_pc.gameObject);
             Assert.IsTrue(ObjectiveService.Has(ObjectiveService.PermisoServicio));
-            var d06 = GameObject.Find("Door_D06").GetComponent<Door>();
+            Door d06 = null; foreach (var d in Object.FindObjectsByType<Door>(FindObjectsSortMode.None)) if (d.doorId == "D06") d06 = d;
+            Assert.IsNotNull(d06, "puerta D06 presente (caja o modelo OBJ-070)");
             Assert.IsTrue(d06.Allowed, "D06 permitida tras la palanca");
             float t0 = Time.time; while (!_st.IsReady("REG-C1") && Time.time - t0 < 20f) yield return null;
             Assert.IsTrue(_st.IsReady("REG-C1"));

@@ -1,0 +1,18 @@
+{
+    "asset": "WPN-03_Shotgun",
+    "fbx": "Assets/_Game/Art/Models/WPN-03_Shotgun.fbx",
+    "prefab": "Assets/_Game/Prefabs/Weapons/WPN-03_Shotgun.prefab",
+    "tris": 1848,
+    "submeshes": 12,
+    "clips": 0,
+    "size": {
+        "x": 0.04599999636411667,
+        "y": 0.1487845480442047,
+        "z": 0.9423115253448486
+    },
+    "clipNames": [],
+    "materials": [
+        "M_WPN-03_Shotgun"
+    ],
+    "warnings": []
+}

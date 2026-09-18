@@ -1,0 +1,46 @@
+{
+  "asset": "OBJ-059_Terminal",
+  "tris": 2816,
+  "parts": 13,
+  "dims_m": [
+    0.656,
+    0.798,
+    1.252
+  ],
+  "materials": [
+    "M_Emitter",
+    "M_Glass",
+    "M_PolymerDark",
+    "M_PolymerIvory",
+    "M_Rubber",
+    "M_Screen",
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-059_Terminal.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-059_Terminal.fbx",
+  "fbx_bytes": 108540,
+  "textures": {
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-059_Terminal_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-059_Terminal_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-059_Terminal_Metallic.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-059_Terminal_Normal.png"
+  },
+  "clips": [],
+  "height_target_m": 0,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-059_Terminal_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-059_Terminal_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-059_Terminal_iso.png"
+  ],
+  "log": [
+    "bake BaseColor ok",
+    "bake Roughness ok",
+    "bake Metallic ok",
+    "bake Normal ok",
+    "blend ok",
+    "fbx ok 108540",
+    "sheet ok"
+  ]
+}

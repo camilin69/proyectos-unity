@@ -33,6 +33,7 @@ namespace Esneider.AI
         static readonly System.Random _rng = new System.Random(7);
 
         public bool IsDead => State == EnemyState.Dead;
+        public static event System.Action<EnemyBrain, EnemyState, EnemyState> AnyStateChanged;
         public float StateTime => Time.time - _stateSince;
 
         void Awake()
@@ -62,7 +63,9 @@ namespace Esneider.AI
         void Transition(EnemyState next)
         {
             if (State == EnemyState.Dead) return;
+            var prev = State;
             LastTransition = State + "->" + next; State = next; _stateSince = Time.time;
+            AnyStateChanged?.Invoke(this, prev, next);
             switch (next)
             {
                 case EnemyState.Patrol: _agent.speed = definition.patrolSpeed; _perception.alertMode = false; GoToWaypoint(); break;
@@ -233,7 +236,7 @@ namespace Esneider.AI
 
         void OnDied(DamageInfo info)
         {
-            State = EnemyState.Dead; LastTransition = "->Dead";
+            var prev = State; State = EnemyState.Dead; LastTransition = "->Dead"; AnyStateChanged?.Invoke(this, prev, EnemyState.Dead);
             EncounterDirector.Instance?.Release(this);
             Projectile.DespawnAllFrom(gameObject);
             if (_agent.isOnNavMesh) _agent.isStopped = true; _agent.enabled = false;

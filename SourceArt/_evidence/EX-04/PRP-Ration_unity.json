@@ -1,0 +1,18 @@
+{
+    "asset": "PRP-Ration",
+    "fbx": "Assets/_Game/Art/Models/PRP-Ration.fbx",
+    "prefab": "Assets/_Game/Prefabs/Weapons/PRP-Ration.prefab",
+    "tris": 116,
+    "submeshes": 3,
+    "clips": 0,
+    "size": {
+        "x": 0.11999999731779099,
+        "y": 0.04149999842047691,
+        "z": 0.2150000035762787
+    },
+    "clipNames": [],
+    "materials": [
+        "M_PRP-Ration"
+    ],
+    "warnings": []
+}

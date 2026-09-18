@@ -1,0 +1,46 @@
+{
+  "asset": "OBJ-070_PuertaCorrediza",
+  "tris": 680,
+  "parts": 15,
+  "dims_m": [
+    3.825,
+    0.82,
+    3.95
+  ],
+  "materials": [
+    "M_Emitter",
+    "M_PaintIndustrial",
+    "M_PolymerDark",
+    "M_Rubber",
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-070_PuertaCorrediza.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-070_PuertaCorrediza.fbx",
+  "fbx_bytes": 168844,
+  "textures": {
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-070_PuertaCorrediza_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-070_PuertaCorrediza_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-070_PuertaCorrediza_Metallic.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-070_PuertaCorrediza_Normal.png"
+  },
+  "clips": [
+    "Door_Open"
+  ],
+  "height_target_m": 0,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-070_PuertaCorrediza_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-070_PuertaCorrediza_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-070_PuertaCorrediza_iso.png"
+  ],
+  "log": [
+    "bake BaseColor ok",
+    "bake Roughness ok",
+    "bake Metallic ok",
+    "bake Normal ok",
+    "blend ok",
+    "fbx ok 168844",
+    "sheet ok"
+  ]
+}

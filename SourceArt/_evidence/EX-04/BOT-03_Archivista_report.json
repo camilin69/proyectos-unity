@@ -1,0 +1,53 @@
+{
+  "asset": "BOT-03_Archivista",
+  "tris": 8202,
+  "parts": 34,
+  "dims_m": [
+    1.18,
+    0.545,
+    3.104
+  ],
+  "materials": [
+    "M_Ceramic",
+    "M_Emitter",
+    "M_PolymerDark",
+    "M_PolymerIvory",
+    "M_Rubber",
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-03_Archivista.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-03_Archivista.fbx",
+  "fbx_bytes": 2214380,
+  "textures": {
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-03_Archivista_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-03_Archivista_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-03_Archivista_Metallic.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-03_Archivista_Normal.png"
+  },
+  "clips": [
+    "Archivista_Idle",
+    "Archivista_Walk",
+    "Archivista_Ray",
+    "Archivista_Sweep",
+    "Archivista_Charge",
+    "Archivista_Pulse",
+    "Archivista_Death"
+  ],
+  "height_target_m": 3.1,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-03_Archivista_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-03_Archivista_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-03_Archivista_iso.png"
+  ],
+  "log": [
+    "bake BaseColor ok",
+    "bake Roughness ok",
+    "bake Metallic ok",
+    "bake Normal ok",
+    "blend ok",
+    "fbx ok 2214380",
+    "sheet ok"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "asset": "OBJ-001_Criocamara",
+  "tris": 3210,
+  "parts": 32,
+  "dims_m": [
+    2.79,
+    1.12,
+    1.08
+  ],
+  "materials": [
+    "M_Copper",
+    "M_Foam",
+    "M_Glass",
+    "M_PaintMedical",
+    "M_PolymerDark",
+    "M_Rubber",
+    "M_Screen",
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-001_Criocamara.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-001_Criocamara.fbx",
+  "fbx_bytes": 410524,
+  "textures": {
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-001_Criocamara_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-001_Criocamara_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-001_Criocamara_Metallic.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-001_Criocamara_Normal.png"
+  },
+  "clips": [
+    "Cryo_Open",
+    "Cryo_Closed"
+  ],
+  "height_target_m": 0,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-001_Criocamara_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-001_Criocamara_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-001_Criocamara_iso.png"
+  ],
+  "log": [
+    "bake BaseColor ok",
+    "bake Roughness ok",
+    "bake Metallic ok",
+    "bake Normal ok",
+    "blend ok",
+    "fbx ok 410524",
+    "sheet ok"
+  ]
+}

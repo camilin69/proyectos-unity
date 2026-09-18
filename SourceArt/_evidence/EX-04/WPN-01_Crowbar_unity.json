@@ -1,0 +1,18 @@
+{
+    "asset": "WPN-01_Crowbar",
+    "fbx": "Assets/_Game/Art/Models/WPN-01_Crowbar.fbx",
+    "prefab": "Assets/_Game/Prefabs/Weapons/WPN-01_Crowbar.prefab",
+    "tris": 316,
+    "submeshes": 5,
+    "clips": 0,
+    "size": {
+        "x": 0.029999999329447746,
+        "y": 0.1615000069141388,
+        "z": 0.7504146099090576
+    },
+    "clipNames": [],
+    "materials": [
+        "M_WPN-01_Crowbar"
+    ],
+    "warnings": []
+}

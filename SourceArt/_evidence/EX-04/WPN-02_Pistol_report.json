@@ -1,0 +1,41 @@
+{
+  "asset": "WPN-02_Pistol",
+  "tris": 832,
+  "parts": 10,
+  "dims_m": [
+    0.033,
+    0.239,
+    0.17
+  ],
+  "materials": [
+    "M_Grip",
+    "M_PolymerDark",
+    "M_SteelBare",
+    "M_SteelDark"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/WPN-02_Pistol.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/WPN-02_Pistol.fbx",
+  "fbx_bytes": 61484,
+  "textures": {
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-02_Pistol_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-02_Pistol_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-02_Pistol_Metallic.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-02_Pistol_Normal.png"
+  },
+  "clips": [],
+  "height_target_m": 0,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/WPN-02_Pistol_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/WPN-02_Pistol_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/WPN-02_Pistol_iso.png"
+  ],
+  "log": [
+    "bake BaseColor ok",
+    "bake Roughness ok",
+    "bake Metallic ok",
+    "bake Normal ok",
+    "blend ok",
+    "fbx ok 61484",
+    "sheet ok"
+  ]
+}

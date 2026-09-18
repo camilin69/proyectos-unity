@@ -1,0 +1,22 @@
+{
+ "done": [
+  "BOT-03_Archivista",
+  "CHR-01_Arms",
+  "WPN-01_Crowbar",
+  "WPN-02_Pistol",
+  "WPN-03_Shotgun",
+  "WPN-04_Flashlight",
+  "PRP-Syringe",
+  "PRP-Ration",
+  "OBJ-001_Criocamara",
+  "OBJ-041_Jaula",
+  "OBJ-070_PuertaCorrediza",
+  "OBJ-059_Terminal",
+  "OBJ-043_Camilla",
+  "OBJ-029_Carro"
+ ],
+ "failed": [],
+ "current": "",
+ "started": "02:39:42",
+ "finished": "03:34:00"
+}

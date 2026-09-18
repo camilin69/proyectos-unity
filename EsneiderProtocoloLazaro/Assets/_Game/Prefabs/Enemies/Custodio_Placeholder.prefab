@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 409383847585656564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.25}
-  m_LocalScale: {x: 0.3, y: 0.2, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.9}
+  m_LocalScale: {x: 0.5, y: 0.15, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3620056724750060244}
+  m_Father: {fileID: 1166136778485767177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3982041358438879766
 MeshFilter:
@@ -118,8 +118,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7382659104842982439}
+  m_Children: []
   m_Father: {fileID: 8069761899484178967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3116084202713811343
@@ -153,7 +152,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.075, z: 0}
   m_LocalScale: {x: 0.6, y: 1.075, z: 0.6}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7382659104842982439}
   m_Father: {fileID: 8069761899484178967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7365878124450319513
@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 7291476618236634425}
   - component: {fileID: 6259994328000852243}
   - component: {fileID: 5267022507280788327}
+  - component: {fileID: 4992160336175879341}
   m_Layer: 7
   m_Name: Custodio_Placeholder
   m_TagString: Untagged
@@ -281,7 +282,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6818496336818236468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.35
   m_Speed: 3.5
@@ -356,6 +357,24 @@ MonoBehaviour:
   - {fileID: 0}
   muzzle: {fileID: 9086162223814401249}
   attacksEmitted: 0
+--- !u!114 &4992160336175879341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818496336818236468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e316015e97bd843bc3be67e818199f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.World.PersistentEntity
+  stableId: K-SB
+  guid: 636abbff-4024-c973-61c4-c33aa4d26bb9
+  regionId: REG-SANDBOX
+  prefabId: K-SB
+  kind: 1
+  hydrated: 0
 --- !u!1 &6920743229314186297
 GameObject:
   m_ObjectHideFlags: 0

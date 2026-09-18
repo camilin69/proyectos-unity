@@ -1,0 +1,24 @@
+{
+    "asset": "BOT-01_Vigia",
+    "fbx": "Assets/_Game/Art/Models/BOT-01_Vigia.fbx",
+    "prefab": "Assets/_Game/Prefabs/Enemies/BOT-01_Vigia.prefab",
+    "tris": 10588,
+    "submeshes": 36,
+    "clips": 5,
+    "size": {
+        "x": 0.44999998807907104,
+        "y": 1.359175682067871,
+        "z": 0.2567217946052551
+    },
+    "clipNames": [
+        "Vigia_Idle",
+        "Vigia_Net",
+        "Vigia_Anticipation",
+        "Vigia_Death",
+        "Vigia_Walk"
+    ],
+    "materials": [
+        "M_BOT-01_Vigia"
+    ],
+    "warnings": []
+}

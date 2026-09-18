@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 663973494495323531}
   - component: {fileID: 3723873913549560230}
   - component: {fileID: 1422153972813490433}
+  - component: {fileID: 8649204806133174277}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: MainCamera
@@ -381,7 +382,6 @@ Transform:
   m_Children:
   - {fileID: 7075621240085080097}
   - {fileID: 6427617093996334490}
-  - {fileID: 6988466396721846577}
   m_Father: {fileID: 4854258436043974702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3723873913549560230
@@ -443,93 +443,33 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754045095344228571}
   m_Enabled: 1
---- !u!1 &4739032754968071217
-GameObject:
+--- !u!114 &8649204806133174277
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6988466396721846577}
-  - component: {fileID: 3392231594424041726}
-  - component: {fileID: 996712971225599024}
-  m_Layer: 6
-  m_Name: Hands_Placeholder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6988466396721846577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4739032754968071217}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -0.25, z: 0.4}
-  m_LocalScale: {x: 0.08, y: 0.08, z: 0.35}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 663973494495323531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3392231594424041726
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4739032754968071217}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &996712971225599024
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4739032754968071217}
+  m_GameObject: {fileID: 1754045095344228571}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be0cda85b12693438b02f274bf91711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.Player.ViewmodelController
+  actions: {fileID: 3718259963234286717}
+  cameraPivot: {fileID: 663973494495323531}
+  armsPrefab: {fileID: 6346760373557831934, guid: 585f247935ea71d4da7ee418c9b3bdd7, type: 3}
+  crowbarPrefab: {fileID: 562818735822719449, guid: 24ae1fe4465cb9d4b958d1eab9c5b694, type: 3}
+  pistolPrefab: {fileID: 4482553067750198799, guid: 8078a321f6e73f44d816c44c0467c557, type: 3}
+  shotgunPrefab: {fileID: 6027514676136035354, guid: bd02e2a416d2dfd44a839d23f5679f47, type: 3}
+  flashlightPrefab: {fileID: 7319071311842905123, guid: 9d1bc8af31087b44895b53d3485120a8, type: 3}
+  armClips:
+  - {fileID: -3253423134360353045, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: 6539944776229936779, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: 4827120973585216906, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: 1055171851670076696, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: -6688729445220387267, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  armsOffset: {x: 0, y: -0.32, z: 0.28}
+  weaponOffset: {x: 0.2, y: -0.27, z: 0.52}
+  flashlightOffset: {x: -0.22, y: -0.25, z: 0.35}
+  bobAmplitude: 0.008
+  bobEnabled: 1

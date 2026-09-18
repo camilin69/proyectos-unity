@@ -9,17 +9,17 @@ Columnas: condición de activación → entregable → evidencia exigida. Estado
 
 | Skill | Etapa / asset | Condición de activación | Entregable | Evidencia | Estado |
 |---|---|---|---|---|---|
-| text-to-blender | EX-04, EX-06 · todo asset | Cualquier fabricación en Blender | Orquestación y encadenado de sub-skills | Registro MCP por asset | P |
-| blender-skill-harmonizer | EX-04 inicio | Antes del primer asset hero; solape entre skills | Plan de precedencia y handoffs | Sección en registro de producción | P |
-| blender-pro-workflow | EX-04, EX-06 | Asset multi-fase (modelo+material+UV+export) | Orden de trabajo por asset | Checklist por ficha OBJ | P |
-| blender-modeling | EX-04/06 · OBJ/CHR/BOT/WPN | Geometría con espesor y piezas funcionales | `.blend` fuente en `SourceArt/Blender` | Métricas (dims, tris) + captura | P |
-| blender-materials | EX-04/06 | Look-dev PBR según 41 | Principled BSDF exportable | Captura luz neutra | P |
-| blender-uv-texturing | EX-04/06 | UV0/UV1, bake, atlas por 40.3/40.4 | UVs y mapas | Inspección UV + bake sin artefactos | P |
-| blender-lighting | EX-04 lookdev | Render de revisión (42.2) | Setup neutro + escena | Render comparativo | P |
-| blender-cameras | EX-04 lookdev, 58 storyboard | Vistas frontal/lateral/¾ de revisión | Cámaras de revisión | Renders V0–V2 | P |
-| blender-rendering | EX-04 | Capturas de aceptación (45.3) | PNG en `SourceArt/_evidence` | Archivos reales | P |
-| blender-animation | EX-04/06 · CHR/BOT/entorno | Clips de 49/60 | Acciones nombradas, bake | Rango/nombres verificados en Unity | P |
-| blender-export | EX-00 (probe) → todos | Export FBX 24.2 | FBX en `Assets/_Game/Art/Models` | Import Unity sin warnings críticos | A (probe) |
+| text-to-blender | EX-04, EX-06 · todo asset | Cualquier fabricación en Blender | Orquestación: scripts `bpy` ejecutados por el MCP (`esn_lib.py`, cola `queue_runner.py`) | `REGISTRO_MCP` OP-0040/0041 | A |
+| blender-skill-harmonizer | EX-04 inicio | Antes del primer asset hero; solape entre skills | Precedencia: sin referencias externas → orden genérico; skills de referencia NA | OP-0039 | A |
+| blender-pro-workflow | EX-04, EX-06 | Asset multi-fase (modelo+material+UV+export) | Orden block-out → piezas → materiales → UV → rig/clips → bake → export → hoja | scripts `build_*.py` | A |
+| blender-modeling | EX-04/06 · OBJ/CHR/BOT/WPN | Geometría con espesor y piezas funcionales | 16 `.blend` en `SourceArt/Blender` (piezas con pivote, booleanos para cuencas/compartimentos, cables) | `*_report.json` (tris, partes, dims) | A (Revisar) |
+| blender-materials | EX-04/06 | Look-dev PBR según 41 | Principled con roughness por ruido, desgaste, bump; glass/emission | hojas `*_iso.png` | A (Revisar: sin desgaste por causa) |
+| blender-uv-texturing | EX-04/06 | UV0/UV1, bake, atlas por 40.3/40.4 | Smart-project por pieza + bake BaseColor/Roughness/Metallic/Normal 1024/512 | `Art/Textures/*.png` | A (UV1 lightmap P) |
+| blender-lighting | EX-04 lookdev | Render de revisión (42.2) | Key/fill neutros en `sheet()` | hojas | A |
+| blender-cameras | EX-04 lookdev, 58 storyboard | Vistas frontal/lateral/¾ de revisión | Cámara de hoja 50 mm | hojas front/side/iso | A |
+| blender-rendering | EX-04 | Capturas de aceptación (45.3) | EEVEE 640² por vista | `SourceArt/_evidence/EX-04` | A |
+| blender-animation | EX-04/06 · CHR/BOT/entorno | Clips de 49/60 | 27 clips por NLA (idle/walk/anticipación/ataque/stagger/muerte; brazos; criocámara; jaula; puerta) | clips visibles en Unity (`*_unity.json`) | A (Revisar: poses rígidas) |
+| blender-export | EX-00 (probe) → todos | Export FBX 24.2 | 16 FBX con armadura y clips | import sin warnings | A |
 | animation-quality-gate | EX-04/06 | Tras clips de bots/Esneider | Contact sheet + veredicto | Informe por clip | P |
 | quality-refinement-autoloop | EX-04+ | Gate V0–V4 fallido | Diagnóstico y corrección | Registro de reintento | P |
 | reference-to-3d, orthographic-registration, multiview-constraint-solver, multiview-fit-loop, landmark-fit-repair, fit-repair-optimizer, reference-analysis-validator, reference-look-calibration | EX-04 | Solo cuando existan hojas VIS/REF ortográficas (82) | Modelo source-locked | Overlays/IoU | P (bloqueadas por VIS pendientes) |

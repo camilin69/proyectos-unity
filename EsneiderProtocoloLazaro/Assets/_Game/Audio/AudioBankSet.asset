@@ -1,0 +1,216 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19b704289856354a91f4345e6eb8c54, type: 3}
+  m_Name: AudioBankSet
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.Audio.AudioBankSet
+  banks:
+  - id: SND-Alert-Short
+    clips:
+    - {fileID: 8300000, guid: 39f87b1a6574ae64db11e503b7ba38ab, type: 3}
+  - id: SND-AMBI-C1
+    clips:
+    - {fileID: 8300000, guid: 760c138f1ad9f4042bdc668d947f171b, type: 3}
+  - id: SND-AMBI-C2
+    clips:
+    - {fileID: 8300000, guid: 67631796705175e4ba2bbefd9cf223c3, type: 3}
+  - id: SND-AMBI-C3
+    clips:
+    - {fileID: 8300000, guid: 5a89917fdfb204343ba77a6c3fdcd32a, type: 3}
+  - id: SND-AMBI-S1
+    clips:
+    - {fileID: 8300000, guid: ec8c7ca93ccb9d6479dcf8ed89afa5b9, type: 3}
+  - id: SND-AMBI-S2
+    clips:
+    - {fileID: 8300000, guid: 5db97aa388ef79e43929f390680df0d6, type: 3}
+  - id: SND-AMBI-S3
+    clips:
+    - {fileID: 8300000, guid: 4e6b0483fb8148f47881f0531c5d5a13, type: 3}
+  - id: SND-AMBI-S4
+    clips:
+    - {fileID: 8300000, guid: eeefb393193f3b847bede3c4a57cd01e, type: 3}
+  - id: SND-BOSS-Charge
+    clips:
+    - {fileID: 8300000, guid: 8bc3338910d31dd40b6568d90c6dc14c, type: 3}
+  - id: SND-BOSS-Pulse
+    clips:
+    - {fileID: 8300000, guid: 380c4f6fe204ebe4087414728bd4065c, type: 3}
+  - id: SND-BOSS-Ray
+    clips:
+    - {fileID: 8300000, guid: 4e02afc3691e35948b8e79640e7bee44, type: 3}
+  - id: SND-BOSS-Step
+    clips:
+    - {fileID: 8300000, guid: ad015e1aac9cd0a419f7b15d9ed6c18a, type: 3}
+    - {fileID: 8300000, guid: f1eed343c2254944a847410b9efd6519, type: 3}
+    - {fileID: 8300000, guid: e6962dfb749d2b347828f7145a9f64d3, type: 3}
+    - {fileID: 8300000, guid: d25502bfa66fd2042b1be693581821f9, type: 3}
+  - id: SND-BOSS-Sweep
+    clips:
+    - {fileID: 8300000, guid: 725368d15f7e1534f96c04e50f30eee1, type: 3}
+  - id: SND-BREATH
+    clips:
+    - {fileID: 8300000, guid: a1a24919b83ebcb4fa62eec1326781bf, type: 3}
+    - {fileID: 8300000, guid: b729f8ddf8658e54bb2cb3de1a745bd9, type: 3}
+    - {fileID: 8300000, guid: bd60d4dd9522bfc4e8e6c56b0f9e6f34, type: 3}
+    - {fileID: 8300000, guid: e6378d4dfa341d041b33bdb4ccc855f1, type: 3}
+    - {fileID: 8300000, guid: d7cac6789f3e51f46ab4959092dd8ee4, type: 3}
+  - id: SND-CHECKPOINT
+    clips:
+    - {fileID: 8300000, guid: 27dae92aa3333c54d94ad3360628356e, type: 3}
+  - id: SND-CROWBAR-ImpactConcrete
+    clips:
+    - {fileID: 8300000, guid: 2452197c792a8e940a167cac85661e12, type: 3}
+    - {fileID: 8300000, guid: d54527eefa25215488d5b8cca138e9ac, type: 3}
+    - {fileID: 8300000, guid: 364270f14f47f0b4badaa3e8cdf251d8, type: 3}
+  - id: SND-CROWBAR-ImpactMetal
+    clips:
+    - {fileID: 8300000, guid: c2a0ed04aa90c9d439d82aa770deacf3, type: 3}
+    - {fileID: 8300000, guid: 5b4021573d2e2934e945519ceb3e1ee9, type: 3}
+    - {fileID: 8300000, guid: 8f2ee4a24595c6a41bac6c9ca1dd264a, type: 3}
+  - id: SND-CROWBAR-Swing
+    clips:
+    - {fileID: 8300000, guid: 96fcb1b4dffd4204abc6d01f4dadac92, type: 3}
+    - {fileID: 8300000, guid: 939c9e825ce1dcf47af31695d534ff84, type: 3}
+    - {fileID: 8300000, guid: 9c1460a9e5e0def4a949e981d4133dd8, type: 3}
+  - id: SND-DOOR-Slide-End
+    clips:
+    - {fileID: 8300000, guid: 5dc36ed0ad93fcb4ea2a2db7ead9139f, type: 3}
+  - id: SND-DOOR-Slide-Loop
+    clips:
+    - {fileID: 8300000, guid: 11a41702b35a24149a056f8d9fc25348, type: 3}
+  - id: SND-DOOR-Slide-Start
+    clips:
+    - {fileID: 8300000, guid: ecdbfa04d4aa9ea4a957b65ce58d04ef, type: 3}
+  - id: SND-EMPTY-Click
+    clips:
+    - {fileID: 8300000, guid: 760f7c82be078c44d8df6cbcf87f16b9, type: 3}
+  - id: SND-EXIT-Air
+    clips:
+    - {fileID: 8300000, guid: 39b3e920bce02b74ea43f3eb4bb750fc, type: 3}
+  - id: SND-FLASHLIGHT-Switch
+    clips:
+    - {fileID: 8300000, guid: f18ab62b58f5c3b45ba392104f5dfead, type: 3}
+  - id: SND-HURT
+    clips:
+    - {fileID: 8300000, guid: 263bc9a001665624ab5671cbaa1507b3, type: 3}
+  - id: SND-KUS-RayCharge
+    clips:
+    - {fileID: 8300000, guid: 49c4a2cc46d394f42beb1af3fc2b2e24, type: 3}
+  - id: SND-KUS-RayImpact
+    clips:
+    - {fileID: 8300000, guid: 6c2f22c24c5509148a0f1895a25aa779, type: 3}
+  - id: SND-KUS-RayRelease
+    clips:
+    - {fileID: 8300000, guid: 585a3f133db774644b368ed9655c53ef, type: 3}
+  - id: SND-KUS-Step
+    clips:
+    - {fileID: 8300000, guid: 6ba38c8f43a8d354caf201bac9e3e994, type: 3}
+    - {fileID: 8300000, guid: f7ff6a5388267d344a6cf6dbdc3bd795, type: 3}
+    - {fileID: 8300000, guid: f8ba3620f00be1548bc899ac01608fbc, type: 3}
+  - id: SND-LEVER
+    clips:
+    - {fileID: 8300000, guid: 23f8dd304b6ac524483622c8a56a29db, type: 3}
+  - id: SND-LIGHT-Hum
+    clips:
+    - {fileID: 8300000, guid: 14e79c1556b312c4fa7afc7bc6c1da9a, type: 3}
+  - id: SND-PA-Detection
+    clips:
+    - {fileID: 8300000, guid: c8dbbb4b1f49fc04586fcd9c53241e3d, type: 3}
+  - id: SND-PICKUP
+    clips:
+    - {fileID: 8300000, guid: d28dfc7e7ee8da84785194d65ad4800a, type: 3}
+  - id: SND-PIPE-Hit
+    clips:
+    - {fileID: 8300000, guid: 0306710ba8b14e04dbb32e7f3c868fb2, type: 3}
+  - id: SND-PISTOL-MagIn
+    clips:
+    - {fileID: 8300000, guid: b117f10bca4346842b516c3dabd3da91, type: 3}
+  - id: SND-PISTOL-MagOut
+    clips:
+    - {fileID: 8300000, guid: 7e6a2e62cfe831c4ab6877cd2fc4da33, type: 3}
+  - id: SND-PISTOL-Shot
+    clips:
+    - {fileID: 8300000, guid: 462a98aa9c322f145a63a103f274f787, type: 3}
+    - {fileID: 8300000, guid: fa49c48240aacd941b6746d65d508512, type: 3}
+    - {fileID: 8300000, guid: f452f540b0f87134da44188854526230, type: 3}
+  - id: SND-PISTOL-Slide
+    clips:
+    - {fileID: 8300000, guid: eb7064573f9305a48b86e03ee1ed6228, type: 3}
+  - id: SND-PROP-Impact
+    clips:
+    - {fileID: 8300000, guid: cc731abe915a0b3439147730c5ff60ed, type: 3}
+  - id: SND-RATION-Open
+    clips:
+    - {fileID: 8300000, guid: 00f53770fab0c314881d5eacffa54991, type: 3}
+  - id: SND-RELAY
+    clips:
+    - {fileID: 8300000, guid: c97aafe28a399404b9e2821436dbaeb5, type: 3}
+  - id: SND-SHOTGUN-Pump
+    clips:
+    - {fileID: 8300000, guid: e994a935f0b4f0f4fb846e9534787b0a, type: 3}
+  - id: SND-SHOTGUN-ShellIn
+    clips:
+    - {fileID: 8300000, guid: 63b88aa7d7a83ad488839739c2bc3c9a, type: 3}
+  - id: SND-SHOTGUN-Shot
+    clips:
+    - {fileID: 8300000, guid: 8f7e20343a8f4184eb1834edf0b64df5, type: 3}
+    - {fileID: 8300000, guid: add5efc73f2924e4c89fc0398e1686dd, type: 3}
+    - {fileID: 8300000, guid: a11f62b2cb9ca194ea111b7399461e3d, type: 3}
+  - id: SND-STEP-CON
+    clips:
+    - {fileID: 8300000, guid: f78829f37513ff04eb15e64df0e9fc82, type: 3}
+    - {fileID: 8300000, guid: bdef9ee7a4064fe4d907b0e2e9db0c85, type: 3}
+    - {fileID: 8300000, guid: c5be03a0547a15740bb234f4055e6707, type: 3}
+    - {fileID: 8300000, guid: d9071dc1b333ebb41b7c7791b36e6c89, type: 3}
+  - id: SND-STEP-GRT
+    clips:
+    - {fileID: 8300000, guid: 7db5fee6533c58c47bda94521d8e7c1f, type: 3}
+    - {fileID: 8300000, guid: 70b65d779470a6f4cb44f719f05c4f6e, type: 3}
+    - {fileID: 8300000, guid: cb065f1d36742054cb588472ca83cafb, type: 3}
+    - {fileID: 8300000, guid: 7ed6f1d3a2198e44f8dd8ba5483d7a7c, type: 3}
+  - id: SND-STEP-MET
+    clips:
+    - {fileID: 8300000, guid: 46d746c08806da14ebff6db4a438ac63, type: 3}
+    - {fileID: 8300000, guid: 0a51bee6b4c221b469575c5a55d43927, type: 3}
+    - {fileID: 8300000, guid: 82ed787d735ff8f47af404e450518839, type: 3}
+    - {fileID: 8300000, guid: f11d672a8c8b6d643aa70f3f3d7e0b4f, type: 3}
+  - id: SND-STEP-RUB
+    clips:
+    - {fileID: 8300000, guid: b5742109f5d37e7478c11e2d1ecb821f, type: 3}
+    - {fileID: 8300000, guid: 9aa98934f78b10346bc8e5cadacd2d38, type: 3}
+    - {fileID: 8300000, guid: 0eb10e5b60777244182f1307b877c187, type: 3}
+    - {fileID: 8300000, guid: ac62a4659f2146d4c8e803a11b4cbcff, type: 3}
+  - id: SND-STEP-WET
+    clips:
+    - {fileID: 8300000, guid: d86a3e85d16a0674eb80f1dd5e7c1ab3, type: 3}
+    - {fileID: 8300000, guid: 6c2e2e97a32c0674eb61b7eba9d728c2, type: 3}
+    - {fileID: 8300000, guid: 01fcb08ec43f253459dd9f2196311444, type: 3}
+    - {fileID: 8300000, guid: 756d3bc557f82034fa064f49d3457031, type: 3}
+  - id: SND-SYRINGE-Use
+    clips:
+    - {fileID: 8300000, guid: eabfe64db46513b4dbac4e3972c55a06, type: 3}
+  - id: SND-VIG-NetCharge
+    clips:
+    - {fileID: 8300000, guid: 7c8cd7630a5447d43bc80ab97cceebb4, type: 3}
+  - id: SND-VIG-NetCharge-Tutorial
+    clips:
+    - {fileID: 8300000, guid: 8d47c523ec577d546bec85a909d3a343, type: 3}
+  - id: SND-VIG-NetImpact
+    clips:
+    - {fileID: 8300000, guid: bf2dcc55670b05d4e9f058247e070c18, type: 3}
+  - id: SND-VIG-NetRelease
+    clips:
+    - {fileID: 8300000, guid: 8272c9b7485843e478f6793b4f021b08, type: 3}
+  - id: SND-VIG-Step
+    clips:
+    - {fileID: 8300000, guid: d2af4aec0bbc935428930afd687abe21, type: 3}
+    - {fileID: 8300000, guid: 934a9bb8f0698dc459904f15cd70d616, type: 3}
+    - {fileID: 8300000, guid: 483c5d0df432b3c44852979f930abf35, type: 3}

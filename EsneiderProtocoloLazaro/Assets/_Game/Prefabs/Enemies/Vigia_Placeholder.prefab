@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 3050333763110428673}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.25}
-  m_LocalScale: {x: 0.3, y: 0.2, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.9}
+  m_LocalScale: {x: 0.5, y: 0.15, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2473822190453464007}
+  m_Father: {fileID: 7059769835112801310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3317156437161444892
 MeshFilter:
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 2787459555842429126}
   - component: {fileID: 3647904330607665445}
   - component: {fileID: 1645714934913705151}
+  - component: {fileID: 5774444197119625897}
   m_Layer: 7
   m_Name: Vigia_Placeholder
   m_TagString: Untagged
@@ -135,7 +136,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4539282836132909779}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.35
   m_Speed: 3.5
@@ -210,6 +211,24 @@ MonoBehaviour:
   - {fileID: 0}
   muzzle: {fileID: 4792921511807875993}
   attacksEmitted: 0
+--- !u!114 &5774444197119625897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539282836132909779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e316015e97bd843bc3be67e818199f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.World.PersistentEntity
+  stableId: V-SB
+  guid: 83efec53-e5b7-d4ba-87ea-d92b550cac42
+  regionId: REG-SANDBOX
+  prefabId: V-SB
+  kind: 1
+  hydrated: 0
 --- !u!1 &6404735862374949420
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,8 +257,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.1, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7494640792361944563}
+  m_Children: []
   m_Father: {fileID: 3142845061325436157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6659057523205036200
@@ -273,7 +291,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 0.6, y: 0.625, z: 0.6}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7494640792361944563}
   m_Father: {fileID: 3142845061325436157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5827350446140274928

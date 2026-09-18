@@ -1,0 +1,47 @@
+{
+  "asset": "BOT-01_Vigia",
+  "tris": 10588,
+  "parts": 36,
+  "dims_m": [
+    0.45,
+    0.244,
+    1.293
+  ],
+  "materials": [
+    "M_Copper",
+    "M_PolymerDark",
+    "M_PolymerIvory",
+    "M_Rubber",
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
+  ],
+  "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-01_Vigia.blend",
+  "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-01_Vigia.fbx",
+  "fbx_bytes": 1682556,
+  "textures": {
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Metallic.png",
+    "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_BaseColor.png",
+    "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Roughness.png",
+    "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Normal.png"
+  },
+  "clips": [
+    "Vigia_Idle",
+    "Vigia_Walk",
+    "Vigia_Anticipation",
+    "Vigia_Net",
+    "Vigia_Death"
+  ],
+  "height_target_m": 1.25,
+  "sheets": [
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-01_Vigia_front.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-01_Vigia_side.png",
+    "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-01_Vigia_iso.png"
+  ],
+  "log": [
+    "bake Metallic ok",
+    "blend ok",
+    "fbx ok 1682556",
+    "sheet ok"
+  ]
+}

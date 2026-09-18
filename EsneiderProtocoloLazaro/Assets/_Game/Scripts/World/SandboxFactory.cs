@@ -106,14 +106,28 @@ namespace Esneider.World
             return go;
         }
 
-        public static GameObject BuildEnemy(EnemyDefinition def, string id, Vector3 position, Color color, float height)
+        public static GameObject BuildEnemy(EnemyDefinition def, string id, Vector3 position, Color color, float height, GameObject visualPrefab = null, AnimationClip[] clips = null)
         {
             var go = new GameObject(id); go.layer = GameLayers.Enemy; go.transform.position = position;
-            var vis = GameObject.CreatePrimitive(PrimitiveType.Capsule); vis.name = "Body"; vis.layer = GameLayers.Enemy;
-            vis.transform.SetParent(go.transform, false); vis.transform.localPosition = new Vector3(0, height / 2f, 0); vis.transform.localScale = new Vector3(0.6f, height / 2f, 0.6f);
-            vis.GetComponent<MeshRenderer>().sharedMaterial = Mat(color);
+            if (visualPrefab != null)
+            {
+                // modelo hero (EX-04): la cápsula de colisión la aporta CapsuleCollider; el visual va como hijo con Animator + EnemyAnimator
+                var vis = Object.Instantiate(visualPrefab, go.transform); vis.name = "Visual"; vis.transform.localPosition = Vector3.zero; vis.transform.localRotation = Quaternion.identity;
+                foreach (var c in vis.GetComponentsInChildren<Collider>()) Kill(c);
+                foreach (var t in vis.GetComponentsInChildren<Transform>()) t.gameObject.layer = GameLayers.Enemy;
+                var animator = vis.GetOrAdd<Animator>();
+                var ea = go.AddComponent<AI.EnemyAnimator>(); ea.animator = animator; ea.clipsFromFbx = clips; ea.prefix = def.kind == EnemyKind.Vigia ? "Vigia" : height > 3f ? "Archivista" : "Custodio";
+                go.AddComponent<Audio.EnemyFootsteps>();
+                var cap = go.AddComponent<CapsuleCollider>(); cap.center = new Vector3(0, height / 2f, 0); cap.height = height; cap.radius = height > 3f ? 0.45f : height > 2f ? 0.35f : 0.28f;
+            }
+            else
+            {
+                var vis = GameObject.CreatePrimitive(PrimitiveType.Capsule); vis.name = "Body"; vis.layer = GameLayers.Enemy;
+                vis.transform.SetParent(go.transform, false); vis.transform.localPosition = new Vector3(0, height / 2f, 0); vis.transform.localScale = new Vector3(0.6f, height / 2f, 0.6f);
+                vis.GetComponent<MeshRenderer>().sharedMaterial = Mat(color);
+                var eye = GameObject.CreatePrimitive(PrimitiveType.Cube); eye.name = "Face"; Kill(eye.GetComponent<Collider>()); eye.transform.SetParent(vis.transform, false); eye.transform.localPosition = new Vector3(0, 0.8f, 0.9f); eye.transform.localScale = new Vector3(0.5f, 0.15f, 0.2f); eye.GetComponent<MeshRenderer>().sharedMaterial = Mat(Color.black); eye.layer = GameLayers.Enemy;
+            }
             var head = new GameObject("Head"); head.transform.SetParent(go.transform, false); head.transform.localPosition = new Vector3(0, height - 0.15f, 0.1f);
-            var eye = GameObject.CreatePrimitive(PrimitiveType.Cube); eye.name = "Face"; Kill(eye.GetComponent<Collider>()); eye.transform.SetParent(head.transform, false); eye.transform.localPosition = new Vector3(0, 0, 0.25f); eye.transform.localScale = new Vector3(0.3f, 0.2f, 0.1f); eye.GetComponent<MeshRenderer>().sharedMaterial = Mat(Color.black); eye.layer = GameLayers.Enemy;
             var muzzle = new GameObject("Muzzle"); muzzle.transform.SetParent(go.transform, false); muzzle.transform.localPosition = new Vector3(0.3f, height * 0.6f, 0.4f);
             var agent = go.AddComponent<NavMeshAgent>(); agent.height = height; agent.radius = 0.35f; agent.baseOffset = 0f;
             agent.enabled = false; // RuntimeNavMeshBaker lo activa cuando existe superficie

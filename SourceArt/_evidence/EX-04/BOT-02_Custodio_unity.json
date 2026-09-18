@@ -1,0 +1,25 @@
+{
+    "asset": "BOT-02_Custodio",
+    "fbx": "Assets/_Game/Art/Models/BOT-02_Custodio.fbx",
+    "prefab": "Assets/_Game/Prefabs/Enemies/BOT-02_Custodio.prefab",
+    "tris": 7864,
+    "submeshes": 42,
+    "clips": 6,
+    "size": {
+        "x": 0.9900000095367432,
+        "y": 2.3210580348968506,
+        "z": 0.526608407497406
+    },
+    "clipNames": [
+        "Custodio_Anticipation",
+        "Custodio_Bolt",
+        "Custodio_Death",
+        "Custodio_Idle",
+        "Custodio_Stagger",
+        "Custodio_Walk"
+    ],
+    "materials": [
+        "M_BOT-02_Custodio"
+    ],
+    "warnings": []
+}

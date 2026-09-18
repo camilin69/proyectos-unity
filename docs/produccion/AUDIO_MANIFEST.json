@@ -1,0 +1,825 @@
+{
+ "generated": [
+  {
+   "id": "SND-VIG-Step-A",
+   "file": "Enemies/SND-VIG-Step-A.wav",
+   "seconds": 0.3,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-VIG-Step-B",
+   "file": "Enemies/SND-VIG-Step-B.wav",
+   "seconds": 0.42,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-VIG-Step-C",
+   "file": "Enemies/SND-VIG-Step-C.wav",
+   "seconds": 0.36,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-VIG-NetCharge",
+   "file": "Enemies/SND-VIG-NetCharge.wav",
+   "seconds": 1.1,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-VIG-NetCharge-Tutorial",
+   "file": "Enemies/SND-VIG-NetCharge-Tutorial.wav",
+   "seconds": 1.2,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-VIG-NetRelease",
+   "file": "Enemies/SND-VIG-NetRelease.wav",
+   "seconds": 0.35,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-VIG-NetImpact",
+   "file": "Enemies/SND-VIG-NetImpact.wav",
+   "seconds": 0.6,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-KUS-Step-A",
+   "file": "Enemies/SND-KUS-Step-A.wav",
+   "seconds": 0.55,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-KUS-Step-B",
+   "file": "Enemies/SND-KUS-Step-B.wav",
+   "seconds": 0.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-KUS-Step-C",
+   "file": "Enemies/SND-KUS-Step-C.wav",
+   "seconds": 0.62,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-KUS-RayCharge",
+   "file": "Enemies/SND-KUS-RayCharge.wav",
+   "seconds": 1.0,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-KUS-RayRelease",
+   "file": "Enemies/SND-KUS-RayRelease.wav",
+   "seconds": 0.5,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-KUS-RayImpact",
+   "file": "Enemies/SND-KUS-RayImpact.wav",
+   "seconds": 0.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Ray",
+   "file": "Enemies/SND-BOSS-Ray.wav",
+   "seconds": 1.2,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Sweep",
+   "file": "Enemies/SND-BOSS-Sweep.wav",
+   "seconds": 1.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Charge",
+   "file": "Enemies/SND-BOSS-Charge.wav",
+   "seconds": 1.5,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Pulse",
+   "file": "Enemies/SND-BOSS-Pulse.wav",
+   "seconds": 1.8,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Step-A",
+   "file": "Enemies/SND-BOSS-Step-A.wav",
+   "seconds": 0.9,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Step-B",
+   "file": "Enemies/SND-BOSS-Step-B.wav",
+   "seconds": 0.9,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Step-C",
+   "file": "Enemies/SND-BOSS-Step-C.wav",
+   "seconds": 0.9,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BOSS-Step-D",
+   "file": "Enemies/SND-BOSS-Step-D.wav",
+   "seconds": 0.9,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-CON-1",
+   "file": "Player/SND-STEP-CON-1.wav",
+   "seconds": 0.23,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-CON-2",
+   "file": "Player/SND-STEP-CON-2.wav",
+   "seconds": 0.23,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-CON-3",
+   "file": "Player/SND-STEP-CON-3.wav",
+   "seconds": 0.23,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-CON-4",
+   "file": "Player/SND-STEP-CON-4.wav",
+   "seconds": 0.23,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-MET-1",
+   "file": "Player/SND-STEP-MET-1.wav",
+   "seconds": 0.36,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-MET-2",
+   "file": "Player/SND-STEP-MET-2.wav",
+   "seconds": 0.36,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-MET-3",
+   "file": "Player/SND-STEP-MET-3.wav",
+   "seconds": 0.36,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-MET-4",
+   "file": "Player/SND-STEP-MET-4.wav",
+   "seconds": 0.36,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-GRT-1",
+   "file": "Player/SND-STEP-GRT-1.wav",
+   "seconds": 0.43,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-GRT-2",
+   "file": "Player/SND-STEP-GRT-2.wav",
+   "seconds": 0.43,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-GRT-3",
+   "file": "Player/SND-STEP-GRT-3.wav",
+   "seconds": 0.43,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-GRT-4",
+   "file": "Player/SND-STEP-GRT-4.wav",
+   "seconds": 0.43,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-WET-1",
+   "file": "Player/SND-STEP-WET-1.wav",
+   "seconds": 0.27,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-WET-2",
+   "file": "Player/SND-STEP-WET-2.wav",
+   "seconds": 0.27,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-WET-3",
+   "file": "Player/SND-STEP-WET-3.wav",
+   "seconds": 0.27,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-WET-4",
+   "file": "Player/SND-STEP-WET-4.wav",
+   "seconds": 0.27,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-RUB-1",
+   "file": "Player/SND-STEP-RUB-1.wav",
+   "seconds": 0.24,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-RUB-2",
+   "file": "Player/SND-STEP-RUB-2.wav",
+   "seconds": 0.24,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-RUB-3",
+   "file": "Player/SND-STEP-RUB-3.wav",
+   "seconds": 0.24,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-STEP-RUB-4",
+   "file": "Player/SND-STEP-RUB-4.wav",
+   "seconds": 0.24,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BREATH-1",
+   "file": "Player/SND-BREATH-1.wav",
+   "seconds": 1.1,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BREATH-2",
+   "file": "Player/SND-BREATH-2.wav",
+   "seconds": 1.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BREATH-3",
+   "file": "Player/SND-BREATH-3.wav",
+   "seconds": 1.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BREATH-4",
+   "file": "Player/SND-BREATH-4.wav",
+   "seconds": 2.0,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-BREATH-5",
+   "file": "Player/SND-BREATH-5.wav",
+   "seconds": 2.3,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-HURT",
+   "file": "Player/SND-HURT.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-Swing-1",
+   "file": "Weapons/SND-CROWBAR-Swing-1.wav",
+   "seconds": 0.25,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-ImpactMetal-1",
+   "file": "Weapons/SND-CROWBAR-ImpactMetal-1.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-ImpactConcrete-1",
+   "file": "Weapons/SND-CROWBAR-ImpactConcrete-1.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-Swing-2",
+   "file": "Weapons/SND-CROWBAR-Swing-2.wav",
+   "seconds": 0.25,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-ImpactMetal-2",
+   "file": "Weapons/SND-CROWBAR-ImpactMetal-2.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-ImpactConcrete-2",
+   "file": "Weapons/SND-CROWBAR-ImpactConcrete-2.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-Swing-3",
+   "file": "Weapons/SND-CROWBAR-Swing-3.wav",
+   "seconds": 0.25,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-ImpactMetal-3",
+   "file": "Weapons/SND-CROWBAR-ImpactMetal-3.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CROWBAR-ImpactConcrete-3",
+   "file": "Weapons/SND-CROWBAR-ImpactConcrete-3.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PISTOL-Shot-1",
+   "file": "Weapons/SND-PISTOL-Shot-1.wav",
+   "seconds": 0.45,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-SHOTGUN-Shot-1",
+   "file": "Weapons/SND-SHOTGUN-Shot-1.wav",
+   "seconds": 0.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PISTOL-Shot-2",
+   "file": "Weapons/SND-PISTOL-Shot-2.wav",
+   "seconds": 0.45,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-SHOTGUN-Shot-2",
+   "file": "Weapons/SND-SHOTGUN-Shot-2.wav",
+   "seconds": 0.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PISTOL-Shot-3",
+   "file": "Weapons/SND-PISTOL-Shot-3.wav",
+   "seconds": 0.45,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-SHOTGUN-Shot-3",
+   "file": "Weapons/SND-SHOTGUN-Shot-3.wav",
+   "seconds": 0.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PISTOL-MagOut",
+   "file": "Weapons/SND-PISTOL-MagOut.wav",
+   "seconds": 0.12,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PISTOL-MagIn",
+   "file": "Weapons/SND-PISTOL-MagIn.wav",
+   "seconds": 0.15,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PISTOL-Slide",
+   "file": "Weapons/SND-PISTOL-Slide.wav",
+   "seconds": 0.18,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-SHOTGUN-ShellIn",
+   "file": "Weapons/SND-SHOTGUN-ShellIn.wav",
+   "seconds": 0.14,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-SHOTGUN-Pump",
+   "file": "Weapons/SND-SHOTGUN-Pump.wav",
+   "seconds": 0.3,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-EMPTY-Click",
+   "file": "Weapons/SND-EMPTY-Click.wav",
+   "seconds": 0.08,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-FLASHLIGHT-Switch",
+   "file": "Weapons/SND-FLASHLIGHT-Switch.wav",
+   "seconds": 0.06,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-SYRINGE-Use",
+   "file": "Weapons/SND-SYRINGE-Use.wav",
+   "seconds": 0.5,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-RATION-Open",
+   "file": "Weapons/SND-RATION-Open.wav",
+   "seconds": 0.6,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-S1",
+   "file": "Ambience/SND-AMBI-S1.wav",
+   "seconds": 44.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-C1",
+   "file": "Ambience/SND-AMBI-C1.wav",
+   "seconds": 39.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-S2",
+   "file": "Ambience/SND-AMBI-S2.wav",
+   "seconds": 44.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-C2",
+   "file": "Ambience/SND-AMBI-C2.wav",
+   "seconds": 39.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-S3",
+   "file": "Ambience/SND-AMBI-S3.wav",
+   "seconds": 44.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-C3",
+   "file": "Ambience/SND-AMBI-C3.wav",
+   "seconds": 39.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-AMBI-S4",
+   "file": "Ambience/SND-AMBI-S4.wav",
+   "seconds": 44.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-EXIT-Air",
+   "file": "Ambience/SND-EXIT-Air.wav",
+   "seconds": 29.0,
+   "channels": 2,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PIPE-Hit",
+   "file": "Ambience/SND-PIPE-Hit.wav",
+   "seconds": 0.8,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-LIGHT-Hum",
+   "file": "Ambience/SND-LIGHT-Hum.wav",
+   "seconds": 2.7,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-DOOR-Slide-Start",
+   "file": "World/SND-DOOR-Slide-Start.wav",
+   "seconds": 0.4,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-DOOR-Slide-Loop",
+   "file": "World/SND-DOOR-Slide-Loop.wav",
+   "seconds": 0.8,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-DOOR-Slide-End",
+   "file": "World/SND-DOOR-Slide-End.wav",
+   "seconds": 0.5,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-LEVER",
+   "file": "World/SND-LEVER.wav",
+   "seconds": 1.05,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-RELAY",
+   "file": "World/SND-RELAY.wav",
+   "seconds": 0.09,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-Alert-Short",
+   "file": "Voice/SND-Alert-Short.wav",
+   "seconds": 1.8,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-CHECKPOINT",
+   "file": "World/SND-CHECKPOINT.wav",
+   "seconds": 0.35,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PROP-Impact",
+   "file": "World/SND-PROP-Impact.wav",
+   "seconds": 0.6,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PICKUP",
+   "file": "World/SND-PICKUP.wav",
+   "seconds": 0.3,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "generado (numpy/scipy, gen_audio.py)",
+   "license": "original del proyecto"
+  },
+  {
+   "id": "SND-PA-Detection",
+   "file": "Voice/SND-PA-Detection.wav",
+   "seconds": 15.352,
+   "channels": 1,
+   "sample_rate": 48000,
+   "origin": "voz sintética local (Windows SAPI 'Microsoft Sabina Desktop', guion original 5.2) + procesado 72.3 (gen_audio.py)",
+   "license": "original del proyecto",
+   "subtitle": "Atención. Se ha detectado presencia humana no registrada en las instalaciones. Unidades de contención: procedan con cautela. Recuperación prioritaria."
+  }
+ ],
+ "note": "Banco placeholder ORIGINAL identificado como generado (50.2/72.4). Sustituible por grabaciones/diseño sonoro final sin cambiar IDs."
+}

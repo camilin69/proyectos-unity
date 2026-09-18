@@ -47,7 +47,11 @@ namespace Esneider.EditorTools
                 var spaces = floors.Select(f => f.id).Concat(connectors.Select(c => c.id)).ToList();
 
                 int ents = BuildEntities(plan, catalog, region, spaces, root.transform);
+                var hero = HeroDressing.Apply(plan, region, spaces, root.transform.Find("Entities"));
                 BuildVolume(plan, region, floors, connectors, root.transform);
+                var vol = root.transform.Find("Volume_" + region);
+                if (vol != null) { var ra = vol.gameObject.AddComponent<Audio.RegionAudio>(); ra.regionId = region; ra.ambienceBank = "SND-AMBI-" + region.Replace("REG-", ""); ra.reverb = region.StartsWith("REG-C") ? AudioReverbPreset.Hangar : region == "REG-S3" ? AudioReverbPreset.Room : region == "REG-S4" ? AudioReverbPreset.Auditorium : AudioReverbPreset.StoneCorridor; }
+                summary.Add("hero: " + string.Join(",", hero));
                 BakeNavMesh(root, region);
 
                 var path = RegionCatalog.ScenePath(region);
@@ -93,7 +97,10 @@ namespace Esneider.EditorTools
                 plan.TryToWorld(s.space, s.x, s.z, out var w);
                 bool boss = s.kind == "Boss";
                 var def = s.kind == "Vigia" ? vigDef : kDef;
-                var go = SandboxFactory.BuildEnemy(def, s.id, w, boss ? new Color(0.9f, 0.85f, 0.9f) : s.kind == "Vigia" ? new Color(0.85f, 0.85f, 0.8f) : new Color(0.6f, 0.4f, 0.35f), boss ? 3.1f : s.kind == "Vigia" ? 1.25f : 2.15f);
+                string heroId = boss ? "BOT-03_Archivista" : s.kind == "Vigia" ? "BOT-01_Vigia" : "BOT-02_Custodio";
+                var heroPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"Assets/_Game/Prefabs/Enemies/{heroId}.prefab");
+                var heroClips = heroPrefab != null ? AssetDatabase.LoadAllAssetsAtPath($"Assets/_Game/Art/Models/{heroId}.fbx").OfType<AnimationClip>().Where(c => !c.name.StartsWith("__")).ToArray() : null;
+                var go = SandboxFactory.BuildEnemy(def, s.id, w, boss ? new Color(0.9f, 0.85f, 0.9f) : s.kind == "Vigia" ? new Color(0.85f, 0.85f, 0.8f) : new Color(0.6f, 0.4f, 0.35f), boss ? 3.1f : s.kind == "Vigia" ? 1.25f : 2.15f, heroPrefab, heroClips);
                 go.transform.SetParent(ents); go.transform.rotation = Quaternion.Euler(0, s.yaw, 0);
                 var brain = go.GetComponent<EnemyBrain>(); brain.tutorialTelegraph = s.id == "V01";
                 if (boss) { go.name = "B01_Archivista_Placeholder"; brain.enabled = false; } // el jefe real llega en EX-07; placeholder inerte
@@ -189,10 +196,12 @@ namespace Esneider.EditorTools
             systems.AddComponent<GameFlowController>().currentSector = "S1";
             systems.AddComponent<EncounterDirector>();
             systems.AddComponent<CheckpointService>();
+            AudioSetup.Attach(systems);
             var streamer = systems.AddComponent<RegionStreamer>(); streamer.initialRegion = "REG-S1";
             var cp0 = plan.checkpoints.Find(c => c.id == "CP-00"); plan.TryToWorld(cp0.space, cp0.x, cp0.z, out var start);
             var player = SandboxFactory.BuildPlayer(catalog, start);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
+            ShowcaseBuilder.AttachViewmodel(player);
             PrefabUtility.SaveAsPrefabAssetAndConnect(player, "Assets/_Game/Prefabs/Player/Player_Esneider.prefab", InteractionMode.AutomatedAction);
             var hudRoot = new GameObject("HUD_Root");
             typeof(SandboxFactory).GetMethod("BuildHud", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).Invoke(null, new object[] { hudRoot.transform, player.GetComponent<PlayerController>() });

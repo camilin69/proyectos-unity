@@ -12,7 +12,7 @@ namespace Esneider.World
 
         void Awake()
         {
-            Surface = GetComponent<NavMeshSurface>() ?? gameObject.AddComponent<NavMeshSurface>();
+            Surface = gameObject.GetOrAdd<NavMeshSurface>();
             Surface.collectObjects = CollectObjects.All; Surface.useGeometry = NavMeshCollectGeometry.PhysicsColliders;
             Surface.layerMask = GameLayers.Mask(GameLayers.WorldStatic);
             Surface.BuildNavMesh();

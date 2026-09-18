@@ -1,0 +1,18 @@
+{
+    "asset": "WPN-02_Pistol",
+    "fbx": "Assets/_Game/Art/Models/WPN-02_Pistol.fbx",
+    "prefab": "Assets/_Game/Prefabs/Weapons/WPN-02_Pistol.prefab",
+    "tris": 832,
+    "submeshes": 10,
+    "clips": 0,
+    "size": {
+        "x": 0.032999999821186066,
+        "y": 0.170490562915802,
+        "z": 0.23881882429122925
+    },
+    "clipNames": [],
+    "materials": [
+        "M_WPN-02_Pistol"
+    ],
+    "warnings": []
+}

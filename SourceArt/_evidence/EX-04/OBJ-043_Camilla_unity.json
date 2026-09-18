@@ -1,0 +1,18 @@
+{
+    "asset": "OBJ-043_Camilla",
+    "fbx": "Assets/_Game/Art/Models/OBJ-043_Camilla.fbx",
+    "prefab": "Assets/_Game/Prefabs/Environment/OBJ-043_Camilla.prefab",
+    "tris": 1236,
+    "submeshes": 24,
+    "clips": 0,
+    "size": {
+        "x": 2.0,
+        "y": 1.6600000858306885,
+        "z": 0.7636109590530396
+    },
+    "clipNames": [],
+    "materials": [
+        "M_OBJ-043_Camilla"
+    ],
+    "warnings": []
+}
