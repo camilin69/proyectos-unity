@@ -253,5 +253,13 @@ namespace Esneider.Player
         }
 
         void Begin(ActionKind kind, ActionTransaction t) { Current = t; CurrentKind = kind; t.Begin(); }
+
+        // Carga de snapshot (19): arma activa sin animar ni reiniciar cooldown.
+        public void RestoreActiveWeapon(string kindName)
+        {
+            ForceCancelAll("restore");
+            if (string.IsNullOrEmpty(kindName) || !System.Enum.TryParse<WeaponKind>(kindName, out var k) || !inventory.HasWeapon(k)) { ActiveWeapon = null; return; }
+            ActiveWeapon = k; _nextAttackTime = 0f;
+        }
     }
 }

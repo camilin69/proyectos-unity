@@ -48,6 +48,7 @@ namespace Esneider.World
             r.crate = Box(geo, "Crate_Dynamic", new Vector3(-3.5f, 0.5f, -1f), new Vector3(0.9f, 0.9f, 0.9f), Mat(new Color(0.5f, 0.35f, 0.2f)), GameLayers.DynamicProp);
             var rb = r.crate.AddComponent<Rigidbody>(); rb.mass = 20f; rb.linearDamping = 0.3f; rb.centerOfMass = new Vector3(0, -0.3f, 0); rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             r.crate.AddComponent<PhysicsImpactLogger>();
+            Persist(r.crate, "SB-CRATE", "REG-SANDBOX", Core.Persistence.EntityKind.Movable);
 
             // pickups
             Pick(geo, "PICK-F01", PickupKind.Flashlight, new Vector3(-4.5f, 0.9f, 4.5f), 1);
@@ -67,6 +68,9 @@ namespace Esneider.World
             r.vigia = BuildEnemy(vigDef, "V-SB", new Vector3(-3.5f, 0, 2.5f), new Color(0.85f, 0.85f, 0.8f), 1.25f);
             r.custodio = BuildEnemy(kDef, "K-SB", new Vector3(3.5f, 0, 3f), new Color(0.6f, 0.4f, 0.35f), 2.15f);
             r.vigia.transform.SetParent(r.root.transform); r.custodio.transform.SetParent(r.root.transform);
+            Persist(r.vigia, "V-SB", "REG-SANDBOX", Core.Persistence.EntityKind.Enemy); Persist(r.custodio, "K-SB", "REG-SANDBOX", Core.Persistence.EntityKind.Enemy);
+            var cps = flowGo.AddComponent<Core.Persistence.CheckpointService>();
+            cps.saveDirectoryOverride = System.IO.Path.Combine(Application.persistentDataPath, "saves", "sandbox");
             AddWaypoints(r.vigia, new Vector3(-3.5f, 0, 2.5f), new Vector3(-4.5f, 0, -1f));
             AddWaypoints(r.custodio, new Vector3(3.5f, 0, 3f), new Vector3(4.5f, 0, -1.5f));
 
@@ -155,7 +159,15 @@ namespace Esneider.World
             go.name = "Pickup_" + id; go.layer = GameLayers.Interactable; go.transform.SetParent(parent.transform); go.transform.position = pos; go.transform.localScale = Vector3.one * 0.25f;
             go.GetComponent<MeshRenderer>().sharedMaterial = Mat(kind == PickupKind.Syringe || kind == PickupKind.Ration ? Color.green : kind == PickupKind.Flashlight ? Color.yellow : new Color(0.8f, 0.8f, 0.2f));
             var p = go.AddComponent<Pickup>(); p.kind = kind; p.amount = amount; p.stableId = id; p.guid = LevelPlan.StableGuid(id).ToString();
+            Persist(go, id, "REG-SANDBOX", Core.Persistence.EntityKind.Pickup);
             return go;
+        }
+
+        public static PersistentEntity Persist(GameObject go, string stableId, string regionId, Core.Persistence.EntityKind kind)
+        {
+            var pe = go.AddComponent<PersistentEntity>();
+            pe.stableId = stableId; pe.guid = LevelPlan.StableGuid(stableId).ToString(); pe.regionId = regionId; pe.prefabId = go.name; pe.kind = kind;
+            return pe;
         }
 
         static GameObject Box(GameObject parent, string name, Vector3 center, Vector3 size, Material mat, int layer)

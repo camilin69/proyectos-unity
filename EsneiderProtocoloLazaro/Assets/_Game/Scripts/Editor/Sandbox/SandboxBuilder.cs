@@ -48,6 +48,7 @@ namespace Esneider.EditorTools
             foreach (var b in all) if (b != W && b != D) Physics.IgnoreLayerCollision(C, b, true);
             // triggers y VFX no colisionan físicamente con nadie
             foreach (var b in all) { Physics.IgnoreLayerCollision(T, b, true); Physics.IgnoreLayerCollision(V, b, true); }
+            Physics.IgnoreLayerCollision(T, P, false); // los triggers (checkpoint/región/victoria) sí reciben al Player (20.3)
             // enemigos entre sí sí colisionan (agentes evitan); interactuables no empujan al jugador
             Physics.IgnoreLayerCollision(I, P, true); Physics.IgnoreLayerCollision(I, E, true);
         }

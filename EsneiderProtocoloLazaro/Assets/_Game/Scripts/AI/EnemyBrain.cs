@@ -27,6 +27,7 @@ namespace Esneider.AI
         float _stateSince, _cooldownUntil, _staggerImmuneUntil, _lastCrowbarHit = -10f, _searchUntil, _waitUntil;
         int _crowbarHitsWindow, _wp, _searchPoints;
         int _currentAttackId;
+        bool _offMeshLogged;
         Vector3 _searchTarget;
         readonly List<Vector3> _searchCandidates = new List<Vector3>();
         static readonly System.Random _rng = new System.Random(7);
@@ -52,6 +53,7 @@ namespace Esneider.AI
             var pc = FindFirstObjectByType<Player.PlayerController>();
             if (pc != null) { _player = pc.transform; _perception.target = _player; _perception.targetFlashlight = pc.flashlight; }
             EncounterDirector.Ensure();
+            if (!_agent.enabled) _agent.enabled = true; // la superficie regional ya existe en Start
             Transition(startActive ? EnemyState.Patrol : EnemyState.Inactive);
         }
 
@@ -82,6 +84,11 @@ namespace Esneider.AI
         void Update()
         {
             if (State == EnemyState.Dead || State == EnemyState.Inactive) return;
+            if (!_agent.enabled || !_agent.isOnNavMesh)
+            {
+                if (!_offMeshLogged) { _offMeshLogged = true; Debug.LogWarning($"{name} ({stableId}) fuera del NavMesh en {transform.position}: revisar spawn 68.7"); }
+                return;
+            }
             var flow = GameFlowController.Instance;
             if (flow != null && !flow.GameplayActive && flow.State != GameState.Captured) return;
             float dist = _player != null ? Vector3.Distance(transform.position, _player.position) : 999f;
@@ -238,5 +245,49 @@ namespace Esneider.AI
         }
 
         public void OnNetCaptured(Player.PlayerController player) { if (State != EnemyState.Dead) Transition(EnemyState.Executing); }
+
+        // ---- persistencia (19/88.6): solo estados estables ----
+        public string StableMode => State == EnemyState.Dead ? "Dead" : State == EnemyState.Inactive ? "Inactive" : "Patrol";
+        public int CurrentWaypoint => _wp;
+
+        public void RestoreStable(string mode, int waypoint)
+        {
+            _wp = waypoints.Count > 0 ? Mathf.Clamp(waypoint, 0, waypoints.Count - 1) : 0;
+            _perception.suspicion = 0f; _perception.heardRecently = false; _cooldownUntil = 0f;
+            if (State == EnemyState.Dead) return;
+            if (!_agent.enabled) _agent.enabled = true;
+            if (mode == "Inactive") { State = EnemyState.Inactive; LastTransition = "restore->Inactive"; Stop(); }
+            else if (_agent.isOnNavMesh) Transition(EnemyState.Patrol);
+            else { State = EnemyState.Patrol; LastTransition = "restore->Patrol(pending navmesh)"; }
+        }
+
+        public void MarkDeadFromSnapshot()
+        {
+            if (State == EnemyState.Dead) return;
+            State = EnemyState.Dead; LastTransition = "restore->Dead";
+            EncounterDirector.Instance?.Release(this);
+            if (_agent.enabled && _agent.isOnNavMesh) _agent.isStopped = true; _agent.enabled = false;
+            foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Corpse;
+            gameObject.layer = GameLayers.Corpse;
+            transform.rotation = Quaternion.Euler(80f, transform.eulerAngles.y, 0f);
+            enabled = false;
+        }
+
+        public void WarpTo(Vector3 position, Vector3 euler)
+        {
+            if (_agent.enabled && _agent.isOnNavMesh) _agent.Warp(position); else transform.position = position;
+            transform.eulerAngles = new Vector3(0f, euler.y, 0f);
+        }
+
+        // Revivir tras cargar un snapshot anterior a la muerte (retry): el registro manda.
+        public void ReviveForRestore()
+        {
+            if (State != EnemyState.Dead) return;
+            gameObject.layer = GameLayers.Enemy;
+            foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Enemy;
+            transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
+            _agent.enabled = true; enabled = true;
+            State = EnemyState.Patrol; LastTransition = "revive";
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace Esneider.EditorTools
         }
 
         // ---------- plantas ----------
-        static void BuildFloor(LevelPlan plan, PlanFloor f, Transform parent, Dictionary<string, int> stats)
+        internal static void BuildFloor(LevelPlan plan, PlanFloor f, Transform parent, Dictionary<string, int> stats)
         {
             var root = new GameObject($"{f.id}_{f.sector}").transform;
             root.SetParent(parent);
@@ -167,7 +167,7 @@ namespace Esneider.EditorTools
                 float length = Mathf.Sqrt(run * run + rise * rise);
                 float angle = Mathf.Atan2(rise, run) * Mathf.Rad2Deg;
                 var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                go.name = $"{s.id}_Flight{i + 1}";
+                go.name = $"{s.id}_Flight{i + 1}"; go.layer = Esneider.Core.GameLayers.WorldStatic;
                 go.transform.SetParent(root, false);
                 float mid = (a0 + a1) / 2f, midC = (c0 + c1) / 2f, midH = (h0 + h1) / 2f - 0.15f;
                 if (alongZ)
@@ -202,7 +202,7 @@ namespace Esneider.EditorTools
         }
 
         // ---------- conectores ----------
-        static void BuildConnector(LevelPlan plan, PlanConnector c, Transform parent, Dictionary<string, int> stats)
+        internal static void BuildConnector(LevelPlan plan, PlanConnector c, Transform parent, Dictionary<string, int> stats)
         {
             var root = new GameObject(c.id).transform; root.SetParent(parent); root.position = c.origin.ToVector3();
             var geo = new GameObject("Geometry").transform; geo.SetParent(root, false);
@@ -250,7 +250,7 @@ namespace Esneider.EditorTools
         }
 
         // ---------- marcadores ----------
-        static void BuildMarkers(LevelPlan plan, Transform parent, Dictionary<string, int> stats)
+        internal static void BuildMarkers(LevelPlan plan, Transform parent, Dictionary<string, int> stats)
         {
             var root = new GameObject("Markers").transform; root.SetParent(parent);
             int n = 0;
@@ -285,7 +285,7 @@ namespace Esneider.EditorTools
         static void MakeBox(Transform parent, string name, Material mat, Box b, float y0, float y1)
         {
             var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            go.name = name;
+            go.name = name; go.layer = Esneider.Core.GameLayers.WorldStatic;
             go.transform.SetParent(parent, false);
             go.transform.localPosition = new Vector3((b.x0 + b.x1) / 2f, (y0 + y1) / 2f, (b.z0 + b.z1) / 2f);
             go.transform.localScale = new Vector3(b.x1 - b.x0, y1 - y0, b.z1 - b.z0);
@@ -293,7 +293,7 @@ namespace Esneider.EditorTools
             go.isStatic = true;
         }
 
-        static void EnsureMaterials()
+        internal static void EnsureMaterials()
         {
             _matFloor = Mat("Blockout_Floor", new Color(0.45f, 0.45f, 0.47f));
             _matSolid = Mat("Blockout_Solid", new Color(0.28f, 0.29f, 0.32f));

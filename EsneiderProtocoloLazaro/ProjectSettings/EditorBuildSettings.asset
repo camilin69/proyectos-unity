@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Game/Scenes/BOOT.unity
+    guid: 5e456ab7b9a96e44ba6fcf3c7a460991
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-S1.unity
+    guid: 9cd45baf445c78049b9189d93d9cd673
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-C1.unity
+    guid: d6e6d662809cb3648b49930bd8e3a939
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-S2.unity
+    guid: 924150ae4e09e794bab6eb87d491f335
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-C2.unity
+    guid: de733064f641fde4f8a3bc3bab843595
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-S3.unity
+    guid: 5f2e015ff867bb84e8f2d14b85b97f63
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-C3.unity
+    guid: f7fd77435f90bdd419611c0095fc23cb
+  - enabled: 1
+    path: Assets/_Game/Scenes/Regions/REG-S4.unity
+    guid: b0b3d5d9499e8044e803b0e94d0c5e5e
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1

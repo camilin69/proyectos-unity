@@ -36,6 +36,28 @@ Formato: ID · etapa · servidor/herramienta real · operación · archivos afec
 | OP-0028 | EX-02 | corrección | `EnemyBrain.Chase` copiaba la posición actual del jugador con percepción de hasta 0.1 s (omnisciencia); ahora solo `EnemyPerception.Sense` fija `lastKnownPosition` al ver | `EnemyBrain.cs` | test de búsqueda pasa | verificado |
 | OP-0029 | EX-02 | unity-cli eval (Play Mode) | Sandbox jugado en editor: capturas de Game View y estados de bots | `SourceArt/_evidence/EX-02/*.png` | evidencia | ejecutado |
 
+| OP-0030 | EX-03 | Write | Persistencia: `EntityState`/`WorldEvent` (88.6), `WorldStateRegistry` (registro de sesión, eventos idempotentes por (entidad, secuencia), snapshot inmutable), `SaveData`/`SaveEnvelope` (19/89.1, SHA-256), `SaveFileStore` (89.2: temporal → reabrir/validar → `File.Replace` con generaciones bak1/bak2; 89.4 recuperación y copias `.invalid-*`), `SaveValidator` (89.3), `CheckpointService` (captura fin de frame, garantía CP-06 idempotente, pipeline de carga 19), `PersistentEntity` (hidratación pickups/puertas/enemigos/movibles), `ObjectiveService` (permisos A/B/servicio/jefe/panel) | `Scripts/Core/Persistence/*`, `Scripts/World/PersistentEntity.cs` | 0 errores CS | verificado |
+| OP-0031 | EX-03 | TestRunnerBridge (EditMode) | `SaveStoreTests`: ida y vuelta, rotación de generaciones, truncado → bak1 con aviso, checksum alterado, rechazos semánticos (GUID duplicado, negativo, salud >90, muerto con HP, recogido con cantidad, D29 sin jefe), versión futura conservada sin abrir, `.tmp` huérfano ignorado, idempotencia del registro | `evidencia/tests_EditMode.md` | 21/21 | verificado |
+| OP-0032 | EX-03 | TestRunnerBridge (PlayMode) | `PersistencePlayTests`: QA-09 (guardar, consumir, matar, mover caja, cargar → coherente), QA-10 (continuar desde archivo, sin duplicar pickup, cargar dos veces no suma), QA-11 (activo corrupto → bak1), garantía CP-06 (una vez, no reduce), sin checkpoint en captura/acción | `evidencia/tests_PlayMode.md` | pasa | verificado |
+| OP-0033 | EX-03 | corrección | `PersistentEntity.OnEnable` corría en `AddComponent` antes de asignar el GUID → registro vacío; ahora registro perezoso (`EnsureRegistered` en Start/Notify/Capture). Fuga de estado entre pruebas (registro de sesión estático) → `ResetSession` en SetUp | `PersistentEntity.cs`, tests | QA-09/10 pasan | verificado |
+| OP-0034 | EX-03 | Write | Regiones: `RegionCatalog` (cadena de 7 y puertas frontera 88.1), `RegionVolume`, `RegionStreamer` (estados Unloaded→Loading→Restoring→Ready→Active→Quiescing→Unloading/Failed, una operación por región, precarga de vecinas, descarga solo segura 88.3, retención del jugador hasta Ready 89.4), `CheckpointTrigger` (identidad Player, refugio repetible), `Mechanism` (flag + precarga 88.2), `VictoryTrigger` (97), `Door` con permisos y `NavMeshObstacle` | `Scripts/World/*` | ok | verificado |
+| OP-0035 | EX-03 | unityMCP · execute_code → `RegionSceneBuilder.Build()` | `BOOT.unity` (sistemas, jugador en CP-00, HUD) + `Regions/REG-*.unity` (geometría del plano por región, 141 entidades: 46 pickups + 12 documentos con soporte, 38 bots con patrulla de 2 puntos, 31 puertas, 4 mecanismos + gabinete placeholder, 10 CP, victoria) con `NavMesh` horneado por región (`REG-*_NavMesh.asset`); Build Settings actualizado | `Assets/_Game/Scenes/**` | 7 regiones, 246/38/317/45/260/40/255 tris; 38/38 bots sobre NavMesh | verificado |
+| OP-0036 | EX-03 | corrección | Geometría del blockout nacía en capa Default → NavMesh regional vacío (38 bots fuera de malla); `MakeBox`/rampas ahora en `WorldStatic`. `Trigger` ignoraba al `Player` en la matriz de colisión → volúmenes/checkpoints mudos; corregido. `CharacterController.Move` durante retención de región y `remainingDistance` sin malla guardados | `BlockoutBuilder.cs`, `SandboxBuilder.cs`, `PlayerMotor.cs`, `EnemyBrain.cs` | 0 avisos en la suite | verificado |
+| OP-0037 | EX-03 | TestRunnerBridge (PlayMode) | `StreamingPlayTests`: permiso → precarga C1; cruce a C1 → S2 lista antes de D07 y S1 conservada; avance en S2 → S1 descargada y C2 precargada; reentrada conserva pickup recogido (registro global) y retry lo restaura (snapshot); región inexistente falla sin romper la sesión | `evidencia/tests_PlayMode.md` | 17/17 total | verificado |
+| OP-0038 | EX-03 | unity-cli eval (Play Mode) | BOOT jugado: estados de regiones y capturas al despertar en S1 y al cruzar a C-01 | `SourceArt/_evidence/EX-03/*.png` | evidencia | ejecutado |
+
+## Gate EX-03
+
+| Requisito 101.1 | Estado | Evidencia |
+|---|---|---|
+| Registro global, save/backup | Pasa | OP-0030/0031/0032 |
+| Siete regiones y puertas frontera | Pasa | OP-0034/0035/0037 |
+| Reentrada y retry distintos | Pasa | `ReentryKeepsChanges_RetryRestoresSnapshot_NoDuplication` |
+| Cero duplicación | Pasa | QA-10, garantía CP-06, eventos idempotentes |
+| Fallo de carga seguro | Pasa | `UnknownRegionFailsSafely`, truncado/corrupto → backup |
+
+Decisión de gate: **Pasa**. Pendientes: distancia de precarga por polilínea (88.2: 8/12 m) implementada como vecindad por volumen, a refinar en EX-05 con medición; oclusión acústica por portales completa (78.1) pendiente; migraciones `vN→vN+1` (89.5) solo esqueleto (schemaVersion); prueba de 20 ciclos de carga con memoria estable pendiente para EX-05/08.
+
 ## Gate EX-02
 
 | Requisito 101.1 | Estado | Evidencia |

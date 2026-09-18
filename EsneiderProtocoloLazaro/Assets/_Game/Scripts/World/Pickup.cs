@@ -34,6 +34,7 @@ namespace Esneider.World
             int accepted = inv.TryPickup(this);
             if (accepted <= 0) { inv.Notify("No cabe más"); return; }
             amount -= accepted;
+            GetComponent<PersistentEntity>()?.NotifyPickupTaken(amount);
             if (amount <= 0) gameObject.SetActive(false);
         }
     }

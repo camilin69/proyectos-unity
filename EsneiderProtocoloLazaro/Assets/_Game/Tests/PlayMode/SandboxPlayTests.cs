@@ -29,7 +29,7 @@ namespace Esneider.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            Health.Clock = () => Time.time;
+            Health.Clock = () => Time.time; Esneider.Core.Persistence.WorldStateRegistry.ResetSession();
             _r = SandboxFactory.Build(LoadCatalog());
             _pc = _r.player.GetComponent<PlayerController>();
             yield return null; yield return null; // Start(): flujo Playing, enemigos en Patrol

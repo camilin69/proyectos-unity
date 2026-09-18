@@ -30,7 +30,7 @@ namespace Esneider.EditorTools
             }
         }
 
-        public static string Run(TestMode mode, string assemblyName)
+        public static string Run(TestMode mode, string assemblyName, string groupRegex = null)
         {
             var dir = Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/produccion/evidencia"));
             Directory.CreateDirectory(dir);
@@ -39,6 +39,7 @@ namespace Esneider.EditorTools
             api.RegisterCallbacks(new Callbacks(path));
             var filter = new Filter { testMode = mode };
             if (!string.IsNullOrEmpty(assemblyName)) filter.assemblyNames = new[] { assemblyName };
+            if (!string.IsNullOrEmpty(groupRegex)) filter.groupNames = new[] { groupRegex };
             api.Execute(new ExecutionSettings(filter));
             return path;
         }

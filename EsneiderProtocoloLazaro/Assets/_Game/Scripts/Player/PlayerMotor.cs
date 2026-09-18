@@ -42,6 +42,7 @@ namespace Esneider.Player
 
         public void Tick(Vector2 move, bool runHeld, bool crouchRequest, bool jumpRequest, float dt)
         {
+            if (!_cc.enabled) return; // en espera de región (89.4)
             if (!movementEnabled) { move = Vector2.zero; runHeld = false; jumpRequest = false; }
             if (crouchRequest) SetCrouch(!IsCrouched);
 

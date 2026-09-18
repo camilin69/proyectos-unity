@@ -20,7 +20,7 @@ namespace Esneider.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            Health.Clock = () => Time.time;
+            Health.Clock = () => Time.time; Esneider.Core.Persistence.WorldStateRegistry.ResetSession();
 #if UNITY_EDITOR
             var cat = UnityEditor.AssetDatabase.LoadAssetAtPath<GameDataCatalog>("Assets/_Game/Data/Definitions/GameDataCatalog.asset");
 #else

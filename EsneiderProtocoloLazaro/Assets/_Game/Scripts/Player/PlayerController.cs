@@ -116,10 +116,19 @@ namespace Esneider.Player
             GameFlowController.Instance?.EndAttempt("ESCAPE", health != null ? health.Current : 0);
         }
 
+        // Reintento (19/89): restaurar el último checkpoint confirmado; sin checkpoint, recargar la escena.
         public void Restart()
         {
             Time.timeScale = 1f;
+            var cps = Core.Persistence.CheckpointService.Instance;
+            if (cps != null && cps.LastConfirmed != null) { cps.RestoreInto(cps.LastConfirmed, this); return; }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex >= 0 ? SceneManager.GetActiveScene().name : SceneManager.GetActiveScene().path);
+        }
+
+        public void ResetForRestore()
+        {
+            IsCaptured = false; Prompt = ""; _target = null;
+            actions.ForceCancelAll("restore"); actions.actionsEnabled = true; motor.movementEnabled = true;
         }
     }
 }

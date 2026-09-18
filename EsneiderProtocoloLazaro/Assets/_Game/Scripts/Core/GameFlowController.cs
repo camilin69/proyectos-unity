@@ -67,5 +67,8 @@ namespace Esneider.Core
         }
 
         public bool GameplayActive => State == GameState.Playing;
+
+        // Tras restaurar un checkpoint: nuevo intento con contadores ya cargados del snapshot.
+        public void ResumeAttempt() { _attemptOpen = true; attempts++; SetState(GameState.Playing); }
     }
 }
