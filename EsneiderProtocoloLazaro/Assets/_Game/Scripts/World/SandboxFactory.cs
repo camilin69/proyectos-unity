@@ -119,7 +119,10 @@ namespace Esneider.World
                 var ea = go.AddComponent<AI.EnemyAnimator>(); ea.animator = animator; ea.clipsFromFbx = clips; ea.prefix = def.kind == EnemyKind.Vigia ? "Vigia" : height > 3f ? "Archivista" : "Custodio";
                 // Zancada implícita MEDIDA por SourceArt/Scripts/measure_contacts.py (49.8/77.1), no estimada:
                 // es la que permite reproducir el ciclo a la velocidad real del agente sin que el pie patine.
-                ea.clipStrideSpeed = ea.prefix == "Vigia" ? 0.51f : ea.prefix == "Archivista" ? 1.42f : 0.81f;
+                // velocidad natural del ciclo, medida clip a clip por measure_contacts (G-04): recorrido del pie
+                // apoyado entre la duración del apoyo. EnemyAnimator escala la reproducción con este número, así
+                // que tiene que salir de la medición y no de una estimación.
+                ea.clipStrideSpeed = ea.prefix == "Vigia" ? 0.68f : ea.prefix == "Archivista" ? 1.62f : 0.61f;
                 go.AddComponent<Audio.EnemyFootsteps>();
                 var cap = go.AddComponent<CapsuleCollider>(); cap.center = new Vector3(0, height / 2f, 0); cap.height = height; cap.radius = height > 3f ? 0.45f : height > 2f ? 0.35f : 0.28f;
             }

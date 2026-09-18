@@ -258,10 +258,7 @@ for bone, names in binding.items():
 Z = (0, 0, 0)
 idle = L.action(arm, "Vigia_Idle", 90, poses={1: {"head": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}, 45: {"head": ((-4, 0, 6), Z), "spine": ((2, 0, 0), Z), "hand_L": ((8, 0, 0), Z)}, 90: {"head": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z), "hand_L": ((0, 0, 0), Z)}})
 L.push_nla(arm, idle)
-walk = L.action(arm, "Vigia_Walk", 40, poses={
-    1: {"thigh_L": ((-25, 0, 0), Z), "thigh_R": ((25, 0, 0), Z), "shin_L": ((30, 0, 0), Z), "shin_R": ((0, 0, 0), Z), "spine": ((6, 0, -4), Z), "head": ((-4, 0, 6), Z), "upperarm_L": ((15, 0, 0), Z), "upperarm_R": ((-15, 0, 0), Z)},
-    20: {"thigh_L": ((25, 0, 0), Z), "thigh_R": ((-25, 0, 0), Z), "shin_L": ((0, 0, 0), Z), "shin_R": ((30, 0, 0), Z), "spine": ((6, 0, 4), Z), "head": ((-4, 0, -2), Z), "upperarm_L": ((-15, 0, 0), Z), "upperarm_R": ((15, 0, 0), Z)},
-    40: {"thigh_L": ((-25, 0, 0), Z), "thigh_R": ((25, 0, 0), Z), "shin_L": ((30, 0, 0), Z), "shin_R": ((0, 0, 0), Z), "spine": ((6, 0, -4), Z), "head": ((-4, 0, 6), Z), "upperarm_L": ((15, 0, 0), Z), "upperarm_R": ((-15, 0, 0), Z)}})
+walk = L.walk_cycle(arm, "Vigia_Walk", **L.WALK_PRESETS[ASSET])
 L.push_nla(arm, walk)
 antic = L.action(arm, "Vigia_Anticipation", 33, loop=False, poses={1: {"upperarm_R": ((0, 0, 0), Z), "forearm_R": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}, 12: {"upperarm_R": ((-70, 0, -20), Z), "forearm_R": ((-40, 0, 0), Z), "spine": ((-6, 0, 0), Z), "head": ((6, 0, 0), Z)}, 33: {"upperarm_R": ((-95, 0, -25), Z), "forearm_R": ((-30, 0, 0), Z), "spine": ((-8, 0, 0), Z), "head": ((8, 0, 0), Z)}})
 L.push_nla(arm, antic)

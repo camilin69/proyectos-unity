@@ -603,11 +603,7 @@ for bone, names in binding.items():
     for n in names: L.bind_rigid(P[n], arm, bone)
 
 Z = (0, 0, 0)
-L.push_nla(arm, L.action(arm, "Archivista_Idle", 120, poses={1: {"head": ((0, 0, 0), Z), "neck": ((0, 0, 0), Z)}, 60: {"head": ((5, 0, -8), Z), "neck": ((3, 0, 4), Z), "hand_L": ((0, 0, 10), Z)}, 120: {"head": ((0, 0, 0), Z), "neck": ((0, 0, 0), Z), "hand_L": ((0, 0, 0), Z)}}))
-L.push_nla(arm, L.action(arm, "Archivista_Walk", 56, poses={
-    1: {"thigh_L": ((-24, 0, 0), Z), "thigh_R": ((24, 0, 0), Z), "shin_L": ((30, 0, 0), Z), "spine": ((5, 0, -3), Z), "upperarm_L": ((10, 0, 0), Z), "upperarm_R": ((-10, 0, 0), Z)},
-    28: {"thigh_L": ((24, 0, 0), Z), "thigh_R": ((-24, 0, 0), Z), "shin_L": ((0, 0, 0), Z), "shin_R": ((30, 0, 0), Z), "spine": ((5, 0, 3), Z), "upperarm_L": ((-10, 0, 0), Z), "upperarm_R": ((10, 0, 0), Z)},
-    56: {"thigh_L": ((-24, 0, 0), Z), "thigh_R": ((24, 0, 0), Z), "shin_L": ((30, 0, 0), Z), "shin_R": ((0, 0, 0), Z), "spine": ((5, 0, -3), Z), "upperarm_L": ((10, 0, 0), Z), "upperarm_R": ((-10, 0, 0), Z)}}))
+L.push_nla(arm, L.walk_cycle(arm, "Archivista_Walk", **L.WALK_PRESETS[ASSET]))
 # cuatro firmas distintas (60.4): rayo 1.2 s, barrido 1.4 s, carga 1.5 s, pulso 1.8 s
 L.push_nla(arm, L.action(arm, "Archivista_Ray", 36 + 60, loop=False, poses={1: {"upperarm_R": ((0, 0, 0), Z)}, 36: {"upperarm_R": ((-95, 0, -10), Z), "forearm_R": ((-10, 0, 0), Z), "spine": ((-6, 0, -6), Z)}, 40: {"upperarm_R": ((-85, 0, -5), Z)}, 96: {"upperarm_R": ((0, 0, 0), Z), "forearm_R": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}}))
 L.push_nla(arm, L.action(arm, "Archivista_Sweep", 42 + 66, loop=False, poses={1: {"upperarm_L": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}, 42: {"upperarm_L": ((-80, 0, 60), Z), "spine": ((0, 0, 25), Z)}, 50: {"upperarm_L": ((-80, 0, -70), Z), "spine": ((0, 0, -30), Z)}, 108: {"upperarm_L": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}}))

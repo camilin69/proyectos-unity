@@ -10,44 +10,23 @@
    "feet": {
     "foot_L": {
      "planted_frames": 90,
-     "slide_m": 0.0,
+     "stance_frames": 89,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 3.0,
+     "stance_s": 2.967,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 90,
-     "slide_m": 0.0,
+     "stance_frames": 89,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 3.0,
+     "stance_s": 2.967,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
-    }
-   },
-   "contact_ratio": 1.0
-  },
-  {
-   "clip": "Vigia_Walk",
-   "frames": 40,
-   "seconds": 1.333,
-   "min_z_m": -0.00743,
-   "feet": {
-    "foot_L": {
-     "planted_frames": 35,
-     "slide_m": 0.3062,
-     "stride_m": 0.3062,
-     "stance_s": 0.6,
-     "speed_jitter": 0.873,
-     "bob_while_planted_m": 0.0258
-    },
-    "foot_R": {
-     "planted_frames": 34,
-     "slide_m": 0.3062,
-     "stride_m": 0.0019,
-     "stance_s": 1.133,
-     "speed_jitter": 0.876,
-     "bob_while_planted_m": 0.0259
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
@@ -60,19 +39,23 @@
    "feet": {
     "foot_L": {
      "planted_frames": 33,
-     "slide_m": 0.0,
+     "stance_frames": 32,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.1,
+     "stance_s": 1.067,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 33,
-     "slide_m": 0.0,
+     "stance_frames": 32,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.1,
+     "stance_s": 1.067,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
@@ -85,19 +68,23 @@
    "feet": {
     "foot_L": {
      "planted_frames": 42,
-     "slide_m": 0.0,
+     "stance_frames": 41,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.4,
+     "stance_s": 1.367,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 42,
-     "slide_m": 0.0,
+     "stance_frames": 41,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.4,
+     "stance_s": 1.367,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
@@ -110,34 +97,67 @@
    "feet": {
     "foot_L": {
      "planted_frames": 0,
-     "slide_m": 0.0,
+     "stance_frames": 0,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
      "stance_s": 0.0,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 0.4293
     },
     "foot_R": {
      "planted_frames": 4,
-     "slide_m": 0.0191,
+     "stance_frames": 4,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0191,
      "stance_s": 0.133,
      "speed_jitter": 0.647,
-     "bob_while_planted_m": 0.0134
+     "bob_while_planted_m": 0.0134,
+     "clearance_m": 0.3504
     }
    },
    "contact_ratio": 0.111
+  },
+  {
+   "clip": "Vigia_Walk",
+   "frames": 36,
+   "seconds": 1.2,
+   "min_z_m": -0.0,
+   "feet": {
+    "foot_L": {
+     "planted_frames": 21,
+     "stance_frames": 18,
+     "lateral_slip_m": 0.0,
+     "stride_m": 0.4107,
+     "stance_s": 0.6,
+     "speed_jitter": 0.0,
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 0.0796
+    },
+    "foot_R": {
+     "planted_frames": 22,
+     "stance_frames": 18,
+     "lateral_slip_m": 0.0,
+     "stride_m": 0.4107,
+     "stance_s": 0.6,
+     "speed_jitter": 0.0,
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 0.0798
+    }
+   },
+   "contact_ratio": 1.0
   }
  ],
  "gates": [
   {
    "id": "G-01",
-   "estado": "FALLA",
-   "detalle": "penetración máxima -7.4 mm en Vigia_Walk f11 (foot_R); tolerancia -2 mm"
+   "estado": "PASA",
+   "detalle": "penetración máxima -0.0 mm en Vigia_Walk f32 (foot_R); tolerancia -2 mm"
   },
   {
    "id": "G-02",
-   "estado": "FALLA",
-   "detalle": "retroceso del pie apoyado: dispersión de velocidad 88 % (máx 35 %), rebote vertical 25.9 mm (máx 20 mm)"
+   "estado": "PASA",
+   "detalle": "retroceso del pie apoyado: dispersión de velocidad 0 % (máx 35 %), rebote vertical 0.0 mm (máx 20 mm)"
   },
   {
    "id": "G-03",
@@ -146,15 +166,21 @@
   },
   {
    "id": "G-04",
-   "estado": "FALLA",
-   "detalle": "velocidad implícita del clip 0.51 m/s contra patrulla 0.70 m/s (factor 0.73); fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción"
+   "estado": "PASA",
+   "detalle": "velocidad implícita del clip 0.68 m/s contra patrulla 0.70 m/s (factor 0.98); fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción"
+  },
+  {
+   "id": "G-06",
+   "estado": "PASA",
+   "detalle": "despeje mínimo del pie en vuelo 79.6 mm (foot_L); mínimo 30 mm — por debajo el pie roza el suelo en toda la pasada"
   }
  ],
  "thresholds": {
   "ground_tol_m": -0.002,
   "plant_z_m": 0.02,
   "slide_tol_m": 0.02,
-  "contact_ratio": 0.85
+  "contact_ratio": 0.85,
+  "foot_clearance_m": 0.03
  },
  "foot_objects": [
   "foot_L",
@@ -162,6 +188,10 @@
  ],
  "moving_objects": [],
  "rest_min_z_m": -0.0,
- "clip_stride_speed_mps": 0.51,
- "stride_vs_patrol": 0.729
+ "clip_stride_speed_mps": 0.684,
+ "stride_vs_patrol": 0.978,
+ "foot_clearance_m": {
+  "foot_L": 0.0796,
+  "foot_R": 0.0798
+ }
 }

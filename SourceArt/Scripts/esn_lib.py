@@ -511,6 +511,138 @@ def action(arm_obj, name, frames, fps=30, poses=None, loop=True):
     return act
 
 
+# 49.2/60.2 · ciclos de marcha con pose de paso
+#
+# Los ciclos originales tenían dos poses opuestas (pierna izquierda adelante / pierna derecha adelante) y nada en
+# medio. Interpolar entre ellas hace pasar la pierna en vuelo por la vertical, que es exactamente donde el pie queda
+# MÁS BAJO, así que el pie no despega: medido, 7.3 mm de despeje en el Vigía y 7.9 mm en el Custodio para piernas de
+# 0.70 y 0.98 m. Eso no es caminar, es arrastrar los pies.
+#
+# Una marcha necesita como mínimo cuatro poses por pierna: contacto, apoyo medio, despegue y PASO (la rodilla doblada
+# que sube el pie). Aquí se generan `keys` poses por ciclo a partir de la fase de cada pierna, con dos decisiones
+# medidas sobre el rig y no supuestas:
+#   · signo de rodilla: rotación X NEGATIVA en `shin` lleva el talón hacia atrás y sube el pie (comprobado: muslo -25°
+#     con rodilla -45° deja el pie a +155 mm; con +45° lo deja a +19 mm, porque hiperextiende en vez de doblar).
+#   · el pie se mantiene paralelo al suelo restando la suma de la cadena: los tres huesos de la pierna giran sobre X.
+# Durante el APOYO el muslo se calcula por arcoseno para que el pie retroceda a velocidad uniforme: el gate G-02 mide
+# justo esa dispersión, y una interpolación suave del ángulo produce un retroceso que acelera y frena (patinaje).
+# `frames` fija la cadencia y con ella la velocidad implícita del clip, que G-04 compara contra la velocidad del
+# dato (Vigía patrulla 0.7 m/s, Custodio 0.6, Archivista se aproxima a 1.6). Se ajusta aquí y en ningún otro sitio.
+WALK_PRESETS = {
+    "BOT-01_Vigia":      dict(frames=36, stride_deg=22, leg_reach=0.99, clearance=0.14,
+                              arm_swing=15, spine_pitch=6, spine_sway=4, head_yaw=6, head_lag=0.18),
+    "BOT-02_Custodio":   dict(frames=64, stride_deg=20, leg_reach=0.99, clearance=0.11,
+                              arm_swing=12, spine_pitch=4, spine_sway=3, head_yaw=4, head_lag=0.22),
+    "BOT-03_Archivista": dict(frames=42, stride_deg=26, leg_reach=0.99, clearance=0.13,
+                              arm_swing=10, spine_pitch=5, spine_sway=3, head_yaw=3, head_lag=0.25),
+}
+
+
+def _bump(u, peak, height):
+    """Campana suave: vale 0 en u=0 y u=1, y `height` en u=`peak`."""
+    if u <= 0.0 or u >= 1.0 or height == 0.0:
+        return 0.0
+    x = u / (2.0 * peak) if u < peak else 0.5 + (u - peak) / (2.0 * (1.0 - peak))
+    return height * math.sin(math.pi * x)
+
+
+def walk_cycle(arm_obj, name, frames, stride_deg=22.0, leg_reach=0.99, clearance=0.12,
+               arm_swing=14.0, spine_pitch=5.0, spine_sway=4.0,
+               head_yaw=5.0, head_lag=0.2, keys=None, fps=30, extra=None):
+    """Ciclo de marcha in-place para el rig estándar (root/pelvis/spine/head + thigh/shin/foot por lado).
+
+    No se escriben ángulos de muslo y rodilla: se escribe la TRAYECTORIA DEL PIE y la pierna se resuelve por
+    cinemática inversa de dos eslabones. Escribir los ángulos a mano falla por un motivo geométrico que no se ve
+    hasta medirlo: con la rodilla a medio flexionar la tibia queda casi vertical y la pierna ALCANZA MÁS ABAJO que
+    en la pose de contacto, así que el pie en vuelo toca el suelo antes de terminar el paso y se arrastra hacia
+    delante hasta el contacto (medido: 216 mm de avance con el pie ya apoyado, y 169 mm después de retrasar la
+    extensión de la rodilla). Con la trayectoria impuesta el problema desaparece por construcción.
+
+    Modelo:
+      · APOYO — la pierna de apoyo es un puntal rígido de longitud `leg_reach`·(muslo+tibia) que gira sobre el pie.
+        El ángulo se calcula por arcoseno para que el pie retroceda a velocidad EXACTAMENTE uniforme (es lo que
+        mide G-02), y el balanceo de la cadera sale solo, como consecuencia del giro del puntal.
+      · VUELO — la cadera está a la altura que le impone la pierna contraria, así que la altura del pie sobre el
+        suelo se puede imponer: sube `clearance` a media zancada y vuelve a cero justo en el contacto. En los dos
+        extremos la trayectoria coincide con la del apoyo, así que el ciclo empalma sin salto.
+    La altura absoluta del cuerpo NO se keyea aquí: la resuelve `foot_lock` midiendo el pie de apoyo.
+    """
+    z0 = (0.0, 0.0, 0.0)
+    # Una clave por frame. Con menos claves las poses caen en frames desigualmente espaciados (36 frames en 16
+    # claves dan huecos de 2 y de 3) y el muslo avanza a ritmos distintos aunque el ángulo esté bien calculado:
+    # medido, hasta un 50 % de variación en la velocidad del pie apoyado por pura rejilla de claves.
+    keys = keys if keys else max(2, frames - 1)
+    bones = arm_obj.data.bones
+    a = bones["thigh_L"].length
+    b = bones["shin_L"].length
+    reach = leg_reach * (a + b)          # longitud del puntal de apoyo
+    lift_m = clearance * (a + b)         # despeje del pie a media zancada
+    sin_s = math.sin(math.radians(stride_deg))
+
+    def ik(y, d):
+        """(muslo, tibia) en grados para poner el tobillo en (adelante=y, bajada=d) respecto de la cadera."""
+        r = math.hypot(y, d)
+        r = min(r, (a + b) * 0.999)
+        cos_knee = max(-1.0, min(1.0, (r * r - a * a - b * b) / (2.0 * a * b)))
+        shin = -math.acos(cos_knee)                       # negativa: el talón va hacia atrás (signo medido)
+        leg_angle = math.atan2(y, d)
+        offset = math.atan2(b * math.sin(shin), a + b * math.cos(shin))
+        return math.degrees(leg_angle - offset), math.degrees(shin)
+
+    def leg(p):
+        """(muslo, tibia) en grados para la fase p de esa pierna: [0, 0.5) apoyo, [0.5, 1) vuelo."""
+        p %= 1.0
+        if p < 0.5:
+            u = p / 0.5
+            sin_a = sin_s * (1.0 - 2.0 * u)               # lineal en u => retroceso uniforme del pie
+            ang = math.asin(sin_a)
+            return ik(reach * sin_a, reach * math.cos(ang))
+        u = (p - 0.5) / 0.5
+        hip_drop = reach * math.cos(math.asin(sin_s * (1.0 - 2.0 * u)))   # altura que impone la pierna contraria
+        eased = 0.5 - 0.5 * math.cos(math.pi * u)                        # llega al contacto frenando
+        return ik(reach * sin_s * (-1.0 + 2.0 * eased), hip_drop - _bump(u, 0.45, lift_m))
+
+    poses = {}
+    for i in range(keys + 1):
+        t = i / float(keys)
+        f = 1 + int(round(t * (frames - 1)))
+        th_l, sh_l = leg(t)
+        th_r, sh_r = leg(t + 0.5)
+        bones = {
+            "thigh_L": ((th_l, 0, 0), z0), "shin_L": ((sh_l, 0, 0), z0),
+            "thigh_R": ((th_r, 0, 0), z0), "shin_R": ((sh_r, 0, 0), z0),
+            "foot_L": ((-(th_l + sh_l), 0, 0), z0), "foot_R": ((-(th_r + sh_r), 0, 0), z0),
+            # los brazos van a contrafase de la pierna del mismo lado (t=0 es el contacto de la pierna izquierda)
+            "upperarm_L": ((-arm_swing * math.cos(2 * math.pi * t), 0, 0), z0),
+            "upperarm_R": ((arm_swing * math.cos(2 * math.pi * t), 0, 0), z0),
+            "spine": ((spine_pitch, 0, spine_sway * math.cos(2 * math.pi * t)), z0),
+        }
+        if head_yaw and "head" in arm_obj.pose.bones:
+            bones["head"] = ((-spine_pitch * 0.5, 0, head_yaw * math.cos(2 * math.pi * (t - head_lag))), z0)
+        poses[f] = bones
+    for t, extra_bones in (extra or {}).items():
+        poses.setdefault(1 + int(round(t * (frames - 1))), {}).update(extra_bones)
+
+    act = action(arm_obj, name, frames, fps=fps, poses=poses, loop=True)
+    # El muslo marca el retroceso del pie apoyado. Con handles Bézier ese retroceso acelera y frena entre poses y el
+    # pie patina; en el muslo la interpolación tiene que ser lineal para que G-02 mida un deslizamiento uniforme.
+    for fc in _fcurves(act):
+        if "thigh_" in fc.data_path and fc.data_path.endswith("rotation_euler") and fc.array_index == 0:
+            for kp in fc.keyframe_points:
+                kp.interpolation = 'LINEAR'
+    return act
+
+
+def _names(seq):
+    """Acepta indistintamente objetos de Blender o sus nombres.
+
+    `foot_lock` y `ground_clamp` filtraban por nombre y, al pasarles objetos, no encontraban nada y devolvían una
+    lista vacía SIN AVISAR: el clip quedaba sin corregir y el gate posterior medía otra cosa. Un no-op silencioso en
+    un paso de corrección es peor que un error, porque se reporta como hecho.
+    """
+    return [s if isinstance(s, str) else getattr(s, "name", str(s)) for s in (seq or [])]
+
+
 def ground_clamp(arm_obj, meshes, actions=None, root_bone="root", floor=0.0, report=None):
     """49.8: ningún frame puede hundir la malla bajo el suelo.
 
@@ -532,10 +664,13 @@ def ground_clamp(arm_obj, meshes, actions=None, root_bone="root", floor=0.0, rep
     try: up_local = basis.inverted() @ Vector((0.0, 0.0, 1.0))
     except ValueError: up_local = Vector((0.0, 1.0, 0.0))
 
-    tracks = [(t.name, s.action) for t in ad.nla_tracks for s in t.strips if s.action]
+    tracks = [(s.action.name, s.action) for t in ad.nla_tracks for s in t.strips if s.action]
+    wanted = _names(actions)
     out = []
+    for missing in [w for w in wanted if w not in [n for n, _ in tracks]]:
+        out.append((missing, "SIN PISTA NLA"))
     for name, act in tracks:
-        if actions and name not in actions: continue
+        if wanted and name not in wanted: continue
         ad.action = act
         f0, f1 = int(act.frame_range[0]), int(act.frame_range[1])
         worst = 1e9
@@ -564,6 +699,84 @@ def ground_clamp(arm_obj, meshes, actions=None, root_bone="root", floor=0.0, rep
     return out
 
 
+def foot_lock(arm_obj, meshes, feet, actions, root_bone="root", floor=0.0, max_lift=0.25):
+    """49.8: el pie de apoyo toca el suelo en todo el ciclo, en vez de flotar.
+
+    Los ciclos procedurales mantienen la pelvis a altura constante mientras las piernas rotan, así que cuando la
+    pierna se flexiona el pie se despega (medido: sólo el 52 % de los frames del Custodio tenían algún pie apoyado,
+    contra el 85 % exigido). Aquí no se inventa un balanceo: para cada frame se mide cuál es el pie más bajo y se
+    baja el raíz exactamente lo necesario para que toque. El bob vertical natural sale solo de esa corrección.
+    """
+    if arm_obj is None or arm_obj.animation_data is None: return []
+    ad = arm_obj.animation_data
+    saved_action, saved_nla = ad.action, ad.use_nla
+    ad.use_nla = False
+    pb = arm_obj.pose.bones.get(root_bone)
+    if pb is None: ad.action, ad.use_nla = saved_action, saved_nla; return []
+    basis = (arm_obj.matrix_world @ pb.bone.matrix_local).to_3x3()
+    try: up_local = basis.inverted() @ Vector((0.0, 0.0, 1.0))
+    except ValueError: up_local = Vector((0.0, 1.0, 0.0))
+    feet_names = _names(feet)
+    foot_objs = [o for o in meshes if o.name in feet_names]
+    if not foot_objs:
+        ad.action, ad.use_nla = saved_action, saved_nla
+        raise ValueError("foot_lock: ninguna malla de la escena coincide con %s" % feet_names)
+
+    def reset_pose():
+        # Si un clip no keyea el raíz, `pb.location` conserva el valor que dejó el clip anterior (p. ej. el descenso
+        # del clip de muerte) y se estaría midiendo una pose heredada. Hay que partir de identidad.
+        for b in arm_obj.pose.bones:
+            b.location = (0.0, 0.0, 0.0); b.rotation_euler = (0.0, 0.0, 0.0)
+            b.rotation_quaternion = (1.0, 0.0, 0.0, 0.0); b.scale = (1.0, 1.0, 1.0)
+        bpy.context.view_layer.update()
+
+    out = []
+    for name in _names(actions):
+        act = bpy.data.actions.get(name)
+        if act is None:
+            out.append((name, "SIN ACCION"))
+            continue
+        # partir de cero: se elimina cualquier curva de traslación del raíz previa en este clip para no acumular
+        for fc in list(_fcurves(act)):
+            if fc.data_path.endswith("location") and root_bone in fc.data_path:
+                try: act.fcurves.remove(fc)
+                except Exception:
+                    for layer in act.layers:
+                        for strip in layer.strips:
+                            for cb in strip.channelbags:
+                                if fc in list(cb.fcurves): cb.fcurves.remove(fc)
+        reset_pose()
+        ad.action = act
+        f0, f1 = int(act.frame_range[0]), int(act.frame_range[1])
+        plan = []
+        for f in range(f0, f1 + 1):
+            bpy.context.scene.frame_set(f)
+            dg = bpy.context.evaluated_depsgraph_get()
+            lowest = 1e9
+            for o in foot_objs:
+                ev = o.evaluated_get(dg); me = ev.to_mesh()
+                if me.vertices:
+                    mw = ev.matrix_world
+                    lowest = min(lowest, min((mw @ v.co).z for v in me.vertices))
+                ev.to_mesh_clear()
+            if lowest > 1e8: continue
+            delta = floor - lowest
+            if abs(delta) > max_lift:
+                out.append((name, "CLAMP", round(delta, 4)))   # no callar un recorte: delataría un rig mal escalado
+                delta = math.copysign(max_lift, delta)
+            plan.append((f, pb.location.copy() + up_local * delta, delta))
+        # segunda pasada: escribir las claves ya calculadas (escribirlas mientras se mide falsearía la medición)
+        for f, loc, _ in plan:
+            bpy.context.scene.frame_set(f)
+            pb.location = loc
+            pb.keyframe_insert("location", frame=f)
+        rng = [d for _, _, d in plan]
+        out.append((name, round(min(rng), 4), round(max(rng), 4)))
+    ad.action, ad.use_nla = saved_action, saved_nla
+    bpy.context.scene.frame_set(1)
+    return out
+
+
 def push_nla(arm_obj, act):
     """Cada clip a una pista NLA (export FBX: 'All Actions' → clips separados con nombre)."""
     ad = arm_obj.animation_data
@@ -573,9 +786,27 @@ def push_nla(arm_obj, act):
 
 
 # ---------- export / evidencia ----------
+def enable_nla(armature_obj):
+    """Deja el stack NLA activo y sin pistas silenciadas, que es como tiene que quedar un asset con clips."""
+    ad = getattr(armature_obj, "animation_data", None)
+    if ad is None:
+        return False
+    ad.action = None            # la acción activa se sumaría encima de cada tira al exportar
+    ad.use_nla = True
+    for t in ad.nla_tracks:
+        t.mute = False
+    return True
+
+
 def export_fbx(objs, asset_id, armature_obj=None, bake_anim=True):
     sel = list(objs) + ([armature_obj] if armature_obj else [])
     path = f"{FBX_DIR}/{asset_id}.fbx"
+    # El exportador saca un clip por tira NLA, pero las EVALÚA a través del stack. Si `use_nla` está apagado —y lo
+    # apagan el medidor de contactos, ground_clamp y foot_lock para poder leer un clip aislado— cada take sale con
+    # el nombre y la duración correctos y con la POSE DE REPOSO repetida en todos los frames. Medido en Unity:
+    # 36 claves por curva y CERO curvas que cambien de valor, es decir enemigos que no animan aunque el .blend sí.
+    if bake_anim and armature_obj is not None:
+        enable_nla(armature_obj)
     with ctx(objs[0], sel): bpy.ops.export_scene.fbx(filepath=path, use_selection=True, apply_unit_scale=True, apply_scale_options='FBX_SCALE_ALL',
                              axis_forward='-Z', axis_up='Y', object_types={'MESH', 'ARMATURE'}, add_leaf_bones=False,
                              bake_space_transform=True, mesh_smooth_type='FACE', use_mesh_modifiers=True,

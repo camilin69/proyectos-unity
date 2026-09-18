@@ -506,13 +506,7 @@ for bone, names in binding.items():
     for n in names: L.bind_rigid(P[n], arm, bone)
 
 Z = (0, 0, 0)
-L.push_nla(arm, L.action(arm, "Custodio_Idle", 100, poses={1: {"head": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}, 50: {"head": ((3, 0, -5), Z), "spine": ((1.5, 0, 0), Z), "hand_R": ((6, 0, 0), Z)}, 100: {"head": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z), "hand_R": ((0, 0, 0), Z)}}))
-L.push_nla(arm, L.action(arm, "Custodio_Walk", 48, poses={
-    1: {"thigh_L": ((-22, 0, 0), Z), "thigh_R": ((22, 0, 0), Z), "shin_L": ((28, 0, 0), Z), "shin_R": ((0, 0, 0), Z), "spine": ((4, 0, -3), Z), "head": ((-2, 0, 4), Z), "upperarm_L": ((12, 0, 0), Z), "upperarm_R": ((-12, 0, 0), Z), "root": ((0, 0, 0), (0, 0, 0))},
-    12: {"root": ((0, 0, 0), (0, 0, 0.02))},
-    24: {"thigh_L": ((22, 0, 0), Z), "thigh_R": ((-22, 0, 0), Z), "shin_L": ((0, 0, 0), Z), "shin_R": ((28, 0, 0), Z), "spine": ((4, 0, 3), Z), "head": ((-2, 0, -3), Z), "upperarm_L": ((-12, 0, 0), Z), "upperarm_R": ((12, 0, 0), Z), "root": ((0, 0, 0), (0, 0, 0))},
-    36: {"root": ((0, 0, 0), (0, 0, 0.02))},
-    48: {"thigh_L": ((-22, 0, 0), Z), "thigh_R": ((22, 0, 0), Z), "shin_L": ((28, 0, 0), Z), "shin_R": ((0, 0, 0), Z), "spine": ((4, 0, -3), Z), "head": ((-2, 0, 4), Z), "upperarm_L": ((12, 0, 0), Z), "upperarm_R": ((-12, 0, 0), Z), "root": ((0, 0, 0), (0, 0, 0))}}))
+L.push_nla(arm, L.walk_cycle(arm, "Custodio_Walk", **L.WALK_PRESETS[ASSET]))
 # aviso de rayo 1.0 s (60.3): brazo levantado, chispas breves, sin deslizar
 L.push_nla(arm, L.action(arm, "Custodio_Anticipation", 30, loop=False, poses={1: {"upperarm_R": ((0, 0, 0), Z), "forearm_R": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z)}, 10: {"upperarm_R": ((-60, 0, -15), Z), "forearm_R": ((-35, 0, 0), Z), "spine": ((-4, 0, -6), Z)}, 30: {"upperarm_R": ((-90, 0, -10), Z), "forearm_R": ((-10, 0, 0), Z), "spine": ((-6, 0, -8), Z), "head": ((4, 0, 0), Z)}}))
 L.push_nla(arm, L.action(arm, "Custodio_Bolt", 48, loop=False, poses={1: {"upperarm_R": ((-90, 0, -10), Z), "forearm_R": ((-10, 0, 0), Z), "spine": ((-6, 0, -8), Z)}, 4: {"upperarm_R": ((-80, 0, -6), Z), "spine": ((3, 0, -4), Z)}, 48: {"upperarm_R": ((0, 0, 0), Z), "forearm_R": ((0, 0, 0), Z), "spine": ((0, 0, 0), Z), "head": ((0, 0, 0), Z)}}))

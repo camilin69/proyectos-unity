@@ -16,6 +16,13 @@
 #                               clips y escala", así que se compara contra patrolSpeed y se emite el factor.
 #   G-05 rigidez de bisagra   : en clips de apertura (tapa, puerta, jaula) la distancia de cada vértice móvil al
 #                               eje declarado debe mantenerse constante (giro real, no estiramiento).
+#   G-06 despeje del pie      : cada pie debe levantarse >= 30 mm del suelo una vez por ciclo. Sin este número, un
+#                               ciclo que interpola entre dos poses opuestas pasa el resto de gates arrastrando los
+#                               pies: el pie en vuelo cruza la vertical, que es donde queda MÁS BAJO. Medido antes
+#                               de corregirlo: 7.3 mm en el Vigía y 7.9 mm en el Custodio.
+#
+# Cuidado con el recorrido: en un ciclo in-place el último frame vuelve al primero, así que la distancia del primer
+# al último frame del apoyo es CERO y no mide nada. El recorrido real es la separación máxima entre dos muestras.
 #
 # Salida: SourceArt/_evidence/EX-08/contacts_<ASSET>.json  + una línea por gate con PASA/FALLA.
 import bpy, json, os, math
@@ -29,6 +36,7 @@ GROUND_TOL = -0.002        # 2 mm de penetración tolerada
 PLANT_Z = 0.020            # un pie por debajo de 2 cm cuenta como apoyado
 SLIDE_TOL = 0.020          # 2 cm de deslizamiento máximo durante el apoyo
 CONTACT_RATIO = 0.85       # fracción mínima de frames del ciclo con algún pie apoyado
+FOOT_CLEARANCE = 0.030     # el pie en vuelo tiene que levantar al menos 3 cm una vez por ciclo
 FOOT_HINTS = ("foot", "boot", "sole", "pie", "toe", "pad_")
 MOVING_HINTS = ("lid", "leaf", "door", "gate", "hatch", "tapa", "hoja")
 
@@ -80,7 +88,8 @@ def measure(asset_id, patrol_speed=None, fps=30):
     meshes = _meshes()
     clips = _clips(arm)
     rep = {"asset": asset_id, "fps": fps, "clips": [], "gates": [], "thresholds": {
-        "ground_tol_m": GROUND_TOL, "plant_z_m": PLANT_Z, "slide_tol_m": SLIDE_TOL, "contact_ratio": CONTACT_RATIO}}
+        "ground_tol_m": GROUND_TOL, "plant_z_m": PLANT_Z, "slide_tol_m": SLIDE_TOL,
+        "contact_ratio": CONTACT_RATIO, "foot_clearance_m": FOOT_CLEARANCE}}
     if not clips:
         rep["gates"].append({"id": "G-00", "estado": "N/A", "detalle": "el asset no tiene clips"})
         _save(asset_id, rep)
@@ -140,35 +149,61 @@ def measure(asset_id, patrol_speed=None, fps=30):
              "min_z_m": round(min(min_z_frames), 5), "feet": {}}
 
         # --- apoyo, deslizamiento y zancada por pie ---
+        # El pie de APOYO es el que soporta el peso, es decir el más bajo de los dos. No basta con "está a menos de
+        # 2 cm del suelo": el pie en vuelo cruza esa banda al despegar y al aterrizar, y esos frames, en los que
+        # avanza en vez de retroceder, entran en la misma tirada y disparan la dispersión de velocidad a más del
+        # 100 % aunque el retroceso real sea uniforme. La fracción de contacto (G-03) sí usa el umbral, porque ahí
+        # la pregunta es otra: si el bot toca el suelo.
         planted_any = 0
+        lowest_of = []
+        for i in range(n):
+            zs = [s[i][0] for s in per_foot.values() if i < len(s)]
+            lowest_of.append(min(zs) if zs else 0.0)
         for fname, samples in per_foot.items():
             planted = [i for i, (z, _) in enumerate(samples) if z <= PLANT_Z]
-            runs = []
-            if planted:
-                start = planted[0]; prev = planted[0]
-                for i in planted[1:] + [None]:
-                    if i is None or i != prev + 1:
-                        runs.append((start, prev)); start = i if i is not None else start
-                    if i is not None: prev = i
-            slide = 0.0; stride = 0.0; stance_s = 0.0; jitter = 0.0; bob = 0.0
-            for a, b in runs:
-                pts = [samples[i][1] for i in range(a, b + 1)]
-                zs = [samples[i][0] for i in range(a, b + 1)]
+            # El ciclo es cerrado: el último frame repite el primero. Sin tratarlo como circular, el apoyo que cruza
+            # el cierre del bucle se parte en dos tiradas, la corta mide un retroceso ridículo y la dispersión sale
+            # por encima del 100 % aunque el pie avance de forma perfectamente uniforme.
+            loops = len(samples) > 3 and (samples[0][1] - samples[-1][1]).length < 1e-4
+            seq = samples[:-1] if loops else samples
+            m = len(seq)
+            stance = [i for i in range(m) if seq[i][0] <= PLANT_Z and seq[i][0] <= lowest_of[i] + 0.001]
+            stance_set = set(stance)
+            runs, cur = [], []
+            for i in range(m):
+                if i in stance_set:
+                    cur.append(i)
+                elif cur:
+                    runs.append(cur); cur = []
+            if cur: runs.append(cur)
+            if loops and len(runs) > 1 and runs[0][0] == 0 and runs[-1][-1] == m - 1:
+                runs[0] = runs.pop() + runs[0]        # la tirada del final y la del principio son el mismo apoyo
+            lateral = 0.0; stride = 0.0; stance_s = 0.0; jitter = 0.0; bob = 0.0
+            for run in runs:
+                pts = [seq[i][1] for i in run]
+                zs = [seq[i][0] for i in run]
                 if len(pts) < 3:
                     continue
-                span = max((p - q).length for p in pts for q in pts)
-                slide = max(slide, span)
-                stride = max(stride, (pts[-1] - pts[0]).length)
-                stance_s = max(stance_s, (b - a + 1) / fps)
+                # recorrido = separación máxima entre dos muestras del apoyo. NO (último - primero): el ciclo cierra.
+                p0, p1 = max(((p, q) for p in pts for q in pts), key=lambda pq: (pq[0] - pq[1]).length)
+                span = (p0 - p1).length
+                stride = max(stride, span)
+                if span > 1e-5:
+                    d = (p0 - p1) / span
+                    lateral = max(lateral, max(((p - p1) - d * (p - p1).dot(d)).length for p in pts))
+                stance_s = max(stance_s, len(run) / fps)
                 bob = max(bob, max(zs) - min(zs))
                 # uniformidad del retroceso: desviación relativa de la velocidad horizontal entre frames del apoyo
                 step = [(pts[i + 1] - pts[i]).length for i in range(len(pts) - 1)]
                 mean = sum(step) / len(step)
                 if mean > 1e-5:
                     jitter = max(jitter, max(abs(s - mean) for s in step) / mean)
-            c["feet"][fname] = {"planted_frames": len(planted), "slide_m": round(slide, 4),
+            clearance = max((z for z, _ in samples), default=0.0)
+            c["feet"][fname] = {"planted_frames": len(planted), "stance_frames": len(stance),
+                                "lateral_slip_m": round(lateral, 4),
                                 "stride_m": round(stride, 4), "stance_s": round(stance_s, 3),
-                                "speed_jitter": round(jitter, 3), "bob_while_planted_m": round(bob, 4)}
+                                "speed_jitter": round(jitter, 3), "bob_while_planted_m": round(bob, 4),
+                                "clearance_m": round(clearance, 4)}
         if feet:
             for i in range(n):
                 if any(i < len(s) and s[i][0] <= PLANT_Z for s in per_foot.values()):
@@ -232,6 +267,18 @@ def measure(asset_id, patrol_speed=None, fps=30):
                      f"fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción")
             else:
                 gate("G-04", True, f"velocidad implícita del clip {v:.2f} m/s (sin velocidad de dato para comparar)")
+        # G-06: cada pie tiene que despegar una vez por ciclo, o el bot arrastra los pies aunque los demás gates pasen
+        per_foot_clear = {}
+        for c in loco:
+            for fname, f in c["feet"].items():
+                per_foot_clear[fname] = max(per_foot_clear.get(fname, 0.0), f.get("clearance_m", 0.0))
+        if per_foot_clear:
+            worst_name = min(per_foot_clear, key=per_foot_clear.get)
+            worst_clear = per_foot_clear[worst_name]
+            rep["foot_clearance_m"] = {k: round(v, 4) for k, v in per_foot_clear.items()}
+            gate("G-06", worst_clear >= FOOT_CLEARANCE,
+                 f"despeje mínimo del pie en vuelo {worst_clear*1000:.1f} mm ({worst_name}); mínimo "
+                 f"{FOOT_CLEARANCE*1000:.0f} mm — por debajo el pie roza el suelo en toda la pasada")
     elif not feet:
         rep["gates"].append({"id": "G-02", "estado": "N/A", "detalle": "el asset no tiene piezas de pie identificables"})
 

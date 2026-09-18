@@ -10,47 +10,26 @@
    "feet": {
     "foot_L": {
      "planted_frames": 100,
-     "slide_m": 0.0,
+     "stance_frames": 99,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 3.333,
+     "stance_s": 3.3,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 100,
-     "slide_m": 0.0,
+     "stance_frames": 99,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 3.333,
+     "stance_s": 3.3,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
-  },
-  {
-   "clip": "Custodio_Walk",
-   "frames": 48,
-   "seconds": 1.6,
-   "min_z_m": -0.0,
-   "feet": {
-    "foot_L": {
-     "planted_frames": 23,
-     "slide_m": 0.3247,
-     "stride_m": 0.3247,
-     "stance_s": 0.4,
-     "speed_jitter": 0.234,
-     "bob_while_planted_m": 0.0172
-    },
-    "foot_R": {
-     "planted_frames": 23,
-     "slide_m": 0.3247,
-     "stride_m": 0.3247,
-     "stance_s": 0.4,
-     "speed_jitter": 0.234,
-     "bob_while_planted_m": 0.0172
-    }
-   },
-   "contact_ratio": 0.521
   },
   {
    "clip": "Custodio_Anticipation",
@@ -60,19 +39,23 @@
    "feet": {
     "foot_L": {
      "planted_frames": 30,
-     "slide_m": 0.0,
+     "stance_frames": 29,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.0,
+     "stance_s": 0.967,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 30,
-     "slide_m": 0.0,
+     "stance_frames": 29,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.0,
+     "stance_s": 0.967,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
@@ -85,19 +68,23 @@
    "feet": {
     "foot_L": {
      "planted_frames": 48,
-     "slide_m": 0.0,
+     "stance_frames": 47,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.6,
+     "stance_s": 1.567,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 48,
-     "slide_m": 0.0,
+     "stance_frames": 47,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 1.6,
+     "stance_s": 1.567,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
@@ -110,19 +97,23 @@
    "feet": {
     "foot_L": {
      "planted_frames": 9,
-     "slide_m": 0.0,
+     "stance_frames": 8,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 0.3,
+     "stance_s": 0.267,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     },
     "foot_R": {
      "planted_frames": 9,
-     "slide_m": 0.0,
+     "stance_frames": 8,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
-     "stance_s": 0.3,
+     "stance_s": 0.267,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": -0.0
     }
    },
    "contact_ratio": 1.0
@@ -135,51 +126,90 @@
    "feet": {
     "foot_L": {
      "planted_frames": 0,
-     "slide_m": 0.0,
+     "stance_frames": 0,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
      "stance_s": 0.0,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 1.3032
     },
     "foot_R": {
      "planted_frames": 0,
-     "slide_m": 0.0,
+     "stance_frames": 0,
+     "lateral_slip_m": 0.0,
      "stride_m": 0.0,
      "stance_s": 0.0,
      "speed_jitter": 0.0,
-     "bob_while_planted_m": 0.0
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 0.5996
     }
    },
    "contact_ratio": 0.0
+  },
+  {
+   "clip": "Custodio_Walk",
+   "frames": 64,
+   "seconds": 2.133,
+   "min_z_m": -0.0,
+   "feet": {
+    "foot_L": {
+     "planted_frames": 37,
+     "stance_frames": 32,
+     "lateral_slip_m": 0.0,
+     "stride_m": 0.6531,
+     "stance_s": 1.067,
+     "speed_jitter": 0.0,
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 0.1078
+    },
+    "foot_R": {
+     "planted_frames": 36,
+     "stance_frames": 32,
+     "lateral_slip_m": 0.0,
+     "stride_m": 0.6531,
+     "stance_s": 1.067,
+     "speed_jitter": 0.0,
+     "bob_while_planted_m": 0.0,
+     "clearance_m": 0.1078
+    }
+   },
+   "contact_ratio": 1.0
   }
  ],
  "gates": [
   {
    "id": "G-01",
    "estado": "PASA",
-   "detalle": "penetración máxima -0.0 mm en Custodio_Stagger f9 (foot_L); tolerancia -2 mm"
+   "detalle": "penetración máxima -0.0 mm en Custodio_Walk f62 (foot_R); tolerancia -2 mm"
   },
   {
    "id": "G-02",
    "estado": "PASA",
-   "detalle": "retroceso del pie apoyado: dispersión de velocidad 23 % (máx 35 %), rebote vertical 17.2 mm (máx 20 mm)"
+   "detalle": "retroceso del pie apoyado: dispersión de velocidad 0 % (máx 35 %), rebote vertical 0.0 mm (máx 20 mm)"
   },
   {
    "id": "G-03",
-   "estado": "FALLA",
-   "detalle": "fracción de frames con algún pie apoyado 0.52; mínimo 0.85"
+   "estado": "PASA",
+   "detalle": "fracción de frames con algún pie apoyado 1.00; mínimo 0.85"
   },
   {
    "id": "G-04",
-   "estado": "FALLA",
-   "detalle": "velocidad implícita del clip 0.81 m/s contra patrulla 0.60 m/s (factor 1.35); fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción"
+   "estado": "PASA",
+   "detalle": "velocidad implícita del clip 0.61 m/s contra patrulla 0.60 m/s (factor 1.02); fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción"
+  },
+  {
+   "id": "G-06",
+   "estado": "PASA",
+   "detalle": "despeje mínimo del pie en vuelo 107.8 mm (foot_L); mínimo 30 mm — por debajo el pie roza el suelo en toda la pasada"
   }
  ],
  "thresholds": {
   "ground_tol_m": -0.002,
   "plant_z_m": 0.02,
   "slide_tol_m": 0.02,
-  "contact_ratio": 0.85
+  "contact_ratio": 0.85,
+  "foot_clearance_m": 0.03
  },
  "foot_objects": [
   "foot_L",
@@ -187,6 +217,10 @@
  ],
  "moving_objects": [],
  "rest_min_z_m": -0.0,
- "clip_stride_speed_mps": 0.812,
- "stride_vs_patrol": 1.353
+ "clip_stride_speed_mps": 0.612,
+ "stride_vs_patrol": 1.02,
+ "foot_clearance_m": {
+  "foot_L": 0.1078,
+  "foot_R": 0.1078
+ }
 }
