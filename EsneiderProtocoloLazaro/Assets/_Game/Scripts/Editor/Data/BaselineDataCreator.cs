@@ -42,14 +42,15 @@ namespace Esneider.EditorTools
             catalog.weapons.Clear();
             var crowbar = Asset<WeaponDefinition>("Weapon_Crowbar");
             crowbar.id = "WPN-01"; crowbar.gddSource = "11/60/103.1"; crowbar.kind = WeaponKind.Melee;
-            crowbar.damage = 20; crowbar.pellets = 1; crowbar.range = 2.0f; crowbar.attackCycle = 0.85f; crowbar.activeStart = 0.20f; crowbar.activeEnd = 0.35f; crowbar.noiseRadius = 12;
+            crowbar.damage = 20; crowbar.pellets = 1; crowbar.range = 1.6f; crowbar.attackCycle = 0.85f; crowbar.activeStart = 0.20f; crowbar.activeEnd = 0.35f; crowbar.noiseRadius = 12;
             var pistol = Asset<WeaponDefinition>("Weapon_Pistol");
             pistol.id = "WPN-02"; pistol.gddSource = "11/68/80/86/103.1"; pistol.kind = WeaponKind.Pistol;
-            pistol.damage = 30; pistol.pellets = 1; pistol.range = 40f; pistol.magazineSize = 12; pistol.reserveMax = 80; pistol.pickupLoaded = 10; pistol.pickupReserve = 10;
+            pistol.damage = 30; pistol.pellets = 1; pistol.range = 18f; pistol.magazineSize = 12; pistol.reserveMax = 80; pistol.pickupLoaded = 10; pistol.pickupReserve = 10;
             pistol.attackCycle = 0.35f; pistol.activeStart = 0f; pistol.activeEnd = 0.05f; pistol.reloadDuration = 1.9f; pistol.reloadCommit = 1.35f; pistol.noiseRadius = 28;
             var shotgun = Asset<WeaponDefinition>("Weapon_Shotgun");
             shotgun.id = "WPN-03"; shotgun.gddSource = "11/68/80/86/103.1"; shotgun.kind = WeaponKind.Shotgun;
-            shotgun.damage = 7.5f; shotgun.pellets = 8; shotgun.range = 14f; shotgun.magazineSize = 6; shotgun.reserveMax = 36; shotgun.pickupLoaded = 5; shotgun.pickupReserve = 5;
+            // daño completo ≤ 6 m, caída hasta 12 m (11)
+            shotgun.damage = 7.5f; shotgun.pellets = 8; shotgun.range = 12f; shotgun.magazineSize = 6; shotgun.reserveMax = 36; shotgun.pickupLoaded = 5; shotgun.pickupReserve = 5;
             shotgun.attackCycle = 1.1f; shotgun.activeStart = 0f; shotgun.activeEnd = 0.05f; shotgun.pumpDuration = 0.65f;
             shotgun.shellEnter = 0.35f; shotgun.shellInsert = 0.6f; shotgun.shellInsertCommit = 0.4f; shotgun.shellExit = 0.3f; shotgun.noiseRadius = 36;
             catalog.weapons.AddRange(new[] { crowbar, pistol, shotgun });
@@ -206,7 +207,7 @@ namespace Esneider.EditorTools
                 sb.AppendLine($"| {w.name} | daño {w.damage}×{w.pellets}; cargador {w.magazineSize}+{w.reserveMax}; pickup {w.pickupLoaded}+{w.pickupReserve}; ciclo {w.attackCycle}s; recarga {w.reloadDuration}/{w.reloadCommit}s; ruido {w.noiseRadius} m | {w.gddSource} |");
             foreach (var e in c.enemies)
                 sb.AppendLine($"| {e.name} | HP {e.maxHp}; vel {e.patrolSpeed}/{e.chaseSpeed}; rango {e.attackRangeMin}–{e.attackRangeMax}; aviso {e.telegraph}s; rec {e.recovery}s; cd {e.cooldown}s; daño {e.attackDamage}; visión {e.visionRangeLit}m{e.visionAngleLit}°/{e.visionRangeAlert}m{e.visionAngleAlert}° | {e.gddSource} |");
-            sb.AppendLine($"| Boss | HP {c.boss.maxHp}; fases {c.boss.phase2Threshold}/{c.boss.phase3Threshold}; ataques {string.Join(", ", c.boss.attacks.Select(a => $"{a.id} {a.damage} ({a.telegraph}/{a.recovery}s)"))} | {c.boss.gddSource} |");
+            sb.AppendLine($"| Boss | HP {c.boss.maxHp}; fases {c.boss.phase2Threshold}/{c.boss.phase3Threshold}; ataques {string.Join(", ", (c.boss.attacks ?? new List<BossAttackDefinition>()).Select(a => $"{a.id} {a.damage} ({a.telegraph}/{a.recovery}s)"))} | {c.boss.gddSource} |");
             sb.AppendLine($"| Superficies | {string.Join(", ", c.surfaces.Select(s => $"{s.id} {s.staticFriction}/{s.dynamicFriction} ×{s.footstepNoiseMultiplier}"))} | 96 |");
             sb.AppendLine($"| Regiones | {c.regions.Count} ({c.regions.Count(x => x.kind == RegionKind.Sector)} salas + {c.regions.Count(x => x.kind == RegionKind.Connector)} conectores) | 68/88 |");
             sb.AppendLine($"| Checkpoints | {string.Join(", ", c.checkpoints.Select(x => x.id))} | 68.9 |");

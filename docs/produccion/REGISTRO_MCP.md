@@ -27,6 +27,28 @@ Formato: ID · etapa · servidor/herramienta real · operación · archivos afec
 | OP-0020 | EX-01 | unityMCP · execute_code (NavMesh) | Primera pasada: 6 tramos parciales en puertas frontera; causa: banda del conector se extendía 2.25 m + muro detrás del plano de puerta. Corregido en `BuildConnector` (clamp al plano de puerta) | `BlockoutBuilder.cs` | 24/24 tramos completos; CP-00→VICTORY 419 m; ruta de objetivos 760 m | verificado |
 | OP-0021 | EX-01 | unityMCP · execute_code (cámara temporal → PNG 1280×720) | 9 capturas: vista general, P01–P06, STA-01, interior C-01 y S1-R01 | `SourceArt/_evidence/EX-01/*.png` | evidencia | verificado |
 
+| OP-0022 | EX-02 | Write (26 scripts) + asmdefs | Núcleo: `GameFlowController` (estados 20.1 + línea de consola 25), `Health` (AttackID + invulnerabilidad 0.65 s), `ActionTransaction` (Begin/Commit/Cancel/Complete 86.6), `NoiseSystem` (78.1, puerta 35%). Jugador: `PlayerInput` (mapa 9 en código), `PlayerMotor` (CharacterController, agachado con techo, resistencia 100/22/18, empuje limitado), `PlayerLook`, `Inventory` (18/11.1), `PlayerActions` (equipar/ataque/recargas 86.3-86.4/curas 10), `PlayerController` (captura ≤2.5 s, derrota, reinicio). Combate: `Projectile` (barrido, pool). IA: `EnemyPerception` (78.1), `EnemyBrain` (FSM 78.2), `EncounterDirector` (2 slots, 0.65 s). Mundo: `Pickup` parcial, `Door`, `PhysicsImpactLogger`, `SandboxFactory`, `RuntimeNavMeshBaker`. UI: `HudController` (placeholder uGUI) | `Assets/_Game/Scripts/**`, `Esneider.Runtime/Editor/Tests.*.asmdef` | 0 errores CS | verificado |
+| OP-0023 | EX-02 | diagnóstico | Assets de definiciones perdían `m_Script` ("No script asset for GameDataCatalog"): Unity exige un archivo por clase con el mismo nombre. `Definitions.cs` e `Interactables.cs` repartidos en archivos propios; assets regenerados (GUIDs nuevos; prefabs reconstruidos) | `Scripts/Core/Data/*.cs`, `Scripts/World/*.cs` | catálogo carga boss con 4 ataques | verificado |
+| OP-0024 | EX-02 | unityMCP · execute_code → `SandboxBuilder.Build()` | Escena `Combat_Sandbox` 12×12 m con pilar, carriles goma/mojado (Physic Material), caja Rigidbody 20 kg con colisión por código, 8 pickups, Esneider (cápsula 1.75/0.3, cámara FOV 75, linterna Light), Vigía 1.25 m y Custodio 2.15 m placeholder con NavMeshAgent; prefabs `Player_Esneider`, `Vigia_Placeholder`, `Custodio_Placeholder`; matriz de colisión 20.3 aplicada; escena en Build Settings | `Scenes/Combat_Sandbox.unity`, `Prefabs/**` | ok | verificado |
+| OP-0025 | EX-02 | unityMCP · run_tests (EditMode) | 13 pruebas de contrato: commits únicos, cancelación antes/después, AttackID, invulnerabilidad, 90→60→30→0, 3/6 golpes, 5/20→12/13, 2/10→4/8, recogida parcial, arma con 10+10 | `Tests/EditMode/CoreContractTests.cs` | 13/13 | verificado |
+| OP-0026 | EX-02 | `TestRunnerBridge` (TestRunnerApi → archivo) | `run_tests` de MCP quedaba huérfano al entrar en Play Mode (domain reload mata el puente stdio). Runner propio escribe `docs/produccion/evidencia/tests_*.md` | `Scripts/Editor/Tests/TestRunnerBridge.cs` | resultados en disco | verificado |
+| OP-0027 | EX-02 | TestRunnerBridge (PlayMode) | QA-01 (3/6 golpes reales con varilla), QA-02 (tres rayos), QA-03 (red bloqueada por pilar), QA-04 (captura → derrota ≤2.5 s), QA-06 (recarga cancelada antes/después de 1.35 s), QA-08 (cura a vida llena / cancelación), pistola bloqueada por cobertura + escopeta 8×7.5 sumados una vez, IA: sospecha acumulada→telegraph→una emisión→captura→DERROTA_RED; pérdida de visión→búsqueda en última posición vista | `Tests/PlayMode/*.cs`, `evidencia/tests_PlayMode.md` | 9/9 | verificado |
+| OP-0028 | EX-02 | corrección | `EnemyBrain.Chase` copiaba la posición actual del jugador con percepción de hasta 0.1 s (omnisciencia); ahora solo `EnemyPerception.Sense` fija `lastKnownPosition` al ver | `EnemyBrain.cs` | test de búsqueda pasa | verificado |
+| OP-0029 | EX-02 | unity-cli eval (Play Mode) | Sandbox jugado en editor: capturas de Game View y estados de bots | `SourceArt/_evidence/EX-02/*.png` | evidencia | ejecutado |
+
+## Gate EX-02
+
+| Requisito 101.1 | Estado | Evidencia |
+|---|---|---|
+| Movimiento, armas, dos bots, telegraphs, inventario, interacción, ActionID | Pasa | OP-0022/0024 |
+| Tres/seis golpes | Pasa | QA-01 Play Mode + HealthTests |
+| Tres rayos | Pasa | QA-02 + HealthTests (90→60→30→0 con invulnerabilidad 0.65 s) |
+| Captura acotada | Pasa | QA-04 y test IA (≤2.5 s, DERROTA_RED) |
+| Cancelaciones coherentes | Pasa | QA-06/QA-08 + ActionTransactionTests |
+| Sin arte masivo | Cumple | cápsulas/cubos placeholder declarados |
+
+Decisión de gate: **Pasa**. Pendientes registrados: HUD en uGUI provisional (migrar a UI Toolkit en EX-07); animaciones/clips ausentes (EX-04); velocidades del jugador de la sección 9 aplicadas (3/5/1.5 m/s) como VAL; `PlayerInDarkness` es un flag global hasta los volúmenes de visibilidad (EX-05/06); oclusión acústica por portales básica (raycast + puerta 35%).
+
 ## Gate EX-01
 
 | Requisito 101.1 | Estado | Evidencia |

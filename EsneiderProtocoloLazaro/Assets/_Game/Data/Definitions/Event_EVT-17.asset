@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4c3bc6ed16ae1d74e8a4b8428dc16f53, type: 3}
   m_Name: Event_EVT-17
-  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:EventDefinition
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.Core.Data.EventDefinition
   id: EVT-17
   gddSource: 93
   roomId: S3-R05

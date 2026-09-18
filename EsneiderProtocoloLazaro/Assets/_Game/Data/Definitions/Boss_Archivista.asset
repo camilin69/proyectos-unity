@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9673c42d20814fc4099ce1ad22825fec, type: 3}
   m_Name: Boss_Archivista
-  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:BossDefinition
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.Core.Data.BossDefinition
   id: BOT-03
   gddSource: 15/61/79/103.1
   maxHp: 1200

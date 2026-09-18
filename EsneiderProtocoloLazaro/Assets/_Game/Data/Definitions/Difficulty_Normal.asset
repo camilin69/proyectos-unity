@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f1b472f353f2098439ace5b940c90ee0, type: 3}
   m_Name: Difficulty_Normal
-  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:DifficultyDefinition
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.Core.Data.DifficultyDefinition
   id: DIF-NORMAL
   gddSource: 80.3/103.1
   presetName: Normal

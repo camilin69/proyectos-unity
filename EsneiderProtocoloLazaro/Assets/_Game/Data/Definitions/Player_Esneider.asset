@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 780ae291172838f439dc318661433a7f, type: 3}
   m_Name: Player_Esneider
-  m_EditorClassIdentifier: Assembly-CSharp:Esneider.Core.Data:PlayerDefinition
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.Core.Data.PlayerDefinition
   id: CHR-01
   gddSource: "10/103.1 (velocidades: VAL secci\xF3n 9)"
   maxHp: 90
   invulnerabilitySeconds: 0.65
-  capsuleHeight: 1.8
-  capsuleRadius: 0.35
-  crouchHeight: 1.2
-  walkSpeed: 3.2
-  runSpeed: 5.2
-  crouchSpeed: 1.6
+  capsuleHeight: 1.75
+  capsuleRadius: 0.3
+  crouchHeight: 1.1
+  walkSpeed: 3
+  runSpeed: 5
+  crouchSpeed: 1.5
   syringeHeal: 45
   syringeDuration: 1.6
   syringeCommit: 1.1
