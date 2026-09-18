@@ -55,6 +55,7 @@ namespace Esneider.EditorTools
                 BuildVolume(plan, region, floors, connectors, root.transform);
                 var vol = root.transform.Find("Volume_" + region);
                 if (vol != null) { var ra = vol.gameObject.AddComponent<Audio.RegionAudio>(); ra.regionId = region; ra.ambienceBank = "SND-AMBI-" + region.Replace("REG-", ""); ra.reverb = region.StartsWith("REG-C") ? AudioReverbPreset.Hangar : region == "REG-S3" ? AudioReverbPreset.Room : region == "REG-S4" ? AudioReverbPreset.Auditorium : AudioReverbPreset.StoneCorridor; }
+                BuildExteriorDressing(plan, region, root.transform, root.transform.Find("Entities"));
                 summary.Add("hero: " + string.Join(",", hero));
                 BakeNavMesh(root, region);
 
@@ -182,6 +183,74 @@ namespace Esneider.EditorTools
                 var bc = go.AddComponent<BoxCollider>(); bc.size = new Vector3(4f, 3f, 6f); go.AddComponent<VictoryTrigger>(); n++;
             }
             return n;
+        }
+
+        // ---------- ENV-EXIT: vestido del mirador de escape (97.1/97.2/97.4, 61.4) ----------
+        // La geometría estructural (fachada, parapeto, ladera) la pone BlockoutBuilder; aquí van placa, siluetas,
+        // sol de amanecer y el control de ambiente que ejecuta END-01/END-02.
+        static void BuildExteriorDressing(LevelPlan plan, string region, Transform root, Transform ents)
+        {
+            if (region != "REG-S4" || plan.exterior == null) return;
+            var f = plan.Floor(plan.exterior.space); if (f == null) return;
+            var o = f.origin.ToVector3();
+            var ex = plan.exterior;
+            var env = new GameObject("ENV-EXIT_Dressing").transform; env.SetParent(root);
+
+            GameObject Box(string name, Vector3 center, Vector3 size, Material m, float yaw = 0f, int layer = -1)
+            {
+                var g = GameObject.CreatePrimitive(PrimitiveType.Cube); g.name = name; g.transform.SetParent(env);
+                g.transform.position = center; g.transform.localScale = size; g.transform.rotation = Quaternion.Euler(0, yaw, 0);
+                g.GetComponent<MeshRenderer>().sharedMaterial = m; g.layer = layer < 0 ? GameLayers.WorldStatic : layer; g.isStatic = true;
+                return g;
+            }
+
+            var matPlate = BlockoutMat("Exit_Plate", new Color(0.62f, 0.60f, 0.55f));
+            var matTower = BlockoutMat("Exit_TowerSilhouette", new Color(0.28f, 0.30f, 0.33f));
+            var matPost = BlockoutMat("Exit_Post", new Color(0.33f, 0.34f, 0.32f));
+
+            // 97.2 END-04: placa junto al parapeto. Se descubre mirando; la victoria no exige leerla.
+            float pz = BlockoutBuilder.ExtWalkMaxZ;                       // parapeto norte
+            var plateCenter = o + new Vector3(76f, 1.05f, pz + 0.05f);
+            Box("Exit_PlatePost_L", plateCenter + new Vector3(-0.62f, -0.35f, 0), new Vector3(0.07f, 0.9f, 0.07f), matPost);
+            Box("Exit_PlatePost_R", plateCenter + new Vector3(0.62f, -0.35f, 0), new Vector3(0.07f, 0.9f, 0.07f), matPost);
+            var plate = Box("Exit_Plate", plateCenter, new Vector3(1.45f, 0.42f, 0.04f), matPlate);
+            var txt = new GameObject("Exit_PlateText"); txt.transform.SetParent(plate.transform, false);
+            txt.transform.localPosition = new Vector3(0, 0, -0.55f);
+            txt.transform.localRotation = Quaternion.Euler(0, 180f, 0);
+            txt.transform.localScale = new Vector3(1f / 1.45f, 1f / 0.42f, 1f) * 0.06f;
+            var tm = txt.AddComponent<TextMesh>();
+            tm.text = "NÉMESIS\nRESERVA BIOLÓGICA 04\nCONTINUIDAD OPERATIVA";
+            tm.characterSize = 0.1f; tm.fontSize = 72; tm.anchor = TextAnchor.MiddleCenter; tm.alignment = TextAlignment.Center;
+            tm.color = new Color(0.12f, 0.12f, 0.11f);
+
+            // 97.1: siluetas de torre y estructura lejana = composición, no ciudad explorable. Fuera del parapeto.
+            Box("Tower_A", o + new Vector3(ex.x + ex.w + 34f, 6f, ex.z - 10f), new Vector3(7f, 26f, 7f), matTower, 12f);
+            Box("Tower_A_cap", o + new Vector3(ex.x + ex.w + 34f, 19.4f, ex.z - 10f), new Vector3(9f, 1.2f, 9f), matTower, 12f);
+            Box("Tower_B", o + new Vector3(ex.x + ex.w + 52f, 2.5f, ex.z + ex.d + 14f), new Vector3(10f, 19f, 8f), matTower, -8f);
+            Box("Ridge_Far", o + new Vector3(ex.x + ex.w + 44f, -3.5f, ex.z + ex.d / 2f), new Vector3(40f, 7f, 90f), matTower, 0f);
+
+            // 87.1: la salida final debe ser físicamente visible tras el jefe → señal EVACUACIÓN sobre la compuerta
+            var sign = Box("Sign_EVACUACION", o + new Vector3(f.w + 0.55f, 5.4f, 12f), new Vector3(0.12f, 0.5f, 2.6f), matPlate);
+            var stm = new GameObject("Sign_Text"); stm.transform.SetParent(sign.transform, false);
+            stm.transform.localPosition = new Vector3(-0.7f, 0, 0); stm.transform.localRotation = Quaternion.Euler(0, -90f, 0);
+            stm.transform.localScale = new Vector3(1f / 0.12f, 1f / 0.5f, 1f) * 0.02f;
+            var stt = stm.AddComponent<TextMesh>();
+            stt.text = "EVACUACIÓN →"; stt.characterSize = 0.1f; stt.fontSize = 64; stt.anchor = TextAnchor.MiddleCenter; stt.color = new Color(0.9f, 0.75f, 0.2f);
+
+            // Sol de amanecer propio del exterior: arranca apagado y sube al salir (ExteriorAmbience lo controla).
+            var sunGo = new GameObject("Sun_Exterior"); sunGo.transform.SetParent(env);
+            sunGo.transform.rotation = Quaternion.Euler(14f, 205f, 0f);      // bajo y rasante: amanecer, no mediodía
+            var sun = sunGo.AddComponent<Light>();
+            sun.type = LightType.Directional; sun.color = new Color(0.78f, 0.80f, 0.84f); sun.intensity = 0f;
+            sun.shadows = LightShadows.None; sun.lightmapBakeType = LightmapBakeType.Realtime;
+
+            // Control de ambiente (END-01/02): volumen del patio transitable.
+            var ctrl = new GameObject("ExteriorAmbience"); ctrl.transform.SetParent(env);
+            ctrl.transform.position = o + new Vector3((f.w + BlockoutBuilder.ExtWalkMaxX) / 2f, 1.5f, (BlockoutBuilder.ExtWalkMinZ + BlockoutBuilder.ExtWalkMaxZ) / 2f);
+            var amb = ctrl.AddComponent<ExteriorAmbience>();
+            amb.area = new Bounds(ctrl.transform.position, new Vector3(BlockoutBuilder.ExtWalkMaxX - f.w + 2f, 8f, BlockoutBuilder.ExtWalkMaxZ - BlockoutBuilder.ExtWalkMinZ + 2f));
+            amb.sunLight = sun;
+            amb.interiorReverb = root.GetComponentInChildren<AudioReverbZone>();
         }
 
         // 42.3/16: luminaria técnica por sala (fría, tenue), emergencia ámbar junto a puertas, luz lateral escasa en corredores. Sin sombras dinámicas (71.3).

@@ -19,6 +19,19 @@ namespace Esneider.Player
         public Vector3 armsOffset = new Vector3(0f, -0.32f, 0.28f);
         public Vector3 weaponOffset = new Vector3(0.2f, -0.27f, 0.52f);
         public Vector3 flashlightOffset = new Vector3(-0.22f, -0.25f, 0.35f);
+
+        // 63/64 y PIL-14: el arma va SUJETA a la mano, no colgada de la cámara. Si cuelga de la cámara, al animar el
+        // brazo la mano se separa del mango y el contrato "palma, pulgar y dedos sostienen el grip" es imposible.
+        [Header("Agarre (64: el arma sigue a la mano)")]
+        public string rightSocket = "hand_R", leftSocket = "hand_L";
+        public bool attachToHand = true;
+        // Punto de agarre de cada arma en su espacio local (Unity), derivado del modelo de Blender.
+        public Vector3 crowbarGrip = new Vector3(0f, 0f, 0.20f);
+        public Vector3 pistolGrip = new Vector3(0f, -0.062f, 0.042f);
+        public Vector3 shotgunGrip = new Vector3(0f, -0.06f, 0.09f);
+        public Vector3 flashlightGrip = new Vector3(0f, 0f, 0f);
+        // Desplazamiento de la palma respecto al origen del hueso de la mano.
+        public Vector3 palmOffset = new Vector3(0f, -0.01f, 0.035f);
         public float bobAmplitude = 0.008f; // head bob leve y desactivable (9)
         public bool bobEnabled = true;
 
@@ -47,7 +60,30 @@ namespace Esneider.Player
                     var o = AnimationPlayableOutput.Create(_graph, "vm", _animator); o.SetSourcePlayable(_mixer); _graph.Play(); Play("Arms_Idle", true);
                 }
             }
-            if (flashlightPrefab != null) { _flash = Instantiate(flashlightPrefab, cameraPivot); _flash.name = "FlashlightModel"; _flash.transform.localPosition = flashlightOffset; _flash.transform.localRotation = Quaternion.identity; foreach (var c in _flash.GetComponentsInChildren<Collider>()) Destroy(c); _flash.SetActive(false); }
+            if (flashlightPrefab != null)
+            {
+                var lsock = FindSocket(leftSocket);
+                _flash = Instantiate(flashlightPrefab, lsock != null ? lsock : cameraPivot); _flash.name = "FlashlightModel";
+                if (lsock != null) Place(_flash.transform, flashlightGrip, Quaternion.Euler(0f, 0f, 0f));
+                else { _flash.transform.localPosition = flashlightOffset; _flash.transform.localRotation = Quaternion.identity; }
+                foreach (var c in _flash.GetComponentsInChildren<Collider>()) Destroy(c);
+                _flash.SetActive(false);
+            }
+        }
+
+        // Busca el hueso del rig de los brazos por nombre (el FBX conserva los nombres de la armadura de Blender).
+        Transform FindSocket(string bone)
+        {
+            if (!attachToHand || _arms == null || string.IsNullOrEmpty(bone)) return null;
+            foreach (var t in _arms.GetComponentsInChildren<Transform>(true)) if (t.name == bone) return t;
+            return null;
+        }
+
+        // Coloca el objeto de modo que su punto de agarre caiga en la palma del hueso.
+        void Place(Transform t, Vector3 gripLocal, Quaternion rot)
+        {
+            t.localRotation = rot;
+            t.localPosition = palmOffset - (rot * gripLocal);
         }
 
         void OnDestroy() { if (_graph.IsValid()) _graph.Destroy(); }
@@ -94,8 +130,15 @@ namespace Esneider.Player
             _weapon = null;
             var prefab = kind == WeaponKind.Melee ? crowbarPrefab : kind == WeaponKind.Pistol ? pistolPrefab : kind == WeaponKind.Shotgun ? shotgunPrefab : null;
             if (prefab == null) return;
-            _weapon = Instantiate(prefab, cameraPivot); _weapon.name = "Weapon_" + kind; _weapon.transform.localPosition = weaponOffset;
-            _weapon.transform.localRotation = kind == WeaponKind.Melee ? Quaternion.Euler(-60f, 10f, 0f) : Quaternion.identity;
+            var socket = FindSocket(rightSocket);
+            _weapon = Instantiate(prefab, socket != null ? socket : cameraPivot); _weapon.name = "Weapon_" + kind;
+            var rot = kind == WeaponKind.Melee ? Quaternion.Euler(-60f, 10f, 0f) : Quaternion.identity;
+            if (socket != null)
+            {
+                var grip = kind == WeaponKind.Melee ? crowbarGrip : kind == WeaponKind.Pistol ? pistolGrip : shotgunGrip;
+                Place(_weapon.transform, grip, rot);
+            }
+            else { _weapon.transform.localPosition = weaponOffset; _weapon.transform.localRotation = rot; }
             foreach (var c in _weapon.GetComponentsInChildren<Collider>()) Destroy(c);
             foreach (var t in _weapon.GetComponentsInChildren<Transform>()) t.gameObject.layer = gameObject.layer;
         }

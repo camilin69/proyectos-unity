@@ -73,7 +73,10 @@ namespace Esneider.EditorTools
             foreach (var r in plan.rooms.Where(x => x.floor == f.id)) grid.Fill(r.x, r.z, r.x + r.w, r.z + r.d, C.Free);
             foreach (var c in plan.circulation.Where(x => x.floor == f.id)) grid.Fill(c.x, c.z, c.x + c.w, c.z + c.d, C.Free);
             foreach (var s in plan.stairs.Where(x => x.lowerFloor == f.id || x.upperFloor == f.id)) grid.Fill(s.x, s.z, s.x + s.w, s.z + s.d, C.Free);
-            if (ext != null) grid.Fill(ext.x, ext.z, ext.x + ext.w, ext.z + ext.d, C.Free);
+            // 97.4: el patio empieza DESPUÉS de la envolvente. Rellenarlo desde ext.x borraría la banda de fachada
+            // (x = f.w … f.w+env) a lo largo de todo el exterior y dejaría un hueco de 20 m en vez del vano de 5 m de
+            // D29-EXT, con el interior del vestíbulo a la vista desde fuera. El vano lo abre el paso 4 (vanos de puerta).
+            if (ext != null) grid.Fill(Mathf.Max(ext.x, f.w + env), ext.z, ext.x + ext.w, ext.z + ext.d, C.Free);
 
             // 3) muros de habitación (0.2 m hacia fuera) vuelven a ser sólidos aunque toquen circulación
             foreach (var r in plan.rooms.Where(x => x.floor == f.id))
@@ -129,6 +132,58 @@ namespace Esneider.EditorTools
             // Pilares de arena
             foreach (var p in plan.pillars.Where(x => x.space == f.id))
                 MakeBox(geo, p.id, _matPillar, new Box(p.x - p.size / 2, p.z - p.size / 2, p.x + p.size / 2, p.z + p.size / 2), 0, f.height);
+
+            if (ext != null) BuildExterior(plan, f, ext, geo, stats);
+        }
+
+        // ---------- exterior ENV-EXIT (97.1): mirador de escape, no quinta zona de combate ----------
+        // Ruta transitable x 70–86 / z 6–18 con barrera de seguridad FUERA del paso; terreno de fondo no navegable;
+        // siluetas lejanas como composición (no ciudad explorable). Nada aquí debe ser atravesable ni dejar caer al jugador.
+        internal const float ExtWalkMinZ = 6f, ExtWalkMaxZ = 18f, ExtWalkMaxX = 86f;
+        internal const float ParapetHeight = 1.15f, ParapetThick = 0.35f;
+
+        static void BuildExterior(LevelPlan plan, PlanFloor f, PlanExterior ext, Transform geo, Dictionary<string, int> stats)
+        {
+            var root = new GameObject("ENV-EXIT").transform; root.SetParent(geo, false);
+            int n = 0;
+            // 97.1 "metal húmedo" y ladera: hormigón sucio para el parapeto, tierra apagada para los bancales.
+            // _matExterior (verdoso) se reservaba para la losa del patio y no sirve para un muro.
+            var matParapet = Mat("Blockout_ExteriorWall", new Color(0.40f, 0.41f, 0.40f));
+            var matSlope = Mat("Blockout_ExteriorSlope", new Color(0.33f, 0.32f, 0.28f));
+            void Box3(string name, Material m, float x0, float z0, float x1, float z1, float y0, float y1)
+            { MakeBox(root, name, m, new Box(x0, z0, x1, z1), y0, y1); n++; }
+
+            float env = plan.envelopeWallThickness;
+            float x0 = f.w + env;                       // 70.4: cara exterior de la fachada
+            float xEnd = ext.x + ext.w, zEnd = ext.z + ext.d;
+
+            // Visera sobre la compuerta: da sombra al umbral y remata la fachada (61.4 "la luz exterior es más amplia").
+            Box3("Exit_Visor", _matSolid, x0, ExtWalkMinZ + 2f, x0 + 1.6f, ExtWalkMaxZ - 2f, f.height - 0.4f, f.height);
+
+            // Parapeto en U alrededor del paso: sur, norte y este. Deja abierta la cara oeste (la fachada).
+            Box3("Parapet_S", matParapet, x0, ExtWalkMinZ - ParapetThick, ExtWalkMaxX + ParapetThick, ExtWalkMinZ, 0, ParapetHeight);
+            Box3("Parapet_N", matParapet, x0, ExtWalkMaxZ, ExtWalkMaxX + ParapetThick, ExtWalkMaxZ + ParapetThick, 0, ParapetHeight);
+            Box3("Parapet_E", matParapet, ExtWalkMaxX, ExtWalkMinZ - ParapetThick, ExtWalkMaxX + ParapetThick, ExtWalkMaxZ + ParapetThick, 0, ParapetHeight);
+            // Pasamanos: banda superior más clara, legible contra el cielo
+            Box3("Rail_S", _matStairs, x0, ExtWalkMinZ - ParapetThick, ExtWalkMaxX + ParapetThick, ExtWalkMinZ, ParapetHeight, ParapetHeight + 0.09f);
+            Box3("Rail_N", _matStairs, x0, ExtWalkMaxZ, ExtWalkMaxX + ParapetThick, ExtWalkMaxZ + ParapetThick, ParapetHeight, ParapetHeight + 0.09f);
+            Box3("Rail_E", _matStairs, ExtWalkMaxX, ExtWalkMinZ - ParapetThick, ExtWalkMaxX + ParapetThick, ExtWalkMaxZ + ParapetThick, ParapetHeight, ParapetHeight + 0.09f);
+
+            // Ladera: el búnker está incrustado en pendiente (97.1 pide documentar el corte, no fingir profundidad).
+            // Bancales descendentes al norte y al sur del paso, fuera del parapeto y sin NavMesh (capa WorldStatic pero
+            // separados del suelo transitable por el parapeto).
+            for (int i = 0; i < 4; i++)
+            {
+                float t = i / 3f, y = -0.6f - i * 1.1f, w = 2.5f + i * 1.2f;
+                Box3($"Slope_S{i}", matSlope, x0, ext.z - w, xEnd + w, ExtWalkMinZ - ParapetThick - i * 1.4f, y, y + 1.2f);
+                Box3($"Slope_N{i}", matSlope, x0, ExtWalkMaxZ + ParapetThick + i * 1.4f, xEnd + w, zEnd + w, y, y + 1.2f);
+                Box3($"Slope_E{i}", matSlope, ExtWalkMaxX + ParapetThick + i * 1.6f, ext.z - w, xEnd + w + i * 2f, zEnd + w, y, y + 1.2f);
+                t += 0f;
+            }
+            // Fondo de terreno lejano: plano bajo que cierra el horizonte sin ser explorable.
+            Box3("Terrain_Far", matSlope, x0, ext.z - 26f, xEnd + 30f, zEnd + 26f, -6.2f, -5.6f);
+
+            stats["exterior_" + f.id] = n;
         }
 
         static void DoorRect(PlanDoor d, out float x0, out float z0, out float x1, out float z1)

@@ -78,11 +78,10 @@ namespace Esneider.EditorTools
                         var go = Place(P("OBJ-029_Carro"), f.id + "_OBJ-029", world, f.yaw, root, f.physics ? GameLayers.DynamicProp : GameLayers.WorldStatic);
                         if (f.physics)
                         {
-                            foreach (var c in go.GetComponentsInChildren<Collider>()) Object.DestroyImmediate(c);
-                            var bc = go.AddComponent<BoxCollider>(); bc.center = new Vector3(0, 0.45f, 0); bc.size = new Vector3(1.0f, 0.9f, 0.6f);
-                            var rb = go.AddComponent<Rigidbody>(); rb.mass = 24f; rb.centerOfMass = new Vector3(0, 0.15f, 0); rb.linearDamping = 0.4f; rb.angularDamping = 1.5f; rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-                            go.AddComponent<PhysicsImpactLogger>();
-                            SandboxFactory.Persist(go, f.id, region, Core.Persistence.EntityKind.Movable);
+                            // 96: M026 rueda en el taller sobre carril de goma; M035 en el patio, sobre suelo mojado.
+                            // La diferencia de recorrido entre ambas superficies es el requisito de Physic Material del taller (25).
+                            var catalog = AssetDatabase.LoadAssetAtPath<GameDataCatalog>(SandboxBuilder.CatalogPath);
+                            CartFactory.Make(go, f.id, region, f.id == "M035" ? "SUR-WET" : "SUR-RUB", catalog);
                         }
                         placed.Add(f.id + ":OBJ-029"); break;
                     }

@@ -9,8 +9,10 @@ ARM_NAME = globals().get("ARM_NAME", "Armature_Vigia")
 CLIPS = globals().get("CLIPS", [])
 HEIGHT = globals().get("HEIGHT", 0)
 DO_BAKE = globals().get("DO_BAKE", True)
-MAPS = globals().get("MAPS", ["Metallic", "Normal"])
+MAPS = globals().get("MAPS", ["BaseColor", "Roughness", "Metallic", "Normal"])
 SIZE = globals().get("SIZE", 1024)
+# Bevel/Pointiness/AO se resuelven por muestreo: con 6 muestras el AO sale granulado (41.1 exige mapas limpios).
+SAMPLES = globals().get("SAMPLES", 48)
 log = []
 arm = bpy.data.objects.get(ARM_NAME)
 objs = [o for o in bpy.context.scene.objects if o.type == 'MESH']
@@ -22,7 +24,7 @@ if DO_BAKE:
         log.append("uv atlas ERR " + traceback.format_exc()[-800:])
     for m in MAPS:
         try:
-            tex.update(L.bake_pbr(objs, ASSET, size=SIZE, samples=6, only=[m]))
+            tex.update(L.bake_pbr(objs, ASSET, size=SIZE, samples=SAMPLES, only=[m]))
             log.append("bake %s ok" % m)
         except Exception:
             log.append("bake %s ERR %s" % (m, traceback.format_exc()[-1200:]))

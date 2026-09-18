@@ -218,6 +218,9 @@ MonoBehaviour:
   stamina: 100
   SpeedFactor: 1
   movementEnabled: 1
+  pushSpeedMax: 2
+  pushAngularMax: 3
+  pushForceNewtons: 420
 --- !u!114 &706397184217571392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,5 +475,13 @@ MonoBehaviour:
   armsOffset: {x: 0, y: -0.32, z: 0.28}
   weaponOffset: {x: 0.2, y: -0.27, z: 0.52}
   flashlightOffset: {x: -0.22, y: -0.25, z: 0.35}
+  rightSocket: hand_R
+  leftSocket: hand_L
+  attachToHand: 1
+  crowbarGrip: {x: 0, y: 0, z: 0.2}
+  pistolGrip: {x: 0, y: -0.062, z: 0.042}
+  shotgunGrip: {x: 0, y: -0.06, z: 0.09}
+  flashlightGrip: {x: 0, y: 0, z: 0}
+  palmOffset: {x: 0, y: -0.01, z: 0.035}
   bobAmplitude: 0.008
   bobEnabled: 1

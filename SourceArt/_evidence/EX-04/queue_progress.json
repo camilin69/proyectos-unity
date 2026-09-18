@@ -1,24 +1,9 @@
 {
  "done": [
-  "BOT-01_Vigia",
-  "BOT-02_Custodio",
-  "BOT-03_Archivista",
-  "CHR-01_Arms",
-  "WPN-01_Crowbar",
   "WPN-02_Pistol",
-  "WPN-03_Shotgun",
-  "WPN-04_Flashlight",
-  "PRP-Syringe",
-  "PRP-Ration",
-  "OBJ-001_Criocamara",
-  "OBJ-041_Jaula",
-  "OBJ-070_PuertaCorrediza",
-  "OBJ-059_Terminal",
-  "OBJ-043_Camilla",
-  "OBJ-029_Carro"
+  "WPN-03_Shotgun"
  ],
  "failed": [],
- "current": "",
- "started": "03:45:18",
- "finished": "03:56:37"
+ "current": "WPN-01_Crowbar",
+ "started": "14:51:13"
 }

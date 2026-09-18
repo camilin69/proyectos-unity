@@ -13,6 +13,13 @@ namespace Esneider.AI
         public Animator animator;
         public float blend = 0.2f;
         public string prefix = "Vigia";
+        // 49.8 / 77.1: la velocidad implícita del ciclo (zancada ÷ duración del apoyo) medida con
+        // SourceArt/Scripts/measure_contacts.py. Si el agente va más rápido que el clip, el pie patina; reproducir la
+        // locomoción a velocidad = agente / clipStrideSpeed deja el pie pegado al suelo en patrulla y en persecución.
+        public float clipStrideSpeed = 0.52f;
+        public float minPlayback = 0.6f, maxPlayback = 2.6f;
+        public float PlaybackSpeed { get; private set; } = 1f;
+        public float StridePhase { get; private set; }   // 0..1 dentro del ciclo, para el audio de plantado
         PlayableGraph _graph; AnimationMixerPlayable _mixer;
         readonly Dictionary<string, int> _slots = new Dictionary<string, int>();
         readonly List<AnimationClipPlayable> _clips = new List<AnimationClipPlayable>();
@@ -62,11 +69,32 @@ namespace Esneider.AI
                 }
             }
             // parado dentro de estados de locomoción → idle
-            if ((_lastState == EnemyState.Patrol || _lastState == EnemyState.Search || _lastState == EnemyState.Return) && brain.TryGetComponent<UnityEngine.AI.NavMeshAgent>(out var ag) && ag.enabled && ag.isOnNavMesh)
+            bool locomotion = _lastState == EnemyState.Patrol || _lastState == EnemyState.Search || _lastState == EnemyState.Return ||
+                              _lastState == EnemyState.Chase || _lastState == EnemyState.Investigate || _lastState == EnemyState.Executing;
+            if (brain.TryGetComponent<UnityEngine.AI.NavMeshAgent>(out var ag) && ag.enabled && ag.isOnNavMesh)
             {
                 bool moving = ag.velocity.sqrMagnitude > 0.01f;
-                string want = moving ? prefix + "_Walk" : prefix + "_Idle";
-                if (_slots.TryGetValue(want, out var idx) && idx != _current) Play(want, true);
+                if (_lastState == EnemyState.Patrol || _lastState == EnemyState.Search || _lastState == EnemyState.Return)
+                {
+                    string want = moving ? prefix + "_Walk" : prefix + "_Idle";
+                    if (_slots.TryGetValue(want, out var idx) && idx != _current) Play(want, true);
+                }
+                // velocidad de reproducción del ciclo = velocidad real / velocidad implícita del clip
+                float target = 1f;
+                if (locomotion && moving && clipStrideSpeed > 0.01f)
+                    target = Mathf.Clamp(ag.velocity.magnitude / clipStrideSpeed, minPlayback, maxPlayback);
+                PlaybackSpeed = Mathf.MoveTowards(PlaybackSpeed, target, 4f * Time.deltaTime);
+                if (_current >= 0)
+                {
+                    bool isLoco = _current == Slot(prefix + "_Walk");
+                    _clips[_current].SetSpeed(isLoco ? PlaybackSpeed : 1.0);
+                    if (isLoco)
+                    {
+                        var clip = _clips[_current].GetAnimationClip();
+                        if (clip != null && clip.length > 0.001f)
+                            StridePhase = Mathf.Repeat((float)(_clips[_current].GetTime() / clip.length), 1f);
+                    }
+                }
             }
             if (_blendT < 1f)
             {
@@ -75,6 +103,8 @@ namespace Esneider.AI
                 if (_previous >= 0 && _previous != _current) _mixer.SetInputWeight(_previous, 1f - _blendT);
             }
         }
+
+        int Slot(string clip) => _slots.TryGetValue(clip, out var i) ? i : -1;
 
         public void Play(string clip, bool loop)
         {

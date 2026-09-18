@@ -1,21 +1,25 @@
 {
   "asset": "WPN-03_Shotgun",
-  "tris": 1848,
-  "parts": 12,
+  "tris": 10952,
+  "parts": 61,
   "dims_m": [
-    0.046,
-    0.942,
-    0.149
+    0.064,
+    0.958,
+    0.163
   ],
   "materials": [
     "M_Brass",
+    "M_PlasticRed",
+    "M_PolymerDark",
+    "M_Rubber",
     "M_SteelBare",
     "M_SteelDark",
+    "M_SteelPaint",
     "M_Wood"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/WPN-03_Shotgun.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/WPN-03_Shotgun.fbx",
-  "fbx_bytes": 91580,
+  "fbx_bytes": 445260,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-03_Shotgun_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-03_Shotgun_Roughness.png",
@@ -36,7 +40,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 91580",
+    "fbx ok 445260",
     "sheet ok"
   ]
 }

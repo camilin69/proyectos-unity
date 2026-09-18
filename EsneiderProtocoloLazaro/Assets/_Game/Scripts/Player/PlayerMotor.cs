@@ -102,13 +102,49 @@ namespace Esneider.Player
 
         public float EyeHeight => (IsCrouched ? crouchHeight : standHeight) - 0.15f;
 
-        // 20.2: empuje limitado a cuerpos dinámicos desde contactos del controlador.
+        // 20.2/84.3: empuje de cuerpos dinámicos desde contactos del controlador (EVT-10 exige poder llevar el carro
+        // hasta el panel A, así que esto es jugabilidad, no adorno).
+        //
+        // No se aplica un impulso fijo por frame: eso hace que la aceleración del prop dependa del framerate (a 60 fps
+        // el doble de impulsos que a 30). Se controla la VELOCIDAD del prop: se lleva hacia la del jugador, con la
+        // aceleración limitada por una fuerza máxima y por deltaTime, de modo que el resultado en 1 s es el mismo a
+        // cualquier framerate. 84.3 acota lo alcanzable a 2 m/s lineales y 3 rad/s angulares: un prop empujado nunca
+        // se convierte en proyectil.
+        [Header("Empuje de props (20.2/84.3)")]
+        public float pushSpeedMax = 2.0f, pushAngularMax = 3.0f;
+        public float pushForceNewtons = 420f;   // fuerza de una persona empujando; con 24 kg da ~17 m/s² antes de fricción
+
         void OnControllerColliderHit(ControllerColliderHit hit)
         {
             var rb = hit.collider.attachedRigidbody;
             if (rb == null || rb.isKinematic || hit.moveDirection.y < -0.3f) return;
-            var push = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-            rb.AddForceAtPosition(push * Mathf.Min(pushForceMax, 2f + _planar.magnitude), hit.point, ForceMode.Impulse);
+            // La dirección NO puede salir de hit.moveDirection: cuando el jugador queda bloqueado contra el prop, el
+            // controlador apenas se desplaza y ese vector se anula, de modo que el empuje se apagaba justo al apoyarse.
+            // La normal de contacto siempre está definida: -normal apunta del jugador hacia dentro del prop.
+            // Solo se empuja de LADO. Con contacto por arriba o por abajo, la normal tiene gran componente vertical y
+            // el empuje mete el prop contra la cápsula del jugador: el solver resuelve el solape desplazándolo hacia
+            // arriba y el objeto acaba por los aires (84.3 lo prohíbe expresamente).
+            if (Mathf.Abs(hit.normal.y) > 0.5f) return;
+            var push = new Vector3(-hit.normal.x, 0f, -hit.normal.z);
+            if (push.sqrMagnitude < 1e-4f) return;
+            push.Normalize();
+            // solo se empuja hacia donde el jugador realmente quiere ir
+            if (_planar.sqrMagnitude > 1e-4f && Vector3.Dot(_planar.normalized, push) < 0.25f) return;
+
+            float dt = Mathf.Min(Time.deltaTime, 0.05f);
+            float desired = Mathf.Min(Mathf.Max(_planar.magnitude, walkSpeed * 0.6f), pushSpeedMax);
+            float current = Vector3.Dot(rb.linearVelocity, push);
+            if (current >= desired) return;
+            float maxDv = (pushForceNewtons / Mathf.Max(0.5f, rb.mass)) * dt;   // Δv permitido este frame
+            float dv = Mathf.Min(desired - current, maxDv);
+            // Se empuja a la altura del centro de masas, no en el punto exacto del pie: una persona empuja un carro
+            // con las manos, no le da una patada en la base. Aplicarlo abajo genera un par que lo hace girar sobre sí.
+            var at = new Vector3(hit.point.x, rb.worldCenterOfMass.y, hit.point.z);
+            rb.AddForceAtPosition(push * dv * rb.mass, at, ForceMode.Impulse);
+
+            var v = rb.linearVelocity; var planar = new Vector3(v.x, 0f, v.z);
+            if (planar.magnitude > pushSpeedMax) { planar = planar.normalized * pushSpeedMax; rb.linearVelocity = new Vector3(planar.x, v.y, planar.z); }
+            if (rb.angularVelocity.magnitude > pushAngularMax) rb.angularVelocity = rb.angularVelocity.normalized * pushAngularMax;
         }
 
         public void Teleport(Vector3 position, float yaw)

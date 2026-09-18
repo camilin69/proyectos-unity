@@ -133,6 +133,99 @@ def tube(name, points, radius, col=None, verts=10):
     return o
 
 
+# ---------- detalle mecánico (33.1 jerarquía de detalle, 36.4 ingeniería antes de rig, 39.2 coherencia de instalaciones) ----------
+def chamfer(o, width=0.0015, segments=2, angle=45):
+    """Chaflán por ángulo sobre toda la malla: ninguna arista queda viva (33.2).
+    Se aplica como modificador y se consolida, así el bake y el FBX lo llevan incorporado."""
+    m = o.modifiers.new("Chamfer", 'BEVEL')
+    m.width = width; m.segments = segments
+    m.limit_method = 'ANGLE'; m.angle_limit = math.radians(angle)
+    m.miter_outer = 'MITER_ARC'
+    m.use_clamp_overlap = True
+    with ctx(o): bpy.ops.object.modifier_apply(modifier=m.name)
+    return o
+
+
+def bolt(name, radius, loc, col=None, axis='Z', head=None, kind='hex'):
+    """Tornillo/remache con cabeza y ranura: la pieza pequeña que delata fabricación (39.2)."""
+    h = head if head is not None else radius * 0.6
+    segs = 6 if kind == 'hex' else 16
+    bm = bmesh.new(); bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=segs, radius1=radius, radius2=radius * 0.96, depth=h)
+    top = [v for v in bm.verts if v.co.z > h * 0.4]
+    if top: bmesh.ops.bevel(bm, geom=top + [e for e in bm.edges if all(v in top for v in e.verts)], offset=radius * 0.18, segments=1, affect='EDGES')
+    if axis == 'X': bmesh.ops.rotate(bm, cent=(0, 0, 0), matrix=Matrix.Rotation(math.radians(90), 3, 'Y'), verts=bm.verts)
+    elif axis == 'Y': bmesh.ops.rotate(bm, cent=(0, 0, 0), matrix=Matrix.Rotation(math.radians(90), 3, 'X'), verts=bm.verts)
+    o = _new(name, bm, col); o.location = loc
+    return o
+
+
+def bolt_row(name, radius, start, step, count, col=None, axis='Z', mat=None):
+    """Fila de tornillos unida en una sola pieza."""
+    parts = []
+    for i in range(count):
+        p = (start[0] + step[0] * i, start[1] + step[1] * i, start[2] + step[2] * i)
+        b = bolt(f"{name}{i}", radius, p, col, axis=axis)
+        if mat: assign(b, mat)
+        parts.append(b)
+    return join(parts, name) if len(parts) > 1 else parts[0]
+
+
+def vent(name, size, loc, col=None, slats=5, rot=(0, 0, 0), depth=None, mat_frame=None, mat_slat=None):
+    """Rejilla de ventilación: marco hundido + lamas inclinadas. Da sombra propia y rompe la superficie plana."""
+    w, d, h = size
+    dp = depth if depth is not None else d * 0.8
+    parts = []
+    frame = box(f"{name}_frame", (w, d * 0.35, h), (0, 0, 0), col, bevel=min(w, h) * 0.05)
+    if mat_frame: assign(frame, mat_frame)
+    parts.append(frame)
+    step = h / (slats + 1)
+    for i in range(slats):
+        s = box(f"{name}_s{i}", (w * 0.86, dp, step * 0.42), (0, -d * 0.12, -h / 2 + step * (i + 1)), col, rot=(math.radians(28), 0, 0), bevel=step * 0.06)
+        if mat_slat: assign(s, mat_slat)
+        parts.append(s)
+    g = join(parts, name)
+    g.location = loc; g.rotation_euler = rot
+    return g
+
+
+def rib_row(name, length, size, loc, col=None, count=5, axis='Y', rot=(0, 0, 0), mat=None):
+    """Nervios/refuerzos repetidos: lectura de chapa reforzada en vez de caja lisa."""
+    parts = []
+    for i in range(count):
+        t = -length / 2 + length * (i + 0.5) / count
+        off = (0, t, 0) if axis == 'Y' else ((t, 0, 0) if axis == 'X' else (0, 0, t))
+        r = box(f"{name}{i}", size, off, col, bevel=min(size) * 0.3, segs=2)
+        if mat: assign(r, mat)
+        parts.append(r)
+    g = join(parts, name); g.location = loc; g.rotation_euler = rot
+    return g
+
+
+def recess(name, size, loc, col=None, depth=None, rot=(0, 0, 0), mat=None, border=None):
+    """Panel hundido con reborde: junta real que el AO ensombrece (41.3)."""
+    w, d, h = size
+    dp = depth if depth is not None else d * 0.5
+    parts = []
+    b = border if border is not None else min(w, h) * 0.08
+    ring = []
+    for dx, dz, sw, sh in ((0, (h - b) / 2, w, b), (0, -(h - b) / 2, w, b), ((w - b) / 2, 0, b, h - 2 * b), (-(w - b) / 2, 0, b, h - 2 * b)):
+        ring.append(box(f"{name}_b{len(ring)}", (sw, d, sh), (dx, 0, dz), col, bevel=b * 0.25))
+    inner = box(f"{name}_in", (w - 2 * b, d - dp, h - 2 * b), (0, dp / 2, 0), col, bevel=b * 0.2)
+    parts = ring + [inner]
+    if mat:
+        for p in parts: assign(p, mat)
+    g = join(parts, name); g.location = loc; g.rotation_euler = rot
+    return g
+
+
+def panel_seam(name, length, loc, col=None, axis='Y', width=0.004, depth=0.003, mat=None):
+    """Junta entre paneles: tira fina hundida. Barata en triángulos, cara en lectura."""
+    size = (width, length, depth) if axis == 'Y' else ((length, width, depth) if axis == 'X' else (width, depth, length))
+    s = box(name, size, loc, col, bevel=width * 0.3)
+    if mat: assign(s, mat)
+    return s
+
+
 def join(objs, name):
     with ctx(objs[0], objs): bpy.ops.object.join()
     o = objs[0]; o.name = name
@@ -166,8 +259,16 @@ def _principled(mat):
     return next(n for n in mat.node_tree.nodes if n.type == 'BSDF_PRINCIPLED')
 
 
-def material(name, base=(0.5, 0.5, 0.5), rough=0.5, metal=0.0, wear=0.0, wear_color=(0.35, 0.2, 0.12), bump=0.0, scale=8.0, emission=None):
-    """Material con variación de roughness/color por ruido y desgaste en bordes (Pointiness/AO no exportables: se hornea)."""
+def material(name, base=(0.5, 0.5, 0.5), rough=0.5, metal=0.0, wear=0.0, wear_color=(0.35, 0.2, 0.12), bump=0.0, scale=8.0, emission=None,
+             bevel=0.0025, edge_wear=None, edge_color=None, ao=0.85, ao_dist=0.06):
+    """Material PBR de acabado (40/41).
+
+    Además del ruido de superficie, tres capas dependientes de la geometría que SÍ se hornean a los mapas:
+      · Bevel node  → redondea el sombreado de toda arista viva; sin esto un objeto lee como "primitiva pintada" (33.2).
+      · Pointiness  → desgaste por causa (41.3): la pintura se va en las aristas convexas y asoma el metal, no ruido uniforme.
+      · AO          → oscurece cavidades y juntas; se multiplica en BaseColor para dar lectura de volumen.
+    edge_wear: 0..1 intensidad del desgaste de arista (por defecto deriva de `wear`). edge_color: color bajo la pintura.
+    """
     mat = bpy.data.materials.get(name) or bpy.data.materials.new(name)
     mat.use_nodes = True
     nt = mat.node_tree
@@ -178,23 +279,76 @@ def material(name, base=(0.5, 0.5, 0.5), rough=0.5, metal=0.0, wear=0.0, wear_co
     p.inputs['Base Color'].default_value = (*base, 1)
     p.inputs['Roughness'].default_value = rough
     p.inputs['Metallic'].default_value = metal
+
+    # --- roughness: variación por ruido (mantiene el comportamiento anterior) ---
     tex = nt.nodes.new('ShaderNodeTexNoise'); tex.inputs['Scale'].default_value = scale; tex.inputs['Detail'].default_value = 6
     ramp = nt.nodes.new('ShaderNodeValToRGB'); ramp.color_ramp.elements[0].position = 0.35; ramp.color_ramp.elements[1].position = 0.65
     ramp.color_ramp.elements[0].color = (max(0, rough - 0.12),) * 3 + (1,); ramp.color_ramp.elements[1].color = (min(1, rough + 0.12),) * 3 + (1,)
-    nt.links.new(tex.outputs['Fac'], ramp.inputs['Fac']); nt.links.new(ramp.outputs['Color'], p.inputs['Roughness'])
+    nt.links.new(tex.outputs['Fac'], ramp.inputs['Fac'])
+    rough_out = ramp.outputs['Color']
+
+    # --- color: desgaste por ruido (manchas) ---
+    color_out = None
+    wear_mask = None
     if wear > 0:
         wtex = nt.nodes.new('ShaderNodeTexNoise'); wtex.inputs['Scale'].default_value = scale * 1.7; wtex.inputs['Detail'].default_value = 8
         wramp = nt.nodes.new('ShaderNodeValToRGB'); wramp.color_ramp.elements[0].position = 0.62 - wear * 0.25; wramp.color_ramp.elements[1].position = 0.75
         mix = nt.nodes.new('ShaderNodeMix'); mix.data_type = 'RGBA'
         mix.inputs[6].default_value = (*base, 1); mix.inputs[7].default_value = (*wear_color, 1)
-        nt.links.new(wtex.outputs['Fac'], wramp.inputs['Fac']); nt.links.new(wramp.outputs['Color'], mix.inputs[0]); nt.links.new(mix.outputs[2], p.inputs['Base Color'])
-        if metal > 0.5:
+        nt.links.new(wtex.outputs['Fac'], wramp.inputs['Fac']); nt.links.new(wramp.outputs['Color'], mix.inputs[0])
+        color_out = mix.outputs[2]; wear_mask = wramp.outputs['Color']
+
+    # --- 41.3 desgaste POR CAUSA: aristas convexas (Pointiness) pierden pintura ---
+    ew = edge_wear if edge_wear is not None else min(1.0, 0.25 + wear)
+    if ew > 0:
+        geo = nt.nodes.new('ShaderNodeNewGeometry')
+        pramp = nt.nodes.new('ShaderNodeValToRGB')
+        # ventana estrecha justo por encima de 0.5 = solo las aristas realmente convexas
+        pramp.color_ramp.elements[0].position = 0.515
+        pramp.color_ramp.elements[1].position = 0.515 + max(0.02, 0.10 * (1.0 - ew))
+        nt.links.new(geo.outputs['Pointiness'], pramp.inputs['Fac'])
+        emix = nt.nodes.new('ShaderNodeMix'); emix.data_type = 'RGBA'
+        ecol = edge_color if edge_color is not None else ((0.62, 0.60, 0.56) if metal < 0.5 else tuple(min(1, c * 1.35 + 0.08) for c in base))
+        if color_out: nt.links.new(color_out, emix.inputs[6])
+        else: emix.inputs[6].default_value = (*base, 1)
+        emix.inputs[7].default_value = (*ecol, 1)
+        fac = nt.nodes.new('ShaderNodeMath'); fac.operation = 'MULTIPLY'; fac.inputs[1].default_value = ew
+        nt.links.new(pramp.outputs['Color'], fac.inputs[0]); nt.links.new(fac.outputs[0], emix.inputs[0])
+        color_out = emix.outputs[2]
+        # el metal desnudo de la arista es más liso que la pintura mate
+        rmix = nt.nodes.new('ShaderNodeMix'); rmix.data_type = 'FLOAT'
+        nt.links.new(rough_out, rmix.inputs[2]); rmix.inputs[3].default_value = max(0.05, rough - 0.28)
+        nt.links.new(fac.outputs[0], rmix.inputs[0])
+        rough_out = rmix.outputs[0]
+        if metal > 0.5 and wear_mask is not None:
             mm = nt.nodes.new('ShaderNodeMath'); mm.operation = 'SUBTRACT'; mm.inputs[0].default_value = metal
-            nt.links.new(wramp.outputs['Color'], mm.inputs[1]); nt.links.new(mm.outputs[0], p.inputs['Metallic'])
+            nt.links.new(wear_mask, mm.inputs[1]); nt.links.new(mm.outputs[0], p.inputs['Metallic'])
+
+    # --- AO de cavidad multiplicado en el color (lectura de volumen sin luz) ---
+    if ao > 0:
+        aon = nt.nodes.new('ShaderNodeAmbientOcclusion'); aon.samples = 8; aon.inputs['Distance'].default_value = ao_dist
+        amix = nt.nodes.new('ShaderNodeMix'); amix.data_type = 'RGBA'; amix.blend_type = 'MULTIPLY'; amix.inputs[0].default_value = ao
+        if color_out: nt.links.new(color_out, amix.inputs[6])
+        else: amix.inputs[6].default_value = (*base, 1)
+        nt.links.new(aon.outputs['Color'], amix.inputs[7])
+        color_out = amix.outputs[2]
+
+    if color_out: nt.links.new(color_out, p.inputs['Base Color'])
+    nt.links.new(rough_out, p.inputs['Roughness'])
+
+    # --- normal: micro-relieve de material + Bevel de arista (33.2) ---
+    normal_out = None
     if bump > 0:
         btex = nt.nodes.new('ShaderNodeTexNoise'); btex.inputs['Scale'].default_value = scale * 6; btex.inputs['Detail'].default_value = 10
         bn = nt.nodes.new('ShaderNodeBump'); bn.inputs['Strength'].default_value = bump; bn.inputs['Distance'].default_value = 0.01
-        nt.links.new(btex.outputs['Fac'], bn.inputs['Height']); nt.links.new(bn.outputs['Normal'], p.inputs['Normal'])
+        nt.links.new(btex.outputs['Fac'], bn.inputs['Height'])
+        normal_out = bn.outputs['Normal']
+    if bevel > 0:
+        bev = nt.nodes.new('ShaderNodeBevel'); bev.samples = 8; bev.inputs['Radius'].default_value = bevel
+        if normal_out: nt.links.new(normal_out, bev.inputs['Normal'])
+        normal_out = bev.outputs['Normal']
+    if normal_out: nt.links.new(normal_out, p.inputs['Normal'])
+
     if emission:
         p.inputs['Emission Color'].default_value = (*emission[0], 1); p.inputs['Emission Strength'].default_value = emission[1]
     return mat
@@ -246,11 +400,15 @@ def uv_project_all(objs, margin=0.004):
 _bake_saved = {}
 
 
-def bake_pbr(objs, asset_id, size=1024, samples=8, only=None):
-    """Hornea BaseColor/Roughness/Metallic/Normal de los materiales procedurales a un atlas por asset (UV compartida por objeto)."""
+def bake_pbr(objs, asset_id, size=1024, samples=48, only=None):
+    """Hornea BaseColor/Roughness/Metallic/Normal a un atlas por asset (UV compartida, 40.3/41.1).
+
+    Las capas dependientes de geometría (Bevel, Pointiness, AO) se resuelven por muestreo: con pocas muestras
+    el AO sale con grano. 48 muestras + denoise dan un atlas limpio sin disparar el tiempo de horneado.
+    """
     scene = bpy.context.scene
     scene.render.engine = 'CYCLES'
-    scene.cycles.samples = samples; scene.cycles.use_denoising = False
+    scene.cycles.samples = samples; scene.cycles.use_denoising = True
     scene.cycles.device = 'CPU'
     maps = {'BaseColor': ('DIFFUSE', True), 'Roughness': ('ROUGHNESS', False), 'Metallic': ('EMIT', False), 'Normal': ('NORMAL', False)}
     out = {}
