@@ -21,6 +21,8 @@ namespace Esneider.World
             if (Used) return;
             ObjectiveService.Grant(grantsFlag);
             WorldStateRegistry.Session.Apply(WorldEventKind.MechanismUsed, "", null, mechanismId);
+            if (grantsFlag == ObjectiveService.PermisoA) ObjectiveService.Complete("O05"); else if (grantsFlag == ObjectiveService.PermisoB) ObjectiveService.Complete("O08");
+            Audio.AudioService.Instance?.Play(grantsFlag == ObjectiveService.PermisoServicio ? "SND-LEVER" : "SND-RELAY", transform.position, 0.8f, 100, 0f, Audio.AudioService.Instance.ambient, false);
             NoiseSystem.Emit(transform.position, 6f, gameObject, "mechanism");
             if (!string.IsNullOrEmpty(preloadRegion)) RegionStreamer.Instance?.Preload(preloadRegion);
             who.GetComponentInParent<Player.Inventory>()?.Notify(Message());

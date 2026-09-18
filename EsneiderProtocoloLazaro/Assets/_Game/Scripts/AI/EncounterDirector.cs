@@ -27,6 +27,7 @@ namespace Esneider.AI
 
         public void Heartbeat(EnemyBrain b) { if (_slots.ContainsKey(b)) _slots[b] = Time.time; }
         public void Release(EnemyBrain b) => _slots.Remove(b);
+        public bool AnyEngaged => _slots.Count > 0; // 93.2: un ataque en curso aplaza revelaciones no esenciales
         public bool CanEmitNow() => Time.time - lastEmissionTime >= minEmissionGap;
         public void RegisterEmission() => lastEmissionTime = Time.time;
 

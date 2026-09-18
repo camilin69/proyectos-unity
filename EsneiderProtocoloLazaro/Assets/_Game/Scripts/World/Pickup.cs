@@ -35,6 +35,11 @@ namespace Esneider.World
             if (accepted <= 0) { inv.Notify("No cabe más"); return; }
             amount -= accepted;
             GetComponent<PersistentEntity>()?.NotifyPickupTaken(amount);
+            // EVT-02/04/09/17 (93): recogida = evento I con compromiso de objetivo (70.1)
+            if (kind == PickupKind.Crowbar) Core.ObjectiveService.Complete("O02");
+            else if (kind == PickupKind.Pistol) Core.ObjectiveService.Complete("O04");
+            else if (kind == PickupKind.Shotgun) Core.ObjectiveService.Complete("O07");
+            else if (kind == PickupKind.Document && !string.IsNullOrEmpty(documentId)) Core.Persistence.WorldStateRegistry.Session.MarkDocumentRead(documentId);
             if (amount <= 0) gameObject.SetActive(false);
         }
     }

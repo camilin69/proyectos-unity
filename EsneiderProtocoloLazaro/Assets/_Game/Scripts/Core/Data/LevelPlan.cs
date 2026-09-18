@@ -24,6 +24,10 @@ namespace Esneider.Core.Data
     [Serializable] public class PlanPillar { public string id, space; public float x, z, size; }
     [Serializable] public class PlanExterior { public string space; public float x, z, w, d, victoryX, victoryZ; }
     [Serializable] public class PlanRegion { public string id, contents, limit; }
+    // 77.1: ruta por unidad; mode = pingpong (ida/vuelta) | loop (cerrada); delay = espera inicial en s.
+    [Serializable] public class PlanPatrol { public string id, unit, space, mode; public float delay; public List<PlanPoint> points; }
+    // 76.2: instancia M001–M081; centro (x,z) local a planta, huella w×d tras yaw, altura h; jaulas con hueco de puerta (doorSide N/S/E/W, doorAt coord. a lo largo del lado).
+    [Serializable] public class PlanFurniture { public string id, space, room, family, doorSide; public float x, z, w, d, h, yaw, yOff, doorAt; public bool physics; }
 
     [Serializable]
     public class LevelPlan
@@ -44,6 +48,10 @@ namespace Esneider.Core.Data
         public List<PlanPillar> pillars;
         public PlanExterior exterior;
         public List<PlanRegion> regions;
+        public List<PlanPatrol> patrols = new List<PlanPatrol>();
+        public List<PlanFurniture> furniture = new List<PlanFurniture>();
+
+        public PlanPatrol PatrolOf(string unit) => patrols?.Find(p => p.unit == unit);
 
         public const string DefaultAssetPath = "Assets/_Game/Data/LevelPlan/bunker_plan.json";
 

@@ -16,6 +16,22 @@ namespace Esneider.Core
         public static bool Has(string flag) => WorldStateRegistry.Session.HasFlag(flag);
         public static bool Grant(string flag) => WorldStateRegistry.Session.SetFlag(flag);
 
+        // 70.1: objetivos persistentes O01–O11 (no son llaves: las puertas consultan permisos, no objetivos).
+        public static string Title(string id) => id switch
+        {
+            "O01" => "Despertar", "O02" => "Equipo básico", "O03" => "Salir de S1", "O04" => "Pistola", "O05" => "Autorización A",
+            "O06" => "Descubrir contención", "O07" => "Escopeta", "O08" => "Autorización B", "O09" => "Alcanzar refugio",
+            "O10" => "Derrotar al Archivista", "O11" => "Cruzar exterior", _ => id
+        };
+
+        public static bool Complete(string objectiveId)
+        {
+            if (string.IsNullOrEmpty(objectiveId) || !WorldStateRegistry.Session.CompleteObjective(objectiveId)) return false;
+            var hud = UnityEngine.Object.FindFirstObjectByType<UI.HudController>();
+            hud?.ShowMessage("Objetivo cumplido: " + Title(objectiveId), 3.5f);
+            return true;
+        }
+
         public static bool DoorAllowed(string doorId)
         {
             switch (doorId)

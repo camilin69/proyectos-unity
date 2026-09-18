@@ -32,7 +32,7 @@ namespace Esneider.EditorTools
             SandboxBuilder.ApplyCollisionMatrix();
             BlockoutBuilder.EnsureMaterials();
             Directory.CreateDirectory(ScenesDir);
-            var summary = new List<string>();
+            var summary = new List<string>(); var corrections = new List<string>();
             var buildScenes = new List<EditorBuildSettingsScene> { new EditorBuildSettingsScene(BootPath, true) };
 
             foreach (var region in RegionCatalog.Chain)
@@ -48,6 +48,8 @@ namespace Esneider.EditorTools
 
                 int ents = BuildEntities(plan, catalog, region, spaces, root.transform);
                 var hero = HeroDressing.Apply(plan, region, spaces, root.transform.Find("Entities"));
+                var furniture = FurnitureBuilder.Apply(plan, region, spaces, root.transform.Find("Entities"), corrections);
+                summary.Add($"{region} mobiliario: {furniture.Count}");
                 BuildLighting(plan, region, floors, connectors, root.transform);
                 BuildNarrative(plan, region, root.transform.Find("Entities"));
                 BuildVolume(plan, region, floors, connectors, root.transform);
@@ -65,7 +67,11 @@ namespace Esneider.EditorTools
             BuildBoot(plan, catalog);
             var existing = EditorBuildSettings.scenes.Where(s => !buildScenes.Any(b => b.path == s.path)).ToList();
             EditorBuildSettings.scenes = buildScenes.Concat(existing).ToArray();
-            return string.Join(" | ", summary);
+            // 76.1: correcciones de composición registradas (no se suman listados: el plano manda)
+            var rep = Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/produccion/evidencia/EX-06_furniture_report.md"));
+            Directory.CreateDirectory(Path.GetDirectoryName(rep));
+            File.WriteAllText(rep, $"# Mobiliario 76.2 · validación de reservas · {System.DateTime.Now:yyyy-MM-dd HH:mm}\n\nInstancias del plano: {plan.furniture.Count}. Correcciones: {corrections.Count}.\n\n" + (corrections.Count == 0 ? "Sin correcciones.\n" : "- " + string.Join("\n- ", corrections) + "\n"));
+            return string.Join(" | ", summary) + $" | correcciones mobiliario: {corrections.Count}";
         }
 
         static int BuildEntities(LevelPlan plan, GameDataCatalog catalog, string region, List<string> spaces, Transform root)
@@ -107,11 +113,21 @@ namespace Esneider.EditorTools
                 var brain = go.GetComponent<EnemyBrain>(); brain.tutorialTelegraph = s.id == "V01";
                 brain.startActive = region != "REG-S1" && region != "REG-C1"; // 104.3: sin ataques antes de D06; EVT-C1 activa S1/C1
                 if (boss) { go.name = "B01_Archivista_Placeholder"; brain.enabled = false; } // el jefe real llega en EX-07; placeholder inerte
-                // patrulla inicial: punto de spawn y segundo punto a 3–6 m (68.7, se valida en blockout)
+                // 77.1: ruta del plano (ida/vuelta o cerrada, espera inicial); sin ruta → spawn + punto a 4 m
                 var wps = new GameObject(s.id + "_Waypoints"); wps.transform.SetParent(ents);
-                var w0 = new GameObject("WP0"); w0.transform.SetParent(wps.transform); w0.transform.position = w; brain.waypoints.Add(w0.transform);
-                var second = w + Quaternion.Euler(0, s.yaw, 0) * Vector3.forward * 4f;
-                var w1 = new GameObject("WP1"); w1.transform.SetParent(wps.transform); w1.transform.position = second; brain.waypoints.Add(w1.transform);
+                var pat = plan.PatrolOf(s.id);
+                if (pat != null && pat.points != null && pat.points.Count > 0)
+                {
+                    for (int i = 0; i < pat.points.Count; i++) { plan.TryToWorld(pat.space, pat.points[i].x, pat.points[i].z, out var pw); var wp = new GameObject("WP" + i); wp.transform.SetParent(wps.transform); wp.transform.position = pw; brain.waypoints.Add(wp.transform); }
+                    brain.patrolLoop = pat.mode == "loop"; brain.patrolDelay = pat.delay; wps.name = pat.id + "_" + s.id;
+                }
+                else
+                {
+                    var w0 = new GameObject("WP0"); w0.transform.SetParent(wps.transform); w0.transform.position = w; brain.waypoints.Add(w0.transform);
+                    var second = w + Quaternion.Euler(0, s.yaw, 0) * Vector3.forward * 4f;
+                    var w1 = new GameObject("WP1"); w1.transform.SetParent(wps.transform); w1.transform.position = second; brain.waypoints.Add(w1.transform);
+                }
+                if (s.id == "V15" || s.id == "V23") brain.startActive = false; // EVT-16 protección de lectura; EVT-18 despertar anunciado
                 SandboxFactory.Persist(go, s.id, region, boss ? EntityKind.Boss : EntityKind.Enemy); n++;
             }
             foreach (var d in plan.doors.Where(x => spaces.Contains(x.floor)))
@@ -196,11 +212,13 @@ namespace Esneider.EditorTools
         {
             if (region == "REG-S1")
             {
-                var cryo = ents.Find("OBJ-001_Criocamara");
+                var m001 = plan.furniture.Find(f => f.id == "M001");
+                var cryo = ents.Find("Furniture/M001_OBJ-001");
                 var go = new GameObject("EVT-01_Opening"); go.transform.SetParent(ents);
                 var op = go.AddComponent<OpeningSequence>();
                 op.cryoLidAnimatorRoot = cryo; op.cryoOpenClip = AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Models/OBJ-001_Criocamara.fbx").OfType<AnimationClip>().FirstOrDefault(c => c.name == "Cryo_Open");
-                op.lyingPosition = plan.Floor("P01").origin.ToVector3() + new Vector3(6f, 0.75f, 8f); op.lyingYaw = 90f;
+                op.lyingPosition = cryo != null ? cryo.position + Vector3.up * 0.75f : plan.Floor("P01").origin.ToVector3() + new Vector3(m001 != null ? m001.x : 7f, 0.75f, m001 != null ? m001.z : 7f); op.lyingYaw = 90f;
+                RoomEvt(plan, ents, "EVT-03", "S1-R05", e => { e.sound = "SND-PIPE-Hit"; e.message = "Cámaras vacías. Mantenimiento reciente: alguien sigue aquí."; });
             }
             if (region == "REG-C1")
             {
@@ -208,7 +226,49 @@ namespace Esneider.EditorTools
                 var sp = GameObject.CreatePrimitive(PrimitiveType.Cube); sp.name = "OBJ-065_Altavoz"; sp.layer = GameLayers.WorldStatic; sp.transform.SetParent(ents); sp.transform.position = w; sp.transform.localScale = new Vector3(0.4f, 0.3f, 0.25f);
                 sp.AddComponent<AnnouncementSpeaker>().doorId = "D06";
             }
+            if (region == "REG-S2")
+            {
+                RoomEvt(plan, ents, "EVT-06", "S2-R01", e => { e.requiresAliveUnit = "K01"; e.sound = "SND-KUS-Step-A"; e.soundOffset = SpawnOffset(plan, "K01", "S2-R01"); e.message = "Unidad de contención grande. Rodéala o golpea seis veces; el rayo se anuncia."; });
+                RoomEvt(plan, ents, "EVT-07", "S2-R06", e => { e.delay = 1.5f; e.sound = "SND-RELAY"; e.soundOffset = FurnitureOffset(plan, "M024", "S2-R06"); e.message = "El brazo desmontado se reajusta… y vuelve al reposo."; });
+                RoomEvt(plan, ents, "EVT-11", "S2-R05", e => { e.once = false; e.cooldown = 45f; e.message = "Rostros sin boca y números de serie: no son cabezas humanas."; });
+            }
+            if (region == "REG-C2")
+            {
+                var c = plan.Connector("C-02");
+                Evt(plan, ents, "EVT-C2", "C-02", 21.5f, 4f, 5f, 8f, c.height, e => { e.deferWhileCombat = true; e.objectiveId = "O06"; e.setFlag = "HUMANS_SEEN"; e.message = "Tras el vidrio, una mano humana se mueve. Siguen vivos."; e.messageSeconds = 5f; });
+            }
+            if (region == "REG-S3")
+            {
+                RoomEvt(plan, ents, "EVT-12", "S3-R01", e => { e.message = "Admisión. Reclasificación de sujetos."; });
+                RoomEvt(plan, ents, "EVT-13", "S3-R02A", e => { e.deferWhileCombat = true; e.delay = 1f; e.message = "Respiración irregular tras los barrotes. Una mano se mueve apenas."; e.messageSeconds = 6f; });
+                RoomEvt(plan, ents, "EVT-14", "S3-R02B", e => { e.sound = "SND-RELAY"; e.soundOffset = FurnitureOffset(plan, "M049", "S3-R02B"); e.message = "La bomba inicia su ciclo: mantenimiento reciente."; });
+                RoomEvt(plan, ents, "EVT-15", "S3-R03", e => { e.once = false; e.cooldown = 20f; e.sound = "SND-PIPE-Hit"; e.soundOffset = FurnitureOffset(plan, "M056", "S3-R03"); e.soundVolume = 0.4f; });
+                RoomEvt(plan, ents, "EVT-16", "S3-R04", e => { e.watchDocument = "DOC-09"; e.setFlag = "V15_RELEASED"; e.activateUnits.Add("V15"); });
+                RoomEvt(plan, ents, "EVT-16-EXIT", "S3-R04", e => { e.onExit = true; e.setFlag = "V15_RELEASED"; e.activateUnits.Add("V15"); });
+            }
+            if (region == "REG-C3")
+            {
+                var c = plan.Connector("C-03");
+                Evt(plan, ents, "EVT-C3", "C-03", 22f, 7f, 18f, 6f, c.height, e => { e.forbiddenFlag = ObjectiveService.BossDefeated; e.sound = "SND-BOSS-Step-A"; e.soundOffset = new Vector3(14f, 0, 0); e.soundVolume = 0.6f; e.message = "Un impacto lejano, pesado, hace vibrar el corredor."; });
+            }
+            if (region == "REG-S4")
+            {
+                RoomEvt(plan, ents, "EVT-18", "S4-R05", e => { e.onExit = true; e.requiredDocument = "DOC-11"; e.requiresAliveUnit = "V23"; e.sound = "SND-VIG-Step-A"; e.soundOffset = SpawnOffset(plan, "V23", "S4-R05"); e.activateUnits.Add("V23"); e.message = "Un servo despierta en el control."; });
+                RoomEvt(plan, ents, "EVT-20", "S4-R01", e => { e.sound = "SND-RELAY"; e.message = "Un relé rompe el silencio."; });
+            }
         }
+
+        static RoomEvent Evt(LevelPlan plan, Transform ents, string id, string space, float x, float z, float w, float d, float h, System.Action<RoomEvent> cfg)
+        {
+            plan.TryToWorld(space, x + w / 2f, z + d / 2f, out var c);
+            var go = new GameObject(id); go.transform.SetParent(ents); go.transform.position = c + Vector3.up * h / 2f;
+            var bc = go.AddComponent<BoxCollider>(); bc.size = new Vector3(w, h, d);
+            var e = go.AddComponent<RoomEvent>(); e.eventId = id; cfg(e); return e;
+        }
+        static RoomEvent RoomEvt(LevelPlan plan, Transform ents, string id, string roomId, System.Action<RoomEvent> cfg)
+        { var r = plan.Room(roomId); return Evt(plan, ents, id, r.floor, r.x, r.z, r.w, r.d, plan.Floor(r.floor).height, cfg); }
+        static Vector3 SpawnOffset(LevelPlan plan, string unit, string roomId) { var s = plan.spawns.Find(x => x.id == unit); var r = plan.Room(roomId); return s == null ? Vector3.zero : new Vector3(s.x - (r.x + r.w / 2f), 1f, s.z - (r.z + r.d / 2f)); }
+        static Vector3 FurnitureOffset(LevelPlan plan, string id, string roomId) { var f = plan.furniture.Find(x => x.id == id); var r = plan.Room(roomId); return f == null ? Vector3.zero : new Vector3(f.x - (r.x + r.w / 2f), 1f, f.z - (r.z + r.d / 2f)); }
 
         static void BuildVolume(LevelPlan plan, string region, List<PlanFloor> floors, List<PlanConnector> connectors, Transform root)
         {
@@ -270,7 +330,7 @@ namespace Esneider.EditorTools
             EditorSceneManager.SaveScene(scene, BootPath);
         }
 
-        static Material BlockoutMat(string name, Color c)
+        internal static Material BlockoutMat(string name, Color c)
         {
             string path = $"Assets/_Game/Art/Materials/Blockout/{name}.mat";
             var m = AssetDatabase.LoadAssetAtPath<Material>(path);

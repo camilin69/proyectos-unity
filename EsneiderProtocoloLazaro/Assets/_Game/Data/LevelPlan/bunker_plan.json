@@ -1,251 +1,4209 @@
 {
-  "version": "GDD-68-r1",
-  "notes": "Transcripción literal de la sección 68 del maestro (planos métricos), 88.1 (regiones) y 68.9 (checkpoints/mecanismos). Unidades: metros. Rect = (x,z,w,d) interior local; origin = origen mundo de la planta. Alturas útiles elegidas dentro del rango de 68.1 (ADP).",
-  "wallThickness": 0.2,
-  "envelopeWallThickness": 0.4,
-  "floors": [
-    { "id": "P01", "sector": "S1", "name": "S1 inferior, preservación B-4", "region": "REG-S1", "origin": { "x": 0, "y": -24, "z": 0 }, "w": 40, "d": 32, "height": 4.5 },
-    { "id": "P02", "sector": "S1", "name": "S1 superior, servicio B-3", "region": "REG-S1", "origin": { "x": 0, "y": -18, "z": 0 }, "w": 40, "d": 32, "height": 4.0 },
-    { "id": "P03", "sector": "S2", "name": "S2 inferior, nave B-3", "region": "REG-S2", "origin": { "x": 76, "y": -18, "z": 1 }, "w": 60, "d": 45, "height": 8.0 },
-    { "id": "P04", "sector": "S2", "name": "S2 superior, servicio B-2", "region": "REG-S2", "origin": { "x": 76, "y": -8, "z": 1 }, "w": 60, "d": 45, "height": 5.5 },
-    { "id": "P05", "sector": "S3", "name": "S3, clínica B-2", "region": "REG-S3", "origin": { "x": 184, "y": -8, "z": 16 }, "w": 65, "d": 56, "height": 5.0 },
-    { "id": "P06", "sector": "S4", "name": "S4, control B-2", "region": "REG-S4", "origin": { "x": 289, "y": -8, "z": 22 }, "w": 70, "d": 55, "height": 7.0 }
-  ],
-  "rooms": [
-    { "id": "S1-R01", "floor": "P01", "name": "Cámara Esneider", "x": 2, "z": 2, "w": 12, "d": 14, "scn": "SCN-01" },
-    { "id": "S1-R02", "floor": "P01", "name": "Preparación", "x": 2, "z": 18, "w": 10, "d": 12, "scn": "SCN-03" },
-    { "id": "S1-R05", "floor": "P01", "name": "Galería preservación", "x": 20, "z": 2, "w": 18, "d": 22, "scn": "SCN-02" },
-    { "id": "S1-R03", "floor": "P02", "name": "Derrumbe", "x": 2, "z": 2, "w": 14, "d": 16, "scn": "SCN-04" },
-    { "id": "S1-R04", "floor": "P02", "name": "Tablero", "x": 24, "z": 2, "w": 10, "d": 12, "scn": "SCN-05" },
-    { "id": "S2-R01", "floor": "P03", "name": "Nave", "x": 2, "z": 2, "w": 24, "d": 28, "scn": "SCN-07" },
-    { "id": "S2-R06", "floor": "P03", "name": "Taller lateral", "x": 30, "z": 2, "w": 24, "d": 20, "scn": "SCN-08" },
-    { "id": "S2-R03", "floor": "P03", "name": "Oficina", "x": 30, "z": 24, "w": 10, "d": 12, "scn": "SCN-10" },
-    { "id": "S2-R02", "floor": "P04", "name": "Almacén", "x": 2, "z": 2, "w": 18, "d": 20, "scn": "SCN-09" },
-    { "id": "S2-R04", "floor": "P04", "name": "Patio técnico", "x": 24, "z": 2, "w": 20, "d": 22, "scn": "SCN-11" },
-    { "id": "S2-R05", "floor": "P04", "name": "Sala de piezas", "x": 46, "z": 2, "w": 12, "d": 12, "scn": "SCN-08b" },
-    { "id": "S3-R02A", "floor": "P05", "name": "Jaulas A", "x": 2, "z": 2, "w": 20, "d": 24, "scn": "SCN-14" },
-    { "id": "S3-R02B", "floor": "P05", "name": "Jaulas B", "x": 26, "z": 2, "w": 20, "d": 24, "scn": "SCN-15" },
-    { "id": "S3-R05", "floor": "P05", "name": "Seguridad", "x": 50, "z": 2, "w": 12, "d": 14, "scn": "SCN-18" },
-    { "id": "S3-R01", "floor": "P05", "name": "Admisión", "x": 2, "z": 32, "w": 16, "d": 20, "scn": "SCN-13" },
-    { "id": "S3-R03", "floor": "P05", "name": "Clínica", "x": 22, "z": 32, "w": 18, "d": 22, "scn": "SCN-16" },
-    { "id": "S3-R04", "floor": "P05", "name": "Observación", "x": 44, "z": 32, "w": 12, "d": 16, "scn": "SCN-17" },
-    { "id": "S4-R05", "floor": "P06", "name": "Control", "x": 2, "z": 2, "w": 20, "d": 24, "scn": "SCN-20" },
-    { "id": "S4-R03", "floor": "P06", "name": "Arena", "x": 28, "z": 2, "w": 24, "d": 28, "scn": "SCN-22" },
-    { "id": "S4-R04", "floor": "P06", "name": "Vestíbulo salida", "x": 54, "z": 2, "w": 14, "d": 20, "scn": "SCN-22b" },
-    { "id": "S4-R02", "floor": "P06", "name": "Refugio", "x": 2, "z": 36, "w": 10, "d": 12, "scn": "SCN-21" },
-    { "id": "S4-R01", "floor": "P06", "name": "Seguridad final", "x": 16, "z": 36, "w": 12, "d": 14, "scn": "SCN-21b" }
-  ],
-  "circulation": [
-    { "id": "P01-ESPINA", "floor": "P01", "name": "Espina", "x": 14, "z": 0, "w": 6, "d": 32 },
-    { "id": "P01-PREP-S", "floor": "P01", "name": "Tramo sur de preparación", "x": 12, "z": 22, "w": 2, "d": 4 },
-    { "id": "P01-ESC", "floor": "P01", "name": "Zona de escalera/circulación", "x": 20, "z": 24, "w": 20, "d": 8 },
-    { "id": "P02-ESPINA", "floor": "P02", "name": "Espina", "x": 16, "z": 0, "w": 6, "d": 32 },
-    { "id": "P02-GAL", "floor": "P02", "name": "Galería transversal", "x": 0, "z": 18, "w": 40, "d": 6 },
-    { "id": "P02-TAB", "floor": "P02", "name": "Enlace de tablero", "x": 26, "z": 14, "w": 4, "d": 4 },
-    { "id": "P02-ESC", "floor": "P02", "name": "Acceso a escalera", "x": 26, "z": 24, "w": 4, "d": 1 },
-    { "id": "P03-ESPINA", "floor": "P03", "name": "Espina", "x": 26, "z": 0, "w": 4, "d": 45 },
-    { "id": "P03-ENT", "floor": "P03", "name": "Entrada transversal", "x": 0, "z": 30, "w": 26, "d": 4 },
-    { "id": "P03-ESC", "floor": "P03", "name": "Circulación hacia escalera", "x": 30, "z": 36, "w": 30, "d": 9 },
-    { "id": "P04-GAL", "floor": "P04", "name": "Galería transversal", "x": 0, "z": 24, "w": 60, "d": 6 },
-    { "id": "P04-ALM", "floor": "P04", "name": "Enlace de almacén", "x": 8, "z": 22, "w": 4, "d": 2 },
-    { "id": "P04-PZS", "floor": "P04", "name": "Enlace de piezas", "x": 49, "z": 14, "w": 4, "d": 10 },
-    { "id": "P04-SUR", "floor": "P04", "name": "Circulación sur", "x": 0, "z": 30, "w": 60, "d": 15 },
-    { "id": "P05-GAL", "floor": "P05", "name": "Galería central", "x": 0, "z": 26, "w": 65, "d": 4 },
-    { "id": "P05-JAU", "floor": "P05", "name": "Paso entre jaulas", "x": 22, "z": 0, "w": 4, "d": 26 },
-    { "id": "P05-SEG", "floor": "P05", "name": "Enlace seguridad", "x": 54, "z": 16, "w": 4, "d": 10 },
-    { "id": "P05-SO", "floor": "P05", "name": "Paso sur oeste", "x": 18, "z": 30, "w": 4, "d": 26 },
-    { "id": "P05-SE", "floor": "P05", "name": "Paso sur este", "x": 40, "z": 30, "w": 4, "d": 26 },
-    { "id": "P05-B19", "floor": "P05", "name": "Banda acceso D19", "x": 8.6, "z": 30, "w": 2.8, "d": 2 },
-    { "id": "P05-B20", "floor": "P05", "name": "Banda acceso D20", "x": 28.6, "z": 30, "w": 2.8, "d": 2 },
-    { "id": "P05-B21", "floor": "P05", "name": "Banda acceso D21", "x": 49.2, "z": 30, "w": 1.6, "d": 2 },
-    { "id": "P06-GAL", "floor": "P06", "name": "Galería central", "x": 0, "z": 30, "w": 70, "d": 4 },
-    { "id": "P06-CTL", "floor": "P06", "name": "Enlace control", "x": 10, "z": 26, "w": 4, "d": 4 },
-    { "id": "P06-B25", "floor": "P06", "name": "Enlace refugio", "x": 6.2, "z": 34, "w": 1.6, "d": 2 },
-    { "id": "P06-B26", "floor": "P06", "name": "Enlace seguridad", "x": 20.6, "z": 34, "w": 2.8, "d": 2 },
-    { "id": "P06-ARV", "floor": "P06", "name": "Conexión arena-vestíbulo", "x": 52, "z": 14.6, "w": 2, "d": 2.8 },
-    { "id": "P06-EXT", "floor": "P06", "name": "Enlace vestíbulo-puerta exterior", "x": 68, "z": 9.5, "w": 2, "d": 5 }
-  ],
-  "stairs": [
-    { "id": "STA-01", "lowerFloor": "P01", "upperFloor": "P02", "x": 24, "z": 25, "w": 8, "d": 6, "landingX": 28, "landingZ": 28, "flights": 2, "rise": 6, "axis": "z", "startDir": 1 },
-    { "id": "STA-02", "lowerFloor": "P03", "upperFloor": "P04", "x": 44, "z": 26, "w": 10, "d": 14, "landingX": 49, "landingZ": 33, "flights": 3, "rise": 10, "axis": "z", "startDir": -1 }
-  ],
-  "doors": [
-    { "id": "D01", "floor": "P01", "room": "S1-R01", "x": 14, "z": 9, "edge": "E", "width": 2.8, "height": 3.5, "state": "Abierta o manual tutorial", "owner": "REG-S1" },
-    { "id": "D02", "floor": "P01", "room": "S1-R02", "x": 12, "z": 24, "edge": "E", "width": 1.6, "height": 2.3, "state": "Abierta", "owner": "REG-S1" },
-    { "id": "D03", "floor": "P01", "room": "S1-R05", "x": 20, "z": 13, "edge": "W", "width": 2.8, "height": 3.5, "state": "Abierta", "owner": "REG-S1" },
-    { "id": "D04", "floor": "P02", "room": "S1-R03", "x": 16, "z": 10, "edge": "E", "width": 2.8, "height": 3.5, "state": "Abierta", "owner": "REG-S1" },
-    { "id": "D05", "floor": "P02", "room": "S1-R04", "x": 28, "z": 14, "edge": "N", "width": 1.6, "height": 2.3, "state": "Abierta; palanca en sala", "owner": "REG-S1" },
-    { "id": "D06", "floor": "P02", "room": "", "x": 40, "z": 21, "edge": "E", "width": 2.8, "height": 3.5, "state": "Palanca S1; reconecta detección", "owner": "REG-S1" },
-    { "id": "D07", "floor": "P03", "room": "", "x": 0, "z": 32, "edge": "W", "width": 2.8, "height": 3.5, "state": "Sigue D06, sin nueva llave", "owner": "REG-C1" },
-    { "id": "D08", "floor": "P03", "room": "S2-R01", "x": 14, "z": 30, "edge": "N", "width": 2.8, "height": 3.5, "state": "Nave accesible", "owner": "REG-S2" },
-    { "id": "D09", "floor": "P03", "room": "S2-R06", "x": 30, "z": 12, "edge": "W", "width": 2.8, "height": 3.5, "state": "Taller accesible", "owner": "REG-S2" },
-    { "id": "D10", "floor": "P03", "room": "S2-R03", "x": 30, "z": 30, "edge": "W", "width": 1.6, "height": 2.3, "state": "Oficina opcional", "owner": "REG-S2" },
-    { "id": "D11", "floor": "P04", "room": "S2-R02", "x": 10, "z": 22, "edge": "N", "width": 2.8, "height": 3.5, "state": "Armario interior da pistola", "owner": "REG-S2" },
-    { "id": "D12", "floor": "P04", "room": "S2-R04", "x": 34, "z": 24, "edge": "N", "width": 2.8, "height": 3.5, "state": "Panel A en sala", "owner": "REG-S2" },
-    { "id": "D13", "floor": "P04", "room": "S2-R05", "x": 51, "z": 14, "edge": "N", "width": 1.6, "height": 2.3, "state": "Piezas opcional", "owner": "REG-S2" },
-    { "id": "D14", "floor": "P04", "room": "", "x": 60, "z": 27, "edge": "E", "width": 2.8, "height": 3.5, "state": "Autorización A", "owner": "REG-S2" },
-    { "id": "D15", "floor": "P05", "room": "", "x": 0, "z": 28, "edge": "W", "width": 2.8, "height": 3.5, "state": "Entrada clínica", "owner": "REG-C2" },
-    { "id": "D16", "floor": "P05", "room": "S3-R02A", "x": 12, "z": 26, "edge": "N", "width": 2.8, "height": 3.5, "state": "Jaulas A", "owner": "REG-S3" },
-    { "id": "D17", "floor": "P05", "room": "S3-R02B", "x": 36, "z": 26, "edge": "N", "width": 2.8, "height": 3.5, "state": "Jaulas B", "owner": "REG-S3" },
-    { "id": "D18", "floor": "P05", "room": "S3-R05", "x": 56, "z": 16, "edge": "N", "width": 1.6, "height": 2.3, "state": "Escopeta interior", "owner": "REG-S3" },
-    { "id": "D19", "floor": "P05", "room": "S3-R01", "x": 10, "z": 32, "edge": "S", "width": 2.8, "height": 3.5, "state": "Admisión", "owner": "REG-S3" },
-    { "id": "D20", "floor": "P05", "room": "S3-R03", "x": 30, "z": 32, "edge": "S", "width": 2.8, "height": 3.5, "state": "Clínica", "owner": "REG-S3" },
-    { "id": "D21", "floor": "P05", "room": "S3-R04", "x": 50, "z": 32, "edge": "S", "width": 1.6, "height": 2.3, "state": "Observación", "owner": "REG-S3" },
-    { "id": "D22", "floor": "P05", "room": "", "x": 65, "z": 28, "edge": "E", "width": 2.8, "height": 3.5, "state": "Autorización B en galería", "owner": "REG-S3" },
-    { "id": "D23", "floor": "P06", "room": "", "x": 0, "z": 32, "edge": "W", "width": 2.8, "height": 3.5, "state": "Esclusa, refugio accesible", "owner": "REG-C3" },
-    { "id": "D24", "floor": "P06", "room": "S4-R05", "x": 12, "z": 26, "edge": "N", "width": 2.8, "height": 3.5, "state": "Control", "owner": "REG-S4" },
-    { "id": "D25", "floor": "P06", "room": "S4-R02", "x": 7, "z": 36, "edge": "S", "width": 1.6, "height": 2.3, "state": "Refugio sin ataques", "owner": "REG-S4" },
-    { "id": "D26", "floor": "P06", "room": "S4-R01", "x": 22, "z": 36, "edge": "S", "width": 2.8, "height": 3.5, "state": "Seguridad", "owner": "REG-S4" },
-    { "id": "D27", "floor": "P06", "room": "S4-R03", "x": 40, "z": 30, "edge": "N", "width": 2.8, "height": 3.5, "state": "Player elige entrar; CP-06 previo", "owner": "REG-S4" },
-    { "id": "D28A", "floor": "P06", "room": "S4-R03", "x": 52, "z": 16, "edge": "E", "width": 2.8, "height": 3.5, "state": "Permiso al derrotar jefe", "owner": "REG-S4" },
-    { "id": "D28B", "floor": "P06", "room": "S4-R04", "x": 54, "z": 16, "edge": "W", "width": 2.8, "height": 3.5, "state": "Permiso al derrotar jefe", "owner": "REG-S4" },
-    { "id": "D29", "floor": "P06", "room": "S4-R04", "x": 68, "z": 12, "edge": "E", "width": 5.0, "height": 5.0, "state": "Panel final, jefe derrotado", "owner": "REG-S4" },
-    { "id": "D29-EXT", "floor": "P06", "room": "", "x": 70, "z": 12, "edge": "E", "width": 5.0, "height": 5.0, "state": "Hoja exterior de D29 en la envolvente (68.3: enlace X=68→70); no es conexión nueva", "owner": "REG-S4" }
-  ],
-  "connectors": [
-    { "id": "C-01", "region": "REG-C1", "origin": { "x": 40, "y": -18, "z": 21 }, "width": 4.5, "height": 4.5, "length": 48, "fromDoor": "D06", "toDoor": "D07",
-      "points": [ { "x": 0, "z": 0 }, { "x": 18, "z": 0 }, { "x": 18, "z": 12 }, { "x": 36, "z": 12 } ],
-      "alcoves": [ { "x": 8, "z": -3, "w": 3, "d": 4 }, { "x": 21, "z": 7, "w": 3, "d": 4 } ] },
-    { "id": "C-02", "region": "REG-C2", "origin": { "x": 136, "y": -8, "z": 28 }, "width": 5.0, "height": 5.0, "length": 64, "fromDoor": "D14", "toDoor": "D15",
-      "points": [ { "x": 0, "z": 0 }, { "x": 24, "z": 0 }, { "x": 24, "z": 16 }, { "x": 48, "z": 16 } ],
-      "alcoves": [ { "x": 12, "z": -3.5, "w": 4, "d": 4 }, { "x": 31, "z": 19.5, "w": 4, "d": 4 } ] },
-    { "id": "C-03", "region": "REG-C3", "origin": { "x": 249, "y": -8, "z": 44 }, "width": 5.5, "height": 5.5, "length": 50, "fromDoor": "D22", "toDoor": "D23",
-      "points": [ { "x": 0, "z": 0 }, { "x": 20, "z": 0 }, { "x": 20, "z": 10 }, { "x": 40, "z": 10 } ],
-      "alcoves": [ { "x": 10, "z": -4, "w": 4, "d": 5 } ] }
-  ],
-  "spawns": [
-    { "id": "V01", "kind": "Vigia", "space": "C-01", "x": 14, "z": 1, "yaw": 0, "note": "Inspección, tutorial/sigilo" },
-    { "id": "K01", "kind": "Custodio", "space": "P03", "x": 16, "z": 18, "yaw": 270, "note": "Primer grande, seis golpes" },
-    { "id": "V02", "kind": "Vigia", "space": "P03", "x": 40, "z": 12, "yaw": 90, "note": "Reparaciones" },
-    { "id": "V03", "kind": "Vigia", "space": "P03", "x": 10, "z": 22, "yaw": 180, "note": "Patrulla posterior separada de K01" },
-    { "id": "V04", "kind": "Vigia", "space": "P04", "x": 10, "z": 10, "yaw": 0, "note": "Pasar entre estantes" },
-    { "id": "V05", "kind": "Vigia", "space": "P04", "x": 50, "z": 8, "yaw": 90, "note": "Opcional" },
-    { "id": "V06", "kind": "Vigia", "space": "P04", "x": 34, "z": 12, "yaw": 180, "note": "Panel A" },
-    { "id": "K02", "kind": "Custodio", "space": "P03", "x": 20, "z": 9, "yaw": 180, "note": "Activo después de tutorial o separado por ruta" },
-    { "id": "K03", "kind": "Custodio", "space": "P04", "x": 38, "z": 18, "yaw": 270, "note": "Panel A, prioridad de ataque limitada" },
-    { "id": "K04", "kind": "Custodio", "space": "P04", "x": 15, "z": 18, "yaw": 90, "note": "Reservas opcionales" },
-    { "id": "V07", "kind": "Vigia", "space": "C-02", "x": 12, "z": 1, "yaw": 90, "note": "Galería húmeda" },
-    { "id": "V08", "kind": "Vigia", "space": "C-02", "x": 36, "z": 16, "yaw": 270, "note": "Ventana/segunda mitad" },
-    { "id": "K05", "kind": "Custodio", "space": "C-02", "x": 24, "z": 10, "yaw": 0, "note": "Curva, encuentro separado" },
-    { "id": "V09", "kind": "Vigia", "space": "P05", "x": 10, "z": 10, "yaw": 0, "note": "Ala A" },
-    { "id": "V10", "kind": "Vigia", "space": "P05", "x": 16, "z": 20, "yaw": 180, "note": "Ala A" },
-    { "id": "V11", "kind": "Vigia", "space": "P05", "x": 32, "z": 8, "yaw": 90, "note": "Ala B" },
-    { "id": "V12", "kind": "Vigia", "space": "P05", "x": 35, "z": 20, "yaw": 270, "note": "Ala B; corrección V12-01, fuera de jaula" },
-    { "id": "V13", "kind": "Vigia", "space": "P05", "x": 12, "z": 44, "yaw": 0, "note": "Patrulla lejos de spawn/checkpoint" },
-    { "id": "V14", "kind": "Vigia", "space": "P05", "x": 30, "z": 42, "yaw": 90, "note": "Procedimientos" },
-    { "id": "V15", "kind": "Vigia", "space": "P05", "x": 50, "z": 40, "yaw": 180, "note": "Inactiva hasta salir de lectura/refugio" },
-    { "id": "V16", "kind": "Vigia", "space": "P05", "x": 56, "z": 8, "yaw": 270, "note": "Hallazgo de escopeta" },
-    { "id": "K06", "kind": "Custodio", "space": "P05", "x": 18, "z": 14, "yaw": 270, "note": "Contención A" },
-    { "id": "K07", "kind": "Custodio", "space": "P05", "x": 38, "z": 16, "yaw": 90, "note": "Contención B" },
-    { "id": "K08", "kind": "Custodio", "space": "P05", "x": 26, "z": 48, "yaw": 0, "note": "Clínica, espacio de cobertura" },
-    { "id": "K09", "kind": "Custodio", "space": "P05", "x": 58, "z": 12, "yaw": 180, "note": "Seguridad" },
-    { "id": "K10", "kind": "Custodio", "space": "P05", "x": 46, "z": 28, "yaw": 90, "note": "Autorización B" },
-    { "id": "V17", "kind": "Vigia", "space": "C-03", "x": 12, "z": 1, "yaw": 90, "note": "Ascenso/salida de clínica" },
-    { "id": "V18", "kind": "Vigia", "space": "C-03", "x": 30, "z": 10, "yaw": 270, "note": "Segunda mitad" },
-    { "id": "K11", "kind": "Custodio", "space": "C-03", "x": 20, "z": 7, "yaw": 0, "note": "Curva" },
-    { "id": "V19", "kind": "Vigia", "space": "P06", "x": 10, "z": 12, "yaw": 0, "note": "Control" },
-    { "id": "V20", "kind": "Vigia", "space": "P06", "x": 18, "z": 22, "yaw": 270, "note": "Control" },
-    { "id": "V21", "kind": "Vigia", "space": "P06", "x": 20, "z": 42, "yaw": 90, "note": "Seguridad final" },
-    { "id": "V22", "kind": "Vigia", "space": "P06", "x": 44, "z": 32, "yaw": 270, "note": "Antes de arena" },
-    { "id": "V23", "kind": "Vigia", "space": "P06", "x": 6, "z": 20, "yaw": 180, "note": "Control, opcional" },
-    { "id": "K12", "kind": "Custodio", "space": "P06", "x": 17, "z": 8, "yaw": 270, "note": "Control" },
-    { "id": "K13", "kind": "Custodio", "space": "P06", "x": 24, "z": 46, "yaw": 0, "note": "Suministros finales" },
-    { "id": "K14", "kind": "Custodio", "space": "P06", "x": 54, "z": 32, "yaw": 270, "note": "Camino al refugio/arena" },
-    { "id": "B01", "kind": "Boss", "space": "P06", "x": 40, "z": 14, "yaw": 180, "note": "Archivista, inicio autorado" }
-  ],
-  "pickups": [
-    { "id": "PICK-F01", "kind": "Flashlight", "space": "P01", "x": 8, "z": 24, "height": 0.9, "support": "carro", "amount": 1 },
-    { "id": "PICK-W01", "kind": "Crowbar", "space": "P02", "x": 8, "z": 10, "height": 1.0, "support": "escombros", "amount": 1 },
-    { "id": "PICK-W02", "kind": "Pistol", "space": "P04", "x": 6, "z": 8, "height": 1.0, "support": "locker", "amount": 20 },
-    { "id": "PICK-W03", "kind": "Shotgun", "space": "P05", "x": 54, "z": 5, "height": 1.1, "support": "armario", "amount": 10 },
-    { "id": "A01", "kind": "PistolAmmo", "space": "P03", "x": 38, "z": 6, "height": 0.85, "support": "banco", "amount": 10 },
-    { "id": "A02", "kind": "PistolAmmo", "space": "P03", "x": 34, "z": 29, "height": 0.85, "support": "mesa", "amount": 10 },
-    { "id": "A03", "kind": "PistolAmmo", "space": "P03", "x": 8, "z": 6, "height": 0.85, "support": "banco", "amount": 10 },
-    { "id": "A04", "kind": "PistolAmmo", "space": "P04", "x": 6, "z": 16, "height": 0.8, "support": "repisa", "amount": 10 },
-    { "id": "A05", "kind": "PistolAmmo", "space": "P04", "x": 48, "z": 6, "height": 0.8, "support": "repisa", "amount": 10 },
-    { "id": "A06", "kind": "PistolAmmo", "space": "P05", "x": 6, "z": 6, "height": 0.85, "support": "carro", "amount": 10 },
-    { "id": "A07", "kind": "PistolAmmo", "space": "P05", "x": 30, "z": 6, "height": 0.85, "support": "repisa", "amount": 10 },
-    { "id": "A08", "kind": "PistolAmmo", "space": "P05", "x": 34, "z": 48, "height": 0.85, "support": "carro", "amount": 10 },
-    { "id": "A09", "kind": "PistolAmmo", "space": "P05", "x": 48, "z": 44, "height": 0.8, "support": "consola", "amount": 10 },
-    { "id": "A10", "kind": "PistolAmmo", "space": "P05", "x": 60, "z": 6, "height": 0.8, "support": "locker", "amount": 10 },
-    { "id": "A11", "kind": "PistolAmmo", "space": "P06", "x": 6, "z": 8, "height": 0.8, "support": "mesa", "amount": 10 },
-    { "id": "A12", "kind": "PistolAmmo", "space": "P06", "x": 18, "z": 40, "height": 0.8, "support": "locker", "amount": 10 },
-    { "id": "S01", "kind": "ShotgunAmmo", "space": "P05", "x": 8, "z": 20, "height": 0.8, "support": "carro", "amount": 4 },
-    { "id": "S02", "kind": "ShotgunAmmo", "space": "P05", "x": 42, "z": 8, "height": 0.8, "support": "repisa", "amount": 4 },
-    { "id": "S03", "kind": "ShotgunAmmo", "space": "P05", "x": 24, "z": 38, "height": 0.8, "support": "carro", "amount": 4 },
-    { "id": "S04", "kind": "ShotgunAmmo", "space": "P05", "x": 46, "z": 44, "height": 0.8, "support": "almacenamiento", "amount": 4 },
-    { "id": "S05", "kind": "ShotgunAmmo", "space": "P05", "x": 60, "z": 10, "height": 0.8, "support": "almacenamiento", "amount": 4 },
-    { "id": "S06", "kind": "ShotgunAmmo", "space": "P05", "x": 12, "z": 48, "height": 0.8, "support": "almacenamiento", "amount": 4 },
-    { "id": "S07", "kind": "ShotgunAmmo", "space": "P06", "x": 8, "z": 10, "height": 0.85, "support": "mesa", "amount": 4 },
-    { "id": "S08", "kind": "ShotgunAmmo", "space": "P06", "x": 16, "z": 20, "height": 0.85, "support": "mesa", "amount": 4 },
-    { "id": "S09", "kind": "ShotgunAmmo", "space": "P06", "x": 18, "z": 44, "height": 0.85, "support": "locker", "amount": 4 },
-    { "id": "S10", "kind": "ShotgunAmmo", "space": "P06", "x": 26, "z": 40, "height": 0.85, "support": "locker", "amount": 4 },
-    { "id": "H01", "kind": "Syringe", "space": "P02", "x": 30, "z": 10, "height": 0.8, "support": "cuadro/carro", "amount": 1 },
-    { "id": "H02", "kind": "Syringe", "space": "P03", "x": 38, "z": 28, "height": 0.8, "support": "almacenada", "amount": 1 },
-    { "id": "H03", "kind": "Syringe", "space": "P04", "x": 8, "z": 18, "height": 0.8, "support": "almacenada", "amount": 1 },
-    { "id": "H04", "kind": "Syringe", "space": "P04", "x": 40, "z": 8, "height": 0.8, "support": "almacenada", "amount": 1 },
-    { "id": "H05", "kind": "Syringe", "space": "P05", "x": 6, "z": 18, "height": 0.8, "support": "equipo clínico", "amount": 1 },
-    { "id": "H06", "kind": "Syringe", "space": "P05", "x": 40, "z": 10, "height": 0.8, "support": "equipo clínico", "amount": 1 },
-    { "id": "H07", "kind": "Syringe", "space": "P05", "x": 28, "z": 46, "height": 0.8, "support": "equipo clínico", "amount": 1 },
-    { "id": "H08", "kind": "Syringe", "space": "P05", "x": 48, "z": 42, "height": 0.8, "support": "equipo clínico", "amount": 1 },
-    { "id": "H09", "kind": "Syringe", "space": "P05", "x": 58, "z": 6, "height": 0.8, "support": "equipo clínico", "amount": 1 },
-    { "id": "H10", "kind": "Syringe", "space": "P06", "x": 8, "z": 22, "height": 0.8, "support": "stock", "amount": 1 },
-    { "id": "H11", "kind": "Syringe", "space": "P06", "x": 18, "z": 48, "height": 0.8, "support": "stock", "amount": 1 },
-    { "id": "H12", "kind": "Syringe", "space": "P06", "x": 10, "z": 44, "height": 0.8, "support": "refugio", "amount": 1 },
-    { "id": "R01", "kind": "Ration", "space": "P01", "x": 34, "z": 18, "height": 0.8, "support": "carro", "amount": 1 },
-    { "id": "R02", "kind": "Ration", "space": "P03", "x": 36, "z": 30, "height": 0.8, "support": "mesa", "amount": 1 },
-    { "id": "R03", "kind": "Ration", "space": "P04", "x": 12, "z": 6, "height": 0.8, "support": "repisa", "amount": 1 },
-    { "id": "R04", "kind": "Ration", "space": "P05", "x": 10, "z": 46, "height": 0.8, "support": "repisa", "amount": 1 },
-    { "id": "R05", "kind": "Ration", "space": "P05", "x": 52, "z": 44, "height": 0.8, "support": "stock", "amount": 1 },
-    { "id": "R06", "kind": "Ration", "space": "P06", "x": 6, "z": 40, "height": 0.8, "support": "stock", "amount": 1 }
-  ],
-  "documents": [
-    { "id": "DOC-01", "space": "P01", "x": 4, "z": 6, "support": "consola", "condition": "Antes de salir" },
-    { "id": "DOC-02", "space": "P02", "x": 26, "z": 8, "support": "interior de cuadro", "condition": "Explica aislamiento" },
-    { "id": "DOC-03", "space": "P03", "x": 34, "z": 28, "support": "carpeta", "condition": "Empresa, opcional" },
-    { "id": "DOC-04", "space": "P03", "x": 36, "z": 28, "support": "hoja sobre ficha", "condition": "Cancelación" },
-    { "id": "DOC-05", "space": "P04", "x": 28, "z": 8, "support": "registro técnico", "condition": "Personal ausente" },
-    { "id": "DOC-06", "space": "P05", "x": 6, "z": 36, "support": "atril", "condition": "Reclasificación" },
-    { "id": "DOC-07", "space": "P05", "x": 6, "z": 12, "support": "placa/terminal jaulas A", "condition": "Nombre no conciliado" },
-    { "id": "DOC-08", "space": "P05", "x": 36, "z": 46, "support": "equipo clínico", "condition": "Sumisión" },
-    { "id": "DOC-09", "space": "P05", "x": 48, "z": 38, "support": "consola observación", "condition": "Responsabilidad humana" },
-    { "id": "DOC-10", "space": "P05", "x": 52, "z": 6, "support": "armario", "condition": "Táctica" },
-    { "id": "DOC-11", "space": "P06", "x": 12, "z": 8, "support": "control", "condition": "Firma final" },
-    { "id": "DOC-12", "space": "P06", "x": 4, "z": 40, "support": "banco/inscripción", "condition": "Antes del jefe" }
-  ],
-  "checkpoints": [
-    { "id": "CP-00", "space": "P01", "x": 11, "z": 10, "activation": "Fin de salida de cámara", "protection": "Sin enemigos" },
-    { "id": "CP-01", "space": "P02", "x": 28, "z": 12, "activation": "Varilla/linterna, antes de D06", "protection": "Anuncio no repetido si ya progresó" },
-    { "id": "CP-02", "space": "P04", "x": 10, "z": 25, "activation": "Recoger pistola y esperar estado seguro", "protection": "No snapshot en contacto con patrulla. Corrección PL-CP02-01: GDD (8,24) caía en la esquina muro/enlace de almacén; movido 2 m al centro del enlace, dentro de la galería" },
-    { "id": "CP-02B", "space": "P03", "x": 32, "z": 18, "activation": "Retorno a taller tras pistola, seguro", "protection": "Opcional para mapa grande" },
-    { "id": "CP-03", "space": "P04", "x": 28, "z": 20, "activation": "Panel A, seguro", "protection": "Permiso y puertas persistentes" },
-    { "id": "CP-04", "space": "P05", "x": 6, "z": 34, "activation": "Entrada/admisión, amenaza no ve player", "protection": "No guardar frente a V13" },
-    { "id": "CP-04B", "space": "P05", "x": 46, "z": 34, "activation": "Observación, sin persecución", "protection": "V15 inactivo en zona de lectura" },
-    { "id": "CP-05", "space": "P05", "x": 60, "z": 28, "activation": "Escopeta + autorización B", "protection": "Gate de seguridad y cobertura" },
-    { "id": "CP-06", "space": "P06", "x": 6, "z": 42, "activation": "Refugio, gabinete y salud aplicados", "protection": "Sin daño/IA entrante" },
-    { "id": "CP-07", "space": "P06", "x": 50, "z": 16, "activation": "B01 muerto", "protection": "Ataques del jefe cancelados" }
-  ],
-  "mechanisms": [
-    { "id": "MECH-LEVER-S1", "kind": "Lever", "space": "P02", "x": 30, "z": 6, "opens": "D06" },
-    { "id": "MECH-PANEL-A", "kind": "Panel", "space": "P04", "x": 40, "z": 6, "opens": "D14" },
-    { "id": "MECH-PANEL-B", "kind": "Panel", "space": "P05", "x": 60, "z": 28, "opens": "D22" },
-    { "id": "MECH-CABINET-CP06", "kind": "Cabinet", "space": "P06", "x": 4, "z": 44, "opens": "" },
-    { "id": "MECH-PANEL-EXIT", "kind": "Panel", "space": "P06", "x": 66, "z": 10, "opens": "D29" }
-  ],
-  "pillars": [
-    { "id": "PIL-01", "space": "P06", "x": 33, "z": 9, "size": 0.8 },
-    { "id": "PIL-02", "space": "P06", "x": 47, "z": 9, "size": 0.8 },
-    { "id": "PIL-03", "space": "P06", "x": 33, "z": 23, "size": 0.8 },
-    { "id": "PIL-04", "space": "P06", "x": 47, "z": 23, "size": 0.8 }
-  ],
-  "exterior": { "space": "P06", "x": 70, "z": 2, "w": 18, "d": 20, "victoryX": 74, "victoryZ": 12 },
-  "regions": [
-    { "id": "REG-S1", "contents": "P01/P02 y STA-01", "limit": "Termina D06" },
-    { "id": "REG-C1", "contents": "C-01, V01", "limit": "Une S1/S2" },
-    { "id": "REG-S2", "contents": "P03/P04 y STA-02", "limit": "Termina D14" },
-    { "id": "REG-C2", "contents": "C-02, V07/V08/K05", "limit": "Ventana humana y curva" },
-    { "id": "REG-S3", "contents": "P05", "limit": "A/B de jaulas y permiso B" },
-    { "id": "REG-C3", "contents": "C-03, V17/V18/K11", "limit": "Aproximación al control" },
-    { "id": "REG-S4", "contents": "P06, boss, vestíbulo y plataforma exterior", "limit": "Sin descarga durante boss o victoria" }
-  ]
+ "version": "GDD-68-r1",
+ "notes": "Transcripción literal de la sección 68 del maestro (planos métricos), 88.1 (regiones) y 68.9 (checkpoints/mecanismos). Unidades: metros. Rect = (x,z,w,d) interior local; origin = origen mundo de la planta. Alturas útiles elegidas dentro del rango de 68.1 (ADP).",
+ "wallThickness": 0.2,
+ "envelopeWallThickness": 0.4,
+ "floors": [
+  {
+   "id": "P01",
+   "sector": "S1",
+   "name": "S1 inferior, preservación B-4",
+   "region": "REG-S1",
+   "origin": {
+    "x": 0,
+    "y": -24,
+    "z": 0
+   },
+   "w": 40,
+   "d": 32,
+   "height": 4.5
+  },
+  {
+   "id": "P02",
+   "sector": "S1",
+   "name": "S1 superior, servicio B-3",
+   "region": "REG-S1",
+   "origin": {
+    "x": 0,
+    "y": -18,
+    "z": 0
+   },
+   "w": 40,
+   "d": 32,
+   "height": 4.0
+  },
+  {
+   "id": "P03",
+   "sector": "S2",
+   "name": "S2 inferior, nave B-3",
+   "region": "REG-S2",
+   "origin": {
+    "x": 76,
+    "y": -18,
+    "z": 1
+   },
+   "w": 60,
+   "d": 45,
+   "height": 8.0
+  },
+  {
+   "id": "P04",
+   "sector": "S2",
+   "name": "S2 superior, servicio B-2",
+   "region": "REG-S2",
+   "origin": {
+    "x": 76,
+    "y": -8,
+    "z": 1
+   },
+   "w": 60,
+   "d": 45,
+   "height": 5.5
+  },
+  {
+   "id": "P05",
+   "sector": "S3",
+   "name": "S3, clínica B-2",
+   "region": "REG-S3",
+   "origin": {
+    "x": 184,
+    "y": -8,
+    "z": 16
+   },
+   "w": 65,
+   "d": 56,
+   "height": 5.0
+  },
+  {
+   "id": "P06",
+   "sector": "S4",
+   "name": "S4, control B-2",
+   "region": "REG-S4",
+   "origin": {
+    "x": 289,
+    "y": -8,
+    "z": 22
+   },
+   "w": 70,
+   "d": 55,
+   "height": 7.0
+  }
+ ],
+ "rooms": [
+  {
+   "id": "S1-R01",
+   "floor": "P01",
+   "name": "Cámara Esneider",
+   "x": 2,
+   "z": 2,
+   "w": 12,
+   "d": 14,
+   "scn": "SCN-01"
+  },
+  {
+   "id": "S1-R02",
+   "floor": "P01",
+   "name": "Preparación",
+   "x": 2,
+   "z": 18,
+   "w": 10,
+   "d": 12,
+   "scn": "SCN-03"
+  },
+  {
+   "id": "S1-R05",
+   "floor": "P01",
+   "name": "Galería preservación",
+   "x": 20,
+   "z": 2,
+   "w": 18,
+   "d": 22,
+   "scn": "SCN-02"
+  },
+  {
+   "id": "S1-R03",
+   "floor": "P02",
+   "name": "Derrumbe",
+   "x": 2,
+   "z": 2,
+   "w": 14,
+   "d": 16,
+   "scn": "SCN-04"
+  },
+  {
+   "id": "S1-R04",
+   "floor": "P02",
+   "name": "Tablero",
+   "x": 24,
+   "z": 2,
+   "w": 10,
+   "d": 12,
+   "scn": "SCN-05"
+  },
+  {
+   "id": "S2-R01",
+   "floor": "P03",
+   "name": "Nave",
+   "x": 2,
+   "z": 2,
+   "w": 24,
+   "d": 28,
+   "scn": "SCN-07"
+  },
+  {
+   "id": "S2-R06",
+   "floor": "P03",
+   "name": "Taller lateral",
+   "x": 30,
+   "z": 2,
+   "w": 24,
+   "d": 20,
+   "scn": "SCN-08"
+  },
+  {
+   "id": "S2-R03",
+   "floor": "P03",
+   "name": "Oficina",
+   "x": 30,
+   "z": 24,
+   "w": 10,
+   "d": 12,
+   "scn": "SCN-10"
+  },
+  {
+   "id": "S2-R02",
+   "floor": "P04",
+   "name": "Almacén",
+   "x": 2,
+   "z": 2,
+   "w": 18,
+   "d": 20,
+   "scn": "SCN-09"
+  },
+  {
+   "id": "S2-R04",
+   "floor": "P04",
+   "name": "Patio técnico",
+   "x": 24,
+   "z": 2,
+   "w": 20,
+   "d": 22,
+   "scn": "SCN-11"
+  },
+  {
+   "id": "S2-R05",
+   "floor": "P04",
+   "name": "Sala de piezas",
+   "x": 46,
+   "z": 2,
+   "w": 12,
+   "d": 12,
+   "scn": "SCN-08b"
+  },
+  {
+   "id": "S3-R02A",
+   "floor": "P05",
+   "name": "Jaulas A",
+   "x": 2,
+   "z": 2,
+   "w": 20,
+   "d": 24,
+   "scn": "SCN-14"
+  },
+  {
+   "id": "S3-R02B",
+   "floor": "P05",
+   "name": "Jaulas B",
+   "x": 26,
+   "z": 2,
+   "w": 20,
+   "d": 24,
+   "scn": "SCN-15"
+  },
+  {
+   "id": "S3-R05",
+   "floor": "P05",
+   "name": "Seguridad",
+   "x": 50,
+   "z": 2,
+   "w": 12,
+   "d": 14,
+   "scn": "SCN-18"
+  },
+  {
+   "id": "S3-R01",
+   "floor": "P05",
+   "name": "Admisión",
+   "x": 2,
+   "z": 32,
+   "w": 16,
+   "d": 20,
+   "scn": "SCN-13"
+  },
+  {
+   "id": "S3-R03",
+   "floor": "P05",
+   "name": "Clínica",
+   "x": 22,
+   "z": 32,
+   "w": 18,
+   "d": 22,
+   "scn": "SCN-16"
+  },
+  {
+   "id": "S3-R04",
+   "floor": "P05",
+   "name": "Observación",
+   "x": 44,
+   "z": 32,
+   "w": 12,
+   "d": 16,
+   "scn": "SCN-17"
+  },
+  {
+   "id": "S4-R05",
+   "floor": "P06",
+   "name": "Control",
+   "x": 2,
+   "z": 2,
+   "w": 20,
+   "d": 24,
+   "scn": "SCN-20"
+  },
+  {
+   "id": "S4-R03",
+   "floor": "P06",
+   "name": "Arena",
+   "x": 28,
+   "z": 2,
+   "w": 24,
+   "d": 28,
+   "scn": "SCN-22"
+  },
+  {
+   "id": "S4-R04",
+   "floor": "P06",
+   "name": "Vestíbulo salida",
+   "x": 54,
+   "z": 2,
+   "w": 14,
+   "d": 20,
+   "scn": "SCN-22b"
+  },
+  {
+   "id": "S4-R02",
+   "floor": "P06",
+   "name": "Refugio",
+   "x": 2,
+   "z": 36,
+   "w": 10,
+   "d": 12,
+   "scn": "SCN-21"
+  },
+  {
+   "id": "S4-R01",
+   "floor": "P06",
+   "name": "Seguridad final",
+   "x": 16,
+   "z": 36,
+   "w": 12,
+   "d": 14,
+   "scn": "SCN-21b"
+  }
+ ],
+ "circulation": [
+  {
+   "id": "P01-ESPINA",
+   "floor": "P01",
+   "name": "Espina",
+   "x": 14,
+   "z": 0,
+   "w": 6,
+   "d": 32
+  },
+  {
+   "id": "P01-PREP-S",
+   "floor": "P01",
+   "name": "Tramo sur de preparación",
+   "x": 12,
+   "z": 22,
+   "w": 2,
+   "d": 4
+  },
+  {
+   "id": "P01-ESC",
+   "floor": "P01",
+   "name": "Zona de escalera/circulación",
+   "x": 20,
+   "z": 24,
+   "w": 20,
+   "d": 8
+  },
+  {
+   "id": "P02-ESPINA",
+   "floor": "P02",
+   "name": "Espina",
+   "x": 16,
+   "z": 0,
+   "w": 6,
+   "d": 32
+  },
+  {
+   "id": "P02-GAL",
+   "floor": "P02",
+   "name": "Galería transversal",
+   "x": 0,
+   "z": 18,
+   "w": 40,
+   "d": 6
+  },
+  {
+   "id": "P02-TAB",
+   "floor": "P02",
+   "name": "Enlace de tablero",
+   "x": 26,
+   "z": 14,
+   "w": 4,
+   "d": 4
+  },
+  {
+   "id": "P02-ESC",
+   "floor": "P02",
+   "name": "Acceso a escalera",
+   "x": 26,
+   "z": 24,
+   "w": 4,
+   "d": 1
+  },
+  {
+   "id": "P03-ESPINA",
+   "floor": "P03",
+   "name": "Espina",
+   "x": 26,
+   "z": 0,
+   "w": 4,
+   "d": 45
+  },
+  {
+   "id": "P03-ENT",
+   "floor": "P03",
+   "name": "Entrada transversal",
+   "x": 0,
+   "z": 30,
+   "w": 26,
+   "d": 4
+  },
+  {
+   "id": "P03-ESC",
+   "floor": "P03",
+   "name": "Circulación hacia escalera",
+   "x": 30,
+   "z": 36,
+   "w": 30,
+   "d": 9
+  },
+  {
+   "id": "P04-GAL",
+   "floor": "P04",
+   "name": "Galería transversal",
+   "x": 0,
+   "z": 24,
+   "w": 60,
+   "d": 6
+  },
+  {
+   "id": "P04-ALM",
+   "floor": "P04",
+   "name": "Enlace de almacén",
+   "x": 8,
+   "z": 22,
+   "w": 4,
+   "d": 2
+  },
+  {
+   "id": "P04-PZS",
+   "floor": "P04",
+   "name": "Enlace de piezas",
+   "x": 49,
+   "z": 14,
+   "w": 4,
+   "d": 10
+  },
+  {
+   "id": "P04-SUR",
+   "floor": "P04",
+   "name": "Circulación sur",
+   "x": 0,
+   "z": 30,
+   "w": 60,
+   "d": 15
+  },
+  {
+   "id": "P05-GAL",
+   "floor": "P05",
+   "name": "Galería central",
+   "x": 0,
+   "z": 26,
+   "w": 65,
+   "d": 4
+  },
+  {
+   "id": "P05-JAU",
+   "floor": "P05",
+   "name": "Paso entre jaulas",
+   "x": 22,
+   "z": 0,
+   "w": 4,
+   "d": 26
+  },
+  {
+   "id": "P05-SEG",
+   "floor": "P05",
+   "name": "Enlace seguridad",
+   "x": 54,
+   "z": 16,
+   "w": 4,
+   "d": 10
+  },
+  {
+   "id": "P05-SO",
+   "floor": "P05",
+   "name": "Paso sur oeste",
+   "x": 18,
+   "z": 30,
+   "w": 4,
+   "d": 26
+  },
+  {
+   "id": "P05-SE",
+   "floor": "P05",
+   "name": "Paso sur este",
+   "x": 40,
+   "z": 30,
+   "w": 4,
+   "d": 26
+  },
+  {
+   "id": "P05-B19",
+   "floor": "P05",
+   "name": "Banda acceso D19",
+   "x": 8.6,
+   "z": 30,
+   "w": 2.8,
+   "d": 2
+  },
+  {
+   "id": "P05-B20",
+   "floor": "P05",
+   "name": "Banda acceso D20",
+   "x": 28.6,
+   "z": 30,
+   "w": 2.8,
+   "d": 2
+  },
+  {
+   "id": "P05-B21",
+   "floor": "P05",
+   "name": "Banda acceso D21",
+   "x": 49.2,
+   "z": 30,
+   "w": 1.6,
+   "d": 2
+  },
+  {
+   "id": "P06-GAL",
+   "floor": "P06",
+   "name": "Galería central",
+   "x": 0,
+   "z": 30,
+   "w": 70,
+   "d": 4
+  },
+  {
+   "id": "P06-CTL",
+   "floor": "P06",
+   "name": "Enlace control",
+   "x": 10,
+   "z": 26,
+   "w": 4,
+   "d": 4
+  },
+  {
+   "id": "P06-B25",
+   "floor": "P06",
+   "name": "Enlace refugio",
+   "x": 6.2,
+   "z": 34,
+   "w": 1.6,
+   "d": 2
+  },
+  {
+   "id": "P06-B26",
+   "floor": "P06",
+   "name": "Enlace seguridad",
+   "x": 20.6,
+   "z": 34,
+   "w": 2.8,
+   "d": 2
+  },
+  {
+   "id": "P06-ARV",
+   "floor": "P06",
+   "name": "Conexión arena-vestíbulo",
+   "x": 52,
+   "z": 14.6,
+   "w": 2,
+   "d": 2.8
+  },
+  {
+   "id": "P06-EXT",
+   "floor": "P06",
+   "name": "Enlace vestíbulo-puerta exterior",
+   "x": 68,
+   "z": 9.5,
+   "w": 2,
+   "d": 5
+  }
+ ],
+ "stairs": [
+  {
+   "id": "STA-01",
+   "lowerFloor": "P01",
+   "upperFloor": "P02",
+   "x": 24,
+   "z": 25,
+   "w": 8,
+   "d": 6,
+   "landingX": 28,
+   "landingZ": 28,
+   "flights": 2,
+   "rise": 6,
+   "axis": "z",
+   "startDir": 1
+  },
+  {
+   "id": "STA-02",
+   "lowerFloor": "P03",
+   "upperFloor": "P04",
+   "x": 44,
+   "z": 26,
+   "w": 10,
+   "d": 14,
+   "landingX": 49,
+   "landingZ": 33,
+   "flights": 3,
+   "rise": 10,
+   "axis": "z",
+   "startDir": -1
+  }
+ ],
+ "doors": [
+  {
+   "id": "D01",
+   "floor": "P01",
+   "room": "S1-R01",
+   "x": 14,
+   "z": 9,
+   "edge": "E",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Abierta o manual tutorial",
+   "owner": "REG-S1"
+  },
+  {
+   "id": "D02",
+   "floor": "P01",
+   "room": "S1-R02",
+   "x": 12,
+   "z": 24,
+   "edge": "E",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Abierta",
+   "owner": "REG-S1"
+  },
+  {
+   "id": "D03",
+   "floor": "P01",
+   "room": "S1-R05",
+   "x": 20,
+   "z": 13,
+   "edge": "W",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Abierta",
+   "owner": "REG-S1"
+  },
+  {
+   "id": "D04",
+   "floor": "P02",
+   "room": "S1-R03",
+   "x": 16,
+   "z": 10,
+   "edge": "E",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Abierta",
+   "owner": "REG-S1"
+  },
+  {
+   "id": "D05",
+   "floor": "P02",
+   "room": "S1-R04",
+   "x": 28,
+   "z": 14,
+   "edge": "N",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Abierta; palanca en sala",
+   "owner": "REG-S1"
+  },
+  {
+   "id": "D06",
+   "floor": "P02",
+   "room": "",
+   "x": 40,
+   "z": 21,
+   "edge": "E",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Palanca S1; reconecta detección",
+   "owner": "REG-S1"
+  },
+  {
+   "id": "D07",
+   "floor": "P03",
+   "room": "",
+   "x": 0,
+   "z": 32,
+   "edge": "W",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Sigue D06, sin nueva llave",
+   "owner": "REG-C1"
+  },
+  {
+   "id": "D08",
+   "floor": "P03",
+   "room": "S2-R01",
+   "x": 14,
+   "z": 30,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Nave accesible",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D09",
+   "floor": "P03",
+   "room": "S2-R06",
+   "x": 30,
+   "z": 12,
+   "edge": "W",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Taller accesible",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D10",
+   "floor": "P03",
+   "room": "S2-R03",
+   "x": 30,
+   "z": 30,
+   "edge": "W",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Oficina opcional",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D11",
+   "floor": "P04",
+   "room": "S2-R02",
+   "x": 10,
+   "z": 22,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Armario interior da pistola",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D12",
+   "floor": "P04",
+   "room": "S2-R04",
+   "x": 34,
+   "z": 24,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Panel A en sala",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D13",
+   "floor": "P04",
+   "room": "S2-R05",
+   "x": 51,
+   "z": 14,
+   "edge": "N",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Piezas opcional",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D14",
+   "floor": "P04",
+   "room": "",
+   "x": 60,
+   "z": 27,
+   "edge": "E",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Autorización A",
+   "owner": "REG-S2"
+  },
+  {
+   "id": "D15",
+   "floor": "P05",
+   "room": "",
+   "x": 0,
+   "z": 28,
+   "edge": "W",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Entrada clínica",
+   "owner": "REG-C2"
+  },
+  {
+   "id": "D16",
+   "floor": "P05",
+   "room": "S3-R02A",
+   "x": 12,
+   "z": 26,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Jaulas A",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D17",
+   "floor": "P05",
+   "room": "S3-R02B",
+   "x": 36,
+   "z": 26,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Jaulas B",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D18",
+   "floor": "P05",
+   "room": "S3-R05",
+   "x": 56,
+   "z": 16,
+   "edge": "N",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Escopeta interior",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D19",
+   "floor": "P05",
+   "room": "S3-R01",
+   "x": 10,
+   "z": 32,
+   "edge": "S",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Admisión",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D20",
+   "floor": "P05",
+   "room": "S3-R03",
+   "x": 30,
+   "z": 32,
+   "edge": "S",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Clínica",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D21",
+   "floor": "P05",
+   "room": "S3-R04",
+   "x": 50,
+   "z": 32,
+   "edge": "S",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Observación",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D22",
+   "floor": "P05",
+   "room": "",
+   "x": 65,
+   "z": 28,
+   "edge": "E",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Autorización B en galería",
+   "owner": "REG-S3"
+  },
+  {
+   "id": "D23",
+   "floor": "P06",
+   "room": "",
+   "x": 0,
+   "z": 32,
+   "edge": "W",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Esclusa, refugio accesible",
+   "owner": "REG-C3"
+  },
+  {
+   "id": "D24",
+   "floor": "P06",
+   "room": "S4-R05",
+   "x": 12,
+   "z": 26,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Control",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D25",
+   "floor": "P06",
+   "room": "S4-R02",
+   "x": 7,
+   "z": 36,
+   "edge": "S",
+   "width": 1.6,
+   "height": 2.3,
+   "state": "Refugio sin ataques",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D26",
+   "floor": "P06",
+   "room": "S4-R01",
+   "x": 22,
+   "z": 36,
+   "edge": "S",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Seguridad",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D27",
+   "floor": "P06",
+   "room": "S4-R03",
+   "x": 40,
+   "z": 30,
+   "edge": "N",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Player elige entrar; CP-06 previo",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D28A",
+   "floor": "P06",
+   "room": "S4-R03",
+   "x": 52,
+   "z": 16,
+   "edge": "E",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Permiso al derrotar jefe",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D28B",
+   "floor": "P06",
+   "room": "S4-R04",
+   "x": 54,
+   "z": 16,
+   "edge": "W",
+   "width": 2.8,
+   "height": 3.5,
+   "state": "Permiso al derrotar jefe",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D29",
+   "floor": "P06",
+   "room": "S4-R04",
+   "x": 68,
+   "z": 12,
+   "edge": "E",
+   "width": 5.0,
+   "height": 5.0,
+   "state": "Panel final, jefe derrotado",
+   "owner": "REG-S4"
+  },
+  {
+   "id": "D29-EXT",
+   "floor": "P06",
+   "room": "",
+   "x": 70,
+   "z": 12,
+   "edge": "E",
+   "width": 5.0,
+   "height": 5.0,
+   "state": "Hoja exterior de D29 en la envolvente (68.3: enlace X=68→70); no es conexión nueva",
+   "owner": "REG-S4"
+  }
+ ],
+ "connectors": [
+  {
+   "id": "C-01",
+   "region": "REG-C1",
+   "origin": {
+    "x": 40,
+    "y": -18,
+    "z": 21
+   },
+   "width": 4.5,
+   "height": 4.5,
+   "length": 48,
+   "fromDoor": "D06",
+   "toDoor": "D07",
+   "points": [
+    {
+     "x": 0,
+     "z": 0
+    },
+    {
+     "x": 18,
+     "z": 0
+    },
+    {
+     "x": 18,
+     "z": 12
+    },
+    {
+     "x": 36,
+     "z": 12
+    }
+   ],
+   "alcoves": [
+    {
+     "x": 8,
+     "z": -3,
+     "w": 3,
+     "d": 4
+    },
+    {
+     "x": 21,
+     "z": 7,
+     "w": 3,
+     "d": 4
+    }
+   ]
+  },
+  {
+   "id": "C-02",
+   "region": "REG-C2",
+   "origin": {
+    "x": 136,
+    "y": -8,
+    "z": 28
+   },
+   "width": 5.0,
+   "height": 5.0,
+   "length": 64,
+   "fromDoor": "D14",
+   "toDoor": "D15",
+   "points": [
+    {
+     "x": 0,
+     "z": 0
+    },
+    {
+     "x": 24,
+     "z": 0
+    },
+    {
+     "x": 24,
+     "z": 16
+    },
+    {
+     "x": 48,
+     "z": 16
+    }
+   ],
+   "alcoves": [
+    {
+     "x": 12,
+     "z": -3.5,
+     "w": 4,
+     "d": 4
+    },
+    {
+     "x": 31,
+     "z": 19.5,
+     "w": 4,
+     "d": 4
+    }
+   ]
+  },
+  {
+   "id": "C-03",
+   "region": "REG-C3",
+   "origin": {
+    "x": 249,
+    "y": -8,
+    "z": 44
+   },
+   "width": 5.5,
+   "height": 5.5,
+   "length": 50,
+   "fromDoor": "D22",
+   "toDoor": "D23",
+   "points": [
+    {
+     "x": 0,
+     "z": 0
+    },
+    {
+     "x": 20,
+     "z": 0
+    },
+    {
+     "x": 20,
+     "z": 10
+    },
+    {
+     "x": 40,
+     "z": 10
+    }
+   ],
+   "alcoves": [
+    {
+     "x": 10,
+     "z": -4,
+     "w": 4,
+     "d": 5
+    }
+   ]
+  }
+ ],
+ "spawns": [
+  {
+   "id": "V01",
+   "kind": "Vigia",
+   "space": "C-01",
+   "x": 14,
+   "z": 1,
+   "yaw": 0,
+   "note": "Inspección, tutorial/sigilo"
+  },
+  {
+   "id": "K01",
+   "kind": "Custodio",
+   "space": "P03",
+   "x": 16,
+   "z": 18,
+   "yaw": 270,
+   "note": "Primer grande, seis golpes"
+  },
+  {
+   "id": "V02",
+   "kind": "Vigia",
+   "space": "P03",
+   "x": 40,
+   "z": 12,
+   "yaw": 90,
+   "note": "Reparaciones"
+  },
+  {
+   "id": "V03",
+   "kind": "Vigia",
+   "space": "P03",
+   "x": 10,
+   "z": 22,
+   "yaw": 180,
+   "note": "Patrulla posterior separada de K01"
+  },
+  {
+   "id": "V04",
+   "kind": "Vigia",
+   "space": "P04",
+   "x": 10,
+   "z": 10,
+   "yaw": 0,
+   "note": "Pasar entre estantes"
+  },
+  {
+   "id": "V05",
+   "kind": "Vigia",
+   "space": "P04",
+   "x": 50,
+   "z": 8,
+   "yaw": 90,
+   "note": "Opcional"
+  },
+  {
+   "id": "V06",
+   "kind": "Vigia",
+   "space": "P04",
+   "x": 34,
+   "z": 12,
+   "yaw": 180,
+   "note": "Panel A"
+  },
+  {
+   "id": "K02",
+   "kind": "Custodio",
+   "space": "P03",
+   "x": 20,
+   "z": 9,
+   "yaw": 180,
+   "note": "Activo después de tutorial o separado por ruta"
+  },
+  {
+   "id": "K03",
+   "kind": "Custodio",
+   "space": "P04",
+   "x": 38,
+   "z": 18,
+   "yaw": 270,
+   "note": "Panel A, prioridad de ataque limitada"
+  },
+  {
+   "id": "K04",
+   "kind": "Custodio",
+   "space": "P04",
+   "x": 15,
+   "z": 18,
+   "yaw": 90,
+   "note": "Reservas opcionales"
+  },
+  {
+   "id": "V07",
+   "kind": "Vigia",
+   "space": "C-02",
+   "x": 12,
+   "z": 1,
+   "yaw": 90,
+   "note": "Galería húmeda"
+  },
+  {
+   "id": "V08",
+   "kind": "Vigia",
+   "space": "C-02",
+   "x": 36,
+   "z": 16,
+   "yaw": 270,
+   "note": "Ventana/segunda mitad"
+  },
+  {
+   "id": "K05",
+   "kind": "Custodio",
+   "space": "C-02",
+   "x": 24,
+   "z": 10,
+   "yaw": 0,
+   "note": "Curva, encuentro separado"
+  },
+  {
+   "id": "V09",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 10,
+   "z": 10,
+   "yaw": 0,
+   "note": "Ala A"
+  },
+  {
+   "id": "V10",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 16,
+   "z": 20,
+   "yaw": 180,
+   "note": "Ala A"
+  },
+  {
+   "id": "V11",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 32,
+   "z": 8,
+   "yaw": 90,
+   "note": "Ala B"
+  },
+  {
+   "id": "V12",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 35,
+   "z": 20,
+   "yaw": 270,
+   "note": "Ala B; corrección V12-01, fuera de jaula"
+  },
+  {
+   "id": "V13",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 12,
+   "z": 44,
+   "yaw": 0,
+   "note": "Patrulla lejos de spawn/checkpoint"
+  },
+  {
+   "id": "V14",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 30,
+   "z": 42,
+   "yaw": 90,
+   "note": "Procedimientos"
+  },
+  {
+   "id": "V15",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 50,
+   "z": 40,
+   "yaw": 180,
+   "note": "Inactiva hasta salir de lectura/refugio"
+  },
+  {
+   "id": "V16",
+   "kind": "Vigia",
+   "space": "P05",
+   "x": 56,
+   "z": 8,
+   "yaw": 270,
+   "note": "Hallazgo de escopeta"
+  },
+  {
+   "id": "K06",
+   "kind": "Custodio",
+   "space": "P05",
+   "x": 18,
+   "z": 14,
+   "yaw": 270,
+   "note": "Contención A"
+  },
+  {
+   "id": "K07",
+   "kind": "Custodio",
+   "space": "P05",
+   "x": 38,
+   "z": 16,
+   "yaw": 90,
+   "note": "Contención B"
+  },
+  {
+   "id": "K08",
+   "kind": "Custodio",
+   "space": "P05",
+   "x": 26,
+   "z": 48,
+   "yaw": 0,
+   "note": "Clínica, espacio de cobertura"
+  },
+  {
+   "id": "K09",
+   "kind": "Custodio",
+   "space": "P05",
+   "x": 58,
+   "z": 12,
+   "yaw": 180,
+   "note": "Seguridad"
+  },
+  {
+   "id": "K10",
+   "kind": "Custodio",
+   "space": "P05",
+   "x": 46,
+   "z": 28,
+   "yaw": 90,
+   "note": "Autorización B"
+  },
+  {
+   "id": "V17",
+   "kind": "Vigia",
+   "space": "C-03",
+   "x": 12,
+   "z": 1,
+   "yaw": 90,
+   "note": "Ascenso/salida de clínica"
+  },
+  {
+   "id": "V18",
+   "kind": "Vigia",
+   "space": "C-03",
+   "x": 30,
+   "z": 10,
+   "yaw": 270,
+   "note": "Segunda mitad"
+  },
+  {
+   "id": "K11",
+   "kind": "Custodio",
+   "space": "C-03",
+   "x": 20,
+   "z": 7,
+   "yaw": 0,
+   "note": "Curva"
+  },
+  {
+   "id": "V19",
+   "kind": "Vigia",
+   "space": "P06",
+   "x": 10,
+   "z": 12,
+   "yaw": 0,
+   "note": "Control"
+  },
+  {
+   "id": "V20",
+   "kind": "Vigia",
+   "space": "P06",
+   "x": 18,
+   "z": 22,
+   "yaw": 270,
+   "note": "Control"
+  },
+  {
+   "id": "V21",
+   "kind": "Vigia",
+   "space": "P06",
+   "x": 20,
+   "z": 42,
+   "yaw": 90,
+   "note": "Seguridad final"
+  },
+  {
+   "id": "V22",
+   "kind": "Vigia",
+   "space": "P06",
+   "x": 44,
+   "z": 32,
+   "yaw": 270,
+   "note": "Antes de arena"
+  },
+  {
+   "id": "V23",
+   "kind": "Vigia",
+   "space": "P06",
+   "x": 6,
+   "z": 20,
+   "yaw": 180,
+   "note": "Control, opcional"
+  },
+  {
+   "id": "K12",
+   "kind": "Custodio",
+   "space": "P06",
+   "x": 17,
+   "z": 8,
+   "yaw": 270,
+   "note": "Control"
+  },
+  {
+   "id": "K13",
+   "kind": "Custodio",
+   "space": "P06",
+   "x": 24,
+   "z": 46,
+   "yaw": 0,
+   "note": "Suministros finales"
+  },
+  {
+   "id": "K14",
+   "kind": "Custodio",
+   "space": "P06",
+   "x": 54,
+   "z": 32,
+   "yaw": 270,
+   "note": "Camino al refugio/arena"
+  },
+  {
+   "id": "B01",
+   "kind": "Boss",
+   "space": "P06",
+   "x": 40,
+   "z": 14,
+   "yaw": 180,
+   "note": "Archivista, inicio autorado"
+  }
+ ],
+ "pickups": [
+  {
+   "id": "PICK-F01",
+   "kind": "Flashlight",
+   "space": "P01",
+   "x": 8,
+   "z": 24,
+   "height": 0.9,
+   "support": "carro",
+   "amount": 1
+  },
+  {
+   "id": "PICK-W01",
+   "kind": "Crowbar",
+   "space": "P02",
+   "x": 8,
+   "z": 10,
+   "height": 1.0,
+   "support": "escombros",
+   "amount": 1
+  },
+  {
+   "id": "PICK-W02",
+   "kind": "Pistol",
+   "space": "P04",
+   "x": 6,
+   "z": 8,
+   "height": 1.0,
+   "support": "locker",
+   "amount": 20
+  },
+  {
+   "id": "PICK-W03",
+   "kind": "Shotgun",
+   "space": "P05",
+   "x": 54,
+   "z": 5,
+   "height": 1.1,
+   "support": "armario",
+   "amount": 10
+  },
+  {
+   "id": "A01",
+   "kind": "PistolAmmo",
+   "space": "P03",
+   "x": 38,
+   "z": 6,
+   "height": 0.85,
+   "support": "banco",
+   "amount": 10
+  },
+  {
+   "id": "A02",
+   "kind": "PistolAmmo",
+   "space": "P03",
+   "x": 34,
+   "z": 29,
+   "height": 0.85,
+   "support": "mesa",
+   "amount": 10
+  },
+  {
+   "id": "A03",
+   "kind": "PistolAmmo",
+   "space": "P03",
+   "x": 8,
+   "z": 6,
+   "height": 0.85,
+   "support": "banco",
+   "amount": 10
+  },
+  {
+   "id": "A04",
+   "kind": "PistolAmmo",
+   "space": "P04",
+   "x": 6,
+   "z": 16,
+   "height": 0.8,
+   "support": "repisa",
+   "amount": 10
+  },
+  {
+   "id": "A05",
+   "kind": "PistolAmmo",
+   "space": "P04",
+   "x": 48,
+   "z": 6,
+   "height": 0.8,
+   "support": "repisa",
+   "amount": 10
+  },
+  {
+   "id": "A06",
+   "kind": "PistolAmmo",
+   "space": "P05",
+   "x": 6,
+   "z": 6,
+   "height": 0.85,
+   "support": "carro",
+   "amount": 10
+  },
+  {
+   "id": "A07",
+   "kind": "PistolAmmo",
+   "space": "P05",
+   "x": 30,
+   "z": 6,
+   "height": 0.85,
+   "support": "repisa",
+   "amount": 10
+  },
+  {
+   "id": "A08",
+   "kind": "PistolAmmo",
+   "space": "P05",
+   "x": 34,
+   "z": 48,
+   "height": 0.85,
+   "support": "carro",
+   "amount": 10
+  },
+  {
+   "id": "A09",
+   "kind": "PistolAmmo",
+   "space": "P05",
+   "x": 48,
+   "z": 44,
+   "height": 0.8,
+   "support": "consola",
+   "amount": 10
+  },
+  {
+   "id": "A10",
+   "kind": "PistolAmmo",
+   "space": "P05",
+   "x": 60,
+   "z": 6,
+   "height": 0.8,
+   "support": "locker",
+   "amount": 10
+  },
+  {
+   "id": "A11",
+   "kind": "PistolAmmo",
+   "space": "P06",
+   "x": 6,
+   "z": 8,
+   "height": 0.8,
+   "support": "mesa",
+   "amount": 10
+  },
+  {
+   "id": "A12",
+   "kind": "PistolAmmo",
+   "space": "P06",
+   "x": 18,
+   "z": 40,
+   "height": 0.8,
+   "support": "locker",
+   "amount": 10
+  },
+  {
+   "id": "S01",
+   "kind": "ShotgunAmmo",
+   "space": "P05",
+   "x": 8,
+   "z": 20,
+   "height": 0.8,
+   "support": "carro",
+   "amount": 4
+  },
+  {
+   "id": "S02",
+   "kind": "ShotgunAmmo",
+   "space": "P05",
+   "x": 42,
+   "z": 8,
+   "height": 0.8,
+   "support": "repisa",
+   "amount": 4
+  },
+  {
+   "id": "S03",
+   "kind": "ShotgunAmmo",
+   "space": "P05",
+   "x": 24,
+   "z": 38,
+   "height": 0.8,
+   "support": "carro",
+   "amount": 4
+  },
+  {
+   "id": "S04",
+   "kind": "ShotgunAmmo",
+   "space": "P05",
+   "x": 46,
+   "z": 44,
+   "height": 0.8,
+   "support": "almacenamiento",
+   "amount": 4
+  },
+  {
+   "id": "S05",
+   "kind": "ShotgunAmmo",
+   "space": "P05",
+   "x": 60,
+   "z": 10,
+   "height": 0.8,
+   "support": "almacenamiento",
+   "amount": 4
+  },
+  {
+   "id": "S06",
+   "kind": "ShotgunAmmo",
+   "space": "P05",
+   "x": 12,
+   "z": 48,
+   "height": 0.8,
+   "support": "almacenamiento",
+   "amount": 4
+  },
+  {
+   "id": "S07",
+   "kind": "ShotgunAmmo",
+   "space": "P06",
+   "x": 8,
+   "z": 10,
+   "height": 0.85,
+   "support": "mesa",
+   "amount": 4
+  },
+  {
+   "id": "S08",
+   "kind": "ShotgunAmmo",
+   "space": "P06",
+   "x": 16,
+   "z": 20,
+   "height": 0.85,
+   "support": "mesa",
+   "amount": 4
+  },
+  {
+   "id": "S09",
+   "kind": "ShotgunAmmo",
+   "space": "P06",
+   "x": 18,
+   "z": 44,
+   "height": 0.85,
+   "support": "locker",
+   "amount": 4
+  },
+  {
+   "id": "S10",
+   "kind": "ShotgunAmmo",
+   "space": "P06",
+   "x": 26,
+   "z": 40,
+   "height": 0.85,
+   "support": "locker",
+   "amount": 4
+  },
+  {
+   "id": "H01",
+   "kind": "Syringe",
+   "space": "P02",
+   "x": 30,
+   "z": 10,
+   "height": 0.8,
+   "support": "cuadro/carro",
+   "amount": 1
+  },
+  {
+   "id": "H02",
+   "kind": "Syringe",
+   "space": "P03",
+   "x": 38,
+   "z": 28,
+   "height": 0.8,
+   "support": "almacenada",
+   "amount": 1
+  },
+  {
+   "id": "H03",
+   "kind": "Syringe",
+   "space": "P04",
+   "x": 8,
+   "z": 18,
+   "height": 0.8,
+   "support": "almacenada",
+   "amount": 1
+  },
+  {
+   "id": "H04",
+   "kind": "Syringe",
+   "space": "P04",
+   "x": 40,
+   "z": 8,
+   "height": 0.8,
+   "support": "almacenada",
+   "amount": 1
+  },
+  {
+   "id": "H05",
+   "kind": "Syringe",
+   "space": "P05",
+   "x": 6,
+   "z": 18,
+   "height": 0.8,
+   "support": "equipo clínico",
+   "amount": 1
+  },
+  {
+   "id": "H06",
+   "kind": "Syringe",
+   "space": "P05",
+   "x": 40,
+   "z": 10,
+   "height": 0.8,
+   "support": "equipo clínico",
+   "amount": 1
+  },
+  {
+   "id": "H07",
+   "kind": "Syringe",
+   "space": "P05",
+   "x": 28,
+   "z": 46,
+   "height": 0.8,
+   "support": "equipo clínico",
+   "amount": 1
+  },
+  {
+   "id": "H08",
+   "kind": "Syringe",
+   "space": "P05",
+   "x": 48,
+   "z": 42,
+   "height": 0.8,
+   "support": "equipo clínico",
+   "amount": 1
+  },
+  {
+   "id": "H09",
+   "kind": "Syringe",
+   "space": "P05",
+   "x": 58,
+   "z": 6,
+   "height": 0.8,
+   "support": "equipo clínico",
+   "amount": 1
+  },
+  {
+   "id": "H10",
+   "kind": "Syringe",
+   "space": "P06",
+   "x": 8,
+   "z": 22,
+   "height": 0.8,
+   "support": "stock",
+   "amount": 1
+  },
+  {
+   "id": "H11",
+   "kind": "Syringe",
+   "space": "P06",
+   "x": 18,
+   "z": 48,
+   "height": 0.8,
+   "support": "stock",
+   "amount": 1
+  },
+  {
+   "id": "H12",
+   "kind": "Syringe",
+   "space": "P06",
+   "x": 10,
+   "z": 44,
+   "height": 0.8,
+   "support": "refugio",
+   "amount": 1
+  },
+  {
+   "id": "R01",
+   "kind": "Ration",
+   "space": "P01",
+   "x": 34,
+   "z": 18,
+   "height": 0.8,
+   "support": "carro",
+   "amount": 1
+  },
+  {
+   "id": "R02",
+   "kind": "Ration",
+   "space": "P03",
+   "x": 36,
+   "z": 30,
+   "height": 0.8,
+   "support": "mesa",
+   "amount": 1
+  },
+  {
+   "id": "R03",
+   "kind": "Ration",
+   "space": "P04",
+   "x": 12,
+   "z": 6,
+   "height": 0.8,
+   "support": "repisa",
+   "amount": 1
+  },
+  {
+   "id": "R04",
+   "kind": "Ration",
+   "space": "P05",
+   "x": 10,
+   "z": 46,
+   "height": 0.8,
+   "support": "repisa",
+   "amount": 1
+  },
+  {
+   "id": "R05",
+   "kind": "Ration",
+   "space": "P05",
+   "x": 52,
+   "z": 44,
+   "height": 0.8,
+   "support": "stock",
+   "amount": 1
+  },
+  {
+   "id": "R06",
+   "kind": "Ration",
+   "space": "P06",
+   "x": 6,
+   "z": 40,
+   "height": 0.8,
+   "support": "stock",
+   "amount": 1
+  }
+ ],
+ "documents": [
+  {
+   "id": "DOC-01",
+   "space": "P01",
+   "x": 4,
+   "z": 6,
+   "support": "consola",
+   "condition": "Antes de salir"
+  },
+  {
+   "id": "DOC-02",
+   "space": "P02",
+   "x": 26,
+   "z": 8,
+   "support": "interior de cuadro",
+   "condition": "Explica aislamiento"
+  },
+  {
+   "id": "DOC-03",
+   "space": "P03",
+   "x": 34,
+   "z": 28,
+   "support": "carpeta",
+   "condition": "Empresa, opcional"
+  },
+  {
+   "id": "DOC-04",
+   "space": "P03",
+   "x": 36,
+   "z": 28,
+   "support": "hoja sobre ficha",
+   "condition": "Cancelación"
+  },
+  {
+   "id": "DOC-05",
+   "space": "P04",
+   "x": 28,
+   "z": 8,
+   "support": "registro técnico",
+   "condition": "Personal ausente"
+  },
+  {
+   "id": "DOC-06",
+   "space": "P05",
+   "x": 6,
+   "z": 36,
+   "support": "atril",
+   "condition": "Reclasificación"
+  },
+  {
+   "id": "DOC-07",
+   "space": "P05",
+   "x": 6,
+   "z": 12,
+   "support": "placa/terminal jaulas A",
+   "condition": "Nombre no conciliado"
+  },
+  {
+   "id": "DOC-08",
+   "space": "P05",
+   "x": 36,
+   "z": 46,
+   "support": "equipo clínico",
+   "condition": "Sumisión"
+  },
+  {
+   "id": "DOC-09",
+   "space": "P05",
+   "x": 48,
+   "z": 38,
+   "support": "consola observación",
+   "condition": "Responsabilidad humana"
+  },
+  {
+   "id": "DOC-10",
+   "space": "P05",
+   "x": 52,
+   "z": 6,
+   "support": "armario",
+   "condition": "Táctica"
+  },
+  {
+   "id": "DOC-11",
+   "space": "P06",
+   "x": 12,
+   "z": 8,
+   "support": "control",
+   "condition": "Firma final"
+  },
+  {
+   "id": "DOC-12",
+   "space": "P06",
+   "x": 4,
+   "z": 40,
+   "support": "banco/inscripción",
+   "condition": "Antes del jefe"
+  }
+ ],
+ "checkpoints": [
+  {
+   "id": "CP-00",
+   "space": "P01",
+   "x": 11,
+   "z": 10,
+   "activation": "Fin de salida de cámara",
+   "protection": "Sin enemigos"
+  },
+  {
+   "id": "CP-01",
+   "space": "P02",
+   "x": 28,
+   "z": 12,
+   "activation": "Varilla/linterna, antes de D06",
+   "protection": "Anuncio no repetido si ya progresó"
+  },
+  {
+   "id": "CP-02",
+   "space": "P04",
+   "x": 10,
+   "z": 25,
+   "activation": "Recoger pistola y esperar estado seguro",
+   "protection": "No snapshot en contacto con patrulla. Corrección PL-CP02-01: GDD (8,24) caía en la esquina muro/enlace de almacén; movido 2 m al centro del enlace, dentro de la galería"
+  },
+  {
+   "id": "CP-02B",
+   "space": "P03",
+   "x": 32,
+   "z": 18,
+   "activation": "Retorno a taller tras pistola, seguro",
+   "protection": "Opcional para mapa grande"
+  },
+  {
+   "id": "CP-03",
+   "space": "P04",
+   "x": 28,
+   "z": 20,
+   "activation": "Panel A, seguro",
+   "protection": "Permiso y puertas persistentes"
+  },
+  {
+   "id": "CP-04",
+   "space": "P05",
+   "x": 6,
+   "z": 34,
+   "activation": "Entrada/admisión, amenaza no ve player",
+   "protection": "No guardar frente a V13"
+  },
+  {
+   "id": "CP-04B",
+   "space": "P05",
+   "x": 46,
+   "z": 34,
+   "activation": "Observación, sin persecución",
+   "protection": "V15 inactivo en zona de lectura"
+  },
+  {
+   "id": "CP-05",
+   "space": "P05",
+   "x": 60,
+   "z": 28,
+   "activation": "Escopeta + autorización B",
+   "protection": "Gate de seguridad y cobertura"
+  },
+  {
+   "id": "CP-06",
+   "space": "P06",
+   "x": 6,
+   "z": 42,
+   "activation": "Refugio, gabinete y salud aplicados",
+   "protection": "Sin daño/IA entrante"
+  },
+  {
+   "id": "CP-07",
+   "space": "P06",
+   "x": 50,
+   "z": 16,
+   "activation": "B01 muerto",
+   "protection": "Ataques del jefe cancelados"
+  }
+ ],
+ "mechanisms": [
+  {
+   "id": "MECH-LEVER-S1",
+   "kind": "Lever",
+   "space": "P02",
+   "x": 30,
+   "z": 6,
+   "opens": "D06"
+  },
+  {
+   "id": "MECH-PANEL-A",
+   "kind": "Panel",
+   "space": "P04",
+   "x": 40,
+   "z": 6,
+   "opens": "D14"
+  },
+  {
+   "id": "MECH-PANEL-B",
+   "kind": "Panel",
+   "space": "P05",
+   "x": 60,
+   "z": 28,
+   "opens": "D22"
+  },
+  {
+   "id": "MECH-CABINET-CP06",
+   "kind": "Cabinet",
+   "space": "P06",
+   "x": 4,
+   "z": 44,
+   "opens": ""
+  },
+  {
+   "id": "MECH-PANEL-EXIT",
+   "kind": "Panel",
+   "space": "P06",
+   "x": 66,
+   "z": 10,
+   "opens": "D29"
+  }
+ ],
+ "pillars": [
+  {
+   "id": "PIL-01",
+   "space": "P06",
+   "x": 33,
+   "z": 9,
+   "size": 0.8
+  },
+  {
+   "id": "PIL-02",
+   "space": "P06",
+   "x": 47,
+   "z": 9,
+   "size": 0.8
+  },
+  {
+   "id": "PIL-03",
+   "space": "P06",
+   "x": 33,
+   "z": 23,
+   "size": 0.8
+  },
+  {
+   "id": "PIL-04",
+   "space": "P06",
+   "x": 47,
+   "z": 23,
+   "size": 0.8
+  }
+ ],
+ "exterior": {
+  "space": "P06",
+  "x": 70,
+  "z": 2,
+  "w": 18,
+  "d": 20,
+  "victoryX": 74,
+  "victoryZ": 12
+ },
+ "regions": [
+  {
+   "id": "REG-S1",
+   "contents": "P01/P02 y STA-01",
+   "limit": "Termina D06"
+  },
+  {
+   "id": "REG-C1",
+   "contents": "C-01, V01",
+   "limit": "Une S1/S2"
+  },
+  {
+   "id": "REG-S2",
+   "contents": "P03/P04 y STA-02",
+   "limit": "Termina D14"
+  },
+  {
+   "id": "REG-C2",
+   "contents": "C-02, V07/V08/K05",
+   "limit": "Ventana humana y curva"
+  },
+  {
+   "id": "REG-S3",
+   "contents": "P05",
+   "limit": "A/B de jaulas y permiso B"
+  },
+  {
+   "id": "REG-C3",
+   "contents": "C-03, V17/V18/K11",
+   "limit": "Aproximación al control"
+  },
+  {
+   "id": "REG-S4",
+   "contents": "P06, boss, vestíbulo y plataforma exterior",
+   "limit": "Sin descarga durante boss o victoria"
+  }
+ ],
+ "patrols": [
+  {
+   "id": "PAT-01",
+   "unit": "V01",
+   "space": "C-01",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 14,
+     "z": 1
+    },
+    {
+     "x": 16,
+     "z": 0
+    },
+    {
+     "x": 8,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "id": "PAT-02",
+   "unit": "K01",
+   "space": "P03",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 16,
+     "z": 18
+    },
+    {
+     "x": 16,
+     "z": 26
+    },
+    {
+     "x": 14,
+     "z": 26
+    }
+   ]
+  },
+  {
+   "id": "PAT-03",
+   "unit": "V02",
+   "space": "P03",
+   "mode": "loop",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 40,
+     "z": 12
+    },
+    {
+     "x": 45,
+     "z": 14
+    },
+    {
+     "x": 45,
+     "z": 19
+    },
+    {
+     "x": 35,
+     "z": 19
+    }
+   ]
+  },
+  {
+   "id": "PAT-04",
+   "unit": "V03",
+   "space": "P03",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 10,
+     "z": 22
+    },
+    {
+     "x": 14,
+     "z": 22
+    },
+    {
+     "x": 14,
+     "z": 15
+    }
+   ]
+  },
+  {
+   "id": "PAT-04",
+   "unit": "K02",
+   "space": "P03",
+   "mode": "pingpong",
+   "delay": 8,
+   "points": [
+    {
+     "x": 20,
+     "z": 9
+    },
+    {
+     "x": 22,
+     "z": 13
+    },
+    {
+     "x": 18,
+     "z": 13
+    }
+   ]
+  },
+  {
+   "id": "PAT-05",
+   "unit": "V04",
+   "space": "P04",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 10,
+     "z": 10
+    },
+    {
+     "x": 12,
+     "z": 10
+    },
+    {
+     "x": 12,
+     "z": 18
+    }
+   ]
+  },
+  {
+   "id": "PAT-05",
+   "unit": "K04",
+   "space": "P04",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 15,
+     "z": 18
+    },
+    {
+     "x": 15,
+     "z": 20
+    },
+    {
+     "x": 7,
+     "z": 20
+    }
+   ]
+  },
+  {
+   "id": "PAT-06",
+   "unit": "V05",
+   "space": "P04",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 50,
+     "z": 8
+    },
+    {
+     "x": 50,
+     "z": 11
+    },
+    {
+     "x": 53,
+     "z": 12
+    }
+   ]
+  },
+  {
+   "id": "PAT-07",
+   "unit": "V06",
+   "space": "P04",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 34,
+     "z": 12
+    },
+    {
+     "x": 36,
+     "z": 12
+    },
+    {
+     "x": 36,
+     "z": 20
+    }
+   ]
+  },
+  {
+   "id": "PAT-07",
+   "unit": "K03",
+   "space": "P04",
+   "mode": "pingpong",
+   "delay": 6,
+   "points": [
+    {
+     "x": 38,
+     "z": 18
+    },
+    {
+     "x": 40,
+     "z": 18
+    },
+    {
+     "x": 40,
+     "z": 12
+    }
+   ]
+  },
+  {
+   "id": "PAT-08",
+   "unit": "V07",
+   "space": "C-02",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 12,
+     "z": 1
+    },
+    {
+     "x": 18,
+     "z": 0
+    },
+    {
+     "x": 6,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "id": "PAT-08",
+   "unit": "K05",
+   "space": "C-02",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 24,
+     "z": 10
+    },
+    {
+     "x": 24,
+     "z": 14
+    },
+    {
+     "x": 24,
+     "z": 5
+    }
+   ]
+  },
+  {
+   "id": "PAT-09",
+   "unit": "V08",
+   "space": "C-02",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 36,
+     "z": 16
+    },
+    {
+     "x": 44,
+     "z": 16
+    },
+    {
+     "x": 32,
+     "z": 16
+    }
+   ]
+  },
+  {
+   "id": "PAT-10",
+   "unit": "V09",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 10,
+     "z": 10
+    },
+    {
+     "x": 11,
+     "z": 10
+    },
+    {
+     "x": 11,
+     "z": 15
+    }
+   ]
+  },
+  {
+   "id": "PAT-10",
+   "unit": "V10",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 16,
+     "z": 20
+    },
+    {
+     "x": 19,
+     "z": 24
+    },
+    {
+     "x": 12,
+     "z": 24
+    }
+   ]
+  },
+  {
+   "id": "PAT-10",
+   "unit": "K06",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 18,
+     "z": 14
+    },
+    {
+     "x": 20,
+     "z": 14
+    },
+    {
+     "x": 20,
+     "z": 24
+    }
+   ]
+  },
+  {
+   "id": "PAT-11",
+   "unit": "V11",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 32,
+     "z": 8
+    },
+    {
+     "x": 35,
+     "z": 8
+    },
+    {
+     "x": 35,
+     "z": 13
+    }
+   ]
+  },
+  {
+   "id": "PAT-11",
+   "unit": "V12",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 35,
+     "z": 20
+    },
+    {
+     "x": 35,
+     "z": 24
+    },
+    {
+     "x": 28,
+     "z": 24
+    }
+   ]
+  },
+  {
+   "id": "PAT-11",
+   "unit": "K07",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 38,
+     "z": 16
+    },
+    {
+     "x": 35,
+     "z": 16
+    },
+    {
+     "x": 35,
+     "z": 13
+    }
+   ]
+  },
+  {
+   "id": "PAT-12",
+   "unit": "V13",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 12,
+     "z": 44
+    },
+    {
+     "x": 10,
+     "z": 44
+    },
+    {
+     "x": 10,
+     "z": 49
+    }
+   ]
+  },
+  {
+   "id": "PAT-13",
+   "unit": "V14",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 30,
+     "z": 42
+    },
+    {
+     "x": 29,
+     "z": 42
+    },
+    {
+     "x": 29,
+     "z": 48
+    }
+   ]
+  },
+  {
+   "id": "PAT-13",
+   "unit": "K08",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 26,
+     "z": 48
+    },
+    {
+     "x": 26,
+     "z": 51
+    },
+    {
+     "x": 29,
+     "z": 51
+    }
+   ]
+  },
+  {
+   "id": "PAT-14",
+   "unit": "V15",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 50,
+     "z": 40
+    },
+    {
+     "x": 50,
+     "z": 45
+    },
+    {
+     "x": 48,
+     "z": 45
+    }
+   ]
+  },
+  {
+   "id": "PAT-15",
+   "unit": "V16",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 56,
+     "z": 8
+    },
+    {
+     "x": 56,
+     "z": 5
+    },
+    {
+     "x": 58,
+     "z": 5
+    }
+   ]
+  },
+  {
+   "id": "PAT-15",
+   "unit": "K09",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 58,
+     "z": 12
+    },
+    {
+     "x": 60,
+     "z": 12
+    },
+    {
+     "x": 60,
+     "z": 9
+    }
+   ]
+  },
+  {
+   "id": "PAT-16",
+   "unit": "K10",
+   "space": "P05",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 46,
+     "z": 28
+    },
+    {
+     "x": 54,
+     "z": 28
+    },
+    {
+     "x": 60,
+     "z": 28
+    }
+   ]
+  },
+  {
+   "id": "PAT-17",
+   "unit": "V17",
+   "space": "C-03",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 12,
+     "z": 1
+    },
+    {
+     "x": 16,
+     "z": 0
+    },
+    {
+     "x": 7,
+     "z": 0
+    }
+   ]
+  },
+  {
+   "id": "PAT-17",
+   "unit": "K11",
+   "space": "C-03",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 20,
+     "z": 7
+    },
+    {
+     "x": 20,
+     "z": 3
+    },
+    {
+     "x": 20,
+     "z": 9
+    }
+   ]
+  },
+  {
+   "id": "PAT-18",
+   "unit": "V18",
+   "space": "C-03",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 30,
+     "z": 10
+    },
+    {
+     "x": 36,
+     "z": 10
+    },
+    {
+     "x": 26,
+     "z": 10
+    }
+   ]
+  },
+  {
+   "id": "PAT-19",
+   "unit": "V22",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 44,
+     "z": 32
+    },
+    {
+     "x": 36,
+     "z": 32
+    },
+    {
+     "x": 28,
+     "z": 32
+    }
+   ]
+  },
+  {
+   "id": "PAT-19",
+   "unit": "K14",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 54,
+     "z": 32
+    },
+    {
+     "x": 60,
+     "z": 32
+    },
+    {
+     "x": 60,
+     "z": 31
+    }
+   ]
+  },
+  {
+   "id": "PAT-20",
+   "unit": "V19",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 10,
+     "z": 12
+    },
+    {
+     "x": 10,
+     "z": 8
+    },
+    {
+     "x": 14,
+     "z": 8
+    }
+   ]
+  },
+  {
+   "id": "PAT-20",
+   "unit": "V20",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 18,
+     "z": 22
+    },
+    {
+     "x": 14,
+     "z": 22
+    },
+    {
+     "x": 10,
+     "z": 22
+    }
+   ]
+  },
+  {
+   "id": "PAT-20",
+   "unit": "V23",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 6,
+     "z": 20
+    },
+    {
+     "x": 6,
+     "z": 17
+    },
+    {
+     "x": 8,
+     "z": 17
+    }
+   ]
+  },
+  {
+   "id": "PAT-20",
+   "unit": "K12",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 17,
+     "z": 8
+    },
+    {
+     "x": 17,
+     "z": 12
+    },
+    {
+     "x": 17,
+     "z": 20
+    }
+   ]
+  },
+  {
+   "id": "PAT-21",
+   "unit": "V21",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 20,
+     "z": 42
+    },
+    {
+     "x": 23,
+     "z": 42
+    },
+    {
+     "x": 23,
+     "z": 39
+    }
+   ]
+  },
+  {
+   "id": "PAT-21",
+   "unit": "K13",
+   "space": "P06",
+   "mode": "pingpong",
+   "delay": 0.0,
+   "points": [
+    {
+     "x": 24,
+     "z": 46
+    },
+    {
+     "x": 25,
+     "z": 46
+    },
+    {
+     "x": 25,
+     "z": 43
+    }
+   ]
+  }
+ ],
+ "furniture": [
+  {
+   "id": "M001",
+   "space": "P01",
+   "room": "S1-R01",
+   "family": "crio",
+   "x": 7,
+   "z": 7,
+   "w": 2.4,
+   "d": 4,
+   "h": 2.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M002",
+   "space": "P01",
+   "room": "S1-R01",
+   "family": "consola",
+   "x": 4,
+   "z": 12,
+   "w": 1.4,
+   "d": 0.7,
+   "h": 1.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M003",
+   "space": "P01",
+   "room": "S1-R01",
+   "family": "deposito",
+   "x": 11,
+   "z": 4,
+   "w": 1.6,
+   "d": 1.6,
+   "h": 2.8,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M004",
+   "space": "P01",
+   "room": "S1-R01",
+   "family": "bandeja",
+   "x": 4,
+   "z": 4,
+   "w": 1.8,
+   "d": 0.8,
+   "h": 0.9,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M005",
+   "space": "P01",
+   "room": "S1-R02",
+   "family": "banco",
+   "x": 5,
+   "z": 21,
+   "w": 2.4,
+   "d": 0.65,
+   "h": 0.5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M006",
+   "space": "P01",
+   "room": "S1-R02",
+   "family": "taquillas",
+   "x": 3,
+   "z": 26,
+   "w": 0.7,
+   "d": 3,
+   "h": 2.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M007",
+   "space": "P01",
+   "room": "S1-R02",
+   "family": "carro",
+   "x": 8,
+   "z": 27,
+   "w": 1.2,
+   "d": 0.7,
+   "h": 0.95,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M008",
+   "space": "P01",
+   "room": "S1-R05",
+   "family": "crio",
+   "x": 24,
+   "z": 6,
+   "w": 2.4,
+   "d": 4,
+   "h": 2.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M009",
+   "space": "P01",
+   "room": "S1-R05",
+   "family": "crio",
+   "x": 32,
+   "z": 6,
+   "w": 2.4,
+   "d": 4,
+   "h": 2.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M010",
+   "space": "P01",
+   "room": "S1-R05",
+   "family": "crio",
+   "x": 24,
+   "z": 18,
+   "w": 2.4,
+   "d": 4,
+   "h": 2.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M011",
+   "space": "P01",
+   "room": "S1-R05",
+   "family": "crio",
+   "x": 32,
+   "z": 18,
+   "w": 2.4,
+   "d": 4,
+   "h": 2.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M012",
+   "space": "P01",
+   "room": "S1-R05",
+   "family": "tuberia",
+   "x": 36,
+   "z": 12,
+   "w": 0.6,
+   "d": 12,
+   "h": 0.6,
+   "yaw": 0,
+   "yOff": 2.6,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M013",
+   "space": "P02",
+   "room": "S1-R03",
+   "family": "cascote",
+   "x": 6,
+   "z": 6,
+   "w": 5,
+   "d": 4,
+   "h": 1.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M014",
+   "space": "P02",
+   "room": "S1-R03",
+   "family": "viga",
+   "x": 7,
+   "z": 13,
+   "w": 5,
+   "d": 0.5,
+   "h": 0.7,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M015",
+   "space": "P02",
+   "room": "S1-R03",
+   "family": "carro",
+   "x": 12,
+   "z": 6,
+   "w": 1.4,
+   "d": 0.8,
+   "h": 1.0,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M016",
+   "space": "P02",
+   "room": "S1-R04",
+   "family": "panel",
+   "x": 26,
+   "z": 4,
+   "w": 2.2,
+   "d": 0.4,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M017",
+   "space": "P02",
+   "room": "S1-R04",
+   "family": "mesa",
+   "x": 30,
+   "z": 7,
+   "w": 2,
+   "d": 0.8,
+   "h": 0.9,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M018",
+   "space": "P02",
+   "room": "S1-R04",
+   "family": "tablero",
+   "x": 32,
+   "z": 10,
+   "w": 0.4,
+   "d": 2,
+   "h": 2.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M019",
+   "space": "P03",
+   "room": "S2-R01",
+   "family": "prensa",
+   "x": 7,
+   "z": 8,
+   "w": 6,
+   "d": 6,
+   "h": 5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M020",
+   "space": "P03",
+   "room": "S2-R01",
+   "family": "torno",
+   "x": 20,
+   "z": 7,
+   "w": 4,
+   "d": 3,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M021",
+   "space": "P03",
+   "room": "S2-R01",
+   "family": "mesa",
+   "x": 9,
+   "z": 19,
+   "w": 4,
+   "d": 2,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M022",
+   "space": "P03",
+   "room": "S2-R01",
+   "family": "contenedor",
+   "x": 20,
+   "z": 24,
+   "w": 3,
+   "d": 2,
+   "h": 1.4,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M023",
+   "space": "P03",
+   "room": "S2-R06",
+   "family": "banco",
+   "x": 34,
+   "z": 5,
+   "w": 6,
+   "d": 1.2,
+   "h": 0.95,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M024",
+   "space": "P03",
+   "room": "S2-R06",
+   "family": "robot",
+   "x": 47,
+   "z": 8,
+   "w": 2,
+   "d": 2,
+   "h": 2.3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M025",
+   "space": "P03",
+   "room": "S2-R06",
+   "family": "estanteria",
+   "x": 52,
+   "z": 16,
+   "w": 1,
+   "d": 8,
+   "h": 2.6,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M026",
+   "space": "P03",
+   "room": "S2-R06",
+   "family": "carro",
+   "x": 39,
+   "z": 18,
+   "w": 2,
+   "d": 1,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": true,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M027",
+   "space": "P03",
+   "room": "S2-R03",
+   "family": "escritorio",
+   "x": 35,
+   "z": 27,
+   "w": 3,
+   "d": 1.4,
+   "h": 0.85,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M028",
+   "space": "P03",
+   "room": "S2-R03",
+   "family": "archivador",
+   "x": 38,
+   "z": 33,
+   "w": 1,
+   "d": 3,
+   "h": 1.8,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M029",
+   "space": "P03",
+   "room": "S2-R03",
+   "family": "silla",
+   "x": 35,
+   "z": 29,
+   "w": 0.7,
+   "d": 0.7,
+   "h": 1.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M030",
+   "space": "P04",
+   "room": "S2-R02",
+   "family": "estante",
+   "x": 4,
+   "z": 10,
+   "w": 1.2,
+   "d": 12,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M031",
+   "space": "P04",
+   "room": "S2-R02",
+   "family": "estante",
+   "x": 16,
+   "z": 10,
+   "w": 1.2,
+   "d": 12,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M032",
+   "space": "P04",
+   "room": "S2-R02",
+   "family": "palet",
+   "x": 8,
+   "z": 13,
+   "w": 2,
+   "d": 2,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M033",
+   "space": "P04",
+   "room": "S2-R02",
+   "family": "locker",
+   "x": 7,
+   "z": 5,
+   "w": 2,
+   "d": 0.7,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M034",
+   "space": "P04",
+   "room": "S2-R04",
+   "family": "generador",
+   "x": 28,
+   "z": 7,
+   "w": 5,
+   "d": 4,
+   "h": 2.6,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M035",
+   "space": "P04",
+   "room": "S2-R04",
+   "family": "carro",
+   "x": 31,
+   "z": 16,
+   "w": 2,
+   "d": 1.2,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": true,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M036",
+   "space": "P04",
+   "room": "S2-R04",
+   "family": "bobina",
+   "x": 41,
+   "z": 7,
+   "w": 2.5,
+   "d": 2.5,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M037",
+   "space": "P04",
+   "room": "S2-R05",
+   "family": "bandeja",
+   "x": 48,
+   "z": 5,
+   "w": 1,
+   "d": 4,
+   "h": 1.3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M038",
+   "space": "P04",
+   "room": "S2-R05",
+   "family": "mesa",
+   "x": 53,
+   "z": 5,
+   "w": 3,
+   "d": 1.2,
+   "h": 0.9,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M039",
+   "space": "P04",
+   "room": "S2-R05",
+   "family": "contenedor",
+   "x": 55,
+   "z": 10,
+   "w": 2,
+   "d": 2,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M040",
+   "space": "P05",
+   "room": "S3-R02A",
+   "family": "jaula",
+   "x": 6,
+   "z": 7,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "E",
+   "doorAt": 9
+  },
+  {
+   "id": "M041",
+   "space": "P05",
+   "room": "S3-R02A",
+   "family": "jaula",
+   "x": 16,
+   "z": 7,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M042",
+   "space": "P05",
+   "room": "S3-R02A",
+   "family": "jaula",
+   "x": 6,
+   "z": 19,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M043",
+   "space": "P05",
+   "room": "S3-R02A",
+   "family": "jaula",
+   "x": 16,
+   "z": 19,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "N",
+   "doorAt": 16
+  },
+  {
+   "id": "M044",
+   "space": "P05",
+   "room": "S3-R02A",
+   "family": "biomonitor",
+   "x": 20,
+   "z": 12,
+   "w": 0.7,
+   "d": 1,
+   "h": 1.6,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M045",
+   "space": "P05",
+   "room": "S3-R02B",
+   "family": "jaula",
+   "x": 30,
+   "z": 7,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "E",
+   "doorAt": 8
+  },
+  {
+   "id": "M046",
+   "space": "P05",
+   "room": "S3-R02B",
+   "family": "jaula",
+   "x": 40,
+   "z": 7,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M047",
+   "space": "P05",
+   "room": "S3-R02B",
+   "family": "jaula",
+   "x": 30,
+   "z": 20,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M048",
+   "space": "P05",
+   "room": "S3-R02B",
+   "family": "jaula",
+   "x": 40,
+   "z": 20,
+   "w": 5,
+   "d": 6,
+   "h": 3,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M049",
+   "space": "P05",
+   "room": "S3-R02B",
+   "family": "deposito",
+   "x": 44,
+   "z": 13,
+   "w": 1,
+   "d": 2,
+   "h": 2.2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M050",
+   "space": "P05",
+   "room": "S3-R05",
+   "family": "locker",
+   "x": 52,
+   "z": 5,
+   "w": 2,
+   "d": 0.8,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M051",
+   "space": "P05",
+   "room": "S3-R05",
+   "family": "barrera",
+   "x": 53,
+   "z": 11,
+   "w": 2,
+   "d": 1,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M052",
+   "space": "P05",
+   "room": "S3-R05",
+   "family": "consola",
+   "x": 60,
+   "z": 5,
+   "w": 1,
+   "d": 2,
+   "h": 1.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M053",
+   "space": "P05",
+   "room": "S3-R01",
+   "family": "mostrador",
+   "x": 5,
+   "z": 39,
+   "w": 1.2,
+   "d": 8,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M054",
+   "space": "P05",
+   "room": "S3-R01",
+   "family": "sillas",
+   "x": 15,
+   "z": 46,
+   "w": 1,
+   "d": 6,
+   "h": 1.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M055",
+   "space": "P05",
+   "room": "S3-R01",
+   "family": "dispensador",
+   "x": 5,
+   "z": 48,
+   "w": 1,
+   "d": 1,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M056",
+   "space": "P05",
+   "room": "S3-R03",
+   "family": "mesaq",
+   "x": 26,
+   "z": 37,
+   "w": 2,
+   "d": 3,
+   "h": 0.9,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M057",
+   "space": "P05",
+   "room": "S3-R03",
+   "family": "mesaq",
+   "x": 35,
+   "z": 48,
+   "w": 2,
+   "d": 3,
+   "h": 0.9,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M058",
+   "space": "P05",
+   "room": "S3-R03",
+   "family": "mampara",
+   "x": 33,
+   "z": 40,
+   "w": 0.2,
+   "d": 5,
+   "h": 1.8,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M059",
+   "space": "P05",
+   "room": "S3-R03",
+   "family": "instrumental",
+   "x": 38,
+   "z": 36,
+   "w": 1,
+   "d": 2,
+   "h": 1.2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M060",
+   "space": "P05",
+   "room": "S3-R04",
+   "family": "vidrio",
+   "x": 51.5,
+   "z": 34.2,
+   "w": 8,
+   "d": 0.15,
+   "h": 2.5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M061",
+   "space": "P05",
+   "room": "S3-R04",
+   "family": "consola",
+   "x": 46,
+   "z": 45,
+   "w": 2,
+   "d": 1,
+   "h": 1.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M062",
+   "space": "P05",
+   "room": "S3-R04",
+   "family": "asiento",
+   "x": 53,
+   "z": 43,
+   "w": 1,
+   "d": 2,
+   "h": 1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M063",
+   "space": "P06",
+   "room": "S4-R05",
+   "family": "rack",
+   "x": 5,
+   "z": 8,
+   "w": 1,
+   "d": 6,
+   "h": 2.5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M064",
+   "space": "P06",
+   "room": "S4-R05",
+   "family": "rack",
+   "x": 19,
+   "z": 15,
+   "w": 1,
+   "d": 6,
+   "h": 2.5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M065",
+   "space": "P06",
+   "room": "S4-R05",
+   "family": "consola",
+   "x": 12,
+   "z": 16,
+   "w": 4,
+   "d": 2,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M066",
+   "space": "P06",
+   "room": "S4-R05",
+   "family": "mapa",
+   "x": 12,
+   "z": 3,
+   "w": 5,
+   "d": 0.15,
+   "h": 2.2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M067",
+   "space": "P06",
+   "room": "S4-R02",
+   "family": "gabinete",
+   "x": 4,
+   "z": 45,
+   "w": 1.4,
+   "d": 0.6,
+   "h": 1.8,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M068",
+   "space": "P06",
+   "room": "S4-R02",
+   "family": "banco",
+   "x": 9,
+   "z": 44,
+   "w": 2,
+   "d": 0.6,
+   "h": 0.5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M069",
+   "space": "P06",
+   "room": "S4-R02",
+   "family": "terminal",
+   "x": 4,
+   "z": 39,
+   "w": 1,
+   "d": 0.6,
+   "h": 1.2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M070",
+   "space": "P06",
+   "room": "S4-R01",
+   "family": "locker",
+   "x": 18,
+   "z": 39,
+   "w": 2,
+   "d": 0.7,
+   "h": 2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M071",
+   "space": "P06",
+   "room": "S4-R01",
+   "family": "barrera",
+   "x": 20,
+   "z": 46,
+   "w": 3,
+   "d": 1,
+   "h": 1.25,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M072",
+   "space": "P06",
+   "room": "S4-R01",
+   "family": "mesa",
+   "x": 26,
+   "z": 39,
+   "w": 1,
+   "d": 3,
+   "h": 0.9,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M077",
+   "space": "P06",
+   "room": "S4-R03",
+   "family": "archivos",
+   "x": 30,
+   "z": 15,
+   "w": 1,
+   "d": 5,
+   "h": 1.2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M078",
+   "space": "P06",
+   "room": "S4-R03",
+   "family": "archivos",
+   "x": 50,
+   "z": 6,
+   "w": 1,
+   "d": 4,
+   "h": 1.2,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M079",
+   "space": "P06",
+   "room": "S4-R04",
+   "family": "asiento",
+   "x": 58,
+   "z": 5,
+   "w": 4,
+   "d": 0.7,
+   "h": 0.5,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M080",
+   "space": "P06",
+   "room": "S4-R04",
+   "family": "panel",
+   "x": 66,
+   "z": 7,
+   "w": 0.4,
+   "d": 1.5,
+   "h": 1.6,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  },
+  {
+   "id": "M081",
+   "space": "P06",
+   "room": "S4-R04",
+   "family": "rejilla",
+   "x": 60,
+   "z": 19,
+   "w": 4,
+   "d": 0.2,
+   "h": 0.1,
+   "yaw": 0,
+   "yOff": 0.0,
+   "physics": false,
+   "doorSide": "",
+   "doorAt": 0.0
+  }
+ ]
 }

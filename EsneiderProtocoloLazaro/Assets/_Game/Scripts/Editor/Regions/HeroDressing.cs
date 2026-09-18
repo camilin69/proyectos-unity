@@ -18,44 +18,8 @@ namespace Esneider.EditorTools
             var placed = new List<string>();
             GameObject P(string id) => AssetDatabase.LoadAssetAtPath<GameObject>(ShowcaseBuilder.Prefab(id));
 
-            // OBJ-001 criocámara: S1-R01 (SCN-01), orientada al este; DOC-01 en su consola
-            if (spaces.Contains("P01") && P("OBJ-001_Criocamara") != null)
-            {
-                var w = plan.Floor("P01").origin.ToVector3() + new Vector3(6f, 0, 8f);
-                var go = Place(P("OBJ-001_Criocamara"), "OBJ-001_Criocamara", w, 90f, ents, GameLayers.WorldStatic);
-                Persist(go, "OBJ-001", region, Core.Persistence.EntityKind.Breakable); placed.Add("OBJ-001");
-            }
-            // OBJ-029 carro físico: P03 taller (SCN-08) y sandbox de física; Rigidbody + PhysicsImpactLogger
-            if (spaces.Contains("P03") && P("OBJ-029_Carro") != null)
-            {
-                var w = plan.Floor("P03").origin.ToVector3() + new Vector3(36f, 0, 10f);
-                var go = Place(P("OBJ-029_Carro"), "OBJ-029_Carro", w, 0f, ents, GameLayers.DynamicProp);
-                foreach (var c in go.GetComponentsInChildren<Collider>()) Object.DestroyImmediate(c);
-                var bc = go.AddComponent<BoxCollider>(); bc.center = new Vector3(0, 0.45f, 0); bc.size = new Vector3(1.0f, 0.9f, 0.6f);
-                var rb = go.AddComponent<Rigidbody>(); rb.mass = 24f; rb.centerOfMass = new Vector3(0, 0.15f, 0); rb.linearDamping = 0.4f; rb.angularDamping = 1.5f; rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-                go.AddComponent<PhysicsImpactLogger>();
-                Persist(go, "OBJ-029", region, Core.Persistence.EntityKind.Movable); placed.Add("OBJ-029");
-            }
-            // OBJ-041 jaulas: alas A/B de S3 (SCN-14/15): 4 módulos por ala en dos filas
-            if (spaces.Contains("P05") && P("OBJ-041_Jaula") != null)
-            {
-                int k = 0;
-                foreach (var (rx, rz) in new[] { (2f, 2f), (26f, 2f) })
-                    for (int i = 0; i < 4; i++)
-                    {
-                        var w = plan.Floor("P05").origin.ToVector3() + new Vector3(rx + 3.5f + (i % 2) * 8f, 0, rz + 4f + (i / 2) * 10f);
-                        var go = Place(P("OBJ-041_Jaula"), $"OBJ-041_Jaula_{k}", w, 0f, ents, GameLayers.WorldStatic);
-                        Persist(go, $"OBJ-041-{k}", region, Core.Persistence.EntityKind.Breakable); k++;
-                    }
-                placed.Add("OBJ-041×8");
-            }
-            // OBJ-043 camilla: clínica S3-R03 (SCN-16) y observación
-            if (spaces.Contains("P05") && P("OBJ-043_Camilla") != null)
-            {
-                foreach (var (x, z, yaw) in new[] { (30f, 40f, 90f), (26f, 46f, 0f), (48f, 38f, 90f) })
-                    Place(P("OBJ-043_Camilla"), "OBJ-043_Camilla", plan.Floor("P05").origin.ToVector3() + new Vector3(x, 0, z), yaw, ents, GameLayers.WorldStatic);
-                placed.Add("OBJ-043×3");
-            }
+            // Criocámaras (M001, M008–M011), carros (M007/M015/M026/M035), jaulas (M040–M048) y mesas quirúrgicas (M056/M057)
+            // los coloca FurnitureBuilder desde el plano 76.2 (EX-06); aquí solo terminales, puertas y pickups.
             // OBJ-059 terminales: en los DOC de consola/terminal (68.8) y control
             if (P("OBJ-059_Terminal") != null)
             {

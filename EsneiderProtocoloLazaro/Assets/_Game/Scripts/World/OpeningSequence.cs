@@ -75,7 +75,7 @@ namespace Esneider.World
             // 20–35 s: control disponible; pantalla indica nombre y tiempo transcurrido
             pc.look.lookEnabled = true; pc.motor.movementEnabled = true; pc.actions.actionsEnabled = true;
             hud?.ShowMessage("LÁZARO / SUJETO: ESNEIDER / TIEMPO TRANSCURRIDO: 2000 AÑOS");
-            WorldStateRegistry.Session.SetFlag("OPENING_DONE");
+            WorldStateRegistry.Session.SetFlag("OPENING_DONE"); ObjectiveService.Complete("O01");
             var cps = CheckpointService.Instance;
             if (cps != null && !cps.RequestCheckpoint(checkpointId, pc, regionId)) Debug.LogWarning("OpeningSequence: CP-00 no solicitado: " + cps.LastNotice);
             if (graph.IsValid()) graph.Destroy();

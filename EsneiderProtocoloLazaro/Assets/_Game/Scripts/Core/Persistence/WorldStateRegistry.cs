@@ -66,6 +66,7 @@ namespace Esneider.Core.Persistence
         public bool CompleteObjective(string id) => _objectives.Add(id);
         public bool HasObjective(string id) => _objectives.Contains(id);
         public bool MarkDocumentRead(string id) => _documents.Add(id);
+        public bool IsDocumentRead(string id) => _documents.Contains(id);
         public bool DiscoverRoom(string id) { if (!_discoveredRooms.Add(id)) return false; Apply(WorldEventKind.RoomDiscovered, "", null, id); return true; }
         public bool DiscoverDoor(string id) => _discoveredDoors.Add(id);
         public bool MarkEventDone(string eventGuid) => _eventsDone.Add(eventGuid);

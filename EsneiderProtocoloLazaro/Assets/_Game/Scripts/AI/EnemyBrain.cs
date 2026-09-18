@@ -18,6 +18,9 @@ namespace Esneider.AI
         public bool startActive = true;
         public bool tutorialTelegraph;
         public List<Transform> waypoints = new List<Transform>();
+        // 77.1: ida/vuelta (invertir en extremos) o cerrada; 1.5 s por punto, 3 s en extremos; espera inicial opcional (K02 8 s, K03 6 s)
+        public bool patrolLoop;
+        public float patrolDelay, pointWaitSeconds = 1.5f, endWaitSeconds = 3f;
         public Transform muzzle;
         public EnemyState State { get; private set; } = EnemyState.Inactive;
         public string LastTransition { get; private set; } = "";
@@ -25,7 +28,8 @@ namespace Esneider.AI
 
         NavMeshAgent _agent; Health _health; EnemyPerception _perception; Transform _player;
         float _stateSince, _cooldownUntil, _staggerImmuneUntil, _lastCrowbarHit = -10f, _searchUntil, _waitUntil;
-        int _crowbarHitsWindow, _wp, _searchPoints;
+        int _crowbarHitsWindow, _wp, _searchPoints, _dir = 1;
+        float _patrolHoldUntil;
         int _currentAttackId;
         bool _offMeshLogged;
         Vector3 _searchTarget;
@@ -55,10 +59,19 @@ namespace Esneider.AI
             if (pc != null) { _player = pc.transform; _perception.target = _player; _perception.targetFlashlight = pc.flashlight; }
             EncounterDirector.Ensure();
             if (!_agent.enabled) _agent.enabled = true; // la superficie regional ya existe en Start
+            _patrolHoldUntil = Time.time + patrolDelay;
             Transition(startActive ? EnemyState.Patrol : EnemyState.Inactive);
         }
 
-        public void Activate() { if (State == EnemyState.Inactive) Transition(EnemyState.Patrol); }
+        public void Activate() { if (State == EnemyState.Inactive) { _patrolHoldUntil = Time.time + patrolDelay; Transition(EnemyState.Patrol); } }
+
+        void AdvanceWaypoint()
+        {
+            int n = waypoints.Count; if (n <= 1) return;
+            if (patrolLoop) { _wp = (_wp + 1) % n; return; }
+            if (_wp + _dir < 0 || _wp + _dir >= n) _dir = -_dir;
+            _wp += _dir;
+        }
 
         void Transition(EnemyState next)
         {
@@ -102,10 +115,13 @@ namespace Esneider.AI
                     if (_perception.Confirmed) { Transition(EnemyState.Alert); break; }
                     if (_perception.heardRecently) { _perception.heardRecently = false; Transition(EnemyState.Investigate); SafeDest(_perception.lastKnownPosition); Resume(); break; }
                     if (_perception.suspicion > 0.2f) { Transition(EnemyState.Suspicious); break; }
+                    if (Time.time < _patrolHoldUntil) { Stop(); break; }
+                    if (_agent.isStopped && _waitUntil <= 0f) Resume();
                     if (waypoints.Count > 0 && !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance + 0.1f)
                     {
-                        if (_waitUntil <= 0f) _waitUntil = Time.time + 2.5f;
-                        else if (Time.time >= _waitUntil) { _waitUntil = 0f; _wp = (_wp + 1) % waypoints.Count; GoToWaypoint(); }
+                        bool end = !patrolLoop && (_wp == 0 || _wp == waypoints.Count - 1);
+                        if (_waitUntil <= 0f) _waitUntil = Time.time + (end ? endWaitSeconds : pointWaitSeconds);
+                        else if (Time.time >= _waitUntil) { _waitUntil = 0f; AdvanceWaypoint(); GoToWaypoint(); }
                     }
                     break;
                 case EnemyState.Suspicious:

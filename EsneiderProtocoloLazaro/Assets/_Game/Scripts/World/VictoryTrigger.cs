@@ -17,7 +17,7 @@ namespace Esneider.World
             var pc = other.GetComponent<Player.PlayerController>();
             if (pc == null || !ObjectiveService.Has(ObjectiveService.BossDefeated)) return;
             _fired = true;
-            WorldStateRegistry.Session.SetFlag("CAMPAIGN_WON");
+            WorldStateRegistry.Session.SetFlag("CAMPAIGN_WON"); ObjectiveService.Complete("O11");
             pc.Win();
         }
     }

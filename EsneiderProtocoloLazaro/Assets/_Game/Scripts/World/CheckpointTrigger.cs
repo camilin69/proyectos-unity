@@ -28,7 +28,11 @@ namespace Esneider.World
             // un checkpoint normal se consolida una vez por visita segura; el refugio puede repetirse (garantía idempotente)
             if (!isShelter && cps.LastConfirmed != null && cps.LastConfirmed.checkpointId == checkpointId) return;
             _nextTry = Time.time + retrySeconds;
-            if (cps.RequestCheckpoint(checkpointId, pc, regionId, isShelter, guaranteeHp, guaranteePistolTotal, guaranteeShotgunTotal)) commits++;
+            if (cps.RequestCheckpoint(checkpointId, pc, regionId, isShelter, guaranteeHp, guaranteePistolTotal, guaranteeShotgunTotal))
+            {
+                commits++;
+                if (isShelter) ObjectiveService.Complete("O09"); // EVT-19: refugio alcanzado
+            }
         }
     }
 }

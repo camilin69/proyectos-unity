@@ -11,7 +11,7 @@ namespace Esneider.EditorTools
     public static class EvidenceCapture
     {
         const string KeyLabel = "esn.evidence.label", KeyDelay = "esn.evidence.delay", KeyTeleport = "esn.evidence.teleport";
-        static double _startedAt; static bool _captured; static string _path;
+        static double _startedAt, _teleportedAt, _captureAt; static bool _captured, _loading; static string _path;
 
         static EvidenceCapture() { EditorApplication.update += Tick; }
 
@@ -31,24 +31,36 @@ namespace Esneider.EditorTools
         {
             var label = EditorPrefs.GetString(KeyLabel, "");
             if (string.IsNullOrEmpty(label) || !Application.isPlaying) return;
-            if (_startedAt == 0) { _startedAt = EditorApplication.timeSinceStartup; _captured = false; _path = Path.Combine(Dir, label + ".png"); return; }
+            if (_startedAt == 0) { _startedAt = EditorApplication.timeSinceStartup; _captured = false; _loading = false; _teleportedAt = 0; _captureAt = 0; _path = Path.Combine(Dir, label + ".png"); return; }
             float delay = EditorPrefs.GetFloat(KeyDelay, 3f);
             double t = EditorApplication.timeSinceStartup - _startedAt;
-            if (!_captured && t >= delay - 0.5f)
+            // teleport "REG-XX|x,y,z,yaw": carga la región por el streamer (a los 2 s) y teletransporta 1 s antes de la captura
+            var tp = EditorPrefs.GetString(KeyTeleport, "");
+            if (!string.IsNullOrEmpty(tp) && tp.Contains("|") && t >= 2.0 && !_loading)
             {
-                var tp = EditorPrefs.GetString(KeyTeleport, "");
-                if (!string.IsNullOrEmpty(tp))
-                {
-                    var p = tp.Split(','); var pc = Object.FindFirstObjectByType<Player.PlayerController>();
-                    if (pc != null && p.Length == 4) pc.motor.Teleport(new Vector3(float.Parse(p[0]), float.Parse(p[1]), float.Parse(p[2])), float.Parse(p[3]));
-                    EditorPrefs.SetString(KeyTeleport, "");
-                }
+                _loading = true; var region = tp.Split('|')[0]; var pc = Object.FindFirstObjectByType<Player.PlayerController>();
+                if (pc != null && World.RegionStreamer.Instance != null) { Object.FindFirstObjectByType<World.OpeningSequence>()?.RequestSkip(); pc.StartCoroutine(World.RegionStreamer.Instance.LoadForCheckpoint(region)); }
             }
-            if (!_captured && t >= delay) { ScreenCapture.CaptureScreenshot(_path); _captured = true; return; }
-            if (_captured && t >= delay + 1.5)
+            if (!_captured && t >= 2.0 && !string.IsNullOrEmpty(tp)) // en cuanto la región esté lista (S1 se descarga al cambiar de contexto)
+            {
+                // no teletransportar hasta que la región destino esté Ready (o tras 25 s de espera máxima)
+                bool ready = !tp.Contains("|") || World.RegionStreamer.Instance == null || World.RegionStreamer.Instance.IsReady(tp.Split('|')[0]) || t > delay + 25.0;
+                if (ready)
+                {
+                    var p = (tp.Contains("|") ? tp.Split('|')[1] : tp).Split(','); var pc = Object.FindFirstObjectByType<Player.PlayerController>();
+                    if (pc != null && p.Length == 4) { pc.motor.Teleport(new Vector3(float.Parse(p[0]), float.Parse(p[1]), float.Parse(p[2])), float.Parse(p[3])); pc.look.lookEnabled = true; pc.look.cameraPivot.localRotation = Quaternion.identity; }
+                    EditorPrefs.SetString(KeyTeleport, ""); _teleportedAt = t;
+                }
+                else return;
+            }
+            if (!_captured && t >= delay && t >= _teleportedAt + 1.5) { ScreenCapture.CaptureScreenshot(_path); _captured = true; _captureAt = t; return; }
+            if (_captured && t >= _captureAt + 1.5)
             {
                 EditorPrefs.DeleteKey(KeyLabel); _startedAt = 0;
-                File.WriteAllText(Path.Combine(Dir, label + ".done"), File.Exists(_path) ? "OK " + _path : "MISSING " + _path);
+                var pcd = Object.FindFirstObjectByType<Player.PlayerController>(); var st = World.RegionStreamer.Instance;
+                string diag = pcd != null ? $" player={pcd.transform.position} grounded={pcd.motor.IsGrounded}" : " player=null";
+                if (st != null) diag += $" current={st.CurrentRegion} states=" + string.Join(",", System.Array.ConvertAll(World.RegionCatalog.Chain, r => r + ":" + st.State(r)));
+                File.WriteAllText(Path.Combine(Dir, label + ".done"), (File.Exists(_path) ? "OK " + _path : "MISSING " + _path) + diag);
                 EditorApplication.ExitPlaymode();
             }
         }
