@@ -10,7 +10,7 @@ namespace Esneider.EditorTools
     [InitializeOnLoad]
     public static class EvidenceCapture
     {
-        const string KeyLabel = "esn.evidence.label", KeyDelay = "esn.evidence.delay", KeyTeleport = "esn.evidence.teleport";
+        const string KeyLabel = "esn.evidence.label", KeyDelay = "esn.evidence.delay", KeyTeleport = "esn.evidence.teleport", KeyAction = "esn.evidence.action";
         static double _startedAt, _teleportedAt, _captureAt; static bool _captured, _loading; static string _path;
 
         static EvidenceCapture() { EditorApplication.update += Tick; }
@@ -18,12 +18,13 @@ namespace Esneider.EditorTools
         public static string Dir => Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/produccion/evidencia"));
 
         // teleport: "x,y,z,yaw" opcional para colocar al jugador antes de capturar.
-        public static void Run(string scenePath, string label, float delaySeconds, string teleport = "")
+        public static void Run(string scenePath, string label, float delaySeconds, string teleport = "", string action = "")
         {
             Directory.CreateDirectory(Dir);
             var done = Path.Combine(Dir, label + ".done"); if (File.Exists(done)) File.Delete(done);
             EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
-            EditorPrefs.SetString(KeyLabel, label); EditorPrefs.SetFloat(KeyDelay, delaySeconds); EditorPrefs.SetString(KeyTeleport, teleport);
+            EditorPrefs.SetString(KeyLabel, label); EditorPrefs.SetFloat(KeyDelay, delaySeconds); EditorPrefs.SetString(KeyTeleport, teleport); EditorPrefs.SetString(KeyAction, action);
+            UI.MenuController.SkipTitle = true;
             EditorApplication.EnterPlaymode();
         }
 
@@ -34,6 +35,9 @@ namespace Esneider.EditorTools
             if (_startedAt == 0) { _startedAt = EditorApplication.timeSinceStartup; _captured = false; _loading = false; _teleportedAt = 0; _captureAt = 0; _path = Path.Combine(Dir, label + ".png"); return; }
             float delay = EditorPrefs.GetFloat(KeyDelay, 3f);
             double t = EditorApplication.timeSinceStartup - _startedAt;
+            // el domain reload de Play borra SkipTitle: si aparece Inicio, iniciar Nueva partida (equivale al clic del operador)
+            var mc = Object.FindFirstObjectByType<UI.MenuController>();
+            if (mc != null && mc.Current == "Title") typeof(UI.MenuController).GetMethod("NewGame", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(mc, null);
             // teleport "REG-XX|x,y,z,yaw": carga la región por el streamer (a los 2 s) y teletransporta 1 s antes de la captura
             var tp = EditorPrefs.GetString(KeyTeleport, "");
             if (!string.IsNullOrEmpty(tp) && tp.Contains("|") && t >= 2.0 && !_loading)
@@ -53,6 +57,23 @@ namespace Esneider.EditorTools
                     EditorPrefs.SetString(KeyTeleport, ""); _teleportedAt = t;
                 }
                 else return;
+            }
+            // acción UI opcional (FIN-10): "pause" | "map" | "settings" | "documents" | "text150" antes de capturar
+            var act = EditorPrefs.GetString(KeyAction, "");
+            if (!_captured && !string.IsNullOrEmpty(act) && t >= delay - 0.6 && t >= _teleportedAt + 0.9)
+            {
+                EditorPrefs.SetString(KeyAction, "");
+                var menu = Object.FindFirstObjectByType<UI.MenuController>(); var flow = Core.GameFlowController.Instance;
+                if (act.Contains("text150")) { Core.AccessibilitySettings.TextScale = 1.5f; menu?.ApplySettings(); }
+                // la Game View del editor no repinta con timeScale 0: se muestra el panel sin pausar el flujo (solo para la captura)
+                if (menu != null && (act.Contains("pause") || act.Contains("map") || act.Contains("settings") || act.Contains("documents")))
+                {
+                    var m = typeof(UI.MenuController); var f = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+                    if (act.Contains("map")) m.GetMethod("ShowMap", f).Invoke(menu, new object[] { "Pause" });
+                    else if (act.Contains("settings")) m.GetMethod("ShowSettings", f).Invoke(menu, new object[] { "Pause" });
+                    else if (act.Contains("documents")) { Core.Persistence.WorldStateRegistry.Session.MarkDocumentRead("DOC-01"); Core.Persistence.WorldStateRegistry.Session.MarkDocumentRead("DOC-02"); m.GetMethod("ShowDocuments", f).Invoke(menu, new object[] { "Pause" }); }
+                    else menu.ShowPause();
+                }
             }
             if (!_captured && t >= delay && t >= _teleportedAt + 1.5) { ScreenCapture.CaptureScreenshot(_path); _captured = true; _captureAt = t; return; }
             if (_captured && t >= _captureAt + 1.5)

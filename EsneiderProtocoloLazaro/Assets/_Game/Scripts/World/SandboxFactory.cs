@@ -226,8 +226,16 @@ namespace Esneider.World
 
         public static Material Mat(Color c)
         {
-            var shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
-            var m = new Material(shader); m.SetColor("_BaseColor", c); m.color = c; return m;
+            var baseMat = Resources.Load<Material>("Materials/Placeholder_Lit");
+            Material m;
+            if (baseMat != null) m = new Material(baseMat);
+            else
+            {
+                var shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+                if (shader == null) { Debug.LogWarning("SandboxFactory.Mat: sin shader disponible en la build"); return null; }
+                m = new Material(shader);
+            }
+            if (m.HasProperty("_BaseColor")) m.SetColor("_BaseColor", c); m.color = c; return m;
         }
     }
 }

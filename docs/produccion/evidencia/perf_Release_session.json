@@ -1,0 +1,61 @@
+{
+    "label": "session",
+    "gpu": "Intel(R) HD Graphics 630",
+    "api": "Direct3D11",
+    "cpu": "Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz",
+    "build": "0.1.0",
+    "region": "REG-C1",
+    "quality": "PC",
+    "fullscreen": "Windowed",
+    "frames": 121042,
+    "hitches": 2,
+    "width": 1280,
+    "height": 720,
+    "vsync": 0,
+    "regionChanges": 24,
+    "medianMs": 14.168601036071777,
+    "p95Ms": 22.6315975189209,
+    "fpsMedian": 70.57859802246094,
+    "minFps": 7.694644927978516,
+    "totalReservedMB": 542.5625,
+    "totalAllocatedMB": 266.7813720703125,
+    "gfxMB": 0.0,
+    "seconds": 1800.592041015625,
+    "memoryGrowthPercent": 10.568573951721191,
+    "isEditor": false,
+    "combat": false,
+    "memory": [
+        {
+            "t": 75.04446411132813,
+            "allocatedMB": 241.2813720703125,
+            "reservedMB": 538.5625,
+            "monoMB": 2.59765625,
+            "region": "REG-S1",
+            "changes": 1
+        },
+        {
+            "t": 900.2944946289063,
+            "allocatedMB": 266.3438720703125,
+            "reservedMB": 542.5625,
+            "monoMB": 3.2265625,
+            "region": "REG-C1",
+            "changes": 12
+        },
+        {
+            "t": 975.329345703125,
+            "allocatedMB": 264.1563720703125,
+            "reservedMB": 542.5625,
+            "monoMB": 3.1953125,
+            "region": "REG-S1",
+            "changes": 13
+        },
+        {
+            "t": 1800.575927734375,
+            "allocatedMB": 266.7813720703125,
+            "reservedMB": 542.5625,
+            "monoMB": 3.48046875,
+            "region": "REG-C1",
+            "changes": 24
+        }
+    ]
+}

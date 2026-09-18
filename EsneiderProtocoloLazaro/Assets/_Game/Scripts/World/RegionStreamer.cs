@@ -144,6 +144,9 @@ namespace Esneider.World
                     Set(region, RegionState.Unloading);
                     var op = SceneManager.UnloadSceneAsync(scene);
                     while (op != null && !op.isDone) yield return null;
+                    // 88.3/91.4: los assets referenciados solo por la escena descargada no se liberan solos; sin esto la memoria crece ~30 MB por carga
+                    var unload = Resources.UnloadUnusedAssets(); while (unload != null && !unload.isDone) yield return null;
+                    System.GC.Collect();
                 }
                 Set(region, RegionState.Unloaded);
             }

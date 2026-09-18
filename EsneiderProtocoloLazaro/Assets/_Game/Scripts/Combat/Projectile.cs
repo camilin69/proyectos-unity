@@ -35,9 +35,15 @@ namespace Esneider.Combat
             Object.Destroy(go.GetComponent<Collider>()); // colisión por barrido, no por collider físico
             go.layer = GameLayers.EnemyProjectile;
             var mr = go.GetComponent<MeshRenderer>();
-            var mat = new Material(Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Unlit/Color"));
-            mat.color = kind == ProjectileKind.Net ? new Color(0.4f, 0.7f, 1f) : new Color(1f, 0.9f, 0.3f);
-            mr.sharedMaterial = mat;
+            // material como asset (Resources): en la build `Shader.Find` puede devolver null por stripping y un proyectil no puede fallar por cosmética (93.3)
+            var mat = Resources.Load<Material>("Materials/Projectile_" + kind);
+            if (mat == null)
+            {
+                var shader = Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Unlit/Color") ?? Shader.Find("Universal Render Pipeline/Lit");
+                if (shader != null) { mat = new Material(shader); mat.color = kind == ProjectileKind.Net ? new Color(0.4f, 0.7f, 1f) : new Color(1f, 0.9f, 0.3f); }
+                else { mr.enabled = false; Debug.LogWarning("Projectile: sin material/shader disponible; proyectil invisible pero funcional"); }
+            }
+            if (mat != null) mr.sharedMaterial = mat;
             return go.AddComponent<Projectile>();
         }
 

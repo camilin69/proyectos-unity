@@ -1,13 +1,13 @@
 {
-    "label": "Release",
+    "label": "Development",
     "result": "Succeeded",
-    "output": "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\Builds\\Windows\\Release\\EsneiderProtocoloLazaro.exe",
+    "output": "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\Builds\\Windows\\Development\\EsneiderProtocoloLazaro.exe",
     "unity": "6000.6.1f1",
     "buildId": "0.1.0",
     "gitCommit": "72328dd686fce3110edbd041fc15d89fae969a28",
-    "startedAt": "2026-09-18T09:03:05",
-    "seconds": 34.071685791015625,
-    "sizeMB": 143,
+    "startedAt": "2026-09-18T08:00:19",
+    "seconds": 108.88819885253906,
+    "sizeMB": 219,
     "errors": 0,
     "warnings": 52,
     "scenes": [
@@ -20,5 +20,5 @@
         "Assets/_Game/Scenes/Regions/REG-C3.unity",
         "Assets/_Game/Scenes/Regions/REG-S4.unity"
     ],
-    "development": false
+    "development": true
 }
