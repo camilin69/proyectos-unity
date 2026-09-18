@@ -25,13 +25,25 @@ namespace Esneider.Player
         [Header("Agarre (64: el arma sigue a la mano)")]
         public string rightSocket = "hand_R", leftSocket = "hand_L";
         public bool attachToHand = true;
-        // Punto de agarre de cada arma en su espacio local (Unity), derivado del modelo de Blender.
-        public Vector3 crowbarGrip = new Vector3(0f, 0f, 0.20f);
-        public Vector3 pistolGrip = new Vector3(0f, -0.062f, 0.042f);
-        public Vector3 shotgunGrip = new Vector3(0f, -0.06f, 0.09f);
+        // Punto de agarre de cada arma en su espacio local (Unity). Sirven de reserva: el punto real se LEE de la
+        // geometría del arma (las piezas cuyo nombre declara que son el mango). Escribirlo a mano ya falló una vez:
+        // los tres valores tenían el signo de Z invertido respecto del eje de exportación del FBX (-Z forward), así
+        // que el arma quedaba sujeta por el extremo contrario. Medido: la varilla a 375 mm de la palma, la escopeta
+        // a 173 y la pistola a 83, con las puntas de los dedos entre 160 y 466 mm del mango.
+        public Vector3 crowbarGrip = new Vector3(0f, 0f, -0.175f);
+        public Vector3 pistolGrip = new Vector3(0f, -0.041f, -0.038f);
+        public Vector3 shotgunGrip = new Vector3(0f, -0.045f, -0.082f);
         public Vector3 flashlightGrip = new Vector3(0f, 0f, 0f);
-        // Desplazamiento de la palma respecto al origen del hueso de la mano.
+        public bool deriveGripFromGeometry = true;
+        // Desplazamiento de la palma respecto al origen del hueso de la mano. Reserva: el punto real se lee de la
+        // pieza `palm_L`/`palm_R` del modelo. Escrito a mano apuntaba a la muñeca y no a la palma, 80 mm más allá,
+        // así que el mango caía por detrás de donde cierran los dedos.
         public Vector3 palmOffset = new Vector3(0f, -0.01f, 0.035f);
+        public bool derivePalmFromGeometry = true;
+        // Dónde se asienta el eje del mango respecto al centro de la pieza de la palma, en el espacio del hueso de
+        // la mano: entre la superficie palmar y las yemas del puño cerrado. Medido sobre el modelo, no estimado, y
+        // `GripContactTests` falla si deja de ser cierto.
+        public Vector3 gripSeat = new Vector3(0f, 0.021f, 0.032f);
         public float bobAmplitude = 0.008f; // head bob leve y desactivable (9)
         public bool bobEnabled = true;
 
@@ -83,7 +95,36 @@ namespace Esneider.Player
         void Place(Transform t, Vector3 gripLocal, Quaternion rot)
         {
             t.localRotation = rot;
-            t.localPosition = palmOffset - (rot * gripLocal);
+            t.localPosition = PalmPoint(t.parent) + gripSeat - (rot * GripPoint(t.gameObject, gripLocal, deriveGripFromGeometry));
+        }
+
+        // La palma también es una pieza del modelo. Leerla evita repetir el error de los puntos de agarre: un número
+        // escrito a mano que nadie vuelve a comprobar cuando el asset se refabrica.
+        public Vector3 PalmPoint(Transform socket)
+        {
+            if (!derivePalmFromGeometry || _arms == null || socket == null) return palmOffset;
+            string quiero = socket.name.EndsWith("_L") ? "palm_L" : "palm_R";
+            foreach (var r in _arms.GetComponentsInChildren<Renderer>(true))
+                if (r.name == quiero) return socket.InverseTransformPoint(r.bounds.center);
+            return palmOffset;
+        }
+
+        // El mango es una pieza del modelo y se declara en su nombre, así que el punto de agarre se mide en vez de
+        // escribirse: sobrevive a una refabricación del arma y no depende de recordar el eje de exportación.
+        public static Vector3 GripPoint(GameObject weapon, Vector3 fallback, bool derive = true)
+        {
+            if (!derive || weapon == null) return fallback;
+            bool any = false; var box = new Bounds();
+            foreach (var mf in weapon.GetComponentsInChildren<MeshFilter>(true))
+            {
+                if (mf.sharedMesh == null || mf.name.IndexOf("grip", System.StringComparison.OrdinalIgnoreCase) < 0) continue;
+                var b = mf.sharedMesh.bounds;
+                var c = weapon.transform.InverseTransformPoint(mf.transform.TransformPoint(b.center));
+                var e = weapon.transform.InverseTransformVector(mf.transform.TransformVector(b.extents));
+                var local = new Bounds(c, new Vector3(Mathf.Abs(e.x), Mathf.Abs(e.y), Mathf.Abs(e.z)) * 2f);
+                if (!any) { box = local; any = true; } else box.Encapsulate(local);
+            }
+            return any ? box.center : fallback;
         }
 
         void OnDestroy() { if (_graph.IsValid()) _graph.Destroy(); }

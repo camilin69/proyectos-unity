@@ -3,12 +3,12 @@
     "fbx": "Assets/_Game/Art/Models/CHR-01_Arms.fbx",
     "prefab": "Assets/_Game/Prefabs/Player/CHR-01_Arms.prefab",
     "tris": 21480,
-    "submeshes": 34,
+    "submeshes": 52,
     "clips": 5,
     "size": {
-        "x": 0.6227694153785706,
+        "x": 0.6253177523612976,
         "y": 0.1119999811053276,
-        "z": 0.535207986831665
+        "z": 0.5371831655502319
     },
     "clipNames": [
         "Arms_CrowbarSwing",

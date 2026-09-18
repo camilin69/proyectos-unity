@@ -452,7 +452,13 @@ def bake_pbr(objs, asset_id, size=1024, samples=48, only=None):
 
 # ---------- rig ----------
 def armature(name, bones, col=None):
-    """bones: lista de (nombre, head, tail, parent) en coordenadas de armadura."""
+    """bones: lista de (nombre, head, tail, parent[, eje_de_rodillo]).
+
+    El quinto elemento, opcional, alinea el eje Z local del hueso con ese vector. Hace falta en cualquier CADENA que
+    se vaya a doblar: sin fijar el rodillo, Blender lo elige por hueso y dos eslabones casi paralelos pueden acabar
+    con los ejes locales girados 180° entre sí, de modo que una flexión de signo igual en los dos se cancela. Pasó
+    en los dedos: la falange media giraba al revés que la proximal y la punta apenas se movía 27 mm al cerrar.
+    """
     arm = bpy.data.armatures.new(name)
     obj = bpy.data.objects.new(name, arm)
     bpy.context.scene.collection.objects.link(obj)
@@ -460,9 +466,11 @@ def armature(name, bones, col=None):
     with ctx(obj):
         bpy.ops.object.mode_set(mode='EDIT')
         eb = {}
-        for bname, head, tail, parent in bones:
+        for entry in bones:
+            bname, head, tail, parent = entry[0], entry[1], entry[2], entry[3]
             b = arm.edit_bones.new(bname); b.head = head; b.tail = tail
             if parent: b.parent = eb[parent]; b.use_connect = (Vector(head) - eb[parent].tail).length < 1e-4
+            if len(entry) > 4 and entry[4] is not None: b.align_roll(Vector(entry[4]))
             eb[bname] = b
         bpy.ops.object.mode_set(mode='OBJECT')
     return obj

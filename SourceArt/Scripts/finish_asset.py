@@ -40,10 +40,13 @@ try:
         acts = [st.action for tr in arm.animation_data.nla_tracks for st in tr.strips if st.action]
         feet = [o for o in objs if any(h in o.name.lower() for h in MC.FOOT_HINTS)]
         loco = [a for a in acts if "walk" in a.name.lower() or "run" in a.name.lower()]
+        # Sólo para assets que PISAN el suelo. Los brazos son un viewmodel que flota delante de la cámara: aplicarles
+        # ground_clamp les subió la raíz entre 56 y 363 mm, porque "nada por debajo de z=0" no significa nada ahí.
+        # Tener pies es justamente el criterio de que el asset se apoya.
         if feet and loco:
             log.append("foot_lock %s" % L.foot_lock(arm, objs, feet, loco))
         resto = [a for a in acts if a not in loco]
-        if resto:
+        if feet and resto:
             log.append("ground_clamp %s" % [r for r in L.ground_clamp(arm, objs, resto) if r[1]])
         MC._reset_pose(arm)   # sin esto el FBX hornea los huesos no keyeados con la pose del último clip medido
         L.enable_nla(arm)     # y sin esto el .blend se guarda con el stack apagado y el siguiente export sale plano

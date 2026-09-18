@@ -1,7 +1,7 @@
 {
   "asset": "CHR-01_Arms",
   "tris": 21480,
-  "parts": 22,
+  "parts": 40,
   "dims_m": [
     0.605,
     0.535,
@@ -16,7 +16,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/CHR-01_Arms.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/CHR-01_Arms.fbx",
-  "fbx_bytes": 1624316,
+  "fbx_bytes": 3353852,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/CHR-01_Arms_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/CHR-01_Arms_Roughness.png",
@@ -43,7 +43,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 1624316",
+    "fbx ok 3353852",
     "sheet ok"
   ]
 }

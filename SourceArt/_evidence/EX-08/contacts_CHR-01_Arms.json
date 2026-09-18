@@ -13,7 +13,7 @@
    "clip": "Arms_Grip",
    "frames": 10,
    "seconds": 0.333,
-   "min_z_m": -0.09945,
+   "min_z_m": -0.07816,
    "feet": {}
   },
   {
@@ -42,7 +42,7 @@
   {
    "id": "G-01",
    "estado": "FALLA",
-   "detalle": "penetración máxima -366.1 mm en Arms_PistolReload f21 (finger_L1); tolerancia -2 mm"
+   "detalle": "penetración máxima -366.1 mm en Arms_PistolReload f21 (finger_L1c); tolerancia -2 mm"
   },
   {
    "id": "G-02",
@@ -54,7 +54,8 @@
   "ground_tol_m": -0.002,
   "plant_z_m": 0.02,
   "slide_tol_m": 0.02,
-  "contact_ratio": 0.85
+  "contact_ratio": 0.85,
+  "foot_clearance_m": 0.03
  },
  "foot_objects": [],
  "moving_objects": [],

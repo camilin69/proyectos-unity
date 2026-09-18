@@ -46,48 +46,65 @@ def ring_boxes(col, name, count, center, radius, size, mat, axis='Y', phase=0.0,
     return L.join(parts, name)
 
 
-def finger(col, name, base, dirv, lengths, radius, curl=0.0):
-    """Dedo completo en UNA pieza (35.1): falanges segmentadas, cabezas articulares, pliegues palmares
-    donde la articulación dobla, pulpejo, lecho ungueal con paredes y uña con espesor apoyada en él.
+FINGER_JOINTS = {}   # nombre del dedo -> puntos de articulación, para construir el rig sobre la misma geometría
 
-    Se une al final porque un dedo = un hueso (36.4 deformación rígida). El nombre del objeto resultante
-    ES el nombre del hueso, así que el bind del final del script lo resuelve sin cambiar de convención.
+
+def phalanx_bone(name, index):
+    """Nombre del hueso de la falange `index` del dedo `name`: el primero conserva el nombre del dedo."""
+    return name if index == 0 else name + chr(ord('a') + index)
+
+
+def finger(col, name, base, dirv, lengths, radius, curl=0.0):
+    """Dedo con UNA PIEZA POR FALANGE y un hueso por falange (35.1 + 36.4).
+
+    Antes el dedo se unía en una sola pieza atada a un único hueso, y eso hace imposible el agarre: por mucho que
+    se cierre, el dedo gira rígido alrededor del nudillo y la punta describe un arco que pasa de largo del mango.
+    Medido sobre el modelo importado, con el puño cerrado a -70° las puntas quedaban a 80-126 mm de la empuñadura.
+    Con tres falanges encadenadas la punta sí llega a la palma.
+
+    Devuelve (piezas, articulaciones); las articulaciones son las cabezas de cada falange más la punta, y el rig se
+    construye con esos mismos puntos para que hueso y geometría no puedan desalinearse.
     """
-    parts = []
+    groups = [[] for _ in lengths]
+    joints = []
     p = Vector(base); d = Vector(dirv).normalized()
     up = Vector((0, 0, 1))
     for i, ln in enumerate(lengths):
+        joints.append(p.copy())
         r = radius * (1 - 0.12 * i)
         rot = d.to_track_quat('Z', 'Y').to_euler()
         seg = L.cyl(f"{name}_ph{i}", r, ln, (0, 0, 0), col, verts=12, bevel=r * 0.3)
         seg.data.transform(L.Matrix.Translation((0, 0, ln / 2)))
         seg.location = p; seg.rotation_euler = rot
-        L.assign(seg, M['skin']); parts.append(seg)
+        L.assign(seg, M['skin']); groups[i].append(seg)
         # cabeza articular: más ancha que la falange, es lo que da el perfil de nudillo al cerrar la mano
         kn = L.sphere(f"{name}_kn{i}", r * 1.1, p, col, segs=12, rings=6, scale=(1.05, 1.15, 0.9))
-        L.assign(kn, M['skin']); parts.append(kn)
+        L.assign(kn, M['skin']); groups[i].append(kn)
         # pliegue palmar: la piel se arruga SOLO en la cara que se comprime al doblar (41.3 causa)
         if i > 0:
             cr = L.box(f"{name}_ph{i}f", (r * 1.9, r * 0.55, r * 0.32), p - Vector((0, 0, r * 0.8)), col, rot=rot, bevel=r * 0.09, segs=1)
-            L.assign(cr, M['skin']); parts.append(cr)
+            L.assign(cr, M['skin']); groups[i].append(cr)
         p = p + d * ln
         d = (L.Matrix.Rotation(math.radians(-curl), 3, d.cross(up).normalized() if d.cross(up).length > 1e-3 else Vector((1, 0, 0))) @ d).normalized()
+    joints.append(p.copy())
+    last = groups[-1]
     tip = L.sphere(f"{name}_tip", radius * 0.78, p, col, segs=12, rings=8, scale=(1, 1.1, 0.85))
-    L.assign(tip, M['skin']); parts.append(tip)
+    L.assign(tip, M['skin']); last.append(tip)
     # pulpejo: almohadilla palmar de la falange distal, la que aplasta contra el grip
     pad = L.sphere(f"{name}_tipp", radius * 0.72, p + Vector((0, radius * 0.3, -radius * 0.42)), col, segs=10, rings=5, scale=(1.15, 1.35, 0.55))
-    L.assign(pad, M['skin']); parts.append(pad)
+    L.assign(pad, M['skin']); last.append(pad)
     # lecho ungueal: la uña se APOYA en una cama de piel con paredes laterales y eponiquio, no flota
     bed = L.box(f"{name}_nailbed", (radius * 1.45, radius * 1.7, radius * 0.42), p + Vector((0, radius * 0.6, radius * 0.4)), col, bevel=radius * 0.13, segs=2)
-    L.assign(bed, M['skin']); parts.append(bed)
+    L.assign(bed, M['skin']); last.append(bed)
     plate = L.box(f"{name}_nail", (radius * 1.12, radius * 1.4, radius * 0.22), p + Vector((0, radius * 0.6, radius * 0.6)), col, bevel=radius * 0.07, segs=2)
-    L.assign(plate, M['nail']); parts.append(plate)
+    L.assign(plate, M['nail']); last.append(plate)
     epo = L.box(f"{name}_nailc", (radius * 1.45, radius * 0.3, radius * 0.3), p + Vector((0, radius * 1.25, radius * 0.56)), col, bevel=radius * 0.08, segs=1)
-    L.assign(epo, M['skin']); parts.append(epo)
+    L.assign(epo, M['skin']); last.append(epo)
     for k, sxn in ((0, -1), (1, 1)):
         wall = L.box(f"{name}_nailw{k}", (radius * 0.26, radius * 1.45, radius * 0.28), p + Vector((sxn * radius * 0.6, radius * 0.6, radius * 0.56)), col, bevel=radius * 0.07, segs=1)
-        L.assign(wall, M['skin']); parts.append(wall)
-    return L.join(parts, name)
+        L.assign(wall, M['skin']); last.append(wall)
+    FINGER_JOINTS[name] = joints
+    return [L.join(g, phalanx_bone(name, i)) for i, g in enumerate(groups)], joints
 
 
 def build_arm(col, side, sx):
@@ -162,8 +179,8 @@ def build_arm(col, side, sx):
     for i in range(4):
         x = cx + (i - 1.5) * 0.02
         ln = [0.045, 0.028, 0.022] if i in (1, 2) else [0.04, 0.025, 0.02]
-        out.append(finger(col, f"finger_{side}{i}", (x, -0.6, 0.0), (0, -1, 0), ln, 0.009, curl=12))
-    out.append(finger(col, f"thumb_{side}", (cx + sx * 0.045, -0.53, -0.005), (sx * 0.7, -0.7, 0), [0.04, 0.03], 0.011, curl=15))
+        out += finger(col, f"finger_{side}{i}", (x, -0.6, 0.0), (0, -1, 0), ln, 0.009, curl=12)[0]
+    out += finger(col, f"thumb_{side}", (cx + sx * 0.045, -0.53, -0.005), (sx * 0.7, -0.7, 0), [0.04, 0.03], 0.011, curl=15)[0]
     return out
 
 
@@ -174,20 +191,36 @@ if WHICH == "arms":
     bones = [("root", (0, 0, 0), (0, -0.1, 0), None)]
     for side, sx in (("L", -1), ("R", 1)):
         bones += [(f"forearm_{side}", (sx * 0.2, -0.16, 0), (sx * 0.2, -0.47, 0), "root"), (f"hand_{side}", (sx * 0.2, -0.47, 0), (sx * 0.2, -0.6, 0), f"forearm_{side}")]
-        for i in range(4): bones.append((f"finger_{side}{i}", (sx * 0.2 + (i - 1.5) * 0.02, -0.6, 0), (sx * 0.2 + (i - 1.5) * 0.02, -0.69, 0), f"hand_{side}"))
-        bones.append((f"thumb_{side}", (sx * 0.245, -0.53, 0), (sx * 0.29, -0.58, 0), f"hand_{side}"))
+        # Una cadena de huesos por dedo, con las articulaciones que devolvió el constructor de la geometría. El
+        # rodillo se fija igual en toda la cadena (Z local hacia el dorso): si se deja al criterio de Blender, dos
+        # falanges casi paralelas salen con los ejes girados 180° y sus flexiones se cancelan entre sí.
+        for nombre in [f"finger_{side}{i}" for i in range(4)] + [f"thumb_{side}"]:
+            js = FINGER_JOINTS[nombre]; padre = f"hand_{side}"
+            for k in range(len(js) - 1):
+                bn = phalanx_bone(nombre, k)
+                bones.append((bn, tuple(js[k]), tuple(js[k + 1]), padre, (0, 0, 1)))
+                padre = bn
     arm = L.armature("Armature_Arms", bones, col)
     for o in P:
         n = o.name; side = 'L' if '_L' in n else 'R'
-        if n.startswith("finger_") or n.startswith("thumb_"):
-            key = n.split("_ph")[0].split("_kn")[0].split("_tip")[0].split("_nail")[0]
-            bone = key if key in arm.data.bones else f"hand_{side}"
+        if n in arm.data.bones: bone = n                      # cada falange se ata a su propio hueso
         elif n.startswith(("forearm", "cuff")): bone = f"forearm_{side}"
         else: bone = f"hand_{side}"
         L.bind_rigid(o, arm, bone)
     Z = (0, 0, 0)
-    fingers_all = {f"finger_{s}{i}": ((0, 0, 0), Z) for s in "LR" for i in range(4)}
-    grip = {f"finger_{s}{i}": ((-70, 0, 0), Z) for s in "LR" for i in range(4)}
+    # Agarre 64: el cierre se reparte entre las tres falanges. Con un solo hueso por dedo no hay ángulo que valga,
+    # porque el dedo rígido pasa de largo del mango en vez de envolverlo.
+    dedos = [phalanx_bone(f"finger_{s}{i}", k) for s in "LR" for i in range(4) for k in range(3)]
+    dedos += [phalanx_bone(f"thumb_{s}", k) for s in "LR" for k in range(2)]
+    fingers_all = {b: ((0, 0, 0), Z) for b in dedos}
+    # Ángulos medidos sobre el modelo importado, no estimados: con estos la yema media queda a 26 mm de la palma y a
+    # 4 mm de la superficie del mango. El pulgar necesita ADUCCIÓN (giro en Z) además de flexión, porque flexionando
+    # solo se queda 63 mm de lado en vez de oponerse; el signo se invierte en la mano izquierda, que va espejada.
+    curl = (-75, -90, -60)          # metacarpofalángica, interfalángica proximal, distal
+    grip = {phalanx_bone(f"finger_{s}{i}", k): ((curl[k], 0, 0), Z) for s in "LR" for i in range(4) for k in range(3)}
+    for s, sm in (("L", -1), ("R", 1)):
+        grip[phalanx_bone(f"thumb_{s}", 0)] = ((-10, -40 * sm, -65 * sm), Z)
+        grip[phalanx_bone(f"thumb_{s}", 1)] = ((-30, 0, 0), Z)
     L.push_nla(arm, L.action(arm, "Arms_Idle", 90, poses={1: {"root": ((0, 0, 0), Z)}, 45: {"root": ((1, 0, 0), (0, 0, -0.004))}, 90: {"root": ((0, 0, 0), Z)}}))
     L.push_nla(arm, L.action(arm, "Arms_Grip", 10, loop=False, poses={1: fingers_all, 10: grip}))
     L.push_nla(arm, L.action(arm, "Arms_CrowbarSwing", 26, loop=False, poses={1: {"forearm_R": ((0, 0, 0), Z)}, 6: {"forearm_R": ((-35, 0, 15), (0, 0.05, 0.05))}, 11: {"forearm_R": ((30, 0, -25), (0, -0.08, -0.05))}, 26: {"forearm_R": ((0, 0, 0), Z)}}))
