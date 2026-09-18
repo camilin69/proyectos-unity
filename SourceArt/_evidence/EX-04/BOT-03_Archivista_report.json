@@ -19,7 +19,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-03_Archivista.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-03_Archivista.fbx",
-  "fbx_bytes": 2214380,
+  "fbx_bytes": 2214124,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-03_Archivista_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-03_Archivista_Roughness.png",
@@ -42,12 +42,13 @@
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-03_Archivista_iso.png"
   ],
   "log": [
+    "uv atlas compartido ok",
     "bake BaseColor ok",
     "bake Roughness ok",
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 2214380",
+    "fbx ok 2214124",
     "sheet ok"
   ]
 }

@@ -15,7 +15,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/WPN-02_Pistol.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/WPN-02_Pistol.fbx",
-  "fbx_bytes": 61484,
+  "fbx_bytes": 61996,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-02_Pistol_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-02_Pistol_Roughness.png",
@@ -30,12 +30,13 @@
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/WPN-02_Pistol_iso.png"
   ],
   "log": [
+    "uv atlas compartido ok",
     "bake BaseColor ok",
     "bake Roughness ok",
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 61484",
+    "fbx ok 61996",
     "sheet ok"
   ]
 }

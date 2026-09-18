@@ -1,5 +1,7 @@
 {
  "done": [
+  "BOT-01_Vigia",
+  "BOT-02_Custodio",
   "BOT-03_Archivista",
   "CHR-01_Arms",
   "WPN-01_Crowbar",
@@ -17,6 +19,6 @@
  ],
  "failed": [],
  "current": "",
- "started": "02:39:42",
- "finished": "03:34:00"
+ "started": "03:45:18",
+ "finished": "03:56:37"
 }

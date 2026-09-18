@@ -18,7 +18,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-070_PuertaCorrediza.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-070_PuertaCorrediza.fbx",
-  "fbx_bytes": 168844,
+  "fbx_bytes": 169340,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-070_PuertaCorrediza_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-070_PuertaCorrediza_Roughness.png",
@@ -35,12 +35,13 @@
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/OBJ-070_PuertaCorrediza_iso.png"
   ],
   "log": [
+    "uv atlas compartido ok",
     "bake BaseColor ok",
     "bake Roughness ok",
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 168844",
+    "fbx ok 169340",
     "sheet ok"
   ]
 }

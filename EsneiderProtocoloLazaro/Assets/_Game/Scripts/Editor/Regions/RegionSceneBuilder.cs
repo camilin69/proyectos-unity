@@ -48,6 +48,8 @@ namespace Esneider.EditorTools
 
                 int ents = BuildEntities(plan, catalog, region, spaces, root.transform);
                 var hero = HeroDressing.Apply(plan, region, spaces, root.transform.Find("Entities"));
+                BuildLighting(plan, region, floors, connectors, root.transform);
+                BuildNarrative(plan, region, root.transform.Find("Entities"));
                 BuildVolume(plan, region, floors, connectors, root.transform);
                 var vol = root.transform.Find("Volume_" + region);
                 if (vol != null) { var ra = vol.gameObject.AddComponent<Audio.RegionAudio>(); ra.regionId = region; ra.ambienceBank = "SND-AMBI-" + region.Replace("REG-", ""); ra.reverb = region.StartsWith("REG-C") ? AudioReverbPreset.Hangar : region == "REG-S3" ? AudioReverbPreset.Room : region == "REG-S4" ? AudioReverbPreset.Auditorium : AudioReverbPreset.StoneCorridor; }
@@ -103,6 +105,7 @@ namespace Esneider.EditorTools
                 var go = SandboxFactory.BuildEnemy(def, s.id, w, boss ? new Color(0.9f, 0.85f, 0.9f) : s.kind == "Vigia" ? new Color(0.85f, 0.85f, 0.8f) : new Color(0.6f, 0.4f, 0.35f), boss ? 3.1f : s.kind == "Vigia" ? 1.25f : 2.15f, heroPrefab, heroClips);
                 go.transform.SetParent(ents); go.transform.rotation = Quaternion.Euler(0, s.yaw, 0);
                 var brain = go.GetComponent<EnemyBrain>(); brain.tutorialTelegraph = s.id == "V01";
+                brain.startActive = region != "REG-S1" && region != "REG-C1"; // 104.3: sin ataques antes de D06; EVT-C1 activa S1/C1
                 if (boss) { go.name = "B01_Archivista_Placeholder"; brain.enabled = false; } // el jefe real llega en EX-07; placeholder inerte
                 // patrulla inicial: punto de spawn y segundo punto a 3–6 m (68.7, se valida en blockout)
                 var wps = new GameObject(s.id + "_Waypoints"); wps.transform.SetParent(ents);
@@ -156,6 +159,57 @@ namespace Esneider.EditorTools
             return n;
         }
 
+        // 42.3/16: luminaria técnica por sala (fría, tenue), emergencia ámbar junto a puertas, luz lateral escasa en corredores. Sin sombras dinámicas (71.3).
+        static void BuildLighting(LevelPlan plan, string region, List<PlanFloor> floors, List<PlanConnector> connectors, Transform root)
+        {
+            var lights = new GameObject("Lighting").transform; lights.SetParent(root);
+            Light L(string name, Vector3 pos, Color c, float intensity, float range)
+            {
+                var go = new GameObject(name); go.transform.SetParent(lights); go.transform.position = pos;
+                var l = go.AddComponent<Light>(); l.type = LightType.Point; l.color = c; l.intensity = intensity; l.range = range; l.shadows = LightShadows.None; l.lightmapBakeType = LightmapBakeType.Mixed;
+                return l;
+            }
+            var cool = new Color(0.62f, 0.72f, 0.8f); var amber = new Color(1f, 0.62f, 0.25f); var clinic = new Color(0.7f, 0.82f, 0.9f);
+            foreach (var f in floors)
+            {
+                foreach (var r in plan.rooms.Where(x => x.floor == f.id))
+                {
+                    var c = f.origin.ToVector3() + new Vector3(r.x + r.w / 2f, f.height - 0.3f, r.z + r.d / 2f);
+                    float area = r.w * r.d; int n = area > 300 ? 3 : area > 150 ? 2 : 1;
+                    for (int i = 0; i < n; i++) L("Lum_" + r.id + "_" + i, c + new Vector3((i - (n - 1) / 2f) * r.w / (n + 0.5f), 0, 0), f.sector == "S3" ? clinic : cool, f.sector == "S4" ? 1.3f : 1.0f, Mathf.Max(6f, Mathf.Max(r.w, r.d) * 0.7f));
+                }
+                foreach (var d in plan.doors.Where(x => x.floor == f.id && x.width >= 2.8f))
+                    L("Emerg_" + d.id, f.origin.ToVector3() + new Vector3(d.x, d.height + 0.3f, d.z), amber, 0.6f, 4f);
+                foreach (var c in plan.circulation.Where(x => x.floor == f.id && x.w * x.d > 40))
+                    L("Circ_" + c.id, f.origin.ToVector3() + new Vector3(c.x + c.w / 2f, f.height - 0.3f, c.z + c.d / 2f), cool, 0.5f, Mathf.Max(5f, Mathf.Max(c.w, c.d) * 0.5f));
+            }
+            foreach (var c in connectors)
+                for (int i = 1; i < c.points.Count; i++)
+                {
+                    var a = c.points[i - 1]; var b = c.points[i]; var mid = c.origin.ToVector3() + new Vector3((a.x + b.x) / 2f, c.height - 0.5f, (a.z + b.z) / 2f);
+                    L("Side_" + c.id + "_" + i, mid + new Vector3(0, 0, c.width * 0.4f), cool, 0.45f, 9f);
+                }
+        }
+
+        // EVT-01 apertura en S1 y EVT-C1 altavoz OBJ-065 en C-01 (fuera del sótano, filtrado por la puerta 5.2).
+        static void BuildNarrative(LevelPlan plan, string region, Transform ents)
+        {
+            if (region == "REG-S1")
+            {
+                var cryo = ents.Find("OBJ-001_Criocamara");
+                var go = new GameObject("EVT-01_Opening"); go.transform.SetParent(ents);
+                var op = go.AddComponent<OpeningSequence>();
+                op.cryoLidAnimatorRoot = cryo; op.cryoOpenClip = AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Models/OBJ-001_Criocamara.fbx").OfType<AnimationClip>().FirstOrDefault(c => c.name == "Cryo_Open");
+                op.lyingPosition = plan.Floor("P01").origin.ToVector3() + new Vector3(6f, 0.75f, 8f); op.lyingYaw = 90f;
+            }
+            if (region == "REG-C1")
+            {
+                var c = plan.Connector("C-01"); var w = c.origin.ToVector3() + new Vector3(4f, c.height - 0.8f, -c.width / 2f + 0.3f);
+                var sp = GameObject.CreatePrimitive(PrimitiveType.Cube); sp.name = "OBJ-065_Altavoz"; sp.layer = GameLayers.WorldStatic; sp.transform.SetParent(ents); sp.transform.position = w; sp.transform.localScale = new Vector3(0.4f, 0.3f, 0.25f);
+                sp.AddComponent<AnnouncementSpeaker>().doorId = "D06";
+            }
+        }
+
         static void BuildVolume(LevelPlan plan, string region, List<PlanFloor> floors, List<PlanConnector> connectors, Transform root)
         {
             var vol = new GameObject("Volume_" + region); vol.transform.SetParent(root);
@@ -197,6 +251,13 @@ namespace Esneider.EditorTools
             systems.AddComponent<EncounterDirector>();
             systems.AddComponent<CheckpointService>();
             AudioSetup.Attach(systems);
+            systems.AddComponent<EventRunner>();
+            var probe = systems.AddComponent<PerfProbe>(); probe.label = "S1_C1"; probe.sampleSeconds = 40f;
+            var p01 = plan.Floor("P01").origin.ToVector3();
+            probe.route = new[] { p01 + new Vector3(11, 0, 10), p01 + new Vector3(17, 0, 10), p01 + new Vector3(17, 0, 24), p01 + new Vector3(8, 0, 24), p01 + new Vector3(17, 0, 24), p01 + new Vector3(17, 0, 8), p01 + new Vector3(30, 0, 13) };
+            // 16: niebla global moderada, ambiente bajo (luz de terror); la luz neutra de revisión vive en Art_Showcase
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat; RenderSettings.ambientLight = new Color(0.045f, 0.05f, 0.06f);
+            RenderSettings.fog = true; RenderSettings.fogMode = FogMode.ExponentialSquared; RenderSettings.fogDensity = 0.018f; RenderSettings.fogColor = new Color(0.03f, 0.035f, 0.04f);
             var streamer = systems.AddComponent<RegionStreamer>(); streamer.initialRegion = "REG-S1";
             var cp0 = plan.checkpoints.Find(c => c.id == "CP-00"); plan.TryToWorld(cp0.space, cp0.x, cp0.z, out var start);
             var player = SandboxFactory.BuildPlayer(catalog, start);

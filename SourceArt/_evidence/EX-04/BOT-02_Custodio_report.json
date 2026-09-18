@@ -19,7 +19,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-02_Custodio.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-02_Custodio.fbx",
-  "fbx_bytes": 1882652,
+  "fbx_bytes": 1881628,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-02_Custodio_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-02_Custodio_Roughness.png",
@@ -41,12 +41,13 @@
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-02_Custodio_iso.png"
   ],
   "log": [
+    "uv atlas compartido ok",
     "bake BaseColor ok",
     "bake Roughness ok",
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 1882652",
+    "fbx ok 1881628",
     "sheet ok"
   ]
 }

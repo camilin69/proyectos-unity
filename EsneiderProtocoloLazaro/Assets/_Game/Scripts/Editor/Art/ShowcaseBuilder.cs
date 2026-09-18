@@ -25,9 +25,9 @@ namespace Esneider.EditorTools
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var root = new GameObject("Showcase");
             var sys = new GameObject("Systems"); sys.transform.SetParent(root.transform); sys.AddComponent<GameFlowController>(); sys.AddComponent<AI.EncounterDirector>();
-            var floorMat = SandboxFactory.Mat(new Color(0.42f, 0.44f, 0.45f));
+            var floorMat = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/Blockout/Blockout_Floor.mat") ?? SandboxFactory.Mat(new Color(0.42f, 0.44f, 0.45f));
             var floor = GameObject.CreatePrimitive(PrimitiveType.Cube); floor.name = "Floor"; floor.layer = GameLayers.WorldStatic; floor.transform.SetParent(root.transform); floor.transform.position = new Vector3(12, -0.1f, 0); floor.transform.localScale = new Vector3(40, 0.2f, 16); floor.GetComponent<MeshRenderer>().sharedMaterial = floorMat; floor.isStatic = true;
-            var wall = GameObject.CreatePrimitive(PrimitiveType.Cube); wall.name = "Backwall"; wall.layer = GameLayers.WorldStatic; wall.transform.SetParent(root.transform); wall.transform.position = new Vector3(12, 2.5f, 6f); wall.transform.localScale = new Vector3(40, 5, 0.3f); wall.GetComponent<MeshRenderer>().sharedMaterial = SandboxFactory.Mat(new Color(0.3f, 0.32f, 0.36f)); wall.isStatic = true;
+            var wall = GameObject.CreatePrimitive(PrimitiveType.Cube); wall.name = "Backwall"; wall.layer = GameLayers.WorldStatic; wall.transform.SetParent(root.transform); wall.transform.position = new Vector3(12, 2.5f, 6f); wall.transform.localScale = new Vector3(40, 5, 0.3f); wall.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/Blockout/Blockout_Solid.mat") ?? floorMat; wall.isStatic = true;
             var found = new List<string>();
             float x = 0f;
             foreach (var id in Heroes)

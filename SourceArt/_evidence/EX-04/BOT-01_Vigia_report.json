@@ -18,11 +18,11 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-01_Vigia.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-01_Vigia.fbx",
-  "fbx_bytes": 1682556,
+  "fbx_bytes": 1680476,
   "textures": {
-    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Metallic.png",
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Roughness.png",
+    "Metallic": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Metallic.png",
     "Normal": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Normal.png"
   },
   "clips": [
@@ -39,9 +39,13 @@
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-01_Vigia_iso.png"
   ],
   "log": [
+    "uv atlas compartido ok",
+    "bake BaseColor ok",
+    "bake Roughness ok",
     "bake Metallic ok",
+    "bake Normal ok",
     "blend ok",
-    "fbx ok 1682556",
+    "fbx ok 1680476",
     "sheet ok"
   ]
 }

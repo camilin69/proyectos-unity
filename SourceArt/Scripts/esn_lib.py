@@ -233,6 +233,15 @@ def uv_project(o, margin=0.02):
         bpy.ops.object.mode_set(mode='OBJECT')
 
 
+def uv_project_all(objs, margin=0.004):
+    """Un solo atlas por asset (40.3): desplegado multiobjeto para que las islas de todas las piezas se empaqueten juntas."""
+    meshes = [o for o in objs if o.type == 'MESH']
+    with ctx(meshes[0], meshes):
+        bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=margin)
+        bpy.ops.object.mode_set(mode='OBJECT')
+
+
 # ---------- bake a texturas PBR (41.1) ----------
 _bake_saved = {}
 

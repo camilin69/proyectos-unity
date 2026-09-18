@@ -54,7 +54,7 @@ namespace Esneider.Player
 
             look.Tick(input.Look);
             motor.Tick(input.Move, input.RunHeld, input.CrouchPressed, input.JumpPressed, Time.deltaTime);
-            if (look.cameraPivot != null) look.cameraPivot.localPosition = new Vector3(0, motor.EyeHeight, 0);
+            if (look.cameraPivot != null && motor.movementEnabled) look.cameraPivot.localPosition = new Vector3(0, motor.EyeHeight, 0);
 
             if (input.FlashlightPressed && inventory.hasFlashlight && flashlight != null) flashlight.enabled = !flashlight.enabled; // 25: modificar componente
             if (input.WeaponSlotPressed == 1) actions.RequestEquip(Core.Data.WeaponKind.Melee);

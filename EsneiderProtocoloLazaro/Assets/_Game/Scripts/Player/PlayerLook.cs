@@ -23,7 +23,8 @@ namespace Esneider.Player
                 _pitch = Mathf.Clamp(_pitch - look.y * sensitivity, pitchMin, pitchMax);
             }
             _recoil = Mathf.MoveTowards(_recoil, 0f, 12f * Time.deltaTime);
-            if (cameraPivot != null) cameraPivot.localRotation = Quaternion.Euler(_pitch - _recoil, 0f, 0f);
+            // con la mirada bloqueada (apertura, captura) el pivote lo gobierna la secuencia; no sobreescribir
+            if (lookEnabled && cameraPivot != null) cameraPivot.localRotation = Quaternion.Euler(_pitch - _recoil, 0f, 0f);
         }
 
         public void AddRecoil(float degrees) => _recoil = Mathf.Min(_recoil + degrees, 6f);

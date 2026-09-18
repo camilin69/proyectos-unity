@@ -15,7 +15,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/WPN-03_Shotgun.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/WPN-03_Shotgun.fbx",
-  "fbx_bytes": 91484,
+  "fbx_bytes": 91580,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-03_Shotgun_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-03_Shotgun_Roughness.png",
@@ -30,12 +30,13 @@
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/WPN-03_Shotgun_iso.png"
   ],
   "log": [
+    "uv atlas compartido ok",
     "bake BaseColor ok",
     "bake Roughness ok",
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 91484",
+    "fbx ok 91580",
     "sheet ok"
   ]
 }

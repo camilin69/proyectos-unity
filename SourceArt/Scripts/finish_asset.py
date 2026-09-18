@@ -16,6 +16,10 @@ arm = bpy.data.objects.get(ARM_NAME)
 objs = [o for o in bpy.context.scene.objects if o.type == 'MESH']
 tex = {}
 if DO_BAKE:
+    try:
+        L.uv_project_all(objs); log.append("uv atlas compartido ok")
+    except Exception:
+        log.append("uv atlas ERR " + traceback.format_exc()[-800:])
     for m in MAPS:
         try:
             tex.update(L.bake_pbr(objs, ASSET, size=SIZE, samples=6, only=[m]))

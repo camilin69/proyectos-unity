@@ -19,7 +19,8 @@ namespace Esneider.UI
             if (player != null && player.inventory != null) player.inventory.Message += ShowMessage;
         }
 
-        public void ShowMessage(string msg) { if (messageText != null) messageText.text = msg; _messageUntil = Time.unscaledTime + 2.5f; }
+        public void ShowMessage(string msg) => ShowMessage(msg, 2.5f);
+        public void ShowMessage(string msg, float seconds) { if (messageText != null) messageText.text = msg; _messageUntil = Time.unscaledTime + seconds; }
 
         void Update()
         {

@@ -103,9 +103,5 @@ death = L.action(arm, "Vigia_Death", 36, loop=False, poses={1: {"root": ((0, 0, 
 L.push_nla(arm, death)
 
 objs = list(parts.values())
-tex = L.bake_pbr(objs, ASSET, size=1024, samples=6)
 blend = L.save_blend(ASSET)
-fbx, size = L.export_fbx(objs, ASSET, armature_obj=arm)
-sheets = L.sheet(ASSET, objs, views=('front', 'side', 'iso'))
-rep = L.report(ASSET, objs, {"blend": blend, "fbx": fbx, "fbx_bytes": size, "textures": tex, "clips": ["Vigia_Idle", "Vigia_Walk", "Vigia_Anticipation", "Vigia_Net", "Vigia_Death"], "height_target_m": H, "sheets": sheets})
-print(rep)
+print("built vigia", len(objs))
