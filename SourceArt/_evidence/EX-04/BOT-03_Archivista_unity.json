@@ -2,13 +2,13 @@
     "asset": "BOT-03_Archivista",
     "fbx": "Assets/_Game/Art/Models/BOT-03_Archivista.fbx",
     "prefab": "Assets/_Game/Prefabs/Enemies/BOT-03_Archivista.prefab",
-    "tris": 8202,
-    "submeshes": 35,
+    "tris": 34600,
+    "submeshes": 157,
     "clips": 7,
     "size": {
-        "x": 1.1799999475479126,
-        "y": 3.2322750091552734,
-        "z": 0.5681647658348083
+        "x": 1.1899999380111694,
+        "y": 3.2430338859558105,
+        "z": 0.6209853291511536
     },
     "clipNames": [
         "Archivista_Charge",

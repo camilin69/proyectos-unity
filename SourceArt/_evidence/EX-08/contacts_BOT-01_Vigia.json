@@ -31,23 +31,23 @@
    "clip": "Vigia_Walk",
    "frames": 40,
    "seconds": 1.333,
-   "min_z_m": -0.00571,
+   "min_z_m": -0.00743,
    "feet": {
     "foot_L": {
-     "planted_frames": 33,
-     "slide_m": 0.2931,
-     "stride_m": 0.2931,
-     "stance_s": 0.567,
-     "speed_jitter": 0.874,
-     "bob_while_planted_m": 0.0244
+     "planted_frames": 35,
+     "slide_m": 0.3062,
+     "stride_m": 0.3062,
+     "stance_s": 0.6,
+     "speed_jitter": 0.873,
+     "bob_while_planted_m": 0.0258
     },
     "foot_R": {
-     "planted_frames": 32,
-     "slide_m": 0.2931,
-     "stride_m": 0.0032,
-     "stance_s": 1.067,
-     "speed_jitter": 0.878,
-     "bob_while_planted_m": 0.0244
+     "planted_frames": 34,
+     "slide_m": 0.3062,
+     "stride_m": 0.0019,
+     "stance_s": 1.133,
+     "speed_jitter": 0.876,
+     "bob_while_planted_m": 0.0259
     }
    },
    "contact_ratio": 1.0
@@ -106,38 +106,38 @@
    "clip": "Vigia_Death",
    "frames": 36,
    "seconds": 1.2,
-   "min_z_m": -0.3572,
+   "min_z_m": 0.0,
    "feet": {
     "foot_L": {
-     "planted_frames": 5,
-     "slide_m": 0.019,
-     "stride_m": 0.019,
-     "stance_s": 0.167,
-     "speed_jitter": 0.721,
-     "bob_while_planted_m": 0.0249
+     "planted_frames": 0,
+     "slide_m": 0.0,
+     "stride_m": 0.0,
+     "stance_s": 0.0,
+     "speed_jitter": 0.0,
+     "bob_while_planted_m": 0.0
     },
     "foot_R": {
-     "planted_frames": 36,
-     "slide_m": 0.5892,
-     "stride_m": 0.5892,
-     "stance_s": 1.2,
-     "speed_jitter": 0.939,
-     "bob_while_planted_m": 0.3475
+     "planted_frames": 4,
+     "slide_m": 0.0191,
+     "stride_m": 0.0191,
+     "stance_s": 0.133,
+     "speed_jitter": 0.647,
+     "bob_while_planted_m": 0.0134
     }
    },
-   "contact_ratio": 1.0
+   "contact_ratio": 0.111
   }
  ],
  "gates": [
   {
    "id": "G-01",
    "estado": "FALLA",
-   "detalle": "penetración máxima -357.2 mm en Vigia_Death f36 (foot_R); tolerancia -2 mm"
+   "detalle": "penetración máxima -7.4 mm en Vigia_Walk f11 (foot_R); tolerancia -2 mm"
   },
   {
    "id": "G-02",
    "estado": "FALLA",
-   "detalle": "retroceso del pie apoyado: dispersión de velocidad 88 % (máx 35 %), rebote vertical 24.4 mm (máx 20 mm)"
+   "detalle": "retroceso del pie apoyado: dispersión de velocidad 88 % (máx 35 %), rebote vertical 25.9 mm (máx 20 mm)"
   },
   {
    "id": "G-03",
@@ -147,7 +147,7 @@
   {
    "id": "G-04",
    "estado": "FALLA",
-   "detalle": "velocidad implícita del clip 0.52 m/s contra patrulla 0.70 m/s (factor 0.74); fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción"
+   "detalle": "velocidad implícita del clip 0.51 m/s contra patrulla 0.70 m/s (factor 0.73); fuera de 0.75-1.35 el pie patina salvo que EnemyAnimator escale la reproducción"
   }
  ],
  "thresholds": {
@@ -162,6 +162,6 @@
  ],
  "moving_objects": [],
  "rest_min_z_m": -0.0,
- "clip_stride_speed_mps": 0.517,
- "stride_vs_patrol": 0.738
+ "clip_stride_speed_mps": 0.51,
+ "stride_vs_patrol": 0.729
 }

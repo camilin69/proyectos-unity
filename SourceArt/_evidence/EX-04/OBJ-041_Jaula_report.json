@@ -1,15 +1,16 @@
 {
   "asset": "OBJ-041_Jaula",
-  "tris": 2160,
-  "parts": 28,
+  "tris": 3460,
+  "parts": 14,
   "dims_m": [
-    2.582,
-    1.989,
+    2.593,
+    2.0,
     2.4
   ],
   "materials": [
     "M_Ceramic",
     "M_Emitter",
+    "M_PropLabel",
     "M_Rubber",
     "M_SteelBare",
     "M_SteelDark",
@@ -17,7 +18,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-041_Jaula.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-041_Jaula.fbx",
-  "fbx_bytes": 276604,
+  "fbx_bytes": 226876,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-041_Jaula_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-041_Jaula_Roughness.png",
@@ -40,7 +41,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 276604",
+    "fbx ok 226876",
     "sheet ok"
   ]
 }

@@ -2,13 +2,13 @@
     "asset": "OBJ-059_Terminal",
     "fbx": "Assets/_Game/Art/Models/OBJ-059_Terminal.fbx",
     "prefab": "Assets/_Game/Prefabs/Environment/OBJ-059_Terminal.prefab",
-    "tris": 2816,
-    "submeshes": 13,
+    "tris": 3536,
+    "submeshes": 23,
     "clips": 0,
     "size": {
-        "x": 0.6557947397232056,
-        "y": 1.251952886581421,
-        "z": 0.7983205318450928
+        "x": 0.6802499294281006,
+        "y": 1.2525285482406616,
+        "z": 0.8061373233795166
     },
     "clipNames": [],
     "materials": [

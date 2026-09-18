@@ -2,13 +2,13 @@
     "asset": "PRP-Syringe",
     "fbx": "Assets/_Game/Art/Models/PRP-Syringe.fbx",
     "prefab": "Assets/_Game/Prefabs/Weapons/PRP-Syringe.prefab",
-    "tris": 272,
-    "submeshes": 6,
+    "tris": 988,
+    "submeshes": 12,
     "clips": 0,
     "size": {
-        "x": 0.029999999329447746,
-        "y": 0.024000000208616257,
-        "z": 0.18200001120567322
+        "x": 0.03200000151991844,
+        "y": 0.026000000536441803,
+        "z": 0.1810000091791153
     },
     "clipNames": [],
     "materials": [

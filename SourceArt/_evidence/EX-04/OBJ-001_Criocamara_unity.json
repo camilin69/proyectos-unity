@@ -2,17 +2,17 @@
     "asset": "OBJ-001_Criocamara",
     "fbx": "Assets/_Game/Art/Models/OBJ-001_Criocamara.fbx",
     "prefab": "Assets/_Game/Prefabs/Environment/OBJ-001_Criocamara.prefab",
-    "tris": 3210,
-    "submeshes": 32,
+    "tris": 9964,
+    "submeshes": 45,
     "clips": 2,
     "size": {
-        "x": 2.7899999618530273,
-        "y": 1.0799996852874756,
-        "z": 1.119999647140503
+        "x": 2.7844338417053223,
+        "y": 1.0846130847930908,
+        "z": 1.1332340240478516
     },
     "clipNames": [
-        "Cryo_Closed",
-        "Cryo_Open"
+        "Cryo_Open",
+        "Cryo_Closed"
     ],
     "materials": [
         "M_OBJ-001_Criocamara"

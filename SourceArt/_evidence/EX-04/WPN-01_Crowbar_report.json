@@ -1,19 +1,21 @@
 {
   "asset": "WPN-01_Crowbar",
-  "tris": 316,
-  "parts": 5,
+  "tris": 2880,
+  "parts": 20,
   "dims_m": [
-    0.03,
-    0.75,
-    0.162
+    0.031,
+    0.755,
+    0.17
   ],
   "materials": [
+    "M_Rubber",
     "M_SteelBare",
+    "M_SteelDark",
     "M_SteelPaint"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/WPN-01_Crowbar.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/WPN-01_Crowbar.fbx",
-  "fbx_bytes": 34172,
+  "fbx_bytes": 143868,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-01_Crowbar_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-01_Crowbar_Roughness.png",
@@ -34,7 +36,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 34172",
+    "fbx ok 143868",
     "sheet ok"
   ]
 }

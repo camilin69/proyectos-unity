@@ -1,18 +1,23 @@
 {
   "asset": "OBJ-001_Criocamara",
-  "tris": 3210,
-  "parts": 32,
+  "tris": 9964,
+  "parts": 20,
   "dims_m": [
-    2.79,
-    1.12,
-    1.08
+    2.784,
+    1.133,
+    1.085
   ],
   "materials": [
     "M_Copper",
+    "M_Emitter",
+    "M_Fabric",
     "M_Foam",
+    "M_Frost",
     "M_Glass",
     "M_PaintMedical",
     "M_PolymerDark",
+    "M_PolymerIvory",
+    "M_PropLabel",
     "M_Rubber",
     "M_Screen",
     "M_SteelBare",
@@ -21,7 +26,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-001_Criocamara.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-001_Criocamara.fbx",
-  "fbx_bytes": 410284,
+  "fbx_bytes": 488332,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-001_Criocamara_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-001_Criocamara_Roughness.png",
@@ -30,7 +35,7 @@
   },
   "clips": [
     "Cryo_Open",
-    "Cryo_Closed"
+    "Cryo_Close"
   ],
   "height_target_m": 0,
   "sheets": [
@@ -45,7 +50,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 410284",
+    "fbx ok 488332",
     "sheet ok"
   ]
 }

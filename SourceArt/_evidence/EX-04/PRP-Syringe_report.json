@@ -1,21 +1,23 @@
 {
   "asset": "PRP-Syringe",
-  "tris": 272,
-  "parts": 6,
+  "tris": 988,
+  "parts": 12,
   "dims_m": [
-    0.03,
-    0.182,
-    0.024
+    0.032,
+    0.181,
+    0.026
   ],
   "materials": [
     "M_Glass",
     "M_Liquid",
     "M_PlasticRed",
-    "M_PolymerIvory"
+    "M_PolymerIvory",
+    "M_Rubber",
+    "M_SteelBare"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/PRP-Syringe.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/PRP-Syringe.fbx",
-  "fbx_bytes": 37212,
+  "fbx_bytes": 73036,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/PRP-Syringe_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/PRP-Syringe_Roughness.png",
@@ -36,7 +38,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 37212",
+    "fbx ok 73036",
     "sheet ok"
   ]
 }

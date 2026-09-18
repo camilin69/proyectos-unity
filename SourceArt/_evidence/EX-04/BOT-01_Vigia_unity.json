@@ -2,13 +2,13 @@
     "asset": "BOT-01_Vigia",
     "fbx": "Assets/_Game/Art/Models/BOT-01_Vigia.fbx",
     "prefab": "Assets/_Game/Prefabs/Enemies/BOT-01_Vigia.prefab",
-    "tris": 10588,
-    "submeshes": 36,
+    "tris": 18614,
+    "submeshes": 91,
     "clips": 5,
     "size": {
-        "x": 0.44999998807907104,
-        "y": 1.359175682067871,
-        "z": 0.2567217946052551
+        "x": 0.4521999955177307,
+        "y": 1.36270272731781,
+        "z": 0.26131749153137207
     },
     "clipNames": [
         "Vigia_Idle",

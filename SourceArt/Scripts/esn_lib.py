@@ -511,6 +511,59 @@ def action(arm_obj, name, frames, fps=30, poses=None, loop=True):
     return act
 
 
+def ground_clamp(arm_obj, meshes, actions=None, root_bone="root", floor=0.0, report=None):
+    """49.8: ningún frame puede hundir la malla bajo el suelo.
+
+    Los clips de muerte bajan el hueso raíz una cantidad escrita a ojo, y la silueta tumbada acaba enterrada
+    (medido: Vigía −361 mm, Custodio −600 mm, Archivista −876 mm). En vez de inventar otro número, se mide la
+    penetración real por frame y se sube el raíz exactamente lo necesario.
+
+    El desplazamiento se aplica en el espacio LOCAL del hueso (que no coincide con el mundo), resolviendo qué
+    vector local produce un metro de subida en Z mundial.
+    """
+    if arm_obj is None or arm_obj.animation_data is None: return []
+    ad = arm_obj.animation_data
+    saved_action, saved_nla = ad.action, ad.use_nla
+    ad.use_nla = False
+    pb = arm_obj.pose.bones.get(root_bone)
+    if pb is None: ad.action, ad.use_nla = saved_action, saved_nla; return []
+    # vector local del hueso que equivale a +Z mundial
+    basis = (arm_obj.matrix_world @ pb.bone.matrix_local).to_3x3()
+    try: up_local = basis.inverted() @ Vector((0.0, 0.0, 1.0))
+    except ValueError: up_local = Vector((0.0, 1.0, 0.0))
+
+    tracks = [(t.name, s.action) for t in ad.nla_tracks for s in t.strips if s.action]
+    out = []
+    for name, act in tracks:
+        if actions and name not in actions: continue
+        ad.action = act
+        f0, f1 = int(act.frame_range[0]), int(act.frame_range[1])
+        worst = 1e9
+        for f in range(f0, f1 + 1):
+            bpy.context.scene.frame_set(f)
+            dg = bpy.context.evaluated_depsgraph_get()
+            for o in meshes:
+                ev = o.evaluated_get(dg); me = ev.to_mesh()
+                if me.vertices:
+                    mw = ev.matrix_world
+                    worst = min(worst, min((mw @ v.co).z for v in me.vertices))
+                ev.to_mesh_clear()
+        pen = worst - floor
+        if pen >= -0.002: out.append((name, 0.0)); continue
+        delta = up_local * (-pen)
+        for fc in _fcurves(act):
+            if fc.data_path.endswith("location") and root_bone in fc.data_path:
+                d = delta[fc.array_index]
+                if abs(d) < 1e-9: continue
+                for kp in fc.keyframe_points:
+                    kp.co.y += d; kp.handle_left.y += d; kp.handle_right.y += d
+        out.append((name, round(-pen, 4)))
+    ad.action, ad.use_nla = saved_action, saved_nla
+    bpy.context.scene.frame_set(1)
+    if report is not None: report.extend(out)
+    return out
+
+
 def push_nla(arm_obj, act):
     """Cada clip a una pista NLA (export FBX: 'All Actions' → clips separados con nombre)."""
     ad = arm_obj.animation_data

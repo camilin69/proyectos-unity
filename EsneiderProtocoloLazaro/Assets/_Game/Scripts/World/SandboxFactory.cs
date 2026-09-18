@@ -117,6 +117,9 @@ namespace Esneider.World
                 foreach (var t in vis.GetComponentsInChildren<Transform>()) t.gameObject.layer = GameLayers.Enemy;
                 var animator = vis.GetOrAdd<Animator>();
                 var ea = go.AddComponent<AI.EnemyAnimator>(); ea.animator = animator; ea.clipsFromFbx = clips; ea.prefix = def.kind == EnemyKind.Vigia ? "Vigia" : height > 3f ? "Archivista" : "Custodio";
+                // Zancada implícita MEDIDA por SourceArt/Scripts/measure_contacts.py (49.8/77.1), no estimada:
+                // es la que permite reproducir el ciclo a la velocidad real del agente sin que el pie patine.
+                ea.clipStrideSpeed = ea.prefix == "Vigia" ? 0.51f : ea.prefix == "Archivista" ? 1.42f : 0.81f;
                 go.AddComponent<Audio.EnemyFootsteps>();
                 var cap = go.AddComponent<CapsuleCollider>(); cap.center = new Vector3(0, height / 2f, 0); cap.height = height; cap.radius = height > 3f ? 0.45f : height > 2f ? 0.35f : 0.28f;
             }

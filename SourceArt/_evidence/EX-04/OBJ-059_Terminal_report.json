@@ -1,26 +1,28 @@
 {
   "asset": "OBJ-059_Terminal",
-  "tris": 2816,
-  "parts": 13,
+  "tris": 3536,
+  "parts": 14,
   "dims_m": [
-    0.656,
-    0.798,
-    1.252
+    0.68,
+    0.806,
+    1.253
   ],
   "materials": [
     "M_Emitter",
     "M_Glass",
     "M_PolymerDark",
     "M_PolymerIvory",
+    "M_PropLabel",
     "M_Rubber",
     "M_Screen",
     "M_SteelBare",
     "M_SteelDark",
-    "M_SteelPaint"
+    "M_SteelPaint",
+    "M_Wire"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-059_Terminal.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-059_Terminal.fbx",
-  "fbx_bytes": 111788,
+  "fbx_bytes": 143548,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-059_Terminal_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-059_Terminal_Roughness.png",
@@ -41,7 +43,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 111788",
+    "fbx ok 143548",
     "sheet ok"
   ]
 }

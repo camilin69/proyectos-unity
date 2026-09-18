@@ -1,15 +1,16 @@
 {
   "asset": "OBJ-029_Carro",
-  "tris": 808,
-  "parts": 22,
+  "tris": 2600,
+  "parts": 7,
   "dims_m": [
-    1.06,
+    1.044,
     0.6,
-    0.919
+    0.921
   ],
   "materials": [
     "M_Fabric",
     "M_PaintIndustrial",
+    "M_PropLabel",
     "M_Rubber",
     "M_SteelBare",
     "M_SteelDark",
@@ -17,7 +18,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-029_Carro.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-029_Carro.fbx",
-  "fbx_bytes": 92764,
+  "fbx_bytes": 95500,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-029_Carro_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-029_Carro_Roughness.png",
@@ -38,7 +39,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 92764",
+    "fbx ok 95500",
     "sheet ok"
   ]
 }

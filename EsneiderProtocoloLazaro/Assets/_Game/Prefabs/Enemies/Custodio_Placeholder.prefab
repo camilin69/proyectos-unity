@@ -355,6 +355,10 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  patrolLoop: 0
+  patrolDelay: 0
+  pointWaitSeconds: 1.5
+  endWaitSeconds: 3
   muzzle: {fileID: 9086162223814401249}
   attacksEmitted: 0
 --- !u!114 &4992160336175879341

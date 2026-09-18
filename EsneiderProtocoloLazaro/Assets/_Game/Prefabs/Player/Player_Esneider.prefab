@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 663973494495323531}
   - component: {fileID: 3723873913549560230}
   - component: {fileID: 1422153972813490433}
-  - component: {fileID: 540788400700423984}
+  - component: {fileID: 8016899056213269386}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: MainCamera
@@ -447,7 +447,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754045095344228571}
   m_Enabled: 1
---- !u!114 &540788400700423984
+--- !u!114 &8016899056213269386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

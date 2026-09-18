@@ -1,0 +1,43 @@
+{
+ "asset": "OBJ-070_PuertaCorrediza",
+ "fps": 30,
+ "clips": [
+  {
+   "clip": "Door_Open",
+   "frames": 60,
+   "seconds": 2.0,
+   "min_z_m": 0.0,
+   "feet": {},
+   "hinge_rigidity_max_dev_m": 0.0
+  }
+ ],
+ "gates": [
+  {
+   "id": "G-01",
+   "estado": "PASA",
+   "detalle": "penetración máxima 0.0 mm en Door_Open f1 (frame_post_-1.6); tolerancia -2 mm"
+  },
+  {
+   "id": "G-02",
+   "estado": "N/A",
+   "detalle": "el asset no tiene piezas de pie identificables"
+  },
+  {
+   "id": "G-05",
+   "estado": "PASA",
+   "detalle": "deformación máxima de pieza móvil 0.00 mm; debe girar rígida (<= 2 mm)"
+  }
+ ],
+ "thresholds": {
+  "ground_tol_m": -0.002,
+  "plant_z_m": 0.02,
+  "slide_tol_m": 0.02,
+  "contact_ratio": 0.85
+ },
+ "foot_objects": [],
+ "moving_objects": [
+  "leaf_0",
+  "leaf_1"
+ ],
+ "rest_min_z_m": 0.0
+}

@@ -2,13 +2,13 @@
     "asset": "WPN-04_Flashlight",
     "fbx": "Assets/_Game/Art/Models/WPN-04_Flashlight.fbx",
     "prefab": "Assets/_Game/Prefabs/Weapons/WPN-04_Flashlight.prefab",
-    "tris": 2124,
-    "submeshes": 7,
+    "tris": 4108,
+    "submeshes": 23,
     "clips": 0,
     "size": {
-        "x": 0.05299999937415123,
-        "y": 0.05299999937415123,
-        "z": 0.21000000834465027
+        "x": 0.053599998354911804,
+        "y": 0.05407273769378662,
+        "z": 0.23850001394748688
     },
     "clipNames": [],
     "materials": [

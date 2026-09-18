@@ -2,13 +2,13 @@
     "asset": "OBJ-070_PuertaCorrediza",
     "fbx": "Assets/_Game/Art/Models/OBJ-070_PuertaCorrediza.fbx",
     "prefab": "Assets/_Game/Prefabs/Environment/OBJ-070_PuertaCorrediza.prefab",
-    "tris": 680,
-    "submeshes": 15,
+    "tris": 3168,
+    "submeshes": 33,
     "clips": 1,
     "size": {
         "x": 3.825000047683716,
         "y": 3.949998617172241,
-        "z": 0.8199996948242188
+        "z": 0.8317997455596924
     },
     "clipNames": [
         "Door_Open"

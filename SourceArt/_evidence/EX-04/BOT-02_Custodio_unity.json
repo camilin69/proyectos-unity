@@ -2,13 +2,13 @@
     "asset": "BOT-02_Custodio",
     "fbx": "Assets/_Game/Art/Models/BOT-02_Custodio.fbx",
     "prefab": "Assets/_Game/Prefabs/Enemies/BOT-02_Custodio.prefab",
-    "tris": 7864,
-    "submeshes": 42,
+    "tris": 21096,
+    "submeshes": 125,
     "clips": 6,
     "size": {
-        "x": 0.9900000095367432,
-        "y": 2.3210580348968506,
-        "z": 0.526608407497406
+        "x": 0.9880250096321106,
+        "y": 2.322465419769287,
+        "z": 0.5219998359680176
     },
     "clipNames": [
         "Custodio_Anticipation",

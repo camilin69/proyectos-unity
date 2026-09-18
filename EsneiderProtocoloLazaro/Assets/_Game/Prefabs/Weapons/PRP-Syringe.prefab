@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
+    - target: {fileID: 666470944378402981, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
     - target: {fileID: 919132149155446097, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
       propertyPath: m_Name
       value: PRP-Syringe
@@ -60,7 +64,15 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
+    - target: {fileID: 1944662158930821692, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
     - target: {fileID: 3134187398700991840, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
+    - target: {fileID: 3643781042697023674, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
@@ -68,11 +80,23 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
+    - target: {fileID: 6077378521104848789, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
     - target: {fileID: 6455394554663343740, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
+    - target: {fileID: 7790730904730736467, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
     - target: {fileID: 8449996119470504636, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
+    - target: {fileID: 9183478214547501983, guid: 26e8217956c47c54ab2996225d4096f4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aa0ae0103d89dd94684e7798e1c8fc81, type: 2}
@@ -108,5 +132,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.03, y: 0.024, z: 0.18200001}
-  m_Center: {x: 0, y: 0, z: -0.015999995}
+  m_Size: {x: 0.032, y: 0.026, z: 0.18100001}
+  m_Center: {x: 0, y: 0, z: -0.015500002}

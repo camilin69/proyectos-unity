@@ -1,25 +1,30 @@
 {
   "asset": "BOT-02_Custodio",
-  "tris": 7864,
-  "parts": 42,
+  "tris": 21096,
+  "parts": 53,
   "dims_m": [
-    0.99,
-    0.52,
+    0.988,
+    0.522,
     2.22
   ],
   "materials": [
     "M_Ceramic",
+    "M_Copper",
     "M_Emitter",
+    "M_Glass",
+    "M_HeatSteel",
+    "M_PaintRepair",
     "M_PolymerDark",
     "M_PolymerIvory",
     "M_Rubber",
     "M_SteelBare",
     "M_SteelDark",
-    "M_SteelPaint"
+    "M_SteelPaint",
+    "M_Weld"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-02_Custodio.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-02_Custodio.fbx",
-  "fbx_bytes": 1881628,
+  "fbx_bytes": 2436476,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-02_Custodio_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-02_Custodio_Roughness.png",
@@ -34,7 +39,7 @@
     "Custodio_Stagger",
     "Custodio_Death"
   ],
-  "height_target_m": 2.15,
+  "height_target_m": 2.22,
   "sheets": [
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-02_Custodio_front.png",
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-02_Custodio_side.png",
@@ -47,7 +52,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 1881628",
+    "fbx ok 2436476",
     "sheet ok"
   ]
 }

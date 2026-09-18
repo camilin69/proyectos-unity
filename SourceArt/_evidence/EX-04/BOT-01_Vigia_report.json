@@ -1,24 +1,27 @@
 {
   "asset": "BOT-01_Vigia",
-  "tris": 10588,
-  "parts": 36,
+  "tris": 18614,
+  "parts": 37,
   "dims_m": [
-    0.45,
-    0.244,
+    0.452,
+    0.247,
     1.293
   ],
   "materials": [
     "M_Copper",
+    "M_Glass",
     "M_PolymerDark",
     "M_PolymerIvory",
     "M_Rubber",
     "M_SteelBare",
     "M_SteelDark",
-    "M_SteelPaint"
+    "M_SteelPaint",
+    "M_VigiaLabel",
+    "M_VigiaWire"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/BOT-01_Vigia.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/BOT-01_Vigia.fbx",
-  "fbx_bytes": 1680476,
+  "fbx_bytes": 1933916,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/BOT-01_Vigia_Roughness.png",
@@ -32,7 +35,7 @@
     "Vigia_Net",
     "Vigia_Death"
   ],
-  "height_target_m": 1.25,
+  "height_target_m": 1.29,
   "sheets": [
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-01_Vigia_front.png",
     "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/_evidence/EX-04/BOT-01_Vigia_side.png",
@@ -45,7 +48,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 1680476",
+    "fbx ok 1933916",
     "sheet ok"
   ]
 }

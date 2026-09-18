@@ -2,13 +2,13 @@
     "asset": "OBJ-041_Jaula",
     "fbx": "Assets/_Game/Art/Models/OBJ-041_Jaula.fbx",
     "prefab": "Assets/_Game/Prefabs/Environment/OBJ-041_Jaula.prefab",
-    "tris": 2160,
-    "submeshes": 28,
+    "tris": 3460,
+    "submeshes": 25,
     "clips": 1,
     "size": {
-        "x": 2.582303524017334,
+        "x": 2.593087673187256,
         "y": 2.3999993801116943,
-        "z": 1.9890148639678955
+        "z": 2.0000762939453125
     },
     "clipNames": [
         "Cage_Open"

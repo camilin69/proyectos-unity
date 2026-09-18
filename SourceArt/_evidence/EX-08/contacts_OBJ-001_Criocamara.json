@@ -1,0 +1,52 @@
+{
+ "asset": "OBJ-001_Criocamara",
+ "fps": 30,
+ "clips": [
+  {
+   "clip": "Cryo_Open",
+   "frames": 72,
+   "seconds": 2.4,
+   "min_z_m": -0.26969,
+   "feet": {},
+   "hinge_rigidity_max_dev_m": 0.0
+  },
+  {
+   "clip": "Cryo_Closed",
+   "frames": 2,
+   "seconds": 0.067,
+   "min_z_m": -0.00461,
+   "feet": {},
+   "hinge_rigidity_max_dev_m": 0.0
+  }
+ ],
+ "gates": [
+  {
+   "id": "G-01",
+   "estado": "FALLA",
+   "detalle": "penetración máxima -269.7 mm en Cryo_Open f72 (lid_frame); tolerancia -2 mm"
+  },
+  {
+   "id": "G-02",
+   "estado": "N/A",
+   "detalle": "el asset no tiene piezas de pie identificables"
+  },
+  {
+   "id": "G-05",
+   "estado": "PASA",
+   "detalle": "deformación máxima de pieza móvil 0.00 mm; debe girar rígida (<= 2 mm)"
+  }
+ ],
+ "thresholds": {
+  "ground_tol_m": -0.002,
+  "plant_z_m": 0.02,
+  "slide_tol_m": 0.02,
+  "contact_ratio": 0.85
+ },
+ "foot_objects": [],
+ "moving_objects": [
+  "lid_frame",
+  "lid_glass",
+  "lid_frost"
+ ],
+ "rest_min_z_m": -0.00461
+}

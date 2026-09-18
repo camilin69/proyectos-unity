@@ -1,10 +1,10 @@
 {
   "asset": "OBJ-043_Camilla",
-  "tris": 1236,
-  "parts": 24,
+  "tris": 2676,
+  "parts": 8,
   "dims_m": [
     2.0,
-    0.764,
+    0.761,
     1.66
   ],
   "materials": [
@@ -13,12 +13,16 @@
     "M_Glass",
     "M_Mattress",
     "M_PaintMedical",
+    "M_PlasticRed",
+    "M_PropLabel",
     "M_Rubber",
-    "M_SteelBare"
+    "M_SteelBare",
+    "M_SteelDark",
+    "M_SteelPaint"
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/OBJ-043_Camilla.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-043_Camilla.fbx",
-  "fbx_bytes": 106844,
+  "fbx_bytes": 104732,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-043_Camilla_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/OBJ-043_Camilla_Roughness.png",
@@ -39,7 +43,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 106844",
+    "fbx ok 104732",
     "sheet ok"
   ]
 }

@@ -1,0 +1,18 @@
+{
+ "asset": "OBJ-029_Carro",
+ "fps": 30,
+ "clips": [],
+ "gates": [
+  {
+   "id": "G-00",
+   "estado": "N/A",
+   "detalle": "el asset no tiene clips"
+  }
+ ],
+ "thresholds": {
+  "ground_tol_m": -0.002,
+  "plant_z_m": 0.02,
+  "slide_tol_m": 0.02,
+  "contact_ratio": 0.85
+ }
+}

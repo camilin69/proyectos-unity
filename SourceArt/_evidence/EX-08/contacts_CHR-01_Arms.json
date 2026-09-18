@@ -1,0 +1,62 @@
+{
+ "asset": "CHR-01_Arms",
+ "fps": 30,
+ "clips": [
+  {
+   "clip": "Arms_Idle",
+   "frames": 90,
+   "seconds": 3.0,
+   "min_z_m": -0.056,
+   "feet": {}
+  },
+  {
+   "clip": "Arms_Grip",
+   "frames": 10,
+   "seconds": 0.333,
+   "min_z_m": -0.09945,
+   "feet": {}
+  },
+  {
+   "clip": "Arms_CrowbarSwing",
+   "frames": 26,
+   "seconds": 0.867,
+   "min_z_m": -0.27474,
+   "feet": {}
+  },
+  {
+   "clip": "Arms_PistolReload",
+   "frames": 57,
+   "seconds": 1.9,
+   "min_z_m": -0.36607,
+   "feet": {}
+  },
+  {
+   "clip": "Arms_Syringe",
+   "frames": 48,
+   "seconds": 1.6,
+   "min_z_m": -0.31094,
+   "feet": {}
+  }
+ ],
+ "gates": [
+  {
+   "id": "G-01",
+   "estado": "FALLA",
+   "detalle": "penetración máxima -366.1 mm en Arms_PistolReload f21 (finger_L1); tolerancia -2 mm"
+  },
+  {
+   "id": "G-02",
+   "estado": "N/A",
+   "detalle": "el asset no tiene piezas de pie identificables"
+  }
+ ],
+ "thresholds": {
+  "ground_tol_m": -0.002,
+  "plant_z_m": 0.02,
+  "slide_tol_m": 0.02,
+  "contact_ratio": 0.85
+ },
+ "foot_objects": [],
+ "moving_objects": [],
+ "rest_min_z_m": -0.056
+}

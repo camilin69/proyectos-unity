@@ -1,13 +1,15 @@
 {
   "asset": "WPN-04_Flashlight",
-  "tris": 2124,
-  "parts": 7,
+  "tris": 4108,
+  "parts": 23,
   "dims_m": [
-    0.053,
-    0.21,
-    0.053
+    0.054,
+    0.239,
+    0.054
   ],
   "materials": [
+    "M_Band",
+    "M_Emitter",
     "M_Glass",
     "M_Rubber",
     "M_SteelBare",
@@ -16,7 +18,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/WPN-04_Flashlight.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/WPN-04_Flashlight.fbx",
-  "fbx_bytes": 85788,
+  "fbx_bytes": 178348,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-04_Flashlight_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/WPN-04_Flashlight_Roughness.png",
@@ -37,7 +39,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 85788",
+    "fbx ok 178348",
     "sheet ok"
   ]
 }

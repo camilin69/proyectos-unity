@@ -1,11 +1,11 @@
 {
   "asset": "PRP-Ration",
-  "tris": 116,
-  "parts": 3,
+  "tris": 1040,
+  "parts": 9,
   "dims_m": [
     0.12,
-    0.215,
-    0.041
+    0.213,
+    0.043
   ],
   "materials": [
     "M_Band",
@@ -13,7 +13,7 @@
   ],
   "blend": "C:/Users/HP/Documents/GitHub/proyectos-unity/SourceArt/Blender/PRP-Ration.blend",
   "fbx": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Models/PRP-Ration.fbx",
-  "fbx_bytes": 24172,
+  "fbx_bytes": 63708,
   "textures": {
     "BaseColor": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/PRP-Ration_BaseColor.png",
     "Roughness": "C:/Users/HP/Documents/GitHub/proyectos-unity/EsneiderProtocoloLazaro/Assets/_Game/Art/Textures/PRP-Ration_Roughness.png",
@@ -34,7 +34,7 @@
     "bake Metallic ok",
     "bake Normal ok",
     "blend ok",
-    "fbx ok 24172",
+    "fbx ok 63708",
     "sheet ok"
   ]
 }
