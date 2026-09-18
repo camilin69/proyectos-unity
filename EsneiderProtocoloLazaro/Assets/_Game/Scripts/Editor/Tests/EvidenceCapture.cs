@@ -39,7 +39,8 @@ namespace Esneider.EditorTools
             if (!string.IsNullOrEmpty(tp) && tp.Contains("|") && t >= 2.0 && !_loading)
             {
                 _loading = true; var region = tp.Split('|')[0]; var pc = Object.FindFirstObjectByType<Player.PlayerController>();
-                if (pc != null && World.RegionStreamer.Instance != null) { Object.FindFirstObjectByType<World.OpeningSequence>()?.RequestSkip(); pc.StartCoroutine(World.RegionStreamer.Instance.LoadForCheckpoint(region)); }
+                var q = tp.Split('|')[1].Split(',');
+                if (pc != null && World.RegionStreamer.Instance != null) { Object.FindFirstObjectByType<World.OpeningSequence>()?.RequestSkip(); pc.StartCoroutine(World.RegionStreamer.Instance.LoadForCheckpoint(region, new Vector3(float.Parse(q[0]), float.Parse(q[1]), float.Parse(q[2])), float.Parse(q[3]))); }
             }
             if (!_captured && t >= 2.0 && !string.IsNullOrEmpty(tp)) // en cuanto la región esté lista (S1 se descarga al cambiar de contexto)
             {

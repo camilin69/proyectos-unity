@@ -40,8 +40,13 @@ namespace Esneider.AI
         public static event System.Action<EnemyBrain, EnemyState, EnemyState> AnyStateChanged;
         public float StateTime => Time.time - _stateSince;
 
-        void Awake()
+        bool _awoken;
+        void Awake() => EnsureRefs();
+
+        // La hidratación (PersistentEntity.OnEnable) puede llegar antes que este Awake al cargar una región: inicializar bajo demanda.
+        void EnsureRefs()
         {
+            if (_awoken) return; _awoken = true;
             _agent = GetComponent<NavMeshAgent>(); _health = GetComponent<Health>(); _perception = GetComponent<EnemyPerception>();
             if (definition != null)
             {
@@ -158,7 +163,7 @@ namespace Esneider.AI
                     FaceTowards(_player.position);
                     EncounterDirector.Instance?.Heartbeat(this);
                     if (!sees) { Transition(EnemyState.Chase); break; } // perder visión cancela red/rayo (78.2)
-                    float telegraph = tutorialTelegraph ? definition.telegraphTutorial : definition.telegraph;
+                    float telegraph = (tutorialTelegraph ? definition.telegraphTutorial : definition.telegraph) * AccessibilitySettings.TelegraphScale; // 80.3 asistencia explícita
                     if (StateTime >= telegraph && EncounterDirector.Instance.CanEmitNow()) Transition(EnemyState.Attack);
                     break;
                 case EnemyState.Attack:
@@ -201,7 +206,7 @@ namespace Esneider.AI
             var origin = muzzle != null ? muzzle.position : transform.position + Vector3.up * 1.0f + transform.forward * 0.5f;
             var aim = (_player.position + Vector3.up * 1.0f) - origin; // apuntar al punto del jugador al liberar, sin perseguirlo (12.1)
             var kind = definition.kind == EnemyKind.Vigia ? ProjectileKind.Net : ProjectileKind.Bolt;
-            Projectile.Spawn(kind, origin, aim, gameObject, _currentAttackId, definition.attackDamage);
+            Projectile.Spawn(kind, origin, aim, gameObject, _currentAttackId, definition.attackDamage * (kind == ProjectileKind.Bolt ? AccessibilitySettings.RayDamageScale : 1f));
             EncounterDirector.Instance?.RegisterEmission();
             _cooldownUntil = Time.time + definition.cooldown;
             NoiseSystem.Emit(origin, 6f, gameObject, "attack");
@@ -271,6 +276,7 @@ namespace Esneider.AI
 
         public void RestoreStable(string mode, int waypoint)
         {
+            EnsureRefs();
             _wp = waypoints.Count > 0 ? Mathf.Clamp(waypoint, 0, waypoints.Count - 1) : 0;
             _perception.suspicion = 0f; _perception.heardRecently = false; _cooldownUntil = 0f;
             if (State == EnemyState.Dead) return;
@@ -282,6 +288,7 @@ namespace Esneider.AI
 
         public void MarkDeadFromSnapshot()
         {
+            EnsureRefs();
             if (State == EnemyState.Dead) return;
             State = EnemyState.Dead; LastTransition = "restore->Dead";
             EncounterDirector.Instance?.Release(this);
@@ -294,6 +301,7 @@ namespace Esneider.AI
 
         public void WarpTo(Vector3 position, Vector3 euler)
         {
+            EnsureRefs();
             if (_agent.enabled && _agent.isOnNavMesh) _agent.Warp(position); else transform.position = position;
             transform.eulerAngles = new Vector3(0f, euler.y, 0f);
         }
@@ -301,6 +309,7 @@ namespace Esneider.AI
         // Revivir tras cargar un snapshot anterior a la muerte (retry): el registro manda.
         public void ReviveForRestore()
         {
+            EnsureRefs();
             if (State != EnemyState.Dead) return;
             gameObject.layer = GameLayers.Enemy;
             foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Enemy;

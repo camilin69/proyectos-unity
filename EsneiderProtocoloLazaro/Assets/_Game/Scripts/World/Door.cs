@@ -37,6 +37,7 @@ namespace Esneider.World
             if (open == isOpen || _moving) return;
             isOpen = open; _moving = true; _t = 0f;
             NoiseSystem.Emit(transform.position, 10f, gameObject, "door");
+            Core.Persistence.WorldStateRegistry.Session.DiscoverDoor(doorId); // 87.3: puerta vista/usada en el mapa
             _persistent?.NotifyDoor(isOpen, !locked);
         }
 

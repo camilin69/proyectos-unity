@@ -20,6 +20,7 @@ namespace Esneider.Core
         public int shotsFired;
         public int physicsImpacts;
         public int attempts;
+        public int deaths;
         bool _attemptOpen;
         public bool AttemptOpen => _attemptOpen;
         public string LastResult { get; private set; } = "";
@@ -61,7 +62,7 @@ namespace Esneider.Core
         public void EndAttempt(string result, float playerHp)
         {
             if (!_attemptOpen) return;
-            _attemptOpen = false; LastResult = result;
+            _attemptOpen = false; LastResult = result; if (result != "ESCAPE") deaths++;
             SetState(result == "ESCAPE" ? GameState.Won : result == "DERROTA_RED" ? GameState.Captured : GameState.Dead);
             Debug.Log($"Resultado: {result} | Sector: {currentSector} | Vida: {Mathf.RoundToInt(playerHp)} | Enemigos: {enemiesKilled} | Disparos: {shotsFired} | Impactos físicos: {physicsImpacts} | Tiempo: {Mathf.RoundToInt(attemptTime)} s");
         }

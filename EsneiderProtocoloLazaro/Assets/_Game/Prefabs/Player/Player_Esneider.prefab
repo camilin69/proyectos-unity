@@ -237,6 +237,7 @@ MonoBehaviour:
   pitchMax: 85
   fovVertical: 75
   lookEnabled: 1
+  invertY: 0
 --- !u!114 &5451143822141442218
 MonoBehaviour:
   m_ObjectHideFlags: 0

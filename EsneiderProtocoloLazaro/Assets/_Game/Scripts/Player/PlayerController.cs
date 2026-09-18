@@ -39,8 +39,10 @@ namespace Esneider.Player
         void Update()
         {
             var flow = GameFlowController.Instance;
-            if (input.PausePressed && flow != null && (flow.State == GameState.Playing || flow.State == GameState.Paused)) flow.TogglePause();
-            if (input.RestartPressed && flow != null && (flow.State == GameState.Dead || flow.State == GameState.Captured || flow.State == GameState.Won)) { Restart(); input.ConsumeFrame(); return; }
+            var menu = UI.MenuController.Instance;
+            if (input.PausePressed && flow != null && (flow.State == GameState.Playing || flow.State == GameState.Paused) && (menu == null || !menu.Modal)) { if (menu != null && menu.IsOpen && flow.State == GameState.Paused) menu.Resume(); else flow.TogglePause(); }
+            if (input.RestartPressed && flow != null && flow.State == GameState.Won) { if (menu != null) menu.ShowVictory(); input.ConsumeFrame(); return; }
+            if (input.RestartPressed && flow != null && (flow.State == GameState.Dead || flow.State == GameState.Captured) && (menu == null || !menu.IsOpen)) { Restart(); input.ConsumeFrame(); return; }
 
             bool active = flow == null || flow.State == GameState.Playing;
             if (IsCaptured)

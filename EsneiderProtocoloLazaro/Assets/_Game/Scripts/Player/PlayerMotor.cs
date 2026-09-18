@@ -113,7 +113,9 @@ namespace Esneider.Player
 
         public void Teleport(Vector3 position, float yaw)
         {
-            _cc.enabled = false; transform.position = position; transform.rotation = Quaternion.Euler(0, yaw, 0); _cc.enabled = true;
+            // sincronizar antes de reactivar: si no, el collider renace en la posición vieja y dispara triggers de la región anterior
+            _cc.enabled = false; transform.position = position; transform.rotation = Quaternion.Euler(0, yaw, 0); Physics.SyncTransforms(); _cc.enabled = true;
+            World.RegionStreamer.Instance?.NotifyPlayerAt(position);
             _planar = Vector3.zero; _verticalVel = 0f;
         }
     }

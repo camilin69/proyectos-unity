@@ -45,19 +45,34 @@ namespace Esneider.World
         // ---- solicitudes ----
         public void NotifyPlayerEntered(string region)
         {
-            if (region == CurrentRegion) return;
+            if (region == CurrentRegion || Time.time < _ignoreVolumesUntil) return;
             _insideSince[region] = Time.time;
             StartCoroutine(EnterRegion(region, false));
         }
 
-        public void NotifyPlayerInside(string region) { if (!_insideSince.ContainsKey(region)) _insideSince[region] = Time.time; }
+        // Teletransporte/carga: resolver la región por posición real, sin depender de OnTriggerEnter del CharacterController.
+        public void NotifyPlayerAt(Vector3 position)
+        {
+            foreach (var v in FindObjectsByType<RegionVolume>(FindObjectsSortMode.None))
+                if (v.Contains(position)) { NotifyPlayerEntered(v.regionId); NotifyPlayerInside(v.regionId); return; }
+        }
+
+        public void NotifyPlayerInside(string region)
+        {
+            if (!_insideSince.ContainsKey(region)) _insideSince[region] = Time.time;
+            // recuperación: si una entrada se ignoró (ventana de carga) y el jugador sigue dentro de otra región, cambiar de contexto
+            if (region != CurrentRegion && Time.time >= _ignoreVolumesUntil && !_pending.Contains(region)) NotifyPlayerEntered(region);
+        }
 
         // 88.2: preparar una región vecina antes de cruzar (palanca/permisos).
         public Coroutine Preload(string region) => StartCoroutine(EnsureLoaded(region));
 
-        IEnumerator EnterRegion(string region, bool initial)
+        public bool debugLog;
+        float _ignoreVolumesUntil;
+        IEnumerator EnterRegion(string region, bool initial, Vector3? placeAt = null, float yaw = 0f)
         {
             int gen = ++_generation;
+            if (debugLog) Debug.Log($"STREAMER EnterRegion({region}, initial={initial}) current={CurrentRegion}\n{Environment.StackTrace}");
             Player.PlayerController held = null;
             if (initial)
             {
@@ -66,7 +81,12 @@ namespace Esneider.World
                 if (held != null) { held.motor.movementEnabled = false; held.GetComponent<CharacterController>().enabled = false; }
             }
             yield return EnsureLoaded(region);
-            if (held != null) { held.GetComponent<CharacterController>().enabled = true; held.motor.movementEnabled = true; held.motor.Teleport(held.transform.position, held.transform.eulerAngles.y); }
+            if (held != null)
+            {
+                _ignoreVolumesUntil = Time.time + 0.5f; CurrentRegion = region;
+                held.GetComponent<CharacterController>().enabled = true; held.motor.movementEnabled = true;
+                if (placeAt.HasValue) held.motor.Teleport(placeAt.Value, yaw); else held.motor.Teleport(held.transform.position, held.transform.eulerAngles.y);
+            }
             if (gen != _generation && !initial) yield break;
             var prev = CurrentRegion; CurrentRegion = region;
             if (!string.IsNullOrEmpty(prev) && prev != region && State(prev) == RegionState.Active) Set(prev, RegionState.Ready);
@@ -145,10 +165,12 @@ namespace Esneider.World
         }
 
         // Carga de checkpoint (88.5/89.4): cancelar intención anterior con token de generación y restaurar solo el contexto del checkpoint.
-        public IEnumerator LoadForCheckpoint(string region)
+        // placeAt: posición del checkpoint; el jugador se coloca allí antes de reactivar su collider para que ningún volumen de la región
+        // anterior dispare una entrada espuria (el collider renacía en la posición vieja y devolvía el contexto a S1).
+        public IEnumerator LoadForCheckpoint(string region, Vector3? placeAt = null, float yaw = 0f)
         {
             _generation++;
-            yield return EnterRegion(region, true);
+            yield return EnterRegion(region, true, placeAt, yaw);
         }
     }
 }

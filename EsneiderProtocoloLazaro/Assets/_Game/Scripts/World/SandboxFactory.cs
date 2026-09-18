@@ -165,6 +165,9 @@ namespace Esneider.World
             hud.messageText = T("Message", new Vector2(0.5f, 1), new Vector2(0, -40), 18, TextAnchor.UpperCenter);
             hud.stateText = T("State", new Vector2(0.5f, 0.5f), new Vector2(0, 60), 30, TextAnchor.MiddleCenter);
             hud.crosshair = T("Crosshair", new Vector2(0.5f, 0.5f), Vector2.zero, 18, TextAnchor.MiddleCenter); hud.crosshair.text = "·";
+            hud.bossText = T("Boss", new Vector2(0.5f, 1), new Vector2(0, -8), 16, TextAnchor.UpperCenter);
+            hud.objectiveText = T("Objective", new Vector2(0, 1), new Vector2(20, -20), 18, TextAnchor.UpperLeft);      // 81.1: arriba izquierda solo al actualizar
+            hud.checkpointText = T("Checkpoint", new Vector2(1, 1), new Vector2(-20, -20), 16, TextAnchor.UpperRight); // 81.1: arriba derecha 2 s
         }
 
         static GameObject Pick(GameObject parent, string id, PickupKind kind, Vector3 pos, int amount)
@@ -174,6 +177,33 @@ namespace Esneider.World
             go.GetComponent<MeshRenderer>().sharedMaterial = Mat(kind == PickupKind.Syringe || kind == PickupKind.Ration ? Color.green : kind == PickupKind.Flashlight ? Color.yellow : new Color(0.8f, 0.8f, 0.2f));
             var p = go.AddComponent<Pickup>(); p.kind = kind; p.amount = amount; p.stableId = id; p.guid = LevelPlan.StableGuid(id).ToString();
             Persist(go, id, "REG-SANDBOX", Core.Persistence.EntityKind.Pickup);
+            return go;
+        }
+
+        // 15/61: el jefe usa su propia FSM (BossBrain); mismo visual hero/Playables que los bots, cápsula 3.1 m.
+        public static GameObject BuildBoss(BossDefinition def, string id, Vector3 position, GameObject visualPrefab = null, AnimationClip[] clips = null)
+        {
+            const float height = 3.1f;
+            var go = new GameObject(id); go.layer = GameLayers.Enemy; go.transform.position = position;
+            if (visualPrefab != null)
+            {
+                var vis = Object.Instantiate(visualPrefab, go.transform); vis.name = "Visual"; vis.transform.localPosition = Vector3.zero; vis.transform.localRotation = Quaternion.identity;
+                foreach (var c in vis.GetComponentsInChildren<Collider>()) Kill(c);
+                foreach (var t in vis.GetComponentsInChildren<Transform>()) t.gameObject.layer = GameLayers.Enemy;
+                var animator = vis.GetOrAdd<Animator>();
+                var ea = go.AddComponent<AI.EnemyAnimator>(); ea.animator = animator; ea.clipsFromFbx = clips; ea.prefix = "Archivista";
+            }
+            else
+            {
+                var vis = GameObject.CreatePrimitive(PrimitiveType.Capsule); vis.name = "Body"; vis.layer = GameLayers.Enemy;
+                vis.transform.SetParent(go.transform, false); vis.transform.localPosition = new Vector3(0, height / 2f, 0); vis.transform.localScale = new Vector3(0.9f, height / 2f, 0.9f);
+                vis.GetComponent<MeshRenderer>().sharedMaterial = Mat(new Color(0.9f, 0.85f, 0.9f));
+            }
+            var cap = go.AddComponent<CapsuleCollider>(); cap.center = new Vector3(0, height / 2f, 0); cap.height = height; cap.radius = 0.45f;
+            var muzzle = new GameObject("Muzzle"); muzzle.transform.SetParent(go.transform, false); muzzle.transform.localPosition = new Vector3(0.4f, 2.2f, 0.6f);
+            var agent = go.AddComponent<NavMeshAgent>(); agent.height = height; agent.radius = 0.45f; agent.baseOffset = 0f; agent.enabled = false;
+            var hp = go.AddComponent<Health>(); hp.maxHp = def.maxHp; hp.ResetTo(def.maxHp);
+            var brain = go.AddComponent<AI.BossBrain>(); brain.definition = def; brain.stableId = id; brain.muzzle = muzzle.transform;
             return go;
         }
 

@@ -25,7 +25,7 @@ namespace Esneider.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            Health.Clock = () => Time.time; WorldStateRegistry.ResetSession();
+            Health.Clock = () => Time.time; WorldStateRegistry.ResetSession(); Esneider.UI.MenuController.SkipTitle = true;
             _dir = Path.Combine(Path.GetTempPath(), "esneider-tests", System.Guid.NewGuid().ToString("N"));
             _plan = LevelPlan.FromJson(File.ReadAllText(LevelPlan.DefaultAssetPath));
 #if UNITY_EDITOR
@@ -54,8 +54,7 @@ namespace Esneider.Tests
 
         IEnumerator Go(string region, string space, float x, float z, float yaw)
         {
-            yield return _st.LoadForCheckpoint(region);
-            _pc.motor.Teleport(W(space, x, z), yaw); yield return null; yield return null;
+            yield return _st.LoadForCheckpoint(region, W(space, x, z), yaw); yield return null; yield return null;
         }
 
         [UnityTest]

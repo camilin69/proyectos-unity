@@ -125,6 +125,13 @@ namespace Esneider.Core.Persistence
             return true;
         }
 
+        // 81.2: Nueva partida tras confirmación concreta de reemplazo; nunca al abrir el menú.
+        public void DeleteSaves()
+        {
+            foreach (var p in new[] { Store.ActivePath, Store.Backup1Path, Store.Backup2Path, Store.TempPath }) { try { if (System.IO.File.Exists(p)) System.IO.File.Delete(p); } catch (System.Exception e) { Debug.LogWarning("DeleteSaves: " + e.Message); } }
+            LastConfirmed = null; LastNotice = "Guardado reemplazado";
+        }
+
         public SaveData LoadFromDisk(out string source) { var d = Store.LoadBest(out source); if (!string.IsNullOrEmpty(Store.LastRecoveryNotice)) LastNotice = Store.LastRecoveryNotice; return d; }
     }
 }

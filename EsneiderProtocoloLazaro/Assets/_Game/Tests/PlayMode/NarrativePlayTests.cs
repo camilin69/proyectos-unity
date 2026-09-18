@@ -20,7 +20,7 @@ namespace Esneider.Tests
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            Health.Clock = () => Time.time; WorldStateRegistry.ResetSession();
+            Health.Clock = () => Time.time; WorldStateRegistry.ResetSession(); Esneider.UI.MenuController.SkipTitle = true;
             _dir = Path.Combine(Path.GetTempPath(), "esneider-tests", System.Guid.NewGuid().ToString("N"));
 #if UNITY_EDITOR
             yield return UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode("Assets/_Game/Scenes/BOOT.unity", new LoadSceneParameters(LoadSceneMode.Single));

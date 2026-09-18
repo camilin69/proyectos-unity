@@ -15,13 +15,13 @@ namespace Esneider.World
         public EntityKind kind;
         public bool hydrated;
 
-        Pickup _pickup; Door _door; EnemyBrain _brain; Health _health; Rigidbody _rb;
+        Pickup _pickup; Door _door; EnemyBrain _brain; BossBrain _boss; Health _health; Rigidbody _rb;
         Vector3 _lastPos; float _nextMoveCheck;
 
         void Awake()
         {
             if (string.IsNullOrEmpty(guid) && !string.IsNullOrEmpty(stableId)) guid = Core.Data.LevelPlan.StableGuid(stableId).ToString();
-            _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _brain = GetComponent<EnemyBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>();
+            _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _brain = GetComponent<EnemyBrain>(); _boss = GetComponent<BossBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>();
         }
 
         bool _subscribed;
@@ -34,7 +34,7 @@ namespace Esneider.World
         {
             if (string.IsNullOrEmpty(guid) && !string.IsNullOrEmpty(stableId)) guid = Core.Data.LevelPlan.StableGuid(stableId).ToString();
             if (string.IsNullOrEmpty(guid)) return;
-            if (_pickup == null) { _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _brain = GetComponent<EnemyBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>(); }
+            if (_pickup == null) { _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _brain = GetComponent<EnemyBrain>(); _boss = GetComponent<BossBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>(); }
             if (!_subscribed && _health != null) { _health.Damaged += OnDamaged; _health.Died += OnDied; _subscribed = true; }
             if (hydrated) return;
             var s = WorldStateRegistry.Session.GetOrCreate(guid, prefabId, regionId, kind);
@@ -66,12 +66,13 @@ namespace Esneider.World
                     if (_health == null) break;
                     if (s.hp >= 0f)
                     {
-                        if (s.dead || s.hp <= 0f) { _health.ResetTo(0f); _brain?.MarkDeadFromSnapshot(); }
-                        else { _brain?.ReviveForRestore(); _health.ResetTo(s.hp); _brain?.RestoreStable(s.mode, s.waypoint); }
+                        if (s.dead || s.hp <= 0f) { _health.ResetTo(0f); _brain?.MarkDeadFromSnapshot(); _boss?.MarkDeadFromSnapshot(); }
+                        else { _brain?.ReviveForRestore(); _boss?.ReviveForRestore(); _health.ResetTo(s.hp); _brain?.RestoreStable(s.mode, s.waypoint); _boss?.RestoreStable(); }
                     }
                     if (s.hasTransform)
                     {
                         if (_brain != null && !s.dead) _brain.WarpTo(s.position, s.eulerAngles);
+                        else if (_boss != null && !s.dead) _boss.WarpTo(s.position, s.eulerAngles);
                         else { transform.position = s.position; transform.eulerAngles = s.eulerAngles; }
                     }
                     break;
@@ -128,7 +129,7 @@ namespace Esneider.World
             if (!reg.TryGet(guid, out var s)) return;
             if ((kind == EntityKind.Enemy || kind == EntityKind.Boss) && _health != null && !_health.IsDead)
             {
-                s.hp = _health.Current; s.dead = false; s.mode = _brain != null ? _brain.StableMode : "Patrol"; s.waypoint = _brain != null ? _brain.CurrentWaypoint : 0;
+                s.hp = _health.Current; s.dead = false; s.mode = _brain != null ? _brain.StableMode : _boss != null ? _boss.StableMode : "Patrol"; s.waypoint = _brain != null ? _brain.CurrentWaypoint : 0;
                 s.hasTransform = true; s.position = transform.position; s.eulerAngles = transform.eulerAngles;
             }
             if (kind == EntityKind.Movable) { s.hasTransform = true; s.position = transform.position; s.eulerAngles = transform.eulerAngles; }

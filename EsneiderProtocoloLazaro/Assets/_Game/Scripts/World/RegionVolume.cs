@@ -11,10 +11,14 @@ namespace Esneider.World
 
         void Awake() { var c = GetComponent<BoxCollider>(); c.isTrigger = true; gameObject.layer = GameLayers.Trigger; }
 
+        BoxCollider _box;
+        public bool Contains(Vector3 p) { if (_box == null) _box = GetComponent<BoxCollider>(); return _box.bounds.Contains(p + Vector3.up * 0.5f); }
         void OnTriggerEnter(Collider other)
         {
             var pc = other.GetComponent<Player.PlayerController>();
             if (pc == null) return;
+            // 88.3: solo cuenta la entidad principal realmente dentro del volumen (un teletransporte puede disparar el trigger viejo)
+            if (!Contains(pc.transform.position)) return;
             RegionStreamer.Instance?.NotifyPlayerEntered(regionId);
         }
 

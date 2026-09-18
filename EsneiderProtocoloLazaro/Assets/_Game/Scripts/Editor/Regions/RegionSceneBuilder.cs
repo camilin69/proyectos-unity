@@ -108,11 +108,20 @@ namespace Esneider.EditorTools
                 string heroId = boss ? "BOT-03_Archivista" : s.kind == "Vigia" ? "BOT-01_Vigia" : "BOT-02_Custodio";
                 var heroPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"Assets/_Game/Prefabs/Enemies/{heroId}.prefab");
                 var heroClips = heroPrefab != null ? AssetDatabase.LoadAllAssetsAtPath($"Assets/_Game/Art/Models/{heroId}.fbx").OfType<AnimationClip>().Where(c => !c.name.StartsWith("__")).ToArray() : null;
-                var go = SandboxFactory.BuildEnemy(def, s.id, w, boss ? new Color(0.9f, 0.85f, 0.9f) : s.kind == "Vigia" ? new Color(0.85f, 0.85f, 0.8f) : new Color(0.6f, 0.4f, 0.35f), boss ? 3.1f : s.kind == "Vigia" ? 1.25f : 2.15f, heroPrefab, heroClips);
+                if (boss)
+                {
+                    // 15/61/79: EL ARCHIVISTA con BossBrain; arena = S4-R03 (24×28, cuatro pilares); D27 se cierra al despertar
+                    var bgo = SandboxFactory.BuildBoss(catalog.boss, s.id, w, heroPrefab, heroClips);
+                    bgo.transform.SetParent(ents); bgo.transform.rotation = Quaternion.Euler(0, s.yaw, 0);
+                    var arena = plan.Room("S4-R03"); var af = plan.Floor(arena.floor);
+                    var bb = bgo.GetComponent<BossBrain>(); bb.arenaCenter = af.origin.ToVector3() + new Vector3(arena.x + arena.w / 2f, af.height / 2f, arena.z + arena.d / 2f); bb.arenaSize = new Vector3(arena.w, af.height, arena.d);
+                    SandboxFactory.Persist(bgo, s.id, region, EntityKind.Boss); n++;
+                    continue;
+                }
+                var go = SandboxFactory.BuildEnemy(def, s.id, w, s.kind == "Vigia" ? new Color(0.85f, 0.85f, 0.8f) : new Color(0.6f, 0.4f, 0.35f), s.kind == "Vigia" ? 1.25f : 2.15f, heroPrefab, heroClips);
                 go.transform.SetParent(ents); go.transform.rotation = Quaternion.Euler(0, s.yaw, 0);
                 var brain = go.GetComponent<EnemyBrain>(); brain.tutorialTelegraph = s.id == "V01";
                 brain.startActive = region != "REG-S1" && region != "REG-C1"; // 104.3: sin ataques antes de D06; EVT-C1 activa S1/C1
-                if (boss) { go.name = "B01_Archivista_Placeholder"; brain.enabled = false; } // el jefe real llega en EX-07; placeholder inerte
                 // 77.1: ruta del plano (ida/vuelta o cerrada, espera inicial); sin ruta → spawn + punto a 4 m
                 var wps = new GameObject(s.id + "_Waypoints"); wps.transform.SetParent(ents);
                 var pat = plan.PatrolOf(s.id);
@@ -326,6 +335,10 @@ namespace Esneider.EditorTools
             PrefabUtility.SaveAsPrefabAssetAndConnect(player, "Assets/_Game/Prefabs/Player/Player_Esneider.prefab", InteractionMode.AutomatedAction);
             var hudRoot = new GameObject("HUD_Root");
             typeof(SandboxFactory).GetMethod("BuildHud", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).Invoke(null, new object[] { hudRoot.transform, player.GetComponent<PlayerController>() });
+            // 81/87: menús (inicio/pausa/derrota/victoria/ajustes/documentos/mapa) y descubrimiento de salas desde el mismo plano
+            var planText = AssetDatabase.LoadAssetAtPath<TextAsset>(LevelPlan.DefaultAssetPath);
+            var menu = new GameObject("Menus").AddComponent<UI.MenuController>(); menu.planJson = planText;
+            systems.AddComponent<RoomDiscovery>().planJson = planText;
             var light = new GameObject("Light").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(50, 30, 0); light.intensity = 0.7f;
             EditorSceneManager.SaveScene(scene, BootPath);
         }

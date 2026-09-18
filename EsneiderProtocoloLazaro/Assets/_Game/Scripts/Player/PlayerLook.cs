@@ -11,6 +11,7 @@ namespace Esneider.Player
         public float pitchMin = -85f, pitchMax = 85f;
         public float fovVertical = 75f;
         public bool lookEnabled = true;
+        public bool invertY;
         float _pitch, _recoil;
 
         void Start() { if (playerCamera != null) playerCamera.fieldOfView = fovVertical; }
@@ -20,7 +21,7 @@ namespace Esneider.Player
             if (lookEnabled)
             {
                 transform.Rotate(0f, look.x * sensitivity, 0f, Space.Self);
-                _pitch = Mathf.Clamp(_pitch - look.y * sensitivity, pitchMin, pitchMax);
+                _pitch = Mathf.Clamp(_pitch - look.y * sensitivity * (invertY ? -1f : 1f), pitchMin, pitchMax);
             }
             _recoil = Mathf.MoveTowards(_recoil, 0f, 12f * Time.deltaTime);
             // con la mirada bloqueada (apertura, captura) el pivote lo gobierna la secuencia; no sobreescribir
