@@ -1,6 +1,6 @@
 # ESNEIDER: Protocolo Lázaro
 
-Proyecto realizado por **Camilo Antonio Merchán Santos — 202220095** para el Taller 1 de Unity 2026.
+Proyecto realizado por **Camilo Antonio Merchan Santos — 202220095** para el Taller 1 de Unity 2026.
 
 Es un juego de terror y acción en primera persona. Esneider despierta después de 2000 años de criopreservación dentro del búnker NEMESIS. El jugador debe explorar sus sectores, reunir equipo, enfrentarse a los robots, derrotar al Archivista y encontrar la salida.
 
