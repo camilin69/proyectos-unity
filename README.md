@@ -19,7 +19,7 @@ No es necesario descargar `Library`, `Temp`, `Logs`, `obj`, builds ni otros arch
 1. Clonar el repositorio:
 
    ```powershell
-   git clone https://github.com/camilin69/proyectos-unity.git
+   git clone --branch taller-1 --single-branch https://github.com/camilin69/proyectos-unity.git
    ```
 
 2. Abrir **Unity Hub** y elegir **Add > Add project from disk**.
