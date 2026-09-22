@@ -3,6 +3,8 @@
     "rootNamespace": "Esneider.Tests",
     "references": [
         "Esneider.Runtime",
+        "Unity.InputSystem",
+        "Unity.ugui",
         "Unity.AI.Navigation",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"

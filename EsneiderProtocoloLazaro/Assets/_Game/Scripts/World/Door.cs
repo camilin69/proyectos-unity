@@ -18,7 +18,16 @@ namespace Esneider.World
 
         public bool IsMoving => _moving;
         public bool Allowed => !locked && (!requiresPermission || ObjectiveService.DoorAllowed(doorId));
-        public string Prompt => !Allowed ? "Bloqueada" : isOpen ? "Cerrar" : "Abrir";
+        public string Prompt => !Allowed ? LockedReason : _moving ? "Puerta en movimiento" : isOpen ? "Cerrar" : "Abrir";
+        public string LockedReason => locked ? "Bloqueada: requiere desbloqueo" : doorId switch
+        {
+            "D06" => "Activa la palanca de servicio para abrir",
+            "D14" => "Activa el panel de autorización A",
+            "D22" => "Activa el panel de autorización B",
+            "D28" => "Derrota al Archivista para abrir",
+            "D29" => "Activa el panel de salida",
+            _ => "Puerta bloqueada"
+        };
         public bool CanInteract(GameObject who) => Allowed && !_moving;
 
         void Awake() { Init(); _persistent = GetComponent<PersistentEntity>(); }
@@ -39,6 +48,7 @@ namespace Esneider.World
             NoiseSystem.Emit(transform.position, 10f, gameObject, "door");
             Core.Persistence.WorldStateRegistry.Session.DiscoverDoor(doorId); // 87.3: puerta vista/usada en el mapa
             _persistent?.NotifyDoor(isOpen, !locked);
+            if (open) Audio.ProgressionMusic.DoorOpened(doorId);
         }
 
         // Hidratación: estado inmediato sin animación ni ruido.

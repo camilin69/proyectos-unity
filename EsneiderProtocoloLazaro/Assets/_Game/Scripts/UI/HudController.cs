@@ -16,7 +16,19 @@ namespace Esneider.UI
 
         void Start()
         {
+            if (staminaText != null) staminaText.gameObject.SetActive(false);
             if (player == null) player = FindFirstObjectByType<PlayerController>();
+            var hotbar = GetComponent<InventoryHotbar>();
+            if (!hotbar) hotbar = gameObject.AddComponent<InventoryHotbar>();
+            hotbar.player = player;
+            if (ammoText != null)
+            {
+                // Ammunition sits just above stamina, clear of the nine hotbar slots.
+                var rect = ammoText.rectTransform;
+                rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.zero;
+                rect.anchoredPosition = new Vector2(20, 90); rect.sizeDelta = new Vector2(400, 35);
+                ammoText.alignment = TextAnchor.LowerLeft;
+            }
             if (player != null && player.inventory != null) player.inventory.Message += ShowMessage;
             var cps = Core.Persistence.CheckpointService.Instance;
             if (cps != null) cps.Committed += d => { if (checkpointText != null) checkpointText.text = "Checkpoint guardado · " + d.checkpointId; _checkpointUntil = Time.unscaledTime + 2f; }; // 81.1: 2 s tras snapshot exitoso, nunca antes
@@ -38,15 +50,15 @@ namespace Esneider.UI
         void Update()
         {
             if (player == null) return;
-            if (hpText != null && player.health != null) hpText.text = $"VIDA {Mathf.CeilToInt(player.health.Current)}";
+            if (crosshair != null) { bool hit = Time.time - player.actions.LastHitTime < .18f; crosshair.text = hit ? "×" : "·"; crosshair.color = hit ? new Color(1f,.7f,.3f) : Color.white; }
+            if (hpText != null && player.health != null) hpText.text = $"VIDA {Mathf.CeilToInt(Mathf.Clamp01(player.health.Current / Mathf.Max(1f, player.health.maxHp)) * 100f)}%";
             if (ammoText != null)
             {
                 var w = player.actions.ActiveWeapon;
                 var inv = player.inventory;
-                ammoText.text = !w.HasValue ? "" : w == Core.Data.WeaponKind.Melee ? "VARILLA" : w == Core.Data.WeaponKind.Pistol ? $"PISTOLA {inv.pistolMag}/{inv.pistolReserve}" : $"ESCOPETA {inv.shotgunMag}/{inv.shotgunReserve}";
-                if (player.actions.Busy) ammoText.text += $"  [{player.actions.CurrentKind} {player.actions.Current.Elapsed:F1}s]";
+                ammoText.text = w == Core.Data.WeaponKind.Pistol ? "PISTOLA · " + inv.AmmoLabel(AmmoType.Pistol) : w == Core.Data.WeaponKind.Shotgun ? "ESCOPETA · " + inv.AmmoLabel(AmmoType.Shotgun) : "";
             }
-            if (staminaText != null) staminaText.text = player.motor.IsRunning || player.motor.stamina < player.motor.staminaMax - 1f ? $"RESISTENCIA {Mathf.RoundToInt(player.motor.stamina)}" : "";
+            if (staminaText != null && staminaText.gameObject.activeSelf) staminaText.gameObject.SetActive(false);
             if (promptText != null) promptText.text = player.Prompt;
             if (messageText != null && Time.unscaledTime > _messageUntil) messageText.text = "";
             if (objectiveText != null && Time.unscaledTime > _objectiveUntil) objectiveText.text = "";
@@ -60,7 +72,7 @@ namespace Esneider.UI
             if (stateText != null)
             {
                 var s = GameFlowController.Instance != null ? GameFlowController.Instance.State : GameState.Playing;
-                stateText.text = s switch
+                stateText.text = player.IsCaptured && s==GameState.Playing ? "ATRAPADO EN LA RED" : s switch
                 {
                     GameState.Paused => "PAUSA (Esc)",
                     GameState.Captured => "CAPTURADO",

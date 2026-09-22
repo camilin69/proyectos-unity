@@ -31,11 +31,13 @@ namespace Esneider.World
         BoxCollider _box; Transform _player;
 
         void Awake() { _box = GetComponent<BoxCollider>(); _box.isTrigger = true; gameObject.layer = GameLayers.Trigger; }
+        public void ResetForCheckpoint() { StopAllCoroutines(); _inside=false; _pending=false; _init=false; fired=0; }
 
         // Presencia por volumen (entidad principal del jugador, 93.1), muestreada cada frame: robusta ante teletransportes y cargas,
         // donde OnTriggerEnter/Exit del CharacterController no son fiables.
         void Update()
         {
+            if(GameFlowController.Instance != null && !GameFlowController.Instance.GameplayActive) return;
             if (_player == null) { var pc = FindFirstObjectByType<Player.PlayerController>(); if (pc == null) return; _player = pc.transform; }
             bool inside = _box.bounds.Contains(_player.position + Vector3.up * 0.5f);
             if (!_init) { _init = true; _inside = inside; if (inside && !onExit && string.IsNullOrEmpty(watchDocument)) _pending = true; }

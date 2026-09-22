@@ -11,6 +11,10 @@ HEIGHT = globals().get("HEIGHT", 0)
 DO_BAKE = globals().get("DO_BAKE", True)
 MAPS = globals().get("MAPS", ["BaseColor", "Roughness", "Metallic", "Normal"])
 SIZE = globals().get("SIZE", 1024)
+EVIDENCE_DIR = globals().get("EVIDENCE_DIR", L.EVIDENCE)
+TEXTURE_DIR = globals().get("TEXTURE_DIR", L.TEX_DIR)
+L.EVIDENCE = EVIDENCE_DIR
+L.TEX_DIR = TEXTURE_DIR
 # Bevel/Pointiness/AO se resuelven por muestreo: con 6 muestras el AO sale granulado (41.1 exige mapas limpios).
 SAMPLES = globals().get("SAMPLES", 48)
 log = []

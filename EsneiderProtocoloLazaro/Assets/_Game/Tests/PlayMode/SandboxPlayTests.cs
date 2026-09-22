@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Esneider.AI;
 using Esneider.Combat;
 using Esneider.Core;
@@ -8,6 +9,8 @@ using Esneider.World;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Esneider.Tests
 {
@@ -103,34 +106,76 @@ namespace Esneider.Tests
         }
 
         [UnityTest]
-        public IEnumerator QA04_NetCaptureEndsWithin2_5Seconds()
+        public IEnumerator QA04_NetDealsGradualDamageAndRepeatedFEscapes()
         {
             _pc.motor.Teleport(new Vector3(3, 0, -3), 0f); yield return null;
             Projectile.Spawn(ProjectileKind.Net, new Vector3(3, 1.2f, 2f), Vector3.back, _r.vigia, AttackIds.Next(), 0f);
             float t0 = Time.time;
             while (!_pc.IsCaptured && Time.time - t0 < 2f) yield return null;
             Assert.IsTrue(_pc.IsCaptured, "red válida captura");
-            float captured = Time.time;
-            while (GameFlowController.Instance.AttemptOpen && Time.time - captured < 3f) yield return null;
-            Assert.IsFalse(GameFlowController.Instance.AttemptOpen, "derrota en tiempo acotado");
-            Assert.LessOrEqual(Time.time - captured, 2.6f);
-            Assert.AreEqual("DERROTA_RED", GameFlowController.Instance.LastResult);
+            Assert.AreEqual(90,_pc.health.Current,"capturar no hace daño instantáneo");
+            StringAssert.Contains("Presiona F varias veces para escapar",_pc.Prompt);
+            yield return new WaitForSeconds(3.2f);
+            Assert.IsTrue(GameFlowController.Instance.AttemptOpen,"no hay derrota automática a los 2.5 s");
+            Assert.That(_pc.health.Current,Is.InRange(74f,82f),"4 HP por segundo, menos que el rayo de 30");
+            for(int i=0;i<_pc.captureEscapePresses;i++) { _pc.input.FlashlightPressed=true; yield return null; }
+            Assert.IsFalse(_pc.IsCaptured); Assert.IsTrue(_pc.motor.movementEnabled); Assert.IsTrue(_pc.actions.actionsEnabled);
+            Assert.AreEqual(GameState.Playing,GameFlowController.Instance.State);
+            float escapedHp=_pc.health.Current;
+            _pc.Capture(_r.vigia); Assert.IsFalse(_pc.IsCaptured,"gracia contra recaptura inmediata");
+            yield return new WaitForSeconds(1.1f); Assert.AreEqual(escapedHp,_pc.health.Current,"el daño termina al escapar");
         }
 
         [UnityTest]
-        public IEnumerator QA06_ReloadCancelBeforeAndAfterCommit()
+        public IEnumerator CapturePausesAndCanKillOnlyThroughHealthLoss()
+        {
+            _pc.Capture(_r.vigia); _pc.health.ResetTo(6);
+            GameFlowController.Instance.TogglePause();
+            yield return new WaitForSecondsRealtime(1.2f);
+            Assert.AreEqual(6,_pc.health.Current); _pc.RegisterEscapePress(); Assert.AreEqual(0,_pc.CapturePresses);
+            GameFlowController.Instance.TogglePause();
+            yield return new WaitForSeconds(1.1f); Assert.AreEqual(2,_pc.health.Current); Assert.IsTrue(GameFlowController.Instance.AttemptOpen);
+            yield return new WaitForSeconds(1.1f); Assert.IsTrue(_pc.health.IsDead); Assert.IsFalse(_pc.IsCaptured);
+            Assert.AreEqual("DERROTA_DANO",GameFlowController.Instance.LastResult);
+        }
+
+        [UnityTest]
+        public IEnumerator QA06_LegacyReserveFiresWithoutReload()
         {
             yield return Give(WeaponKind.Pistol);
-            var inv = _pc.inventory; inv.pistolMag = 5; inv.pistolReserve = 20;
-            Assert.IsTrue(_pc.actions.RequestReload());
-            yield return new WaitForSeconds(0.6f);
-            _pc.actions.CancelCurrent("test"); yield return null;
-            Assert.AreEqual(5, inv.pistolMag); Assert.AreEqual(20, inv.pistolReserve);
-            Assert.IsTrue(_pc.actions.RequestReload());
-            yield return new WaitForSeconds(1.5f);
-            _pc.actions.CancelCurrent("test"); yield return null;
-            Assert.AreEqual(12, inv.pistolMag); Assert.AreEqual(13, inv.pistolReserve);
-            Assert.IsFalse(_pc.actions.Busy);
+            var inv = _pc.inventory; inv.pistolMag = 0; inv.pistolReserve = 20;
+            Assert.IsFalse(_pc.actions.RequestReload()); Assert.IsFalse(_pc.actions.Busy);
+            Assert.IsTrue(_pc.actions.RequestAttack()); Assert.AreEqual(19, inv.TotalAmmo(AmmoType.Pistol));
+            yield return new WaitForSeconds(.6f);
+            Assert.IsTrue(_pc.actions.RequestAttack()); Assert.AreEqual(18, inv.TotalAmmo(AmmoType.Pistol));
+        }
+
+        [UnityTest]
+        public IEnumerator CaptureRequiresDistinctKeyboardFPressesAndShowsHud()
+        {
+            var settings=InputSystem.settings;
+            var originalEditorBehavior=settings.editorInputBehaviorInPlayMode;
+            var originalBackgroundBehavior=settings.backgroundBehavior;
+            settings.editorInputBehaviorInPlayMode=InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+            settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
+            var keyboard=InputSystem.AddDevice<Keyboard>();
+            try
+            {
+                _pc.Capture(_r.vigia); yield return null;
+                var hud=Object.FindObjectsByType<Esneider.UI.HudController>(FindObjectsSortMode.None).FirstOrDefault(h=>h.player==_pc);
+                Assert.IsNotNull(hud); StringAssert.Contains("Presiona F varias veces para escapar",hud.promptText.text);
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F)); InputSystem.Update(); yield return null;
+                Assert.AreEqual(1,_pc.CapturePresses);
+                yield return null; yield return null; Assert.AreEqual(1,_pc.CapturePresses,"mantener F no cuenta otra pulsación");
+                for(int i=1;i<_pc.captureEscapePresses;i++)
+                {
+                    InputSystem.QueueStateEvent(keyboard,new KeyboardState()); InputSystem.Update(); yield return null;
+                    InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.F)); InputSystem.Update(); yield return null;
+                }
+                Assert.IsFalse(_pc.IsCaptured); yield return null;
+                Assert.IsFalse(hud.promptText.text.Contains("para escapar"));
+            }
+            finally { InputSystem.RemoveDevice(keyboard); settings.editorInputBehaviorInPlayMode=originalEditorBehavior; settings.backgroundBehavior=originalBackgroundBehavior; }
         }
 
         [UnityTest]

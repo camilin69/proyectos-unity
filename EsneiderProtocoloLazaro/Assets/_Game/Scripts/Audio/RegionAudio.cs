@@ -12,6 +12,7 @@ namespace Esneider.Audio
         public float fadeSeconds = 1.5f;
         public AudioReverbPreset reverb = AudioReverbPreset.Hangar;
         AudioSource _src; float _target; bool _active;
+        bool _aftermath;
 
         void Start()
         {
@@ -26,6 +27,13 @@ namespace Esneider.Audio
         void Update()
         {
             if (_src == null) return;
+            bool aftermath = ObjectiveService.Has(ObjectiveService.BossDefeated);
+            if (aftermath != _aftermath)
+            {
+                _aftermath = aftermath;
+                _src.clip = AudioService.Instance.BankClip(aftermath ? "SND-AMBI-S1" : ambienceBank);
+                _src.Play();
+            }
             var st = World.RegionStreamer.Instance;
             _active = st != null && st.CurrentRegion == regionId;
             _target = _active ? volume : 0f;

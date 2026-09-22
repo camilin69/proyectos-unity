@@ -47,12 +47,22 @@ namespace Esneider.Tests
             float tw = Time.time; while (_pc.motor.movementEnabled && Time.time - tw < 3f) yield return null;
             Assert.IsTrue(EventRunner.Instance.IsDone("EVT-01"), "la apertura queda comprometida al iniciar (política U)");
             Assert.IsFalse(_pc.motor.movementEnabled, "sin control durante la apertura");
+            var vision = Object.FindFirstObjectByType<Esneider.UI.WakeVision>();
+            Assert.IsNotNull(vision, "Waking eyelids accompany the intro");
+            Assert.IsNotNull(vision.GetComponent<CanvasRenderer>(), "The eyelid mesh must have a UI renderer");
+            Assert.IsFalse(vision.raycastTarget);
+            vision.Sample(0); Assert.AreEqual(0, vision.Openness); Assert.AreEqual(1, vision.Darkness);
+            vision.Sample(1.8f); Assert.Greater(vision.Openness, 0);
+            vision.Sample(2.6f); Assert.AreEqual(0, vision.Openness, "First sleepy blink closes again");
+            vision.Sample(9); Assert.AreEqual(1, vision.Openness); Assert.AreEqual(0, vision.Darkness);
             // omitir (E/Espacio)
             var opening = Object.FindFirstObjectByType<OpeningSequence>(); Assert.IsNotNull(opening, "OpeningSequence en REG-S1");
             int commits = 0; CheckpointService.Instance.Committed += d => { if (d.checkpointId == "CP-00") commits++; };
             float t0 = Time.time; opening.RequestSkip();
             while (!_pc.motor.movementEnabled && Time.time - t0 < 25f) yield return null;
             Assert.IsTrue(_pc.motor.movementEnabled, "control disponible tras omitir la apertura");
+            Assert.IsNull(Object.FindFirstObjectByType<Esneider.UI.WakeVision>(), "Skip must remove the overlay immediately");
+            Assert.IsTrue(Object.FindFirstObjectByType<Esneider.UI.HudController>().GetComponentInParent<Canvas>().enabled);
             Assert.Less(Time.time - t0, 3f, "omitir corta la apertura de inmediato");
             Assert.IsTrue(WorldStateRegistry.Session.HasFlag("OPENING_DONE"), "flag OPENING_DONE");
             t0 = Time.time; while (commits == 0 && Time.time - t0 < 6f) yield return null;
@@ -63,6 +73,26 @@ namespace Esneider.Tests
             Assert.IsTrue(CheckpointService.Instance.RestoreInto(CheckpointService.Instance.LastConfirmed, _pc), "RestoreInto"); yield return null;
             Assert.IsTrue(EventRunner.Instance.IsDone("EVT-01"), "EVT-01 sigue hecho tras restaurar");
             Assert.IsTrue(_pc.motor.movementEnabled, "tras cargar CP-00 el jugador está en control, sin repetir la cinemática");
+        }
+
+        [UnityTest]
+        public IEnumerator AwakeningFinishesNaturallyAndPausesWithGameTime()
+        {
+            float start = Time.time;
+            while (Object.FindFirstObjectByType<Esneider.UI.WakeVision>() == null && Time.time - start < 3) yield return null;
+            var vision = Object.FindFirstObjectByType<Esneider.UI.WakeVision>(); Assert.IsNotNull(vision);
+            Time.timeScale = 0; yield return null;
+            float darkness = vision.Darkness;
+            yield return new WaitForSecondsRealtime(.15f);
+            Assert.AreEqual(darkness, vision.Darkness, "Pause freezes the awakening fade");
+            Time.timeScale = 1;
+            var opening = Object.FindFirstObjectByType<OpeningSequence>();
+            start = Time.time;
+            while (opening.IsPlaying && Time.time - start < 25) yield return null;
+            Assert.IsFalse(opening.IsPlaying); Assert.IsFalse(opening.SkipRequested);
+            Assert.IsNull(Object.FindFirstObjectByType<Esneider.UI.WakeVision>());
+            Assert.IsTrue(_pc.actions.actionsEnabled); Assert.IsTrue(_pc.look.lookEnabled); Assert.IsTrue(_pc.motor.movementEnabled);
+            Assert.IsTrue(WorldStateRegistry.Session.HasFlag("OPENING_DONE"));
         }
 
         [UnityTest]

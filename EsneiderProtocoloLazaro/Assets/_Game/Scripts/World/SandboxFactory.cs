@@ -96,7 +96,7 @@ namespace Esneider.World
             var pivot = new GameObject("CameraPivot"); pivot.transform.SetParent(go.transform, false); pivot.transform.localPosition = new Vector3(0, 1.6f, 0);
             var cam = pivot.AddComponent<Camera>(); cam.tag = "MainCamera"; cam.nearClipPlane = 0.05f; cam.fieldOfView = catalog.player.fovVertical; pivot.AddComponent<AudioListener>();
             var flashGo = new GameObject("Flashlight"); flashGo.transform.SetParent(pivot.transform, false); flashGo.transform.localPosition = new Vector3(0.2f, -0.2f, 0.2f);
-            var flash = flashGo.AddComponent<Light>(); flash.type = LightType.Spot; flash.spotAngle = 50f; flash.range = 14f; flash.intensity = 4f; flash.shadows = LightShadows.Soft; flash.enabled = false;
+            var flash = flashGo.AddComponent<Light>(); flash.type = LightType.Spot; flash.spotAngle = 55f; flash.range = 14f; flash.intensity = 18f; flash.shadows = LightShadows.Soft; flash.enabled = false;
             var muzzle = new GameObject("Muzzle"); muzzle.transform.SetParent(pivot.transform, false); muzzle.transform.localPosition = new Vector3(0.18f, -0.15f, 0.45f);
             var hands = GameObject.CreatePrimitive(PrimitiveType.Cube); hands.name = "Hands_Placeholder"; Kill(hands.GetComponent<Collider>()); hands.transform.SetParent(pivot.transform, false); hands.transform.localPosition = new Vector3(0.2f, -0.25f, 0.4f); hands.transform.localScale = new Vector3(0.08f, 0.08f, 0.35f); hands.GetComponent<MeshRenderer>().sharedMaterial = Mat(new Color(0.75f, 0.6f, 0.5f)); hands.layer = GameLayers.Player;
             look.cameraPivot = pivot.transform; look.playerCamera = cam; look.fovVertical = catalog.player.fovVertical;
@@ -108,6 +108,7 @@ namespace Esneider.World
 
         public static GameObject BuildEnemy(EnemyDefinition def, string id, Vector3 position, Color color, float height, GameObject visualPrefab = null, AnimationClip[] clips = null)
         {
+            if(visualPrefab != null && def.kind == EnemyKind.Vigia) height = Mathf.Max(height,1.36f);
             var go = new GameObject(id); go.layer = GameLayers.Enemy; go.transform.position = position;
             if (visualPrefab != null)
             {
@@ -117,6 +118,7 @@ namespace Esneider.World
                 foreach (var t in vis.GetComponentsInChildren<Transform>()) t.gameObject.layer = GameLayers.Enemy;
                 var animator = vis.GetOrAdd<Animator>();
                 var ea = go.AddComponent<AI.EnemyAnimator>(); ea.animator = animator; ea.clipsFromFbx = clips; ea.prefix = def.kind == EnemyKind.Vigia ? "Vigia" : height > 3f ? "Archivista" : "Custodio";
+                ea.AlignVisualFacing();
                 // Zancada implícita MEDIDA por SourceArt/Scripts/measure_contacts.py (49.8/77.1), no estimada:
                 // es la que permite reproducir el ciclo a la velocidad real del agente sin que el pie patine.
                 // velocidad natural del ciclo, medida clip a clip por measure_contacts (G-04): recorrido del pie

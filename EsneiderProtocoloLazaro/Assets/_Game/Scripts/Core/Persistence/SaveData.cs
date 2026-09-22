@@ -23,6 +23,8 @@ namespace Esneider.Core.Persistence
         public float stamina;
         public bool hasFlashlight, hasCrowbar, hasPistol, hasShotgun;
         public string activeWeapon = "";
+        public string[] hotbarOrder;
+        public int selectedSlot;
         public int pistolMag, pistolReserve, shotgunMag, shotgunReserve;
         public int syringeCount, rationCount;
         public bool flashlightOn;

@@ -66,12 +66,17 @@ namespace Esneider.EditorTools
                 if (log.Count > 0) corrections.Add(string.Join("; ", log.Values) + $" → ({ox},{oz}) ⇒ ({cx:F2},{cz:F2})");
 
                 var world = floor.origin.ToVector3() + new Vector3(cx, f.yOff, cz);
+                if (FurniturePlacement.TryPlace(f, world, root)) { placed.Add(f.id + ":EX13"); continue; }
                 switch (f.family)
                 {
+                    case "banco" when f.h < .7f && AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Environment/OBJ-008_BancoIndustrial.prefab") != null:
+                        Place(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Environment/OBJ-008_BancoIndustrial.prefab"),f.id+"_OBJ-008",world,f.yaw,root,GameLayers.WorldStatic);
+                        placed.Add(f.id+":OBJ-008"); break;
                     case "crio" when P("OBJ-001_Criocamara") != null:
                     {
-                        var go = Place(P("OBJ-001_Criocamara"), f.id + "_OBJ-001", world, f.yaw + 90f, root, GameLayers.WorldStatic);
-                        SandboxFactory.Persist(go, f.id, region, Core.Persistence.EntityKind.Breakable); placed.Add(f.id + ":OBJ-001"); break;
+                        bool damaged = f.id == "M011" && P("OBJ-002_CamaraVaciaDanada") != null;
+                        var go = Place(P(damaged ? "OBJ-002_CamaraVaciaDanada" : "OBJ-001_Criocamara"), f.id + (damaged ? "_OBJ-002" : "_OBJ-001"), world, f.yaw + 90f, root, GameLayers.WorldStatic);
+                        SandboxFactory.Persist(go, f.id, region, Core.Persistence.EntityKind.Breakable); placed.Add(f.id + (damaged ? ":OBJ-002" : ":OBJ-001")); break;
                     }
                     case "carro" when P("OBJ-029_Carro") != null:
                     {
@@ -85,6 +90,8 @@ namespace Esneider.EditorTools
                         }
                         placed.Add(f.id + ":OBJ-029"); break;
                     }
+                    case "mesaq" when AssetDatabase.LoadAssetAtPath<GameObject>(FurnitureReview.Prefab(ProcedureTableReview.Asset)) != null:
+                        Place(AssetDatabase.LoadAssetAtPath<GameObject>(FurnitureReview.Prefab(ProcedureTableReview.Asset)), f.id + "_OBJ-044", world, f.yaw, root, GameLayers.WorldStatic); placed.Add(f.id + ":OBJ-044"); break;
                     case "mesaq" when P("OBJ-043_Camilla") != null:
                         Place(P("OBJ-043_Camilla"), f.id + "_OBJ-043", world, f.yaw, root, GameLayers.WorldStatic); placed.Add(f.id + ":OBJ-043"); break;
                     case "consola": case "terminal":
@@ -96,6 +103,8 @@ namespace Esneider.EditorTools
                     default: Box(f, world, w, d, root); placed.Add(f.id); break;
                 }
             }
+            var workshop = WorkshopPlacement.Apply(plan, region, root);
+            if (!string.IsNullOrEmpty(workshop)) placed.Add(workshop);
             return placed;
         }
 

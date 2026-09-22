@@ -25,11 +25,15 @@ namespace Esneider.AI
         readonly List<AnimationClipPlayable> _clips = new List<AnimationClipPlayable>();
         int _current = -1; float _blendT; int _previous = -1;
         EnemyState _lastState;
+        Quaternion _visualFacingRotation = Quaternion.identity;
 
         void Start()
         {
             if (brain == null) brain = GetComponentInParent<EnemyBrain>(); if (animator == null) animator = GetComponentInChildren<Animator>();
             if (animator == null) { enabled = false; return; }
+            animator.applyRootMotion = false;
+            animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+            AlignVisualFacing();
             _graph = PlayableGraph.Create(name + "_anim"); _graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
             var clips = animator.runtimeAnimatorController != null ? animator.runtimeAnimatorController.animationClips : CollectClips();
             _mixer = AnimationMixerPlayable.Create(_graph, clips.Length);
@@ -49,6 +53,25 @@ namespace Esneider.AI
             return clipsFromFbx ?? new AnimationClip[0];
         }
         public AnimationClip[] clipsFromFbx;
+
+        // All three imported robots were authored toward local -Z while gameplay uses +Z.
+        // Keep the correction in LateUpdate because the attack clips key the imported FBX root.
+        public void AlignVisualFacing()
+        {
+            _visualFacingRotation = prefix == "Vigia" || prefix == "Custodio" || prefix == "Archivista"
+                ? Quaternion.Euler(0f, 180f, 0f)
+                : Quaternion.identity;
+            if (animator != null && animator.transform != transform)
+                animator.transform.localRotation = _visualFacingRotation;
+        }
+
+        // Some imported attack clips key the FBX root. Reapply the presentation-space correction
+        // after animation evaluation so gameplay facing and the visible robot cannot diverge.
+        void LateUpdate()
+        {
+            if (animator != null && animator.transform != transform)
+                animator.transform.localRotation = _visualFacingRotation;
+        }
 
         void OnDestroy() { if (_graph.IsValid()) _graph.Destroy(); }
 
@@ -112,7 +135,7 @@ namespace Esneider.AI
             if (idx == _current) return;
             for (int i = 0; i < _clips.Count; i++) if (i != _current) _mixer.SetInputWeight(i, 0f);
             _previous = _current; _current = idx; _blendT = 0f;
-            var p = _clips[idx]; p.SetTime(0); p.SetSpeed(1); p.SetDuration(loop ? double.MaxValue : p.GetAnimationClip().length);
+            var p = _clips[idx]; p.SetTime(0); p.SetDone(false); p.SetSpeed(1); p.SetDuration(loop ? double.MaxValue : p.GetAnimationClip().length);
         }
     }
 }

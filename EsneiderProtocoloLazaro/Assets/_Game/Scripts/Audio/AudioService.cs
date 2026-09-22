@@ -24,6 +24,7 @@ namespace Esneider.Audio
         {
             if (Instance != null && Instance != this) { Destroy(this); return; }
             Instance = this;
+            gameObject.GetOrAdd<ProgressionMusic>();
             for (int i = 0; i < poolSize; i++)
             {
                 var go = new GameObject("SFX_" + i); go.transform.SetParent(transform);
@@ -35,6 +36,7 @@ namespace Esneider.Audio
 
         public void RegisterBank(string id, AudioClip[] clips) { if (clips != null && clips.Length > 0) _banks[id] = clips; }
         public bool HasBank(string id) => _banks.ContainsKey(id);
+        public AudioClip BankClip(string id) => Pick(id);
 
         AudioClip Pick(string id)
         {

@@ -27,8 +27,10 @@ Las builds no se versionan (`Builds/` está en `.gitignore`); se regeneran desde
 |---|---|
 | Moverse / correr / agacharse / saltar | WASD / Shift / Ctrl / Espacio |
 | Mirar / atacar o disparar | Ratón / clic izquierdo |
-| Recargar / linterna / curar | R / F / Q |
-| Cambiar arma | 1 varilla · 2 pistola · 3 escopeta · rueda |
+| Recargar / curar | R / Q |
+| Linterna permanente en mano izquierda | Clic derecho |
+| Usar arma u objeto de la mano derecha | Clic izquierdo |
+| Seleccionar inventario | 1–9 · rueda |
 | Interactuar (puertas, pickups, documentos, palancas, paneles) | E |
 | Pausa (mapa, documentos, ajustes, controles) | Esc |
 | Omitir apertura | E o Espacio |

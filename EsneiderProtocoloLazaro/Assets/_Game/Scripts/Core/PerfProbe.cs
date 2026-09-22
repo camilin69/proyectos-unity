@@ -42,6 +42,7 @@ namespace Esneider.Core
             _auto = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-autotest") >= 0;
             _pc = FindFirstObjectByType<Player.PlayerController>();
             if (!_auto) return;
+            Application.runInBackground = true; // La ruta automática debe avanzar también sin foco; conservar el render normal (sin -batchmode).
             UI.MenuController.SkipTitle = true; // sin operador: no mostrar Inicio (dejaría el mundo congelado y la medición sería falsa)
             Screen.SetResolution(1280, 720, FullScreenMode.Windowed); // 91.4: 1280×720 perfil local, ventana
             if (_pc != null) _pc.motor.movementEnabled = false;

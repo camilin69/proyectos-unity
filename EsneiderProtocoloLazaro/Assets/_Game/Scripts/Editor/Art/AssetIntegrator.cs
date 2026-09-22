@@ -60,12 +60,13 @@ namespace Esneider.EditorTools
             string prefabPath = $"{PrefabDir}/{prefabSubdir}/{assetId}.prefab";
             PrefabUtility.SaveAsPrefabAsset(inst, prefabPath);
             Object.DestroyImmediate(inst);
+            if (assetId == "BOT-01_Vigia") VigiaReview.ConfigureLOD();
             r.fbx = fbxPath; r.prefab = prefabPath; r.materials.Add(mat.name);
             File.WriteAllText(Path.GetFullPath(Path.Combine(Application.dataPath, $"../../SourceArt/_evidence/EX-04/{assetId}_unity.json")), JsonUtility.ToJson(r, true));
             return r;
         }
 
-        static Material BuildMaterial(string assetId, Report r)
+        public static Material BuildMaterial(string assetId, Report r)
         {
             string path = $"{MatDir}/M_{assetId}.mat";
             var mat = AssetDatabase.LoadAssetAtPath<Material>(path);

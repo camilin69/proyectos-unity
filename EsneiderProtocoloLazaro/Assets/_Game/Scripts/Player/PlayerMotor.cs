@@ -13,7 +13,14 @@ namespace Esneider.Player
         public float standHeight = 1.75f, crouchHeight = 1.1f, radius = 0.3f;
         public float interactionRange = 2f;
         public float staminaMax = 100f, staminaDrain = 22f, staminaRegen = 18f, staminaRegenDelay = 1.5f;
-        public float gravity = -20f, jumpSpeed = 3.2f, acceleration = 30f;
+        // 9 pide "salto corto para escombros bajos; no parkour". Con 3.2 m/s y gravedad -20 el ápice era de
+        // 25.6 cm, por DEBAJO del stepOffset de 0.35 m del propio CharacterController: el personaje ya subía
+        // ese escalón andando, así que el salto no se notaba. A 4.7 m/s el ápice es de 55 cm: salva un escombro
+        // bajo y sigue sin alcanzar repisas de 1 m.
+        public float gravity = -20f, jumpSpeed = 4.7f, acceleration = 30f;
+        // Márgenes de coyote y de anticipación. El flag de suelo del CharacterController parpadea y la pulsación
+        // dura un solo frame, así que sin ellos el salto se perdía al pulsar justo al ras del suelo.
+        public float coyoteTime = 0.12f, jumpBufferTime = 0.15f;
         public float pushForceMax = 4f;
         [Header("Estado")] public float stamina = 100f;
         public bool IsCrouched { get; private set; }
@@ -26,6 +33,7 @@ namespace Esneider.Player
         CharacterController _cc;
         Vector3 _velocity, _planar;
         float _verticalVel, _lastDrainTime = -10f, _stepDistance;
+        float _lastGrounded = -100f, _lastJumpRequest = -100f;
 
         void Awake()
         {
@@ -46,7 +54,7 @@ namespace Esneider.Player
             if (!movementEnabled) { move = Vector2.zero; runHeld = false; jumpRequest = false; }
             if (crouchRequest) SetCrouch(!IsCrouched);
 
-            bool wantsRun = runHeld && !IsCrouched && move.sqrMagnitude > 0.01f && stamina > 0f;
+            bool wantsRun = runHeld && !IsCrouched && move.sqrMagnitude > 0.01f;
             IsRunning = wantsRun;
             float speed = (IsCrouched ? crouchSpeed : wantsRun ? runSpeed : walkSpeed) * SpeedFactor;
 
@@ -54,14 +62,21 @@ namespace Esneider.Player
             if (wish.sqrMagnitude > 1f) wish.Normalize();
             _planar = Vector3.MoveTowards(_planar, wish * speed, acceleration * dt);
 
-            if (wantsRun) { stamina = Mathf.Max(0, stamina - staminaDrain * dt); _lastDrainTime = Time.time; }
-            else if (Time.time - _lastDrainTime >= staminaRegenDelay) stamina = Mathf.Min(staminaMax, stamina + staminaRegen * dt);
+            // Sprint is intentionally unlimited. Keep the legacy value full so old saves and
+            // checkpoint data remain compatible without affecting movement.
+            stamina = staminaMax;
 
-            if (_cc.isGrounded)
+            if (_cc.isGrounded) _lastGrounded = Time.time;
+            if (jumpRequest) _lastJumpRequest = Time.time;
+            bool saltar = !IsCrouched && movementEnabled
+                          && Time.time - _lastGrounded <= coyoteTime
+                          && Time.time - _lastJumpRequest <= jumpBufferTime;
+            if (saltar)
             {
-                _verticalVel = -2f;
-                if (jumpRequest && !IsCrouched) _verticalVel = jumpSpeed;
+                _verticalVel = jumpSpeed;
+                _lastGrounded = _lastJumpRequest = -100f;   // una pulsación, un salto
             }
+            else if (_cc.isGrounded) _verticalVel = -2f;
             else _verticalVel += gravity * dt;
 
             _velocity = _planar + Vector3.up * _verticalVel;

@@ -400,7 +400,7 @@ def uv_project_all(objs, margin=0.004):
 _bake_saved = {}
 
 
-def bake_pbr(objs, asset_id, size=1024, samples=48, only=None):
+def bake_pbr(objs, asset_id, size=1024, samples=48, only=None, margin=8):
     """Hornea BaseColor/Roughness/Metallic/Normal a un atlas por asset (UV compartida, 40.3/41.1).
 
     Las capas dependientes de geometría (Bevel, Pointiness, AO) se resuelven por muestreo: con pocas muestras
@@ -410,7 +410,9 @@ def bake_pbr(objs, asset_id, size=1024, samples=48, only=None):
     scene.render.engine = 'CYCLES'
     scene.cycles.samples = samples; scene.cycles.use_denoising = True
     scene.cycles.device = 'CPU'
-    maps = {'BaseColor': ('DIFFUSE', True), 'Roughness': ('ROUGHNESS', False), 'Metallic': ('EMIT', False), 'Normal': ('NORMAL', False)}
+    # A metallic BSDF has no diffuse lobe: DIFFUSE/COLOR bakes its albedo black.
+    # Route the actual Base Color socket through emission to preserve all PBR colors.
+    maps = {'BaseColor': ('EMIT', True), 'Roughness': ('ROUGHNESS', False), 'Metallic': ('EMIT', False), 'Normal': ('NORMAL', False)}
     out = {}
     mats = set()
     for o in objs:
@@ -424,29 +426,37 @@ def bake_pbr(objs, asset_id, size=1024, samples=48, only=None):
         for m in mats:
             nt = m.node_tree
             node = nt.nodes.new('ShaderNodeTexImage'); node.image = img; nt.nodes.active = node; nodes.append((nt, node))
-            if mapname == 'Metallic':
-                # metallic no tiene pase de bake: se enruta temporalmente a emisión
+            if mapname in ('BaseColor', 'Metallic'):
                 p = _principled(m)
-                link_src = p.inputs['Metallic'].links[0].from_socket if p.inputs['Metallic'].links else None
-                val = p.inputs['Metallic'].default_value
-                _bake_saved[m.name] = (val, p.inputs['Emission Strength'].default_value, tuple(p.inputs['Emission Color'].default_value))
+                source = p.inputs['Base Color' if mapname == 'BaseColor' else 'Metallic']
+                link_src = source.links[0].from_socket if source.links else None
+                val = source.default_value
+                _bake_saved[m.name] = (p.inputs['Emission Strength'].default_value, tuple(p.inputs['Emission Color'].default_value),
+                    [l.from_socket for l in p.inputs['Emission Color'].links], [l.from_socket for l in p.inputs['Emission Strength'].links])
+                for socket in ('Emission Color','Emission Strength'):
+                    for l in list(p.inputs[socket].links):nt.links.remove(l)
                 if link_src: nt.links.new(link_src, p.inputs['Emission Color'])
-                else: p.inputs['Emission Color'].default_value = (val, val, val, 1)
+                else: p.inputs['Emission Color'].default_value = tuple(val) if mapname == 'BaseColor' else (val, val, val, 1)
                 p.inputs['Emission Strength'].default_value = 1.0
         scene.render.bake.use_pass_direct = False; scene.render.bake.use_pass_indirect = False
-        scene.render.bake.use_pass_color = True; scene.render.bake.margin = 8
-        with ctx(objs[0], objs): bpy.ops.object.bake(type=btype, use_selected_to_active=False)
-        path = f"{TEX_DIR}/{asset_id}_{mapname}.png"
-        img.filepath_raw = path; img.file_format = 'PNG'; img.save()
-        out[mapname] = path
-        for nt, node in nodes: nt.nodes.remove(node)
-        if mapname == 'Metallic':
-            for m in mats:
-                p = _principled(m)
-                val, strength, color = _bake_saved.pop(m.name, (0.0, 0.0, (0, 0, 0, 1)))
-                for l in list(p.inputs['Emission Color'].links): m.node_tree.links.remove(l)
-                p.inputs['Emission Color'].default_value = color
-                p.inputs['Emission Strength'].default_value = strength
+        scene.render.bake.use_pass_color = True; scene.render.bake.margin = margin
+        try:
+            with ctx(objs[0], objs): bpy.ops.object.bake(type=btype, use_selected_to_active=False)
+            path = f"{TEX_DIR}/{asset_id}_{mapname}.png"
+            img.filepath_raw = path; img.file_format = 'PNG'; img.save()
+            out[mapname] = path
+        finally:
+            for nt, node in nodes: nt.nodes.remove(node)
+            if mapname in ('BaseColor','Metallic'):
+                for m in mats:
+                    p = _principled(m)
+                    strength, color, color_links, strength_links = _bake_saved.pop(m.name)
+                    for socket in ('Emission Color','Emission Strength'):
+                        for l in list(p.inputs[socket].links):m.node_tree.links.remove(l)
+                    p.inputs['Emission Color'].default_value = color
+                    p.inputs['Emission Strength'].default_value = strength
+                    for source in color_links:m.node_tree.links.new(source,p.inputs['Emission Color'])
+                    for source in strength_links:m.node_tree.links.new(source,p.inputs['Emission Strength'])
     return out
 
 

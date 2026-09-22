@@ -1,0 +1,59 @@
+{
+  "subjects": [
+    {
+      "id": "062",
+      "asset": "OBJ-062_PlacaSujeto",
+      "cage": "M041",
+      "name": "INÉS RIVAS",
+      "serial": "81-041",
+      "admission_year": "4042",
+      "yaw": 90,
+      "document": "DOC-08",
+      "authorship": "EX-36 original fictional identity; DOC-08 specifies Series 81, not these individual names"
+    },
+    {
+      "id": "062B",
+      "asset": "OBJ-062B_PlacaSujeto",
+      "cage": "M042",
+      "name": "TOMÁS LEAL",
+      "serial": "81-042",
+      "admission_year": "4043",
+      "yaw": 270,
+      "document": "DOC-08",
+      "authorship": "EX-36 original fictional identity; DOC-08 specifies Series 81, not these individual names"
+    },
+    {
+      "id": "062C",
+      "asset": "OBJ-062C_PlacaSujeto",
+      "cage": "M046",
+      "name": "LUCÍA SOLER",
+      "serial": "81-046",
+      "admission_year": "4044",
+      "yaw": 90,
+      "document": "DOC-08",
+      "authorship": "EX-36 original fictional identity; DOC-08 specifies Series 81, not these individual names"
+    },
+    {
+      "id": "062D",
+      "asset": "OBJ-062D_PlacaSujeto",
+      "cage": "M047",
+      "name": "RAÚL MENA",
+      "serial": "81-047",
+      "admission_year": "4045",
+      "yaw": 270,
+      "document": "DOC-08",
+      "authorship": "EX-36 original fictional identity; DOC-08 specifies Series 81, not these individual names"
+    },
+    {
+      "id": "062E",
+      "asset": "OBJ-062E_PlacaSujeto",
+      "cage": "M048",
+      "name": "ANA VIDAL",
+      "serial": "81-048",
+      "admission_year": "4046",
+      "yaw": 90,
+      "document": "DOC-08",
+      "authorship": "EX-36 original fictional identity; DOC-08 specifies Series 81, not these individual names"
+    }
+  ]
+}

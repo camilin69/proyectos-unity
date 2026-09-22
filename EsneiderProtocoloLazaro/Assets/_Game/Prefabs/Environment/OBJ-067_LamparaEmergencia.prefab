@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &977747668955231677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 13b7295cccc87f447bf8af95cc908cfa, type: 2}
+    - target: {fileID: 919132149155446097, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_Name
+      value: OBJ-067_LamparaEmergencia
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7767818272946759526}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101011477737470170}
+  m_SourcePrefab: {fileID: 100100000, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+--- !u!1 &94788360493058284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+  m_PrefabInstance: {fileID: 977747668955231677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7767818272946759526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94788360493058284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1fcddad65e8cc4689f0170457d9e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.World.SurfaceTag
+  surfaceId: SUR-MET
+--- !u!114 &2101011477737470170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94788360493058284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5867eeb657faa2447bbd3a49f3946f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Esneider.Runtime::Esneider.World.FixtureEmission
+  source: {fileID: 0}
+  surface: {fileID: 1896083556114393401}
+  previewColor: {r: 1, g: 0.38, b: 0.045, a: 1}
+  strength: 1.3
+--- !u!23 &1896083556114393401 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4d3c720595d02a348a5338cc0839934d, type: 3}
+  m_PrefabInstance: {fileID: 977747668955231677}
+  m_PrefabAsset: {fileID: 0}

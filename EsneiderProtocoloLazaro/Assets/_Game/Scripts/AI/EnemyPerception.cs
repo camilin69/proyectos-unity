@@ -41,7 +41,7 @@ namespace Esneider.AI
             var to = torso - s; float dist = to.magnitude;
             float range = alertMode ? definition.visionRangeAlert : definition.visionRangeLit;
             float angle = alertMode ? definition.visionAngleAlert : definition.visionAngleLit;
-            if (PlayerInDarkness) range = Mathf.Min(range, alertMode ? definition.visionRangeDarkAlert : definition.visionRangeDark);
+            if (PlayerInDarkness || World.DarknessVolume.Contains(target.position)) range = Mathf.Min(range, alertMode ? definition.visionRangeDarkAlert : definition.visionRangeDark);
             float rate = 0f;
             bool inCone = dist <= range && Vector3.Angle(new Vector3(transform.forward.x, 0, transform.forward.z), new Vector3(to.x, 0, to.z)) <= angle / 2f;
             bool los = false;
@@ -68,7 +68,8 @@ namespace Esneider.AI
         bool Blocked(Vector3 from, Vector3 to)
         {
             var d = to - from; float len = d.magnitude;
-            return len > 0.01f && Physics.Raycast(from, d / len, len, GameLayers.VisionBlockMask, QueryTriggerInteraction.Ignore);
+            return len > 0.01f && (Physics.Raycast(from, d / len, len, GameLayers.VisionBlockMask, QueryTriggerInteraction.Ignore)
+                || Physics.Raycast(to, -d / len, len, GameLayers.VisionBlockMask, QueryTriggerInteraction.Ignore));
         }
 
         void OnNoise(NoiseEvent e)

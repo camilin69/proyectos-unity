@@ -77,6 +77,32 @@ namespace Esneider.Tests
         }
 
         [UnityTest]
+        public IEnumerator RetryHealsAndRollsBackDoorsDocumentsAndNewlyLoadedObjects()
+        {
+            var doorObject=new GameObject("CheckpointDoor");doorObject.transform.SetParent(_r.root.transform);
+            var door=doorObject.AddComponent<Door>();door.locked=true;
+            SandboxFactory.Persist(doorObject,"TEST-DOOR","REG-SANDBOX",EntityKind.Door);
+            _pc.health.ApplyDamage(new DamageInfo{amount=40,attackId=AttackIds.Next()});
+            Assert.Less(_pc.health.Current,_pc.health.maxHp);
+            Assert.IsTrue(_cps.CommitNow("CP-01",_pc,"REG-SANDBOX",false,0,0,0));
+            door.locked=false;door.SnapOpen(true);
+            WorldStateRegistry.Session.MarkDocumentRead("DOC-01");_pc.inventory.documents.Add("DOC-01");
+            var late=new GameObject("LaterRegionPickup");late.transform.SetParent(_r.root.transform);
+            var pickup=late.AddComponent<Pickup>();pickup.kind=PickupKind.Ration;pickup.amount=1;
+            SandboxFactory.Persist(late,"TEST-LATER-PICKUP","REG-LATER",EntityKind.Pickup);
+            late.GetComponent<PersistentEntity>().EnsureRegistered();pickup.Interact(_pc.gameObject);
+            Assert.IsFalse(late.activeSelf);
+            Assert.IsTrue(_cps.RestoreInto(_cps.LastConfirmed,_pc));yield return null;
+            Assert.AreEqual(_pc.health.maxHp,_pc.health.Current);
+            Assert.IsFalse(door.isOpen);Assert.IsTrue(door.locked);
+            Assert.IsFalse(_pc.inventory.documents.Contains("DOC-01"));
+            Assert.IsTrue(late.activeSelf);Assert.AreEqual(1,pickup.amount);
+            pickup.Interact(_pc.gameObject);
+            Assert.IsTrue(WorldStateRegistry.Session.TryGet(late.GetComponent<PersistentEntity>().guid,out var restoredState));
+            Assert.IsTrue(restoredState.taken,"Newly loaded entities must continue publishing changes after rollback");
+        }
+
+        [UnityTest]
         public IEnumerator QA10_LoadFromDiskAfterRestart_NoDuplication()
         {
             var inv = _pc.inventory; inv.hasShotgun = true; inv.shotgunMag = 4; inv.shotgunReserve = 10;

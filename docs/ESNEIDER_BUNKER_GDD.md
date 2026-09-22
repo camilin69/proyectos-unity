@@ -420,11 +420,12 @@ Movimiento: marcha irregular, cabeza que termina el giro después del torso; pau
 - Proyectil: 6 m/s, radio de colisión 0.25 m, duración máxima 2 s; cobertura lo destruye.
 - Apuntar al punto del jugador al liberar; no perseguirlo en el aire.
 - Cooldown inicial: 3.5 s desde lanzamiento; no lanzar varias redes desde la misma unidad.
-- Si impacta: estado Captured, arma deshabilitada y animación de restricción. El Vigía se aproxima; derrota en un máximo de 2.5 s desde captura.
-- Si no hay ruta válida para aproximarse, una descarga de la red completa la derrota dentro del mismo máximo de 2.5 s. No dejar al jugador capturado eternamente.
-- Desde captura, curación y cambio de arma no evitan derrota. Pausa y menú siguen disponibles. La cámara no necesita mostrar una escena larga; usar corte breve, sonido y pantalla de muerte.
+- Revisión solicitada por el usuario (EX-12): si impacta, restricción recuperable dentro de Playing, movimiento y armas bloqueados. Mostrar «Presiona F varias veces para escapar» y contador de progreso.
+- Ocho pulsaciones independientes de F rompen la red. Mantener F no acumula pulsaciones. Tras escapar se recupera el control y hay 2 s de protección contra recaptura.
+- La captura no inflige daño instantáneo ni activa un temporizador de derrota: pierde 4 HP cada segundo mientras siga atrapado, frente a los 30 HP por rayo del Custodio. El primer daño ocurre tras 1 s; al llegar a cero se produce la derrota por daño. La red funciona aunque el captor no tenga ruta.
+- Pausa y menú siguen disponibles; la pausa detiene daño y progreso de escape. F no cambia la linterna mientras se usa para escapar. Curación y cambio de arma permanecen bloqueados durante la restricción.
 
-Si otro enemigo está atacando, el director puede retrasar el lanzamiento para que haya una ventana real de evasión. La derrota instantánea exige mayor claridad que daño convencional.
+Si otro enemigo está atacando, el director puede retrasar el lanzamiento para que haya una ventana real de evasión. La señal de captura y la instrucción de escape deben permanecer legibles.
 
 ## 13. Enemigo grande: CUSTODIO-06
 
@@ -877,7 +878,7 @@ Pruebas automatizadas para lógica crítica; pruebas manuales para tensión, leg
 | QA-01 | Varilla contra Vigía/Custodio | Muerte en tercer/sexto impacto; un daño por golpe |
 | QA-02 | Tres rayos contra Esneider sin curación | 90 → 60 → 30 → 0 |
 | QA-03 | Red detrás de pilar | Proyectil bloqueado; no captura |
-| QA-04 | Red impacta y robot sin ruta | Derrota termina en tiempo acotado, sin bloqueo |
+| QA-04 | Red impacta y robot sin ruta | Sin daño instantáneo; 4 HP/s; ocho pulsaciones de F liberan y paran el daño; pausa congela ambos; cero HP termina en derrota |
 | QA-05 | Disparar pegado a pared | No atravesar cobertura desde cámara |
 | QA-06 | Interrumpir recargas | Ninguna creación/desaparición indebida de balas |
 | QA-07 | Pickup sobre límite de capacidad | Se recoge parcialmente; resto persiste |

@@ -15,16 +15,17 @@ namespace Esneider.World
         public EntityKind kind;
         public bool hydrated;
 
-        Pickup _pickup; Door _door; EnemyBrain _brain; BossBrain _boss; Health _health; Rigidbody _rb;
+        Pickup _pickup; Door _door; HingedCabinet _cabinet; EnemyBrain _brain; BossBrain _boss; Health _health; Rigidbody _rb;
         Vector3 _lastPos; float _nextMoveCheck;
 
         void Awake()
         {
             if (string.IsNullOrEmpty(guid) && !string.IsNullOrEmpty(stableId)) guid = Core.Data.LevelPlan.StableGuid(stableId).ToString();
-            _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _brain = GetComponent<EnemyBrain>(); _boss = GetComponent<BossBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>();
+            _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _cabinet = GetComponent<HingedCabinet>(); _brain = GetComponent<EnemyBrain>(); _boss = GetComponent<BossBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>();
         }
 
         bool _subscribed;
+        EntityState _initial;
 
         void OnEnable() { EnsureRegistered(); }
         void Start() { EnsureRegistered(); }
@@ -34,7 +35,13 @@ namespace Esneider.World
         {
             if (string.IsNullOrEmpty(guid) && !string.IsNullOrEmpty(stableId)) guid = Core.Data.LevelPlan.StableGuid(stableId).ToString();
             if (string.IsNullOrEmpty(guid)) return;
-            if (_pickup == null) { _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _brain = GetComponent<EnemyBrain>(); _boss = GetComponent<BossBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>(); }
+            if (_pickup == null) { _pickup = GetComponent<Pickup>(); _door = GetComponent<Door>(); _cabinet = GetComponent<HingedCabinet>(); _brain = GetComponent<EnemyBrain>(); _boss = GetComponent<BossBrain>(); _health = GetComponent<Health>(); _rb = GetComponent<Rigidbody>(); }
+            if (_initial == null)
+                _initial = new EntityState { guid=guid, prefabId=prefabId, regionId=regionId, kind=kind, stateVersion=1,
+                    amount=_pickup != null ? _pickup.amount : -1, hp=_health != null ? _health.maxHp : -1,
+                    hasTransform=true, position=transform.position, eulerAngles=transform.eulerAngles,
+                    isOpen=_door != null ? _door.isOpen : _cabinet != null && _cabinet.isOpen,
+                    unlocked=_door == null || !_door.locked, mode=_brain != null && !_brain.startActive ? "Inactive" : "Patrol" };
             if (!_subscribed && _health != null) { _health.Damaged += OnDamaged; _health.Died += OnDied; _subscribed = true; }
             if (hydrated) return;
             var s = WorldStateRegistry.Session.GetOrCreate(guid, prefabId, regionId, kind);
@@ -58,8 +65,9 @@ namespace Esneider.World
                     else if (s.amount >= 0) { _pickup.amount = s.amount; if (s.amount == 0) gameObject.SetActive(false); }
                     break;
                 case EntityKind.Door:
+                    if (_cabinet != null) { if (s.stateVersion > 0) _cabinet.SnapOpen(s.isOpen); break; }
                     if (_door == null) break;
-                    if (s.stateVersion > 0) { _door.locked = !s.unlocked && _door.locked; _door.SnapOpen(s.isOpen); }
+                    if (s.stateVersion > 0) { _door.locked = !s.unlocked; _door.SnapOpen(s.isOpen); }
                     break;
                 case EntityKind.Enemy:
                 case EntityKind.Boss:
@@ -89,6 +97,13 @@ namespace Esneider.World
         }
 
         // ---- publicación de cambios ----
+        public void RestoreInitial()
+        {
+            EnsureRegistered();
+            if (_initial == null) return;
+            WorldStateRegistry.Session.GetOrCreate(guid,prefabId,regionId,kind);
+            gameObject.SetActive(true); Hydrate(_initial.Clone()); CaptureStable();
+        }
         public void NotifyPickupTaken(int remaining)
         {
             EnsureRegistered();
@@ -134,7 +149,8 @@ namespace Esneider.World
             }
             if (kind == EntityKind.Movable) { s.hasTransform = true; s.position = transform.position; s.eulerAngles = transform.eulerAngles; }
             if (kind == EntityKind.Pickup && _pickup != null) { s.amount = _pickup.amount; s.taken = !gameObject.activeSelf || _pickup.amount <= 0; }
-            if (kind == EntityKind.Door && _door != null) { s.isOpen = _door.isOpen; s.unlocked = !_door.locked; }
+            if (kind == EntityKind.Door && _door != null) { s.isOpen = _door.isOpen; s.unlocked = !_door.locked; s.stateVersion = Mathf.Max(1,s.stateVersion); }
+            if (kind == EntityKind.Door && _cabinet != null) { s.isOpen = _cabinet.isOpen; s.stateVersion = Mathf.Max(1,s.stateVersion); }
         }
     }
 }

@@ -100,6 +100,7 @@ namespace Esneider.Tests
             yield return new WaitForSeconds(1f);
             Assert.AreEqual(EnemyState.Inactive, v15.State, "V15 protegido durante la primera lectura (EVT-16)");
             var doc = Doc("DOC-09"); Assert.IsNotNull(doc, "DOC-09 en observación"); doc.Interact(_pc.gameObject);
+            Assert.AreEqual("ReadDocument",UI.MenuController.Instance.Current);UI.MenuController.Instance.Resume();
             float t0 = Time.time; while (v15.State == EnemyState.Inactive && Time.time - t0 < 3f) yield return null;
             Assert.AreNotEqual(EnemyState.Inactive, v15.State, "V15 patrulla tras cerrar la lectura");
             Assert.IsTrue(WorldStateRegistry.Session.HasFlag("V15_RELEASED"));
@@ -117,6 +118,7 @@ namespace Esneider.Tests
             Assert.IsFalse(EventRunner.Instance.IsDone("EVT-18"));
             _pc.motor.Teleport(W("P06", 12f, 12f), 0f); yield return null; yield return null;
             var doc = Doc("DOC-11"); Assert.IsNotNull(doc); doc.Interact(_pc.gameObject); yield return null;
+            Assert.AreEqual("ReadDocument",UI.MenuController.Instance.Current);UI.MenuController.Instance.Resume();
             _pc.motor.Teleport(W("P06", 12f, 30f), 0f);
             float t0 = Time.time; while (v23.State == EnemyState.Inactive && Time.time - t0 < 3f) yield return null;
             Assert.AreNotEqual(EnemyState.Inactive, v23.State, "V23 despierta con servo al salir tras leer DOC-11 (EVT-18)");

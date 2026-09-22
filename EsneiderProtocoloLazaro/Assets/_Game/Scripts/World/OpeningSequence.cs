@@ -20,6 +20,22 @@ namespace Esneider.World
         public string checkpointId = "CP-00";
         public string regionId = "REG-S1";
         bool _started;
+        UI.WakeVision _vision;
+        Canvas _hudCanvas;
+        bool _hudWasEnabled;
+        float _wakeStarted;
+
+        void Update()
+        {
+            if (_vision != null) _vision.Sample(Time.time - _wakeStarted);
+        }
+
+        void ClearVision()
+        {
+            if (_vision != null) { _vision.transform.parent.gameObject.SetActive(false); Destroy(_vision.transform.parent.gameObject); _vision = null; }
+            if (_hudCanvas != null) { _hudCanvas.enabled = _hudWasEnabled; _hudCanvas = null; }
+        }
+        void OnDisable() { ClearVision(); }
 
         IEnumerator Start()
         {
@@ -39,6 +55,9 @@ namespace Esneider.World
         IEnumerator Play(PlayerController pc)
         {
             var hud = FindFirstObjectByType<UI.HudController>();
+            _wakeStarted = Time.time; _vision = UI.WakeVision.Create(transform);
+            _hudCanvas = hud != null ? hud.GetComponentInParent<Canvas>() : null;
+            if (_hudCanvas != null) { _hudWasEnabled = _hudCanvas.enabled; _hudCanvas.enabled = false; }
             pc.motor.movementEnabled = false; pc.actions.actionsEnabled = false; pc.look.lookEnabled = false;
             var standPos = pc.transform.position; float standYaw = pc.transform.eulerAngles.y;
             pc.motor.Teleport(lyingPosition, lyingYaw);
@@ -74,7 +93,8 @@ namespace Esneider.World
             pc.motor.Teleport(standPos, standYaw); pivot.localPosition = new Vector3(0, eyeStand, 0); pivot.localRotation = Quaternion.identity;
             // 20–35 s: control disponible; pantalla indica nombre y tiempo transcurrido
             pc.look.lookEnabled = true; pc.motor.movementEnabled = true; pc.actions.actionsEnabled = true;
-            hud?.ShowMessage("LÁZARO / SUJETO: ESNEIDER / TIEMPO TRANSCURRIDO: 2000 AÑOS");
+            ClearVision();
+            hud?.ShowMessage("LÁZARO / SUJETO: ESNEIDER / TIEMPO TRANSCURRIDO: 2000 AÑOS", 6f);
             WorldStateRegistry.Session.SetFlag("OPENING_DONE"); ObjectiveService.Complete("O01");
             var cps = CheckpointService.Instance;
             if (cps != null && !cps.RequestCheckpoint(checkpointId, pc, regionId)) Debug.LogWarning("OpeningSequence: CP-00 no solicitado: " + cps.LastNotice);

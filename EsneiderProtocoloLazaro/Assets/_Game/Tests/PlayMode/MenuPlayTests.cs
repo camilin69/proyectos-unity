@@ -45,6 +45,37 @@ namespace Esneider.Tests
         }
 
         [UnityTest]
+        public IEnumerator NewGameReloadsInitialWorldInsteadOfResumingProgress()
+        {
+            _pc.inventory.hasPistol=true;_pc.inventory.pistolMag=7;
+            var reg=WorldStateRegistry.Session;reg.SetFlag("TEST_OLD_PROGRESS");reg.MarkDocumentRead("DOC-09");reg.CompleteObjective("O09");
+            Assert.IsTrue(CheckpointService.Instance.CommitNow("CP-OLD",_pc,"REG-S1",false,0,0,0));
+            var previousPlayer=_pc;
+            var menu=MenuController.Instance;menu.ShowTitle();yield return null;
+            var newButton=System.Linq.Enumerable.Single(menu.GetComponentsInChildren<UnityEngine.UI.Button>(),b=>b.GetComponentInChildren<UnityEngine.UI.Text>().text=="Nueva partida");
+            newButton.onClick.Invoke();Assert.AreEqual("ConfirmNew",menu.Current);
+            var confirm=System.Linq.Enumerable.Single(menu.GetComponentsInChildren<UnityEngine.UI.Button>(),b=>b.GetComponentInChildren<UnityEngine.UI.Text>().text=="Sí, reemplazar y empezar");
+            confirm.onClick.Invoke();
+            float until=Time.realtimeSinceStartup+25f;
+            while(Time.realtimeSinceStartup<until)
+            {
+                var current=Object.FindFirstObjectByType<PlayerController>();
+                if(current && current!=previousPlayer && RegionStreamer.Instance && RegionStreamer.Instance.IsReady("REG-S1")){_pc=current;break;}
+                yield return null;
+            }
+            Assert.IsTrue(previousPlayer==null,"The old player and loaded world must be destroyed");
+            Assert.IsNotNull(_pc);Assert.IsFalse(_pc.inventory.hasPistol);Assert.AreEqual(0,_pc.inventory.documents.Count);
+            Assert.IsFalse(WorldStateRegistry.Session.HasFlag("TEST_OLD_PROGRESS"));Assert.IsFalse(WorldStateRegistry.Session.HasObjective("O09"));
+            Assert.IsFalse(WorldStateRegistry.Session.IsDocumentRead("DOC-09"));
+            Assert.AreEqual("REG-S1",RegionStreamer.Instance.CurrentRegion);
+            Assert.AreEqual(_dir,CheckpointService.Instance.saveDirectoryOverride);
+            Assert.IsFalse(CheckpointService.Instance.Store.HasAnyCandidate,"The old save must be replaced, not continued");
+            Assert.IsFalse(MenuController.Instance.IsOpen,"New game must start rather than show the title again");
+            var opening=Object.FindFirstObjectByType<OpeningSequence>();Assert.IsNotNull(opening);
+            opening.RequestSkip();
+        }
+
+        [UnityTest]
         public IEnumerator Pause_FreezesWorld_ShowsMenu_ResumeRestores()
         {
             var flow = GameFlowController.Instance; var menu = MenuController.Instance; Assert.IsNotNull(menu);
@@ -52,6 +83,18 @@ namespace Esneider.Tests
             Assert.AreEqual(0f, Time.timeScale); Assert.AreEqual("Pause", menu.Current); Assert.IsTrue(Cursor.visible);
             menu.Resume(); yield return null;
             Assert.AreEqual(1f, Time.timeScale); Assert.AreEqual(GameState.Playing, flow.State); Assert.IsFalse(menu.IsOpen);
+        }
+
+        [UnityTest]
+        public IEnumerator CapturedPlayerGetsEscapePromptInsteadOfDefeatMenu()
+        {
+            MenuController.Instance.Resume(); yield return null;
+            _pc.Capture(null); yield return new WaitForSeconds(3f);
+            Assert.IsTrue(_pc.IsCaptured); Assert.IsFalse(MenuController.Instance.IsOpen);
+            Assert.AreEqual(GameState.Playing,GameFlowController.Instance.State);
+            StringAssert.Contains("Presiona F varias veces para escapar",_pc.Prompt);
+            for(int i=0;i<_pc.captureEscapePresses;i++) { _pc.input.FlashlightPressed=true; yield return null; }
+            Assert.IsFalse(_pc.IsCaptured); Assert.IsFalse(MenuController.Instance.IsOpen);
         }
 
         [UnityTest]

@@ -2744,7 +2744,7 @@ MonoBehaviour:
   staminaRegen: 18
   staminaRegenDelay: 1.5
   gravity: -20
-  jumpSpeed: 3.2
+  jumpSpeed: 4.7
   acceleration: 30
   pushForceMax: 4
   stamina: 100
@@ -2833,7 +2833,10 @@ MonoBehaviour:
   inventory: {fileID: 1853954927}
   health: {fileID: 1853954925}
   flashlight: {fileID: 1292402844}
-  captureDefeatSeconds: 2.5
+  captureEscapePresses: 8
+  captureDamageInterval: 1
+  captureDamagePerTick: 4
+  captureEscapeGraceSeconds: 2
 --- !u!114 &1853954929
 MonoBehaviour:
   m_ObjectHideFlags: 0

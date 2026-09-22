@@ -19,6 +19,7 @@ namespace Esneider.World
         void OnDestroy() { if (Instance == this) Instance = null; }
 
         public bool IsDone(string eventId) => WorldStateRegistry.Session.IsEventDone(eventId);
+        public void ResetForCheckpoint() { _lastRun.Clear(); _running.Clear(); }
 
         // Política U: elegible solo si no está completado en el registro; commit lógico inmediato al iniciar.
         public bool TryRunOnce(string eventId, Action action)

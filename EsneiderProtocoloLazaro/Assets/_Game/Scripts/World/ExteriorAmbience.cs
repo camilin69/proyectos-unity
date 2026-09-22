@@ -16,7 +16,7 @@ namespace Esneider.World
         [Header("Interior (16: luz de terror)")]
         public Color interiorFog = new Color(0.03f, 0.035f, 0.04f);
         public float interiorFogDensity = 0.018f;
-        public Color interiorAmbient = new Color(0.045f, 0.05f, 0.06f);
+        public Color interiorAmbient = new Color(0.004f, 0.005f, 0.007f);
 
         [Header("Exterior (97.1: amanecer gris enfermo, metal húmedo)")]
         public Color exteriorFog = new Color(0.55f, 0.58f, 0.6f);
@@ -77,6 +77,7 @@ namespace Esneider.World
             RenderSettings.fogColor = Color.Lerp(interiorFog, exteriorFog, k);
             RenderSettings.fogDensity = Mathf.Lerp(interiorFogDensity, exteriorFogDensity, k);
             RenderSettings.ambientLight = Color.Lerp(interiorAmbient, exteriorAmbient, k);
+            RenderSettings.reflectionIntensity = Mathf.Lerp(.05f,1f,k);
             if (sunLight != null) sunLight.intensity = Mathf.Lerp(0f, sunIntensityOutside, k);
             if (interiorReverb != null) interiorReverb.enabled = k < 0.5f;   // END-01: la reverb interior se reduce
             if (_wind != null) _wind.volume = windVolume * k;

@@ -43,9 +43,9 @@ Light:
   serializedVersion: 13
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4
+  m_Intensity: 18
   m_Range: 14
-  m_SpotAngle: 50
+  m_SpotAngle: 55
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
@@ -186,6 +186,7 @@ MonoBehaviour:
   RestartPressed: 0
   WeaponSlotPressed: -1
   ScrollDelta: 0
+  EscapeNetPressed: 0
   crouchToggle: 1
 --- !u!114 &3976090808590219976
 MonoBehaviour:
@@ -212,8 +213,10 @@ MonoBehaviour:
   staminaRegen: 18
   staminaRegenDelay: 1.5
   gravity: -20
-  jumpSpeed: 3.2
+  jumpSpeed: 4.7
   acceleration: 30
+  coyoteTime: 0.12
+  jumpBufferTime: 0.15
   pushForceMax: 4
   stamina: 100
   SpeedFactor: 1
@@ -267,6 +270,8 @@ MonoBehaviour:
   shotgunReserve: 0
   syringes: 0
   rations: 0
+  hotbarOrder: 
+  selectedSlot: 0
 --- !u!114 &2802583414498504632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +325,10 @@ MonoBehaviour:
   inventory: {fileID: 5451143822141442218}
   health: {fileID: 2802583414498504632}
   flashlight: {fileID: 6677319798161961372}
-  captureDefeatSeconds: 2.5
+  captureEscapePresses: 8
+  captureDamageInterval: 1
+  captureDamagePerTick: 4
+  captureEscapeGraceSeconds: 2
 --- !u!1 &1314663716570416681
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,13 +474,17 @@ MonoBehaviour:
   pistolPrefab: {fileID: 4482553067750198799, guid: 8078a321f6e73f44d816c44c0467c557, type: 3}
   shotgunPrefab: {fileID: 6027514676136035354, guid: bd02e2a416d2dfd44a839d23f5679f47, type: 3}
   flashlightPrefab: {fileID: 7319071311842905123, guid: 9d1bc8af31087b44895b53d3485120a8, type: 3}
+  syringePrefab: {fileID: 2135757390501882833, guid: f75758ad1e19cf24aa028bffab4d8f73, type: 3}
+  rationPrefab: {fileID: 5242254636718211730, guid: c17d42e83be6fe342b649ae8fdf08770, type: 3}
+  pistolAmmoPrefab: {fileID: 8496052804363465579, guid: e464fa08d6034fc4390f5340a8d90873, type: 3}
+  shotgunAmmoPrefab: {fileID: 3979973154667502844, guid: 38ac362220030c94889e9a5d614bc7c6, type: 3}
   armClips:
-  - {fileID: -3253423134360353045, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
-  - {fileID: 6539944776229936779, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
-  - {fileID: 4827120973585216906, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
-  - {fileID: 1055171851670076696, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
   - {fileID: -6688729445220387267, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
-  armsOffset: {x: 0, y: -0.32, z: 0.28}
+  - {fileID: -3253423134360353045, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: 1055171851670076696, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: 4827120973585216906, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  - {fileID: 6539944776229936779, guid: fb478e5a858a10142be57baeedcaa36e, type: 3}
+  armsOffset: {x: 0, y: -0.27, z: -0.08}
   weaponOffset: {x: 0.2, y: -0.27, z: 0.52}
   flashlightOffset: {x: -0.22, y: -0.25, z: 0.35}
   rightSocket: hand_R
@@ -482,6 +494,11 @@ MonoBehaviour:
   pistolGrip: {x: 0, y: -0.062, z: 0.042}
   shotgunGrip: {x: 0, y: -0.06, z: 0.09}
   flashlightGrip: {x: 0, y: 0, z: 0}
+  syringeGrip: {x: 0, y: 0, z: 0}
+  syringeEuler: {x: 18, y: -12, z: 78}
+  deriveGripFromGeometry: 1
   palmOffset: {x: 0, y: -0.01, z: 0.035}
+  derivePalmFromGeometry: 1
+  gripSeat: {x: 0, y: 0.021, z: 0.032}
   bobAmplitude: 0.008
   bobEnabled: 1

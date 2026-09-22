@@ -18,10 +18,11 @@ namespace Esneider.World
         {
             if (door == null) door = GetComponentInParent<Door>(); if (animator == null) animator = GetComponentInChildren<Animator>();
             if (animator == null || openClip == null) { enabled = false; return; }
-            _graph = PlayableGraph.Create(name + "_door"); _clip = AnimationClipPlayable.Create(_graph, openClip); _clip.SetDuration(openClip.length);
+            animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+            _graph = PlayableGraph.Create(name + "_door"); _clip = AnimationClipPlayable.Create(_graph, openClip); _clip.SetDuration(double.MaxValue);
             var o = AnimationPlayableOutput.Create(_graph, "door", animator); o.SetSourcePlayable(_clip);
             _clip.SetSpeed(0); _graph.Play();
-            _wasOpen = door != null && door.isOpen; _t = _wasOpen ? openClip.length : 0f; _clip.SetTime(_t); _ready = true;
+            _wasOpen = door != null && door.isOpen; _t = _wasOpen ? openClip.length : 0f; _clip.SetTime(_t); _clip.SetDone(false); _graph.Evaluate(0f); _ready = true;
         }
 
         void OnDestroy() { if (_graph.IsValid()) _graph.Destroy(); }
@@ -29,10 +30,11 @@ namespace Esneider.World
         void Update()
         {
             if (!_ready || door == null) return;
+            var obstacle=GetComponent<UnityEngine.AI.NavMeshObstacle>(); if(obstacle!=null) obstacle.enabled=!door.isOpen || door.IsMoving;
             float target = door.isOpen ? openClip.length : 0f;
             if (Mathf.Abs(_t - target) < 0.001f) return;
             _t = Mathf.MoveTowards(_t, target, Time.deltaTime * (openClip.length / Mathf.Max(0.1f, door.openSeconds)));
-            _clip.SetTime(_t); _graph.Evaluate(0f);
+            _clip.SetTime(_t); _clip.SetDone(false); _graph.Evaluate(0f);
             // la hoja es el collider: al moverse la geometría, los colliders (hijos de los huesos) acompañan automáticamente
             if (leafColliders != null) foreach (var c in leafColliders) if (c != null) c.enabled = true;
         }

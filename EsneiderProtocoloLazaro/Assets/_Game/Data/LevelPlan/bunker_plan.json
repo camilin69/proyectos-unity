@@ -1454,8 +1454,8 @@
    "id": "PICK-F01",
    "kind": "Flashlight",
    "space": "P01",
-   "x": 8,
-   "z": 24,
+   "x": 12,
+   "z": 12,
    "height": 0.9,
    "support": "carro",
    "amount": 1

@@ -16,6 +16,7 @@ namespace Esneider.Combat
         public GameObject owner;
         public bool Active { get; private set; }
         Vector3 _dir; float _born;
+        readonly Collider[] _overlaps = new Collider[16];
         static readonly Dictionary<ProjectileKind, Stack<Projectile>> _pool = new Dictionary<ProjectileKind, Stack<Projectile>>();
 
         public static Projectile Spawn(ProjectileKind kind, Vector3 origin, Vector3 dir, GameObject owner, int attackId, float damage)
@@ -60,20 +61,44 @@ namespace Esneider.Combat
             if (!Active) return;
             if (Time.time - _born > maxLife) { Despawn(); return; }
             var from = transform.position; var to = from + _dir * speed * Time.fixedDeltaTime;
+            // A player can step into the sphere between physics ticks. Sweeps omit
+            // colliders overlapping their origin, so resolve existing contacts first.
+            int count = Physics.OverlapSphereNonAlloc(from, radius, _overlaps, GameLayers.EnemyProjectileHitMask, QueryTriggerInteraction.Ignore);
+            var contacts = count == _overlaps.Length ? Physics.OverlapSphere(from, radius, GameLayers.EnemyProjectileHitMask, QueryTriggerInteraction.Ignore) : _overlaps;
+            if (contacts != _overlaps) count = contacts.Length;
+            Collider contact = null;
+            for (int i = 0; i < count; i++)
+            {
+                var c = contacts[i]; if (IsOwner(c)) continue;
+                // Solid cover wins ambiguous simultaneous overlaps at a wall edge.
+                if (contact == null || (GameLayers.CoverMask & (1 << c.gameObject.layer)) != 0) contact = c;
+            }
+            if (contact != null) { OnHit(contact, from); Despawn(); return; }
             float dist = (to - from).magnitude;
             if (Physics.SphereCast(from, radius, _dir, out var hit, dist, GameLayers.EnemyProjectileHitMask, QueryTriggerInteraction.Ignore))
             {
-                if (owner != null && (hit.collider.gameObject == owner || hit.collider.transform.IsChildOf(owner.transform))) { transform.position = to; return; }
-                OnHit(hit);
+                if (IsOwner(hit.collider))
+                {
+                    // Ignoring the shooter must not discard a target later in this same step.
+                    var hits = Physics.SphereCastAll(from, radius, _dir, dist, GameLayers.EnemyProjectileHitMask, QueryTriggerInteraction.Ignore);
+                    System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+                    bool found = false;
+                    foreach (var candidate in hits) if (!IsOwner(candidate.collider)) { hit = candidate; found = true; break; }
+                    if (!found) { transform.position = to; return; }
+                }
+                transform.position = from + _dir * hit.distance;
+                OnHit(hit.collider, hit.point);
                 Despawn();
                 return;
             }
             transform.position = to;
         }
 
-        void OnHit(RaycastHit hit)
+        bool IsOwner(Collider c) => owner != null && (c.gameObject == owner || c.transform.IsChildOf(owner.transform));
+
+        void OnHit(Collider collider, Vector3 point)
         {
-            var player = hit.collider.GetComponentInParent<Player.PlayerController>();
+            var player = collider.GetComponentInParent<Player.PlayerController>();
             if (player == null) return; // cobertura destruye el proyectil
             if (kind == ProjectileKind.Net)
             {
@@ -84,7 +109,7 @@ namespace Esneider.Combat
             else
             {
                 var hp = player.GetComponent<Health>();
-                hp?.ApplyDamage(new DamageInfo { amount = damage, attackId = attackId, source = owner, point = hit.point, direction = _dir, kind = kind.ToString() });
+                hp?.ApplyDamage(new DamageInfo { amount = damage, attackId = attackId, source = owner, point = point, direction = _dir, kind = kind.ToString() });
             }
         }
 

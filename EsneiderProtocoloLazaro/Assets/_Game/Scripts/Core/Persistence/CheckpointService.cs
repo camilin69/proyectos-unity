@@ -92,6 +92,7 @@ namespace Esneider.Core.Persistence
                 playerPosition = pc.transform.position, playerYaw = pc.transform.eulerAngles.y, health = pc.health.Current, stamina = pc.motor.stamina,
                 hasFlashlight = inv.hasFlashlight, hasCrowbar = inv.hasCrowbar, hasPistol = inv.hasPistol, hasShotgun = inv.hasShotgun,
                 activeWeapon = pc.actions.ActiveWeapon.HasValue ? pc.actions.ActiveWeapon.Value.ToString() : "",
+                hotbarOrder = inv.CaptureHotbar(), selectedSlot = inv.selectedSlot,
                 pistolMag = inv.pistolMag, pistolReserve = inv.pistolReserve, shotgunMag = inv.shotgunMag, shotgunReserve = inv.shotgunReserve,
                 syringeCount = inv.syringes, rationCount = inv.rations, flashlightOn = pc.flashlight != null && pc.flashlight.enabled,
                 world = reg.Snapshot(), finalCabinetCommitted = reg.HasFlag(ObjectiveService.FinalCabinet),
@@ -108,17 +109,27 @@ namespace Esneider.Core.Persistence
             flow?.SetState(GameState.Loading);
             foreach (var p in FindObjectsByType<Projectile>(FindObjectsSortMode.None)) p.Despawn();
             WorldStateRegistry.Session.Restore(data.world);
+            World.EventRunner.Instance?.ResetForCheckpoint();
+            foreach(var roomEvent in FindObjectsByType<World.RoomEvent>(FindObjectsInactive.Include,FindObjectsSortMode.None)) roomEvent.ResetForCheckpoint();
+            foreach(var speaker in FindObjectsByType<World.AnnouncementSpeaker>(FindObjectsInactive.Include,FindObjectsSortMode.None)) speaker.ResetForCheckpoint();
             foreach (var pe in FindObjectsByType<PersistentEntity>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-                if (WorldStateRegistry.Session.TryGet(pe.guid, out var s)) { pe.gameObject.SetActive(true); pe.Hydrate(s); }
+                if (!string.IsNullOrEmpty(pe.guid))
+                {
+                    if (WorldStateRegistry.Session.TryGet(pe.guid, out var s)) { pe.gameObject.SetActive(true); pe.Hydrate(s); }
+                    else pe.RestoreInitial();
+                }
             pc.ResetForRestore();
             pc.motor.Teleport(data.playerPosition, data.playerYaw);
-            pc.health.ResetTo(data.health); pc.motor.stamina = data.stamina;
+            pc.health.ResetTo(pc.health.maxHp); pc.motor.stamina = data.stamina;
             var inv = pc.inventory;
             inv.hasFlashlight = data.hasFlashlight; inv.hasCrowbar = data.hasCrowbar; inv.hasPistol = data.hasPistol; inv.hasShotgun = data.hasShotgun;
             inv.pistolMag = data.pistolMag; inv.pistolReserve = data.pistolReserve; inv.shotgunMag = data.shotgunMag; inv.shotgunReserve = data.shotgunReserve;
             inv.syringes = data.syringeCount; inv.rations = data.rationCount;
+            inv.documents.Clear(); foreach (var id in data.world.documents) inv.documents.Add(id);
             if (pc.flashlight != null) pc.flashlight.enabled = data.flashlightOn;
             pc.actions.RestoreActiveWeapon(data.activeWeapon);
+            inv.RestoreHotbar(data.hotbarOrder, data.selectedSlot);
+            if (data.hotbarOrder == null && pc.actions.ActiveWeapon.HasValue) inv.Select(inv.hotbarOrder.IndexOf(Inventory.ItemFor(pc.actions.ActiveWeapon.Value)));
             if (flow != null) { flow.attemptTime = data.elapsedPlaySeconds; flow.shotsFired = data.shotsFired; flow.enemiesKilled = data.kills; flow.physicsImpacts = data.collisionImpacts; flow.ResumeAttempt(); }
             LastConfirmed = data;
             Restored?.Invoke(data);

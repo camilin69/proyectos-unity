@@ -63,13 +63,14 @@ namespace Esneider.Tests
             Assert.IsTrue(sawPrepare, "pasa por Preparar (telegraph) antes de emitir");
             Assert.AreEqual(1, brain.attacksEmitted, "una emisión por ciclo");
             Assert.GreaterOrEqual(Time.time - t0, 1.2f + 1.1f - 0.1f, "confirmación + telegraph mínimos");
-            // la red viaja a 6 m/s: en ≤ 2 s captura o expira; tras captura la derrota llega en ≤ 2.5 s
+            // La red captura, pero permite escapar mediante pulsaciones de F.
             float e = Time.time;
             while (Time.time - e < 2.5f && !_pc.IsCaptured) yield return null;
             Assert.IsTrue(_pc.IsCaptured, "red válida en rango 3–9 m captura al jugador quieto");
             Assert.AreEqual(EnemyState.Executing, brain.State);
-            while (GameFlowController.Instance.AttemptOpen && Time.time - e < 6f) yield return null;
-            Assert.AreEqual("DERROTA_RED", GameFlowController.Instance.LastResult);
+            for(int i=0;i<_pc.captureEscapePresses;i++) { _pc.input.FlashlightPressed=true; yield return null; }
+            Assert.IsFalse(_pc.IsCaptured); Assert.IsTrue(GameFlowController.Instance.AttemptOpen);
+            Assert.AreEqual(EnemyState.Staggered,brain.State,"el captor abandona Executing al escapar");
         }
 
         [UnityTest]

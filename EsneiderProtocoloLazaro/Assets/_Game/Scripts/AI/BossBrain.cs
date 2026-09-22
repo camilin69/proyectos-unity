@@ -63,6 +63,7 @@ namespace Esneider.AI
         {
             if (State == BossState.Dead) return;
             LastTransition = State + "->" + next; State = next; _stateSince = Time.time;
+            _agent.updateRotation = next == BossState.Engage;
             if (debugLog) Debug.Log($"BOSS {stableId}: {LastTransition} t={Time.time:F2} phase={Phase} hp={_health?.Current}");
             switch (next)
             {
@@ -126,8 +127,8 @@ namespace Esneider.AI
                 case BossState.Prepare:
                 {
                     var a = Def(CurrentAttack); float telegraph = a.telegraph * AccessibilitySettings.TelegraphScale;
-                    if (CurrentAttack != "BOSS-PULSO") Face(_player.position, CurrentAttack == "BOSS-CARGA" ? 90f : 180f);
-                    if (StateTime >= telegraph) { Set(BossState.Attack); Emit(a); }
+                    Face(_player.position, CurrentAttack == "BOSS-CARGA" ? 90f : 180f);
+                    if (StateTime >= telegraph && FacingTarget) { Set(BossState.Attack); Emit(a); }
                     break;
                 }
                 case BossState.Attack:
@@ -195,6 +196,7 @@ namespace Esneider.AI
 
         void Emit(BossAttackDefinition a)
         {
+            if (!FacingTarget) return;
             _attackId = AttackIds.Next(); attacksEmitted++; Emitted.Add(a.id); _lastAttack = a.id;
             var hp = _player.GetComponent<Health>();
             switch (a.id)
@@ -253,6 +255,16 @@ namespace Esneider.AI
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(d), degPerSec * Time.deltaTime);
         }
 
+        public bool FacingTarget
+        {
+            get
+            {
+                if (_player == null) return false;
+                var direction = _player.position - transform.position; direction.y = 0;
+                return direction.sqrMagnitude < .001f || Vector3.Dot(transform.forward, direction.normalized) >= .966f;
+            }
+        }
+
         void ShowRing()
         {
             var a = Def("BOSS-PULSO");
@@ -276,9 +288,11 @@ namespace Esneider.AI
             foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Corpse;
             gameObject.layer = GameLayers.Corpse;
             _anim?.Play("Archivista_Death", false);
+            gameObject.GetOrAdd<Combat.RobotDestruction>().Explode(true);
             if (GameFlowController.Instance != null) GameFlowController.Instance.enemiesKilled++;
             // 61.3: permiso de salida y CP-07 antes de cualquier menú; pantalla de control: custodio local fuera de servicio
             ObjectiveService.Grant(ObjectiveService.BossDefeated); ObjectiveService.Complete("O10");
+            Audio.ProgressionMusic.Instance?.RefreshNow();
             var hud = FindFirstObjectByType<UI.HudController>(); hud?.HideBoss(); hud?.ShowMessage("Pantalla de control: custodio local fuera de servicio.", 5f);
             var pc = FindFirstObjectByType<Player.PlayerController>();
             if (pc != null && CheckpointService.Instance != null) CheckpointService.Instance.RequestCheckpoint("CP-07", pc, "REG-S4");
@@ -295,11 +309,13 @@ namespace Esneider.AI
             if (_agent.enabled && _agent.isOnNavMesh) _agent.isStopped = true; _agent.enabled = false;
             foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Corpse; gameObject.layer = GameLayers.Corpse;
             _anim?.Play("Archivista_Death", false); enabled = false;
+            gameObject.GetOrAdd<Combat.RobotDestruction>().HideForSnapshot();
         }
         public void ReviveForRestore()
         {
             EnsureRefs();
             if (State != BossState.Dead) return;
+            GetComponent<Combat.RobotDestruction>()?.RestoreVisuals();
             gameObject.layer = GameLayers.Enemy; foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Enemy;
             _agent.enabled = true; enabled = true; State = BossState.Dormant; LastTransition = "revive";
         }

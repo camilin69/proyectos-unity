@@ -56,6 +56,31 @@ namespace Esneider.EditorTools
                 var vol = root.transform.Find("Volume_" + region);
                 if (vol != null) { var ra = vol.gameObject.AddComponent<Audio.RegionAudio>(); ra.regionId = region; ra.ambienceBank = "SND-AMBI-" + region.Replace("REG-", ""); ra.reverb = region.StartsWith("REG-C") ? AudioReverbPreset.Hangar : region == "REG-S3" ? AudioReverbPreset.Room : region == "REG-S4" ? AudioReverbPreset.Auditorium : AudioReverbPreset.StoneCorridor; }
                 BuildExteriorDressing(plan, region, root.transform, root.transform.Find("Entities"));
+                if (region == "REG-S1") S1VisualPass.Apply(root.transform);
+                if (region == "REG-S1") MedicalPlacement.Apply(root.transform);
+                summary.Add(CabinetPlacement.Apply(root.transform, region));
+                if (region == "REG-S1") summary.Add(RubbleReview.Apply(root.transform));
+                if (region == "REG-S3") summary.Add(ClinicalPlacement.Apply(root.transform));
+                if (region == "REG-S3") summary.Add(ClinicalDeviceReview.Apply(root.transform));
+                if (region == "REG-S3") summary.Add(ClinicalColumnReview.Apply(root.transform));
+                if (region == "REG-S3") summary.Add(ClinicalArmReview.Apply(root.transform));
+                summary.Add(AdmissionPropsReview.Apply(root.transform,region));
+                if(region=="REG-S1")summary.Add(ServicePanelReview.Apply(root.transform));
+                if(region=="REG-S2")summary.Add(DistributionPanelReview.Apply(root.transform));
+                summary.Add(UtilityFixturesReview.Apply(root.transform,region));
+                summary.Add(AmmoCaseReview.Apply(root.transform,region));
+                summary.Add(NavigationSignReview.Apply(root.transform,region));
+                summary.Add(RationReview.Apply(root.transform,region));
+                summary.Add(SubjectPlateReview.Apply(root.transform,region));
+                summary.Add(LegacyHeadReview.Apply(root.transform,region));
+                summary.Add(ObservationGlassReview.Apply(root.transform,region));
+                summary.Add(PreservationConsoleReview.Apply(root.transform,region));
+                summary.Add(SleepingAdultReview.Apply(root.transform,region));
+                summary.Add(GraftedAdultReview.Apply(root.transform,region));
+                summary.Add(DeterioratedAdultReview.Apply(root.transform,region));
+                summary.Add(CellHorrorRepair.Apply(root.transform,region));
+                summary.Add(EncounterRepair.ApplyRegion(root.transform,region));
+                WeaponCabinetFacing.Apply(root.transform, region);
                 summary.Add("hero: " + string.Join(",", hero));
                 BakeNavMesh(root, region);
 
@@ -394,7 +419,8 @@ namespace Esneider.EditorTools
             var p01 = plan.Floor("P01").origin.ToVector3();
             probe.route = new[] { p01 + new Vector3(11, 0, 10), p01 + new Vector3(17, 0, 10), p01 + new Vector3(17, 0, 24), p01 + new Vector3(8, 0, 24), p01 + new Vector3(17, 0, 24), p01 + new Vector3(17, 0, 8), p01 + new Vector3(30, 0, 13) };
             // 16: niebla global moderada, ambiente bajo (luz de terror); la luz neutra de revisión vive en Art_Showcase
-            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat; RenderSettings.ambientLight = new Color(0.045f, 0.05f, 0.06f);
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat; RenderSettings.ambientLight = new Color(0.004f, 0.005f, 0.007f);
+            RenderSettings.skybox=null;RenderSettings.reflectionIntensity=.05f;
             RenderSettings.fog = true; RenderSettings.fogMode = FogMode.ExponentialSquared; RenderSettings.fogDensity = 0.018f; RenderSettings.fogColor = new Color(0.03f, 0.035f, 0.04f);
             var streamer = systems.AddComponent<RegionStreamer>(); streamer.initialRegion = "REG-S1";
             var cp0 = plan.checkpoints.Find(c => c.id == "CP-00"); plan.TryToWorld(cp0.space, cp0.x, cp0.z, out var start);
@@ -408,7 +434,7 @@ namespace Esneider.EditorTools
             var planText = AssetDatabase.LoadAssetAtPath<TextAsset>(LevelPlan.DefaultAssetPath);
             var menu = new GameObject("Menus").AddComponent<UI.MenuController>(); menu.planJson = planText;
             systems.AddComponent<RoomDiscovery>().planJson = planText;
-            var light = new GameObject("Light").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(50, 30, 0); light.intensity = 0.7f;
+            // Interior illumination comes from local fixtures and the player's flashlight.
             EditorSceneManager.SaveScene(scene, BootPath);
         }
 

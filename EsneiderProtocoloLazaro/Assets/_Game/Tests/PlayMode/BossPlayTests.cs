@@ -90,6 +90,29 @@ namespace Esneider.Tests
         }
 
         [UnityTest]
+        public IEnumerator BossCannotEmitBackwardAndItsVisualFaceMatchesGameplayForward()
+        {
+            _boss.enabled = false;
+            _pc.motor.Teleport(_boss.transform.position + Vector3.forward * 5, 180);
+            var type = typeof(BossBrain);
+            type.GetMethod("Set", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(_boss, new object[] { BossState.Prepare });
+            Assert.IsFalse(_boss.GetComponent<UnityEngine.AI.NavMeshAgent>().updateRotation);
+            var emit = type.GetMethod("Emit", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            var attack = _boss.definition.attacks.Find(a => a.id == "BOSS-RAYO");
+            int before = _boss.attacksEmitted;
+            _boss.transform.rotation = Quaternion.Euler(0, 180, 0);
+            Assert.IsFalse(_boss.FacingTarget); emit.Invoke(_boss, new object[] { attack });
+            Assert.AreEqual(before, _boss.attacksEmitted);
+            _boss.transform.rotation = Quaternion.identity;
+            Assert.IsTrue(_boss.FacingTarget); emit.Invoke(_boss, new object[] { attack });
+            Assert.AreEqual(before + 1, _boss.attacksEmitted);
+            var view = _boss.GetComponent<EnemyAnimator>();
+            yield return null;
+            Assert.Greater(Vector3.Dot(view.animator.transform.TransformDirection(Vector3.back), _boss.transform.forward), .99f,
+                "The Archivista chest/face (-Z in the imported model) must match gameplay forward after attack animation evaluation");
+        }
+
+        [UnityTest]
         public IEnumerator Boss_Death_GrantsExit_CP07_AndRetryFromCP06Revives()
         {
             // CP-06 antes del combate (refugio: garantía idempotente)
@@ -99,6 +122,10 @@ namespace Esneider.Tests
             _pc.motor.Teleport(W(40f, 22f), 180f); yield return WaitState(BossState.Engage, 6f);
             Hit(1200f); yield return null;
             Assert.IsTrue(_boss.IsDead); Assert.IsTrue(ObjectiveService.Has(ObjectiveService.BossDefeated)); Assert.IsTrue(WorldStateRegistry.Session.HasObjective("O10"));
+            var destruction = _boss.GetComponent<Esneider.Combat.RobotDestruction>();
+            Assert.IsNotNull(destruction); Assert.IsTrue(destruction.Hidden); Assert.AreEqual(1, destruction.BurstCount);
+            Assert.Greater(destruction.FragmentCount, 36);
+            Assert.IsTrue(Esneider.Audio.ProgressionMusic.Instance.IsSilent, "Boss death cuts the score immediately");
             Assert.IsTrue(ObjectiveService.DoorAllowed("D28A"), "D28 se abre con el jefe derrotado");
             Assert.IsFalse(ObjectiveService.DoorAllowed("D29"), "D29 exige además el panel final");
             float t0 = Time.time; while ((CheckpointService.Instance.LastConfirmed == null || CheckpointService.Instance.LastConfirmed.checkpointId != "CP-07") && Time.time - t0 < 5f) yield return null;
@@ -107,6 +134,7 @@ namespace Esneider.Tests
             // retry desde CP-06: jefe vivo, fase I, EVT-21 pendiente, permiso retirado
             Assert.IsTrue(CheckpointService.Instance.RestoreInto(cp06, _pc)); yield return null; yield return null;
             Assert.IsFalse(_boss.IsDead, "el registro manda: jefe vivo al cargar CP-06");
+            Assert.IsFalse(destruction.Hidden); Assert.AreEqual(0, destruction.FragmentCount);
             Assert.AreEqual(1, _boss.Phase); Assert.AreEqual(BossState.Dormant, _boss.State);
             Assert.IsFalse(ObjectiveService.Has(ObjectiveService.BossDefeated)); Assert.IsFalse(EventRunner.Instance.IsDone("EVT-21"));
             Assert.AreEqual(1200f, _bhp.Current, 0.5f);

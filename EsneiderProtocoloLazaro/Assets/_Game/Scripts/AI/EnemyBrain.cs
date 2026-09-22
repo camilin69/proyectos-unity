@@ -83,6 +83,7 @@ namespace Esneider.AI
             if (State == EnemyState.Dead) return;
             var prev = State;
             LastTransition = State + "->" + next; State = next; _stateSince = Time.time;
+            _agent.updateRotation = next != EnemyState.Prepare && next != EnemyState.Attack && next != EnemyState.Recover;
             AnyStateChanged?.Invoke(this, prev, next);
             switch (next)
             {
@@ -150,6 +151,10 @@ namespace Esneider.AI
                     break;
                 case EnemyState.Chase:
                     Resume();
+                    // Keep the face toward a visible target even while retreating. Navigation
+                    // still supplies position, but must not turn the body toward the escape path.
+                    _agent.updateRotation = !sees;
+                    if (sees && _player != null) FaceTowards(_player.position);
                     if (!sees && Time.time - _perception.lastSeenTime > 1.5f) { Transition(EnemyState.Search); break; }
                     // la última posición conocida la fija la percepción en el instante en que ve (14: sin omnisciencia)
                     bool inRange = dist >= definition.attackRangeMin && dist <= definition.attackRangeMax;
@@ -164,9 +169,10 @@ namespace Esneider.AI
                     EncounterDirector.Instance?.Heartbeat(this);
                     if (!sees) { Transition(EnemyState.Chase); break; } // perder visión cancela red/rayo (78.2)
                     float telegraph = (tutorialTelegraph ? definition.telegraphTutorial : definition.telegraph) * AccessibilitySettings.TelegraphScale; // 80.3 asistencia explícita
-                    if (StateTime >= telegraph && EncounterDirector.Instance.CanEmitNow()) Transition(EnemyState.Attack);
+                    if (StateTime >= telegraph && FacingTarget && EncounterDirector.Instance.CanEmitNow()) Transition(EnemyState.Attack);
                     break;
                 case EnemyState.Attack:
+                    FaceTowards(_player.position);
                     Emit();
                     Transition(EnemyState.Recover);
                     break;
@@ -202,9 +208,15 @@ namespace Esneider.AI
 
         void Emit()
         {
-            _currentAttackId = AttackIds.Next(); attacksEmitted++;
+            if (!FacingTarget) return;
+            // Recheck at release: perception is sampled at 10 Hz and a door can close between samples.
+            _perception.Sense(0f);
+            if (!_perception.SeesTarget) return;
             var origin = muzzle != null ? muzzle.position : transform.position + Vector3.up * 1.0f + transform.forward * 0.5f;
             var aim = (_player.position + Vector3.up * 1.0f) - origin; // apuntar al punto del jugador al liberar, sin perseguirlo (12.1)
+            if (Physics.Linecast(origin, origin + aim, GameLayers.VisionBlockMask, QueryTriggerInteraction.Ignore)
+                || Physics.Linecast(origin + aim, origin, GameLayers.VisionBlockMask, QueryTriggerInteraction.Ignore)) return;
+            _currentAttackId = AttackIds.Next(); attacksEmitted++;
             var kind = definition.kind == EnemyKind.Vigia ? ProjectileKind.Net : ProjectileKind.Bolt;
             Projectile.Spawn(kind, origin, aim, gameObject, _currentAttackId, definition.attackDamage * (kind == ProjectileKind.Bolt ? AccessibilitySettings.RayDamageScale : 1f));
             EncounterDirector.Instance?.RegisterEmission();
@@ -240,6 +252,16 @@ namespace Esneider.AI
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(d), degPerSec * Time.deltaTime);
         }
 
+        public bool FacingTarget
+        {
+            get
+            {
+                if (_player == null) return false;
+                var direction = _player.position - transform.position; direction.y = 0;
+                return direction.sqrMagnitude < .001f || Vector3.Dot(transform.forward, direction.normalized) >= .966f;
+            }
+        }
+
         void OnDamaged(DamageInfo info, float remaining)
         {
             _perception.OnDamaged(info);
@@ -263,12 +285,13 @@ namespace Esneider.AI
             if (_agent.isOnNavMesh) _agent.isStopped = true; _agent.enabled = false;
             foreach (var c in GetComponentsInChildren<Collider>()) { c.gameObject.layer = GameLayers.Corpse; }
             gameObject.layer = GameLayers.Corpse;
-            transform.rotation = Quaternion.Euler(80f, transform.eulerAngles.y, 0f);
+            gameObject.GetOrAdd<RobotDestruction>().Explode(false);
             if (GameFlowController.Instance != null) GameFlowController.Instance.enemiesKilled++;
             enabled = false;
         }
 
-        public void OnNetCaptured(Player.PlayerController player) { if (State != EnemyState.Dead) Transition(EnemyState.Executing); }
+        public void OnNetCaptured(Player.PlayerController player) { if (State != EnemyState.Dead && player.IsCaptured && player.CaptureSource==gameObject) Transition(EnemyState.Executing); }
+        public void OnCaptureEscaped() { if (State==EnemyState.Executing) Transition(EnemyState.Staggered); }
 
         // ---- persistencia (19/88.6): solo estados estables ----
         public string StableMode => State == EnemyState.Dead ? "Dead" : State == EnemyState.Inactive ? "Inactive" : "Patrol";
@@ -295,7 +318,7 @@ namespace Esneider.AI
             if (_agent.enabled && _agent.isOnNavMesh) _agent.isStopped = true; _agent.enabled = false;
             foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Corpse;
             gameObject.layer = GameLayers.Corpse;
-            transform.rotation = Quaternion.Euler(80f, transform.eulerAngles.y, 0f);
+            gameObject.GetOrAdd<RobotDestruction>().HideForSnapshot();
             enabled = false;
         }
 
@@ -311,6 +334,7 @@ namespace Esneider.AI
         {
             EnsureRefs();
             if (State != EnemyState.Dead) return;
+            GetComponent<RobotDestruction>()?.RestoreVisuals();
             gameObject.layer = GameLayers.Enemy;
             foreach (var c in GetComponentsInChildren<Collider>()) c.gameObject.layer = GameLayers.Enemy;
             transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);

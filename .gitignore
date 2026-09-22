@@ -8,6 +8,8 @@
 **/[Uu]ser[Ss]ettings/
 **/[Mm]emoryCaptures/
 **/[Rr]ecordings/
+**/Assets/_Recovery/
+**/Assets/_Recovery.meta
 **/.vs/
 **/.idea/
 **/*.csproj
@@ -38,3 +40,14 @@ Thumbs.db
 
 # Builds de jugador (91.5: el paquete de entrega se registra por hash, no se versiona)
 Builds/
+
+# Archivos locales de entrega y herramientas
+/Entrega/
+Gameplay/
+*.mkv
+.codex/
+/unity-repo-validation.log
+
+# Evidencias de produccion que no son necesarias para abrir el proyecto
+SourceArt/_evidence/
+docs/produccion/evidencia/

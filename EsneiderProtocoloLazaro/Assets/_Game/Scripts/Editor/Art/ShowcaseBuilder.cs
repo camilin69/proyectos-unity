@@ -69,7 +69,7 @@ namespace Esneider.EditorTools
             var vm = pivot.GetComponent<Player.ViewmodelController>() ?? pivot.gameObject.AddComponent<Player.ViewmodelController>();
             vm.actions = player.GetComponent<Player.PlayerActions>(); vm.cameraPivot = pivot;
             vm.armsPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("CHR-01_Arms"));
-            vm.crowbarPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-01_Crowbar")); vm.pistolPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-02_Pistol")); vm.shotgunPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-03_Shotgun")); vm.flashlightPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-04_Flashlight"));
+            vm.crowbarPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-01_Crowbar")); vm.pistolPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-02_Pistol")); vm.shotgunPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-03_Shotgun")); vm.flashlightPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("WPN-04_Flashlight")); vm.syringePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab("PRP-Syringe"));
             vm.armClips = AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Models/CHR-01_Arms.fbx").OfType<AnimationClip>().Where(c => !c.name.StartsWith("__")).ToArray();
         }
     }

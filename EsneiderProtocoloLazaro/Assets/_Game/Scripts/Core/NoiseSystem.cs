@@ -30,8 +30,10 @@ namespace Esneider.Core
             if (dist < 0.01f) return e.radius;
             int hits = Physics.RaycastNonAlloc(e.position, dir / dist, _buffer, dist, GameLayers.VisionBlockMask, QueryTriggerInteraction.Ignore);
             if (hits == 0) return e.radius;
-            for (int i = 0; i < hits; i++) if (_buffer[i].collider.GetComponentInParent<World.Door>() != null) return e.radius * 0.35f;
-            return 0f;
+            if (hits == _buffer.Length) return 0f; // Never infer a clear path from truncated obstruction data.
+            for (int i = 0; i < hits; i++)
+                if (_buffer[i].collider.GetComponentInParent<World.Door>() == null) return 0f;
+            return e.radius * 0.35f;
         }
 
         static readonly RaycastHit[] _buffer = new RaycastHit[8];

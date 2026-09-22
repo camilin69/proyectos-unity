@@ -13,9 +13,11 @@ namespace Esneider.World
         public float alertDelay = 0.4f;
         public string subtitle = "Atención. Se ha detectado presencia humana no registrada en las instalaciones. Unidades de contención: procedan con cautela. Recuperación prioritaria.";
         Door _door; bool _armed = true;
+        public void ResetForCheckpoint() { StopAllCoroutines(); _armed=!WorldStateRegistry.Session.IsEventDone("EVT-C1"); }
 
         void Update()
         {
+            if(GameFlowController.Instance != null && !GameFlowController.Instance.GameplayActive) return;
             if (!_armed || EventRunner.Instance == null) return;
             if (_door == null) { foreach (var d in FindObjectsByType<Door>(FindObjectsSortMode.None)) if (d.doorId == doorId) _door = d; if (_door == null) return; }
             if (!_door.isOpen) return;

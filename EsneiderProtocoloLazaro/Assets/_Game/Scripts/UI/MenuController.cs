@@ -20,6 +20,8 @@ namespace Esneider.UI
     {
         public static MenuController Instance { get; private set; }
         public static bool SkipTitle; // pruebas automáticas y builds -autotest
+        static bool _newGamePending;
+        static string _newGameSaveDirectory;
         public TextAsset planJson;
         public bool Modal { get; private set; }
         public string Current { get; private set; } = "";
@@ -45,11 +47,13 @@ namespace Esneider.UI
 
         IEnumerator Start()
         {
+            bool startingNewGame=_newGamePending;_newGamePending=false;
+            if(startingNewGame && CheckpointService.Instance != null) CheckpointService.Instance.saveDirectoryOverride=_newGameSaveDirectory;
             yield return null;
             _pc = FindFirstObjectByType<PlayerController>(); _flow = GameFlowController.Instance;
             ApplySettings();
             if (_flow != null) _flow.StateChanged += OnState;
-            if (!SkipTitle) ShowTitle();
+            if (!SkipTitle && !startingNewGame) ShowTitle();
         }
 
         void OnState(GameState prev, GameState next)
@@ -57,6 +61,7 @@ namespace Esneider.UI
             if (next == GameState.Paused && !IsOpen) ShowPause();
             else if (next == GameState.Playing && IsOpen && !Modal) Hide();
             else if (next == GameState.Dead || next == GameState.Captured) StartCoroutine(DefeatAfter(1.5f));
+            ApplyCursor();   // siempre, aunque ningún panel cambie: es el estado quien manda
         }
         IEnumerator DefeatAfter(float s) { yield return new WaitForSecondsRealtime(s); if (_flow != null && (_flow.State == GameState.Dead || _flow.State == GameState.Captured)) ShowDefeat(); }
 
@@ -80,7 +85,16 @@ namespace Esneider.UI
             Button(p, "Cancelar", ShowTitle);
             Show("ConfirmNew");
         }
-        void NewGame() { Hide(); if (_flow != null) { if (_flow.State == GameState.Boot) _flow.StartAttempt(); else _flow.SetState(GameState.Playing); } }
+        void NewGame()
+        {
+            Hide();
+            _newGamePending=true;
+            _newGameSaveDirectory=CheckpointService.Instance != null ? CheckpointService.Instance.saveDirectoryOverride : "";
+            _flow?.SetState(GameState.Loading);
+            WorldStateRegistry.ResetSession();
+            Time.timeScale=1f;
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("BOOT",UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
         IEnumerator ContinueSaved()
         {
             var cps = CheckpointService.Instance; var data = cps.LoadFromDisk(out var src);
@@ -137,7 +151,7 @@ namespace Esneider.UI
 
         void ShowControls(string back)
         {
-            var p = Panel("Controls", "CONTROLES\n\nWASD moverse · Shift correr · Ctrl agacharse · Espacio saltar\nRatón mirar · Clic izq. atacar/disparar · R recargar · F linterna\n1/2/3 o rueda cambiar arma · Q curar · E interactuar · Esc pausa\nEnter reintentar tras derrota", false);
+            var p = Panel("Controls", "CONTROLES\n\nWASD moverse · Shift correr · Ctrl agacharse · Espacio saltar\nRatón mirar · Clic izq. usar/atacar · Clic der. linterna\n1–9 o rueda seleccionar casilla · H curar · E interactuar · Esc pausa\nEnter reintentar tras derrota", false);
             Button(p, "Volver", () => Show(back));
             Show("Controls");
         }
@@ -145,6 +159,7 @@ namespace Esneider.UI
         void ShowSettings(string back)
         {
             _settings.Clear();
+            _settings.Add(("Pantalla completa (Alt + Enter)", () => AccessibilitySettings.Fullscreen ? "Sí" : "No", d => AccessibilitySettings.Fullscreen = !AccessibilitySettings.Fullscreen));
             _settings.Add(("Sensibilidad", () => AccessibilitySettings.Sensitivity.ToString("0.00"), d => AccessibilitySettings.Sensitivity = Mathf.Clamp(AccessibilitySettings.Sensitivity + 0.02f * d, 0.04f, 0.40f)));
             _settings.Add(("Invertir eje Y", () => AccessibilitySettings.InvertY ? "Sí" : "No", d => AccessibilitySettings.InvertY = !AccessibilitySettings.InvertY));
             _settings.Add(("FOV vertical", () => AccessibilitySettings.Fov.ToString("0") + "°", d => AccessibilitySettings.Fov = Mathf.Clamp(AccessibilitySettings.Fov + 5f * d, 70f, 100f)));
@@ -153,7 +168,7 @@ namespace Esneider.UI
             _settings.Add(("Balanceo de cámara", () => AccessibilitySettings.HeadBob ? "Sí" : "No", d => AccessibilitySettings.HeadBob = !AccessibilitySettings.HeadBob));
             _settings.Add(("Asistencia (telegraph +25 %, rayos −20 %)", () => AccessibilitySettings.Assist ? "Activa" : "No", d => AccessibilitySettings.SetAssist(!AccessibilitySettings.Assist)));
             _settings.Add(("Volumen maestro", () => Mathf.RoundToInt(AccessibilitySettings.MasterVolume * 100) + " %", d => AccessibilitySettings.MasterVolume = Mathf.Clamp01(AccessibilitySettings.MasterVolume + 0.1f * d)));
-            var p = Panel("Settings", "AJUSTES (se aplican al confirmar; cargar un checkpoint no los revierte)", false);
+            var p = Panel("Settings", "AJUSTES (se aplican al confirmar; cargar un checkpoint no los revierte)", false, 1000, 680);
             foreach (var s in _settings) SettingRow(p, s.label, s.value, s.change);
             Button(p, "Aplicar y volver", () => { AccessibilitySettings.Save(); ApplySettings(); Show(back); });
             Button(p, "Cancelar", () => { AccessibilitySettings.Load(); ApplySettings(); Show(back); });
@@ -161,11 +176,35 @@ namespace Esneider.UI
         }
         public void ApplySettings()
         {
+            AccessibilitySettings.ApplyDisplay();
             if (_pc == null) _pc = FindFirstObjectByType<PlayerController>();
             if (_pc != null) { _pc.look.sensitivity = AccessibilitySettings.Sensitivity; _pc.look.invertY = AccessibilitySettings.InvertY; _pc.look.SetFov(AccessibilitySettings.Fov); }
             AudioListener.volume = AccessibilitySettings.MasterVolume;
             var hud = FindFirstObjectByType<HudController>(); if (hud != null) { hud.subtitles = AccessibilitySettings.Subtitles; hud.SetTextScale(AccessibilitySettings.TextScale); }
             var vm = FindFirstObjectByType<ViewmodelController>(); if (vm != null) vm.bobEnabled = AccessibilitySettings.HeadBob;
+        }
+
+        public void ReadDocument(string id)
+        {
+            var document = DocumentLibrary.Get(id);
+            _flow = _flow != null ? _flow : GameFlowController.Instance;
+            _flow?.SetState(GameState.Paused);
+            var panel = Panel("ReadDocument", document != null ? document.title : id, false, 1040, 640);
+            var viewport = new GameObject("ReadingArea", typeof(RectTransform), typeof(Image), typeof(RectMask2D), typeof(ScrollRect));
+            viewport.transform.SetParent(panel.transform, false);
+            viewport.GetComponent<Image>().color = new Color(.06f,.075f,.08f,1);
+            viewport.AddComponent<LayoutElement>().preferredHeight = 450;
+            var body = new GameObject("DocumentText", typeof(RectTransform), typeof(Text), typeof(ContentSizeFitter));
+            body.transform.SetParent(viewport.transform, false);
+            var text = body.GetComponent<Text>(); text.font = _font; text.fontSize = 20; text.color = new Color(.92f,.91f,.85f);
+            text.alignment = TextAnchor.UpperLeft; text.supportRichText = false;
+            text.text = document != null ? document.support + "\n\n" + document.text : "Texto no disponible: " + id;
+            var rt = text.rectTransform; rt.anchorMin = new Vector2(0,1); rt.anchorMax = Vector2.one; rt.pivot = new Vector2(.5f,1);
+            rt.sizeDelta = new Vector2(-32,0); rt.anchoredPosition = new Vector2(0,-12);
+            body.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            var scroll = viewport.GetComponent<ScrollRect>(); scroll.horizontal = false; scroll.viewport = viewport.GetComponent<RectTransform>(); scroll.content = rt;
+            Button(panel, "Cerrar y volver al juego (Esc)", Resume);
+            Show("ReadDocument");
         }
 
         void ShowDocuments(string back)
@@ -234,7 +273,7 @@ namespace Esneider.UI
         {
             foreach (var kv in _panels) kv.Value.SetActive(kv.Key == name);
             Current = name; Modal = name == "Title" || name == "ConfirmNew" || name == "Defeat" || name == "Victory" || name == "Credits";
-            Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
+            ApplyCursor();
             var first = _panels[name].GetComponentInChildren<Button>();
             if (first != null && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(first.gameObject);
         }
@@ -242,7 +281,17 @@ namespace Esneider.UI
         {
             foreach (var kv in _panels) kv.Value.SetActive(false);
             Current = ""; Modal = false;
-            if (_flow == null || _flow.State == GameState.Playing) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
+            ApplyCursor();
+        }
+
+        // El cursor depende del ESTADO del juego, no del instante en que se cierra un panel. Hide() se llamaba
+        // ANTES de pasar a Playing (empezar partida, cargar checkpoint, reanudar desde pausa), así que la
+        // condición "estado == Playing" era falsa y el ratón se quedaba suelto durante toda la partida.
+        public void ApplyCursor()
+        {
+            bool libre = IsOpen || (_flow != null && _flow.State != GameState.Playing);
+            Cursor.lockState = libre ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = libre;
         }
 
         GameObject Panel(string name, string title, bool modal, float w = 900f, float h = 560f)

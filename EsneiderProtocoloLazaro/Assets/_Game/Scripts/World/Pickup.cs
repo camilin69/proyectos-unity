@@ -34,12 +34,24 @@ namespace Esneider.World
             int accepted = inv.TryPickup(this);
             if (accepted <= 0) { inv.Notify("No cabe más"); return; }
             amount -= accepted;
+            // Equip only the first weapon; later pickups keep the player's selection.
+            var actions = inv.GetComponent<Player.PlayerActions>();
+            if (actions != null && inv.SelectedItem == kind && !actions.ActiveWeapon.HasValue && !actions.Busy)
+            {
+                if (kind == PickupKind.Crowbar) actions.RequestEquip(Core.Data.WeaponKind.Melee);
+                else if (kind == PickupKind.Pistol) actions.RequestEquip(Core.Data.WeaponKind.Pistol);
+                else if (kind == PickupKind.Shotgun) actions.RequestEquip(Core.Data.WeaponKind.Shotgun);
+            }
             GetComponent<PersistentEntity>()?.NotifyPickupTaken(amount);
             // EVT-02/04/09/17 (93): recogida = evento I con compromiso de objetivo (70.1)
             if (kind == PickupKind.Crowbar) Core.ObjectiveService.Complete("O02");
             else if (kind == PickupKind.Pistol) Core.ObjectiveService.Complete("O04");
             else if (kind == PickupKind.Shotgun) Core.ObjectiveService.Complete("O07");
-            else if (kind == PickupKind.Document && !string.IsNullOrEmpty(documentId)) Core.Persistence.WorldStateRegistry.Session.MarkDocumentRead(documentId);
+            else if (kind == PickupKind.Document && !string.IsNullOrEmpty(documentId))
+            {
+                Core.Persistence.WorldStateRegistry.Session.MarkDocumentRead(documentId);
+                UI.MenuController.Instance?.ReadDocument(documentId);
+            }
             if (amount <= 0) gameObject.SetActive(false);
         }
     }

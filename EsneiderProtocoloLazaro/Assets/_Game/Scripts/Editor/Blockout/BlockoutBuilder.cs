@@ -127,7 +127,7 @@ namespace Esneider.EditorTools
             }
 
             // Escaleras cuya base está en esta planta
-            foreach (var s in plan.stairs.Where(x => x.lowerFloor == f.id)) BuildStairs(s, geo);
+            foreach (var s in plan.stairs.Where(x => x.lowerFloor == f.id)) BuildStairs(s, geo, f.height);
 
             // Pilares de arena
             foreach (var p in plan.pillars.Where(x => x.space == f.id))
@@ -199,9 +199,17 @@ namespace Esneider.EditorTools
         }
 
         // ---------- escaleras como rampas de colisión (68.3) ----------
-        static void BuildStairs(PlanStairs s, Transform geo)
+        static void BuildStairs(PlanStairs s, Transform geo, float floorHeight)
         {
             var root = new GameObject(s.id).transform; root.SetParent(geo, false);
+            if(s.rise>floorHeight)
+            {
+                var shell=new GameObject("ShaftGapClosure").transform;shell.SetParent(root,false);
+                MakeBox(shell,"West",_matStairs,new Box(s.x-.2f,s.z-.2f,s.x,s.z+s.d+.2f),floorHeight-.02f,s.rise+.02f);
+                MakeBox(shell,"East",_matStairs,new Box(s.x+s.w,s.z-.2f,s.x+s.w+.2f,s.z+s.d+.2f),floorHeight-.02f,s.rise+.02f);
+                MakeBox(shell,"South",_matStairs,new Box(s.x,s.z-.2f,s.x+s.w,s.z),floorHeight-.02f,s.rise+.02f);
+                MakeBox(shell,"North",_matStairs,new Box(s.x,s.z+s.d,s.x+s.w,s.z+s.d+.2f),floorHeight-.02f,s.rise+.02f);
+            }
             bool alongZ = s.axis != "x";
             float axisLen = alongZ ? s.d : s.w;
             float crossLen = alongZ ? s.w : s.d;

@@ -15,6 +15,7 @@ namespace Esneider.Player
         public bool CrouchPressed, JumpPressed, InteractPressed, FlashlightPressed, FirePressed, ReloadPressed, HealPressed, InventoryPressed, PausePressed, RestartPressed;
         public int WeaponSlotPressed = -1;
         public int ScrollDelta;
+        public bool EscapeNetPressed;
         public bool crouchToggle = true;
 
         InputActionMap _map;
@@ -29,13 +30,17 @@ namespace Esneider.Player
             var crouch = _map.AddAction("Crouch", InputActionType.Button, "<Keyboard>/leftCtrl");
             var jump = _map.AddAction("Jump", InputActionType.Button, "<Keyboard>/space");
             var interact = _map.AddAction("Interact", InputActionType.Button, "<Keyboard>/e");
-            var flash = _map.AddAction("Flashlight", InputActionType.Button, "<Keyboard>/f");
+            var flash = _map.AddAction("Flashlight", InputActionType.Button, "<Mouse>/rightButton");
+            var escapeNet = _map.AddAction("EscapeNet", InputActionType.Button, "<Keyboard>/f");
             var fire = _map.AddAction("Fire", InputActionType.Button, "<Mouse>/leftButton");
-            var aim = _map.AddAction("Aim", InputActionType.Button, "<Mouse>/rightButton");
+            var aim = _map.AddAction("Aim", InputActionType.Button);
             var reload = _map.AddAction("Reload", InputActionType.Button, "<Keyboard>/r");
-            var w1 = _map.AddAction("Weapon1", InputActionType.Button, "<Keyboard>/1");
-            var w2 = _map.AddAction("Weapon2", InputActionType.Button, "<Keyboard>/2");
-            var w3 = _map.AddAction("Weapon3", InputActionType.Button, "<Keyboard>/3");
+            for (int i = 1; i <= Inventory.SlotCount; i++)
+            {
+                int slot = i;
+                var select = _map.AddAction("Slot" + slot, InputActionType.Button, "<Keyboard>/" + slot);
+                select.performed += _ => WeaponSlotPressed = slot;
+            }
             var heal = _map.AddAction("Heal", InputActionType.Button, "<Keyboard>/h");
             var inv = _map.AddAction("Inventory", InputActionType.Button, "<Keyboard>/tab");
             var pause = _map.AddAction("Pause", InputActionType.Button, "<Keyboard>/escape");
@@ -46,15 +51,13 @@ namespace Esneider.Player
             jump.performed += _ => JumpPressed = true;
             interact.performed += _ => InteractPressed = true;
             flash.performed += _ => FlashlightPressed = true;
+            escapeNet.performed += _ => EscapeNetPressed = true;
             fire.performed += _ => FirePressed = true;
             reload.performed += _ => ReloadPressed = true;
             heal.performed += _ => HealPressed = true;
             inv.performed += _ => InventoryPressed = true;
             pause.performed += _ => PausePressed = true;
             restart.performed += _ => RestartPressed = true;
-            w1.performed += _ => WeaponSlotPressed = 1;
-            w2.performed += _ => WeaponSlotPressed = 2;
-            w3.performed += _ => WeaponSlotPressed = 3;
             scroll.performed += c => { float v = c.ReadValue<float>(); if (Mathf.Abs(v) > 0.01f) ScrollDelta = v > 0 ? 1 : -1; };
             _move = move; _look = look; _run = run; _aim = aim; _fire = fire; _crouch = crouch;
         }
@@ -80,6 +83,7 @@ namespace Esneider.Player
         {
             CrouchPressed = JumpPressed = InteractPressed = FlashlightPressed = FirePressed = ReloadPressed = HealPressed = InventoryPressed = PausePressed = RestartPressed = false;
             WeaponSlotPressed = -1; ScrollDelta = 0;
+            EscapeNetPressed = false;
         }
     }
 }

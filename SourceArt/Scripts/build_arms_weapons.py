@@ -478,19 +478,22 @@ elif WHICH == "syringe":
     # Se ve en la mano durante la curación: el tapón de goma dentro del cilindro, la varilla en cruz,
     # el cono luer con su collarín y las estrías de la tapa son lo que lo vuelve un objeto y no un tubo.
     ASSET = "PRP-Syringe"; col = L.collection(ASSET); P = []
-    body = L.cyl("body", 0.009, 0.09, (0, 0, 0), col, axis='Y', verts=12, bevel=0.0012); L.assign(body, M['glass']); P.append(body)
-    liquid = L.cyl("liquid", 0.0076, 0.05, (0, -0.015, 0), col, axis='Y', verts=14); L.assign(liquid, M['liquid']); P.append(liquid)
+    # Contrato OBJ-056: 150 mm de extremo a extremo. La versión EX-04 medía 181 mm porque el émbolo
+    # y la tapa se habían dimensionado por separado sin controlar el conjunto. Estas cotas dejan 150.5 mm
+    # reales conservando una cámara útil legible a distancia de viewmodel.
+    body = L.cyl("body", 0.009, 0.072, (0, 0, 0), col, axis='Y', verts=12, bevel=0.0012); L.assign(body, M['glass']); P.append(body)
+    liquid = L.cyl("liquid", 0.0076, 0.04, (0, -0.008, 0), col, axis='Y', verts=14); L.assign(liquid, M['liquid']); P.append(liquid)
     # tapón de goma: se ve a través del cilindro y marca el nivel real de la dosis
-    stop = L.cyl("stopper", 0.0079, 0.008, (0, -0.041, 0), col, axis='Y', verts=10, bevel=0.0012); L.assign(stop, M['rubber']); P.append(stop)
-    plung = L.cyl("plunger", 0.0035, 0.085, (0, -0.0625, 0), col, axis='Y', verts=10); L.assign(plung, M['polymer_ivory']); P.append(plung)
-    rib = L.box("plunger_rib", (0.0095, 0.082, 0.0016), (0, -0.0625, 0), col, bevel=0.0004, segs=1); L.assign(rib, M['polymer_ivory']); P.append(rib)
-    thumb = L.cyl("plunger_head", 0.013, 0.004, (0, -0.104, 0), col, axis='Y', verts=12, bevel=0.0012); L.assign(thumb, M['polymer_ivory']); P.append(thumb)
-    flange = L.box("flange", (0.032, 0.0035, 0.013), (0, -0.0455, 0), col, bevel=0.001, segs=1); L.assign(flange, M['polymer_ivory']); P.append(flange)
-    luer = L.cyl("luer", 0.0046, 0.013, (0, 0.0505, 0), col, axis='Y', verts=10, bevel=0.0008); L.assign(luer, M['polymer_ivory']); P.append(luer)
-    coll = L.torus("luer_collar", 0.0052, 0.0012, (0, 0.0455, 0), col, axis='Y', segs=10, rings=4); L.assign(coll, M['polymer_ivory']); P.append(coll)
-    ndl = L.cyl("needle", 0.0011, 0.024, (0, 0.063, 0), col, axis='Y', verts=6); L.assign(ndl, M['steel_bare']); P.append(ndl)
-    cap = L.cyl("cap", 0.006, 0.03, (0, 0.06, 0), col, axis='Y', verts=12, bevel=0.0012); L.assign(cap, M['plastic_red']); P.append(cap)
-    P.append(ring_boxes(col, "cap_ribs", 5, (0, 0.06, 0), 0.0058, (0.0008, 0.024, 0.0014), M['plastic_red'], axis='Y'))
+    stop = L.cyl("stopper", 0.0079, 0.007, (0, -0.032, 0), col, axis='Y', verts=10, bevel=0.0012); L.assign(stop, M['rubber']); P.append(stop)
+    plung = L.cyl("plunger", 0.0035, 0.062, (0, -0.0515, 0), col, axis='Y', verts=10); L.assign(plung, M['polymer_ivory']); P.append(plung)
+    rib = L.box("plunger_rib", (0.0095, 0.060, 0.0016), (0, -0.0505, 0), col, bevel=0.0004, segs=1); L.assign(rib, M['polymer_ivory']); P.append(rib)
+    thumb = L.cyl("plunger_head", 0.013, 0.004, (0, -0.084, 0), col, axis='Y', verts=12, bevel=0.0012); L.assign(thumb, M['polymer_ivory']); P.append(thumb)
+    flange = L.box("flange", (0.032, 0.0035, 0.013), (0, -0.0378, 0), col, bevel=0.001, segs=1); L.assign(flange, M['polymer_ivory']); P.append(flange)
+    luer = L.cyl("luer", 0.0046, 0.011, (0, 0.0415, 0), col, axis='Y', verts=10, bevel=0.0008); L.assign(luer, M['polymer_ivory']); P.append(luer)
+    coll = L.torus("luer_collar", 0.0052, 0.0012, (0, 0.037, 0), col, axis='Y', segs=10, rings=4); L.assign(coll, M['polymer_ivory']); P.append(coll)
+    ndl = L.cyl("needle", 0.0011, 0.021, (0, 0.0525, 0), col, axis='Y', verts=6); L.assign(ndl, M['steel_bare']); P.append(ndl)
+    cap = L.cyl("cap", 0.006, 0.026, (0, 0.0515, 0), col, axis='Y', verts=12, bevel=0.0012); L.assign(cap, M['plastic_red']); P.append(cap)
+    P.append(ring_boxes(col, "cap_ribs", 5, (0, 0.0515, 0), 0.0058, (0.0008, 0.021, 0.0014), M['plastic_red'], axis='Y'))
     for o in P: L.apply_all(o); L.smooth(o, 40); L.uv_project(o, 0.01)
     L.save_blend(ASSET); print("built syringe", len(P), sum(len(o.data.polygons) for o in P))
 
