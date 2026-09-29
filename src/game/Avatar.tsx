@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { CharacterId, PlayerState, TeamId } from '../../shared/world';
@@ -9,13 +9,35 @@ const STYLE: Record<CharacterId, { visor: string; body: string; shoulder: number
   atlas: { visor: '#d7e1e6', body: '#43494f', shoulder: 0.46, helmet: 0.46 },
 };
 
-function Part({ position, scale, color, metalness = 0.25, roughness = 0.65 }: {
-  position: [number, number, number]; scale: [number, number, number]; color: string; metalness?: number; roughness?: number;
-}) {
-  return <mesh castShadow receiveShadow position={position} scale={scale}>
+interface PartSpec {
+  position: [number, number, number];
+  scale: [number, number, number];
+  color: string;
+}
+
+function Parts({ specs }: { specs: PartSpec[] }) {
+  const ref = useRef<THREE.InstancedMesh>(null);
+  useLayoutEffect(() => {
+    const mesh = ref.current;
+    if (!mesh) return;
+    const matrix = new THREE.Matrix4();
+    const position = new THREE.Vector3();
+    const scale = new THREE.Vector3();
+    const rotation = new THREE.Quaternion();
+    const color = new THREE.Color();
+    specs.forEach((spec, index) => {
+      position.set(...spec.position);
+      scale.set(...spec.scale);
+      mesh.setMatrixAt(index, matrix.compose(position, rotation, scale));
+      mesh.setColorAt(index, color.set(spec.color));
+    });
+    mesh.instanceMatrix.needsUpdate = true;
+    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+  }, [specs]);
+  return <instancedMesh ref={ref} args={[undefined, undefined, specs.length]} frustumCulled={false}>
     <boxGeometry args={[1, 1, 1]} />
-    <meshStandardMaterial color={color} metalness={metalness} roughness={roughness} />
-  </mesh>;
+    <meshStandardMaterial color="#ffffff" metalness={0.3} roughness={0.62} />
+  </instancedMesh>;
 }
 
 function Tag({ name, team }: { name: string; team: TeamId }) {
@@ -46,14 +68,49 @@ export function Avatar({ character, team, name, position, yaw = 0, walking = fal
   const rightArm = useRef<THREE.Group>(null);
   const leftLeg = useRef<THREE.Group>(null);
   const rightLeg = useRef<THREE.Group>(null);
+  const target = useMemo(() => new THREE.Vector3(), []);
   const variant = STYLE[character];
   const accent = team === 'intrusos' ? '#e8a34e' : '#55c7c3';
+
+  const core = useMemo<PartSpec[]>(() => {
+    const parts: PartSpec[] = [
+      { position: [0, 0.99, 0], scale: [0.65, 0.73, 0.33], color: variant.body },
+      { position: [0, 1.03, 0.19], scale: [0.52, 0.48, 0.13], color: accent },
+      { position: [0, 1.32, 0.25], scale: [0.42, 0.1, 0.08], color: '#0e2026' },
+      { position: [-0.23, 0.98, 0.26], scale: [0.09, 0.34, 0.07], color: '#17282e' },
+      { position: [0.23, 0.98, 0.26], scale: [0.09, 0.34, 0.07], color: '#17282e' },
+      { position: [0, 0.66, 0.1], scale: [0.67, 0.14, 0.39], color: '#17262b' },
+      { position: [0, 0.96, -0.23], scale: [0.49, 0.52, 0.2], color: '#192b31' },
+      { position: [0, 1.47, 0.29], scale: [0.45, 0.17, 0.17], color: '#151f26' },
+      { position: [0, 1.7, -0.3], scale: [0.55, 0.16, 0.09], color: variant.visor },
+      { position: [0, 1.7, 0.34], scale: [variant.helmet * 1.45, 0.16, 0.06], color: variant.visor },
+      { position: [0.19, 1.01, -0.32], scale: [0.14, 0.2, 0.75], color: '#12191d' },
+      { position: [0.19, 0.89, -0.15], scale: [0.12, 0.22, 0.13], color: '#252d31' },
+    ];
+    if (character === 'atlas') parts.push({ position: [0, 1.9, 0], scale: [0.56, 0.12, 0.56], color: '#677278' });
+    if (character === 'vektor') parts.push({ position: [0.34, 1.66, 0], scale: [0.16, 0.28, 0.25], color: '#d3a75e' });
+    if (character === 'kira') parts.push({ position: [0, 1.99, 0.12], scale: [0.1, 0.18, 0.17], color: '#5ecab9' });
+    return parts;
+  }, [accent, character, variant]);
+  const armParts = useMemo<PartSpec[]>(() => [
+    { position: [0, 0, 0], scale: [0.36, 0.3, 0.36], color: accent },
+    { position: [0, -0.27, 0], scale: [0.19, 0.48, 0.22], color: '#26383d' },
+    { position: [0, -0.5, -0.025], scale: [0.22, 0.18, 0.24], color: '#101f25' },
+    { position: [0, -0.68, -0.03], scale: [0.14, 0.26, 0.16], color: '#687779' },
+  ], [accent]);
+  const legParts = useMemo<PartSpec[]>(() => [
+    { position: [0, -0.19, 0], scale: [0.24, 0.39, 0.28], color: '#202d34' },
+    { position: [0, -0.41, 0.15], scale: [0.25, 0.14, 0.11], color: accent },
+    { position: [0, -0.53, 0], scale: [0.21, 0.23, 0.24], color: '#27363b' },
+    { position: [0, -0.62, 0.12], scale: [0.29, 0.13, 0.45], color: '#10191e' },
+  ], [accent]);
+
   useFrame(({ clock }, delta) => {
     if (!group.current) return;
     const distance = Math.hypot(group.current.position.x - position[0], group.current.position.z - position[2]);
     const moving = walking || (distance > 0.015 && distance < 3);
     const phase = clock.elapsedTime * 9;
-    group.current.position.lerp(new THREE.Vector3(position[0], position[1], position[2]), Math.min(1, delta * 14));
+    group.current.position.lerp(target.set(position[0], position[1], position[2]), Math.min(1, delta * 14));
     group.current.position.y += moving ? Math.abs(Math.sin(phase)) * 0.015 : 0;
     group.current.rotation.y = yaw;
     const swing = moving ? Math.sin(phase) * 0.42 : Math.sin(clock.elapsedTime * 1.8) * 0.012;
@@ -62,40 +119,15 @@ export function Avatar({ character, team, name, position, yaw = 0, walking = fal
     if (leftLeg.current) leftLeg.current.rotation.x = swing;
     if (rightLeg.current) rightLeg.current.rotation.x = -swing;
   });
+
   return <group ref={group} position={position}>
-    <Part position={[0, 0.99, 0]} scale={[0.65, 0.73, 0.33]} color={variant.body} />
-    <Part position={[0, 1.03, 0.19]} scale={[0.52, 0.48, 0.13]} color={accent} metalness={0.4} />
-    <Part position={[0, 1.32, 0.25]} scale={[0.42, 0.1, 0.08]} color="#0e2026" metalness={0.65} />
-    <Part position={[-0.23, 0.98, 0.26]} scale={[0.09, 0.34, 0.07]} color="#17282e" />
-    <Part position={[0.23, 0.98, 0.26]} scale={[0.09, 0.34, 0.07]} color="#17282e" />
-    <Part position={[0, 0.66, 0.1]} scale={[0.67, 0.14, 0.39]} color="#17262b" metalness={0.5} />
-    <Part position={[0, 0.96, -0.23]} scale={[0.49, 0.52, 0.2]} color="#192b31" />
-    {[-1, 1].map((side) => <group key={`arm-${side}`} ref={side < 0 ? leftArm : rightArm} position={[side * (variant.shoulder + 0.08), 1.31, 0]}>
-      <mesh castShadow><sphereGeometry args={[0.18, 12, 10]} /><meshStandardMaterial color={accent} roughness={0.55} /></mesh>
-      <Part position={[0, -0.27, 0]} scale={[0.19, 0.48, 0.22]} color="#26383d" />
-      <Part position={[0, -0.5, -0.025]} scale={[0.22, 0.18, 0.24]} color="#101f25" />
-      <Part position={[0, -0.68, -0.03]} scale={[0.14, 0.26, 0.16]} color="#687779" metalness={0.5} />
-    </group>)}
-    {[-1, 1].map((side) => <group key={`leg-${side}`} ref={side < 0 ? leftLeg : rightLeg} position={[side * 0.18, 0.65, 0]}>
-      <Part position={[0, -0.19, 0]} scale={[0.24, 0.39, 0.28]} color="#202d34" />
-      <Part position={[0, -0.41, 0.15]} scale={[0.25, 0.14, 0.11]} color={accent} metalness={0.35} />
-      <Part position={[0, -0.53, 0]} scale={[0.21, 0.23, 0.24]} color="#27363b" />
-      <Part position={[0, -0.62, 0.12]} scale={[0.29, 0.13, 0.45]} color="#10191e" />
-    </group>)}
-    <mesh castShadow position={[0, 1.68, 0]}>
+    <Parts specs={core} />
+    {([-1, 1] as const).map((side) => <group key={`arm-${side}`} ref={side < 0 ? leftArm : rightArm} position={[side * (variant.shoulder + 0.08), 1.31, 0]}><Parts specs={armParts} /></group>)}
+    {([-1, 1] as const).map((side) => <group key={`leg-${side}`} ref={side < 0 ? leftLeg : rightLeg} position={[side * 0.18, 0.65, 0]}><Parts specs={legParts} /></group>)}
+    <mesh position={[0, 1.68, 0]}>
       <sphereGeometry args={[variant.helmet, 16, 10]} />
       <meshStandardMaterial color="#243138" metalness={0.45} roughness={0.54} />
     </mesh>
-    <Part position={[0, 1.47, 0.29]} scale={[0.45, 0.17, 0.17]} color="#151f26" />
-    <Part position={[0, 1.7, -0.3]} scale={[0.55, 0.16, 0.09]} color={variant.visor} metalness={0.5} roughness={0.2} />
-    <Part position={[0, 1.7, 0.34]} scale={[variant.helmet * 1.45, 0.16, 0.06]} color={variant.visor} metalness={0.5} roughness={0.2} />
-    {character === 'atlas' && <Part position={[0, 1.9, 0]} scale={[0.56, 0.12, 0.56]} color="#677278" />}
-    {character === 'vektor' && <Part position={[0.34, 1.66, 0]} scale={[0.16, 0.28, 0.25]} color="#d3a75e" />}
-    {character === 'kira' && <Part position={[0, 1.99, 0.12]} scale={[0.1, 0.18, 0.17]} color="#5ecab9" />}
-    <group position={[0.19, 1.01, -0.32]}>
-      <Part position={[0, 0, 0]} scale={[0.14, 0.2, 0.75]} color="#12191d" />
-      <Part position={[0, -0.12, 0.17]} scale={[0.12, 0.22, 0.13]} color="#252d31" />
-    </group>
     {label && <Tag name={name} team={team} />}
   </group>;
 }

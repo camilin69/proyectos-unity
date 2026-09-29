@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef } from 'react';
+import { Suspense, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { MAPS, type MapId, type PlayerState } from '../../shared/world';
@@ -13,11 +13,30 @@ export interface VisualShot {
 
 function CameraRig({ player, yaw, pitch }: { player: PlayerState | undefined; yaw: number; pitch: number }) {
   const { camera } = useThree();
+  const target = useMemo(() => new THREE.Vector3(), []);
   useFrame((_, delta) => {
     if (!player) return;
-    const target = new THREE.Vector3(player.x, player.y + 1.58, player.z);
-    camera.position.lerp(target, Math.min(1, delta * 18));
+    camera.position.lerp(target.set(player.x, player.y + 1.58, player.z), Math.min(1, delta * 18));
     camera.rotation.set(pitch, yaw, 0, 'YXZ');
+  });
+  return null;
+}
+
+function PerformanceProbe() {
+  const sample = useRef({ frames: 0, seconds: 0, calls: 0, triangles: 0 });
+  useFrame(({ gl }, delta) => {
+    sample.current.frames++;
+    sample.current.seconds += delta;
+    sample.current.calls += gl.info.render.calls;
+    sample.current.triangles += gl.info.render.triangles;
+    if (sample.current.seconds < 1) return;
+    const { frames, seconds, calls, triangles } = sample.current;
+    (window as Window & { __strikePerf?: { fps: number; drawCalls: number; triangles: number } }).__strikePerf = {
+      fps: Math.round(frames / seconds),
+      drawCalls: Math.round(calls / frames),
+      triangles: Math.round(triangles / frames),
+    };
+    sample.current = { frames: 0, seconds: 0, calls: 0, triangles: 0 };
   });
   return null;
 }
@@ -74,6 +93,7 @@ export function GameScene({ mapId, players, ownId, yaw, pitch, shots }: {
       <World map={MAPS[mapId]} />
       {players.filter((player) => player.id !== ownId && player.hp > 0).map((player) => <RemoteAvatar key={player.id} player={player} />)}
       <CameraRig player={own} yaw={yaw} pitch={pitch} />
+      {import.meta.env.DEV && <PerformanceProbe />}
       {own && own.hp > 0 && <ViewWeapon character={own.character} />}
       {shots.map((shot) => <Tracer key={shot.id} shot={shot} />)}
     </Suspense>
@@ -81,7 +101,7 @@ export function GameScene({ mapId, players, ownId, yaw, pitch, shots }: {
 }
 
 export function CharacterPreview({ character }: { character: PlayerState['character'] }) {
-  return <Canvas camera={{ position: [0, 1.15, 4.3], fov: 43 }} onCreated={({ camera }) => camera.lookAt(0, 1.05, 0)} dpr={[1, 1.5]}>
+  return <Canvas camera={{ position: [0, 1.15, 4.3], fov: 43 }} onCreated={({ camera }) => camera.lookAt(0, 1.05, 0)} dpr={1} frameloop="demand">
     <color attach="background" args={['#132329']} />
     <ambientLight intensity={1.1} />
     <directionalLight position={[3, 6, 4]} color="#ffd5a0" intensity={2.5} />
@@ -95,12 +115,7 @@ export function CharacterPreview({ character }: { character: PlayerState['charac
 }
 
 function PreviewTurn({ character }: { character: PlayerState['character'] }) {
-  const group = useRef<THREE.Group>(null);
-  useFrame(({ clock }) => {
-    if (group.current) group.current.rotation.y = 0.28 + Math.sin(clock.elapsedTime * 0.45) * 0.3;
-  });
-  useEffect(() => { if (group.current) group.current.rotation.y = 0.28; }, [character]);
-  return <group ref={group}>
+  return <group rotation={[0, 0.28, 0]}>
     <Avatar character={character} team="intrusos" name="" position={[0, 0, 0]} label={false} />
   </group>;
 }

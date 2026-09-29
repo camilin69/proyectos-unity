@@ -823,3 +823,14 @@ La selección de personaje, los modelos procedurales, el movimiento con colisió
 ### 31.5 Estado actual y siguientes pruebas
 
 El servidor y la interfaz ya implementan acceso por código, anfitrión transferible, votos de mapa, ajustes de ronda y duración total, inicio condicionado a dos equipos, reloj autoritativo, puntos por ronda, resultado y revancha. Las pruebas automatizadas comprueban aislamiento, voto empatado, permisos de configuración, inicio y resultado al desconectarse el rival. Falta probar físicamente dos computadores en la red del usuario y medir latencia, estabilidad y rendimiento durante una partida completa.
+
+---
+
+## 32. Presupuesto de render y adaptación de pantalla
+
+- Menú y lobby deben permitir scroll vertical en ventanas bajas y móviles; botones de entrada, inicio y salida deben permanecer alcanzables. La escena de juego ocupa la ventana y no desplaza el documento.
+- Las piezas estáticas repetidas del mapa se renderizan mediante `InstancedMesh` agrupado por acabado. La colisión continúa usando la definición compartida del mapa; el agrupamiento visual no altera hitboxes ni rutas.
+- Los avatares remotos agrupan sus piezas de cuerpo, brazos y piernas en mallas instanciadas por segmento. Los segmentos conservan sus animaciones y la selección de personaje sigue distinguiendo casco, visor y color.
+- La vista previa de selección usa render bajo demanda y DPR 1. El juego usa DPR 1 inicial; reducirlo automáticamente solo tras medir una caída real de rendimiento con la pestaña activa y preservar legibilidad del enemigo.
+- En desarrollo, `window.__strikePerf` informa FPS, llamadas de dibujo y triángulos aproximados. Medir con una pestaña activa, resolución anotada, equipo identificado y número de clientes renderizados. Registrar p50 y p95 de tiempo de cuadro en pruebas posteriores; una captura aislada no demuestra estabilidad competitiva.
+- Prueba local inicial: Intel HD Graphics 520, ventana 1100×700, un cliente WebGL activo y otro cliente de red sin escena; 60 FPS y 14 llamadas de dibujo observadas. Repetir con dos y diez clientes gráficos, equipos de gama baja y sesiones completas antes de fijar el presupuesto definitivo.
