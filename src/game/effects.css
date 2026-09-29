@@ -1,0 +1,17 @@
+.damage-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(circle, transparent 32%, #b8232366 75%, #6c1111a8 100%);
+  animation: damage-pulse 460ms ease-out forwards;
+}
+
+@keyframes damage-pulse {
+  from { opacity: 0.9; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .damage-flash { animation-duration: 120ms; }
+}

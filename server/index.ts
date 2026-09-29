@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { WebSocket, WebSocketServer } from 'ws';
-import { CHARACTER_IDS, EMPTY_INPUT, MAPS, type ClientMessage, type InputState, type LobbyState, type MapId, type PlayerState, type ServerMessage, type TeamId } from '../shared/world.ts';
+import { CHARACTER_IDS, EMPTY_INPUT, MAPS, MAX_TARGET_SCORE, type ClientMessage, type GameMode, type InputState, type LobbyState, type MapId, type PlayerState, type ServerMessage, type TeamId } from '../shared/world.ts';
 import { resolveShot, safeSpawn, stepPlayer } from './simulation.ts';
 
 interface Connection {
@@ -10,6 +10,8 @@ interface Connection {
   input: InputState;
   lastShot: number;
   lastShotId: number;
+  jumpQueued: boolean;
+  respawnAt: number;
 }
 
 interface Room {
@@ -17,6 +19,7 @@ interface Room {
   members: Set<Connection>;
   hostId: string;
   phase: LobbyState['phase'];
+  mode: GameMode;
   map: MapId;
   votes: Map<string, MapId>;
   roundSeconds: number;
@@ -28,6 +31,7 @@ interface Room {
   matchEndsAt: number;
   nextAt: number;
   winner: LobbyState['winner'];
+  winnerId: string | null;
   announcement: string;
 }
 
@@ -55,10 +59,10 @@ function stateOf(room: Room): LobbyState {
     votes[map]++;
   }
   return {
-    code: room.code, hostId: room.hostId, phase: room.phase, map: room.map,
+    code: room.code, hostId: room.hostId, phase: room.phase, mode: room.mode, map: room.map,
     votes, playerVotes, players: playersIn(room), roundSeconds: room.roundSeconds, matchMinutes: room.matchMinutes,
     targetScore: room.targetScore, scores: { ...room.scores }, round: room.round,
-    endsAt: room.endsAt, matchEndsAt: room.matchEndsAt, nextAt: room.nextAt, winner: room.winner,
+    endsAt: room.endsAt, matchEndsAt: room.matchEndsAt, nextAt: room.nextAt, winner: room.winner, winnerId: room.winnerId,
     announcement: room.announcement,
   };
 }
@@ -71,9 +75,9 @@ function roomFor(code: string): Room {
   const existing = rooms.get(code);
   if (existing) return existing;
   const room: Room = {
-    code, members: new Set(), hostId: '', phase: 'lobby', map: 'delta', votes: new Map(),
+    code, members: new Set(), hostId: '', phase: 'lobby', mode: 'teams', map: 'delta', votes: new Map(),
     roundSeconds: 120, matchMinutes: 15, targetScore: 3, scores: { intrusos: 0, custodios: 0 },
-    round: 0, endsAt: 0, matchEndsAt: 0, nextAt: 0, winner: null, announcement: 'Esperando jugadores',
+    round: 0, endsAt: 0, matchEndsAt: 0, nextAt: 0, winner: null, winnerId: null, announcement: 'Esperando jugadores',
   };
   rooms.set(code, room);
   return room;
@@ -100,16 +104,15 @@ function handleJoin(member: Connection, message: Extract<ClientMessage, { type: 
   const character = CHARACTER_IDS.includes(message.character) ? message.character : 'kira';
   const name = typeof message.name === 'string' ? message.name.trim().slice(0, 18) || 'Operador' : 'Operador';
   const team = chooseTeam(room);
-  const slot = playersIn(room).filter((p) => p.team === team).length;
-  const [x, y, z] = safeSpawn(MAPS[room.map], team, slot);
-  member.player = { id: randomUUID(), name, character, team, x, y, z, yaw: team === 'intrusos' ? -Math.PI / 2 : Math.PI / 2, pitch: 0, hp: 100, kills: 0, deaths: 0 };
+  const [x, y, z] = safeSpawn(MAPS[room.map], team, playersIn(room), Math.random, room.mode);
+  member.player = { id: randomUUID(), name, character, team, x, y, vy: 0, z, yaw: team === 'intrusos' ? -Math.PI / 2 : Math.PI / 2, pitch: 0, hp: 100, crouching: false, kills: 0, deaths: 0 };
   if (!room.hostId) room.hostId = member.player.id;
   send(member, { type: 'welcome', id: member.player.id, code: room.code, team });
   announce(room);
 }
 
 function validInput(value: InputState): value is InputState {
-  return value && ['forward', 'back', 'left', 'right', 'crouch', 'walk'].every((key) => typeof value[key as keyof InputState] === 'boolean') &&
+  return value && ['forward', 'back', 'left', 'right', 'crouch', 'sprint', 'jump'].every((key) => typeof value[key as keyof InputState] === 'boolean') &&
     Number.isFinite(value.yaw) && Math.abs(value.yaw) <= Math.PI * 10_000 && Number.isFinite(value.pitch) && Math.abs(value.pitch) <= 1.4;
 }
 
@@ -125,28 +128,40 @@ function beginRound(room: Room): void {
   if (room.matchEndsAt && Date.now() >= room.matchEndsAt) { finishMatch(room, 'Tiempo total agotado'); return; }
   room.round++;
   room.phase = 'playing';
-  room.endsAt = Math.min(Date.now() + room.roundSeconds * 1000, room.matchEndsAt);
+  room.endsAt = room.mode === 'ffa' ? room.matchEndsAt : Math.min(Date.now() + room.roundSeconds * 1000, room.matchEndsAt);
   room.nextAt = 0;
-  room.announcement = `Ronda ${room.round}`;
-  const slots = { intrusos: 0, custodios: 0 };
+  room.announcement = room.mode === 'ffa' ? 'Todos contra todos' : `Ronda ${room.round}`;
+  const placed: PlayerState[] = [];
   for (const member of room.members) {
     if (!member.player) continue;
     const player = member.player;
-    [player.x, player.y, player.z] = safeSpawn(MAPS[room.map], player.team, slots[player.team]++);
+    [player.x, player.y, player.z] = safeSpawn(MAPS[room.map], player.team, placed, Math.random, room.mode);
+    placed.push(player);
     player.yaw = player.team === 'intrusos' ? -Math.PI / 2 : Math.PI / 2;
     player.pitch = 0;
     player.hp = 100;
+    player.vy = 0;
+    player.crouching = false;
+    member.jumpQueued = false;
+    member.respawnAt = 0;
     member.input = { ...EMPTY_INPUT, yaw: player.yaw };
   }
   announce(room);
   broadcast(room, { type: 'snapshot', players: playersIn(room), at: Date.now() });
 }
 
-function finishMatch(room: Room, reason: string): void {
+function finishMatch(room: Room, reason: string, winnerId: string | null = null): void {
   room.phase = 'finished';
   room.endsAt = 0;
   room.nextAt = 0;
-  room.winner = room.scores.intrusos === room.scores.custodios ? 'empate' : room.scores.intrusos > room.scores.custodios ? 'intrusos' : 'custodios';
+  if (room.mode === 'ffa') {
+    const ranking = playersIn(room).sort((a, b) => b.kills - a.kills);
+    room.winnerId = winnerId || (ranking[0] && ranking[0].kills > (ranking[1]?.kills ?? -1) ? ranking[0].id : null);
+    room.winner = room.winnerId ? null : 'empate';
+  } else {
+    room.winnerId = null;
+    room.winner = room.scores.intrusos === room.scores.custodios ? 'empate' : room.scores.intrusos > room.scores.custodios ? 'intrusos' : 'custodios';
+  }
   room.announcement = reason;
   announce(room);
 }
@@ -168,7 +183,7 @@ function finishRound(room: Room, winner: TeamId | null, reason: string): void {
 }
 
 function checkElimination(room: Room): void {
-  if (room.phase !== 'playing') return;
+  if (room.phase !== 'playing' || room.mode === 'ffa') return;
   const players = playersIn(room);
   const intrusos = players.filter((player) => player.team === 'intrusos' && player.hp > 0).length;
   const custodios = players.filter((player) => player.team === 'custodios' && player.hp > 0).length;
@@ -180,23 +195,33 @@ function checkElimination(room: Room): void {
 function handleFire(member: Connection, message: Extract<ClientMessage, { type: 'fire' }>): void {
   const room = member.room;
   const shooter = member.player;
-  if (room.phase !== 'playing' || !shooter || shooter.hp <= 0 || !Number.isSafeInteger(message.shotId)) return;
+  if (room.phase !== 'playing' || !shooter || shooter.hp <= 0 || !Number.isSafeInteger(message.shotId) ||
+    !Number.isFinite(message.yaw) || Math.abs(message.yaw) > Math.PI * 10_000 ||
+    !Number.isFinite(message.pitch) || Math.abs(message.pitch) > 1.4) return;
   if (message.shotId <= member.lastShotId) return;
   const now = Date.now();
   if (now - member.lastShot < 190) return;
   member.lastShot = now;
   member.lastShotId = message.shotId;
-  const result = resolveShot(MAPS[room.map], shooter, playersIn(room));
-  broadcast(room, { type: 'shot', shooterId: shooter.id, hitId: result.hitId, x: result.position[0], y: result.position[1], z: result.position[2], shotId: message.shotId });
-  if (!result.hitId) return;
-  const target = [...room.members].find((connection) => connection.player?.id === result.hitId)?.player;
+  shooter.yaw = message.yaw;
+  shooter.pitch = message.pitch;
+  const result = resolveShot(MAPS[room.map], shooter, playersIn(room), message.yaw, message.pitch, room.mode);
+  const target = result.hitId ? [...room.members].find((connection) => connection.player?.id === result.hitId)?.player : null;
+  if (target) target.hp = Math.max(0, target.hp - result.damage);
+  broadcast(room, { type: 'shot', shooterId: shooter.id, hitId: result.hitId, zone: result.zone,
+    damage: result.damage, remainingHp: target?.hp ?? null, from: result.origin,
+    x: result.position[0], y: result.position[1], z: result.position[2], shotId: message.shotId });
   if (!target) return;
-  target.hp = Math.max(0, target.hp - result.damage);
+  broadcast(room, { type: 'snapshot', players: playersIn(room), at: now });
   if (target.hp === 0) {
     target.deaths++;
     shooter.kills++;
     broadcast(room, { type: 'elimination', killerId: shooter.id, victimId: target.id });
-    checkElimination(room);
+    if (room.mode === 'ffa') {
+      const targetMember = [...room.members].find((connection) => connection.player?.id === target.id);
+      if (targetMember) targetMember.respawnAt = now + 3000;
+      if (shooter.kills >= room.targetScore) finishMatch(room, `${shooter.name} alcanzó ${room.targetScore} puntos`, shooter.id);
+    } else checkElimination(room);
   }
 }
 
@@ -204,33 +229,54 @@ server.on('connection', (socket, request) => {
   const url = new URL(request.url || '/', `http://${request.headers.host || 'localhost'}`);
   const code = (url.searchParams.get('room') || 'ALFA').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8) || 'ALFA';
   const room = roomFor(code);
-  const member: Connection = { socket, room, player: null, input: { ...EMPTY_INPUT }, lastShot: 0, lastShotId: -1 };
+  const member: Connection = { socket, room, player: null, input: { ...EMPTY_INPUT }, lastShot: 0, lastShotId: -1, jumpQueued: false, respawnAt: 0 };
   room.members.add(member);
   socket.on('message', (raw) => {
     let message: ClientMessage;
     try { message = JSON.parse(raw.toString()) as ClientMessage; } catch { return; }
     if (!message || typeof message !== 'object') return;
     if (message.type === 'join') handleJoin(member, message);
-    else if (message.type === 'input' && room.phase === 'playing' && member.player && validInput(message.input)) member.input = message.input;
+    else if (message.type === 'input' && room.phase === 'playing' && member.player && validInput(message.input)) {
+      if (message.input.jump && !member.input.jump) member.jumpQueued = true;
+      member.input = message.input;
+    }
     else if (message.type === 'fire') handleFire(member, message);
+    else if (message.type === 'selectTeam' && room.phase === 'lobby' && room.mode === 'teams' && member.player &&
+      (message.team === 'intrusos' || message.team === 'custodios')) {
+      if (member.player.team === message.team) return;
+      if (playersIn(room).filter((player) => player.team === message.team).length >= 5) {
+        send(member, { type: 'error', message: 'Ese equipo ya tiene cinco jugadores.' }); return;
+      }
+      member.player.team = message.team;
+      [member.player.x, member.player.y, member.player.z] = safeSpawn(MAPS[room.map], message.team,
+        playersIn(room).filter((player) => player.id !== member.player?.id), Math.random, room.mode);
+      member.player.yaw = message.team === 'intrusos' ? -Math.PI / 2 : Math.PI / 2;
+      announce(room);
+    }
     else if (message.type === 'vote' && room.phase === 'lobby' && member.player && (message.map === 'delta' || message.map === 'terminal')) {
       room.votes.set(member.player.id, message.map);
       announce(room);
     } else if (message.type === 'configure' && room.phase === 'lobby' && member.player?.id === room.hostId &&
       Number.isInteger(message.roundSeconds) && message.roundSeconds >= 60 && message.roundSeconds <= 300 &&
       Number.isInteger(message.matchMinutes) && message.matchMinutes >= 5 && message.matchMinutes <= 30 &&
-      Number.isInteger(message.targetScore) && message.targetScore >= 1 && message.targetScore <= 9) {
+      Number.isInteger(message.targetScore) && message.targetScore >= 1 && message.targetScore <= MAX_TARGET_SCORE &&
+      (message.mode === undefined || message.mode === 'teams' || message.mode === 'ffa')) {
       room.roundSeconds = message.roundSeconds;
       room.matchMinutes = message.matchMinutes;
       room.targetScore = message.targetScore;
+      room.mode = message.mode ?? room.mode;
       announce(room);
     } else if (message.type === 'start' && room.phase === 'lobby' && member.player?.id === room.hostId) {
       const teams = new Set(playersIn(room).map((player) => player.team));
-      if (teams.size < 2) { send(member, { type: 'error', message: 'Se necesita al menos un jugador por equipo.' }); return; }
+      if (playersIn(room).length < 2 || (room.mode === 'teams' && teams.size < 2)) {
+        send(member, { type: 'error', message: room.mode === 'ffa' ? 'Se necesitan al menos dos jugadores.' : 'Se necesita al menos un jugador por equipo.' }); return;
+      }
       room.map = electedMap(room);
       room.scores = { intrusos: 0, custodios: 0 };
       room.round = 0;
       room.winner = null;
+      room.winnerId = null;
+      for (const player of playersIn(room)) { player.kills = 0; player.deaths = 0; }
       room.matchEndsAt = Date.now() + room.matchMinutes * 60_000;
       beginRound(room);
     } else if (message.type === 'rematch' && room.phase === 'finished' && member.player?.id === room.hostId) {
@@ -239,6 +285,8 @@ server.on('connection', (socket, request) => {
       room.scores = { intrusos: 0, custodios: 0 };
       room.votes.clear();
       room.winner = null;
+      room.winnerId = null;
+      for (const player of playersIn(room)) { player.kills = 0; player.deaths = 0; }
       room.matchEndsAt = 0;
       room.announcement = 'Nueva votación de mapa';
       announce(room);
@@ -249,6 +297,9 @@ server.on('connection', (socket, request) => {
     if (member.player) room.votes.delete(member.player.id);
     if (!room.members.size) { rooms.delete(room.code); return; }
     if (member.player?.id === room.hostId) room.hostId = playersIn(room)[0]?.id ?? '';
+    if (room.phase === 'playing' && room.mode === 'ffa' && playersIn(room).length < 2) {
+      finishMatch(room, 'El rival abandonó la partida', playersIn(room)[0]?.id ?? null);
+    }
     checkElimination(room);
     announce(room);
   };
@@ -273,7 +324,25 @@ setInterval(() => {
       finishRound(room, winner, winner ? `${winner.toUpperCase()} gana por supervivencia` : 'Tiempo agotado: empate');
       continue;
     }
-    for (const member of room.members) if (member.player) stepPlayer(MAPS[room.map], member.player, member.input, dt);
+    if (room.mode === 'ffa') for (const member of room.members) {
+      if (!member.player || member.player.hp > 0 || !member.respawnAt || Date.now() < member.respawnAt) continue;
+      const player = member.player;
+      [player.x, player.y, player.z] = safeSpawn(MAPS[room.map], player.team,
+        playersIn(room).filter((other) => other.id !== player.id && other.hp > 0), Math.random, 'ffa');
+      player.hp = 100;
+      player.vy = 0;
+      player.crouching = false;
+      player.pitch = 0;
+      member.input = { ...EMPTY_INPUT, yaw: player.yaw };
+      member.jumpQueued = false;
+      member.respawnAt = 0;
+      broadcast(room, { type: 'snapshot', players: playersIn(room), at: Date.now() });
+    }
+    for (const member of room.members) if (member.player) {
+      const jump = member.jumpQueued;
+      member.jumpQueued = false;
+      stepPlayer(MAPS[room.map], member.player, { ...member.input, jump }, dt);
+    }
   }
 }, 1000 / 30);
 

@@ -1,6 +1,9 @@
 export type CharacterId = 'kira' | 'vektor' | 'atlas';
 export type TeamId = 'intrusos' | 'custodios';
+export type GameMode = 'teams' | 'ffa';
 export type MapId = 'delta' | 'terminal';
+export type HitZone = 'head' | 'torso' | 'arm' | 'leg';
+export const MAX_TARGET_SCORE = 50;
 
 export interface Solid {
   id: string;
@@ -102,10 +105,12 @@ export interface PlayerState {
   team: TeamId;
   x: number;
   y: number;
+  vy: number;
   z: number;
   yaw: number;
   pitch: number;
   hp: number;
+  crouching: boolean;
   kills: number;
   deaths: number;
 }
@@ -114,6 +119,7 @@ export interface LobbyState {
   code: string;
   hostId: string;
   phase: 'lobby' | 'playing' | 'intermission' | 'finished';
+  mode: GameMode;
   map: MapId;
   votes: Record<MapId, number>;
   playerVotes: Record<string, MapId>;
@@ -127,6 +133,7 @@ export interface LobbyState {
   matchEndsAt: number;
   nextAt: number;
   winner: TeamId | 'empate' | null;
+  winnerId: string | null;
   announcement: string;
 }
 
@@ -136,7 +143,8 @@ export interface InputState {
   left: boolean;
   right: boolean;
   crouch: boolean;
-  walk: boolean;
+  sprint: boolean;
+  jump: boolean;
   yaw: number;
   pitch: number;
 }
@@ -146,7 +154,8 @@ export type ClientMessage =
   | { type: 'input'; input: InputState }
   | { type: 'fire'; shotId: number; yaw: number; pitch: number }
   | { type: 'vote'; map: MapId }
-  | { type: 'configure'; roundSeconds: number; matchMinutes: number; targetScore: number }
+  | { type: 'configure'; roundSeconds: number; matchMinutes: number; targetScore: number; mode?: GameMode }
+  | { type: 'selectTeam'; team: TeamId }
   | { type: 'start' }
   | { type: 'rematch' };
 
@@ -154,11 +163,11 @@ export type ServerMessage =
   | { type: 'welcome'; id: string; code: string; team: TeamId }
   | { type: 'lobby'; state: LobbyState }
   | { type: 'snapshot'; players: PlayerState[]; at: number }
-  | { type: 'shot'; shooterId: string; hitId: string | null; x: number; y: number; z: number; shotId: number }
+  | { type: 'shot'; shooterId: string; hitId: string | null; zone: HitZone | null; damage: number; remainingHp: number | null; from: [number, number, number]; x: number; y: number; z: number; shotId: number }
   | { type: 'elimination'; killerId: string; victimId: string }
   | { type: 'error'; message: string };
 
-export const EMPTY_INPUT: InputState = { forward: false, back: false, left: false, right: false, crouch: false, walk: false, yaw: 0, pitch: 0 };
+export const EMPTY_INPUT: InputState = { forward: false, back: false, left: false, right: false, crouch: false, sprint: false, jump: false, yaw: 0, pitch: 0 };
 
 export function groundHeight(map: ArenaMap, x: number, z: number): number {
   for (const platform of map.platforms) {

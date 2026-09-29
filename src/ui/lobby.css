@@ -19,6 +19,12 @@
 .lobby-member span { color: #80d6c8; }
 .lobby-member strong { font-size: 12px; }
 .lobby-member small { margin-left: auto; color: #8ca9a5; font-size: 9px; letter-spacing: .5px; }
+.team-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.team-option { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 12px; color: #cde5dc; background: #11252a; border: 1px solid #4e6b6b; font: 700 14px 'Barlow Condensed', sans-serif; letter-spacing: 1px; }
+.team-option.selected { border-color: #edae63; background: #2a3531; }
+.team-option:focus-visible { outline: 2px solid #f5c886; outline-offset: 2px; }
+.team-option:disabled { cursor: not-allowed; opacity: .45; }
+.team-option span { color: #82a7a3; font-size: 11px; }
 .lobby-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .lobby-settings label { display: block; color: #9ab7b4; font-size: 9px; letter-spacing: 1.5px; font-weight: 700; }
 .lobby-settings select { width: 100%; margin-top: 9px; padding: 11px 12px; background: #102027; border: 1px solid #537174; color: #e6f1ed; font: 700 14px 'Barlow Condensed', sans-serif; }

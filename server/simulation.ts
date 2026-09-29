@@ -1,17 +1,35 @@
-import { groundHeight, insideSolid, moveWithCollision, type ArenaMap, type InputState, type PlayerState } from '../shared/world.ts';
+import { groundHeight, insideSolid, moveWithCollision, type ArenaMap, type GameMode, type HitZone, type InputState, type PlayerState } from '../shared/world.ts';
 
 export function stepPlayer(map: ArenaMap, player: PlayerState, input: InputState, seconds: number): void {
   if (player.hp <= 0) return;
   const f = Number(input.forward) - Number(input.back);
   const r = Number(input.right) - Number(input.left);
   const length = Math.hypot(f, r) || 1;
-  const speed = input.crouch ? 2.1 : input.walk ? 3.1 : 5.2;
+  const speed = input.crouch ? 2.1 : input.sprint ? 8.2 : 5.2;
   const dx = ((-Math.sin(input.yaw) * f + Math.cos(input.yaw) * r) / length) * speed * seconds;
   const dz = ((-Math.cos(input.yaw) * f - Math.sin(input.yaw) * r) / length) * speed * seconds;
-  const [x, y, z] = moveWithCollision(map, player.x, player.z, dx, dz);
+  const grounded = player.y <= groundHeight(map, player.x, player.z) + 0.02 && player.vy <= 0;
+  const [x, ground, z] = moveWithCollision(map, player.x, player.z, dx, dz);
   player.x = x;
-  player.y = y;
   player.z = z;
+  player.crouching = input.crouch;
+  if (grounded && input.jump && !input.crouch) player.vy = 7.4;
+  player.vy = Math.max(-25, player.vy - 21 * seconds);
+  const nextY = player.y + player.vy * seconds;
+  player.y = Math.max(ground, nextY);
+  if (player.y === ground) player.vy = 0;
+  if (player.vy > 0) {
+    const height = input.crouch ? 1.18 : 1.8;
+    for (const solid of map.solids) {
+      const ceiling = solid.y ?? 0;
+      if (ceiling <= ground || Math.abs(x - solid.x) >= solid.w / 2 + 0.34 || Math.abs(z - solid.z) >= solid.d / 2 + 0.34) continue;
+      if (player.y + height > ceiling && nextY - player.vy * seconds + height <= ceiling) {
+        player.y = ceiling - height;
+        player.vy = 0;
+        break;
+      }
+    }
+  }
   player.yaw = input.yaw;
   player.pitch = input.pitch;
 }
@@ -43,22 +61,30 @@ function raySphere(origin: Vec3, direction: Vec3, center: Vec3, radius: number):
   const c = ox * ox + oy * oy + oz * oz - radius * radius;
   const discriminant = b * b - c;
   if (discriminant < 0) return null;
-  const distance = -b - Math.sqrt(discriminant);
-  return distance >= 0 ? distance : null;
+  const root = Math.sqrt(discriminant);
+  const entry = -b - root;
+  if (entry >= 0) return entry;
+  const exit = -b + root;
+  return exit >= 0 ? exit : null;
 }
 
 export interface ShotResult {
   hitId: string | null;
+  zone: HitZone | null;
+  origin: Vec3;
   position: Vec3;
   damage: number;
 }
 
-export function resolveShot(map: ArenaMap, shooter: PlayerState, players: Iterable<PlayerState>): ShotResult {
-  const origin: Vec3 = [shooter.x, shooter.y + 1.5, shooter.z];
-  const cosine = Math.cos(shooter.pitch);
-  const direction: Vec3 = [-Math.sin(shooter.yaw) * cosine, Math.sin(shooter.pitch), -Math.cos(shooter.yaw) * cosine];
+const ZONE_DAMAGE: Record<HitZone, number> = { head: 85, torso: 34, arm: 22, leg: 18 };
+
+export function resolveShot(map: ArenaMap, shooter: PlayerState, players: Iterable<PlayerState>, yaw = shooter.yaw, pitch = shooter.pitch, mode: GameMode = 'teams'): ShotResult {
+  const origin: Vec3 = [shooter.x, shooter.y + (shooter.crouching ? 1.04 : 1.5), shooter.z];
+  const cosine = Math.cos(pitch);
+  const direction: Vec3 = [-Math.sin(yaw) * cosine, Math.sin(pitch), -Math.cos(yaw) * cosine];
   let nearest = 50;
   let hitId: string | null = null;
+  let zone: HitZone | null = null;
 
   for (const solid of map.solids) {
     const y = solid.y ?? 0;
@@ -79,29 +105,67 @@ export function resolveShot(map: ArenaMap, shooter: PlayerState, players: Iterab
     if (distance !== null) nearest = Math.min(nearest, distance);
   }
   for (const target of players) {
-    if (target.id === shooter.id || target.team === shooter.team || target.hp <= 0) continue;
-    const body = raySphere(origin, direction, [target.x, target.y + 0.95, target.z], 0.53);
-    const head = raySphere(origin, direction, [target.x, target.y + 1.62, target.z], 0.25);
-    const distance = Math.min(body ?? Infinity, head ?? Infinity);
-    if (distance < nearest) {
-      nearest = distance;
-      hitId = target.id;
+    if (target.id === shooter.id || (mode === 'teams' && target.team === shooter.team) || target.hp <= 0) continue;
+    const sine = Math.sin(target.yaw);
+    const cosine = Math.cos(target.yaw);
+    const dx = origin[0] - target.x;
+    const dz = origin[2] - target.z;
+    const heightScale = target.crouching ? 0.68 : 1;
+    const localOrigin: Vec3 = [cosine * dx - sine * dz, (origin[1] - target.y) / heightScale, sine * dx + cosine * dz];
+    const localDirection: Vec3 = [cosine * direction[0] - sine * direction[2], direction[1] / heightScale, sine * direction[0] + cosine * direction[2]];
+    const hitboxes: [HitZone, number | null][] = [
+      ['head', raySphere(localOrigin, localDirection, [0, 1.72, 0], 0.24)],
+      ['torso', rayBox(localOrigin, localDirection, [-0.32, 0.76, -0.24], [0.32, 1.44, 0.24])],
+      ['arm', rayBox(localOrigin, localDirection, [-0.62, 0.67, -0.23], [-0.33, 1.39, 0.23])],
+      ['arm', rayBox(localOrigin, localDirection, [0.33, 0.67, -0.23], [0.62, 1.39, 0.23])],
+      ['leg', rayBox(localOrigin, localDirection, [-0.33, 0.07, -0.22], [-0.02, 0.75, 0.22])],
+      ['leg', rayBox(localOrigin, localDirection, [0.02, 0.07, -0.22], [0.33, 0.75, 0.22])],
+    ];
+    for (const [part, distance] of hitboxes) {
+      if (distance !== null && distance < nearest) {
+        nearest = distance;
+        hitId = target.id;
+        zone = part;
+      }
     }
   }
   return {
     hitId,
-    damage: 34,
+    zone,
+    origin,
+    damage: zone ? ZONE_DAMAGE[zone] : 0,
     position: [origin[0] + direction[0] * nearest, origin[1] + direction[1] * nearest, origin[2] + direction[2] * nearest],
   };
 }
 
-export function safeSpawn(map: ArenaMap, team: PlayerState['team'], slot: number): [number, number, number] {
-  const [baseX, baseZ] = map.spawns[team];
-  for (let offset = 0; offset < 8; offset++) {
-    const x = baseX + (slot % 2) * 1.5 + offset * 0.45;
-    const z = baseZ + (Math.floor(slot / 2) % 3) * 1.7;
+export function safeSpawn(
+  map: ArenaMap,
+  team: PlayerState['team'],
+  occupied: Pick<PlayerState, 'x' | 'z'>[],
+  random: () => number = Math.random,
+  mode: GameMode = 'teams',
+): [number, number, number] {
+  const side = team === 'intrusos' ? -1 : 1;
+  const minX = map.width * 0.17;
+  const maxX = map.width / 2 - 2.3;
+  const maxZ = map.depth / 2 - 2.3;
+  const minDistance = mode === 'ffa' ? 8 : 6;
+  let best: [number, number, number] | null = null;
+  let bestDistance = -1;
+  const consider = (x: number, z: number): boolean => {
     const y = groundHeight(map, x, z);
-    if (!insideSolid(map, x, z, y)) return [x, y, z];
+    if (y > 0.1 || insideSolid(map, x, z, y, 0.75)) return false;
+    const distance = occupied.length ? Math.min(...occupied.map((player) => Math.hypot(x - player.x, z - player.z))) : Infinity;
+    if (distance > bestDistance) { bestDistance = distance; best = [x, y, z]; }
+    return distance >= minDistance;
+  };
+  for (let attempt = 0; attempt < 100; attempt++) {
+    const x = mode === 'ffa' ? (random() * 2 - 1) * maxX : side * (minX + random() * (maxX - minX));
+    const z = (random() * 2 - 1) * maxZ;
+    if (consider(x, z)) return [x, groundHeight(map, x, z), z];
   }
+  for (let x = mode === 'ffa' ? -maxX : minX; x <= maxX; x += 2.5) for (let z = -maxZ; z <= maxZ; z += 2.5) consider(mode === 'ffa' ? x : side * x, z);
+  if (best) return best;
+  const [baseX, baseZ] = map.spawns[team];
   return [baseX, groundHeight(map, baseX, baseZ), baseZ];
 }

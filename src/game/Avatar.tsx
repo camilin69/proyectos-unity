@@ -1,7 +1,9 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import type { CharacterId, PlayerState, TeamId } from '../../shared/world';
+import type { CharacterId, GameMode, HitZone, PlayerState, TeamId } from '../../shared/world';
+
+export interface HitReaction { id: string; zone: HitZone }
 
 const STYLE: Record<CharacterId, { visor: string; body: string; shoulder: number; helmet: number }> = {
   kira: { visor: '#85d6c7', body: '#263c42', shoulder: 0.32, helmet: 0.38 },
@@ -40,37 +42,44 @@ function Parts({ specs }: { specs: PartSpec[] }) {
   </instancedMesh>;
 }
 
-function Tag({ name, team }: { name: string; team: TeamId }) {
+function Tag({ name, team, solo }: { name: string; team: TeamId; solo: boolean }) {
   const texture = useMemo(() => {
     const canvas = document.createElement('canvas');
     canvas.width = 512;
     canvas.height = 96;
     const ctx = canvas.getContext('2d')!;
-    ctx.fillStyle = team === 'intrusos' ? '#d99c56' : '#58c6bf';
+    ctx.fillStyle = solo ? '#b8c7a4' : team === 'intrusos' ? '#d99c56' : '#58c6bf';
     ctx.fillRect(0, 0, 512, 80);
     ctx.fillStyle = '#102026';
     ctx.font = 'bold 39px Arial';
     ctx.textAlign = 'center';
     ctx.fillText(name.toUpperCase().slice(0, 18), 256, 54, 480);
     return new THREE.CanvasTexture(canvas);
-  }, [name, team]);
+  }, [name, team, solo]);
   useEffect(() => () => texture.dispose(), [texture]);
   return <sprite position={[0, 2.28, 0]} scale={[2.2, 0.42, 1]}>
     <spriteMaterial map={texture} transparent depthTest={false} />
   </sprite>;
 }
 
-export function Avatar({ character, team, name, position, yaw = 0, walking = false, label = true }: {
+export function Avatar({ character, team, name, position, yaw = 0, walking = false, label = true, reaction, dead = false, crouching = false, solo = false }: {
   character: CharacterId; team: TeamId; name: string; position: [number, number, number]; yaw?: number; walking?: boolean; label?: boolean;
+  reaction?: HitReaction; dead?: boolean; crouching?: boolean; solo?: boolean;
 }) {
   const group = useRef<THREE.Group>(null);
+  const pose = useRef<THREE.Group>(null);
   const leftArm = useRef<THREE.Group>(null);
   const rightArm = useRef<THREE.Group>(null);
   const leftLeg = useRef<THREE.Group>(null);
   const rightLeg = useRef<THREE.Group>(null);
   const target = useMemo(() => new THREE.Vector3(), []);
+  const hitMotion = useRef({ remaining: 0, zone: 'torso' as HitZone });
+  const fall = useRef(0);
+  useEffect(() => {
+    if (reaction) hitMotion.current = { remaining: 0.4, zone: reaction.zone };
+  }, [reaction?.id]);
   const variant = STYLE[character];
-  const accent = team === 'intrusos' ? '#e8a34e' : '#55c7c3';
+  const accent = solo ? '#a6bfa9' : team === 'intrusos' ? '#e8a34e' : '#55c7c3';
 
   const core = useMemo<PartSpec[]>(() => {
     const parts: PartSpec[] = [
@@ -118,21 +127,34 @@ export function Avatar({ character, team, name, position, yaw = 0, walking = fal
     if (rightArm.current) rightArm.current.rotation.x = swing * 0.65 - 0.22;
     if (leftLeg.current) leftLeg.current.rotation.x = swing;
     if (rightLeg.current) rightLeg.current.rotation.x = -swing;
+    if (pose.current) {
+      pose.current.scale.y = THREE.MathUtils.damp(pose.current.scale.y, crouching ? 0.68 : 1, 15, delta);
+      hitMotion.current.remaining = Math.max(0, hitMotion.current.remaining - delta);
+      fall.current = THREE.MathUtils.damp(fall.current, dead ? 1 : 0, dead ? 5 : 12, delta);
+      const pulse = Math.sin((1 - hitMotion.current.remaining / 0.4) * Math.PI) * (hitMotion.current.remaining > 0 ? 1 : 0);
+      const zone = hitMotion.current.zone;
+      pose.current.rotation.x = fall.current * 1.42 + pulse * (zone === 'head' ? -0.25 : zone === 'leg' ? 0.09 : -0.15);
+      pose.current.rotation.z = pulse * (zone === 'arm' ? 0.2 : zone === 'head' ? 0.17 : 0.11);
+      pose.current.position.y = -fall.current * 0.24 - pulse * (zone === 'leg' ? 0.14 : 0.025);
+    }
   });
 
   return <group ref={group} position={position}>
-    <Parts specs={core} />
-    {([-1, 1] as const).map((side) => <group key={`arm-${side}`} ref={side < 0 ? leftArm : rightArm} position={[side * (variant.shoulder + 0.08), 1.31, 0]}><Parts specs={armParts} /></group>)}
-    {([-1, 1] as const).map((side) => <group key={`leg-${side}`} ref={side < 0 ? leftLeg : rightLeg} position={[side * 0.18, 0.65, 0]}><Parts specs={legParts} /></group>)}
-    <mesh position={[0, 1.68, 0]}>
-      <sphereGeometry args={[variant.helmet, 16, 10]} />
-      <meshStandardMaterial color="#243138" metalness={0.45} roughness={0.54} />
-    </mesh>
-    {label && <Tag name={name} team={team} />}
+    <group ref={pose}>
+      <Parts specs={core} />
+      {([-1, 1] as const).map((side) => <group key={`arm-${side}`} ref={side < 0 ? leftArm : rightArm} position={[side * (variant.shoulder + 0.08), 1.31, 0]}><Parts specs={armParts} /></group>)}
+      {([-1, 1] as const).map((side) => <group key={`leg-${side}`} ref={side < 0 ? leftLeg : rightLeg} position={[side * 0.18, 0.65, 0]}><Parts specs={legParts} /></group>)}
+      <mesh position={[0, 1.68, 0]}>
+        <sphereGeometry args={[variant.helmet, 16, 10]} />
+        <meshStandardMaterial color="#243138" metalness={0.45} roughness={0.54} />
+      </mesh>
+    </group>
+    {label && !dead && <Tag name={name} team={team} solo={solo} />}
   </group>;
 }
 
-export function RemoteAvatar({ player }: { player: PlayerState }) {
+export function RemoteAvatar({ player, reaction, mode }: { player: PlayerState; reaction?: HitReaction; mode: GameMode }) {
   return <Avatar character={player.character} team={player.team} name={player.name}
-    position={[player.x, player.y, player.z]} yaw={player.yaw} />;
+    position={[player.x, player.y, player.z]} yaw={player.yaw} reaction={reaction} dead={player.hp <= 0}
+    crouching={player.crouching} solo={mode === 'ffa'} />;
 }

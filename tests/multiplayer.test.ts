@@ -23,9 +23,9 @@ function connect(port: number, code: string): Promise<WebSocket> {
   });
 }
 
-function waitFor(socket: WebSocket, predicate: (message: ServerMessage) => boolean, timeout = 3500): Promise<ServerMessage> {
+function waitFor(socket: WebSocket, predicate: (message: ServerMessage) => boolean, timeout = 6000, label = 'mensaje'): Promise<ServerMessage> {
   return new Promise((resolve, reject) => {
-    const timer = setTimeout(() => { socket.off('message', onMessage); reject(new Error('Sin mensaje esperado')); }, timeout);
+    const timer = setTimeout(() => { socket.off('message', onMessage); reject(new Error(`Sin ${label} esperado`)); }, timeout);
     const onMessage = (raw: WebSocket.RawData) => {
       const message = JSON.parse(raw.toString()) as ServerMessage;
       if (predicate(message)) {
@@ -38,7 +38,7 @@ function waitFor(socket: WebSocket, predicate: (message: ServerMessage) => boole
   });
 }
 
-test('lobby separa salas, vota mapa, configura puntos y comienza partida', { timeout: 12000 }, async () => {
+test('lobby separa salas, vota mapa, configura puntos y comienza partida', { timeout: 20000 }, async () => {
   const port = await freePort();
   const server = spawn(process.execPath, ['--import', 'tsx', 'server/index.ts'], {
     cwd: process.cwd(), env: { ...process.env, PORT: String(port) }, stdio: ['ignore', 'pipe', 'pipe'],
@@ -55,13 +55,14 @@ test('lobby separa salas, vota mapa, configura puntos y comienza partida', { tim
     const c = await connect(port, 'BETA');
     sockets.push(a, b, c);
     const wa = waitFor(a, (m) => m.type === 'welcome');
+    a.send(JSON.stringify({ type: 'join', name: 'Uno', character: 'kira' }));
+    const ma = await wa;
     const wb = waitFor(b, (m) => m.type === 'welcome');
     const wc = waitFor(c, (m) => m.type === 'welcome');
     const joined = waitFor(a, (m) => m.type === 'lobby' && m.state.players.length === 2);
-    a.send(JSON.stringify({ type: 'join', name: 'Uno', character: 'kira' }));
     b.send(JSON.stringify({ type: 'join', name: 'Dos', character: 'atlas' }));
     c.send(JSON.stringify({ type: 'join', name: 'Tres', character: 'vektor' }));
-    const [ma, mb, mc, initial] = await Promise.all([wa, wb, wc, joined]);
+    const [mb, mc, initial] = await Promise.all([wb, wc, joined]);
     assert.equal(ma.type, 'welcome');
     assert.equal(mb.type, 'welcome');
     assert.equal(mc.type, 'welcome');
@@ -72,10 +73,31 @@ test('lobby separa salas, vota mapa, configura puntos y comienza partida', { tim
     assert.equal(initial.state.hostId, ma.id);
     assert.deepEqual(new Set(initial.state.players.map((p) => p.character)), new Set(['kira', 'atlas']));
 
+    const sameTeam = waitFor(a, (m) => m.type === 'lobby' && m.state.players.length === 2 && m.state.players.every((player) => player.team === 'intrusos'));
+    b.send(JSON.stringify({ type: 'selectTeam', team: 'intrusos' }));
+    await sameTeam;
+    const refused = waitFor(a, (m) => m.type === 'error' && m.message.includes('equipo'));
+    a.send(JSON.stringify({ type: 'start' }));
+    await refused;
+    const restoredTeams = waitFor(a, (m) => m.type === 'lobby' && m.state.players.some((player) => player.id === mb.id && player.team === 'custodios'));
+    b.send(JSON.stringify({ type: 'selectTeam', team: 'custodios' }));
+    await restoredTeams;
+
     const voting = waitFor(a, (m) => m.type === 'lobby' && m.state.votes.delta === 1 && m.state.votes.terminal === 1);
     a.send(JSON.stringify({ type: 'vote', map: 'terminal' }));
     b.send(JSON.stringify({ type: 'vote', map: 'delta' }));
     await voting;
+
+    const maxConfigured = waitFor(b, (m) => m.type === 'lobby' && m.state.targetScore === 50);
+    a.send(JSON.stringify({ type: 'configure', roundSeconds: 120, matchMinutes: 15, targetScore: 50 }));
+    await maxConfigured;
+
+    const rejected = waitFor(b, (m) => m.type === 'lobby' && m.state.votes.terminal === 2);
+    a.send(JSON.stringify({ type: 'configure', roundSeconds: 120, matchMinutes: 15, targetScore: 51 }));
+    b.send(JSON.stringify({ type: 'vote', map: 'terminal' }));
+    const unchanged = await rejected;
+    assert.equal(unchanged.type, 'lobby');
+    if (unchanged.type === 'lobby') assert.equal(unchanged.state.targetScore, 50);
 
     const configured = waitFor(b, (m) => m.type === 'lobby' && m.state.roundSeconds === 60 && m.state.matchMinutes === 5 && m.state.targetScore === 1);
     b.send(JSON.stringify({ type: 'configure', roundSeconds: 300, matchMinutes: 30, targetScore: 9 }));
@@ -110,6 +132,54 @@ test('lobby separa salas, vota mapa, configura puntos y comienza partida', { tim
       assert.equal(result.state.scores.intrusos, 1);
       assert.equal(result.state.winner, 'intrusos');
     }
+  } finally {
+    for (const socket of sockets) socket.close();
+    server.kill();
+  }
+});
+
+test('todos contra todos inicia con jugadores del mismo equipo y decide ganador individual', { timeout: 20000 }, async () => {
+  const port = await freePort();
+  const server = spawn(process.execPath, ['--import', 'tsx', 'server/index.ts'], {
+    cwd: process.cwd(), env: { ...process.env, PORT: String(port) }, stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  const sockets: WebSocket[] = [];
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error('Servidor no arrancó')), 5000);
+      server.stdout!.on('data', (data) => { if (data.toString().includes('escuchando')) { clearTimeout(timer); resolve(); } });
+      server.once('exit', (code) => { clearTimeout(timer); reject(new Error(`Servidor terminó: ${code}`)); });
+    });
+    const a = await connect(port, 'LIBRE');
+    const b = await connect(port, 'LIBRE');
+    sockets.push(a, b);
+    const welcome = waitFor(a, (m) => m.type === 'welcome', 6000, 'bienvenida');
+    a.send(JSON.stringify({ type: 'join', name: 'Anfitrión', character: 'kira' }));
+    const ma = await welcome;
+    const joined = waitFor(a, (m) => m.type === 'lobby' && m.state.players.length === 2, 6000, 'lobby de dos');
+    b.send(JSON.stringify({ type: 'join', name: 'Rival', character: 'atlas' }));
+    await joined;
+    assert.equal(ma.type, 'welcome');
+    if (ma.type !== 'welcome') return;
+    const sameTeam = waitFor(a, (m) => m.type === 'lobby' && m.state.players.every((player) => player.team === 'intrusos'), 6000, 'cambio de equipo');
+    b.send(JSON.stringify({ type: 'selectTeam', team: 'intrusos' }));
+    await sameTeam;
+    const configured = waitFor(b, (m) => m.type === 'lobby' && m.state.mode === 'ffa' && m.state.targetScore === 2, 6000, 'configuración FFA');
+    a.send(JSON.stringify({ type: 'configure', roundSeconds: 120, matchMinutes: 5, targetScore: 2, mode: 'ffa' }));
+    await configured;
+    const started = waitFor(a, (m) => m.type === 'lobby' && m.state.phase === 'playing', 6000, 'inicio FFA');
+    a.send(JSON.stringify({ type: 'start' }));
+    const play = await started;
+    assert.equal(play.type, 'lobby');
+    if (play.type !== 'lobby') return;
+    assert.equal(play.state.mode, 'ffa');
+    assert.equal(play.state.round, 1);
+    assert.equal(play.state.endsAt, play.state.matchEndsAt);
+    const finished = waitFor(a, (m) => m.type === 'lobby' && m.state.phase === 'finished', 6000, 'final FFA');
+    b.close();
+    const result = await finished;
+    assert.equal(result.type, 'lobby');
+    if (result.type === 'lobby') assert.equal(result.state.winnerId, ma.id);
   } finally {
     for (const socket of sockets) socket.close();
     server.kill();
