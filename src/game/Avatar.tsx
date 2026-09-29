@@ -1,0 +1,106 @@
+import { useEffect, useMemo, useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+import type { CharacterId, PlayerState, TeamId } from '../../shared/world';
+
+const STYLE: Record<CharacterId, { visor: string; body: string; shoulder: number; helmet: number }> = {
+  kira: { visor: '#85d6c7', body: '#263c42', shoulder: 0.32, helmet: 0.38 },
+  vektor: { visor: '#ffc481', body: '#353e47', shoulder: 0.39, helmet: 0.42 },
+  atlas: { visor: '#d7e1e6', body: '#43494f', shoulder: 0.46, helmet: 0.46 },
+};
+
+function Part({ position, scale, color, metalness = 0.25, roughness = 0.65 }: {
+  position: [number, number, number]; scale: [number, number, number]; color: string; metalness?: number; roughness?: number;
+}) {
+  return <mesh castShadow receiveShadow position={position} scale={scale}>
+    <boxGeometry args={[1, 1, 1]} />
+    <meshStandardMaterial color={color} metalness={metalness} roughness={roughness} />
+  </mesh>;
+}
+
+function Tag({ name, team }: { name: string; team: TeamId }) {
+  const texture = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 96;
+    const ctx = canvas.getContext('2d')!;
+    ctx.fillStyle = team === 'intrusos' ? '#d99c56' : '#58c6bf';
+    ctx.fillRect(0, 0, 512, 80);
+    ctx.fillStyle = '#102026';
+    ctx.font = 'bold 39px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(name.toUpperCase().slice(0, 18), 256, 54, 480);
+    return new THREE.CanvasTexture(canvas);
+  }, [name, team]);
+  useEffect(() => () => texture.dispose(), [texture]);
+  return <sprite position={[0, 2.28, 0]} scale={[2.2, 0.42, 1]}>
+    <spriteMaterial map={texture} transparent depthTest={false} />
+  </sprite>;
+}
+
+export function Avatar({ character, team, name, position, yaw = 0, walking = false, label = true }: {
+  character: CharacterId; team: TeamId; name: string; position: [number, number, number]; yaw?: number; walking?: boolean; label?: boolean;
+}) {
+  const group = useRef<THREE.Group>(null);
+  const leftArm = useRef<THREE.Group>(null);
+  const rightArm = useRef<THREE.Group>(null);
+  const leftLeg = useRef<THREE.Group>(null);
+  const rightLeg = useRef<THREE.Group>(null);
+  const variant = STYLE[character];
+  const accent = team === 'intrusos' ? '#e8a34e' : '#55c7c3';
+  useFrame(({ clock }, delta) => {
+    if (!group.current) return;
+    const distance = Math.hypot(group.current.position.x - position[0], group.current.position.z - position[2]);
+    const moving = walking || (distance > 0.015 && distance < 3);
+    const phase = clock.elapsedTime * 9;
+    group.current.position.lerp(new THREE.Vector3(position[0], position[1], position[2]), Math.min(1, delta * 14));
+    group.current.position.y += moving ? Math.abs(Math.sin(phase)) * 0.015 : 0;
+    group.current.rotation.y = yaw;
+    const swing = moving ? Math.sin(phase) * 0.42 : Math.sin(clock.elapsedTime * 1.8) * 0.012;
+    if (leftArm.current) leftArm.current.rotation.x = -swing * 0.65 - 0.22;
+    if (rightArm.current) rightArm.current.rotation.x = swing * 0.65 - 0.22;
+    if (leftLeg.current) leftLeg.current.rotation.x = swing;
+    if (rightLeg.current) rightLeg.current.rotation.x = -swing;
+  });
+  return <group ref={group} position={position}>
+    <Part position={[0, 0.99, 0]} scale={[0.65, 0.73, 0.33]} color={variant.body} />
+    <Part position={[0, 1.03, 0.19]} scale={[0.52, 0.48, 0.13]} color={accent} metalness={0.4} />
+    <Part position={[0, 1.32, 0.25]} scale={[0.42, 0.1, 0.08]} color="#0e2026" metalness={0.65} />
+    <Part position={[-0.23, 0.98, 0.26]} scale={[0.09, 0.34, 0.07]} color="#17282e" />
+    <Part position={[0.23, 0.98, 0.26]} scale={[0.09, 0.34, 0.07]} color="#17282e" />
+    <Part position={[0, 0.66, 0.1]} scale={[0.67, 0.14, 0.39]} color="#17262b" metalness={0.5} />
+    <Part position={[0, 0.96, -0.23]} scale={[0.49, 0.52, 0.2]} color="#192b31" />
+    {[-1, 1].map((side) => <group key={`arm-${side}`} ref={side < 0 ? leftArm : rightArm} position={[side * (variant.shoulder + 0.08), 1.31, 0]}>
+      <mesh castShadow><sphereGeometry args={[0.18, 12, 10]} /><meshStandardMaterial color={accent} roughness={0.55} /></mesh>
+      <Part position={[0, -0.27, 0]} scale={[0.19, 0.48, 0.22]} color="#26383d" />
+      <Part position={[0, -0.5, -0.025]} scale={[0.22, 0.18, 0.24]} color="#101f25" />
+      <Part position={[0, -0.68, -0.03]} scale={[0.14, 0.26, 0.16]} color="#687779" metalness={0.5} />
+    </group>)}
+    {[-1, 1].map((side) => <group key={`leg-${side}`} ref={side < 0 ? leftLeg : rightLeg} position={[side * 0.18, 0.65, 0]}>
+      <Part position={[0, -0.19, 0]} scale={[0.24, 0.39, 0.28]} color="#202d34" />
+      <Part position={[0, -0.41, 0.15]} scale={[0.25, 0.14, 0.11]} color={accent} metalness={0.35} />
+      <Part position={[0, -0.53, 0]} scale={[0.21, 0.23, 0.24]} color="#27363b" />
+      <Part position={[0, -0.62, 0.12]} scale={[0.29, 0.13, 0.45]} color="#10191e" />
+    </group>)}
+    <mesh castShadow position={[0, 1.68, 0]}>
+      <sphereGeometry args={[variant.helmet, 16, 10]} />
+      <meshStandardMaterial color="#243138" metalness={0.45} roughness={0.54} />
+    </mesh>
+    <Part position={[0, 1.47, 0.29]} scale={[0.45, 0.17, 0.17]} color="#151f26" />
+    <Part position={[0, 1.7, -0.3]} scale={[0.55, 0.16, 0.09]} color={variant.visor} metalness={0.5} roughness={0.2} />
+    <Part position={[0, 1.7, 0.34]} scale={[variant.helmet * 1.45, 0.16, 0.06]} color={variant.visor} metalness={0.5} roughness={0.2} />
+    {character === 'atlas' && <Part position={[0, 1.9, 0]} scale={[0.56, 0.12, 0.56]} color="#677278" />}
+    {character === 'vektor' && <Part position={[0.34, 1.66, 0]} scale={[0.16, 0.28, 0.25]} color="#d3a75e" />}
+    {character === 'kira' && <Part position={[0, 1.99, 0.12]} scale={[0.1, 0.18, 0.17]} color="#5ecab9" />}
+    <group position={[0.19, 1.01, -0.32]}>
+      <Part position={[0, 0, 0]} scale={[0.14, 0.2, 0.75]} color="#12191d" />
+      <Part position={[0, -0.12, 0.17]} scale={[0.12, 0.22, 0.13]} color="#252d31" />
+    </group>
+    {label && <Tag name={name} team={team} />}
+  </group>;
+}
+
+export function RemoteAvatar({ player }: { player: PlayerState }) {
+  return <Avatar character={player.character} team={player.team} name={player.name}
+    position={[player.x, player.y, player.z]} yaw={player.yaw} />;
+}

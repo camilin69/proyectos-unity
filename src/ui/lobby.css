@@ -1,0 +1,31 @@
+.lobby-shell { min-height: 100vh; }
+.lobby-content { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(330px, 1fr) minmax(400px, 560px); gap: 6vw; width: 100%; max-width: 1440px; margin: auto; padding: 45px 46px 70px; align-items: center; }
+.lobby-lead h1 { font: 800 clamp(70px, 8vw, 125px)/.85 'Barlow Condensed', sans-serif; margin: 36px 0 25px; letter-spacing: -2px; }
+.lobby-lead h1 em { color: #efaa5b; font-style: normal; }
+.lobby-lead p { color: #a9c2c0; font-size: 18px; line-height: 1.5; max-width: 490px; }
+.lobby-lead .lan-note { font-size: 11px; color: #7ea4a0; margin: -9px 0 20px; }
+.room-code { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; border: 1px solid #67848180; background: #10242abd; padding: 15px 18px; margin: 37px 0 20px; max-width: 500px; }
+.room-code span, .room-code button { color: #94b4b0; letter-spacing: 1.8px; font-weight: 700; font-size: 10px; }
+.room-code strong { font: 800 26px 'Barlow Condensed', sans-serif; color: #efb56f; letter-spacing: 5px; }
+.room-code button { margin-left: auto; background: #21383e; color: #e4f5ed; border: 1px solid #6b918f; padding: 8px 10px; }
+.lobby-score { display: flex; gap: 13px; align-items: center; color: #b8d0ca; font: 700 17px 'Barlow Condensed', sans-serif; letter-spacing: 1px; }
+.lobby-score b { color: #f0b671; font-size: 28px; margin: 0 5px; }
+.lobby-score i { color: #557b7b; font-style: normal; }
+.lobby-panel { width: 100%; }
+.lobby-panel .map-row { grid-template-columns: repeat(2, 1fr); }
+.lobby-roster { max-height: 204px; overflow-y: auto; display: grid; gap: 5px; }
+.lobby-member { display: flex; align-items: center; gap: 10px; background: #102027; border-left: 2px solid #72cfc2; padding: 8px 11px; }
+.lobby-member:nth-child(even) { border-left-color: #e8aa60; }
+.lobby-member span { color: #80d6c8; }
+.lobby-member strong { font-size: 12px; }
+.lobby-member small { margin-left: auto; color: #8ca9a5; font-size: 9px; letter-spacing: .5px; }
+.lobby-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.lobby-settings label { display: block; color: #9ab7b4; font-size: 9px; letter-spacing: 1.5px; font-weight: 700; }
+.lobby-settings select { width: 100%; margin-top: 9px; padding: 11px 12px; background: #102027; border: 1px solid #537174; color: #e6f1ed; font: 700 14px 'Barlow Condensed', sans-serif; }
+.lobby-settings select:disabled { opacity: .7; }
+.hud-scores i small { display: block; font-size: 8px; letter-spacing: 1px; color: #8caaa8; }
+.result-note { color: #d7e9e5; font-size: 15px; margin: 32px 0; }
+.text-exit { display: block; margin: 18px auto 0; padding: 8px; background: transparent; color: #9ab7b4; border: 0; font-size: 10px; letter-spacing: 1.5px; }
+.text-exit:hover { color: #fff; }
+@media (max-width: 900px) { .lobby-content { grid-template-columns: 1fr; padding: 26px 24px 60px; gap: 24px; } .lobby-lead h1 { font-size: 72px; margin: 19px 0; } .lobby-panel { max-width: none; } }
+@media (max-width: 560px) { .lobby-lead h1 { font-size: 57px; } .room-code { padding: 10px; } .room-code button { margin-left: 0; } .lobby-settings { grid-template-columns: 1fr; } .lobby-member small { max-width: 100px; text-align: right; } }

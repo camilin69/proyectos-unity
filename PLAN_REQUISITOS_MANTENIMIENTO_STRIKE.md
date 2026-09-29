@@ -731,7 +731,7 @@ Estas decisiones no impiden crear el vertical slice local y el primer servidor d
 
 ## 28. Instrucción de arranque para el agente de desarrollo
 
-> Construye Mantenimiento Strike como un shooter táctico web 3D original. Utiliza React, TypeScript, Vite, Three.js y React Three Fiber en el cliente; Rapier para física; Zustand para estado de interfaz y Colyseus con Node.js/TypeScript para el servidor autoritativo. Mantén la simulación competitiva fuera del render de React. Empieza por P0 y avanza por los gates de la sección 22, probando dos clientes reales desde P2. No produzcas mapas o arte finales antes de validar movimiento, networking, disparos y blockout. El servidor decide movimiento válido, daño, economía, objetivo y resultado. Registra versiones, pruebas, métricas y cambios de balance. Usa diseños, nombres, modelos y sonidos originales; la referencia a shooters tácticos describe el género, no autoriza copiar contenido protegido.
+> Continúa Mantenimiento Strike como un shooter táctico web 3D original desde el primer incremento descrito en la sección 30. El cliente existente usa React, TypeScript, Vite, Three.js y React Three Fiber; el servidor Node.js/TypeScript usa WebSocket directo y decide movimiento, colisiones, daño y reaparición. No dupliques ese trabajo. Avanza por los gates de la sección 22, probando dos clientes reales y convirtiendo los modelos procedurales en arte de producción por etapas. Evalúa Rapier, Zustand y Colyseus cuando sus necesidades concretas aparezcan; si migras, conserva las pruebas de comportamiento y la autoridad del servidor. Añade economía, objetivo y resultado de ronda al servidor, no al cliente. Registra versiones, pruebas, métricas y cambios de balance. Usa diseños, nombres, modelos y sonidos originales; la referencia a shooters tácticos describe el género, no autoriza copiar contenido protegido.
 
 ---
 
@@ -744,3 +744,82 @@ Estas decisiones no impiden crear el vertical slice local y el primer servidor d
 - [Colyseus — netcode](https://docs.colyseus.io/netcode): referencia para input autoritativo, timestep fijo, predicción, reconciliación y compensación de latencia.
 
 Las URLs sirven para resolver APIs y versiones durante P0. No usar `latest` sin registrar el lockfile. La existencia de una función en documentación reciente no demuestra que esté disponible en la versión fijada del proyecto.
+
+---
+
+## 30. Ampliación aprobada: personajes, escenarios y primer desarrollo multijugador
+
+### 30.1 Selección de personaje
+
+- La pantalla de entrada muestra tres personajes originales: **Kira**, **Vektor** y **Atlas**.
+- Cada uno tiene silueta, casco, chaleco, hombreras y colores secundarios distintos. La selección inicial es estética; no altera daño, velocidad ni hitbox.
+- El jugador elige alias, personaje y escenario antes de entrar. El servidor valida la elección y asigna el equipo de forma equilibrada.
+- La selección se transmite a todos y determina el avatar 3D remoto. El jugador ve su propio equipo y personaje en HUD.
+- Un cambio posterior de personaje solo se aplica al entrar a otra sala o en una fase de selección futura; no permite cambiar hitbox en mitad del combate.
+
+### 30.2 Escenarios WebGL procedurales
+
+- Primera entrega: **Depósito Delta** y **Terminal Nocturna**.
+- Cada mapa tiene plantas, muros, coberturas, cajas, tuberías, escaleras transitables, plataformas elevadas y escondites con entrada real.
+- Las piezas se componen con geometrías y materiales de Three.js mediante React Three Fiber. Deben tener siluetas reconocibles: una caja de carga tiene aristas/refuerzos, una cubierta tiene techo y abertura, una escalera tiene peldaños y acceso a plataforma.
+- La geometría visible y las colisiones del servidor provienen de la misma definición compartida de mapa. Un muro visible no puede ser atravesable y una abertura visual debe permitir paso.
+- Los escondites permiten romper línea de visión y cubrirse de disparos. No conceden invisibilidad por flag.
+- Las escaleras elevan realmente al avatar y su cámara; la plataforma debe ser alcanzable y permitir volver a bajar.
+- Cada escenario tiene paleta, iluminación y composición propias sin alterar la claridad competitiva.
+
+### 30.3 Primer incremento funcional
+
+Entregar una aplicación React/Vite/Three.js y un servidor de WebSocket con salas independientes por código. Dos navegadores conectados con el mismo código deben verse, votar mapa, moverse y dispararse cuando el anfitrión inicie. El servidor asigna IDs/equipos, valida selección, posición, velocidad, colisiones, cadencia, daño, eliminación y puntos de ronda. Las posiciones se publican en snapshots; el cliente representa al resto con interpolación ligera.
+
+Este incremento usa un protocolo WebSocket pequeño y explícito para poner a prueba juego y mapa. La arquitectura Colyseus de la sección 2 sigue siendo la opción para matchmaking, reconexión y estados de rondas completos; se evaluará su incorporación antes de P4. Si se conserva WebSocket directo, documentar la decisión y cubrir las mismas garantías autoritativas. El primer incremento no se debe etiquetar como partida competitiva completa: compra, dispositivo, utilidades, reconexión y anti-cheat avanzado siguen pendientes.
+
+### 30.4 Pruebas de aceptación del incremento
+
+1. Abrir dos clientes con el mismo código: cada uno ve alias, equipo y modelo seleccionado del otro; al iniciar comparten el mapa votado.
+2. Abrir un tercero con otro código: no aparece en la primera sala.
+3. Caminar y agacharse junto a cobertura: el servidor impide atravesarla.
+4. Subir y bajar la escalera: cámara y avatar cambian de altura sin teletransporte.
+5. Entrar al escondite y salir por su abertura: sus paredes bloquean rayos.
+6. Disparar a un jugador visible: solo el servidor asigna daño; cobertura bloquea el tiro.
+7. Cerrar un cliente: su avatar desaparece para los demás.
+8. La aplicación compila, el servidor arranca y no produce errores repetidos.
+
+### 30.5 Estado del primer incremento
+
+La selección de personaje, los modelos procedurales, el movimiento con colisión, la elevación por escaleras y los disparos validados por servidor están implementados. Las salas se identifican ahora por código, el mapa se elige mediante votación y la reaparición se produce entre rondas. `npm test` cubre geometría y una conexión real de tres clientes; `npm run build` valida el cliente. El README contiene las instrucciones para ejecutar la versión local. La calidad visual actual es de **prototipo geométrico**: los modelos no cumplen aún el objetivo de arte final, materiales PBR completos ni animaciones de producción. La comprobación manual de todos los recorridos y el perfilado en equipos de gama baja siguen pendientes.
+
+---
+
+## 31. Lobby multijugador, votación y partidas por rondas
+
+### 31.1 Acceso desde otras máquinas
+
+- El servidor escucha en la interfaz de red y el cliente construye la URL WebSocket a partir del host de la página, salvo que `VITE_WS_URL` indique otro host. Para jugar desde otra máquina en la misma red, abrir el cliente con la IP LAN del equipo servidor y habilitar los puertos del cliente y del WebSocket en el firewall.
+- El anfitrión comparte un código de sala corto. Los jugadores ingresan ese código, alias y personaje; el servidor asigna un identificador único. Dos códigos distintos aíslan jugadores y estado. Capacidad inicial: diez jugadores por sala; los equipos se equilibran al entrar.
+- La sala presenta participantes, equipos, votos, configuración y estado. Solo el anfitrión puede cambiar la duración y comenzar; si sale, el rol pasa a otro participante. Se invalida un voto al salir.
+- El acceso por LAN no equivale a despliegue público. Para Internet se necesitarán WSS, NAT/hosting, autenticación, protección contra abuso y regiones; no exponer el prototipo directamente.
+
+### 31.2 Votación de escenario
+
+- Durante el lobby cada jugador puede votar por Depósito Delta o Terminal Nocturna, y modificar su voto antes del inicio. El servidor cuenta un voto por ID, publica totales y decide por mayoría al iniciar. Un empate usa el voto del anfitrión; si este no votó, se elige Depósito Delta de forma determinista.
+- La selección final se anuncia a todos antes de cargar la escena. No se cambia el mapa durante una partida; una revancha regresa al lobby y permite votar de nuevo.
+
+### 31.3 Configuración y puntuación
+
+- El anfitrión configura duración de cada ronda entre 60 y 300 segundos, duración máxima total de la partida entre 5 y 30 minutos y puntos necesarios para ganar entre 1 y 9. Estos valores se bloquean al comenzar la partida.
+- Los equipos empiezan con cero puntos. Una ronda termina cuando un equipo elimina a todos los rivales. Ese equipo obtiene un punto. Si acaba el tiempo, gana el equipo con más sobrevivientes; si empatan, la ronda no da puntos.
+- No hay reaparición dentro de una ronda. Tras una pausa breve, todos reaparecen con salud completa en su zona y empieza la siguiente. Termina la partida al alcanzar el objetivo de puntos, el límite total de tiempo o un máximo de `2 × puntos necesarios − 1` rondas. El reloj total trunca la última ronda; no asigna un punto por una ronda inconclusa. Si nadie alcanza el objetivo, gana el equipo con más puntos; el empate se anuncia explícitamente.
+- El servidor es la única fuente de fase, reloj, marcador, eliminación y cambio de ronda. El cliente representa el tiempo del servidor y no puede adjudicar puntos localmente. Al desconectarse un jugador, se reevalúa la condición de victoria; una sala sin dos equipos vuelve al lobby al finalizar la ronda.
+
+### 31.4 Pruebas de aceptación
+
+1. Dos máquinas en la misma LAN abren la URL del cliente con IP del anfitrión y entran con el mismo código; se ven en el lobby y en el mapa.
+2. Un código diferente mantiene aislados jugadores, votos y puntuación.
+3. Cada jugador tiene un voto; cambiarlo o desconectarse actualiza los conteos. El empate se resuelve con la regla documentada.
+4. Solo el anfitrión puede cambiar duración y puntos objetivo e iniciar con integrantes en ambos equipos.
+5. Una eliminación total y un timeout cambian de ronda y puntúan según regla; un eliminado no reaparece antes de la próxima ronda.
+6. El marcador y la fase coinciden en todos los clientes; el resultado final se congela y se puede volver al lobby.
+
+### 31.5 Estado actual y siguientes pruebas
+
+El servidor y la interfaz ya implementan acceso por código, anfitrión transferible, votos de mapa, ajustes de ronda y duración total, inicio condicionado a dos equipos, reloj autoritativo, puntos por ronda, resultado y revancha. Las pruebas automatizadas comprueban aislamiento, voto empatado, permisos de configuración, inicio y resultado al desconectarse el rival. Falta probar físicamente dos computadores en la red del usuario y medir latencia, estabilidad y rendimiento durante una partida completa.
