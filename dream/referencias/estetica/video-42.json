@@ -1,0 +1,475 @@
+{
+  "version_esquema": "1.0",
+  "id": "video-42",
+  "titulo": "Interiores liminales pastel con naturaleza intrusa y pasillos acuáticos",
+  "idioma": "es",
+  "rama": "dream",
+  "fecha_analisis": "2026-10-08",
+  "fuente": {
+    "archivo": "WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+    "original": "originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+    "atribucion_visible": "Marca visible: @FEVER.DREAM.ER. Es la cuenta indicada en el video, no una verificación de titularidad.",
+    "licencia": "No determinada. Conservar atribución; los archivos son referencias aportadas por el usuario, no assets con licencia deducida.",
+    "metadatos": {
+      "archivo": "WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+      "sha256": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657",
+      "bytes": 5883099,
+      "duracion_s": 28.618333,
+      "ancho_px": 478,
+      "alto_px": 850,
+      "fps": "30/1",
+      "codec": "h264",
+      "contiene_audio": true
+    }
+  },
+  "metodologia": {
+    "alcance": "Análisis visual a partir de muestreo temporal, fotogramas a resolución nativa y recortes revisados. No es una reconstrucción exacta de todo el movimiento.",
+    "evidencia_general": "evidencias/video-42.jpg",
+    "tiempos": "Las muestras PNG usan segundos del video original. Intervalos de planos aproximados, apoyados por diferencias visuales; no son un EDL frame-perfect. Las etiquetas de tiempo del mosaico son de la secuencia remuestreada y pueden diferir hasta un intervalo.",
+    "observacion_vs_inferencia": "Descripciones de elementos visibles separadas de clasificación estética, interpretación emocional y propuestas técnicas.",
+    "limitaciones": [
+      "Los valores HEX son objetivos artísticos aproximados, no mediciones calibradas.",
+      "Compresión, iluminación y reflejos están horneados en la imagen.",
+      "No se recuperan mapas originales de albedo, normal, rugosidad, metalicidad, profundidad o UV.",
+      "No se confirma motor, herramienta, lugar real o método de creación del video.",
+      "Los fundidos y logos de cierre son edición del clip, no rasgos físicos de los escenarios."
+    ],
+    "audio": {
+      "contiene_pista": true,
+      "analisis_auditivo_realizado": false,
+      "descripcion": null,
+      "nota": "Se preserva la pista en el original. No se atribuyen música, sonidos ni ritmo sonoro sin escucha validada."
+    },
+    "fotogramas_extraidos_s": [
+      2,
+      7,
+      13,
+      20
+    ]
+  },
+  "estetica": {
+    "resumen": "Cuatro interiores vacíos: cocina conectada a una pradera, vestíbulo inundado que abre al océano, pasillo descendente de suelo multicolor y nave con pasarela azul rodeada de agua oscura.",
+    "etiquetas_interpretativas": [
+      "dreamcore",
+      "poolrooms",
+      "interiores liminales",
+      "nostalgia doméstica"
+    ],
+    "ambiente_interpretado": "Nostalgia inquietante; espacios familiares vacíos transformados por agua, césped y salidas que no conducen a un lugar cotidiano.",
+    "paleta": [
+      {
+        "hex": "#D29AA9",
+        "nombre": "rosa apagado",
+        "uso": "paredes y azulejos",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#75BAC2",
+        "nombre": "turquesa",
+        "uso": "agua y pavimento",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#DBD4AD",
+        "nombre": "crema amarillento",
+        "uso": "marcos y techos",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#9597C6",
+        "nombre": "lavanda",
+        "uso": "suelo decorativo",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#778D5D",
+        "nombre": "verde hierba",
+        "uso": "cocina y pradera",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#323E3D",
+        "nombre": "verde oscuro",
+        "uso": "agua lateral",
+        "origen": "estimación visual; no color base recuperado"
+      }
+    ],
+    "iluminacion": {
+      "observado": "Luz rosa difusa en cocina; reflejos magenta sobre agua del vestíbulo; lámparas blancas repetidas en pasillo; paneles coloreados en la nave.",
+      "contraste": "Medio y algo velado; agua lateral muy oscura frente a la pasarela clara.",
+      "propuesta": "Luminarias interiores localizadas con relleno suave; mantener las áreas oscuras del agua para que el recorrido sea legible."
+    },
+    "camara_y_composicion": {
+      "observado": "Recorridos a altura humana sugeridos por variaciones de encuadre; puertas y pasillos ocupan el eje de la imagen vertical.",
+      "composicion": "Perspectiva profunda, repetición arquitectónica y espacios sin personajes visibles.",
+      "movimiento": "Agua y encuadre cambian entre muestras; no se ha reconstruido una trayectoria continua.",
+      "lente": "Perspectiva amplia aparente; focal no recuperable."
+    },
+    "geometria_y_utileria": [
+      "Cocina doméstica con horno, microondas, armarios y abertura rectangular.",
+      "Vestíbulo de azulejos con postes, escaleras y carteles de salida.",
+      "Pasillo con descansos y desniveles, puertas repetidas y pasamanos.",
+      "Nave modular de columnas, techo bajo y pasarela sobre agua."
+    ],
+    "efectos_y_acabado": [
+      "Reflejos suaves y multicolor.",
+      "Ligera suavidad y compresión del video; no se confirma filtro VHS.",
+      "Agua sobre arquitectura doméstica.",
+      "Fundido oscuro final con marca de autor."
+    ]
+  },
+  "secuencia": [
+    {
+      "id": "cocina_pradera",
+      "inicio_aprox_s": 0,
+      "fin_aprox_s": 6.17,
+      "descripcion": "Cocina compacta de electrodomésticos claros y techo iluminado rosa; césped ocupa suelo y continúa por una abertura a campo verde y cielo azul.",
+      "composicion": "La puerta funciona como marco del paisaje; el césped elimina el límite interior/exterior.",
+      "fotograma_referencia": "evidencias/video-42/02s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "salida_oceano",
+      "inicio_aprox_s": 6.17,
+      "fin_aprox_s": 12.33,
+      "descripcion": "Azulejos rosas y crema, peldaños sumergidos, columnas y carteles EXIT/EXIT HERE; agua turquesa y océano oscuro bajo cielo de atardecer/estrellado.",
+      "composicion": "Contradicción entre señal de salida cotidiana y destino imposible.",
+      "fotograma_referencia": "evidencias/video-42/07s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "pasillo_ondulado",
+      "inicio_aprox_s": 12.33,
+      "fin_aprox_s": 17.37,
+      "descripcion": "Pasillo estrecho descendente, puertas laterales, pasamanos oscuros, techo turquesa y lámparas blancas; pavimento brillante con curvas pastel.",
+      "composicion": "Fuga central, repetición de puertas y desniveles; leve inclinación del encuadre.",
+      "fotograma_referencia": "evidencias/video-42/13s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "pasarela_poolroom",
+      "inicio_aprox_s": 17.37,
+      "fin_aprox_s": 24.57,
+      "descripcion": "Nave larga con columnas revestidas, luces de techo multicolor y una pasarela estrecha de azulejo azul entre dos bandas de agua oscura.",
+      "composicion": "Simetría longitudinal y reflejos discontinuos que señalan el recorrido.",
+      "fotograma_referencia": "evidencias/video-42/20s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "cierre_autoria",
+      "inicio_aprox_s": 24.57,
+      "fin_aprox_s": 28.618333,
+      "descripcion": "Oscurecimiento de la imagen anterior y sobreimpresión de perfil social.",
+      "composicion": "Es un cierre editorial; no tratar su oscurecimiento como iluminación del escenario.",
+      "fotograma_referencia": "evidencias/video-42/20s.png",
+      "nota_referencia": "Fotograma de la escena antes del cierre; consultar mosaico y original para el fundido."
+    }
+  ],
+  "texturas": [
+    {
+      "id": "cesped_interior",
+      "observado": "Hierba verde amarillenta de longitud desigual ocupa el suelo de cocina.",
+      "patron_y_escala_relativa": "Grano orgánico denso que contrasta con muebles rectos.",
+      "tipo_material_inferido": "vegetal",
+      "recorte": "texturas/video-42/cesped_interior.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.75,
+          1
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Briznas instanciadas cerca y textura/normal de base a distancia.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 2,
+        "fotograma": "evidencias/video-42/02s.png",
+        "rectangulo_px_xywh": [
+          122,
+          577,
+          276,
+          218
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "azulejo_rosa",
+      "observado": "Azulejos cuadrados rosas con juntas claras y reflejos localizados.",
+      "patron_y_escala_relativa": "Repetición regular; bandas crema interrumpen el paño.",
+      "tipo_material_inferido": "cerámica",
+      "recorte": "texturas/video-42/azulejo_rosa.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.15,
+          0.4
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Separar juntas y esmalte; el recorte incluye algo de marco/entorno.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 7,
+        "fotograma": "evidencias/video-42/07s.png",
+        "rectangulo_px_xywh": [
+          22,
+          82,
+          89,
+          118
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "agua_turquesa",
+      "observado": "Agua lechosa turquesa con espuma clara y reflejos rosas.",
+      "patron_y_escala_relativa": "Ondas de escala mediana; oculta parcialmente el suelo.",
+      "tipo_material_inferido": "agua con espuma",
+      "recorte": "texturas/video-42/agua_turquesa.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.05,
+          0.25
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Normales móviles, absorción aproximada y espuma en cambios de profundidad.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 7,
+        "fotograma": "evidencias/video-42/07s.png",
+        "rectangulo_px_xywh": [
+          133,
+          545,
+          210,
+          235
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "suelo_ondas_pintadas",
+      "observado": "Pavimento con curvas anchas rosa, amarillo, lavanda y turquesa; brillo irregular.",
+      "patron_y_escala_relativa": "Bandas gráficas sinuosas; aspecto de pintura o recubrimiento, material exacto incierto.",
+      "tipo_material_inferido": "suelo pintado/brillante",
+      "recorte": "texturas/video-42/suelo_ondas_pintadas.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.1,
+          0.35
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Máscara gráfica en UV continuas y rugosidad variable para evitar reflejo perfecto.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 13,
+        "fotograma": "evidencias/video-42/13s.png",
+        "rectangulo_px_xywh": [
+          62,
+          578,
+          348,
+          251
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "techo_texturado",
+      "observado": "Techo turquesa con grano fino resaltado cerca de las lámparas.",
+      "patron_y_escala_relativa": "Relieve fino tipo pintura/estuco; identificación material aproximada.",
+      "tipo_material_inferido": "pintura mate",
+      "recorte": "texturas/video-42/techo_texturado.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.65,
+          0.95
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Normal sutil de alta frecuencia; no desplazamiento grande.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 13,
+        "fotograma": "evidencias/video-42/13s.png",
+        "rectangulo_px_xywh": [
+          12,
+          8,
+          160,
+          82
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "pasarela_ceramica",
+      "observado": "Piezas azules alargadas con juntas, bordes rosas y reflejos de plafones.",
+      "patron_y_escala_relativa": "Retícula longitudinal que refuerza la fuga.",
+      "tipo_material_inferido": "cerámica húmeda",
+      "recorte": "texturas/video-42/pasarela_ceramica.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.06,
+          0.25
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "UV longitudinal, mortero más rugoso y película reflectante.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 20,
+        "fotograma": "evidencias/video-42/20s.png",
+        "rectangulo_px_xywh": [
+          116,
+          605,
+          262,
+          235
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "agua_oscura",
+      "observado": "Agua lateral gris verdosa casi negra con pequeñas ondulaciones.",
+      "patron_y_escala_relativa": "Contraste bajo en sombra; conserva reflejos finos.",
+      "tipo_material_inferido": "agua",
+      "recorte": "texturas/video-42/agua_oscura.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.08,
+          0.3
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Mantener absorción más oscura que la piscina turquesa; no sustituir por suelo negro estático.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 20,
+        "fotograma": "evidencias/video-42/20s.png",
+        "rectangulo_px_xywh": [
+          4,
+          357,
+          78,
+          163
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    }
+  ],
+  "recreacion_cpp": {
+    "lenguaje": "C++",
+    "apis_objetivo": [
+      "OpenGL",
+      "Vulkan"
+    ],
+    "motor": "Renderizador propio; sin dependencia de un motor de juegos existente.",
+    "estado": "Propuesta de dirección visual y materiales. No incluye implementación ni rendimiento medido.",
+    "convenciones_sugeridas": {
+      "color": "Decodificar color sRGB a lineal, sombrear en HDR y convertir para presentación; normal/rugosidad/metallic se leen como datos lineales.",
+      "material": "BRDF GGX para superficies opacas; capas específicas para transmisión, agua y vegetación.",
+      "recursos": "Mallas glTF/GLB si se usa exportación externa; texturas PNG para iteración y KTX2/mipmaps como paso posterior.",
+      "coordenadas": "Elegir y documentar sistema de coordenadas, unidades y clip-space al implementar; no inferidos del video."
+    },
+    "pases_sugeridos": [
+      "Sombras",
+      "Geometría opaca e iluminación",
+      "Capturas o reflejos según escena",
+      "Agua y transparencia con profundidad",
+      "Bloom/exposición/tonemapping controlados"
+    ],
+    "diferencias_backend": {
+      "OpenGL": "Implementar pases con FBO y shaders GLSL, comprobar capacidades de la GPU elegida.",
+      "Vulkan": "Implementar recursos, pipelines, descriptores y sincronización explícita; adaptar GLSL a SPIR-V y convenciones de clip-space."
+    },
+    "prioridades": [
+      "Instanciar módulos de pasillo y columnas.",
+      "Priorizar contacto agua-peldaños y coherencia de reflejos.",
+      "Luces del techo deben tener geometría emisiva y contribución de luz separadas.",
+      "La cocina requiere transición continua entre césped interior y exterior."
+    ],
+    "validacion_visual": [
+      "Comparar con la muestra de cámara y proporciones antes de ajustar materiales.",
+      "Revisar siluetas, bloques de color y escala relativa.",
+      "Comparar patrón, microdetalle, tipo de reflejo y transparencia por superficie.",
+      "Mantener ausencia/presencia de personajes según cada referencia.",
+      "Evaluar movimiento con el original, no solo los fotogramas."
+    ]
+  }
+}

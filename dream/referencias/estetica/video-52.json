@@ -1,0 +1,475 @@
+{
+  "version_esquema": "1.0",
+  "id": "video-52",
+  "titulo": "Utopía ecológica azul y lima de vidrio, agua y arquitectura curva",
+  "idioma": "es",
+  "rama": "dream",
+  "fecha_analisis": "2026-10-08",
+  "fuente": {
+    "archivo": "WhatsApp Video 2026-10-08 at 6.27.52 PM.mp4",
+    "original": "originales/WhatsApp Video 2026-10-08 at 6.27.52 PM.mp4",
+    "atribucion_visible": "Marca visible: @BOBAE.AI. La estética y el nombre no prueban por sí solos el método de generación.",
+    "licencia": "No determinada. Conservar atribución; los archivos son referencias aportadas por el usuario, no assets con licencia deducida.",
+    "metadatos": {
+      "archivo": "WhatsApp Video 2026-10-08 at 6.27.52 PM.mp4",
+      "sha256": "800744568de8b323dc0729fcb061e0d01bfeaa1e5da255b4b15aea445392e870",
+      "bytes": 4364074,
+      "duracion_s": 20.34875,
+      "ancho_px": 478,
+      "alto_px": 850,
+      "fps": "30/1",
+      "codec": "h264",
+      "contiene_audio": true
+    }
+  },
+  "metodologia": {
+    "alcance": "Análisis visual a partir de muestreo temporal, fotogramas a resolución nativa y recortes revisados. No es una reconstrucción exacta de todo el movimiento.",
+    "evidencia_general": "evidencias/video-52.jpg",
+    "tiempos": "Las muestras PNG usan segundos del video original. Intervalos de planos aproximados, apoyados por diferencias visuales; no son un EDL frame-perfect. Las etiquetas de tiempo del mosaico son de la secuencia remuestreada y pueden diferir hasta un intervalo.",
+    "observacion_vs_inferencia": "Descripciones de elementos visibles separadas de clasificación estética, interpretación emocional y propuestas técnicas.",
+    "limitaciones": [
+      "Los valores HEX son objetivos artísticos aproximados, no mediciones calibradas.",
+      "Compresión, iluminación y reflejos están horneados en la imagen.",
+      "No se recuperan mapas originales de albedo, normal, rugosidad, metalicidad, profundidad o UV.",
+      "No se confirma motor, herramienta, lugar real o método de creación del video.",
+      "Los fundidos y logos de cierre son edición del clip, no rasgos físicos de los escenarios."
+    ],
+    "audio": {
+      "contiene_pista": true,
+      "analisis_auditivo_realizado": false,
+      "descripcion": null,
+      "nota": "Se preserva la pista en el original. No se atribuyen música, sonidos ni ritmo sonoro sin escucha validada."
+    },
+    "fotogramas_extraidos_s": [
+      1,
+      5,
+      9,
+      13
+    ]
+  },
+  "estetica": {
+    "resumen": "Montaje de transporte con asientos azules translúcidos, atrio acuático con información digital, ascensor cilíndrico de vidrio y sala de globo terrestre luminoso. Dominan azul, blanco, verde lima, agua limpia y superficies pulidas.",
+    "etiquetas_interpretativas": [
+      "Frutiger Aero, lectura estética",
+      "ecofuturismo",
+      "arquitectura biophílica",
+      "optimismo tecnológico"
+    ],
+    "ambiente_interpretado": "Optimismo, claridad y abundancia natural; tecnología amable y casi utópica.",
+    "paleta": [
+      {
+        "hex": "#168ADE",
+        "nombre": "azul cristal",
+        "uso": "asientos y agua",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#73DDEB",
+        "nombre": "cian",
+        "uso": "vidrio iluminado y reflejos",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#B2DE37",
+        "nombre": "verde lima",
+        "uso": "cojines y bandas",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#EBF3ED",
+        "nombre": "blanco frío",
+        "uso": "estructura",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#488937",
+        "nombre": "verde hoja",
+        "uso": "vegetación",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#173F52",
+        "nombre": "azul oscuro",
+        "uso": "paneles informativos",
+        "origen": "estimación visual; no color base recuperado"
+      }
+    ],
+    "iluminacion": {
+      "observado": "Luz diurna muy abundante, reflejos blancos intensos, agua luminosa y aros verdes; interiores casi sin zonas negras.",
+      "contraste": "Brillos altos sobre medios claros; contraste de color azul-lima.",
+      "propuesta": "Sol, relleno ambiental y geometría emisiva localizada; controlar exposición para conservar transparencia y juntas."
+    },
+    "camara_y_composicion": {
+      "observado": "Vistas verticales amplias con repetición y mucha profundidad; cambios entre cuatro escenarios.",
+      "composicion": "Simetrías curvas, líneas de fuga y objetos focales claros: pasillo, columnas, cabina y planeta.",
+      "movimiento": "Las muestras muestran cambios de encuadre; parte de la continuidad fina puede ser estilizada. No se reconstruye una trayectoria física.",
+      "lente": "Gran angular aparente; no se identifica cámara ni focal."
+    },
+    "geometria_y_utileria": [
+      "Vehículo de techo curvo, ventanas grandes, asientos redondeados y jardineras.",
+      "Atrios de varios niveles, columnas cilíndricas, pasarelas y canales de agua.",
+      "Ascensor cilíndrico y paneles de información.",
+      "Globo terrestre, anillos, pantallas panorámicas y cúpula."
+    ],
+    "efectos_y_acabado": [
+      "Caústicas blancas y reflejos abundantes.",
+      "Bloom moderado en aros, planeta y brillos.",
+      "Vidrio teñido y múltiples capas transparentes.",
+      "Cielo azul con nubes blancas; naturaleza integrada con tecnología limpia."
+    ]
+  },
+  "secuencia": [
+    {
+      "id": "transporte_cristal",
+      "inicio_aprox_s": 0,
+      "fin_aprox_s": 4.1,
+      "descripcion": "Interior de vehículo tipo tranvía con asientos translúcidos azules, cojines lima, techo acristalado, plantas y paisaje verde exterior.",
+      "composicion": "Eje central del pasillo; repetición de asientos y marcos curvos.",
+      "fotograma_referencia": "evidencias/video-52/01s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "atrio_acuatico",
+      "inicio_aprox_s": 4.1,
+      "fin_aprox_s": 8.13,
+      "descripcion": "Gran espacio acristalado con agua, columnas informativas, vegetación, bandas verdes y volúmenes esféricos suspendidos.",
+      "composicion": "Camino curvo, varias alturas y ciudad clara al fondo.",
+      "fotograma_referencia": "evidencias/video-52/05s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "ascensor_acuario",
+      "inicio_aprox_s": 8.13,
+      "fin_aprox_s": 12.2,
+      "descripcion": "Cabina cilíndrica de vidrio y metal dentro de un entorno azul acuático; aro luminoso verde y panel de piso B1.",
+      "composicion": "Puertas verticales centrales y transparencias superpuestas.",
+      "fotograma_referencia": "evidencias/video-52/09s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "sala_planetaria",
+      "inicio_aprox_s": 12.2,
+      "fin_aprox_s": 16.3,
+      "descripcion": "Atrio circular con globo terrestre luminoso, anillos, pantallas ambientales, jardines en altura y cúpula abierta al cielo.",
+      "composicion": "Composición alrededor de un objeto esférico principal y recorridos curvos.",
+      "fotograma_referencia": "evidencias/video-52/13s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "cierre_autoria",
+      "inicio_aprox_s": 16.3,
+      "fin_aprox_s": 20.34875,
+      "descripcion": "Oscurecimiento del atrio con globo y perfil social sobreimpreso.",
+      "composicion": "La marca pertenece al montaje; no es interfaz del entorno.",
+      "fotograma_referencia": "evidencias/video-52/13s.png",
+      "nota_referencia": "Fotograma de la escena antes del cierre; consultar mosaico y original para el fundido."
+    }
+  ],
+  "texturas": [
+    {
+      "id": "asiento_azul",
+      "observado": "Superficie azul translúcida, curva y muy reflectante.",
+      "patron_y_escala_relativa": "Color limpio sin desgaste notable; brillos blancos perfilan aristas.",
+      "tipo_material_inferido": "plástico o vidrio teñido",
+      "recorte": "texturas/video-52/asiento_azul.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.04,
+          0.18
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Dieléctrico con transmisión y absorción azul; no tratar el azul como metal.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-52/01s.png",
+        "rectangulo_px_xywh": [
+          6,
+          427,
+          97,
+          220
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "cojin_lima",
+      "observado": "Superficie verde lima de cojín liso y brillante.",
+      "patron_y_escala_relativa": "Bajo detalle visible y curvatura redondeada; composición física desconocida.",
+      "tipo_material_inferido": "polímero/tapizado estilizado",
+      "recorte": "texturas/video-52/cojin_lima.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.2,
+          0.45
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Material opaco liso con rugosidad algo mayor que el asiento; el recorte pequeño no permite recuperar trama.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-52/01s.png",
+        "rectangulo_px_xywh": [
+          65,
+          533,
+          54,
+          30
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "suelo_pulido",
+      "observado": "Piso claro azulado con banda verde curva y reflejos del interior.",
+      "patron_y_escala_relativa": "Superficie casi espejo, división en paneles y gráficos a gran escala.",
+      "tipo_material_inferido": "acabado pulido",
+      "recorte": "texturas/video-52/suelo_pulido.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.04,
+          0.2
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Capa dieléctrica reflectante; UV de banda continua y capturas/reflejo plano.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-52/01s.png",
+        "rectangulo_px_xywh": [
+          164,
+          562,
+          163,
+          280
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "plantas_colgantes",
+      "observado": "Hojas verdes colgantes junto a superficies lisas blancas y azules.",
+      "patron_y_escala_relativa": "Hojas agrupadas, bordes irregulares y tonos variados.",
+      "tipo_material_inferido": "vegetal",
+      "recorte": "texturas/video-52/plantas_colgantes.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.6,
+          0.9
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Hojas alpha-masked y mallas para los primeros planos; variar tamaño e inclinación.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-52/01s.png",
+        "rectangulo_px_xywh": [
+          405,
+          45,
+          45,
+          130
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "agua_causticas",
+      "observado": "Agua azul muy clara con líneas blancas de caústicas; peces visibles en la escena.",
+      "patron_y_escala_relativa": "Red ondulada luminosa sobre volumen azul.",
+      "tipo_material_inferido": "agua transparente",
+      "recorte": "texturas/video-52/agua_causticas.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.02,
+          0.16
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Normales móviles, profundidad y absorción; caústicas proyectadas/animadas como aproximación artística.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 5,
+        "fotograma": "evidencias/video-52/05s.png",
+        "rectangulo_px_xywh": [
+          17,
+          610,
+          170,
+          200
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "vidrio_metal",
+      "observado": "Vidrio cilíndrico junto a perfilería pulida y reflejos verdes.",
+      "patron_y_escala_relativa": "Estrías visibles son principalmente estructura/reflejos, no confirmar normal estriada.",
+      "tipo_material_inferido": "dos materiales: vidrio y metal",
+      "recorte": "texturas/video-52/vidrio_metal.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.02,
+          0.18
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Separar mallas de vidrio dieléctrico y marcos metálicos; gestionar caras traseras y orden de transparencias.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 9,
+        "fotograma": "evidencias/video-52/09s.png",
+        "rectangulo_px_xywh": [
+          54,
+          340,
+          94,
+          290
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "mapa_globo",
+      "observado": "Planeta azul/verde con nubes blancas, borde luminoso y líneas orbitales.",
+      "patron_y_escala_relativa": "Mapa reconocible de tierra, mar y nubes; el recorte conserva perspectiva y reflejos.",
+      "tipo_material_inferido": "superficie gráfica luminosa",
+      "recorte": "texturas/video-52/mapa_globo.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.12,
+          0.35
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Crear mapa esférico propio más capa de nubes y halo; recorte no equivale a mapa equirectangular.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 13,
+        "fotograma": "evidencias/video-52/13s.png",
+        "rectangulo_px_xywh": [
+          189,
+          258,
+          183,
+          181
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    }
+  ],
+  "recreacion_cpp": {
+    "lenguaje": "C++",
+    "apis_objetivo": [
+      "OpenGL",
+      "Vulkan"
+    ],
+    "motor": "Renderizador propio; sin dependencia de un motor de juegos existente.",
+    "estado": "Propuesta de dirección visual y materiales. No incluye implementación ni rendimiento medido.",
+    "convenciones_sugeridas": {
+      "color": "Decodificar color sRGB a lineal, sombrear en HDR y convertir para presentación; normal/rugosidad/metallic se leen como datos lineales.",
+      "material": "BRDF GGX para superficies opacas; capas específicas para transmisión, agua y vegetación.",
+      "recursos": "Mallas glTF/GLB si se usa exportación externa; texturas PNG para iteración y KTX2/mipmaps como paso posterior.",
+      "coordenadas": "Elegir y documentar sistema de coordenadas, unidades y clip-space al implementar; no inferidos del video."
+    },
+    "pases_sugeridos": [
+      "Sombras",
+      "Geometría opaca e iluminación",
+      "Capturas o reflejos según escena",
+      "Agua y transparencia con profundidad",
+      "Bloom/exposición/tonemapping controlados"
+    ],
+    "diferencias_backend": {
+      "OpenGL": "Implementar pases con FBO y shaders GLSL, comprobar capacidades de la GPU elegida.",
+      "Vulkan": "Implementar recursos, pipelines, descriptores y sincronización explícita; adaptar GLSL a SPIR-V y convenciones de clip-space."
+    },
+    "prioridades": [
+      "Presupuestar sobrecarga de transparencias en ascensor y asientos.",
+      "Distinguir superficies blancas opacas, metal, vidrio, agua y plásticos.",
+      "Implementar información en paneles mediante atlas de texto e iconos propios.",
+      "No inferir geometría físicamente coherente de cada reflejo; priorizar una recreación navegable con siluetas claras."
+    ],
+    "validacion_visual": [
+      "Comparar con la muestra de cámara y proporciones antes de ajustar materiales.",
+      "Revisar siluetas, bloques de color y escala relativa.",
+      "Comparar patrón, microdetalle, tipo de reflejo y transparencia por superficie.",
+      "Mantener ausencia/presencia de personajes según cada referencia.",
+      "Evaluar movimiento con el original, no solo los fotogramas."
+    ]
+  }
+}

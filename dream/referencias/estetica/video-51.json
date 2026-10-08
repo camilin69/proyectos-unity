@@ -1,0 +1,332 @@
+{
+  "version_esquema": "1.0",
+  "id": "video-51",
+  "titulo": "Árbol monumental sobre ladera verde y cielo azul profundo",
+  "idioma": "es",
+  "rama": "dream",
+  "fecha_analisis": "2026-10-08",
+  "fuente": {
+    "archivo": "WhatsApp Video 2026-10-08 at 6.27.51 PM.mp4",
+    "original": "originales/WhatsApp Video 2026-10-08 at 6.27.51 PM.mp4",
+    "atribucion_visible": "Marca visible: @MUSEOFGREEN. La fuente visible no confirma autoría ni especie del árbol.",
+    "licencia": "No determinada. Conservar atribución; los archivos son referencias aportadas por el usuario, no assets con licencia deducida.",
+    "metadatos": {
+      "archivo": "WhatsApp Video 2026-10-08 at 6.27.51 PM.mp4",
+      "sha256": "9470bb79a36e5ed4e23ec57d535d0b10b6d503230b41fb7e1c68752d2f46863d",
+      "bytes": 2284052,
+      "duracion_s": 14.239479,
+      "ancho_px": 496,
+      "alto_px": 368,
+      "fps": "30/1",
+      "codec": "h264",
+      "contiene_audio": true
+    }
+  },
+  "metodologia": {
+    "alcance": "Análisis visual a partir de muestreo temporal, fotogramas a resolución nativa y recortes revisados. No es una reconstrucción exacta de todo el movimiento.",
+    "evidencia_general": "evidencias/video-51.jpg",
+    "tiempos": "Las muestras PNG usan segundos del video original. Intervalos de planos aproximados, apoyados por diferencias visuales; no son un EDL frame-perfect. Las etiquetas de tiempo del mosaico son de la secuencia remuestreada y pueden diferir hasta un intervalo.",
+    "observacion_vs_inferencia": "Descripciones de elementos visibles separadas de clasificación estética, interpretación emocional y propuestas técnicas.",
+    "limitaciones": [
+      "Los valores HEX son objetivos artísticos aproximados, no mediciones calibradas.",
+      "Compresión, iluminación y reflejos están horneados en la imagen.",
+      "No se recuperan mapas originales de albedo, normal, rugosidad, metalicidad, profundidad o UV.",
+      "No se confirma motor, herramienta, lugar real o método de creación del video.",
+      "Los fundidos y logos de cierre son edición del clip, no rasgos físicos de los escenarios."
+    ],
+    "audio": {
+      "contiene_pista": true,
+      "analisis_auditivo_realizado": false,
+      "descripcion": null,
+      "nota": "Se preserva la pista en el original. No se atribuyen música, sonidos ni ritmo sonoro sin escucha validada."
+    },
+    "fotogramas_extraidos_s": [
+      1,
+      5,
+      9
+    ]
+  },
+  "estetica": {
+    "resumen": "Un árbol de tronco claro, retorcido y copa extensa domina una ladera inclinada; una figura diminuta ayuda a leer su escala extraordinaria. El fondo es un cielo azul limpio.",
+    "etiquetas_interpretativas": [
+      "paisaje surreal por escala",
+      "minimalismo natural",
+      "contraste verde-azul"
+    ],
+    "ambiente_interpretado": "Asombro y serenidad con extrañeza de escala; naturaleza monumental frente a una presencia humana mínima.",
+    "paleta": [
+      {
+        "hex": "#175998",
+        "nombre": "azul intenso",
+        "uso": "cielo",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#4B721F",
+        "nombre": "verde hierba",
+        "uso": "ladera",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#243C24",
+        "nombre": "verde oscuro",
+        "uso": "copa",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#B6B5A9",
+        "nombre": "gris cálido",
+        "uso": "tronco",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#121B13",
+        "nombre": "sombra profunda",
+        "uso": "ramas y suelo",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#E2E3DD",
+        "nombre": "blanco pequeño",
+        "uso": "figura de escala",
+        "origen": "estimación visual; no color base recuperado"
+      }
+    ],
+    "iluminacion": {
+      "observado": "Sol direccional marcado; corteza clara contra follaje oscuro; sombra del árbol sobre el césped.",
+      "contraste": "Alto y naturalista, con azul y verde saturados.",
+      "propuesta": "Una luz solar direccional, relleno del cielo y sombras de copa; evitar convertir la corteza en material emisivo."
+    },
+    "camara_y_composicion": {
+      "observado": "Encuadre horizontal casi estable en las muestras; no se confirma recorrido amplio.",
+      "composicion": "Ladera diagonal, tronco fuera del centro, copa dominante y figura diminuta como escala.",
+      "movimiento": "Las muestras mantienen una composición muy parecida; no basta para afirmar velocidad o tipo exacto de movimiento.",
+      "lente": "Perspectiva desde abajo; focal y escala física desconocidas."
+    },
+    "geometria_y_utileria": [
+      "Ladera lisa inclinada.",
+      "Árbol de tronco ancho retorcido, cavidades y ramificación horizontal enorme.",
+      "Masas de hojas con silueta irregular.",
+      "Figura humana diminuta para escala; identidad y detalles no distinguibles."
+    ],
+    "efectos_y_acabado": [
+      "Saturación verde-azul intensa.",
+      "Sombras nítidas y microdetalle orgánico.",
+      "Sin neón, bruma espesa ni arquitectura visible.",
+      "Oscurecimiento editorial final."
+    ]
+  },
+  "secuencia": [
+    {
+      "id": "arbol_monumental",
+      "inicio_aprox_s": 0,
+      "fin_aprox_s": 10.2,
+      "descripcion": "Gran árbol de corteza gris estriada, copa asimétrica y ramas horizontales; ladera verde diagonal y pequeña figura clara cerca de la parte inferior.",
+      "composicion": "Ángulo bajo aparente; la copa sale del encuadre y el suelo corta la imagen en diagonal.",
+      "fotograma_referencia": "evidencias/video-51/01s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "cierre_autoria",
+      "inicio_aprox_s": 10.2,
+      "fin_aprox_s": 14.239479,
+      "descripcion": "Paisaje oscurecido y logo/cuenta sobreimpresos.",
+      "composicion": "El fondo se reutiliza; el cierre no es cambio de hora del día.",
+      "fotograma_referencia": "evidencias/video-51/09s.png",
+      "nota_referencia": "Fotograma de la escena antes del cierre; consultar mosaico y original para el fundido."
+    }
+  ],
+  "texturas": [
+    {
+      "id": "corteza",
+      "observado": "Tronco gris claro con surcos profundos, nudos, huecos y torsión.",
+      "patron_y_escala_relativa": "Direccional según crecimiento de ramas; crestas iluminadas y oclusión oscura.",
+      "tipo_material_inferido": "madera/corteza",
+      "recorte": "texturas/video-51/corteza.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.7,
+          1
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Modelar huecos y ramas principales; normales y altura para grietas secundarias.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-51/01s.png",
+        "rectangulo_px_xywh": [
+          93,
+          127,
+          67,
+          111
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "follaje",
+      "observado": "Agrupaciones densas de hojas oscuras de grano fino.",
+      "patron_y_escala_relativa": "Volúmenes discontinuos que dejan huecos de cielo; especie sin determinar.",
+      "tipo_material_inferido": "vegetal",
+      "recorte": "texturas/video-51/follaje.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.6,
+          0.95
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Tarjetas alpha-masked o mallas de hojas con transmisión aproximada; conservar huecos de copa.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-51/01s.png",
+        "rectangulo_px_xywh": [
+          195,
+          45,
+          145,
+          55
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "hierba",
+      "observado": "Manto verde corto con variación orgánica y finas irregularidades.",
+      "patron_y_escala_relativa": "Textura de escala pequeña, inclinada con la ladera.",
+      "tipo_material_inferido": "vegetal",
+      "recorte": "texturas/video-51/hierba.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.8,
+          1
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Base no uniforme y briznas instanciadas; preservar sombra proyectada.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-51/01s.png",
+        "rectangulo_px_xywh": [
+          17,
+          276,
+          150,
+          45
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "cielo",
+      "observado": "Zona azul relativamente uniforme sin nubes prominentes en esta muestra.",
+      "patron_y_escala_relativa": "Gradiente atmosférico suave; el recorte es referencia cromática, no material de superficie.",
+      "tipo_material_inferido": "entorno",
+      "recorte": "texturas/video-51/cielo.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0,
+          0
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Sky shader o cubemap artístico; no aplicar como textura de albedo sobre un plano cercano.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-51/01s.png",
+        "rectangulo_px_xywh": [
+          380,
+          310,
+          100,
+          30
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    }
+  ],
+  "recreacion_cpp": {
+    "lenguaje": "C++",
+    "apis_objetivo": [
+      "OpenGL",
+      "Vulkan"
+    ],
+    "motor": "Renderizador propio; sin dependencia de un motor de juegos existente.",
+    "estado": "Propuesta de dirección visual y materiales. No incluye implementación ni rendimiento medido.",
+    "convenciones_sugeridas": {
+      "color": "Decodificar color sRGB a lineal, sombrear en HDR y convertir para presentación; normal/rugosidad/metallic se leen como datos lineales.",
+      "material": "BRDF GGX para superficies opacas; capas específicas para transmisión, agua y vegetación.",
+      "recursos": "Mallas glTF/GLB si se usa exportación externa; texturas PNG para iteración y KTX2/mipmaps como paso posterior.",
+      "coordenadas": "Elegir y documentar sistema de coordenadas, unidades y clip-space al implementar; no inferidos del video."
+    },
+    "pases_sugeridos": [
+      "Sombras",
+      "Geometría opaca e iluminación",
+      "Capturas o reflejos según escena",
+      "Agua y transparencia con profundidad",
+      "Bloom/exposición/tonemapping controlados"
+    ],
+    "diferencias_backend": {
+      "OpenGL": "Implementar pases con FBO y shaders GLSL, comprobar capacidades de la GPU elegida.",
+      "Vulkan": "Implementar recursos, pipelines, descriptores y sincronización explícita; adaptar GLSL a SPIR-V y convenciones de clip-space."
+    },
+    "prioridades": [
+      "La silueta del tronco y el tamaño relativo importan más que un shader complejo.",
+      "Usar LOD para hojas y hierba; mantener la silueta de ramas principales.",
+      "Sombras solares con detalle suficiente cerca del tronco.",
+      "No trasladar a este video la paleta pastel de los otros dos."
+    ],
+    "validacion_visual": [
+      "Comparar con la muestra de cámara y proporciones antes de ajustar materiales.",
+      "Revisar siluetas, bloques de color y escala relativa.",
+      "Comparar patrón, microdetalle, tipo de reflejo y transparencia por superficie.",
+      "Mantener ausencia/presencia de personajes según cada referencia.",
+      "Evaluar movimiento con el original, no solo los fotogramas."
+    ]
+  }
+}

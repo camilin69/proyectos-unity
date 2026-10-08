@@ -1,0 +1,506 @@
+{
+  "version_esquema": "1.0",
+  "id": "video-35",
+  "titulo": "Umbrales pastel, agua imposible y espacios domésticos oníricos",
+  "idioma": "es",
+  "rama": "dream",
+  "fecha_analisis": "2026-10-08",
+  "fuente": {
+    "archivo": "WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+    "original": "originales/WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+    "atribucion_visible": "No se identifica autor legible con suficiente confianza en los fotogramas revisados.",
+    "licencia": "No determinada. Conservar atribución; los archivos son referencias aportadas por el usuario, no assets con licencia deducida.",
+    "metadatos": {
+      "archivo": "WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+      "sha256": "3147a71d5ce0b7e964fb424810d27fbeb70a87c26a501c26b7a94446ba7f75ce",
+      "bytes": 5180951,
+      "duracion_s": 29.695465,
+      "ancho_px": 720,
+      "alto_px": 1280,
+      "fps": "30/1",
+      "codec": "h264",
+      "contiene_audio": true
+    }
+  },
+  "metodologia": {
+    "alcance": "Análisis visual a partir de muestreo temporal, fotogramas a resolución nativa y recortes revisados. No es una reconstrucción exacta de todo el movimiento.",
+    "evidencia_general": "evidencias/video-35.jpg",
+    "tiempos": "Las muestras PNG usan segundos del video original. Intervalos de planos aproximados, apoyados por diferencias visuales; no son un EDL frame-perfect. Las etiquetas de tiempo del mosaico son de la secuencia remuestreada y pueden diferir hasta un intervalo.",
+    "observacion_vs_inferencia": "Descripciones de elementos visibles separadas de clasificación estética, interpretación emocional y propuestas técnicas.",
+    "limitaciones": [
+      "Los valores HEX son objetivos artísticos aproximados, no mediciones calibradas.",
+      "Compresión, iluminación y reflejos están horneados en la imagen.",
+      "No se recuperan mapas originales de albedo, normal, rugosidad, metalicidad, profundidad o UV.",
+      "No se confirma motor, herramienta, lugar real o método de creación del video.",
+      "Los fundidos y logos de cierre son edición del clip, no rasgos físicos de los escenarios."
+    ],
+    "audio": {
+      "contiene_pista": true,
+      "analisis_auditivo_realizado": false,
+      "descripcion": null,
+      "nota": "Se preserva la pista en el original. No se atribuyen música, sonidos ni ritmo sonoro sin escucha validada."
+    },
+    "fotogramas_extraidos_s": [
+      1,
+      5,
+      9,
+      11,
+      15,
+      19,
+      21,
+      27
+    ]
+  },
+  "estetica": {
+    "resumen": "Montaje de un atrio con escaleras rosas inundado por oleaje, paseo de palmeras con luz de colores, escalera afelpada hacia un cielo enmarcado y habitación de azulejos que abre directamente a las nubes.",
+    "etiquetas_interpretativas": [
+      "dreamcore",
+      "espacios liminales",
+      "surrealismo doméstico",
+      "acentos vaporwave"
+    ],
+    "ambiente_interpretado": "Calma extraña, nostalgia y desorientación; los colores acogedores conviven con agua invasiva y puertas imposibles.",
+    "paleta": [
+      {
+        "hex": "#EAA5BC",
+        "nombre": "rosa empolvado",
+        "uso": "arquitectura y peluche",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#8FBEB0",
+        "nombre": "menta",
+        "uso": "agua y azulejos",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#91AEDC",
+        "nombre": "azul lavanda",
+        "uso": "bruma y cielo",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#F27FD3",
+        "nombre": "rosa luminoso",
+        "uso": "luces y reflejos",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#376F36",
+        "nombre": "verde vegetal",
+        "uso": "césped y setos",
+        "origen": "estimación visual; no color base recuperado"
+      },
+      {
+        "hex": "#EEE6D8",
+        "nombre": "blanco cálido",
+        "uso": "espuma, marcos y barandillas",
+        "origen": "estimación visual; no color base recuperado"
+      }
+    ],
+    "iluminacion": {
+      "observado": "Iluminación suave rosada y verdosa; luces puntuales intensas en el paseo; luz exterior difusa en habitación y escalera; espuma clara contra agua más oscura.",
+      "contraste": "Medio, con sombras suaves y luces extendidas en bruma.",
+      "propuesta": "Luz direccional suave por escena, luces puntuales de color, niebla de distancia; conservar variaciones entre interiores y paseo."
+    },
+    "camara_y_composicion": {
+      "observado": "Puntos de vista inmersivos, encuadres verticales, variaciones de perspectiva entre tomas y avances cortos sugeridos por el muestreo.",
+      "composicion": "Umbrales centrales, curvas de escaleras y líneas de fuga; ausencia de habitantes visibles.",
+      "movimiento": "El agua cambia entre fotogramas. La trayectoria y velocidad de cámara no se han medido.",
+      "lente": "Campo visual amplio aparente; focal física desconocida."
+    },
+    "geometria_y_utileria": [
+      "Escalera helicoidal y escaleras rectas con pasamanos finos.",
+      "Atrio cilíndrico parcialmente inundado, lucernario y abertura al fondo.",
+      "Paseo modular, palmeras, farolas y borde de agua.",
+      "Cuarto pequeño, puerta moldurada, ventana, cortinas, radiador y masas vegetales."
+    ],
+    "efectos_y_acabado": [
+      "Bruma coloreada en exteriores.",
+      "Halo suave en farolas y reflejos mojados.",
+      "Agua turbulenta y espuma en atrio.",
+      "Gradación pastel y contraste moderado."
+    ]
+  },
+  "secuencia": [
+    {
+      "id": "atrio_inundado",
+      "inicio_aprox_s": 0,
+      "fin_aprox_s": 4.63,
+      "descripcion": "Escaleras curvas y barandillas metálicas rodean un volumen enorme de agua verde con espuma; abertura superior acristalada y caída de agua.",
+      "composicion": "Perspectiva descendente y curvas que conducen hacia el agua.",
+      "fotograma_referencia": "evidencias/video-35/01s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "paseo_palmeras",
+      "inicio_aprox_s": 4.63,
+      "fin_aprox_s": 7.77,
+      "descripcion": "Paseo de baldosas pequeñas, palmeras y farolas rosa, cian y verde; agua junto al recorrido y fondo oculto por bruma.",
+      "composicion": "Profundidad por repetición de luminarias; reflejos alargados.",
+      "fotograma_referencia": "evidencias/video-35/05s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "escalera_cielo",
+      "inicio_aprox_s": 7.77,
+      "fin_aprox_s": 10.8,
+      "descripcion": "Peldaños rosas de apariencia afelpada entre masas verdes; pasamanos y gran marco rectangular con cielo azul y nubes.",
+      "composicion": "Eje ascendente hacia un umbral sin destino terrestre visible.",
+      "fotograma_referencia": "evidencias/video-35/09s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "habitacion_nubes",
+      "inicio_aprox_s": 10.8,
+      "fin_aprox_s": 13.93,
+      "descripcion": "Paredes de azulejos rosa y menta, puerta abierta, ventana, cortinas a cuadros y radiador; suelo brillante multicolor.",
+      "composicion": "La puerta y la ventana muestran nubes en lugar de un exterior normal.",
+      "fotograma_referencia": "evidencias/video-35/11s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "retorno_atrio",
+      "inicio_aprox_s": 13.93,
+      "fin_aprox_s": 17.2,
+      "descripcion": "Retorno al atrio, enfatizando escalera helicoidal, oleaje y lucernario.",
+      "composicion": "El cambio de encuadre amplía la lectura de la arquitectura.",
+      "fotograma_referencia": "evidencias/video-35/15s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "retorno_paseo",
+      "inicio_aprox_s": 17.2,
+      "fin_aprox_s": 20,
+      "descripcion": "Retorno al paseo húmedo y a las luces de colores.",
+      "composicion": "Repetición de la atmósfera neblinosa.",
+      "fotograma_referencia": "evidencias/video-35/19s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "retorno_escalera",
+      "inicio_aprox_s": 20,
+      "fin_aprox_s": 23,
+      "descripcion": "Aproximación a escalones rosas y bordes vegetales.",
+      "composicion": "Las fibras y el contraste con el pasamanos toman protagonismo.",
+      "fotograma_referencia": "evidencias/video-35/21s.png",
+      "nota_referencia": null
+    },
+    {
+      "id": "retorno_habitacion",
+      "inicio_aprox_s": 23,
+      "fin_aprox_s": 29.695465,
+      "descripcion": "Recorrido final por habitación pastel y umbral hacia las nubes.",
+      "composicion": "El suelo refleja colores y luz; conclusión sin resolución narrativa.",
+      "fotograma_referencia": "evidencias/video-35/27s.png",
+      "nota_referencia": null
+    }
+  ],
+  "texturas": [
+    {
+      "id": "agua_espuma",
+      "observado": "Agua turquesa con olas voluminosas y espuma blanca teñida de rosa; reflejos fragmentados.",
+      "patron_y_escala_relativa": "Irregular y móvil; escala de ola grande frente a los peldaños.",
+      "tipo_material_inferido": "dieléctrico translúcido",
+      "recorte": "texturas/video-35/agua_espuma.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.04,
+          0.22
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Geometría de olas más normales animadas y máscara de espuma; la espuma necesita rugosidad y opacidad propias.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 1,
+        "fotograma": "evidencias/video-35/01s.png",
+        "rectangulo_px_xywh": [
+          180,
+          250,
+          450,
+          420
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "peluche_rosa",
+      "observado": "Fibras cortas rosadas y bordes difusos en huellas y contrahuellas.",
+      "patron_y_escala_relativa": "Microdetalle fibroso no direccional; no es baldosa ni concreto liso.",
+      "tipo_material_inferido": "dieléctrico opaco",
+      "recorte": "texturas/video-35/peluche_rosa.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.7,
+          1
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Normal de fibras y capa de fibras o tarjetas de pelo solo cerca de cámara.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 9,
+        "fotograma": "evidencias/video-35/09s.png",
+        "rectangulo_px_xywh": [
+          155,
+          945,
+          355,
+          180
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "cesped",
+      "observado": "Superficies verdes densas, irregulares y de grano fino alrededor de la escalera.",
+      "patron_y_escala_relativa": "Masa vegetal continua con variación de verde.",
+      "tipo_material_inferido": "vegetal opaco",
+      "recorte": "texturas/video-35/cesped.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.75,
+          1
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Mezclar variación de color y normales; instancias de briznas en siluetas.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 9,
+        "fotograma": "evidencias/video-35/09s.png",
+        "rectangulo_px_xywh": [
+          578,
+          560,
+          132,
+          300
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "azulejos_pastel",
+      "observado": "Cuadrícula de piezas cuadradas rosa/menta separadas por juntas claras.",
+      "patron_y_escala_relativa": "Repetición ortogonal y bloques de color mayores que una baldosa.",
+      "tipo_material_inferido": "cerámica esmaltada",
+      "recorte": "texturas/video-35/azulejos_pastel.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.18,
+          0.4
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "UV con repetición, máscara de juntas y brillo más bajo en el mortero.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 11,
+        "fotograma": "evidencias/video-35/11s.png",
+        "rectangulo_px_xywh": [
+          356,
+          234,
+          88,
+          440
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "tela_cuadros",
+      "observado": "Cortinas con líneas superpuestas verde, rosa, crema y naranja.",
+      "patron_y_escala_relativa": "Trama escocesa sobre pliegues verticales.",
+      "tipo_material_inferido": "tejido opaco",
+      "recorte": "texturas/video-35/tela_cuadros.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.6,
+          0.95
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Color base con patrón, normal de tejido y pliegues en geometría.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 11,
+        "fotograma": "evidencias/video-35/11s.png",
+        "rectangulo_px_xywh": [
+          464,
+          172,
+          60,
+          290
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "pavimento_mojado",
+      "observado": "Baldosas pequeñas rosas y crema con reflejos brillantes en el paseo.",
+      "patron_y_escala_relativa": "Retícula fina y reflejos que se alargan con la perspectiva.",
+      "tipo_material_inferido": "cerámica con película húmeda",
+      "recorte": "texturas/video-35/pavimento_mojado.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.04,
+          0.22
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Capa húmeda sobre baldosa, reflejo plano o captura de entorno.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 5,
+        "fotograma": "evidencias/video-35/05s.png",
+        "rectangulo_px_xywh": [
+          230,
+          830,
+          175,
+          355
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    },
+    {
+      "id": "suelo_iridiscente",
+      "observado": "Suelo en grandes cuadrados con manchas de colores y reflejo suave.",
+      "patron_y_escala_relativa": "Rosa/menta con acentos verde limón; el origen exacto del efecto no es determinable.",
+      "tipo_material_inferido": "acabado reflectante incierto",
+      "recorte": "texturas/video-35/suelo_iridiscente.png",
+      "estado": "Referencia recortada, con perspectiva e iluminación de la toma; no textura tileable ni mapa PBR.",
+      "recuperado_del_video": {
+        "imagen_rgb": true,
+        "albedo_puro": false,
+        "normal": false,
+        "rugosidad": false,
+        "metallic": false,
+        "altura": false,
+        "uv": false
+      },
+      "recreacion_propuesta": {
+        "roughness_rango_inicial": [
+          0.08,
+          0.3
+        ],
+        "nota": "Rango artístico inicial 0–1, no medición del material. No aplica a cielo/entorno.",
+        "shader": "Máscara de color artística y clearcoat; iridiscencia angular opcional, no dato confirmado.",
+        "flujo": "Reconstruir color base y patrón sin reflejos horneados; crear mapas propios y validar bajo iluminación neutra antes de igualar la escena.",
+        "tiling": "Definir según patrón y geometría; los recortes originales no garantizan continuidad."
+      },
+      "procedencia_recorte": {
+        "tiempo_s": 11,
+        "fotograma": "evidencias/video-35/11s.png",
+        "rectangulo_px_xywh": [
+          155,
+          857,
+          380,
+          330
+        ],
+        "tratamiento": "Recorte RGB sin reescalado, generación ni corrección de color; píxeles decodificados del original."
+      }
+    }
+  ],
+  "recreacion_cpp": {
+    "lenguaje": "C++",
+    "apis_objetivo": [
+      "OpenGL",
+      "Vulkan"
+    ],
+    "motor": "Renderizador propio; sin dependencia de un motor de juegos existente.",
+    "estado": "Propuesta de dirección visual y materiales. No incluye implementación ni rendimiento medido.",
+    "convenciones_sugeridas": {
+      "color": "Decodificar color sRGB a lineal, sombrear en HDR y convertir para presentación; normal/rugosidad/metallic se leen como datos lineales.",
+      "material": "BRDF GGX para superficies opacas; capas específicas para transmisión, agua y vegetación.",
+      "recursos": "Mallas glTF/GLB si se usa exportación externa; texturas PNG para iteración y KTX2/mipmaps como paso posterior.",
+      "coordenadas": "Elegir y documentar sistema de coordenadas, unidades y clip-space al implementar; no inferidos del video."
+    },
+    "pases_sugeridos": [
+      "Sombras",
+      "Geometría opaca e iluminación",
+      "Capturas o reflejos según escena",
+      "Agua y transparencia con profundidad",
+      "Bloom/exposición/tonemapping controlados"
+    ],
+    "diferencias_backend": {
+      "OpenGL": "Implementar pases con FBO y shaders GLSL, comprobar capacidades de la GPU elegida.",
+      "Vulkan": "Implementar recursos, pipelines, descriptores y sincronización explícita; adaptar GLSL a SPIR-V y convenciones de clip-space."
+    },
+    "prioridades": [
+      "Separar agua, vidrio, materiales húmedos, cerámica y fibras; no resolver todos con el mismo brillo.",
+      "El atrio necesita silueta de olas real: una normal animada plana no reproduce el volumen.",
+      "Usar render targets para exteriores imposibles de puertas si se requiere parallax; un cielo lejano basta para una recreación estática.",
+      "Priorizar masas de color y escala antes de aumentar detalle."
+    ],
+    "validacion_visual": [
+      "Comparar con la muestra de cámara y proporciones antes de ajustar materiales.",
+      "Revisar siluetas, bloques de color y escala relativa.",
+      "Comparar patrón, microdetalle, tipo de reflejo y transparencia por superficie.",
+      "Mantener ausencia/presencia de personajes según cada referencia.",
+      "Evaluar movimiento con el original, no solo los fotogramas."
+    ]
+  }
+}

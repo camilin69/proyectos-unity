@@ -1,0 +1,63 @@
+{
+  "proyecto": "dream",
+  "rama": "dream",
+  "fecha": "2026-10-08",
+  "objetivo": "Referencias estéticas para recrear escenarios con C++ y OpenGL o Vulkan.",
+  "implementacion_motor": "No iniciada en esta entrega: estos archivos documentan referencias, no contienen un renderizador.",
+  "documentos": [
+    {
+      "id": "video-35",
+      "analisis": "video-35.json",
+      "titulo": "Umbrales pastel, agua imposible y espacios domésticos oníricos",
+      "numero_texturas": 7
+    },
+    {
+      "id": "video-42",
+      "analisis": "video-42.json",
+      "titulo": "Interiores liminales pastel con naturaleza intrusa y pasillos acuáticos",
+      "numero_texturas": 7
+    },
+    {
+      "id": "video-51",
+      "analisis": "video-51.json",
+      "titulo": "Árbol monumental sobre ladera verde y cielo azul profundo",
+      "numero_texturas": 4
+    },
+    {
+      "id": "video-52",
+      "analisis": "video-52.json",
+      "titulo": "Utopía ecológica azul y lima de vidrio, agua y arquitectura curva",
+      "numero_texturas": 7
+    }
+  ],
+  "carpetas": {
+    "originales": "Cuatro videos íntegros, incluyendo sus pistas de audio y marcas de origen.",
+    "evidencias": "19 fotogramas PNG a resolución nativa, mosaicos temporales y vista conjunta de recortes.",
+    "texturas": "25 recortes de superficies y entorno. Referencia visual, no mapas PBR listos para renderizar."
+  },
+  "convenciones": {
+    "rutas": "Relativas a esta carpeta.",
+    "recortes": "[x,y,ancho,alto] en píxeles del PNG, origen superior izquierdo.",
+    "paletas": "Estimaciones visuales, no colorimetría medida.",
+    "rugosidad": "Propuesta artística inicial, no recuperación del original.",
+    "audio": "Preservado pero no analizado auditivamente."
+  },
+  "herramientas": {
+    "extraccion": "python extraer_referencias.py (requiere ffmpeg y ffprobe en PATH)",
+    "validacion": "python validar_referencias.py (solo biblioteca estándar)",
+    "metadatos": "metadatos.json contiene resultados técnicos de ffprobe y hashes SHA-256."
+  },
+  "comparacion": {
+    "videos_35_42": "Comparten rosa/menta, agua, vacío y rupturas entre interior y exterior; diferenciar superficies suaves del 35 y acabado doméstico/institucional del 42.",
+    "video_51": "Paisaje de escala monumental y alto contraste; evitar trasladarle neón o paleta pastel.",
+    "video_52": "Azul/lima, transparencia, naturaleza integrada y acabado muy limpio; mayor complejidad de reflejos y transparencia."
+  },
+  "prioridad_materiales": [
+    "Geometría y escala principal",
+    "Paleta y contraste",
+    "Patrones visibles y UV",
+    "Rugosidad y tipo de reflejo",
+    "Transmisión, agua y espuma",
+    "Microdetalle y movimiento"
+  ]
+}
