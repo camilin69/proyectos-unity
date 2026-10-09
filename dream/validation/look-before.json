@@ -1,0 +1,76 @@
+{
+  "schema": "look_fit_report.v1",
+  "reference": "dream/referencias/estetica/evidencias/video-35/11s.png",
+  "product": "dream/validation/room-opengl.png",
+  "object_iou_bright_mask": 0.52991926323868,
+  "reference_bbox": [
+    0,
+    0,
+    720,
+    1280
+  ],
+  "product_bbox": [
+    0,
+    66,
+    720,
+    1214
+  ],
+  "reference_stats": {
+    "mean_bgr": [
+      173.3942864938023,
+      157.83842591953945,
+      160.45177102444902
+    ],
+    "std_bgr": [
+      39.293462937264295,
+      20.404551134970667,
+      26.843023497180027
+    ],
+    "mean_hsv": [
+      108.20428129775497,
+      55.96745036548598,
+      185.82354284593183
+    ],
+    "std_hsv": [
+      48.38864543902036,
+      24.69280979624077,
+      31.734700104165384
+    ],
+    "brightness_mean": 185.82354284593183,
+    "brightness_p95": 244.0,
+    "saturation_mean": 55.96745036548598
+  },
+  "product_stats": {
+    "mean_bgr": [
+      194.83775646199132,
+      186.76346104271377,
+      172.30456825423036
+    ],
+    "std_bgr": [
+      31.084566497794945,
+      24.89550646423255,
+      32.580015734895944
+    ],
+    "mean_hsv": [
+      103.0092028933007,
+      52.38332527392171,
+      202.52154390245136
+    ],
+    "std_hsv": [
+      36.42683411276637,
+      15.265065182435487,
+      25.996811264213296
+    ],
+    "brightness_mean": 202.52154390245136,
+    "brightness_p95": 231.0,
+    "saturation_mean": 52.38332527392171
+  },
+  "mean_hsv_delta": [
+    -5.195078404454279,
+    -3.5841250915642675,
+    16.69800105651953
+  ],
+  "diagnosis=[]": [],
+  "diagnosis": [],
+  "provenance_note": "Metrics captured before calibration. The product path was subsequently overwritten with the new render; the earlier pixels are not retained."
+}

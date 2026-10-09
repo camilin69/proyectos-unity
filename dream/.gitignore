@@ -1,0 +1,6 @@
+runtime/vendor/
+runtime/build/
+validation/*.ppm
+validation/*.log
+*.blend1
+__pycache__/
