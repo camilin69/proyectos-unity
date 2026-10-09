@@ -45,7 +45,7 @@ struct Mesh{
  explicit Mesh(const fs::path& path){
   std::ifstream f(path,std::ios::binary);char magic[8];uint32_t mats;f.read(magic,8);f.read((char*)&mats,4);f.read((char*)&count,4);
   if(!f||std::memcmp(magic,"DREAMM02",8)||mats==0||mats>32||count>3000000||count%3)throw std::runtime_error("Invalid dreammesh header");
-  for(uint32_t i=0;i<mats;i++){float a[8];f.read((char*)a,sizeof(a));base.push_back({a[0],a[1],a[2],a[3]});props.push_back({a[4],a[5],a[6],a[7]});if(int(a[5]+.1f)==4)water=true;if(int(a[5]+.1f)==1)floor=true;if(int(a[5]+.1f)==6)hasGlass=true;}
+  for(uint32_t i=0;i<mats;i++){float a[8];f.read((char*)a,sizeof(a));base.push_back({a[0],a[1],a[2],a[3]});props.push_back({a[4],a[5],a[6],a[7]});if(int(a[5]+.1f)==4)water=true;if(int(a[5]+.1f)==1)floor=true;if(int(a[5]+.1f)==6||int(a[5]+.1f)==9)hasGlass=true;}
   std::vector<float> vertices(size_t(count)*10);f.read((char*)vertices.data(),vertices.size()*sizeof(float));if(!f)throw std::runtime_error("Truncated mesh");
   glGenVertexArrays(1,&vao);glBindVertexArray(vao);glGenBuffers(1,&vbo);glBindBuffer(GL_ARRAY_BUFFER,vbo);glBufferData(GL_ARRAY_BUFFER,vertices.size()*sizeof(float),vertices.data(),GL_STATIC_DRAW);
   int offsets[]={0,3,6,8,9},sizes[]={3,3,2,1,1};for(int i=0;i<5;i++){glEnableVertexAttribArray(i);glVertexAttribPointer(i,sizes[i],GL_FLOAT,GL_FALSE,10*sizeof(float),(void*)(size_t(offsets[i])*sizeof(float)));}

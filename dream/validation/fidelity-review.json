@@ -1,0 +1,244 @@
+{
+  "schema": "dream.visual_fidelity_review.v1",
+  "accepted": false,
+  "language": "es",
+  "baseline_commit": "83b6bd9",
+  "scope": "Auditoria visual de capturas actuales frente a los fotogramas suministrados y baselines conservados. No valida movimiento, jugabilidad ni rendimiento.",
+  "artifacts": {
+    "room_reference": {
+      "path": "dream/referencias/estetica/evidencias/video-35/11s.png",
+      "width_px": 720,
+      "height_px": 1280,
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3"
+    },
+    "room_opengl": {
+      "path": "dream/validation/room-opengl.png",
+      "width_px": 360,
+      "height_px": 640,
+      "sha256": "5dfb543024e874433863e5596d8b0b920e717422ee1822d386f3703c5b10eb6d"
+    },
+    "room_blender": {
+      "path": "dream/validation/room-blender.png",
+      "width_px": 720,
+      "height_px": 1280,
+      "sha256": "b0cc57f3e46d8aa09184c44027fe003b16e5936a3c6235241643c0dd3c397037"
+    },
+    "room_baseline": {
+      "path": "dream/validation/room-baseline-83b6bd9.png",
+      "width_px": 960,
+      "height_px": 720,
+      "sha256": "5e6e40446be849bb49b2226236ded5582a8c18f99c8178705d91061837aa4010"
+    },
+    "atrium_reference": {
+      "path": "dream/referencias/estetica/evidencias/video-52/05s.png",
+      "width_px": 478,
+      "height_px": 850,
+      "sha256": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70"
+    },
+    "atrium_opengl": {
+      "path": "dream/validation/atrium-opengl.png",
+      "width_px": 960,
+      "height_px": 720,
+      "sha256": "0f73ab7fe7e63017a1ded196f35b7a2807a95010edeeea4bfa74242c4fd750f0"
+    },
+    "atrium_baseline": {
+      "path": "dream/validation/atrium-baseline-83b6bd9.png",
+      "width_px": 960,
+      "height_px": 720,
+      "sha256": "88a86a672a61a2a5b49320e1c1899b9d12bdd63e1a17d4e8277ad8023fa40fa5"
+    }
+  },
+  "method": {
+    "inspection": "Inspeccion visual directa de todos los PNG listados, incluidos ambos baselines.",
+    "room_comparability": "Las capturas actuales y la referencia comparten aspecto vertical; las resoluciones difieren. No hay registro geometrico exacto de camara. El baseline es horizontal y permite evaluar rasgos, no medir una mejora global pixel a pixel.",
+    "atrium_comparability": "Captura actual y baseline horizontales; referencia vertical. Se comparan elementos, materiales, iluminacion y disposicion visible, sin inferir error de encuadre a partir de los bordes.",
+    "quantitative_fidelity": "No se calculan porcentajes de similitud ni se reutilizan metricas de look-before.json como evidencia de fidelidad actual. Dimensiones y hashes identifican las imagenes, no miden parecido.",
+    "blender_atrium": "No evaluado: la cascada de Blender se estaba ajustando durante esta auditoria. El juicio del atrio se basa en OpenGL."
+  },
+  "room": {
+    "accepted": false,
+    "evidenced_improvements": [
+      {
+        "finding": "Las nubes visibles por la puerta tienen volumen tonal y sombras lavanda; el baseline mostraba manchas blancas redondeadas casi planas.",
+        "evidence": [
+          "room_baseline",
+          "room_opengl",
+          "room_blender",
+          "room_reference"
+        ]
+      },
+      {
+        "finding": "El suelo ahora contiene variaciones multicolor sobre el damero pastel, un rasgo presente en la referencia y ausente como mancha extensa en el baseline.",
+        "evidence": [
+          "room_baseline",
+          "room_opengl",
+          "room_blender",
+          "room_reference"
+        ]
+      },
+      {
+        "finding": "El encuadre vertical actual facilita comparar puerta, ventana, radiador y suelo con el fotograma vertical de referencia.",
+        "evidence": [
+          "room_opengl",
+          "room_blender",
+          "room_reference"
+        ]
+      },
+      {
+        "finding": "Puerta moldurada, cortina a cuadros, marco de ventana y radiador metalico mantienen los elementos reconocibles de la habitacion.",
+        "evidence": [
+          "room_opengl",
+          "room_blender",
+          "room_reference"
+        ]
+      }
+    ],
+    "remaining_differences": [
+      {
+        "priority": "high",
+        "area": "Azulejos y juntas",
+        "finding": "La referencia muestra una reticula pequena con juntas claras y bloques rosa/menta. En los renders algunas superficies se leen como paneles mayores; en OpenGL aparecen trazos oscuros discontinuos en varias juntas.",
+        "next_action": "Ajustar escala, continuidad y valor de las juntas; revisar aliasing en la resolucion real de captura.",
+        "evidence": [
+          "room_reference",
+          "room_opengl",
+          "room_blender"
+        ]
+      },
+      {
+        "priority": "high",
+        "area": "Suelo iridiscente",
+        "finding": "Las manchas actuales son redondeadas, suaves y repartidas sobre un damero muy definido. En la referencia tienen bordes mas irregulares, focos cromaticos mas intensos y una reflexion mas continua que mezcla la reticula.",
+        "next_action": "Variar forma y escala de la mascara y calibrar rugosidad/reflexion junto con color; evitar resolverlo solo aumentando saturacion.",
+        "evidence": [
+          "room_reference",
+          "room_opengl",
+          "room_blender"
+        ]
+      },
+      {
+        "priority": "high",
+        "area": "Iluminacion y respuesta de materiales",
+        "finding": "La referencia es mas calida y velada. Blender presenta marcos muy blancos y un sesgo frio/lavanda; OpenGL conserva zonas planas grises y reflejos metalicos duros. Los dos backends todavia no producen la misma respuesta.",
+        "next_action": "Calibrar exposicion, relleno ambiental y rugosidad con capturas equivalentes de camara.",
+        "evidence": [
+          "room_reference",
+          "room_opengl",
+          "room_blender"
+        ]
+      },
+      {
+        "priority": "medium",
+        "area": "Distribucion del cielo",
+        "finding": "La nube principal se concentra en la parte baja de la puerta y la ventana queda casi sin nubes. La referencia contiene nubes en ambos huecos y varias capas de profundidad aparente.",
+        "next_action": "Ajustar posicion angular del campo de nubes o su distribucion sin perder el sombreado volumetrico nuevo.",
+        "evidence": [
+          "room_reference",
+          "room_opengl",
+          "room_blender"
+        ]
+      },
+      {
+        "priority": "medium",
+        "area": "Proporciones y detalle de acabado",
+        "finding": "La ventana y el radiador tienen proporciones y ocupacion de pared distintas; la cortina actual muestra una trama mas regular y geometrica. La captura Blender conserva grano visible.",
+        "next_action": "Comparar hitos de marco, alfeizar y radiador; ajustar pliegues y generar un render de comprobacion con menos ruido.",
+        "evidence": [
+          "room_reference",
+          "room_opengl",
+          "room_blender"
+        ]
+      }
+    ],
+    "verdict": "La habitacion ya comunica la idea de la referencia y mejora varios rasgos concretos, pero todavia no iguala su acabado de luz y materiales."
+  },
+  "atrium": {
+    "accepted": false,
+    "evidenced_improvements": [
+      {
+        "finding": "El primer plano deja de estar bloqueado por varias macetas grandes; se lee mejor el recorrido y su relacion con el agua.",
+        "evidence": [
+          "atrium_baseline",
+          "atrium_opengl"
+        ]
+      },
+      {
+        "finding": "Aumenta la presencia de vegetacion colgante entre plantas superiores y columnas, acercandose al papel de la vegetacion en la referencia.",
+        "evidence": [
+          "atrium_baseline",
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      },
+      {
+        "finding": "Aparece una cascada vertical visible que conecta la altura del atrio con el agua, elemento presente en la referencia. Una imagen fija no prueba su animacion.",
+        "evidence": [
+          "atrium_baseline",
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      },
+      {
+        "finding": "Se conserva un conjunto reconocible de estructura blanca curva, agua azul, acentos lima, columnas informativas y esferas suspendidas.",
+        "evidence": [
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      }
+    ],
+    "remaining_differences": [
+      {
+        "priority": "high",
+        "area": "Agua, causticas y cascada",
+        "finding": "El agua actual se percibe como un espejo azul relativamente uniforme. La referencia muestra agua cian transparente, fondo iluminado, peces, causticas y reflejos fragmentados. La cascada actual se lee como una banda de lineas paralelas.",
+        "next_action": "Dar profundidad optica al agua, anadir causticas y revisar variacion, transparencia y contacto de la cascada con el estanque.",
+        "evidence": [
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      },
+      {
+        "priority": "high",
+        "area": "Luz y materiales transparentes",
+        "finding": "La captura actual tiene estructura gris/blanca con iluminacion bastante uniforme y vidrio de lectura debil. La referencia presenta luz solar intensa, contraste cromatico, reflexiones especulares y varias capas de transparencia mas ricas.",
+        "next_action": "Calibrar luz solar/ambiental, color cian/lima y vidrio junto con reflejos; preservar detalle sin quemar blancos.",
+        "evidence": [
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      },
+      {
+        "priority": "high",
+        "area": "Geometria, recorrido y profundidad exterior",
+        "finding": "El prototipo muestra un estanque central compacto y grandes superficies de suelo al frente. La referencia articula canales de agua y un paseo curvo con una ciudad visible a traves del cerramiento. El fondo actual es principalmente cielo liso.",
+        "next_action": "Desarrollar el recorrido y los canales de acuerdo con los hitos de la referencia y dar contexto exterior al atrio. La diferencia no se puede atribuir solo al aspecto de imagen.",
+        "evidence": [
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      },
+      {
+        "priority": "medium",
+        "area": "Vegetacion y globos",
+        "finding": "Las macetas y hojas actuales son repetitivas y geometricas; las esferas tienen continentes simplificados. La referencia combina vegetacion mas densa y variada con globos translucidos y detallados.",
+        "next_action": "Variar especies, escala y agrupaciones; enriquecer material y grafica de las esferas manteniendo un presupuesto razonable.",
+        "evidence": [
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      },
+      {
+        "priority": "medium",
+        "area": "Paneles y calidad de imagen",
+        "finding": "Los textos finos de las columnas y varias aristas/reflejos aparecen dentados o fragmentados en la captura OpenGL. La referencia muestra paneles con iconos y jerarquia visual mas clara.",
+        "next_action": "Revisar resolucion, filtrado y tamano de los atlas de texto; comprobar antialiasing y estabilidad temporal con nuevas capturas.",
+        "evidence": [
+          "atrium_opengl",
+          "atrium_reference"
+        ]
+      }
+    ],
+    "verdict": "El atrio incorpora elementos de la direccion visual, pero es aun una aproximacion con diferencias importantes de espacio, iluminacion y materiales."
+  },
+  "overall_verdict": "Hay progreso visible frente a 83b6bd9; la fidelidad visual solicitada sigue incompleta. Estas capturas no justifican accepted=true ni completar el objetivo global."
+}

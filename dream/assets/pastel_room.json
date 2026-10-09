@@ -2,1983 +2,3409 @@
   "format": "DREAMM02",
   "axes": "Z-up, right handed, metres",
   "materials": [
-    "DREAM_MAT_pink_glaze.003",
-    "DREAM_MAT_mint_glaze.003",
-    "DREAM_MAT_ivory_paint.003",
-    "DREAM_MAT_grout.003",
-    "DREAM_MAT_chrome.003",
-    "DREAM_MAT_door_handle.003",
-    "DREAM_MAT_floor_pink.003",
-    "DREAM_MAT_floor_mint.003",
-    "DREAM_MAT_plaid.003",
-    "DREAM_MAT_ceiling.003"
+    "DREAM_MAT_pink_glaze.006",
+    "DREAM_MAT_mint_glaze.006",
+    "DREAM_MAT_ivory_paint.006",
+    "DREAM_MAT_grout.006",
+    "DREAM_MAT_chrome.006",
+    "DREAM_MAT_door_handle.006",
+    "DREAM_MAT_floor_pink.006",
+    "DREAM_MAT_floor_mint.006",
+    "DREAM_MAT_plaid.006",
+    "DREAM_MAT_ceiling.006"
   ],
-  "vertices": 53868,
-  "triangles": 17956,
+  "vertices": 43680,
+  "triangles": 14560,
   "objects": [
     {
       "name": "GEO-DREAM-subfloor",
       "first_vertex": 0,
-      "vertex_count": 36
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.9750001430511475,
+        0.0,
+        -0.06199999153614044
+      ]
     },
     {
       "name": "GEO-DREAM-floor",
       "first_vertex": 36,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        -2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.001",
       "first_vertex": 168,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        -1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.002",
       "first_vertex": 300,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        -1.2000001668930054,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.003",
       "first_vertex": 432,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        -0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.004",
       "first_vertex": 564,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        2.4835269396561444e-09,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.005",
       "first_vertex": 696,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.006",
       "first_vertex": 828,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        1.200000286102295,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.007",
       "first_vertex": 960,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.008",
       "first_vertex": 1092,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -2.09999942779541,
+        2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.009",
       "first_vertex": 1224,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        -2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.010",
       "first_vertex": 1356,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        -1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.011",
       "first_vertex": 1488,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        -1.2000001668930054,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.012",
       "first_vertex": 1620,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        -0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.013",
       "first_vertex": 1752,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        2.4835269396561444e-09,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.014",
       "first_vertex": 1884,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.015",
       "first_vertex": 2016,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        1.200000286102295,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.016",
       "first_vertex": 2148,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.017",
       "first_vertex": 2280,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -1.5,
+        2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.018",
       "first_vertex": 2412,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        -2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.019",
       "first_vertex": 2544,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        -1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.020",
       "first_vertex": 2676,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        -1.2000001668930054,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.021",
       "first_vertex": 2808,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        -0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.022",
       "first_vertex": 2940,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        2.4835269396561444e-09,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.023",
       "first_vertex": 3072,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.024",
       "first_vertex": 3204,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        1.200000286102295,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.025",
       "first_vertex": 3336,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.026",
       "first_vertex": 3468,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.8999998569488525,
+        2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.027",
       "first_vertex": 3600,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        -2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.028",
       "first_vertex": 3732,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        -1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.029",
       "first_vertex": 3864,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        -1.2000001668930054,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.030",
       "first_vertex": 3996,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        -0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.031",
       "first_vertex": 4128,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        2.4835269396561444e-09,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.032",
       "first_vertex": 4260,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.033",
       "first_vertex": 4392,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        1.200000286102295,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.034",
       "first_vertex": 4524,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.035",
       "first_vertex": 4656,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        -0.3000001013278961,
+        2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.036",
       "first_vertex": 4788,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        -2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.037",
       "first_vertex": 4920,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        -1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.038",
       "first_vertex": 5052,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        -1.2000001668930054,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.039",
       "first_vertex": 5184,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        -0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.040",
       "first_vertex": 5316,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        2.4835269396561444e-09,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.041",
       "first_vertex": 5448,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        0.6000000834465027,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.042",
       "first_vertex": 5580,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        1.200000286102295,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.043",
       "first_vertex": 5712,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        1.799999713897705,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-floor.044",
       "first_vertex": 5844,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.045",
-      "first_vertex": 5976,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.046",
-      "first_vertex": 6108,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.047",
-      "first_vertex": 6240,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.048",
-      "first_vertex": 6372,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.049",
-      "first_vertex": 6504,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.050",
-      "first_vertex": 6636,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.051",
-      "first_vertex": 6768,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.052",
-      "first_vertex": 6900,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.053",
-      "first_vertex": 7032,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.054",
-      "first_vertex": 7164,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.055",
-      "first_vertex": 7296,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.056",
-      "first_vertex": 7428,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.057",
-      "first_vertex": 7560,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.058",
-      "first_vertex": 7692,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.059",
-      "first_vertex": 7824,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.060",
-      "first_vertex": 7956,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.061",
-      "first_vertex": 8088,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.062",
-      "first_vertex": 8220,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.063",
-      "first_vertex": 8352,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.064",
-      "first_vertex": 8484,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.065",
-      "first_vertex": 8616,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.066",
-      "first_vertex": 8748,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.067",
-      "first_vertex": 8880,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.068",
-      "first_vertex": 9012,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.069",
-      "first_vertex": 9144,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.070",
-      "first_vertex": 9276,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-floor.071",
-      "first_vertex": 9408,
-      "vertex_count": 132
+      "vertex_count": 132,
+      "kind": 1,
+      "center": [
+        0.22500000894069672,
+        2.40000057220459,
+        0.005000000353902578
+      ]
     },
     {
       "name": "GEO-DREAM-ceiling",
-      "first_vertex": 9540,
-      "vertex_count": 36
+      "first_vertex": 5976,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.9749999046325684,
+        0.0,
+        3.119999885559082
+      ]
     },
     {
       "name": "GEO-DREAM-front_grout_left",
-      "first_vertex": 9576,
-      "vertex_count": 36
+      "first_vertex": 6012,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -2.115000009536743,
+        2.7200000286102295,
+        1.5
+      ]
     },
     {
       "name": "GEO-DREAM-front_grout_right",
-      "first_vertex": 9612,
-      "vertex_count": 36
+      "first_vertex": 6048,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.03999999910593033,
+        2.7200000286102295,
+        1.5
+      ]
     },
     {
       "name": "GEO-DREAM-front_grout_top",
-      "first_vertex": 9648,
-      "vertex_count": 36
+      "first_vertex": 6084,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -1.100000023841858,
+        2.7200000286102295,
+        2.880000114440918
+      ]
     },
     {
       "name": "GEO-DREAM-right_grout_back",
-      "first_vertex": 9684,
-      "vertex_count": 36
+      "first_vertex": 6120,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.4700000286102295,
+        -1.350000023841858,
+        1.5
+      ]
     },
     {
       "name": "GEO-DREAM-right_grout_front",
-      "first_vertex": 9720,
-      "vertex_count": 36
+      "first_vertex": 6156,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.4700000286102295,
+        2.25,
+        1.5
+      ]
     },
     {
       "name": "GEO-DREAM-right_grout_below",
-      "first_vertex": 9756,
-      "vertex_count": 36
+      "first_vertex": 6192,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.4700000286102295,
+        0.8999999761581421,
+        0.6000000238418579
+      ]
     },
     {
       "name": "GEO-DREAM-right_grout_above",
-      "first_vertex": 9792,
-      "vertex_count": 36
+      "first_vertex": 6228,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.4700000286102295,
+        0.8999999761581421,
+        2.8499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile",
-      "first_vertex": 9828,
-      "vertex_count": 132
+      "first_vertex": 6264,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        0.14999999105930328
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.001",
-      "first_vertex": 9960,
-      "vertex_count": 132
+      "first_vertex": 6396,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.002",
-      "first_vertex": 10092,
-      "vertex_count": 132
+      "first_vertex": 6528,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        0.7499999403953552
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.003",
-      "first_vertex": 10224,
-      "vertex_count": 132
+      "first_vertex": 6660,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        1.0499999523162842
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.004",
-      "first_vertex": 10356,
-      "vertex_count": 132
+      "first_vertex": 6792,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.005",
-      "first_vertex": 10488,
-      "vertex_count": 132
+      "first_vertex": 6924,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.006",
-      "first_vertex": 10620,
-      "vertex_count": 132
+      "first_vertex": 7056,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.007",
-      "first_vertex": 10752,
-      "vertex_count": 132
+      "first_vertex": 7188,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.008",
-      "first_vertex": 10884,
-      "vertex_count": 132
+      "first_vertex": 7320,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.009",
-      "first_vertex": 11016,
-      "vertex_count": 132
+      "first_vertex": 7452,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -2.250000476837158,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.010",
-      "first_vertex": 11148,
-      "vertex_count": 132
+      "first_vertex": 7584,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        0.14999999105930328
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.011",
-      "first_vertex": 11280,
-      "vertex_count": 132
+      "first_vertex": 7716,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.012",
-      "first_vertex": 11412,
-      "vertex_count": 132
+      "first_vertex": 7848,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        0.7499999403953552
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.013",
-      "first_vertex": 11544,
-      "vertex_count": 132
+      "first_vertex": 7980,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        1.0499999523162842
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.014",
-      "first_vertex": 11676,
-      "vertex_count": 132
+      "first_vertex": 8112,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.015",
-      "first_vertex": 11808,
-      "vertex_count": 132
+      "first_vertex": 8244,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.016",
-      "first_vertex": 11940,
-      "vertex_count": 132
+      "first_vertex": 8376,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.017",
-      "first_vertex": 12072,
-      "vertex_count": 132
+      "first_vertex": 8508,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.018",
-      "first_vertex": 12204,
-      "vertex_count": 132
+      "first_vertex": 8640,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.019",
-      "first_vertex": 12336,
-      "vertex_count": 132
+      "first_vertex": 8772,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.9500001668930054,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.020",
-      "first_vertex": 12468,
-      "vertex_count": 132
+      "first_vertex": 8904,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.6499996185302734,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.021",
-      "first_vertex": 12600,
-      "vertex_count": 132
+      "first_vertex": 9036,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.3499997854232788,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.022",
-      "first_vertex": 12732,
-      "vertex_count": 132
+      "first_vertex": 9168,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -1.0499998331069946,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.023",
-      "first_vertex": 12864,
-      "vertex_count": 132
+      "first_vertex": 9300,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.75,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.024",
-      "first_vertex": 12996,
-      "vertex_count": 132
+      "first_vertex": 9432,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.44999998807907104,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.025",
-      "first_vertex": 13128,
-      "vertex_count": 132
+      "first_vertex": 9564,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        0.14999999105930328
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.026",
-      "first_vertex": 13260,
-      "vertex_count": 132
+      "first_vertex": 9696,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.027",
-      "first_vertex": 13392,
-      "vertex_count": 132
+      "first_vertex": 9828,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        0.7499999403953552
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.028",
-      "first_vertex": 13524,
-      "vertex_count": 132
+      "first_vertex": 9960,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        1.0499999523162842
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.029",
-      "first_vertex": 13656,
-      "vertex_count": 132
+      "first_vertex": 10092,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.030",
-      "first_vertex": 13788,
-      "vertex_count": 132
+      "first_vertex": 10224,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.031",
-      "first_vertex": 13920,
-      "vertex_count": 132
+      "first_vertex": 10356,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.032",
-      "first_vertex": 14052,
-      "vertex_count": 132
+      "first_vertex": 10488,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.033",
-      "first_vertex": 14184,
-      "vertex_count": 132
+      "first_vertex": 10620,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.034",
-      "first_vertex": 14316,
-      "vertex_count": 132
+      "first_vertex": 10752,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        -0.14999999105930328,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.035",
-      "first_vertex": 14448,
-      "vertex_count": 132
+      "first_vertex": 10884,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        0.14999999105930328
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.036",
-      "first_vertex": 14580,
-      "vertex_count": 132
+      "first_vertex": 11016,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.037",
-      "first_vertex": 14712,
-      "vertex_count": 132
+      "first_vertex": 11148,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        0.7499999403953552
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.038",
-      "first_vertex": 14844,
-      "vertex_count": 132
+      "first_vertex": 11280,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        1.0499999523162842
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.039",
-      "first_vertex": 14976,
-      "vertex_count": 132
+      "first_vertex": 11412,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.040",
-      "first_vertex": 15108,
-      "vertex_count": 132
+      "first_vertex": 11544,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.041",
-      "first_vertex": 15240,
-      "vertex_count": 132
+      "first_vertex": 11676,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.042",
-      "first_vertex": 15372,
-      "vertex_count": 132
+      "first_vertex": 11808,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.043",
-      "first_vertex": 15504,
-      "vertex_count": 132
+      "first_vertex": 11940,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.044",
-      "first_vertex": 15636,
-      "vertex_count": 132
+      "first_vertex": 12072,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.15000000596046448,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.045",
-      "first_vertex": 15768,
-      "vertex_count": 132
+      "first_vertex": 12204,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        0.14999999105930328
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.046",
-      "first_vertex": 15900,
-      "vertex_count": 132
+      "first_vertex": 12336,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.047",
-      "first_vertex": 16032,
-      "vertex_count": 132
+      "first_vertex": 12468,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        0.7499999403953552
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.048",
-      "first_vertex": 16164,
-      "vertex_count": 132
+      "first_vertex": 12600,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        1.0499999523162842
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.049",
-      "first_vertex": 16296,
-      "vertex_count": 132
+      "first_vertex": 12732,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.050",
-      "first_vertex": 16428,
-      "vertex_count": 132
+      "first_vertex": 12864,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.051",
-      "first_vertex": 16560,
-      "vertex_count": 132
+      "first_vertex": 12996,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.052",
-      "first_vertex": 16692,
-      "vertex_count": 132
+      "first_vertex": 13128,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.053",
-      "first_vertex": 16824,
-      "vertex_count": 132
+      "first_vertex": 13260,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-front_tile.054",
-      "first_vertex": 16956,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.055",
-      "first_vertex": 17088,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.056",
-      "first_vertex": 17220,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.057",
-      "first_vertex": 17352,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.058",
-      "first_vertex": 17484,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.059",
-      "first_vertex": 17616,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.060",
-      "first_vertex": 17748,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.061",
-      "first_vertex": 17880,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.062",
-      "first_vertex": 18012,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.063",
-      "first_vertex": 18144,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.064",
-      "first_vertex": 18276,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.065",
-      "first_vertex": 18408,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.066",
-      "first_vertex": 18540,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.067",
-      "first_vertex": 18672,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.068",
-      "first_vertex": 18804,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.069",
-      "first_vertex": 18936,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.070",
-      "first_vertex": 19068,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.071",
-      "first_vertex": 19200,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.072",
-      "first_vertex": 19332,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.073",
-      "first_vertex": 19464,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.074",
-      "first_vertex": 19596,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.075",
-      "first_vertex": 19728,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.076",
-      "first_vertex": 19860,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.077",
-      "first_vertex": 19992,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.078",
-      "first_vertex": 20124,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.079",
-      "first_vertex": 20256,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.080",
-      "first_vertex": 20388,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.081",
-      "first_vertex": 20520,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.082",
-      "first_vertex": 20652,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.083",
-      "first_vertex": 20784,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.084",
-      "first_vertex": 20916,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.085",
-      "first_vertex": 21048,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.086",
-      "first_vertex": 21180,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.087",
-      "first_vertex": 21312,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.088",
-      "first_vertex": 21444,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.089",
-      "first_vertex": 21576,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.090",
-      "first_vertex": 21708,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.091",
-      "first_vertex": 21840,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.092",
-      "first_vertex": 21972,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.093",
-      "first_vertex": 22104,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.094",
-      "first_vertex": 22236,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.095",
-      "first_vertex": 22368,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.096",
-      "first_vertex": 22500,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.097",
-      "first_vertex": 22632,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.098",
-      "first_vertex": 22764,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.099",
-      "first_vertex": 22896,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.100",
-      "first_vertex": 23028,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.101",
-      "first_vertex": 23160,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.102",
-      "first_vertex": 23292,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.103",
-      "first_vertex": 23424,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.104",
-      "first_vertex": 23556,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.105",
-      "first_vertex": 23688,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.106",
-      "first_vertex": 23820,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.107",
-      "first_vertex": 23952,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.108",
-      "first_vertex": 24084,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.109",
-      "first_vertex": 24216,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.110",
-      "first_vertex": 24348,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.111",
-      "first_vertex": 24480,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.112",
-      "first_vertex": 24612,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.113",
-      "first_vertex": 24744,
-      "vertex_count": 132
-    },
-    {
-      "name": "GEO-DREAM-front_tile.114",
-      "first_vertex": 24876,
-      "vertex_count": 132
+      "first_vertex": 13392,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.375,
+        2.7300000190734863,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile",
-      "first_vertex": 25008,
-      "vertex_count": 132
+      "first_vertex": 13524,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.001",
-      "first_vertex": 25140,
-      "vertex_count": 132
+      "first_vertex": 13656,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.002",
-      "first_vertex": 25272,
-      "vertex_count": 132
+      "first_vertex": 13788,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.003",
-      "first_vertex": 25404,
-      "vertex_count": 132
+      "first_vertex": 13920,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.004",
-      "first_vertex": 25536,
-      "vertex_count": 132
+      "first_vertex": 14052,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.005",
-      "first_vertex": 25668,
-      "vertex_count": 132
+      "first_vertex": 14184,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.006",
-      "first_vertex": 25800,
-      "vertex_count": 132
+      "first_vertex": 14316,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.007",
-      "first_vertex": 25932,
-      "vertex_count": 132
+      "first_vertex": 14448,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.008",
-      "first_vertex": 26064,
-      "vertex_count": 132
+      "first_vertex": 14580,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.009",
-      "first_vertex": 26196,
-      "vertex_count": 132
+      "first_vertex": 14712,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.5500001907348633,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.010",
-      "first_vertex": 26328,
-      "vertex_count": 132
+      "first_vertex": 14844,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.011",
-      "first_vertex": 26460,
-      "vertex_count": 132
+      "first_vertex": 14976,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.012",
-      "first_vertex": 26592,
-      "vertex_count": 132
+      "first_vertex": 15108,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.013",
-      "first_vertex": 26724,
-      "vertex_count": 132
+      "first_vertex": 15240,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.014",
-      "first_vertex": 26856,
-      "vertex_count": 132
+      "first_vertex": 15372,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.015",
-      "first_vertex": 26988,
-      "vertex_count": 132
+      "first_vertex": 15504,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.016",
-      "first_vertex": 27120,
-      "vertex_count": 132
+      "first_vertex": 15636,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.017",
-      "first_vertex": 27252,
-      "vertex_count": 132
+      "first_vertex": 15768,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.018",
-      "first_vertex": 27384,
-      "vertex_count": 132
+      "first_vertex": 15900,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.019",
-      "first_vertex": 27516,
-      "vertex_count": 132
+      "first_vertex": 16032,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -2.25,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.020",
-      "first_vertex": 27648,
-      "vertex_count": 132
+      "first_vertex": 16164,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.021",
-      "first_vertex": 27780,
-      "vertex_count": 132
+      "first_vertex": 16296,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.022",
-      "first_vertex": 27912,
-      "vertex_count": 132
+      "first_vertex": 16428,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.023",
-      "first_vertex": 28044,
-      "vertex_count": 132
+      "first_vertex": 16560,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.024",
-      "first_vertex": 28176,
-      "vertex_count": 132
+      "first_vertex": 16692,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.025",
-      "first_vertex": 28308,
-      "vertex_count": 132
+      "first_vertex": 16824,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.026",
-      "first_vertex": 28440,
-      "vertex_count": 132
+      "first_vertex": 16956,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.027",
-      "first_vertex": 28572,
-      "vertex_count": 132
+      "first_vertex": 17088,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.028",
-      "first_vertex": 28704,
-      "vertex_count": 132
+      "first_vertex": 17220,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.029",
-      "first_vertex": 28836,
-      "vertex_count": 132
+      "first_vertex": 17352,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.9499998092651367,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.030",
-      "first_vertex": 28968,
-      "vertex_count": 132
+      "first_vertex": 17484,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.031",
-      "first_vertex": 29100,
-      "vertex_count": 132
+      "first_vertex": 17616,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.032",
-      "first_vertex": 29232,
-      "vertex_count": 132
+      "first_vertex": 17748,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.033",
-      "first_vertex": 29364,
-      "vertex_count": 132
+      "first_vertex": 17880,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.034",
-      "first_vertex": 29496,
-      "vertex_count": 132
+      "first_vertex": 18012,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.035",
-      "first_vertex": 29628,
-      "vertex_count": 132
+      "first_vertex": 18144,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.036",
-      "first_vertex": 29760,
-      "vertex_count": 132
+      "first_vertex": 18276,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.037",
-      "first_vertex": 29892,
-      "vertex_count": 132
+      "first_vertex": 18408,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.038",
-      "first_vertex": 30024,
-      "vertex_count": 132
+      "first_vertex": 18540,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.039",
-      "first_vertex": 30156,
-      "vertex_count": 132
+      "first_vertex": 18672,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.6500000953674316,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.040",
-      "first_vertex": 30288,
-      "vertex_count": 132
+      "first_vertex": 18804,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.041",
-      "first_vertex": 30420,
-      "vertex_count": 132
+      "first_vertex": 18936,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.042",
-      "first_vertex": 30552,
-      "vertex_count": 132
+      "first_vertex": 19068,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.043",
-      "first_vertex": 30684,
-      "vertex_count": 132
+      "first_vertex": 19200,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.044",
-      "first_vertex": 30816,
-      "vertex_count": 132
+      "first_vertex": 19332,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.045",
-      "first_vertex": 30948,
-      "vertex_count": 132
+      "first_vertex": 19464,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.046",
-      "first_vertex": 31080,
-      "vertex_count": 132
+      "first_vertex": 19596,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.047",
-      "first_vertex": 31212,
-      "vertex_count": 132
+      "first_vertex": 19728,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.048",
-      "first_vertex": 31344,
-      "vertex_count": 132
+      "first_vertex": 19860,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.049",
-      "first_vertex": 31476,
-      "vertex_count": 132
+      "first_vertex": 19992,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.3499999046325684,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.050",
-      "first_vertex": 31608,
-      "vertex_count": 132
+      "first_vertex": 20124,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.051",
-      "first_vertex": 31740,
-      "vertex_count": 132
+      "first_vertex": 20256,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.052",
-      "first_vertex": 31872,
-      "vertex_count": 132
+      "first_vertex": 20388,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.053",
-      "first_vertex": 32004,
-      "vertex_count": 132
+      "first_vertex": 20520,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.054",
-      "first_vertex": 32136,
-      "vertex_count": 132
+      "first_vertex": 20652,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.055",
-      "first_vertex": 32268,
-      "vertex_count": 132
+      "first_vertex": 20784,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.056",
-      "first_vertex": 32400,
-      "vertex_count": 132
+      "first_vertex": 20916,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.057",
-      "first_vertex": 32532,
-      "vertex_count": 132
+      "first_vertex": 21048,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.058",
-      "first_vertex": 32664,
-      "vertex_count": 132
+      "first_vertex": 21180,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.059",
-      "first_vertex": 32796,
-      "vertex_count": 132
+      "first_vertex": 21312,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -1.0500000715255737,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.060",
-      "first_vertex": 32928,
-      "vertex_count": 132
+      "first_vertex": 21444,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.061",
-      "first_vertex": 33060,
-      "vertex_count": 132
+      "first_vertex": 21576,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.062",
-      "first_vertex": 33192,
-      "vertex_count": 132
+      "first_vertex": 21708,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.063",
-      "first_vertex": 33324,
-      "vertex_count": 132
+      "first_vertex": 21840,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.064",
-      "first_vertex": 33456,
-      "vertex_count": 132
+      "first_vertex": 21972,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.065",
-      "first_vertex": 33588,
-      "vertex_count": 132
+      "first_vertex": 22104,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.066",
-      "first_vertex": 33720,
-      "vertex_count": 132
+      "first_vertex": 22236,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.067",
-      "first_vertex": 33852,
-      "vertex_count": 132
+      "first_vertex": 22368,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.068",
-      "first_vertex": 33984,
-      "vertex_count": 132
+      "first_vertex": 22500,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.069",
-      "first_vertex": 34116,
-      "vertex_count": 132
+      "first_vertex": 22632,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.7499998807907104,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.070",
-      "first_vertex": 34248,
-      "vertex_count": 132
+      "first_vertex": 22764,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.071",
-      "first_vertex": 34380,
-      "vertex_count": 132
+      "first_vertex": 22896,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.072",
-      "first_vertex": 34512,
-      "vertex_count": 132
+      "first_vertex": 23028,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.073",
-      "first_vertex": 34644,
-      "vertex_count": 132
+      "first_vertex": 23160,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.074",
-      "first_vertex": 34776,
-      "vertex_count": 132
+      "first_vertex": 23292,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.075",
-      "first_vertex": 34908,
-      "vertex_count": 132
+      "first_vertex": 23424,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.076",
-      "first_vertex": 35040,
-      "vertex_count": 132
+      "first_vertex": 23556,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.077",
-      "first_vertex": 35172,
-      "vertex_count": 132
+      "first_vertex": 23688,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.078",
-      "first_vertex": 35304,
-      "vertex_count": 132
+      "first_vertex": 23820,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.079",
-      "first_vertex": 35436,
-      "vertex_count": 132
+      "first_vertex": 23952,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.45000001788139343,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.080",
-      "first_vertex": 35568,
-      "vertex_count": 132
+      "first_vertex": 24084,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.081",
-      "first_vertex": 35700,
-      "vertex_count": 132
+      "first_vertex": 24216,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.082",
-      "first_vertex": 35832,
-      "vertex_count": 132
+      "first_vertex": 24348,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.083",
-      "first_vertex": 35964,
-      "vertex_count": 132
+      "first_vertex": 24480,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.084",
-      "first_vertex": 36096,
-      "vertex_count": 132
+      "first_vertex": 24612,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.085",
-      "first_vertex": 36228,
-      "vertex_count": 132
+      "first_vertex": 24744,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.086",
-      "first_vertex": 36360,
-      "vertex_count": 132
+      "first_vertex": 24876,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.087",
-      "first_vertex": 36492,
-      "vertex_count": 132
+      "first_vertex": 25008,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.088",
-      "first_vertex": 36624,
-      "vertex_count": 132
+      "first_vertex": 25140,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.089",
-      "first_vertex": 36756,
-      "vertex_count": 132
+      "first_vertex": 25272,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        -0.15000000596046448,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.090",
-      "first_vertex": 36888,
-      "vertex_count": 132
+      "first_vertex": 25404,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.15000000596046448,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.091",
-      "first_vertex": 37020,
-      "vertex_count": 132
+      "first_vertex": 25536,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.15000000596046448,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.092",
-      "first_vertex": 37152,
-      "vertex_count": 132
+      "first_vertex": 25668,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.15000000596046448,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.093",
-      "first_vertex": 37284,
-      "vertex_count": 132
+      "first_vertex": 25800,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.15000000596046448,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.094",
-      "first_vertex": 37416,
-      "vertex_count": 132
+      "first_vertex": 25932,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.15000000596046448,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.095",
-      "first_vertex": 37548,
-      "vertex_count": 132
+      "first_vertex": 26064,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.44999998807907104,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.096",
-      "first_vertex": 37680,
-      "vertex_count": 132
+      "first_vertex": 26196,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.44999998807907104,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.097",
-      "first_vertex": 37812,
-      "vertex_count": 132
+      "first_vertex": 26328,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.44999998807907104,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.098",
-      "first_vertex": 37944,
-      "vertex_count": 132
+      "first_vertex": 26460,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.44999998807907104,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.099",
-      "first_vertex": 38076,
-      "vertex_count": 132
+      "first_vertex": 26592,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.44999998807907104,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.100",
-      "first_vertex": 38208,
-      "vertex_count": 132
+      "first_vertex": 26724,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.7500001192092896,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.101",
-      "first_vertex": 38340,
-      "vertex_count": 132
+      "first_vertex": 26856,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.7500001192092896,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.102",
-      "first_vertex": 38472,
-      "vertex_count": 132
+      "first_vertex": 26988,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.7500001192092896,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.103",
-      "first_vertex": 38604,
-      "vertex_count": 132
+      "first_vertex": 27120,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.7500001192092896,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.104",
-      "first_vertex": 38736,
-      "vertex_count": 132
+      "first_vertex": 27252,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        0.7500001192092896,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.105",
-      "first_vertex": 38868,
-      "vertex_count": 132
+      "first_vertex": 27384,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.0499999523162842,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.106",
-      "first_vertex": 39000,
-      "vertex_count": 132
+      "first_vertex": 27516,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.0499999523162842,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.107",
-      "first_vertex": 39132,
-      "vertex_count": 132
+      "first_vertex": 27648,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.0499999523162842,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.108",
-      "first_vertex": 39264,
-      "vertex_count": 132
+      "first_vertex": 27780,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.0499999523162842,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.109",
-      "first_vertex": 39396,
-      "vertex_count": 132
+      "first_vertex": 27912,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.0499999523162842,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.110",
-      "first_vertex": 39528,
-      "vertex_count": 132
+      "first_vertex": 28044,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.3499999046325684,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.111",
-      "first_vertex": 39660,
-      "vertex_count": 132
+      "first_vertex": 28176,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.3499999046325684,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.112",
-      "first_vertex": 39792,
-      "vertex_count": 132
+      "first_vertex": 28308,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.3499999046325684,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.113",
-      "first_vertex": 39924,
-      "vertex_count": 132
+      "first_vertex": 28440,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.3499999046325684,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.114",
-      "first_vertex": 40056,
-      "vertex_count": 132
+      "first_vertex": 28572,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.3499999046325684,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.115",
-      "first_vertex": 40188,
-      "vertex_count": 132
+      "first_vertex": 28704,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.649999976158142,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.116",
-      "first_vertex": 40320,
-      "vertex_count": 132
+      "first_vertex": 28836,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.649999976158142,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.117",
-      "first_vertex": 40452,
-      "vertex_count": 132
+      "first_vertex": 28968,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.649999976158142,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.118",
-      "first_vertex": 40584,
-      "vertex_count": 132
+      "first_vertex": 29100,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.649999976158142,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.119",
-      "first_vertex": 40716,
-      "vertex_count": 132
+      "first_vertex": 29232,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.649999976158142,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.120",
-      "first_vertex": 40848,
-      "vertex_count": 132
+      "first_vertex": 29364,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.121",
-      "first_vertex": 40980,
-      "vertex_count": 132
+      "first_vertex": 29496,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.122",
-      "first_vertex": 41112,
-      "vertex_count": 132
+      "first_vertex": 29628,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.123",
-      "first_vertex": 41244,
-      "vertex_count": 132
+      "first_vertex": 29760,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.124",
-      "first_vertex": 41376,
-      "vertex_count": 132
+      "first_vertex": 29892,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.125",
-      "first_vertex": 41508,
-      "vertex_count": 132
+      "first_vertex": 30024,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.126",
-      "first_vertex": 41640,
-      "vertex_count": 132
+      "first_vertex": 30156,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.127",
-      "first_vertex": 41772,
-      "vertex_count": 132
+      "first_vertex": 30288,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.128",
-      "first_vertex": 41904,
-      "vertex_count": 132
+      "first_vertex": 30420,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.129",
-      "first_vertex": 42036,
-      "vertex_count": 132
+      "first_vertex": 30552,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        1.9500001668930054,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.130",
-      "first_vertex": 42168,
-      "vertex_count": 132
+      "first_vertex": 30684,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.131",
-      "first_vertex": 42300,
-      "vertex_count": 132
+      "first_vertex": 30816,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.132",
-      "first_vertex": 42432,
-      "vertex_count": 132
+      "first_vertex": 30948,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.133",
-      "first_vertex": 42564,
-      "vertex_count": 132
+      "first_vertex": 31080,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.134",
-      "first_vertex": 42696,
-      "vertex_count": 132
+      "first_vertex": 31212,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.135",
-      "first_vertex": 42828,
-      "vertex_count": 132
+      "first_vertex": 31344,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.136",
-      "first_vertex": 42960,
-      "vertex_count": 132
+      "first_vertex": 31476,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.137",
-      "first_vertex": 43092,
-      "vertex_count": 132
+      "first_vertex": 31608,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.138",
-      "first_vertex": 43224,
-      "vertex_count": 132
+      "first_vertex": 31740,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.139",
-      "first_vertex": 43356,
-      "vertex_count": 132
+      "first_vertex": 31872,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.25,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.140",
-      "first_vertex": 43488,
-      "vertex_count": 132
+      "first_vertex": 32004,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        0.15000000596046448
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.141",
-      "first_vertex": 43620,
-      "vertex_count": 132
+      "first_vertex": 32136,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        0.45000001788139343
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.142",
-      "first_vertex": 43752,
-      "vertex_count": 132
+      "first_vertex": 32268,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        0.7500001192092896
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.143",
-      "first_vertex": 43884,
-      "vertex_count": 132
+      "first_vertex": 32400,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        1.0500000715255737
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.144",
-      "first_vertex": 44016,
-      "vertex_count": 132
+      "first_vertex": 32532,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.145",
-      "first_vertex": 44148,
-      "vertex_count": 132
+      "first_vertex": 32664,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        1.649999976158142
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.146",
-      "first_vertex": 44280,
-      "vertex_count": 132
+      "first_vertex": 32796,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        1.9500001668930054
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.147",
-      "first_vertex": 44412,
-      "vertex_count": 132
+      "first_vertex": 32928,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        2.25
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.148",
-      "first_vertex": 44544,
-      "vertex_count": 132
+      "first_vertex": 33060,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        2.549999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-right_tile.149",
-      "first_vertex": 44676,
-      "vertex_count": 132
+      "first_vertex": 33192,
+      "vertex_count": 132,
+      "kind": 3,
+      "center": [
+        0.48000001907348633,
+        2.5500001907348633,
+        2.8500001430511475
+      ]
     },
     {
       "name": "GEO-DREAM-left_wall",
-      "first_vertex": 44808,
-      "vertex_count": 36
+      "first_vertex": 33324,
+      "vertex_count": 36,
+      "kind": 3,
+      "center": [
+        -2.4600000381469727,
+        0.0,
+        1.5
+      ]
     },
     {
       "name": "GEO-DREAM-back_wall",
-      "first_vertex": 44844,
-      "vertex_count": 36
+      "first_vertex": 33360,
+      "vertex_count": 36,
+      "kind": 3,
+      "center": [
+        -0.9749999046325684,
+        -2.7599997520446777,
+        1.5
+      ]
     },
     {
       "name": "GEO-DREAM-door_casing",
-      "first_vertex": 44880,
-      "vertex_count": 132
+      "first_vertex": 33396,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -1.9000003337860107,
+        2.640000581741333,
+        1.3999998569488525
+      ]
     },
     {
       "name": "GEO-DREAM-door_casing.001",
-      "first_vertex": 45012,
-      "vertex_count": 132
+      "first_vertex": 33528,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -0.29999998211860657,
+        2.640000581741333,
+        1.3999998569488525
+      ]
     },
     {
       "name": "GEO-DREAM-door_lintel",
-      "first_vertex": 45144,
-      "vertex_count": 132
+      "first_vertex": 33660,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -1.0999997854232788,
+        2.640000581741333,
+        2.8199996948242188
+      ]
     },
     {
       "name": "GEO-DREAM-threshold",
-      "first_vertex": 45276,
-      "vertex_count": 132
+      "first_vertex": 33792,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -1.0999996662139893,
+        2.7300004959106445,
+        0.02500000223517418
+      ]
     },
     {
       "name": "GEO-DREAM-door_leaf",
-      "first_vertex": 45408,
-      "vertex_count": 132
+      "first_vertex": 33924,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -1.6557857990264893,
+        1.888709545135498,
+        1.3499999046325684
+      ]
     },
     {
       "name": "GEO-DREAM-door_panel",
-      "first_vertex": 45540,
-      "vertex_count": 324
+      "first_vertex": 34056,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.7734932899475098,
+        2.2207412719726562,
+        0.6800000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-door_panel.001",
-      "first_vertex": 45864,
-      "vertex_count": 324
+      "first_vertex": 34380,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.6160281896591187,
+        1.538682460784912,
+        0.6800000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-door_panel.002",
-      "first_vertex": 46188,
-      "vertex_count": 324
+      "first_vertex": 34704,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.7734932899475098,
+        2.2207412719726562,
+        1.9800002574920654
+      ]
     },
     {
       "name": "GEO-DREAM-door_panel.003",
-      "first_vertex": 46512,
-      "vertex_count": 324
+      "first_vertex": 35028,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.6160281896591187,
+        1.538682460784912,
+        1.9800002574920654
+      ]
+    },
+    {
+      "name": "GEO-DREAM-door_panel.004",
+      "first_vertex": 35352,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.6955437660217285,
+        2.2387378215789795,
+        0.6800000667572021
+      ]
+    },
+    {
+      "name": "GEO-DREAM-door_panel.005",
+      "first_vertex": 35676,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.5380786657333374,
+        1.5566785335540771,
+        0.6800000667572021
+      ]
+    },
+    {
+      "name": "GEO-DREAM-door_panel.006",
+      "first_vertex": 36000,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.6955437660217285,
+        2.2387378215789795,
+        1.9800002574920654
+      ]
+    },
+    {
+      "name": "GEO-DREAM-door_panel.007",
+      "first_vertex": 36324,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.5380786657333374,
+        1.5566785335540771,
+        1.9800002574920654
+      ]
     },
     {
       "name": "GEO-DREAM-handle",
-      "first_vertex": 46836,
-      "vertex_count": 132
+      "first_vertex": 36648,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -1.635869026184082,
+        1.313446044921875,
+        1.2999998331069946
+      ]
     },
     {
       "name": "GEO-DREAM-window_casing",
-      "first_vertex": 46968,
-      "vertex_count": 132
+      "first_vertex": 36780,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.4099998474121094,
+        -0.05999999865889549,
+        2.06000018119812
+      ]
     },
     {
       "name": "GEO-DREAM-window_casing.001",
-      "first_vertex": 47100,
-      "vertex_count": 132
+      "first_vertex": 36912,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.4099998474121094,
+        1.8599998950958252,
+        2.06000018119812
+      ]
     },
     {
       "name": "GEO-DREAM-window_casing.002",
-      "first_vertex": 47232,
-      "vertex_count": 132
+      "first_vertex": 37044,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.4099998474121094,
+        0.9000000953674316,
+        1.2799999713897705
+      ]
     },
     {
       "name": "GEO-DREAM-window_casing.003",
-      "first_vertex": 47364,
-      "vertex_count": 132
+      "first_vertex": 37176,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.4099998474121094,
+        0.9000000953674316,
+        2.8399999141693115
+      ]
     },
     {
       "name": "GEO-DREAM-window_mullion",
-      "first_vertex": 47496,
-      "vertex_count": 132
+      "first_vertex": 37308,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.3899998664855957,
+        0.8999999761581421,
+        2.319999933242798
+      ]
     },
     {
       "name": "GEO-DREAM-window_sill",
-      "first_vertex": 47628,
-      "vertex_count": 132
+      "first_vertex": 37440,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.30000001192092896,
+        0.8999999761581421,
+        1.25
+      ]
     },
     {
       "name": "GEO-DREAM-curtain_rail",
-      "first_vertex": 47760,
-      "vertex_count": 132
+      "first_vertex": 37572,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.22000005841255188,
+        0.850000262260437,
+        2.9600000381469727
+      ]
     },
     {
       "name": "GEO-DREAM-curtain",
-      "first_vertex": 47892,
-      "vertex_count": 1536
+      "first_vertex": 37704,
+      "vertex_count": 1536,
+      "kind": 2,
+      "center": [
+        0.20166683197021484,
+        -0.2200000137090683,
+        2.100757598876953
+      ]
     },
     {
       "name": "GEO-DREAM-curtain.001",
-      "first_vertex": 49428,
-      "vertex_count": 1536
+      "first_vertex": 39240,
+      "vertex_count": 1536,
+      "kind": 2,
+      "center": [
+        0.20166683197021484,
+        2.0199997425079346,
+        2.100757598876953
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin",
-      "first_vertex": 50964,
-      "vertex_count": 132
+      "first_vertex": 40776,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.12000000476837158,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.001",
-      "first_vertex": 51096,
-      "vertex_count": 132
+      "first_vertex": 40908,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.20499996840953827,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.002",
-      "first_vertex": 51228,
-      "vertex_count": 132
+      "first_vertex": 41040,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.28999999165534973,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.003",
-      "first_vertex": 51360,
-      "vertex_count": 132
+      "first_vertex": 41172,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.3750000596046448,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.004",
-      "first_vertex": 51492,
-      "vertex_count": 132
+      "first_vertex": 41304,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.46000003814697266,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.005",
-      "first_vertex": 51624,
-      "vertex_count": 132
+      "first_vertex": 41436,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.5450000166893005,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.006",
-      "first_vertex": 51756,
-      "vertex_count": 132
+      "first_vertex": 41568,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.6299999356269836,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.007",
-      "first_vertex": 51888,
-      "vertex_count": 132
+      "first_vertex": 41700,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.7150000333786011,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.008",
-      "first_vertex": 52020,
-      "vertex_count": 132
+      "first_vertex": 41832,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.8000000715255737,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.009",
-      "first_vertex": 52152,
-      "vertex_count": 132
+      "first_vertex": 41964,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.8849999904632568,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.010",
-      "first_vertex": 52284,
-      "vertex_count": 132
+      "first_vertex": 42096,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        0.9699999690055847,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.011",
-      "first_vertex": 52416,
-      "vertex_count": 132
+      "first_vertex": 42228,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.0550001859664917,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.012",
-      "first_vertex": 52548,
-      "vertex_count": 132
+      "first_vertex": 42360,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.1400001049041748,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.013",
-      "first_vertex": 52680,
-      "vertex_count": 132
+      "first_vertex": 42492,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.225000262260437,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.014",
-      "first_vertex": 52812,
-      "vertex_count": 132
+      "first_vertex": 42624,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.309999942779541,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.015",
-      "first_vertex": 52944,
-      "vertex_count": 132
+      "first_vertex": 42756,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.3949999809265137,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.016",
-      "first_vertex": 53076,
-      "vertex_count": 132
+      "first_vertex": 42888,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.4800000190734863,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_fin.017",
-      "first_vertex": 53208,
-      "vertex_count": 132
+      "first_vertex": 43020,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.24000005424022675,
+        1.565000295639038,
+        0.5550000667572021
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_pipe",
-      "first_vertex": 53340,
-      "vertex_count": 132
+      "first_vertex": 43152,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000011920929,
+        0.8600000143051147,
+        0.2199999988079071
+      ]
     },
     {
       "name": "GEO-DREAM-radiator_pipe.001",
-      "first_vertex": 53472,
-      "vertex_count": 132
+      "first_vertex": 43284,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000011920929,
+        0.8600000143051147,
+        0.8799999952316284
+      ]
     },
     {
       "name": "GEO-DREAM-skirting_left",
-      "first_vertex": 53604,
-      "vertex_count": 132
+      "first_vertex": 43416,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        -2.380000114440918,
+        0.0,
+        0.06000000238418579
+      ]
     },
     {
       "name": "GEO-DREAM-skirting_right",
-      "first_vertex": 53736,
-      "vertex_count": 132
+      "first_vertex": 43548,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.419999897480011,
+        0.0,
+        0.06000000238418579
+      ]
     }
   ],
   "camera": {
     "position": [
-      -0.05000000074505806,
-      -1.350000023841858,
-      1.600000023841858
+      -1.5,
+      -2.0,
+      1.399999976158142
     ],
-    "vertical_fov_degrees": 83.974426350124,
+    "vertical_fov_degrees": 69.98404210848467,
     "forward": [
-      0.24106231331825256,
-      0.9409497976303101,
-      -0.23770247399806976
+      0.27103281021118164,
+      0.9397264122962952,
+      -0.2084597796201706
     ]
   },
   "source": "blender/pastel_room.blend",
   "ao": {
     "method": "8 cosine hemisphere rays, 0.65 m radius",
     "minimum": 0.35,
-    "corners": 35658
+    "corners": 28072,
+    "excluded_occluder_kinds": [
+      4,
+      6,
+      9
+    ]
   }
 }

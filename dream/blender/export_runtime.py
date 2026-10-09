@@ -1,7 +1,8 @@
 """Export evaluated Blender geometry and material parameters to the C++ viewer.
 
 DREAMM02: 8-byte magic, uint32 material count, uint32 vertex count;
-materials: 8 float32 (linear RGB, roughness, metallic, shader kind, opacity, 0);
+materials: 8 float32 (linear RGB, roughness, metallic, shader kind, opacity,
+albedo_variant; currently 0=pink/default and 1=mint for the pastel floor);
 vertices: 10 float32 (world XYZ, world normal XYZ, UV, material index, AO).
 Little-endian, triangles, Z-up metres. GLB is also exported for interoperability.
 """
@@ -39,7 +40,7 @@ for obj in objects:
 # Bake local geometric occlusion into corners. Cache repeated corners rather
 # than casting the same rays for both triangles of every quad.
 positions=[Vector(vertices[i:i+3]) for i in range(0,len(vertices),9)]
-bvh=BVHTree.FromPolygons(positions,[(i,i+1,i+2) for i in range(0,len(positions),3) if ordered[int(vertices[i*9+8])]['kind'] not in (4,6)],all_triangles=True)
+bvh=BVHTree.FromPolygons(positions,[(i,i+1,i+2) for i in range(0,len(positions),3) if ordered[int(vertices[i*9+8])]['kind'] not in (4,6,9)],all_triangles=True)
 cache={};baked=[]
 for i in range(0,len(vertices),9):
     p=Vector(vertices[i:i+3]);n=Vector(vertices[i+3:i+6]);key=tuple(round(v,4) for v in (*p,*n))
@@ -58,15 +59,19 @@ with out.open('wb') as f:
     f.write(b'DREAMM02');f.write(struct.pack('<II',len(ordered),len(vertices)//9))
     for mat in ordered:
         p=next(n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED')
-        f.write(struct.pack('<8f',*p.inputs['Base Color'].default_value[:3],mat['roughness'],mat['metallic'],mat['kind'],mat.get('opacity',0),0))
+        f.write(struct.pack('<8f',*p.inputs['Base Color'].default_value[:3],mat['roughness'],mat['metallic'],mat['kind'],mat.get('opacity',0),mat.get('albedo_variant',0)))
     f.write(struct.pack('<%df'%len(baked),*baked))
 meta={'format':'DREAMM02','axes':'Z-up, right handed, metres','materials':[m.name for m in ordered],'vertices':len(vertices)//9,'triangles':len(vertices)//27,'objects':ranges,'camera':{'position':list(scene.camera.location),'vertical_fov_degrees':math.degrees(2*math.atan(scene.camera.data.sensor_height/(2*scene.camera.data.lens))),'forward':list(scene.camera.rotation_euler.to_matrix()@Vector((0,0,-1)))},'source':f'blender/{asset}.blend','ao':{'method':'8 cosine hemisphere rays, 0.65 m radius','minimum':min(cache.values()),'corners':len(cache)}}
-(ROOT/f'assets/{asset}.json').write_text(json.dumps(meta,indent=2),encoding='utf-8')
-(ROOT/f'assets/{asset}.draws').write_text('\n'.join(f"{r['first_vertex']} {r['vertex_count']} "+' '.join(str(v) for v in r['center']) for r in ranges if r['kind']==6)+'\n',encoding='utf-8')
+meta['ao']['excluded_occluder_kinds']=[4,6,9]
 if asset=='atrium':
     nav=json.loads(scene['dream_navigation'])
+    meta['navigation']=nav
+(ROOT/f'assets/{asset}.json').write_text(json.dumps(meta,indent=2),encoding='utf-8')
+(ROOT/f'assets/{asset}.draws').write_text('\n'.join(f"{r['first_vertex']} {r['vertex_count']} "+' '.join(str(v) for v in r['center']) for r in ranges if r['kind'] in (6,9))+'\n',encoding='utf-8')
+if asset=='atrium':
     config=['camera 3.5 -3.7 1.85 2.06 0.1','fov 0.82','reflection 0.055','environment 1','boundary '+' '.join(map(str,nav['boundary']))]
     config+=['disc '+' '.join(map(str,d)) for d in nav['discs']]
+    config+=['capsule '+' '.join(map(str,c)) for c in nav.get('capsules',[])]
     (ROOT/'assets/atrium.scene').write_text('\n'.join(config)+'\n',encoding='utf-8')
 bpy.ops.object.select_all(action='DESELECT')
 for o in objects:o.select_set(True)

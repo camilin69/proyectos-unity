@@ -46,6 +46,8 @@ int main(int argc,char** argv) {
     GLuint sky=bitmap(root/"assets/textures/cloud_sky.bmp"),plaid=bitmap(root/"assets/textures/curtain_plaid.bmp");
     GLuint ceramicNormal=bitmap(root/"assets/textures/ceramic_normal.bmp",false),ceramicRough=bitmap(root/"assets/textures/ceramic_roughness.bmp",false);
     GLuint leaf=bitmap(root/"assets/textures/leaf_detail.bmp"),globe=bitmap(root/"assets/textures/biosphere.bmp");
+    GLuint floorPink=bitmap(root/"assets/textures/floor_pink_albedo.bmp"),floorMint=bitmap(root/"assets/textures/floor_mint_albedo.bmp");
+    GLuint floorFlow=bitmap(root/"assets/textures/floor_flow.bmp",false);
     ReflectTarget reflect,opaque,floorReflect,composite;
     std::unique_ptr<Mesh> mesh;
     std::unique_ptr<SceneSettings> settings;
@@ -64,8 +66,8 @@ int main(int argc,char** argv) {
     loadScene(sceneName);
     const std::string initialScene=sceneName;
     glUseProgram(sceneProgram);
-    const char* samplers[]={"sky","plaid","reflection","ceramicNormal","ceramicRough","sceneColor","sceneDepth","leafDetail","biosphere","floorReflection"};
-    for(int i=0;i<10;i++)integer(sceneProgram,samplers[i],i);
+    const char* samplers[]={"sky","plaid","reflection","ceramicNormal","ceramicRough","sceneColor","sceneDepth","leafDetail","biosphere","floorReflection","floorPink","floorMint","floorFlow"};
+    for(int i=0;i<13;i++)integer(sceneProgram,samplers[i],i);
     glUseProgram(skyProgram);integer(skyProgram,"sky",0);
     glUseProgram(presentProgram);integer(presentProgram,"sceneColor",5);integer(presentProgram,"sceneDepth",6);
     double previous=glfwGetTime(),begin=previous,lastTitle=previous;
@@ -78,6 +80,7 @@ int main(int argc,char** argv) {
         texture(3,ceramicNormal);texture(4,ceramicRough);
         // Never sample an attachment of the framebuffer being written.
         texture(5,pass==1?opaque.color:0);texture(6,pass==1?opaque.depth:0);texture(7,leaf);texture(8,globe);texture(9,mirrored?0:floorReflect.color);
+        texture(10,floorPink);texture(11,floorMint);texture(12,floorFlow);
         glDepthMask(GL_TRUE);
         if(pass==0) {
             glClearColor(.4f,.5f,.6f,1);glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -144,7 +147,7 @@ int main(int argc,char** argv) {
         if(mesh->water)draw(eye,forward(),false,1,w,h);
         if(!mesh->glass.empty())draw(eye,forward(),false,2,w,h);
         glBindFramebuffer(GL_FRAMEBUFFER,0);glEnable(GL_FRAMEBUFFER_SRGB);
-        glDisable(GL_CLIP_DISTANCE0);glUseProgram(presentProgram);integer(presentProgram,"antialias",1);
+        glDisable(GL_CLIP_DISTANCE0);glUseProgram(presentProgram);integer(presentProgram,"antialias",1);scalar(presentProgram,"exposure",settings->exposure);
         texture(5,composite.color);texture(6,composite.depth);glBindVertexArray(emptyVao);
         glDepthFunc(GL_ALWAYS);glDrawArrays(GL_TRIANGLES,0,3);glDepthFunc(GL_LESS);
         frames++;

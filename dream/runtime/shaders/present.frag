@@ -3,6 +3,7 @@ in vec2 uv;
 out vec4 frag;
 uniform sampler2D sceneColor,sceneDepth;
 uniform int antialias;
+uniform float exposure;
 void main(){
  vec3 color=texture(sceneColor,uv).rgb;
  if(antialias==1){
@@ -21,5 +22,5 @@ void main(){
      float lb=dot(b,luma);color=(lb<low||lb>high)?a:b;
    }
  }
- frag=vec4(color,1);gl_FragDepth=texture(sceneDepth,uv).r;
+ frag=vec4(color*(antialias==1?exp2(exposure):1.),1);gl_FragDepth=texture(sceneDepth,uv).r;
 }

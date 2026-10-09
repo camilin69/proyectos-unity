@@ -1,0 +1,24 @@
+{
+  "authored": true,
+  "source": "procedural optical density, no external assets",
+  "size": [
+    2048,
+    1024
+  ],
+  "elapsed_seconds": 95.51,
+  "mapping": "PNG top +Z; runtime +Y u=0.75; +X u=0.5; yaw offset 0 degrees",
+  "seam_mean_absolute_rgb": 0.1829427033662796,
+  "limitations": "LDR artistic environment; clouds have no walkable geometry; not an exact source recovery.",
+  "average_horizontal_neighbor_difference": 0.22080108523368835,
+  "pole_top_max_rgb_spread": 0,
+  "pole_bottom_max_rgb_spread": 0,
+  "textures": [
+    "assets/textures/cloud_sky.png",
+    "assets/textures/cloud_sky.bmp"
+  ],
+  "promotion": "Candidate promoted unchanged to active cloud_sky; duplicate candidate textures removed.",
+  "proofs": [
+    "validation/sky-candidate-panorama.jpg",
+    "validation/sky-candidate-directions.png"
+  ]
+}

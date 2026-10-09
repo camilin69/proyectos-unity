@@ -1,0 +1,15 @@
+{
+  "source": "authored domain-warped interference finish",
+  "base_colors_srgb": {
+    "pink": "BCA6B8",
+    "mint": "92B6AA"
+  },
+  "color_space": "albedo sRGB; flow and normal linear",
+  "blend": "linear-light RGB",
+  "room_uv_extent_m": [
+    2.85,
+    5.4
+  ],
+  "seed": 1431,
+  "limitation": "Artistic approximation with fixed albedo colors. Reflections respond to view angle; this is not a physical thin-film simulation."
+}

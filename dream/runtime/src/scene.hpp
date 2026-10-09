@@ -12,7 +12,7 @@ struct Disc { float x,y,r; };
 struct Capsule { Vec3 a,b;float radius; };
 struct SceneSettings {
     Vec3 spawn{};
-    float yaw=0,pitch=0,tanHalfFov=.9f,reflectionHeight=.016f;
+    float yaw=0,pitch=0,tanHalfFov=.9f,reflectionHeight=.016f,exposure=0;
     int environment=0;
     float xMin=-100,xMax=100,yMin=-100,yMax=100;
     Disc boundary{0,0,0};
@@ -30,6 +30,7 @@ struct SceneSettings {
             else if(key=="fov")in>>tanHalfFov;
             else if(key=="reflection")in>>reflectionHeight;
             else if(key=="environment")in>>environment;
+            else if(key=="exposure")in>>exposure;
             else if(key=="bounds")in>>xMin>>xMax>>yMin>>yMax;
             else if(key=="boundary")in>>boundary.x>>boundary.y>>boundary.r;
             else if(key=="disc") { Disc d{};in>>d.x>>d.y>>d.r;obstacles.push_back(d); }

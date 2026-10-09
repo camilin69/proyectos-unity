@@ -6,8 +6,8 @@
   "room": {
     "blender": "5.2.1",
     "runtime": "C++17 / OpenGL 3.3",
-    "triangles": 17956,
-    "objects_in_blender_scene": 394,
+    "triangles": 14560,
+    "objects_in_blender_scene": 310,
     "materials": 10,
     "implemented": [
       "editable_room",
@@ -19,13 +19,19 @@
       "ceramic_normal_and_roughness",
       "vertex_contact_occlusion",
       "packed_textures",
-      "glb_export"
+      "glb_export",
+      "reference_portrait_camera",
+      "paneled_door_both_sides",
+      "continuous_floor_albedo_and_normal",
+      "distorted_floor_reflection",
+      "volumetric_baked_sky",
+      "exposure_control"
     ],
     "visual_match_accepted": false,
     "remaining": [
-      "cloud_detail",
-      "iridescent_floor",
-      "camera_and_lighting_calibration"
+      "reference_cloud_distribution",
+      "lighting_and_reflection_calibration",
+      "floor_pattern_scale_and_strength"
     ]
   },
   "validation": {
@@ -64,9 +70,9 @@
   "atrium": {
     "stage": "functional_prototype",
     "reference": "video-52/05s.png",
-    "objects_in_blender_scene": 838,
-    "triangles": 182860,
-    "materials": 15,
+    "objects_in_blender_scene": 780,
+    "triangles": 179174,
+    "materials": 16,
     "glass_groups": 44,
     "implemented": [
       "ground_floor_walking",
@@ -78,37 +84,50 @@
       "separate_water_and_floor_reflections",
       "sorted_glass_groups",
       "FXAA",
-      "scene_switching"
+      "scene_switching",
+      "connected_curved_canal",
+      "animated_waterfall",
+      "broad_leaves_and_fern_fronds",
+      "continuous_hanging_vines",
+      "canal_capsule_collisions"
     ],
     "visual_match_accepted": false,
     "remaining": [
       "lighting_and_material_fidelity",
-      "natural_clouds",
-      "vegetation_variety",
-      "architectural_detail"
-    ]
+      "architectural_proportions",
+      "vegetation_distribution",
+      "glass_color_and_transparency"
+    ],
+    "transparent_groups": 45
   },
   "latest_validation": {
     "compile_warnings": 0,
     "room_asset_integrity": "PASS",
     "atrium_asset_integrity": "PASS",
-    "navigation_steps": 64800,
+    "navigation_steps": 69000,
     "navigation": "PASS",
-    "animation": "PASS - validation/animation.json",
+    "animation": "PASS - water, foliage and waterfall; unchanged static control",
     "scene_cycle": [
       "atrium",
       "pastel_room",
       "atrium"
     ],
     "scene_cycle_frames": 720,
-    "scene_cycle_elapsed_s": 8.94872,
+    "scene_cycle_elapsed_s": 9.78448,
     "scene_cycle_gl_error": 0,
     "scene_cycle_resolution": [
       1280,
       720
     ],
-    "scope": "Hidden OpenGL integration run; not a full-screen performance guarantee."
+    "scope": "Hidden OpenGL integration run; not a full-screen performance guarantee.",
+    "water_vertices_covered": 72960,
+    "canal_capsules": 32,
+    "room_portrait_capture": [
+      360,
+      640
+    ]
   },
   "goal_complete": false,
-  "remaining_goal_requirement": "Match lighting and materials to the references; both scenes still have visible fidelity differences."
+  "remaining_goal_requirement": "Match lighting and materials to the references; both scenes still have visible fidelity differences.",
+  "quality_revision": "room-reference-finish-v3 / atrium-garden-channel-v2"
 }
