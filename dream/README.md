@@ -17,9 +17,11 @@ El agua tiene ondas geométricas, refracción según profundidad y reflejos;
 las hojas tienen movimiento suave. El suelo usa su propio plano de reflexión.
 
 **Es un prototipo visual, no una reproducción terminada de los cuatro videos.**
-Se refinó el volumen aparente de las nubes, el acabado iridiscente y las
-proporciones de la habitación. Todavía falta una calibración más cercana de
-luz/color/reflejos. En el atrio aún se debe refinar el acabado de vidrio,
+Se ajustaron las proporciones de ventana, radiador y azulejos, la posición
+de las nubes en ambos huecos y el suelo continuo con manchas de color localizadas.
+La calibración de color de paredes, cielo y suelo está documentada antes y después;
+todavía hay diferencias en reflejos, distribución de luz y respuesta de materiales.
+En el atrio aún se debe refinar el acabado de vidrio,
 la distribución de la vegetación y la arquitectura frente al video.
 Las capturas de `validation/` muestran el resultado real, no una propuesta.
 
@@ -98,6 +100,10 @@ procedencia. Los mapas de `assets/textures/` son una recreación procedural.
 La iridiscencia tiene colores fijos y reflejos dependientes de la vista; no es
 una simulación física de película delgada. Las nubes son una textura de entorno
 LDR precalculada, sin volumen ni paralaje durante el recorrido.
+El suelo de la habitación es una superficie cerrada continua con un único mapa
+de damero y manchas (`floor_surface_albedo`), un mapa normal para Blender y
+un mapa de inclinación/máscara (`floor_flow`) para OpenGL. Los mapas anteriores
+`floor_pink_albedo` y `floor_mint_albedo` se conservan como variantes de referencia.
 
 ## Editar y exportar desde Blender
 
@@ -131,6 +137,7 @@ El visor admite hasta 32 materiales. Los tipos actuales son 0 = estándar,
 1 = suelo reflectante, 2 = tejido, 3 = cerámica, 4 = agua, 5 = hojas,
 6 = vidrio, 7 = señal luminosa, 8 = esfera decorativa, 9 = cascada.
 El séptimo float indica opacidad y el octavo la variante de albedo del suelo.
+La variante 2 identifica el suelo pastel continuo del visor actual.
 Cámara, exposición y colisiones se cargan desde
 `.scene`; el perfil de luz y el suelo del atrio todavía tienen parámetros específicos.
 Las esferas usan un mapa procedural decorativo, no un mapa geográfico fiel.
@@ -161,9 +168,17 @@ pasó 69.000 comprobaciones con las 32 cápsulas del canal.
 estática debe permanecer igual. El vidrio se ordena por objetos, no por píxeles:
 geometría transparente entrecruzada compleja necesitará otro tratamiento.
 
+`validation/room-comparison.png` muestra referencia, Blender y OpenGL con el mismo
+aspecto vertical. `room-geometry-review.json` registra los hitos de composición;
+`room-look-before-v4.json` y `room-look-after-v4.json` registran color por regiones.
+Estas medias son diagnósticos, no porcentajes de fidelidad. La evaluación visual
+y sus diferencias pendientes están en `fidelity-review.json`.
+Para investigar materiales, `--debug-shading 1`, `2` o `3` muestra albedo,
+normales u oclusión; el valor 0 conserva el render normal.
+
 ## Próximas etapas
 
-1. Afinar tamaño/distribución de nubes, reflejos iridiscentes y luz frente a la referencia.
+1. Afinar suavidad de reflejos, respuesta del metal y luz frente a la referencia.
 2. Afinar el agua y el vidrio del atrio frente a la referencia.
 3. Ajustar distribución y densidad de la vegetación, que ya tiene hojas anchas, helechos y lianas.
 4. Revisar encuadres y acabado del atrio, ya construido y recorrible en planta baja.

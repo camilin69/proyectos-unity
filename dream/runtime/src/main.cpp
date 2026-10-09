@@ -4,7 +4,7 @@ int main(int argc,char** argv) {
  try {
     fs::path root=fs::absolute(fs::path(argv[0])).parent_path().parent_path().parent_path(),shot;
     std::string sceneName="pastel_room";
-    int frameLimit=0,width=960,height=720;
+    int frameLimit=0,width=960,height=720,debugShading=0;
     bool hidden=false,smoke=false,cycle=false;
     float fixedTime=-1;
     for(int i=1;i<argc;i++) {
@@ -16,12 +16,14 @@ int main(int argc,char** argv) {
         else if(a=="--width"&&i+1<argc)width=std::stoi(argv[++i]);
         else if(a=="--height"&&i+1<argc)height=std::stoi(argv[++i]);
         else if(a=="--time"&&i+1<argc)fixedTime=std::stof(argv[++i]);
+        else if(a=="--debug-shading"&&i+1<argc)debugShading=std::stoi(argv[++i]);
         else if(a=="--hidden")hidden=true;
         else if(a=="--smoke")smoke=true;
         else if(a=="--cycle")cycle=true;
         else throw std::runtime_error("Unknown/incomplete argument: "+a);
     }
     if(width<64||height<64||width>8192||height>8192||frameLimit<0)throw std::runtime_error("Invalid dimensions/frame count");
+    if(debugShading<0||debugShading>3)throw std::runtime_error("Debug shading must be 0=lit, 1=albedo, 2=normals or 3=AO");
     if(!shot.empty()&&frameLimit==0)frameLimit=1;
     if(smoke) {
         float originalYaw=yaw;captured=true;firstMouse=false;cursor(nullptr,10,0);
@@ -46,7 +48,7 @@ int main(int argc,char** argv) {
     GLuint sky=bitmap(root/"assets/textures/cloud_sky.bmp"),plaid=bitmap(root/"assets/textures/curtain_plaid.bmp");
     GLuint ceramicNormal=bitmap(root/"assets/textures/ceramic_normal.bmp",false),ceramicRough=bitmap(root/"assets/textures/ceramic_roughness.bmp",false);
     GLuint leaf=bitmap(root/"assets/textures/leaf_detail.bmp"),globe=bitmap(root/"assets/textures/biosphere.bmp");
-    GLuint floorPink=bitmap(root/"assets/textures/floor_pink_albedo.bmp"),floorMint=bitmap(root/"assets/textures/floor_mint_albedo.bmp");
+    GLuint floorSurface=bitmap(root/"assets/textures/floor_surface_albedo.bmp");
     GLuint floorFlow=bitmap(root/"assets/textures/floor_flow.bmp",false);
     ReflectTarget reflect,opaque,floorReflect,composite;
     std::unique_ptr<Mesh> mesh;
@@ -66,8 +68,8 @@ int main(int argc,char** argv) {
     loadScene(sceneName);
     const std::string initialScene=sceneName;
     glUseProgram(sceneProgram);
-    const char* samplers[]={"sky","plaid","reflection","ceramicNormal","ceramicRough","sceneColor","sceneDepth","leafDetail","biosphere","floorReflection","floorPink","floorMint","floorFlow"};
-    for(int i=0;i<13;i++)integer(sceneProgram,samplers[i],i);
+    const char* samplers[]={"sky","plaid","reflection","ceramicNormal","ceramicRough","sceneColor","sceneDepth","leafDetail","biosphere","floorReflection","floorSurface","floorFlow"};
+    for(int i=0;i<12;i++)integer(sceneProgram,samplers[i],i);
     glUseProgram(skyProgram);integer(skyProgram,"sky",0);
     glUseProgram(presentProgram);integer(presentProgram,"sceneColor",5);integer(presentProgram,"sceneDepth",6);
     double previous=glfwGetTime(),begin=previous,lastTitle=previous;
@@ -80,7 +82,7 @@ int main(int argc,char** argv) {
         texture(3,ceramicNormal);texture(4,ceramicRough);
         // Never sample an attachment of the framebuffer being written.
         texture(5,pass==1?opaque.color:0);texture(6,pass==1?opaque.depth:0);texture(7,leaf);texture(8,globe);texture(9,mirrored?0:floorReflect.color);
-        texture(10,floorPink);texture(11,floorMint);texture(12,floorFlow);
+        texture(10,floorSurface);texture(11,floorFlow);
         glDepthMask(GL_TRUE);
         if(pass==0) {
             glClearColor(.4f,.5f,.6f,1);glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -91,6 +93,7 @@ int main(int argc,char** argv) {
         }
         glEnable(GL_DEPTH_TEST);glEnable(GL_CLIP_DISTANCE0);glUseProgram(sceneProgram);
         vec(sceneProgram,"eye",pos);integer(sceneProgram,"reflected",mirrored?1:0);integer(sceneProgram,"renderPass",pass);
+        integer(sceneProgram,"debugShading",debugShading);
         scalar(sceneProgram,"time",fixedTime>=0?fixedTime:elapsed);glUniform2f(glGetUniformLocation(sceneProgram,"resolution"),w,h);
         Mat4 vp=multiply(perspective(2*std::atan(settings->tanHalfFov),float(w)/h,.05f,200),look(pos,dir,up));
         glUniformMatrix4fv(glGetUniformLocation(sceneProgram,"vp"),1,GL_FALSE,vp.v);glBindVertexArray(mesh->vao);

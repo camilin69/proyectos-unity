@@ -6,9 +6,9 @@
   "room": {
     "blender": "5.2.1",
     "runtime": "C++17 / OpenGL 3.3",
-    "triangles": 14560,
-    "objects_in_blender_scene": 310,
-    "materials": 10,
+    "triangles": 6896,
+    "objects_in_blender_scene": 722,
+    "materials": 9,
     "implemented": [
       "editable_room",
       "walking_camera",
@@ -25,13 +25,19 @@
       "continuous_floor_albedo_and_normal",
       "distorted_floor_reflection",
       "volumetric_baked_sky",
-      "exposure_control"
+      "exposure_control",
+      "closed_continuous_floor_mesh",
+      "flat_glaze_over_closed_mortar_walls",
+      "reference_window_and_radiator_proportions",
+      "cloud_groups_aligned_to_door_and_window",
+      "separate_wall_and_floor_lighting_calibration"
     ],
     "visual_match_accepted": false,
     "remaining": [
-      "reference_cloud_distribution",
-      "lighting_and_reflection_calibration",
-      "floor_pattern_scale_and_strength"
+      "reflection_softness_and_distribution",
+      "metal_and_painted_frame_response",
+      "lighting_spatial_distribution",
+      "fine_geometry_and_glaze_edge_stability"
     ]
   },
   "validation": {
@@ -62,7 +68,7 @@
     "asset_integrity": "PASS",
     "opengl_final_static_frames": 120,
     "opengl_final_static_elapsed_s": 1.01628,
-    "look_metrics_limitation": "Global color and brightness diagnostics only. Different aspect ratios; bright-mask IoU is not a geometry or fidelity score."
+    "look_metrics_limitation": "Matching vertical aspect ratios and selected material-class color regions. Region means are diagnostic, not a fidelity percentage or exact geometry registration."
   },
   "not_implemented": [
     "vulkan"
@@ -106,28 +112,36 @@
     "atrium_asset_integrity": "PASS",
     "navigation_steps": 69000,
     "navigation": "PASS",
-    "animation": "PASS - water, foliage and waterfall; unchanged static control",
+    "animation": "PASS - water, foliage and waterfall at t=0/t=2; static control unchanged",
     "scene_cycle": [
-      "atrium",
       "pastel_room",
-      "atrium"
+      "atrium",
+      "pastel_room"
     ],
     "scene_cycle_frames": 720,
-    "scene_cycle_elapsed_s": 9.78448,
+    "scene_cycle_elapsed_s": 15.5857,
     "scene_cycle_gl_error": 0,
     "scene_cycle_resolution": [
       1280,
       720
     ],
-    "scope": "Hidden OpenGL integration run; not a full-screen performance guarantee.",
+    "scope": "Hidden OpenGL integration run; Blender rendering was concurrent. Not a fullscreen performance guarantee.",
     "water_vertices_covered": 72960,
     "canal_capsules": 32,
     "room_portrait_capture": [
-      360,
-      640
-    ]
+      540,
+      960
+    ],
+    "room_blender_capture": [
+      720,
+      1280
+    ],
+    "python_syntax": "PASS",
+    "room_floor_nonmanifold_edges": 0,
+    "room_geometry_review": "PASS for material calibration; remaining landmark offsets documented",
+    "room_look_report": "room-look-after-v4.json"
   },
   "goal_complete": false,
-  "remaining_goal_requirement": "Match lighting and materials to the references; both scenes still have visible fidelity differences.",
-  "quality_revision": "room-reference-finish-v3 / atrium-garden-channel-v2"
+  "remaining_goal_requirement": "Refine spatial lighting and material response against the reference; the atrium remains a functional visual prototype.",
+  "quality_revision": "room-reference-finish-v4 / atrium-garden-channel-v2"
 }

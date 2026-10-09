@@ -1,8 +1,8 @@
 {
-  "source": "authored domain-warped interference finish",
+  "source": "authored isolated interference pools, continuous slab v3",
   "base_colors_srgb": {
-    "pink": "BCA6B8",
-    "mint": "92B6AA"
+    "pink": "AAA3AF",
+    "mint": "93AAA3"
   },
   "color_space": "albedo sRGB; flow and normal linear",
   "blend": "linear-light RGB",
@@ -10,6 +10,133 @@
     2.85,
     5.4
   ],
+  "world_uv_bounds": {
+    "x": [
+      -2.4,
+      0.45
+    ],
+    "y": [
+      -2.7,
+      2.7
+    ]
+  },
+  "image_top_world_y": 2.7,
+  "tile_period_m": 0.6,
+  "joint_style": "soft refracted colour transition, no dark grout",
+  "primary_albedo": "floor_surface_albedo.png",
   "seed": 1431,
+  "neutral_absorption_linear": [
+    1.04,
+    0.98,
+    0.77
+  ],
+  "placement": {
+    "method": "reference image coordinates raycast onto the current camera floor plane",
+    "camera": [
+      -1.5,
+      -2.0,
+      1.4,
+      1.29,
+      -0.21
+    ],
+    "tan_half_fov": 0.7,
+    "aspect": 0.5625,
+    "floor_z": 0.016,
+    "patches": [
+      {
+        "name": "main",
+        "screen": [
+          0.52,
+          0.77
+        ],
+        "radii": [
+          0.125,
+          0.044
+        ],
+        "gain": 1.0,
+        "world_center": [
+          -0.8672431607099337,
+          0.057846794089483566,
+          0.016000000000000014
+        ],
+        "uv_center": [
+          0.5378094172947601,
+          0.5107123692758303
+        ]
+      },
+      {
+        "name": "right",
+        "screen": [
+          0.87,
+          0.68
+        ],
+        "radii": [
+          0.105,
+          0.026
+        ],
+        "gain": 0.72,
+        "world_center": [
+          0.13198967705799647,
+          0.4596917507129925,
+          0.016000000000000014
+        ],
+        "uv_center": [
+          0.8884174305466654,
+          0.5851281019838875
+        ]
+      },
+      {
+        "name": "left",
+        "screen": [
+          0.18,
+          0.7
+        ],
+        "radii": [
+          0.105,
+          0.031
+        ],
+        "gain": 0.54,
+        "world_center": [
+          -1.4634790556192872,
+          0.7360362292311118,
+          0.016000000000000014
+        ],
+        "uv_center": [
+          0.3286038401335834,
+          0.6363030054131689
+        ]
+      },
+      {
+        "name": "distant",
+        "screen": [
+          0.57,
+          0.645
+        ],
+        "radii": [
+          0.075,
+          0.026
+        ],
+        "gain": 0.38,
+        "world_center": [
+          -0.4381229143468581,
+          1.0053193574704231,
+          0.016000000000000014
+        ],
+        "uv_center": [
+          0.688377924790576,
+          0.6861702513834117
+        ]
+      }
+    ]
+  },
+  "statistics": {
+    "strong_patch_fraction": 0.013107935587565104,
+    "neutral_fraction": 0.9477723439534506,
+    "projected_floor_neutral_fraction": 0.8957831816883594,
+    "projected_floor_strong_fraction": 0.033375494716226695,
+    "projection_scope": "camera rays hitting the slab; excludes no occluding geometry",
+    "normal_xy_rms": 0.038620167214573176,
+    "normal_xy_p95": 0.05598688340245207
+  },
   "limitation": "Artistic approximation with fixed albedo colors. Reflections respond to view angle; this is not a physical thin-film simulation."
 }

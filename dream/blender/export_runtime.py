@@ -2,7 +2,7 @@
 
 DREAMM02: 8-byte magic, uint32 material count, uint32 vertex count;
 materials: 8 float32 (linear RGB, roughness, metallic, shader kind, opacity,
-albedo_variant; currently 0=pink/default and 1=mint for the pastel floor);
+albedo_variant; 0=default, legacy 1=mint, 2=continuous pastel floor);
 vertices: 10 float32 (world XYZ, world normal XYZ, UV, material index, AO).
 Little-endian, triangles, Z-up metres. GLB is also exported for interoperability.
 """

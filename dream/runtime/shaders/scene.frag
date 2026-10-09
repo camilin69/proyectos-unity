@@ -8,6 +8,7 @@ uniform vec3 eye;
 uniform vec2 resolution;
 uniform int reflected;
 uniform int renderPass,environment;
+uniform int debugShading;
 uniform int reflectionSurface;
 uniform float time;
 uniform sampler2D plaid;
@@ -17,7 +18,7 @@ uniform sampler2D ceramicNormal;
 uniform sampler2D ceramicRough;
 uniform sampler2D sceneColor,sceneDepth,leafDetail,biosphere;
 uniform sampler2D floorReflection;
-uniform sampler2D floorPink,floorMint,floorFlow;
+uniform sampler2D floorSurface,floorFlow;
 const float PI=3.14159265;
 vec3 env(vec3 d){return texture(sky,vec2(atan(d.y,d.x)/(2.*PI)+.5,asin(clamp(d.z,-1.,1.))/PI+.5)).rgb;}
 float depthMetres(float d){return 2.*.05*200./(200.+.05-(d*2.-1.)*(200.-.05));}
@@ -43,8 +44,8 @@ void main(){
  }
  vec3 v=normalize(eye-worldPos);vec3 base=m.rgb;
  if(kind==1&&environment==0){
-   base=properties[matId].w>.5?texture(floorMint,uv).rgb:texture(floorPink,uv).rgb;
-   vec2 tilt=(texture(floorFlow,uv).rg*2.-1.)*.35;
+   base=texture(floorSurface,uv).rgb;
+   vec2 tilt=(texture(floorFlow,uv).rg*2.-1.)*.65;
    n=normalize(n+vec3(tilt,0));
  }
  if(kind==9){
@@ -76,13 +77,15 @@ void main(){
  if(kind==2)base=texture(plaid,uv).rgb;
  if(kind==5)base=texture(leafDetail,uv).rgb*(.75+base.g*.5);
  if(kind==8)base=texture(biosphere,uv).rgb;
+ if(debugShading>0){frag=vec4(debugShading==1?base:(debugShading==2?n*.5+.5:vec3(ao)),1);return;}
  if(kind==6){float f=.05+.95*pow(1.-abs(dot(n,v)),5.);frag=vec4(mix(base*.65,env(reflect(-v,n)),f),max(.1,properties[matId].z)+f*.42);return;}
  if(kind==7){frag=vec4(base*1.2,1);return;}
- vec3 color=base*(.42+.1*max(n.z,0.))*ao;
+ vec3 roomRadiance=vec3(.66,.60,.65);
+ vec3 color=base*(.42+.1*max(n.z,0.))*ao*roomRadiance;
  vec3 positions[3]=vec3[](vec3(-1.1,2.5,2.2),vec3(.25,.9,2.4),vec3(-.975,-.5,2.85));
  vec3 colors[3]=vec3[](vec3(.83,.87,1.)*3.,vec3(1.,.85,.94)*3.5,vec3(.85,1.,.96)*1.8);
  // Broad highlights approximate the large window/door light sources.
- if(environment==0){for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,.48),metal,colors[i]/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}}
+ if(environment==0){for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,.48),metal,colors[i]*roomRadiance/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}}
  else {color=base*(.48+.18*max(n.z,0.))*ao;color+=light(n,v,normalize(vec3(-.4,-.25,1)),base,max(rough,.3),metal,vec3(1.1,1.04,.93));if(kind==5)color+=base*.18*max(dot(-n,normalize(vec3(-.4,-.25,1))),0.);}
  // Environment contribution complements the analytical direct lighting.
  vec3 fresnel=mix(vec3(.04),base,metal)+(1.-mix(vec3(.04),base,metal))*pow(1.-max(dot(n,v),0.),5.);
@@ -91,7 +94,7 @@ void main(){
    vec2 p=gl_FragCoord.xy/resolution;vec2 sampleUV=vec2(p.x,1.-p.y);
    vec3 reflectedColor;
    if(environment==0){
-     sampleUV=clamp(sampleUV+n.xy*.075,vec2(.002),vec2(.998));
+     sampleUV=clamp(sampleUV+n.xy*.35,vec2(.002),vec2(.998));
      vec2 blur=vec2(2.5)/resolution;
      reflectedColor=texture(reflection,sampleUV).rgb*.4;
      reflectedColor+=(texture(reflection,sampleUV+vec2(blur.x,0)).rgb+texture(reflection,sampleUV-vec2(blur.x,0)).rgb+texture(reflection,sampleUV+vec2(0,blur.y)).rgb+texture(reflection,sampleUV-vec2(0,blur.y)).rgb)*.15;
@@ -101,5 +104,11 @@ void main(){
  // Gentle contact darkening at the base of the walls; not a replacement for shadows.
  float edge=min(min(worldPos.x+2.4,.45-worldPos.x),2.7-abs(worldPos.y));
  if(kind==1&&environment==0)color*=mix(.77,1.,smoothstep(0.,.18,edge));
+ if(kind==1&&environment==0){
+   float film=texture(floorFlow,uv).b;
+   // Art-directed colored finish: absorb blue in neutral wet tiles and retain
+   // the bright coral/lime response only within the authored interference mask.
+   color*=mix(vec3(.87,.95,.94),vec3(1.60,1.40,1.20),film*.75);
+ }
  frag=vec4(color,1);
 }

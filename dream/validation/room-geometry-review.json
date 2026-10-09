@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "review_scope": "Geometric composition of the pastel room before material calibration",
+  "reference": "../referencias/estetica/evidencias/video-35/11s.png",
+  "before_evidence": "room-blender-baseline-f995504.png",
+  "after_evidence": "room-composition-v4.png",
+  "source_builder": "../blender/build_room.py",
+  "method": {
+    "type": "visual inspection of actual images and source geometry",
+    "coordinates": "normalized image coordinates, origin top left, y increasing down",
+    "precision": "Approximate visual estimates; no pixel registration or exact correspondence solver was used.",
+    "typical_coordinate_uncertainty": 0.015,
+    "before_note": "Before values refer to the Blender color render preserved as room-blender-baseline-f995504.png, visually rechecked against the image initially reviewed in the middle panel of room-comparison.png. The comparison file was subsequently regenerated and is not the baseline evidence. Values do not refer to the earlier gray blockout.",
+    "color_note": "The after image uses a gray material override. It cannot verify the new pink/mint color distribution, floor finish, material response or final lighting."
+  },
+  "landmarks": [
+    {
+      "name": "door_aperture_upper_right",
+      "reference_xy": [0.435, 0.150],
+      "before_xy": [0.440, 0.125],
+      "after_xy": [0.440, 0.142],
+      "assessment": "Lowered lintel improves the aperture height; horizontal location remains close."
+    },
+    {
+      "name": "door_outer_frame_upper_right",
+      "reference_xy": [0.505, 0.130],
+      "before_xy": [0.485, 0.095],
+      "after_xy": [0.489, 0.131],
+      "assessment": "Top height now agrees approximately. The right frame remains slightly farther left than the reference."
+    },
+    {
+      "name": "door_outer_frame_lower_right",
+      "reference_xy": [0.495, 0.552],
+      "before_xy": [0.485, 0.550],
+      "after_xy": [0.486, 0.548],
+      "assessment": "Lower frame position was already close and is retained."
+    },
+    {
+      "name": "front_right_corner_at_ceiling",
+      "reference_xy": [0.653, 0.060],
+      "before_xy": null,
+      "before_note": "Old broad curtain obscured the wall-corner junction, so its visible edge should not be treated as the actual corner.",
+      "after_xy": [0.647, 0.055],
+      "assessment": "Raised ceiling and narrower curtain expose a corner close to the reference."
+    },
+    {
+      "name": "front_right_corner_at_floor",
+      "reference_xy": [0.630, 0.539],
+      "before_xy": [0.640, 0.540],
+      "after_xy": [0.628, 0.533],
+      "assessment": "Room footprint and camera composition remain suitable."
+    },
+    {
+      "name": "window_visible_upper_left_aperture",
+      "reference_xy": [0.765, 0.145],
+      "before_xy": [0.735, 0.085],
+      "after_xy": [0.756, 0.138],
+      "assessment": "The resized window is substantially closer in height and horizontal placement."
+    },
+    {
+      "name": "window_visible_lower_left_aperture",
+      "reference_xy": [0.750, 0.341],
+      "before_xy": [0.735, 0.365],
+      "after_xy": [0.747, 0.342],
+      "assessment": "The sill/aperture bottom now aligns approximately."
+    },
+    {
+      "name": "window_transom_left",
+      "reference_xy": [0.770, 0.193],
+      "before_xy": [0.735, 0.180],
+      "after_xy": [0.756, 0.197],
+      "assessment": "Transom height is close. Reference frame edges are softened by the video."
+    },
+    {
+      "name": "radiator_upper_left_visible_edge",
+      "reference_xy": [0.819, 0.452],
+      "before_xy": [0.713, 0.435],
+      "after_xy": [0.800, 0.447],
+      "assessment": "Shortening the radiator moves it markedly toward the reference placement."
+    },
+    {
+      "name": "radiator_lower_left_visible_edge",
+      "reference_xy": [0.804, 0.586],
+      "before_xy": [0.710, 0.566],
+      "after_xy": [0.789, 0.598],
+      "assessment": "Residual projected height and horizontal offset are small enough to assess alongside the final chrome material."
+    },
+    {
+      "name": "highest_visible_open_door_leaf_point",
+      "reference_y": 0.110,
+      "before_y": 0.000,
+      "after_y": 0.044,
+      "correspondence_warning": "These are visible silhouette extrema, not proven projections of the same physical vertex.",
+      "assessment": "The leaf remains noticeably taller in projection. This discrepancy is retained explicitly rather than declared matched."
+    }
+  ],
+  "geometry_changes_confirmed": {
+    "window_aperture_world_y": [0.7, 1.65],
+    "window_aperture_world_z": [1.4, 2.5],
+    "window_transom_world_z": 2.16,
+    "window_result": "Both curtains and most of the aperture are now visible; the near/right curtain conceals slightly more glass than in the reference.",
+    "radiator_fin_count": 24,
+    "radiator_fin_radius_m": 0.016,
+    "radiator_fin_world_y": [0.12, 1.055],
+    "wall_tile_nominal_pitch_m": 0.2,
+    "wall_tile_joint_m": 0.007,
+    "wall_tile_result": "The finer visible grid is much closer to the reference than the previous 0.30 m modules. Short cut tiles at aperture boundaries are deliberate and physically plausible.",
+    "wall_top_m": 3.22,
+    "door_aperture_height_m": 2.65,
+    "door_leaf_height_m": 2.55
+  },
+  "remaining_geometry_differences": [
+    "The open leaf reaches y approximately 0.044 instead of the reference silhouette extremum near 0.11.",
+    "The near/right curtain is slightly farther left relative to the glass opening than in the reference.",
+    "The radiator starts approximately 0.02 image widths farther left and extends slightly lower.",
+    "The doorway right casing remains approximately 0.015 image widths farther left."
+  ],
+  "door_leaf_interpretation": {
+    "status": "Unresolved small-scale reconstruction ambiguity, not an exact match",
+    "possible_causes": [
+      "Different original camera intrinsics or camera height",
+      "Different leaf opening angle or hinge/leaf proportions",
+      "Source perspective or geometry that cannot be uniquely recovered from this single video frame"
+    ],
+    "certainty": "The image alone does not establish which explanation is correct and does not prove that exact matching is impossible.",
+    "recommendation": "Retain a plausible leaf/frame relationship and the improved room composition for material calibration. Do not introduce an obvious physical gap solely to force the leaf silhouette extremum to match. Revisit only if it remains a dominant discrepancy in the final color comparison."
+  },
+  "gate": {
+    "sufficient_for_material_calibration": true,
+    "reason": "The corner, doorway opening, window sill/transom, tile density and radiator placement now establish the reference layout closely enough that the remaining dominant differences can be evaluated through final materials and lighting.",
+    "pixel_exact_geometry_match": false,
+    "final_visual_fidelity_verified": false,
+    "runtime_v4_geometry_verified_by_this_review": false,
+    "next_required_evidence": [
+      "Render the current geometry with final pink/mint tiles, checked cloth, chrome and wet floor materials.",
+      "Compare the actual Blender and OpenGL outputs at the same camera against video-35/11s.png.",
+      "Inspect the final colored upper band because the gray blockout cannot establish its match."
+    ]
+  }
+}

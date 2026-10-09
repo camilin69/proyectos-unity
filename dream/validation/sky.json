@@ -1,0 +1,124 @@
+{
+  "authored": true,
+  "source": "procedural optical density, no external assets",
+  "textures": [
+    "assets/textures/cloud_sky.png",
+    "assets/textures/cloud_sky.bmp"
+  ],
+  "proofs": [
+    "validation/sky-panorama.jpg",
+    "validation/sky-directions.png",
+    "validation/sky-camera.png",
+    "validation/sky-aperture-proof.png"
+  ],
+  "size": [
+    2048,
+    1024
+  ],
+  "elapsed_seconds": 97.26,
+  "mapping": "PNG top +Z; runtime +Y u=0.75; +X u=0.5; yaw offset 0 degrees",
+  "room_camera": {
+    "yaw_rad": 1.29,
+    "pitch_rad": -0.21,
+    "tan_half_fov": 0.7,
+    "width_px": 720,
+    "height_px": 1280
+  },
+  "room_cloud_targets": [
+    {
+      "name": "door_main",
+      "image_xy": [
+        0.27,
+        0.45
+      ],
+      "yaw_deg": 84.25260853320222,
+      "elevation_deg": -7.89919969918576,
+      "uv": [
+        0.7340350237033395,
+        0.5438844427732542
+      ],
+      "panorama_width": 0.085,
+      "seed": 101,
+      "vertical_ratio": 0.32,
+      "opacity": 1.0
+    },
+    {
+      "name": "door_lower",
+      "image_xy": [
+        0.25,
+        0.55
+      ],
+      "yaw_deg": 85.46072558044264,
+      "elevation_deg": -15.727822919853308,
+      "uv": [
+        0.7373909043901185,
+        0.5873767939991851
+      ],
+      "panorama_width": 0.07,
+      "seed": 97,
+      "vertical_ratio": 0.3,
+      "opacity": 0.88
+    },
+    {
+      "name": "window_main",
+      "image_xy": [
+        0.87,
+        0.285
+      ],
+      "yaw_deg": 58.27148669696621,
+      "elevation_deg": 4.545677694329757,
+      "uv": [
+        0.6618652408249062,
+        0.4747462350315014
+      ],
+      "panorama_width": 0.072,
+      "seed": 89,
+      "vertical_ratio": 0.36,
+      "opacity": 1.0
+    },
+    {
+      "name": "window_lower",
+      "image_xy": [
+        0.94,
+        0.335
+      ],
+      "yaw_deg": 55.25387144265025,
+      "elevation_deg": 0.923822849671048,
+      "uv": [
+        0.6534829762295841,
+        0.4948676508351608
+      ],
+      "panorama_width": 0.042,
+      "seed": 151,
+      "vertical_ratio": 0.34,
+      "opacity": 0.87
+    },
+    {
+      "name": "door_distant",
+      "image_xy": [
+        0.25,
+        0.255
+      ],
+      "yaw_deg": 84.53583197688512,
+      "elevation_deg": 6.782683979931176,
+      "uv": [
+        0.7348217554913475,
+        0.4623184223337157
+      ],
+      "panorama_width": 0.046,
+      "seed": 127,
+      "vertical_ratio": 0.27,
+      "opacity": 0.34
+    }
+  ],
+  "aperture_proof_note": "Source crops versus sky-only projections using actual room camera rays. No geometry masking and no claim of exact scene registration.",
+  "seam_mean_absolute_rgb": 0.1321614533662796,
+  "average_horizontal_neighbor_difference": 0.1029386892914772,
+  "pole_top_max_rgb_spread": 0,
+  "pole_bottom_max_rgb_spread": 0,
+  "limitations": "LDR artistic environment; clouds have no walkable geometry; not an exact source recovery.",
+  "previous_sky_commit": "f995504",
+  "pixel_sample": "pixel centres, matching full-screen OpenGL triangle",
+  "previous_sky_sha256": "7ef711305c86eaf7747ce870f52583b954f84366b6aa26ce4b69e377cf3c27ec",
+  "current_sky_sha256": "2841f6dab90e1386cd353b427820514af73028eb5190fad05ea43d666e4c8a38"
+}

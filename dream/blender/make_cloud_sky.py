@@ -10,6 +10,7 @@ cloud_sky_candidate to keep a proposed variant separate from the active scene.
 """
 from pathlib import Path
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -17,9 +18,40 @@ import time
 
 import numpy as np
 from scipy.ndimage import gaussian_filter, shift, zoom
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
+ROOM_CAMERA = {'yaw_rad': 1.29, 'pitch_rad': -.21, 'tan_half_fov': .7,
+               'width_px': 720, 'height_px': 1280}
+
+
+def room_direction(x, y):
+    """Ray at normalized image coordinates, with y=0 at the top."""
+    yaw=ROOM_CAMERA['yaw_rad'];pitch=ROOM_CAMERA['pitch_rad']
+    forward=np.array([math.cos(yaw)*math.cos(pitch),math.sin(yaw)*math.cos(pitch),math.sin(pitch)])
+    right=np.cross(forward,[0,0,1]);right/=np.linalg.norm(right)
+    up=np.cross(right,forward)
+    aspect=ROOM_CAMERA['width_px']/ROOM_CAMERA['height_px']
+    ray=forward + right*(x*2-1)*aspect*ROOM_CAMERA['tan_half_fov'] + up*(1-y*2)*ROOM_CAMERA['tan_half_fov']
+    return ray/np.linalg.norm(ray)
+
+
+def room_cloud_targets():
+    # Width is a fraction of the complete 360-degree panorama. Ratios below
+    # flatten the clouds into separate layers rather than one tall giant mass.
+    targets=[('door_main',.27,.45,.085,101,.32,1.),
+             ('door_lower',.25,.55,.070,97,.30,.88),
+             ('window_main',.87,.285,.072,89,.36,1.),
+             ('window_lower',.94,.335,.042,151,.34,.87),
+             ('door_distant',.25,.255,.046,127,.27,.34)]
+    result=[]
+    for name,x,y,width,seed,vertical_ratio,opacity in targets:
+        ray=room_direction(x,y)
+        yaw=math.atan2(ray[1],ray[0]);pitch=math.asin(ray[2])
+        result.append({'name':name,'image_xy':[x,y],'yaw_deg':math.degrees(yaw),
+                       'elevation_deg':math.degrees(pitch),'uv':[yaw/(2*math.pi)+.5,.5-pitch/math.pi],
+                       'panorama_width':width,'seed':seed,'vertical_ratio':vertical_ratio,'opacity':opacity})
+    return result
 
 
 def cloud_volume(seed, resolution=(96, 136, 224)):
@@ -91,28 +123,31 @@ def generate(width=2048, height=1024):
     horizon = np.exp(-((v-.52)/.25)**2)
     sky = sky*(1-horizon[:,:,None]*.11) + np.array([168,183,244])*horizon[:,:,None]*.11
     result = Image.fromarray(np.uint8(sky), 'RGB').convert('RGBA')
-    # Hand-placed loose cumulus field: no regular rows. Main masses face +Y
-    # (door) and +X (window). Vertical locations are actual sky latitudes.
+    # Background clouds keep the sphere usable from other viewpoints. They are
+    # half the original width. The visible room sector is placed using actual
+    # camera rays below: the window looks near 58 degrees, NOT along +X.
     placements = [
-        (.03,.590,.170,71), (.145,.650,.186,73), (.28,.603,.170,79),
-        (.40,.570,.115,83), (.535,.602,.218,89), (.695,.660,.150,97),
-        (.773,.568,.192,101), (.915,.608,.183,103),
-        (.09,.415,.069,107), (.235,.458,.094,109), (.37,.386,.075,113),
-        (.52,.434,.075,127), (.674,.380,.063,131), (.86,.418,.068,137),
-        (.01,.785,.268,139), (.25,.850,.280,149), (.51,.801,.272,151),
-        (.79,.864,.295,157),
+        (.03,.590,.085,71,.54,1.), (.145,.650,.093,73,.54,1.), (.28,.603,.085,79,.54,1.),
+        (.40,.570,.0575,83,.54,1.), (.535,.602,.109,89,.54,1.), (.915,.608,.0915,103,.54,1.),
+        (.09,.415,.0345,107,.54,.67), (.235,.458,.047,109,.54,.67), (.37,.386,.0375,113,.54,.67),
+        (.52,.434,.0375,127,.54,.67), (.86,.418,.034,137,.54,.67),
+        (.01,.785,.134,139,.54,1.), (.25,.850,.140,149,.54,1.), (.51,.801,.136,151,.54,1.),
+        (.79,.864,.1475,157,.54,1.),
     ]
-    for idx,(u,v,w,seed) in enumerate(placements):
-        small = idx >= 8 and idx < 14
+    for target in room_cloud_targets():
+        placements.append((*target['uv'],target['panorama_width'],target['seed'],target['vertical_ratio'],target['opacity']))
+    for idx,(u,v,w,seed,vertical_ratio,opacity) in enumerate(placements):
+        small = w < .055
         image = Image.fromarray(cloud_volume(seed, (72,88,144) if small else (96,136,224)), 'RGBA')
         iw = round(w*width)
-        ih = round(iw*.54)
+        ih = round(iw*vertical_ratio)
         image = image.resize((iw,ih),Image.Resampling.LANCZOS)
         # Atmospheric perspective softens and slightly fades the distant clouds.
-        if small:
+        if opacity < 1:
             array=np.asarray(image).copy()
-            array[:,:,:3] = array[:,:,:3]*.82 + np.array([150,176,239])*.18
-            array[:,:,3] = array[:,:,3]*.67
+            haze=(1-opacity)*.55
+            array[:,:,:3] = array[:,:,:3]*(1-haze) + np.array([150,176,239])*haze
+            array[:,:,3] = array[:,:,3]*opacity
             image=Image.fromarray(array,'RGBA').filter(ImageFilter.GaussianBlur(.7))
         x=round(u*width-iw/2);y=round(v*height-ih/2)
         for ox in [-width,0,width]:
@@ -135,7 +170,8 @@ def perspective(sky, yaw_deg, pitch_deg, fov_deg=70, size=(640,720)):
     forward=np.array([math.cos(yaw)*math.cos(pitch),math.sin(yaw)*math.cos(pitch),math.sin(pitch)])
     right=np.cross(forward,[0,0,1]);right/=np.linalg.norm(right)
     up=np.cross(right,forward)
-    xx,yy=np.meshgrid(np.linspace(-1,1,w),np.linspace(1,-1,h))
+    # Pixel centres match the fullscreen triangle's interpolated GL coordinates.
+    xx,yy=np.meshgrid((np.arange(w)+.5)/w*2-1,1-(np.arange(h)+.5)/h*2)
     direction=forward + right*xx[:,:,None]*(w/h)*math.tan(math.radians(fov_deg/2)) + up*yy[:,:,None]*math.tan(math.radians(fov_deg/2))
     direction/=np.linalg.norm(direction,axis=-1,keepdims=True)
     u=(np.arctan2(direction[:,:,1],direction[:,:,0])/(2*np.pi)+.5)*sky.width
@@ -152,6 +188,29 @@ def output_stem(value):
     return value
 
 
+def room_projection(environment):
+    return perspective(environment,math.degrees(ROOM_CAMERA['yaw_rad']),
+                       math.degrees(ROOM_CAMERA['pitch_rad']),
+                       math.degrees(2*math.atan(ROOM_CAMERA['tan_half_fov'])),
+                       (ROOM_CAMERA['width_px'],ROOM_CAMERA['height_px']))
+
+
+def aperture_proof(reference, before, after):
+    """Sky-only ray projections beside source apertures; not scene renders."""
+    sheet=Image.new('RGB',(960,1100),(35,38,47));draw=ImageDraw.Draw(sheet)
+    sources=[reference,before,after]
+    for col,label in enumerate(['REFERENCE VIDEO 35/11s','PREVIOUS SKY / SAME RAYS','NEW SKY / SAME RAYS']):
+        draw.text((col*320+12,12),label,fill=(245,245,245))
+    for name,box,y,size in [('DOOR',(112,194,304,695),46,(264,690)),
+                           ('WINDOW',(562,270,653,424),790,(166,280))]:
+        draw.text((12,y-18),name,fill=(235,220,190))
+        for col,source in enumerate(sources):
+            if source is not None:
+                crop=source.crop(box).resize(size,Image.Resampling.LANCZOS)
+                sheet.paste(crop,(col*320+20,y))
+    return sheet
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--width',type=int,default=2048)
@@ -161,6 +220,9 @@ def main():
     if args.width < 512 or args.width > 8192 or args.width % 2:
         parser.error('--width must be an even integer between 512 and 8192.')
     started=time.time()
+    previous_path=ROOT/'assets'/'textures'/(args.output_stem+'.png')
+    previous=Image.open(previous_path).convert('RGB') if previous_path.is_file() else None
+    previous_sha256=hashlib.sha256(previous_path.read_bytes()).hexdigest() if previous_path.is_file() else None
     environment=generate(args.width,args.width//2)
     textures=ROOT/'assets'/'textures'; textures.mkdir(exist_ok=True,parents=True)
     png_path=textures/(args.output_stem+'.png')
@@ -176,12 +238,26 @@ def main():
     window=perspective(environment,0,0)
     proof=Image.new('RGB',(1280,720));proof.paste(door,(0,0));proof.paste(window,(640,0))
     proof.save(directions_path)
+    camera_path=validation/(validation_stem+'-camera.png')
+    exact_camera=room_projection(environment)
+    exact_camera.save(camera_path)
+    proof_paths=[panorama_path,directions_path,camera_path]
+    reference_path=ROOT/'referencias'/'estetica'/'evidencias'/'video-35'/'11s.png'
+    if reference_path.is_file():
+        aperture_path=validation/(validation_stem+'-aperture-proof.png')
+        aperture_proof(Image.open(reference_path).convert('RGB'),room_projection(previous) if previous else None,exact_camera).save(aperture_path)
+        proof_paths.append(aperture_path)
     array=np.asarray(environment,dtype=np.float32)
     report={'authored':True,'source':'procedural optical density, no external assets',
             'textures':[str(p.relative_to(ROOT)).replace('\\','/') for p in [png_path,bmp_path]],
-            'proofs':[str(p.relative_to(ROOT)).replace('\\','/') for p in [panorama_path,directions_path]],
+            'proofs':[str(p.relative_to(ROOT)).replace('\\','/') for p in proof_paths],
             'size':list(environment.size),'elapsed_seconds':round(time.time()-started,2),
             'mapping':'PNG top +Z; runtime +Y u=0.75; +X u=0.5; yaw offset 0 degrees',
+            'room_camera':ROOM_CAMERA,
+            'room_cloud_targets':room_cloud_targets(),
+            'previous_sky_sha256':previous_sha256,
+            'pixel_sample':'pixel centres, matching full-screen OpenGL triangle',
+            'aperture_proof_note':'Source crops versus sky-only projections using actual room camera rays. No geometry masking and no claim of exact scene registration.',
             'seam_mean_absolute_rgb':float(np.abs(array[:,0]-array[:,-1]).mean()),
             'average_horizontal_neighbor_difference':float(np.abs(array[:,1:]-array[:,:-1]).mean()),
             'pole_top_max_rgb_spread':int((array[0].max(axis=0)-array[0].min(axis=0)).max()),

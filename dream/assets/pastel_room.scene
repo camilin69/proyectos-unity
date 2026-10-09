@@ -3,6 +3,6 @@ camera -1.5 -2.0 1.4 1.29 -0.21
 fov 0.7
 reflection 0.016
 environment 0
-exposure -0.35
+exposure 0.10
 bounds -2.15 0.20 -2.45 2.36
 capsule -1.82 2.6 -1.491573 1.17742 0.22

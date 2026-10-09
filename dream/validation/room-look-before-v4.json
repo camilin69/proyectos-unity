@@ -1,0 +1,205 @@
+{
+  "phase": "before-v4",
+  "scope": "Color diagnostics within corresponding wall/sky regions. Masks are color classes, not exact geometry registration. These statistics do not certify visual fidelity.",
+  "images": {
+    "reference": {
+      "path": "referencias/estetica/evidencias/video-35/11s.png",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3",
+      "materials": {
+        "pink_wall": {
+          "mean_srgb": [
+            195.76,
+            142.1,
+            163.03
+          ],
+          "std_srgb": [
+            8.55,
+            5.72,
+            6.98
+          ],
+          "value_p95": 207.0,
+          "saturation_mean": 0.2727,
+          "pixels": 5621
+        },
+        "mint_wall": {
+          "mean_srgb": [
+            140.69,
+            164.55,
+            169.46
+          ],
+          "std_srgb": [
+            9.14,
+            5.29,
+            9.11
+          ],
+          "value_p95": 180.0,
+          "saturation_mean": 0.1725,
+          "pixels": 6999
+        },
+        "blue_sky": {
+          "mean_srgb": [
+            150.28,
+            174.13,
+            241.79
+          ],
+          "std_srgb": [
+            9.57,
+            2.46,
+            3.71
+          ],
+          "value_p95": 246.0,
+          "saturation_mean": 0.3778,
+          "pixels": 10250
+        }
+      }
+    },
+    "opengl": {
+      "path": "validation/room-opengl.png",
+      "dimensions": [
+        360,
+        640
+      ],
+      "sha256": "8dc568da370bbc6cfe36467d104b7f46d34e192bdad5d9e5eda87dc53b46681c",
+      "materials": {
+        "pink_wall": {
+          "mean_srgb": [
+            209.2,
+            154.83,
+            176.98
+          ],
+          "std_srgb": [
+            22.89,
+            16.88,
+            18.53
+          ],
+          "value_p95": 236.0,
+          "saturation_mean": 0.2596,
+          "pixels": 3496
+        },
+        "mint_wall": {
+          "mean_srgb": [
+            150.43,
+            182.85,
+            179.64
+          ],
+          "std_srgb": [
+            18.59,
+            19.81,
+            19.83
+          ],
+          "value_p95": 210.0,
+          "saturation_mean": 0.1788,
+          "pixels": 9176
+        },
+        "blue_sky": {
+          "mean_srgb": [
+            124.46,
+            152.97,
+            209.87
+          ],
+          "std_srgb": [
+            5.89,
+            2.72,
+            0.66
+          ],
+          "value_p95": 211.0,
+          "saturation_mean": 0.407,
+          "pixels": 10750
+        }
+      },
+      "mean_rgb_error": {
+        "pink_wall": [
+          13.44,
+          12.73,
+          13.95
+        ],
+        "mint_wall": [
+          9.74,
+          18.3,
+          10.18
+        ],
+        "blue_sky": [
+          -25.82,
+          -21.16,
+          -31.92
+        ]
+      }
+    },
+    "blender": {
+      "path": "validation/room-blender.png",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "sha256": "819ae2bd3b36ce5b25b460b3809cbb189bb6cdbb638526e2158cc8f0316ad9e1",
+      "materials": {
+        "pink_wall": {
+          "mean_srgb": [
+            161.58,
+            132.22,
+            165.62
+          ],
+          "std_srgb": [
+            6.03,
+            6.02,
+            4.87
+          ],
+          "value_p95": 174.0,
+          "saturation_mean": 0.202,
+          "pixels": 3389
+        },
+        "mint_wall": {
+          "mean_srgb": [
+            115.82,
+            154.63,
+            166.33
+          ],
+          "std_srgb": [
+            8.82,
+            4.87,
+            5.16
+          ],
+          "value_p95": 175.0,
+          "saturation_mean": 0.3042,
+          "pixels": 9772
+        },
+        "blue_sky": {
+          "mean_srgb": [
+            124.58,
+            153.17,
+            209.98
+          ],
+          "std_srgb": [
+            5.89,
+            2.65,
+            0.71
+          ],
+          "value_p95": 211.0,
+          "saturation_mean": 0.4067,
+          "pixels": 10750
+        }
+      },
+      "mean_rgb_error": {
+        "pink_wall": [
+          -34.18,
+          -9.88,
+          2.59
+        ],
+        "mint_wall": [
+          -24.87,
+          -9.92,
+          -3.13
+        ],
+        "blue_sky": [
+          -25.7,
+          -20.96,
+          -31.81
+        ]
+      }
+    }
+  }
+}
