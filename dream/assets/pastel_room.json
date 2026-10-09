@@ -7909,7 +7909,7 @@
   "ao": {
     "method": "8 cosine hemisphere rays, 0.65 m radius",
     "minimum": 0.35,
-    "corners": 8002,
+    "corners": 8674,
     "excluded_occluder_kinds": [
       4,
       6,

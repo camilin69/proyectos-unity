@@ -18,9 +18,27 @@ uniform sampler2D ceramicNormal;
 uniform sampler2D ceramicRough;
 uniform sampler2D sceneColor,sceneDepth,leafDetail,biosphere;
 uniform sampler2D floorReflection;
-uniform sampler2D floorSurface,floorFlow;
+uniform sampler2D floorSurface,floorFlow,roomProbe;
 const float PI=3.14159265;
 vec3 env(vec3 d){return texture(sky,vec2(atan(d.y,d.x)/(2.*PI)+.5,asin(clamp(d.z,-1.,1.))/PI+.5)).rgb;}
+vec3 roomEnvironment(vec3 origin,vec3 direction,float rough){
+ // Box projection anchors the static probe to the room enclosure instead of
+ // reflecting a distant blue sky through solid interior walls.
+ vec3 lo=vec3(-2.4,-2.7,.016),hi=vec3(.45,2.7,3.2);
+ vec3 safeDirection=mix(vec3(-1.),vec3(1.),step(vec3(0.),direction))*max(abs(direction),vec3(.0001));
+ vec3 exitDistance=max((lo-origin)/safeDirection,(hi-origin)/safeDirection);
+ float distance=max(0.,min(exitDistance.x,min(exitDistance.y,exitDistance.z)));
+ vec3 ray=normalize(origin+direction*distance-vec3(-.85,.3,1.45));
+ vec2 probeUV=vec2(atan(ray.y,ray.x)/(2.*PI)+.5,asin(clamp(ray.z,-1.,1.))/PI+.5);
+ vec2 dx=dFdx(probeUV),dy=dFdy(probeUV);
+ dx.x-=round(dx.x);dy.x-=round(dy.x); // longitude seam is periodic
+ vec2 size=vec2(textureSize(roomProbe,0));
+ float pixelFootprint=max(length(dx*size),length(dy*size));
+ float roughFootprint=1.+rough*rough*size.x/PI;
+ // Respect both the GGX lobe and the footprint of a thin curved tube. Fixed
+ // low LOD made individual reflected tiles sparkle like a woven fabric.
+ return textureLod(roomProbe,probeUV,log2(max(roughFootprint,max(pixelFootprint,1.)))).rgb;
+}
 float depthMetres(float d){return 2.*.05*200./(200.+.05-(d*2.-1.)*(200.-.05));}
 vec3 light(vec3 n,vec3 v,vec3 l,vec3 base,float rough,float metal,vec3 radiance){
  vec3 h=normalize(v+l);float nv=max(dot(n,v),.001),nl=max(dot(n,l),0.);
@@ -81,34 +99,43 @@ void main(){
  if(kind==6){float f=.05+.95*pow(1.-abs(dot(n,v)),5.);frag=vec4(mix(base*.65,env(reflect(-v,n)),f),max(.1,properties[matId].z)+f*.42);return;}
  if(kind==7){frag=vec4(base*1.2,1);return;}
  vec3 roomRadiance=vec3(.66,.60,.65);
- vec3 color=base*(.42+.1*max(n.z,0.))*ao*roomRadiance;
+ vec3 color=base*(1.-metal)*(.42+.1*max(n.z,0.))*ao*roomRadiance;
  vec3 positions[3]=vec3[](vec3(-1.1,2.5,2.2),vec3(.25,.9,2.4),vec3(-.975,-.5,2.85));
  vec3 colors[3]=vec3[](vec3(.83,.87,1.)*3.,vec3(1.,.85,.94)*3.5,vec3(.85,1.,.96)*1.8);
  // Broad highlights approximate the large window/door light sources.
- if(environment==0){for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,.48),metal,colors[i]*roomRadiance/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}}
+ if(environment==0){for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,mix(.48,.30,metal)),metal,colors[i]*roomRadiance/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}}
  else {color=base*(.48+.18*max(n.z,0.))*ao;color+=light(n,v,normalize(vec3(-.4,-.25,1)),base,max(rough,.3),metal,vec3(1.1,1.04,.93));if(kind==5)color+=base*.18*max(dot(-n,normalize(vec3(-.4,-.25,1))),0.);}
+ if(kind==1&&environment==0){
+   float film=texture(floorFlow,uv).b;
+   // Tint the substrate before adding the wet layer's reflections. Reflected
+   // objects remain visible across the colored patches instead of being tinted
+   // afterwards as if the finish were an opaque decal.
+   color*=mix(vec3(.87,.95,.94),vec3(1.60,1.40,1.20),film*.75);
+ }
  // Environment contribution complements the analytical direct lighting.
  vec3 fresnel=mix(vec3(.04),base,metal)+(1.-mix(vec3(.04),base,metal))*pow(1.-max(dot(n,v),0.),5.);
- color+=env(reflect(-v,n))*fresnel*(1.-rough)*.35;
+ vec3 environmentReflection=environment==0?roomEnvironment(worldPos,reflect(-v,n),rough):env(reflect(-v,n));
+ // Roughness redistributes the metal's reflected light; the filtered probe
+ // already accounts for that spread, so do not attenuate its energy again.
+ color+=environmentReflection*fresnel*(environment==0?mix((1.-rough)*.35,1.,metal):(1.-rough)*.35);
  if(kind==1&&reflected==0&&n.z>.5){
    vec2 p=gl_FragCoord.xy/resolution;vec2 sampleUV=vec2(p.x,1.-p.y);
    vec3 reflectedColor;
    if(environment==0){
      sampleUV=clamp(sampleUV+n.xy*.35,vec2(.002),vec2(.998));
-     vec2 blur=vec2(2.5)/resolution;
-     reflectedColor=texture(reflection,sampleUV).rgb*.4;
-     reflectedColor+=(texture(reflection,sampleUV+vec2(blur.x,0)).rgb+texture(reflection,sampleUV-vec2(blur.x,0)).rgb+texture(reflection,sampleUV+vec2(0,blur.y)).rgb+texture(reflection,sampleUV-vec2(0,blur.y)).rgb)*.15;
+     // A broad 9-tap footprint represents the softly scattered wet coating;
+     // the separate normal field still breaks up the reflected architecture.
+     vec2 blur=vec2(6.)/resolution;
+     reflectedColor=texture(reflection,sampleUV).rgb*.20;
+     for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++)if(x!=0||y!=0)
+       reflectedColor+=texture(reflection,sampleUV+vec2(x,y)*blur).rgb*.10;
    }else reflectedColor=texture(floorReflection,sampleUV).rgb;
-   float f=.18+.5*pow(1.-max(dot(n,v),0.),4.);color=mix(color,reflectedColor,f);
+   float facing=pow(1.-max(dot(n,v),0.),4.);
+   float f=environment==0?.10+.34*facing:.18+.5*facing;
+   color=mix(color,reflectedColor,f);
  }
  // Gentle contact darkening at the base of the walls; not a replacement for shadows.
  float edge=min(min(worldPos.x+2.4,.45-worldPos.x),2.7-abs(worldPos.y));
  if(kind==1&&environment==0)color*=mix(.77,1.,smoothstep(0.,.18,edge));
- if(kind==1&&environment==0){
-   float film=texture(floorFlow,uv).b;
-   // Art-directed colored finish: absorb blue in neutral wet tiles and retain
-   // the bright coral/lime response only within the authored interference mask.
-   color*=mix(vec3(.87,.95,.94),vec3(1.60,1.40,1.20),film*.75);
- }
  frag=vec4(color,1);
 }

@@ -1,5 +1,6 @@
 {
-  "source": "authored isolated interference pools, continuous slab v3",
+  "source": "authored isolated interference pools, continuous slab v5 softened iridescence",
+  "output_role": "active",
   "base_colors_srgb": {
     "pink": "AAA3AF",
     "mint": "93AAA3"
@@ -30,6 +31,24 @@
     0.98,
     0.77
   ],
+  "hero_palette_srgb": {
+    "coral": [
+      249,
+      102,
+      117
+    ],
+    "lime": [
+      184,
+      221,
+      59
+    ],
+    "cyan": [
+      54,
+      216,
+      230
+    ]
+  },
+  "hero_color_policy": "Stronger separated hues only inside the original main pool footprint; other pools and neutral tile colors retained.",
   "placement": {
     "method": "reference image coordinates raycast onto the current camera floor plane",
     "camera": [
@@ -130,10 +149,10 @@
     ]
   },
   "statistics": {
-    "strong_patch_fraction": 0.013107935587565104,
-    "neutral_fraction": 0.9477723439534506,
-    "projected_floor_neutral_fraction": 0.8957831816883594,
-    "projected_floor_strong_fraction": 0.033375494716226695,
+    "strong_patch_fraction": 0.010687510172526041,
+    "neutral_fraction": 0.9486236572265625,
+    "projected_floor_neutral_fraction": 0.8993634991227712,
+    "projected_floor_strong_fraction": 0.026480068546248316,
     "projection_scope": "camera rays hitting the slab; excludes no occluding geometry",
     "normal_xy_rms": 0.038620167214573176,
     "normal_xy_p95": 0.05598688340245207

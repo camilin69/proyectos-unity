@@ -69,4 +69,33 @@ struct ReflectTarget{
   glBindFramebuffer(GL_FRAMEBUFFER,0);
  }
 };
+// Thin ceramic joints and radiator tubes need geometric sample coverage before
+// post-process AA. Only the main opaque pass uses MSAA: reflections stay at half
+// resolution, and the costly water/glass shaders still run once per output pixel.
+struct MultisampleTarget{
+ GLuint fbo=0,color=0,depth=0;int width=0,height=0,samples=0;
+ explicit MultisampleTarget(int requested){
+  GLint maximum=0;glGetIntegerv(GL_MAX_SAMPLES,&maximum);samples=std::min(requested,int(maximum));
+  if(samples<2){samples=0;return;}
+  glGenFramebuffers(1,&fbo);glGenRenderbuffers(1,&color);glGenRenderbuffers(1,&depth);
+ }
+ void resize(int w,int h){
+  if(!samples||(w==width&&h==height))return;
+  width=w;height=h;
+  glBindFramebuffer(GL_FRAMEBUFFER,fbo);
+  glBindRenderbuffer(GL_RENDERBUFFER,color);glRenderbufferStorageMultisample(GL_RENDERBUFFER,samples,GL_RGBA16F,w,h);
+  glFramebufferRenderbuffer(GL_FRAMEBUFFER,GL_COLOR_ATTACHMENT0,GL_RENDERBUFFER,color);
+  glBindRenderbuffer(GL_RENDERBUFFER,depth);glRenderbufferStorageMultisample(GL_RENDERBUFFER,samples,GL_DEPTH_COMPONENT24,w,h);
+  glFramebufferRenderbuffer(GL_FRAMEBUFFER,GL_DEPTH_ATTACHMENT,GL_RENDERBUFFER,depth);
+  if(glCheckFramebufferStatus(GL_FRAMEBUFFER)!=GL_FRAMEBUFFER_COMPLETE)throw std::runtime_error("Incomplete multisample target");
+  glBindFramebuffer(GL_FRAMEBUFFER,0);
+ }
+};
+static void copyTarget(GLuint source,GLuint destination,int w,int h){
+ glBindFramebuffer(GL_READ_FRAMEBUFFER,source);glBindFramebuffer(GL_DRAW_FRAMEBUFFER,destination);
+ // Identical dimensions/formats and nearest depth preserve the exact resolved
+ // depth used by the subsequent water thickness and transparent surface tests.
+ glBlitFramebuffer(0,0,w,h,0,0,w,h,GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT,GL_NEAREST);
+ glBindFramebuffer(GL_FRAMEBUFFER,destination);
+}
 static void screenshot(const fs::path& path,int w,int h){std::vector<unsigned char> data(size_t(w)*h*3);glPixelStorei(GL_PACK_ALIGNMENT,1);glReadPixels(0,0,w,h,GL_RGB,GL_UNSIGNED_BYTE,data.data());std::ofstream f(path,std::ios::binary);f<<"P6\n"<<w<<" "<<h<<"\n255\n";for(int y=h-1;y>=0;y--)f.write((char*)data.data()+size_t(y)*w*3,w*3);if(!f)throw std::runtime_error("Screenshot write failed");}

@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "baseline_commit": "41cc001",
+  "scope": "Final room reflection/material integration; visual fidelity evaluated separately.",
+  "created_at_utc": "2026-10-09T02:32:41.026979+00:00",
+  "file_sha256": {
+    "runtime/shaders/scene.frag": "186bc9348a184384ca03db877a2ad55b75ace4e7ad89c4c584428ddd5b03f7df",
+    "runtime/src/main.cpp": "f62ffa9813bd0d2917a1718255770fc89d21de7e9b5d5f11001cfd686265df10",
+    "assets/pastel_room.dreammesh": "eeffc6c22a2da2cf5a59d8a6b96bbfae2220f282a0f6253038f9e68282242df8",
+    "assets/textures/room_probe.png": "ed8ba669269d3344bc189bca264dc6add794e064d1ef5993edf067a31140cd6a",
+    "assets/textures/floor_surface_albedo.png": "aaa0980a51f48c339e0c9c39526220779d7cb2fc67e051dd78bf94c06ae794ba",
+    "validation/room-opengl.png": "f9bae316f322e3007967944bdb5d8387863aa82dd97909b658a2d9f5cd68734a",
+    "validation/room-blender.png": "184613575a0c406c4352f20550083e3d7dfbdbb2b7d02da68471a459340a2a9b",
+    "validation/room-comparison.png": "2622fe98bd47c2a42b29a73991e33db984d758e68aeee07699706ee1d0cd3289",
+    "blender/pastel_room.blend": "d5b180aa469417603b17f63cd05eeb2ce42a16a0f05a370df88dfe6682d40c52"
+  },
+  "static_capture": {
+    "frames": 2,
+    "size": [
+      540,
+      960
+    ],
+    "time_s": 0,
+    "opaque_samples": 4,
+    "gl_error": 0,
+    "elapsed_s": 0.819795,
+    "synchronized_readback": true,
+    "blender_rendering_concurrently": true,
+    "performance_claim": false
+  },
+  "integration_run": {
+    "frames": 720,
+    "size": [
+      1280,
+      720
+    ],
+    "resize_sizes": [
+      [
+        640,
+        480
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "scene_cycle": [
+      "pastel_room",
+      "atrium",
+      "pastel_room"
+    ],
+    "opaque_samples": 4,
+    "mouse_orientation": "PASS",
+    "gl_error": 0,
+    "elapsed_s": 17.6158,
+    "scope": "Executed after MSAA and probe integration, before the final silver/soft-patch and metal energy refinements; final shader/materials are covered by static capture above. Not a frame-rate benchmark."
+  },
+  "assets": {
+    "room": "PASS",
+    "atrium": "PASS",
+    "png_bmp_matching_pairs": 12,
+    "normal_flow_rg_identical": true,
+    "probe_faces": 6,
+    "probe_reprojection_matches": "PASS"
+  },
+  "python_syntax": "PASS - build_room, make_room_finishes, bake_room_probe, pack_room_probe",
+  "code_review": "No actionable findings in MSAA/probe changes; read-only review, not a portability certificate.",
+  "limitations": [
+    "No fullscreen frame-rate guarantee.",
+    "Probe is static LDR, not HDR lighting or dynamic global illumination.",
+    "MSAA applies to opaque geometry; reflections and transparencies remain single-sample.",
+    "Visual acceptance is independent of passing implementation checks."
+  ],
+  "blender_final": {
+    "state": "complete",
+    "engine": "BLENDER_EEVEE",
+    "samples": 256,
+    "size": [
+      720,
+      1280
+    ],
+    "inspected": true,
+    "saved_blend": true
+  },
+  "goal_audit": [
+    {
+      "requirement": "Habitacion pastel editable en Blender con azulejos, suelo brillante y puerta a nubes",
+      "status": "implemented",
+      "evidence": [
+        "blender/pastel_room.blend",
+        "validation/room-blender.png"
+      ]
+    },
+    {
+      "requirement": "C++/OpenGL con caminar y mirar libremente",
+      "status": "implemented",
+      "evidence": [
+        "runtime/src/main.cpp",
+        "validation/status.json"
+      ],
+      "scope": "Recorrido interior; el cielo no es terreno transitable."
+    },
+    {
+      "requirement": "Igualar iluminacion y materiales con la referencia",
+      "status": "in_progress",
+      "evidence": [
+        "validation/room-comparison.png",
+        "validation/room-look-after-v5.json",
+        "validation/fidelity-review.json"
+      ],
+      "remaining": "Distribucion espacial de luz, naturalidad de reflejos, detalle de cortinas y respuesta de metal."
+    },
+    {
+      "requirement": "Incorporar agua y vegetacion y abordar el atrio futurista",
+      "status": "implemented_as_prototype",
+      "evidence": [
+        "assets/atrium.glb",
+        "validation/atrium-opengl.png",
+        "validation/animation.json"
+      ],
+      "remaining": "El acabado visual del atrio sigue en refinamiento."
+    }
+  ],
+  "goal_complete": false
+}

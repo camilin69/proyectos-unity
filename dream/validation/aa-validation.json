@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-08",
+  "scope": "Selective opaque-pass multisample coverage and framebuffer resolve validation",
+  "gpu": "Intel(R) HD Graphics 630",
+  "opengl": "3.3.0 - Build 31.0.101.2141",
+  "compiler": "MinGW-w64 GCC 13.2, C++17, -O2 -Wall -Wextra -static",
+  "compile_warnings": 0,
+  "shader_baseline": {
+    "revision": "41cc001",
+    "revision_provenance": "Root identified this as the frozen shader revision used by these tests.",
+    "full_shader_hash": null,
+    "comparison_hash_equality_verified": true,
+    "hash_check_scope": "The 60-frame 0x/4x before-and-after captures checked Get-FileHash(scene.frag) before and after the paired runs and reported equality. The complete hash value was not retained.",
+    "current_room_probe_integration_covered": false,
+    "integration_note": "These tests precede the final room reflection probe and current lighting integration; root will verify that integration separately."
+  },
+  "render_configuration": {
+    "opaque_color_format": "RGBA16F",
+    "opaque_depth_format": "DEPTH_COMPONENT24",
+    "default_opaque_samples": 4,
+    "tested_opaque_samples": [0, 2, 4],
+    "reflections": "Half output resolution, single-sample",
+    "water_and_glass": "Single-sample composition after opaque color/depth resolve",
+    "final_postprocess": "Existing FXAA retained",
+    "resolve": "glBlitFramebuffer color plus depth, equal dimensions and formats, GL_NEAREST",
+    "geometry_or_texture_change_for_aa": false
+  },
+  "paired_visual_comparison": {
+    "scene": "pastel_room",
+    "output_size": [540, 960],
+    "frames_per_run": 60,
+    "simulation_time": 0,
+    "camera_position": [-1.5, -2.0, 1.4],
+    "yaw": 1.29,
+    "window_hidden": true,
+    "vsync": false,
+    "captures": [
+      {"opaque_samples": 0, "elapsed_seconds": 0.438119, "gl_error": 0, "image": "aa-0.png", "raw_capture": "aa-0.ppm"},
+      {"opaque_samples": 4, "elapsed_seconds": 0.629178, "gl_error": 0, "image": "aa-4.png", "raw_capture": "aa-4.ppm"}
+    ],
+    "detail_comparison": "aa-detail-comparison.png",
+    "detail_layout": "Joint crop without MSAA, joint crop with 4x MSAA, radiator crop without MSAA, radiator crop with 4x MSAA; crops enlarged 2x with nearest-neighbor for inspection.",
+    "finding": "The actual captures show substantially more continuous thin ceramic joints with 4x coverage. The radiator has fewer broken edge/highlight segments but still contains high-frequency metallic shading.",
+    "cause_assessment": "Subpixel geometric coverage is the dominant demonstrated cause of the joint interruptions. The improvement occurs without changing geometry, texture filtering or the 24-bit depth format; this does not establish that every visible artifact has the same cause.",
+    "not_measured": "No automated pixel-exact seam continuity score or temporal flicker metric was computed."
+  },
+  "longer_static_runs": {
+    "scene": "pastel_room",
+    "output_size": [540, 960],
+    "frames_per_run": 600,
+    "simulation_time": 0,
+    "window_hidden": true,
+    "vsync": false,
+    "synchronization": "Final glReadPixels capture occurs before the printed elapsed time, waiting for preceding rendering to complete.",
+    "runs": [
+      {"opaque_samples": 0, "elapsed_seconds": 4.04882, "mean_ms_per_frame": 6.748033, "gl_error": 0, "raw_capture": "aa-perf-0.ppm"},
+      {"opaque_samples": 2, "elapsed_seconds": 4.53114, "mean_ms_per_frame": 7.5519, "gl_error": 0, "raw_capture": "aa-perf-2.ppm", "image": "aa-2.png"},
+      {"opaque_samples": 4, "elapsed_seconds": 5.59994, "mean_ms_per_frame": 9.333233, "gl_error": 0, "raw_capture": "aa-perf-4.ppm"}
+    ],
+    "sample_comparison": "aa-sample-comparison.png",
+    "sample_comparison_note": "Uses the 0x/4x images from the paired visual comparison and the 2x image from the 600-frame run; camera, dimensions and simulation time are identical.",
+    "decision": "Retain 4x as the default because 2x leaves visible seam interruptions. The 0x/2x options remain available for performance tuning."
+  },
+  "atrium_static_run": {
+    "scene": "atrium",
+    "output_size": [960, 720],
+    "opaque_samples": 4,
+    "frames": 300,
+    "simulation_time": 0,
+    "window_hidden": true,
+    "vsync": false,
+    "elapsed_seconds": 6.15662,
+    "mean_ms_per_frame": 20.522067,
+    "vertices": 537522,
+    "transparent_groups": 45,
+    "water_present": true,
+    "gl_error": 0,
+    "image": "aa-atrium.png",
+    "raw_capture": "aa-atrium.ppm",
+    "inspection": "Actual capture was inspected: water, reflected architecture, foliage and transparent elements remain visible after depth/color resolve.",
+    "limitation": "This checks the static scene integration and visible composition; it is not an exhaustive transparent-edge or refraction correctness test."
+  },
+  "resize_and_scene_cycle": {
+    "initial_scene": "pastel_room",
+    "scene_order": ["pastel_room", "atrium", "pastel_room"],
+    "scene_switch_frames": [240, 480],
+    "output_size": [1280, 720],
+    "resize_sizes": [[640, 480], [1280, 720]],
+    "resize_frames": [120, 180],
+    "opaque_samples": 4,
+    "frames": 720,
+    "window_hidden": true,
+    "movement_and_rotation_smoke_mode": true,
+    "mouse_orientation": "PASS",
+    "reported_elapsed_seconds": 1.01027,
+    "reported_elapsed_is_performance_evidence": false,
+    "timing_note": "This run did not request a final screenshot or explicit GPU synchronization. The reported elapsed time must not be interpreted as completed-frame throughput.",
+    "gl_error": 0,
+    "final_camera_position": [-2.15, -0.978829, 1.4],
+    "final_yaw": 4.49,
+    "result": "PASS for runtime scene switching, resize path and collected GL error status"
+  },
+  "limitations": [
+    "All timing runs used hidden windows with vsync disabled; none proves fullscreen FPS, interactive input latency or performance on another machine.",
+    "These are whole-run CPU wall-clock timings with a final readback where specified, not isolated GPU timer-query measurements.",
+    "The static runs use a fixed camera and simulation time and do not measure the worst case throughout either environment.",
+    "MSAA resolves geometric coverage; it does not fully solve specular shading aliasing, texture detail aliasing or transparent geometry edges.",
+    "The new room probe sampler and final material/lighting changes are outside this report's executed runtime coverage."
+  ]
+}

@@ -4,7 +4,7 @@ int main(int argc,char** argv) {
  try {
     fs::path root=fs::absolute(fs::path(argv[0])).parent_path().parent_path().parent_path(),shot;
     std::string sceneName="pastel_room";
-    int frameLimit=0,width=960,height=720,debugShading=0;
+    int frameLimit=0,width=960,height=720,debugShading=0,samples=4;
     bool hidden=false,smoke=false,cycle=false;
     float fixedTime=-1;
     for(int i=1;i<argc;i++) {
@@ -17,6 +17,7 @@ int main(int argc,char** argv) {
         else if(a=="--height"&&i+1<argc)height=std::stoi(argv[++i]);
         else if(a=="--time"&&i+1<argc)fixedTime=std::stof(argv[++i]);
         else if(a=="--debug-shading"&&i+1<argc)debugShading=std::stoi(argv[++i]);
+        else if(a=="--samples"&&i+1<argc)samples=std::stoi(argv[++i]);
         else if(a=="--hidden")hidden=true;
         else if(a=="--smoke")smoke=true;
         else if(a=="--cycle")cycle=true;
@@ -24,6 +25,7 @@ int main(int argc,char** argv) {
     }
     if(width<64||height<64||width>8192||height>8192||frameLimit<0)throw std::runtime_error("Invalid dimensions/frame count");
     if(debugShading<0||debugShading>3)throw std::runtime_error("Debug shading must be 0=lit, 1=albedo, 2=normals or 3=AO");
+    if(samples!=0&&samples!=2&&samples!=4)throw std::runtime_error("Samples must be 0, 2 or 4");
     if(!shot.empty()&&frameLimit==0)frameLimit=1;
     if(smoke) {
         float originalYaw=yaw;captured=true;firstMouse=false;cursor(nullptr,10,0);
@@ -50,7 +52,12 @@ int main(int argc,char** argv) {
     GLuint leaf=bitmap(root/"assets/textures/leaf_detail.bmp"),globe=bitmap(root/"assets/textures/biosphere.bmp");
     GLuint floorSurface=bitmap(root/"assets/textures/floor_surface_albedo.bmp");
     GLuint floorFlow=bitmap(root/"assets/textures/floor_flow.bmp",false);
+    GLuint roomProbe=bitmap(root/"assets/textures/room_probe.bmp");
+    // Longitude repeats; latitude must not blend the ceiling with the floor.
+    glBindTexture(GL_TEXTURE_2D,roomProbe);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
     ReflectTarget reflect,opaque,floorReflect,composite;
+    MultisampleTarget coverage(samples);
+    std::cout<<"opaque_msaa_samples="<<coverage.samples<<" reflection_samples=1\n";
     std::unique_ptr<Mesh> mesh;
     std::unique_ptr<SceneSettings> settings;
     auto resetCamera=[&](){eye=settings->spawn;yaw=settings->yaw;pitch=settings->pitch;firstMouse=true;};
@@ -68,8 +75,8 @@ int main(int argc,char** argv) {
     loadScene(sceneName);
     const std::string initialScene=sceneName;
     glUseProgram(sceneProgram);
-    const char* samplers[]={"sky","plaid","reflection","ceramicNormal","ceramicRough","sceneColor","sceneDepth","leafDetail","biosphere","floorReflection","floorSurface","floorFlow"};
-    for(int i=0;i<12;i++)integer(sceneProgram,samplers[i],i);
+    const char* samplers[]={"sky","plaid","reflection","ceramicNormal","ceramicRough","sceneColor","sceneDepth","leafDetail","biosphere","floorReflection","floorSurface","floorFlow","roomProbe"};
+    for(int i=0;i<13;i++)integer(sceneProgram,samplers[i],i);
     glUseProgram(skyProgram);integer(skyProgram,"sky",0);
     glUseProgram(presentProgram);integer(presentProgram,"sceneColor",5);integer(presentProgram,"sceneDepth",6);
     double previous=glfwGetTime(),begin=previous,lastTitle=previous;
@@ -82,7 +89,7 @@ int main(int argc,char** argv) {
         texture(3,ceramicNormal);texture(4,ceramicRough);
         // Never sample an attachment of the framebuffer being written.
         texture(5,pass==1?opaque.color:0);texture(6,pass==1?opaque.depth:0);texture(7,leaf);texture(8,globe);texture(9,mirrored?0:floorReflect.color);
-        texture(10,floorSurface);texture(11,floorFlow);
+        texture(10,floorSurface);texture(11,floorFlow);texture(12,roomProbe);
         glDepthMask(GL_TRUE);
         if(pass==0) {
             glClearColor(.4f,.5f,.6f,1);glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -125,7 +132,7 @@ int main(int argc,char** argv) {
         eye=settings->move(eye,norm(movement)*(speed*dt));
         int w,h;glfwGetFramebufferSize(window,&w,&h);
         if(w==0||h==0){glfwWaitEventsTimeout(.05);continue;}
-        reflect.resize(std::max(1,w/2),std::max(1,h/2));opaque.resize(w,h);composite.resize(w,h);
+        reflect.resize(std::max(1,w/2),std::max(1,h/2));opaque.resize(w,h);composite.resize(w,h);coverage.resize(w,h);
         if(mesh->water&&mesh->floor) {
             floorReflect.resize(std::max(1,w/2),std::max(1,h/2));
             glDisable(GL_FRAMEBUFFER_SRGB);glBindFramebuffer(GL_FRAMEBUFFER,floorReflect.fbo);
@@ -140,13 +147,10 @@ int main(int argc,char** argv) {
         reflectedEye.z=2*settings->reflectionHeight-eye.z;reflectedDir.z=-reflectedDir.z;
         draw(reflectedEye,reflectedDir,true,0,reflect.width,reflect.height);
         if(!mesh->glass.empty())draw(reflectedEye,reflectedDir,true,2,reflect.width,reflect.height);
-        glBindFramebuffer(GL_FRAMEBUFFER,opaque.fbo);draw(eye,forward(),false,0,w,h);
+        glBindFramebuffer(GL_FRAMEBUFFER,coverage.samples?coverage.fbo:opaque.fbo);draw(eye,forward(),false,0,w,h);
+        if(coverage.samples)copyTarget(coverage.fbo,opaque.fbo,w,h);
 
-        glBindFramebuffer(GL_FRAMEBUFFER,composite.fbo);glViewport(0,0,w,h);
-        glDisable(GL_CLIP_DISTANCE0);glUseProgram(presentProgram);
-        integer(presentProgram,"antialias",0);
-        texture(5,opaque.color);texture(6,opaque.depth);glBindVertexArray(emptyVao);
-        glDepthFunc(GL_ALWAYS);glDrawArrays(GL_TRIANGLES,0,3);glDepthFunc(GL_LESS);
+        copyTarget(opaque.fbo,composite.fbo,w,h);glViewport(0,0,w,h);
         if(mesh->water)draw(eye,forward(),false,1,w,h);
         if(!mesh->glass.empty())draw(eye,forward(),false,2,w,h);
         glBindFramebuffer(GL_FRAMEBUFFER,0);glEnable(GL_FRAMEBUFFER_SRGB);

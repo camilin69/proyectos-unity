@@ -4,3 +4,5 @@ validation/*.ppm
 validation/*.log
 *.blend1
 __pycache__/
+# Disposable texture variants; selected maps and review evidence are tracked.
+assets/textures/floor_candidate/

@@ -1,0 +1,39 @@
+{
+  "png_bmp_identical": true,
+  "active_textures_modified": false,
+  "projection_note": "Texture color only; same camera rays, no illumination, reflection or occluder simulation.",
+  "candidate_files": {
+    "floor_pink_albedo": {
+      "png_sha256": "0d6503ed5b73501b8d748f7f886308c36d979773b9af45f564577b414e1a3f91",
+      "bmp_sha256": "2542106f9658cada417710bc611b40af788c9b444a22e23470b8a5a8625536f5"
+    },
+    "floor_mint_albedo": {
+      "png_sha256": "2d377b948e2f709efa76b35a3ebc38bb691db323fffb98ed3448fac6b261bb40",
+      "bmp_sha256": "6934a748d21084696596e6efafd539ac80ddb80875edb2769e1823262ae18ba8"
+    },
+    "floor_surface_albedo": {
+      "png_sha256": "c00790e1dba39a77f401ed1bccae49109f308eeb5fb7b9f91444be04bc761248",
+      "bmp_sha256": "9f81941c24ec0c8fc42dc14e64739d966a0374696f579c6d946c247e774e48f6"
+    },
+    "floor_flow": {
+      "png_sha256": "56b73efd8658d39e82f7bf50f4a1b4255ec6e68016b30e42da4f2dad9fc3fcd1",
+      "bmp_sha256": "1590e672c8e268f4da2f3269f7c1e41a70c73cc330756a45776b6635b10be606"
+    },
+    "floor_normal": {
+      "png_sha256": "00c31032211cbd188712ae6edebba6f302c0dc15d361a7e01c78319e4c70e9f2",
+      "bmp_sha256": "75234811055da1ba849415d426dc21961f437a525b5150e2e29715b8d3afae49"
+    }
+  },
+  "normal_flow_rg_identical": true,
+  "normal_unchanged_from_active": true,
+  "neutral_pixel_max_delta_rgb": 1,
+  "neutral_pixel_mean_delta_rgb": 3.263267602121709e-05,
+  "evidence_role": "Historical candidate validation before promotion to the active floor finish v4.",
+  "contact_sheet": "dream/validation/floor-finish-v4-candidate-contact.png",
+  "candidate_directory": "dream/assets/textures/floor_candidate",
+  "baseline_active_sha256": {
+    "floor_surface_albedo.png": "2ce5ba5884781f4e26b0ef304800a1a20d81bbc9289b669ce1c2ed3d2bc2a21c",
+    "floor_flow.png": "a01dab61d0b5f9ae874f185ac9e9c9ce70be4ee2b97d30906cabd38bd9862959",
+    "floor_normal.png": "00c31032211cbd188712ae6edebba6f302c0dc15d361a7e01c78319e4c70e9f2"
+  }
+}

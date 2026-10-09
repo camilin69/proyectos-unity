@@ -12,8 +12,8 @@
         500,
         530
       ],
-      "mean_absolute_channel_delta": 5.940126984126984,
-      "changed_pixels": 4672
+      "mean_absolute_channel_delta": 5.929650793650794,
+      "changed_pixels": 4674
     },
     "foliage": {
       "xyxy": [
@@ -22,8 +22,8 @@
         300,
         530
       ],
-      "mean_absolute_channel_delta": 3.7304497354497355,
-      "changed_pixels": 4437
+      "mean_absolute_channel_delta": 3.3452910052910054,
+      "changed_pixels": 4555
     },
     "waterfall": {
       "xyxy": [
@@ -32,8 +32,8 @@
         594,
         420
       ],
-      "mean_absolute_channel_delta": 4.592036124794745,
-      "changed_pixels": 2257
+      "mean_absolute_channel_delta": 4.077011494252874,
+      "changed_pixels": 2222
     },
     "static_control": {
       "xyxy": [

@@ -25,6 +25,8 @@ try: scene.render.engine='BLENDER_EEVEE'
 except TypeError: scene.render.engine='BLENDER_EEVEE_NEXT'
 scene.eevee.taa_render_samples=256
 scene.eevee.use_raytracing=True
+scene.eevee.ray_tracing_options.resolution_scale='1'
+scene.eevee.ray_tracing_options.screen_trace_quality=1
 scene.render.image_settings.file_format='PNG'
 scene.view_settings.view_transform='Standard'
 scene.view_settings.exposure=.10
@@ -46,7 +48,9 @@ def material(label,hexcolor,rough=.4,metal=0,kind=0,texture=None):
     p.inputs['Base Color'].default_value=tuple(linear(v) for v in color)+(1,)
     p.inputs['Roughness'].default_value=rough
     p.inputs['Metallic'].default_value=metal
-    if kind==1: p.inputs['Coat Weight'].default_value=.6
+    if kind==1:
+        p.inputs['Coat Weight'].default_value=1
+        p.inputs['Specular IOR Level'].default_value=1
     m['dream_id']=len(materials);m['base_srgb']=color;m['roughness']=rough;m['metallic']=metal;m['kind']=kind
     if texture:
         node=m.node_tree.nodes.new('ShaderNodeTexImage')
@@ -57,6 +61,7 @@ def material(label,hexcolor,rough=.4,metal=0,kind=0,texture=None):
         nm=m.node_tree.nodes.new('ShaderNodeNormalMap');nm.inputs['Strength'].default_value=.18 if kind==3 else .65
         m.node_tree.links.new(normal.outputs['Color'],nm.inputs['Color'])
         m.node_tree.links.new(nm.outputs['Normal'],p.inputs['Normal'])
+        if kind==1:m.node_tree.links.new(nm.outputs['Normal'],p.inputs['Coat Normal'])
         tex=m.node_tree.nodes.new('ShaderNodeTexImage');tex.image=image_asset('ceramic_roughness',True)
         scale=m.node_tree.nodes.new('ShaderNodeMath');scale.operation='MULTIPLY';scale.inputs[1].default_value=rough/.27
         m.node_tree.links.new(tex.outputs['Color'],scale.inputs[0]);m.node_tree.links.new(scale.outputs[0],p.inputs['Roughness'])
@@ -65,9 +70,9 @@ def material(label,hexcolor,rough=.4,metal=0,kind=0,texture=None):
 
 pink=material('pink_glaze','DCA3B7',.32,0,3)
 mint=material('mint_glaze','9AC3BA',.32,0,3)
-ivory=material('ivory_paint','E6DAD8',.38)
+ivory=material('ivory_paint','D6CCBB',.48)
 grout=material('grout','E1DFD3',.8)
-chrome=material('chrome','BAC4CA',.2,1)
+chrome=material('chrome','E6E8E7',.26,1)
 gold=material('door_handle','C8AA65',.25,1)
 floorfinish=material('floor_finish','A8B1A8',.13,0,1,'floor_surface_albedo');floorfinish['albedo_variant']=2
 cloth=material('plaid','FFFFFF',.85,0,2,'curtain_plaid')
@@ -87,7 +92,12 @@ def rod(label,a,b,r,mat):
     bpy.ops.mesh.primitive_cylinder_add(vertices=12,radius=r,depth=delta.length,location=(Vector(a)+Vector(b))/2)
     o=bpy.context.object;o.name='GEO-DREAM-'+label
     o.rotation_euler=delta.to_track_quat('Z','Y').to_euler();o.data.materials.append(mat)
-    for p in o.data.polygons:p.use_smooth=True
+    # Cap normals must not bend the side of a straight tube. A smooth cap had
+    # introduced a +/-0.65 axial component along the whole radiator, breaking
+    # reflections into horizontal bands in both renderers.
+    for p in o.data.polygons:p.use_smooth=len(p.vertices)==4
+    for e in o.data.edges:
+        e.use_edge_sharp=abs(o.data.vertices[e.vertices[0]].co.z-o.data.vertices[e.vertices[1]].co.z)<1e-6
     return o
 
 def tile_face(label,center,width,height,mat,front=True):
@@ -123,6 +133,7 @@ layer=floor_mesh.uv_layers.new()
 for loop in floor_mesh.loops:
     p=floor_mesh.vertices[loop.vertex_index].co;layer.data[loop.index].uv=((p.x+2.4)/2.85,(p.y+2.7)/5.4)
 o=bpy.data.objects.new('GEO-DREAM-floor_surface',floor_mesh);scene.collection.objects.link(o)
+o.hide_probe_plane=True  # A planar probe must not capture the slab's underside.
 box('ceiling',(-.975,0,3.3),(3.05,5.6,.2),ceiling)
 # Continuous mortar behind the tiles closes joints without sealing openings.
 wall_top=3.22;door_top=2.65
@@ -208,19 +219,32 @@ env=nodes.new('ShaderNodeTexEnvironment');env.image=image_asset('cloud_sky')
 env.texture_mapping.scale=(1,-1,1)
 world.node_tree.links.new(env.outputs['Color'],bg.inputs['Color']);bg.inputs['Strength'].default_value=1
 
+# Local reflections retain the room's colors when screen-space rays miss.
+probe=bpy.data.lightprobes.new('DREAM_room_reflection','SPHERE')
+probe.influence_type='BOX';probe.influence_distance=1;probe.falloff=.2
+probe.clip_start=.05;probe.clip_end=20;probe.use_custom_parallax=True
+probe.parallax_type='BOX';probe.parallax_distance=1
+obj=bpy.data.objects.new(probe.name,probe);scene.collection.objects.link(obj)
+obj.location=(-.85,.3,1.45);obj.scale=(1.42,2.7,1.6)
+plane=bpy.data.lightprobes.new('DREAM_floor_reflection','PLANE')
+plane.influence_distance=.1;plane.clip_start=.005
+obj=bpy.data.objects.new(plane.name,plane);scene.collection.objects.link(obj)
+obj.location=(-.975,0,.026);obj.scale=(1.425,2.7,1)
+
 def area(label,loc,target,energy,color,size):
     data=bpy.data.lights.new('DREAM_'+label,'AREA');data.energy=energy;data.color=color;data.size=size;data.specular_factor=0
     obj=bpy.data.objects.new(data.name,data);scene.collection.objects.link(obj);obj.location=loc
     obj.rotation_euler=(Vector(target)-obj.location).to_track_quat('-Z','Y').to_euler()
-area('door_softbox',(-1.1,3.6,2),(0,0,1),200,(1,.83,.60),3)
-area('window_softbox',(1.35,.9,2.2),(-.975,0,1),240,(1,.83,.60),2.2)
+area('door_softbox',(-1.1,3.6,2),(0,0,1),140,(1,.83,.60),3)
+area('window_softbox',(1.35,.9,2.2),(-.975,0,1),168,(1,.83,.60),2.2)
 area('ceiling_fill',(-.975,-.5,3.10),(-.975,.5,0),25,(1,.83,.60),3.5)
 area('reference_fill',(-.7,1.2,1.5),(-.7,2.7,1.5),27,(.65,.40,.24),2.2)
+area('bounce_fill',(-1.65,-1.8,1.65),(-.85,1.2,1.5),40,(.8,.76,.70),3)
 cam=bpy.data.cameras.new('DREAM_Camera');co=bpy.data.objects.new('DREAM_Camera',cam);scene.collection.objects.link(co);scene.camera=co
 co.location=(-1.5,-2.0,1.4);target=co.location+Vector((math.cos(1.29)*math.cos(-.21),math.sin(1.29)*math.cos(-.21),math.sin(-.21)))*4
 co.rotation_euler=(target-co.location).to_track_quat('-Z','Y').to_euler();cam.sensor_fit='VERTICAL';cam.sensor_height=24;cam.lens=24/(2*.7);cam.clip_end=250
 scene['dream_reference']='video-35, 11 seconds'
-scene['dream_stage']='blockout' if BLOCKOUT else 'reference-finish-v4'
+scene['dream_stage']='blockout' if BLOCKOUT else 'reference-finish-v5'
 scene['dream_asset']='pastel_room'
 if BLOCKOUT:
     grey=material('blockout','C2C2C2',.7)

@@ -2,8 +2,8 @@
   "schema": "dream.visual_fidelity_review.v1",
   "accepted": false,
   "language": "es",
-  "baseline_commit": "f995504",
-  "scope": "Revision visual actual de la habitacion pastel Blender/OpenGL frente al fotograma video-35/11s y ambos baselines f995504, mas reinspeccion del atrio OpenGL estable frente a video-52/05s. El objetivo actual no exige reproducir integramente los cuatro videos; esta revision no evalua jugabilidad, movimiento ni rendimiento.",
+  "baseline_commit": "41cc001",
+  "scope": "Comparacion visual final de esta iteracion: habitacion Blender y OpenGL frente a video-35/11s y baselines 41cc001; atrio OpenGL actual frente a video-52/05s. El alcance es reproducir la estetica, luz y materiales de la habitacion y abordar agua, vegetacion y atrio. No exige igualdad pixel a pixel, reproducir todos los planos de los cuatro videos ni reconstruir toda su geografia.",
   "artifacts": {
     "room_reference": {
       "path": "dream/referencias/estetica/evidencias/video-35/11s.png",
@@ -16,21 +16,28 @@
       "path": "dream/validation/room-opengl.png",
       "width_px": 540,
       "height_px": 960,
-      "sha256": "5a93845f7e04e1425e943b494f17cea98bd147f3fef1556706928cf59ff4e85b",
+      "sha256": "f9bae316f322e3007967944bdb5d8387863aa82dd97909b658a2d9f5cd68734a",
       "visually_inspected_this_review": true
     },
     "room_blender": {
       "path": "dream/validation/room-blender.png",
       "width_px": 720,
       "height_px": 1280,
-      "sha256": "b9c39fca3b54f0c1b245771c52e186d4d9f91ee0f3044afd1d98b3790b154638",
+      "sha256": "184613575a0c406c4352f20550083e3d7dfbdbb2b7d02da68471a459340a2a9b",
       "visually_inspected_this_review": true
     },
     "room_baseline": {
-      "path": "dream/validation/room-baseline-f995504.png",
-      "width_px": 360,
-      "height_px": 640,
-      "sha256": "5dfb543024e874433863e5596d8b0b920e717422ee1822d386f3703c5b10eb6d",
+      "path": "dream/validation/room-baseline-41cc001.png",
+      "width_px": 540,
+      "height_px": 960,
+      "sha256": "5a93845f7e04e1425e943b494f17cea98bd147f3fef1556706928cf59ff4e85b",
+      "visually_inspected_this_review": true
+    },
+    "room_blender_baseline": {
+      "path": "dream/validation/room-blender-baseline-41cc001.png",
+      "width_px": 720,
+      "height_px": 1280,
+      "sha256": "b9c39fca3b54f0c1b245771c52e186d4d9f91ee0f3044afd1d98b3790b154638",
       "visually_inspected_this_review": true
     },
     "atrium_reference": {
@@ -38,191 +45,117 @@
       "width_px": 478,
       "height_px": 850,
       "sha256": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70",
-      "visually_inspected_this_review": true,
-      "prior_review_sha256": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70"
+      "visually_inspected_this_review": true
     },
     "atrium_opengl": {
       "path": "dream/validation/atrium-opengl.png",
       "width_px": 960,
       "height_px": 720,
-      "sha256": "b1f85087cd5cb24d7480da3d2e756a599d5b8b4f992a5b9e1a8a989c26a39c2b",
-      "visually_inspected_this_review": true,
-      "prior_review_sha256": "0f73ab7fe7e63017a1ded196f35b7a2807a95010edeeea4bfa74242c4fd750f0"
-    },
-    "atrium_baseline": {
-      "path": "dream/validation/atrium-baseline-83b6bd9.png",
-      "width_px": 960,
-      "height_px": 720,
-      "sha256": "88a86a672a61a2a5b49320e1c1899b9d12bdd63e1a17d4e8277ad8023fa40fa5",
-      "visually_inspected_this_review": false,
-      "prior_review_sha256": "88a86a672a61a2a5b49320e1c1899b9d12bdd63e1a17d4e8277ad8023fa40fa5"
-    },
-    "room_blender_baseline": {
-      "path": "dream/validation/room-blender-baseline-f995504.png",
-      "width_px": 720,
-      "height_px": 1280,
-      "sha256": "b0cc57f3e46d8aa09184c44027fe003b16e5936a3c6235241643c0dd3c397037",
+      "sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
       "visually_inspected_this_review": true
-    },
-    "room_earlier_baseline": {
-      "path": "dream/validation/room-baseline-83b6bd9.png",
-      "width_px": 960,
-      "height_px": 720,
-      "sha256": "5e6e40446be849bb49b2226236ded5582a8c18f99c8178705d91061837aa4010",
-      "visually_inspected_this_review": false
     }
   },
   "method": {
-    "inspection": "Inspeccion visual directa de room-opengl.png, room-blender.png, referencia video-35/11s.png, room-baseline-f995504.png y room-blender-baseline-f995504.png. Hashes calculados sobre los archivos actuales. Se ha inspeccionado tambien el atrio OpenGL actual y su referencia tras confirmarse que la captura estaba estable.",
-    "room_comparability": "Referencia, renders actuales y baselines f995504 comparten aspecto vertical 9:16. Las resoluciones difieren y el encuadre no esta registrado pixel a pixel. Se comparan materiales, luz, patrones y disposicion de elementos visibles.",
-    "atrium_comparability": "Captura actual horizontal 4:3 frente a referencia vertical. Se comparan materiales, elementos y distribucion visible, sin porcentajes de similitud ni error pixel a pixel. El baseline 83b6bd9 y su evaluacion anterior se conservan como antecedentes; no se ha reinspeccionado Blender atrio.",
-    "quantitative_fidelity": "No se calculan porcentajes de similitud. Dimensiones y hashes son identificadores de evidencia; las comprobaciones tecnicas y los porcentajes de mascara del suelo no prueban parecido visual.",
-    "blender_atrium": "Fuera de esta revision; no se utiliza un render anterior de su cascada para juzgar el resultado global actual."
+    "inspection": "Inspeccion visual directa de los siete PNG identificados, despues de terminar Blender. Dimensiones y hashes actuales; sin porcentaje de similitud.",
+    "comparability": "Habitacion y referencia 9:16; resoluciones distintas. Atrio OpenGL 4:3 frente a referencia vertical. No se exige registro pixel a pixel.",
+    "functional_evidence": "Navegacion, assets, animacion y errores OpenGL validan funcionamiento, no parecido. No se volvieron a ejecutar para esta revision visual.",
+    "blender_atrium": "No evaluado en esta iteracion."
   },
   "room": {
     "accepted": false,
+    "aesthetic_direction_established": true,
     "evidenced_improvements": [
       {
-        "finding": "El suelo es ahora una superficie continua: desaparecen las juntas oscuras y bordes individuales que dividian las baldosas en ambos baselines. El damero se disuelve bajo los reflejos y se acerca al acabado encharcado de la referencia.",
+        "finding": "Marcos y puerta Blender mas crema y menos azulados; OpenGL mantiene la calidez. Mejor acercamiento al ambiente suave de la referencia.",
+        "evidence": [
+          "room_blender_baseline",
+          "room_baseline",
+          "room_blender",
+          "room_opengl",
+          "room_reference"
+        ]
+      },
+      {
+        "finding": "OpenGL muestra juntas continuas, sin los dientes oscuros del baseline.",
         "evidence": [
           "room_baseline",
-          "room_blender_baseline",
-          "room_opengl",
-          "room_blender",
-          "room_reference"
+          "room_opengl"
         ]
       },
       {
-        "finding": "Las manchas de color son grupos aislados con zonas neutras amplias. El foco central y los focos laterales ocupan posiciones mas cercanas a las manchas de la referencia que las grandes nubes multicolor dispersas de f995504.",
+        "finding": "Radiadores mas plateados y equilibrados: Blender pierde el azul oscuro y OpenGL el blanco excesivo del baseline.",
+        "evidence": [
+          "room_blender_baseline",
+          "room_baseline",
+          "room_blender",
+          "room_opengl"
+        ]
+      },
+      {
+        "finding": "Suelo sin el marco duplicado dominante; manchas coral/lima/cian con bordes suaves y amplias zonas neutras.",
         "evidence": [
           "room_baseline",
-          "room_blender_baseline",
           "room_opengl",
           "room_blender",
           "room_reference"
-        ]
-      },
-      {
-        "finding": "El cielo muestra varias capas de nubes por la puerta y una nube visible en la ventana. Los baselines concentraban una masa borrosa unica en la zona inferior de la puerta y dejaban la ventana casi uniforme.",
-        "evidence": [
-          "room_baseline",
-          "room_blender_baseline",
-          "room_opengl",
-          "room_blender",
-          "room_reference"
-        ]
-      },
-      {
-        "finding": "La reticula de azulejos y juntas resulta claramente legible en el render Blender actual; sustituye superficies que en su baseline se leian como paneles grandes y poco separados. Las proporciones nuevas de ventana y radiador se aproximan mejor a la distribucion del fotograma.",
-        "evidence": [
-          "room_blender_baseline",
-          "room_blender",
-          "room_opengl",
-          "room_reference"
-        ]
-      },
-      {
-        "finding": "El render Blender actual presenta menos grano aparente sobre las superficies grandes que su baseline, lo que permite juzgar mejor el color y las transiciones de luz.",
-        "evidence": [
-          "room_blender_baseline",
-          "room_blender"
         ]
       }
     ],
     "remaining_differences": [
       {
-        "priority": "high",
-        "area": "Respuesta de luz y coincidencia entre renderizadores",
-        "finding": "Blender mantiene marcos y ventana muy blancos y luminosos, puerta azulada y radiador oscuro/azul. OpenGL muestra marcos mas grises y radiador muy brillante. La referencia tiene marcos crema mas suaves, metal plateado y una iluminacion mas velada. Todavia no hay equivalencia de respuesta entre Blender y OpenGL.",
-        "next_action": "Calibrar marcos, metal y relleno ambiental en las mismas regiones de imagen, conservando el encuadre actual; ajustar materiales y luz antes de aplicar una correccion global de exposicion.",
+        "priority": "medium",
+        "area": "Distribucion de luz entre Blender, OpenGL y referencia",
+        "finding": "Blender concentra luz crema en ventana/umbral; OpenGL mantiene puerta y marcos mas planos/grises. La referencia tiene transiciones mas suaves y ambos renderizadores aun difieren.",
+        "next_action": "Afinar relleno y relacion de intensidad entre interior y aperturas; conservar marcos crema y geometria.",
         "evidence": [
           "room_reference",
-          "room_opengl",
-          "room_blender"
-        ]
-      },
-      {
-        "priority": "high",
-        "area": "Reflexion y color del suelo",
-        "finding": "El suelo OpenGL conserva un reflejo largo y bastante reconocible del marco de la puerta, aunque esta ondulado; Blender lo atenúa mucho mas. En la referencia hay deformacion y dispersion mas organicas, destellos cian y un parche central coral/lima mas intenso. Las manchas actuales estan mejor distribuidas, pero aun parecen tintes suaves y sus colores internos no igualan los focos de la referencia.",
-        "next_action": "Ajustar conjuntamente distorsion, suavizado e intensidad de reflejo y reforzar el foco coral/lima de manera localizada; evitar volver a cubrir todo el primer plano de color.",
-        "evidence": [
-          "room_reference",
-          "room_opengl",
-          "room_blender"
+          "room_blender",
+          "room_opengl"
         ]
       },
       {
         "priority": "medium",
-        "area": "Continuidad de las juntas en OpenGL",
-        "finding": "Las juntas claras de Blender ya se leen continuas. En OpenGL persisten pequenos segmentos grises/marrones o interrupciones en uniones, especialmente en la pared derecha; la referencia presenta una reticula clara mas uniforme.",
-        "next_action": "Comprobar caras y normales de azulejos/juntas junto con el filtrado en la resolucion de juego, usando Blender como control de continuidad sin oscurecer el albedo.",
+        "area": "Caracter del metal",
+        "finding": "El metal ya es plateado, pero sus franjas son mas uniformes y menos contrastadas que el cromo de referencia.",
+        "next_action": "Ajustar contraste/direccion del reflejo interior metalico; conservar normales y energia actuales.",
         "evidence": [
           "room_reference",
-          "room_opengl",
-          "room_blender"
+          "room_blender",
+          "room_opengl"
         ]
       },
       {
         "priority": "medium",
-        "area": "Detalle y naturalidad de la referencia",
-        "finding": "Las cortinas siguen mas rectas y geometricas y su trama mas contrastada; el radiador conserva un patron de reflejos muy regular. Las nubes actuales aportan mas capas, pero su distribucion y volumen no coinciden exactamente con las masas de la referencia.",
-        "next_action": "Ajustar pliegues y caida de cortinas, acabado del radiador y posicion/suavidad de las masas de nubes sin cambiar los elementos principales ya reconocibles.",
+        "area": "Acabado humedo e interferencia del suelo",
+        "finding": "El suelo ya comunica humedad, pero sus reflejos siguen mas difusos/regulares y el color central menos integrado con destellos organicos que en la referencia.",
+        "next_action": "Afinar brillo/reflejo local del acabado; no recuperar el espejo global dominante ni extender las manchas.",
         "evidence": [
           "room_reference",
-          "room_opengl",
-          "room_blender"
+          "room_blender",
+          "room_opengl"
         ]
       }
     ],
-    "verdict": "Hay una mejora concreta respecto a f995504 en continuidad del suelo, localizacion del color, cielo y lectura de azulejos. La habitacion es reconocible y esta mas cerca de la referencia, pero la luz y los materiales aun difieren de forma visible; accepted=false para el requisito de igualar el acabado."
+    "regressions_requiring_revert": [],
+    "verdict": "Progreso claro frente a 41cc001 y direccion estetica establecida. No hay regresion que justifique revertir. accepted=false para afirmar que luz/materiales ya estan igualados: quedan las tres diferencias concretas indicadas, sin exigir identidad pixel a pixel."
   },
   "atrium": {
     "accepted": false,
     "evidenced_improvements": [
       {
-        "finding": "El primer plano deja de estar bloqueado por varias macetas grandes; se lee mejor el recorrido y su relacion con el agua.",
-        "evidence": [
-          "atrium_baseline",
-          "atrium_opengl"
-        ]
-      },
-      {
-        "finding": "Aumenta la presencia de vegetacion colgante entre plantas superiores y columnas, acercandose al papel de la vegetacion en la referencia.",
-        "evidence": [
-          "atrium_baseline",
-          "atrium_opengl",
-          "atrium_reference"
-        ]
-      },
-      {
-        "finding": "Aparece una cascada vertical visible que conecta la altura del atrio con el agua, elemento presente en la referencia. Una imagen fija no prueba su animacion.",
-        "evidence": [
-          "atrium_baseline",
-          "atrium_opengl",
-          "atrium_reference"
-        ]
-      },
-      {
-        "finding": "Se conserva un conjunto reconocible de estructura blanca curva, agua azul, acentos lima, columnas informativas y esferas suspendidas.",
+        "finding": "La captura actual muestra estanque y canal, cascada, vegetacion/lianas, galerias curvas, acentos lima y esferas: el atrio esta abordado. Una imagen fija no prueba su animacion.",
         "evidence": [
           "atrium_opengl",
           "atrium_reference"
-        ]
-      },
-      {
-        "finding": "La captura estable actual muestra un canal conectado al estanque por el lado izquierdo, vegetacion colgante y varias nubes pequenas detras del cerramiento. Estos elementos se reconocen directamente en el render actual.",
-        "evidence": [
-          "atrium_opengl"
         ]
       }
     ],
     "remaining_differences": [
       {
-        "priority": "high",
-        "area": "Luz, agua y vidrio",
-        "finding": "Frente a la referencia, el atrio actual mantiene iluminacion mas uniforme y superficies gris/blancas, agua azul especular con poca variacion luminosa y vidrio de lectura debil. La referencia concentra luz solar, causticas claras, cian y reflejos mas ricos.",
-        "next_action": "Calibrar la relacion entre luz solar, ambiente, transparencia y reflejo del agua; conservar los canales y materiales existentes.",
+        "priority": "medium",
+        "area": "Luz y riqueza optica",
+        "finding": "El atrio OpenGL conserva una luz mas uniforme y materiales menos ricos que la referencia: vidrio de lectura debil, agua azul relativamente uniforme y causticas poco perceptibles frente al agua cian luminosa de la imagen suministrada.",
+        "next_action": "Mejorar la relacion entre luz solar, ambiente, vidrio y reflejo/causticas del agua, conservando la estructura y el recorrido ya abordados.",
         "evidence": [
           "atrium_opengl",
           "atrium_reference"
@@ -230,59 +163,28 @@
       },
       {
         "priority": "medium",
-        "area": "Cascada y detalle de agua",
-        "finding": "La cascada actual es reconocible y transparente, pero sus hebras rectas y regularmente espaciadas se leen como una cortina de lineas. La referencia presenta un flujo mas irregular y un contacto mas disperso con el agua.",
-        "next_action": "Variar grosor y ruptura de hebras y suavizar la union con el estanque. La imagen fija no verifica movimiento.",
-        "evidence": [
-          "atrium_opengl",
-          "atrium_reference"
-        ]
-      },
-      {
-        "priority": "medium",
-        "area": "Disposicion y profundidad exterior",
-        "finding": "Ya hay un canal lateral conectado al estanque. Aun domina un estanque circular compacto y suelo abierto al frente, mientras la referencia articula un paseo y canales curvos con ciudad visible detras. El contexto exterior actual sigue simplificado.",
-        "next_action": "Si se busca un parecido espacial mayor, ajustar hitos del recorrido y lectura de siluetas exteriores; no atribuir toda la diferencia al aspecto horizontal frente al vertical.",
-        "evidence": [
-          "atrium_opengl",
-          "atrium_reference"
-        ]
-      },
-      {
-        "priority": "medium",
-        "area": "Vegetacion, globos y calidad de imagen",
-        "finding": "La vegetacion es mas variada que el primer prototipo, pero las hojas y esferas siguen simplificadas. Textos y algunos reflejos/aristas muestran fragmentacion visible. La referencia tiene mayor riqueza de detalle y superficies especulares mas definidas.",
-        "next_action": "Mejorar filtrado/antialiasing y variacion material de hojas y esferas dentro del presupuesto de rendimiento; estos detalles no convierten los otros videos completos en requisitos del objetivo actual.",
+        "area": "Cascada, follaje y esferas",
+        "finding": "La cascada sigue leyendose como hebras regularmente espaciadas y las hojas/esferas son mas simplificadas que en la referencia. Son diferencias de acabado y variedad visual, no ausencia de esos elementos.",
+        "next_action": "Refinar variacion de hebras y respuesta material de hojas/esferas dentro del presupuesto del visor; no ampliar esta tarea a reproducir otros videos completos.",
         "evidence": [
           "atrium_opengl",
           "atrium_reference"
         ]
       }
     ],
-    "verdict": "El atrio actual contiene agua, vegetacion, canal, cascada y arquitectura reconocible. La reinspeccion confirma que su acabado visual todavia difiere de la referencia; este juicio no exige implementar escenas adicionales de los otros videos.",
+    "verdict": "Elementos solicitados presentes. El acabado sigue mas simple que la referencia; accepted=false describe parecido visual, no falta de implementacion ni bloqueo.",
     "review_status": "current_opengl_reinspected; blender_atrium_not_reviewed",
-    "prior_review_artifacts": {
-      "atrium_reference": {
-        "path": "dream/referencias/estetica/evidencias/video-52/05s.png",
-        "width_px": 478,
-        "height_px": 850,
-        "sha256": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70"
-      },
-      "atrium_opengl": {
-        "path": "dream/validation/atrium-opengl.png",
-        "width_px": 960,
-        "height_px": 720,
-        "sha256": "0f73ab7fe7e63017a1ded196f35b7a2807a95010edeeea4bfa74242c4fd750f0"
-      },
-      "atrium_baseline": {
-        "path": "dream/validation/atrium-baseline-83b6bd9.png",
-        "width_px": 960,
-        "height_px": 720,
-        "sha256": "88a86a672a61a2a5b49320e1c1899b9d12bdd63e1a17d4e8277ad8023fa40fa5"
-      }
-    },
-    "current_capture_hash_matches_prior_review": false
+    "requested_elements_present": [
+      "arquitectura curva",
+      "agua y canal conectado",
+      "vegetacion y lianas",
+      "cascada",
+      "columnas informativas",
+      "esferas suspendidas"
+    ]
   },
-  "overall_verdict": "La iteracion mejora la habitacion frente a f995504 sin ampliar el alcance a reconstruir los cuatro videos completos. Persisten diferencias visibles de luz, reflexion y materiales suficientes para mantener accepted=false. El atrio OpenGL estable tambien fue reinspeccionado y sigue siendo una aproximacion visual; Blender atrio no se juzga en esta revision.",
-  "reviewed_at_utc": "2026-10-09T01:45:37.060941+00:00"
+  "overall_verdict": "Avance concreto frente a 41cc001, sin bloqueo. Habitacion reconocible y atrio abordado; persisten diferencias especificas de luz/materiales. No se sustituye parecido visual por pruebas funcionales ni se amplia el alcance a los cuatro videos completos.",
+  "reviewed_at_utc": "2026-10-09T02:36:01.794031+00:00",
+  "iteration_classification": "progress",
+  "blocked": false
 }
