@@ -72,7 +72,7 @@ pink=material('pink_glaze','DCA3B7',.32,0,3)
 mint=material('mint_glaze','9AC3BA',.32,0,3)
 ivory=material('ivory_paint','D6CCBB',.48)
 grout=material('grout','E1DFD3',.8)
-chrome=material('chrome','E6E8E7',.26,1)
+chrome=material('chrome','C4C8C9',.18,1)
 gold=material('door_handle','C8AA65',.25,1)
 floorfinish=material('floor_finish','A8B1A8',.13,0,1,'floor_surface_albedo');floorfinish['albedo_variant']=2
 cloth=material('plaid','FFFFFF',.85,0,2,'curtain_plaid')
@@ -235,16 +235,37 @@ def area(label,loc,target,energy,color,size):
     data=bpy.data.lights.new('DREAM_'+label,'AREA');data.energy=energy;data.color=color;data.size=size;data.specular_factor=0
     obj=bpy.data.objects.new(data.name,data);scene.collection.objects.link(obj);obj.location=loc
     obj.rotation_euler=(Vector(target)-obj.location).to_track_quat('-Z','Y').to_euler()
-area('door_softbox',(-1.1,3.6,2),(0,0,1),140,(1,.83,.60),3)
-area('window_softbox',(1.35,.9,2.2),(-.975,0,1),168,(1,.83,.60),2.2)
+    return obj
+area('door_softbox',(-1.1,3.6,2),(0,0,1),105,(1,.83,.60),3)
+area('window_softbox',(1.35,.9,2.2),(-.975,0,1),121,(1,.83,.60),2.2)
 area('ceiling_fill',(-.975,-.5,3.10),(-.975,.5,0),25,(1,.83,.60),3.5)
-area('reference_fill',(-.7,1.2,1.5),(-.7,2.7,1.5),27,(.65,.40,.24),2.2)
+reference_fill=area('reference_fill',(-.7,1.2,1.5),(-.7,2.7,1.5),27,(.70,.48,.39),2.2)
 area('bounce_fill',(-1.65,-1.8,1.65),(-.85,1.2,1.5),40,(.8,.76,.70),3)
+# Art-directed indirect returns. Receiver links keep the sky fill on the
+# front mint wall and the bright floor's specular return on the radiator.
+def link_receivers(light,label,receivers):
+    collection=bpy.data.collections.get(label) or bpy.data.collections.new(label)
+    for obj in receivers:
+        if obj.name not in collection.objects:collection.objects.link(obj)
+    light.light_linking.receiver_collection=collection
+soft_receivers=[o for o in scene.objects if o.type=='MESH' and (o.active_material==ivory or o.name.startswith('GEO-DREAM-right_'))]
+link_receivers(reference_fill,'DREAM_reference_full_receivers',
+               [o for o in scene.objects if o.type=='MESH' and o not in soft_receivers])
+soft_fill=area('reference_soft_fill',(-.7,1.2,1.5),(-.7,2.7,1.5),13.5,(.70,.48,.39),2.2)
+link_receivers(soft_fill,'DREAM_reference_soft_receivers',soft_receivers)
+mint_fill=area('mint_sky_fill',(-1,.9,2.5),(-.8,2.7,2.4),24,(.70,.83,1),2.2)
+link_receivers(mint_fill,'DREAM_mint_sky_fill_receivers',
+               [o for o in scene.objects if o.name.startswith('GEO-DREAM-front_tile') and o.active_material==mint and o.location.z>2.05])
+chrome_return=area('chrome_strip',(-1.2,-.7,.05),(-1.2,-.7,1.05),12,(.90,.96,1),1)
+chrome_return.data.shape='RECTANGLE';chrome_return.data.size_y=3
+chrome_return.data.diffuse_factor=0;chrome_return.data.specular_factor=1
+link_receivers(chrome_return,'DREAM_chrome_strip_receivers',
+               [o for o in scene.objects if o.name.startswith('GEO-DREAM-radiator')])
 cam=bpy.data.cameras.new('DREAM_Camera');co=bpy.data.objects.new('DREAM_Camera',cam);scene.collection.objects.link(co);scene.camera=co
 co.location=(-1.5,-2.0,1.4);target=co.location+Vector((math.cos(1.29)*math.cos(-.21),math.sin(1.29)*math.cos(-.21),math.sin(-.21)))*4
 co.rotation_euler=(target-co.location).to_track_quat('-Z','Y').to_euler();cam.sensor_fit='VERTICAL';cam.sensor_height=24;cam.lens=24/(2*.7);cam.clip_end=250
 scene['dream_reference']='video-35, 11 seconds'
-scene['dream_stage']='blockout' if BLOCKOUT else 'reference-finish-v5'
+scene['dream_stage']='blockout' if BLOCKOUT else 'reference-finish-v6'
 scene['dream_asset']='pastel_room'
 if BLOCKOUT:
     grey=material('blockout','C2C2C2',.7)

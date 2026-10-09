@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "revision": "room-reference-finish-v6",
+  "baseline_revision": "f207845",
+  "generated_at": "2026-10-08T22:23:49.051506-05:00",
+  "status": "technical_checks_passed_visual_fidelity_in_progress",
+  "goal_complete": false,
+  "visual_match_accepted": false,
+  "blender_render": {
+    "scene": "DREAM_PastelRoom",
+    "blender_version": "5.2.1",
+    "engine": "EEVEE",
+    "samples": 256,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "objects_in_scene": 728,
+    "render_state": "complete",
+    "callback_registered": false,
+    "blend_saved": "blender/pastel_room.blend",
+    "image": "validation/room-blender.png",
+    "completion_evidence": "Root observed the completed render state, unregistered callback, scene information and saved filepath through Blender MCP before delegating this report. This agent inspected the saved files and their hashes.",
+    "viewport_scope": "The MCP viewport screenshot showed exterior editor geometry; final visual quality was reviewed in the saved renders, not inferred from that viewport."
+  },
+  "opengl_final_capture": {
+    "image": "validation/room-opengl.png",
+    "scene": "pastel_room",
+    "frames": 8,
+    "dimensions": [
+      540,
+      960
+    ],
+    "elapsed_seconds": 0.59965,
+    "gl_error": 0,
+    "opaque_msaa_samples": 4,
+    "gpu": "Intel(R) HD Graphics 630",
+    "opengl": "3.3.0 - Build 31.0.101.2141",
+    "camera": [
+      -1.5,
+      -2.0,
+      1.4,
+      1.29,
+      -0.21
+    ],
+    "completion_evidence": "Successful final process result supplied by root; current saved image and runtime inputs hashed in this report.",
+    "fullscreen_fps_claim": false
+  },
+  "smoke": {
+    "result": "PASS",
+    "log": "validation/room-walk-v6.log",
+    "session_id": 89151,
+    "exit_code": 0,
+    "frames": 720,
+    "elapsed_seconds": 27.7046,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "resize_exercised": [
+      [
+        640,
+        480
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "scene_cycle": [
+      "pastel_room",
+      "atrium",
+      "pastel_room"
+    ],
+    "mouse_orientation": "PASS",
+    "gl_error": 0,
+    "opaque_msaa_samples": 4,
+    "final_camera": [
+      -2.15,
+      -0.978829,
+      1.4
+    ],
+    "final_yaw": 4.49,
+    "verification": "The saved log was read and confirms the mouse check, GPU, sample count, complete scene cycle, frame count and GL error status. Root confirmed process exit 0.",
+    "fullscreen_fps_claim": false
+  },
+  "checks": {
+    "python_syntax": {
+      "result": "PASS",
+      "files": 15,
+      "method": "ast.parse of every current .py file in dream/blender and dream/validation; no bytecode writes"
+    },
+    "cpp_syntax": {
+      "result": "PASS",
+      "warnings": 0,
+      "compiler": "MinGW-w64 GCC 13.2",
+      "flags": "-std=c++17 -O2 -Wall -Wextra -fsyntax-only",
+      "scope": "Final main.cpp and included headers; this check did not relink the executable."
+    },
+    "diff_whitespace": {
+      "result": "PASS",
+      "command": "git diff --check -- dream",
+      "note": "Git reported CRLF normalization notices for two JSON files; no whitespace errors."
+    },
+    "room_assets": {
+      "result": "PASS",
+      "materials": 9,
+      "vertices": 20688,
+      "triangles": 6896,
+      "glb_bytes": 1761612,
+      "transparent_draws": 0,
+      "embedded_glb_images": 5
+    },
+    "atrium_assets": {
+      "result": "PASS",
+      "materials": 16,
+      "vertices": 537522,
+      "triangles": 179174,
+      "glb_bytes": 6982972,
+      "transparent_draws": 45,
+      "waterfall_draws": 1,
+      "navigation_verified": true,
+      "water_vertices_covered": 72960,
+      "embedded_glb_images": 2
+    },
+    "probe": {
+      "result": "PASS",
+      "png_bmp_pixel_parity": true,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "face_count": 6,
+      "asset_manifest_status": "complete",
+      "face_manifest_status": "complete",
+      "asset_manifest_png_sha256_matches": true,
+      "scope": "Static LDR probe and metadata; not a GI or dynamic-reflection correctness proof."
+    },
+    "floor_maps": {
+      "result": "PASS",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixel_parity": [
+        "floor_surface_albedo",
+        "floor_flow",
+        "floor_normal"
+      ],
+      "normal_flow_rg_identical": true
+    },
+    "alternative_views": "validation/room-views-v6.json"
+  },
+  "implementation_notes": [
+    "The painted-door return is spatial and material-scoped; ceramic palette is unchanged by that block.",
+    "floorSpecularReturn uses a continuous rectangular coverage from a difference of smoothstep transitions, so its coverage falls toward zero for a large footprint.",
+    "The floor return complements a static LDR room probe as an artistic approximation; it is not a general physically based area-light solver."
+  ],
+  "limitations": [
+    "Technical checks and asset integrity do not certify visual equality to the reference.",
+    "Hidden OpenGL elapsed times, including runs concurrent with Blender, are not fullscreen FPS guarantees.",
+    "Two alternative still views do not verify temporal stability, all grazing angles or exhaustive manual play.",
+    "The room-light-v6-A/B/C captures are historical intermediate lighting comparisons, not the final integrated material output.",
+    "The broader navigation and animation tests recorded in status.json are retained from the earlier revision; this closure reran export consistency and current render integration, not those full suites.",
+    "fidelity-review.json is maintained by the separate visual audit and is not hashed here while that audit is being updated."
+  ],
+  "artifacts": [
+    {
+      "path": "blender/pastel_room.blend",
+      "bytes": 3599841,
+      "sha256": "0dde3680c16bf296cc57c2db883bb2cbfa489af47864baf7028e7fc597b8c599"
+    },
+    {
+      "path": "blender/build_room.py",
+      "bytes": 16089,
+      "sha256": "d20c26bdad561a2bab678cbd3079385d490ff4589ea1b727554f115bb49eada3"
+    },
+    {
+      "path": "blender/bake_room_probe.py",
+      "bytes": 4448,
+      "sha256": "8b2f6e8d7ca4f8a6e207a85a822d2c6b1662497c8d2e22e3dbf10b9e63afabd7"
+    },
+    {
+      "path": "blender/pack_room_probe.py",
+      "bytes": 1952,
+      "sha256": "bddccf32063697b9eb5a9904953aa3d52a4862dcdcc2fd1467649b1ddf6b87d1"
+    },
+    {
+      "path": "blender/export_runtime.py",
+      "bytes": 5433,
+      "sha256": "e42354a1735c5c146ada943b190d31e6e8c26c5bf3128b188584acd29d4c3ad1"
+    },
+    {
+      "path": "blender/make_room_finishes.py",
+      "bytes": 15020,
+      "sha256": "004b81aeba9b8b9d3e356a442915a7ef8b71aa3d59e841348eee6350a37f981f"
+    },
+    {
+      "path": "blender/make_floor_ripple_v6.py",
+      "bytes": 10770,
+      "sha256": "1d01196552ade150a4e3543d9cf25c82e8e074bfc780d268bff069c03fbd6a3c"
+    },
+    {
+      "path": "blender/floor_ripple.py",
+      "bytes": 4361,
+      "sha256": "20512d55518caf8b4e5e73feea2034b226dc9cb3e82240485677fadfa1cdbfd2"
+    },
+    {
+      "path": "runtime/src/main.cpp",
+      "bytes": 12597,
+      "sha256": "f62ffa9813bd0d2917a1718255770fc89d21de7e9b5d5f11001cfd686265df10"
+    },
+    {
+      "path": "runtime/src/render_support.hpp",
+      "bytes": 9052,
+      "sha256": "ab71f75e4f4ca9f850b8c96427c16044b4ec7ea6c0ec050bf2f850a24520aa96"
+    },
+    {
+      "path": "runtime/src/gl_api.hpp",
+      "bytes": 2289,
+      "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5"
+    },
+    {
+      "path": "runtime/shaders/scene.frag",
+      "bytes": 9689,
+      "sha256": "c7f968aa24a50ac3b57b83f6fe07a83926cd265d6afd5e7f0af1251bc0a8785a"
+    },
+    {
+      "path": "runtime/shaders/scene.vert",
+      "bytes": 1082,
+      "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e"
+    },
+    {
+      "path": "runtime/shaders/present.frag",
+      "bytes": 1225,
+      "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf"
+    },
+    {
+      "path": "runtime/build/dream.exe",
+      "bytes": 3270323,
+      "sha256": "fa4a17c461f6a8ee400c9cbe7552faf4540b2265db3e0660d63a525f07aecc77"
+    },
+    {
+      "path": "assets/pastel_room.dreammesh",
+      "bytes": 827824,
+      "sha256": "076cfbd2098849e593b89a780785ae6c5eecf20877d525c24f9efa0b21c328f6"
+    },
+    {
+      "path": "assets/pastel_room.glb",
+      "bytes": 1761612,
+      "sha256": "f7b685f51f0e859aaa8be45b5e774d01e85f90b7fbe2e25d9809d332b16f2bc6"
+    },
+    {
+      "path": "assets/pastel_room.json",
+      "bytes": 174593,
+      "sha256": "da2fdada5564bc24c6adc849ccc02f8be1fcddd2d85bd01c6e91d697d113d294"
+    },
+    {
+      "path": "assets/pastel_room.scene",
+      "bytes": 207,
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b"
+    },
+    {
+      "path": "assets/textures/room_probe.png",
+      "bytes": 441866,
+      "sha256": "f33450780b88a0898c9e5fb4603f47175166942993da459c887c5264628f69dc",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    {
+      "path": "assets/textures/room_probe.bmp",
+      "bytes": 1572918,
+      "sha256": "8bd0f7c8d1f9b002f295a03582a32752fb03d13f4633d9fd1d794322ed593fbe"
+    },
+    {
+      "path": "assets/textures/room_probe.json",
+      "bytes": 2603,
+      "sha256": "144cabc814d37a781b8c04b232c98710327a3a7b6abbd6cd3a08ce324f8f961d"
+    },
+    {
+      "path": "assets/textures/floor_surface_albedo.png",
+      "bytes": 241889,
+      "sha256": "f5466f8cebdcd8bfea8e458d56480c8236fed35d4914fac865d991ffea06e80c",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/textures/floor_surface_albedo.bmp",
+      "bytes": 4718646,
+      "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4"
+    },
+    {
+      "path": "assets/textures/floor_flow.png",
+      "bytes": 542533,
+      "sha256": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/textures/floor_flow.bmp",
+      "bytes": 4718646,
+      "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098"
+    },
+    {
+      "path": "assets/textures/floor_normal.png",
+      "bytes": 516430,
+      "sha256": "45115549bef0b5295e583a581f5a5f5a43bab99cc179e4b0521a11e374d96302",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/textures/floor_normal.bmp",
+      "bytes": 4718646,
+      "sha256": "62abefaeb891e210c36a46de2ecf8febddb2aa3a59b2e5d90f273e96fdff7b12"
+    },
+    {
+      "path": "validation/room-probe-faces/manifest.json",
+      "bytes": 2235,
+      "sha256": "0a5f9df0c4bdd3e80e0f5dbbcaf8797a9af2d07be6cb04321f7b5f9cb964ac68"
+    },
+    {
+      "path": "validation/room-blender.png",
+      "bytes": 1184995,
+      "sha256": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
+      "dimensions": [
+        720,
+        1280
+      ]
+    },
+    {
+      "path": "validation/room-opengl.png",
+      "bytes": 340766,
+      "sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
+      "dimensions": [
+        540,
+        960
+      ]
+    },
+    {
+      "path": "validation/room-comparison.png",
+      "bytes": 627996,
+      "sha256": "3b3625bbd95d25a76d06bd40bae666649407fb8c454163a5f648a87e7307abd6",
+      "dimensions": [
+        1080,
+        676
+      ]
+    },
+    {
+      "path": "validation/room-look-after-v6.json",
+      "bytes": 5868,
+      "sha256": "b35701a38f7ea44265bac0503c7a41a959dd57e646eff29a1a05764baf2e3b60"
+    },
+    {
+      "path": "validation/room-view-radiator-v6.png",
+      "bytes": 398027,
+      "sha256": "14ca35f4ffb254d37f6d453ce1118c37e408c51a5cd69c39c95265b4c3e3b593",
+      "dimensions": [
+        960,
+        720
+      ]
+    },
+    {
+      "path": "validation/room-view-right-v6.png",
+      "bytes": 389589,
+      "sha256": "b2df52699fcd934cfde9552007beb188e5437ddfe5a4ac94efe872d84aef9bb3",
+      "dimensions": [
+        960,
+        720
+      ]
+    },
+    {
+      "path": "validation/room-views-v6.json",
+      "bytes": 2847,
+      "sha256": "ae93d2ab4130f7dadb169b0d6bcf6a82a6d6b10d2e295ef3babe50de09517da4"
+    },
+    {
+      "path": "validation/room-walk-v6.log",
+      "bytes": 394,
+      "sha256": "49d23f23d0837770169ae53c1ca433264e1dcdb54696d005a5eed452e1525cbe"
+    },
+    {
+      "path": "validation/room-walk-v6.ppm",
+      "bytes": 2764816,
+      "sha256": "27920b53dfed911512763ea09535024d417ba655f7d98e5d6df5d6fb9f1b35a4"
+    },
+    {
+      "path": "validation/floor-v6-validation.json",
+      "bytes": 4473,
+      "sha256": "f6b3c5053170aa72f3340d6ad826612903095becf2f18b3a25fad71ad5562860"
+    }
+  ]
+}

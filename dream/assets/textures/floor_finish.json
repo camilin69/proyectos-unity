@@ -1,9 +1,9 @@
 {
-  "source": "authored isolated interference pools, continuous slab v5 softened iridescence",
+  "source": "continuous slab v6 organic ripples with calibrated rose/mint substrate and v5 softened iridescence",
   "output_role": "active",
   "base_colors_srgb": {
-    "pink": "AAA3AF",
-    "mint": "93AAA3"
+    "pink": "BEA2AB",
+    "mint": "93B3A3"
   },
   "color_space": "albedo sRGB; flow and normal linear",
   "blend": "linear-light RGB",
@@ -26,10 +26,53 @@
   "joint_style": "soft refracted colour transition, no dark grout",
   "primary_albedo": "floor_surface_albedo.png",
   "seed": 1431,
+  "ripple_parameters": {
+    "generator": "floor_ripple.generate_floor_ripple/v6",
+    "seed": 680613,
+    "world_extent_m": [
+      2.85,
+      5.4
+    ],
+    "shape": [
+      1024,
+      1536
+    ],
+    "basis": "periodic scalar-height Fourier bands; world-space cubic domain warp; analytic spectral derivatives",
+    "bands": [
+      {
+        "central_wavelength_m": 1.25,
+        "unscaled_height_sigma_m": 0.0022,
+        "spectral_width_octaves": 0.42
+      },
+      {
+        "central_wavelength_m": 0.38,
+        "unscaled_height_sigma_m": 0.00165,
+        "spectral_width_octaves": 0.42
+      },
+      {
+        "central_wavelength_m": 0.11,
+        "unscaled_height_sigma_m": 0.00024,
+        "spectral_width_octaves": 0.42
+      }
+    ],
+    "domain_warp_sigma_m": 0.075,
+    "middle_fine_amplitude_envelope": [
+      0.35,
+      1.7
+    ],
+    "height_global_gain": 1.0431435198506895,
+    "target_slope_rms": 0.045,
+    "normal_encoding": "linear RGB; R=+world X / +U, G=+world Y / +V; PNG top is +Y; normalized Z positive",
+    "continuity": "Periodic height and derivatives, duplicated first/last texels in both dimensions. Apply once over the whole slab UV; not per checker tile.",
+    "height_min_m": -0.014681925461698478,
+    "height_max_m": 0.011373485109231652,
+    "height_sigma_m": 0.002964121190424068
+  },
+  "roughness_policy": "Existing constant material roughness retained; experimental roughness map is not integrated.",
   "neutral_absorption_linear": [
-    1.04,
-    0.98,
-    0.77
+    1.0,
+    1.0,
+    1.0
   ],
   "hero_palette_srgb": {
     "coral": [
@@ -48,7 +91,7 @@
       230
     ]
   },
-  "hero_color_policy": "Stronger separated hues only inside the original main pool footprint; other pools and neutral tile colors retained.",
+  "hero_color_policy": "Original pool footprint and film palette retained; neutral checker calibrated against rose/mint floor samples.",
   "placement": {
     "method": "reference image coordinates raycast onto the current camera floor plane",
     "camera": [
@@ -154,8 +197,9 @@
     "projected_floor_neutral_fraction": 0.8993634991227712,
     "projected_floor_strong_fraction": 0.026480068546248316,
     "projection_scope": "camera rays hitting the slab; excludes no occluding geometry",
-    "normal_xy_rms": 0.038620167214573176,
-    "normal_xy_p95": 0.05598688340245207
+    "normal_xy_rms": 0.04485164856591825,
+    "normal_xy_p95": 0.08618311685090377,
+    "normal_statistics_source": "analytic scalar-height field from floor_ripple.generate_floor_ripple/v6"
   },
   "limitation": "Artistic approximation with fixed albedo colors. Reflections respond to view angle; this is not a physical thin-film simulation."
 }

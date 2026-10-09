@@ -1,0 +1,2144 @@
+{
+  "schema": "dream.light_region_diagnostics.v1",
+  "language": "es",
+  "recorded_at_utc": "2026-10-09T02:56:12.006248+00:00",
+  "baseline_commit": "f207845",
+  "scope": "Diagnostico de regiones de luz en referencia, baselines f207845, borradores Blender A/B/C/D y capturas finales Blender/OpenGL v6; suelo OpenGL A/B y final. No es una puntuacion de parecido.",
+  "method": {
+    "coordinates": "Origen arriba-izquierda. Box normalizado [u0,v0,u1,v1]; conversion por round(coordenada*dimension), limite final exclusivo. Coordenadas pixel explicitas en cada muestra.",
+    "RGB": "Mediana por canal de pixeles sRGB, escala 0..255.",
+    "Y": "Se linealiza cada pixel sRGB con su EOTF y se calcula Y=0.2126R+0.7152G+0.0722B; se informa la mediana, escala 0..1. Es luminancia relativa de imagen procesada, no iluminancia fisica ni potencia de luces.",
+    "correspondence": "Las ROI de luz se seleccionaron por superficies equivalentes visibles y evitando bordes/juntas cuando fue posible. Camara, normales, tonemapping y albedo siguen influyendo: no todo desvio de Y se atribuye exclusivamente a energia luminica.",
+    "discarded_roi": "La antigua ROI [0.792,0.419,0.823,0.431] mezclaba menta y rosa en la referencia; se descarto. Se utiliza [0.803,0.431,0.817,0.437] para rosa bajo ventana.",
+    "floor": "Se emparejan baldosas por clase rosa/menta, no por coordenada identica entre referencia y escena. A/B usan exactamente las mismas ROI de imagen GL. Las muestras evitan las manchas fuertes; el raycast de A confirmo mascara de interferencia 0 en sus centros. Los valores de albedo/flow archivados corresponden a los hashes de A y no se actualizan silenciosamente al sobrescribirse las texturas compartidas.",
+    "draft_resolution": "C mide 540x960; A/B/D miden 360x640. Las mismas cajas normalizadas se redondean a pixels en cada imagen. Diferencias pequenas C/D pueden incluir muestreo y denoising, y no demuestran por si solas un cambio fisico de luz."
+  },
+  "artifacts": {
+    "reference": {
+      "path": "dream/referencias/estetica/evidencias/video-35/11s.png",
+      "width_px": 720,
+      "height_px": 1280,
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3"
+    },
+    "blender_baseline_f207845": {
+      "path": "dream/validation/room-blender-baseline-f207845.png",
+      "width_px": 720,
+      "height_px": 1280,
+      "sha256": "184613575a0c406c4352f20550083e3d7dfbdbb2b7d02da68471a459340a2a9b"
+    },
+    "opengl_baseline_f207845": {
+      "path": "dream/validation/room-baseline-f207845.png",
+      "width_px": 540,
+      "height_px": 960,
+      "sha256": "f9bae316f322e3007967944bdb5d8387863aa82dd97909b658a2d9f5cd68734a"
+    },
+    "blender_draft_a": {
+      "path": "dream/validation/room-lighting-v6-a.png",
+      "width_px": 360,
+      "height_px": 640,
+      "sha256": "67ade8f5d709c2cbb41c3a518e12f91f6b3a605e4512a53404f8631f41184540"
+    },
+    "blender_draft_b": {
+      "path": "dream/validation/room-lighting-v6-b.png",
+      "width_px": 360,
+      "height_px": 640,
+      "sha256": "b51e8fcc34579f3d09c6680a396c38ebda98de64912a3a495ef5cf89e7fc008b"
+    },
+    "opengl_floor_v6_a": {
+      "path": "dream/validation/room-floor-v6-a.png",
+      "width_px": 540,
+      "height_px": 960,
+      "sha256": "2dbe4308ba92059067dee98b29d999c319ef4f2b44d616c4252c4eb38a15a321"
+    },
+    "blender_draft_c": {
+      "path": "dream/validation/room-lighting-v6-c.png",
+      "width_px": 540,
+      "height_px": 960,
+      "sha256": "824e4f1fd1bf24c4cc9f204d644dda56f897f6763326cf190c26071710266e0a"
+    },
+    "blender_draft_d": {
+      "path": "dream/validation/room-lighting-v6-d.png",
+      "width_px": 360,
+      "height_px": 640,
+      "sha256": "d37f7fa356cef972d76de9c149b1483b40f82b82960db6f9ac015072d7242a26"
+    },
+    "opengl_floor_v6_b": {
+      "path": "dream/validation/room-floor-v6-b.png",
+      "width_px": 540,
+      "height_px": 960,
+      "sha256": "7b88976bb143a03ca936a08565be062bcf1879fdd5d0a2cfbf771d1d2bd85896"
+    },
+    "floor_v6_a_sampled_albedo": {
+      "path": "dream/assets/textures/floor_surface_albedo.png",
+      "width_px": 1024,
+      "height_px": 1536,
+      "sha256": "aaa0980a51f48c339e0c9c39526220779d7cb2fc67e051dd78bf94c06ae794ba",
+      "status": "Registro historico de los bytes muestreados para candidato A; la ruta compartida puede contener despues otra revision. El hash identifica la revision medida."
+    },
+    "floor_v6_a_sampled_flow": {
+      "path": "dream/assets/textures/floor_flow.png",
+      "width_px": 1024,
+      "height_px": 1536,
+      "sha256": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
+      "status": "Registro historico de los bytes muestreados para candidato A; la ruta compartida puede contener despues otra revision. El hash identifica la revision medida."
+    },
+    "blender_final_v6": {
+      "path": "dream/validation/room-blender.png",
+      "width_px": 720,
+      "height_px": 1280,
+      "sha256": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db"
+    },
+    "opengl_final_v6": {
+      "path": "dream/validation/room-opengl.png",
+      "width_px": 540,
+      "height_px": 960,
+      "sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068"
+    }
+  },
+  "light_regions": [
+    {
+      "id": "door_leaf",
+      "label": "Cara pintada de la hoja de puerta",
+      "images": {
+        "reference": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            27,
+            365,
+            40,
+            419
+          ],
+          "pixels": 702,
+          "median_srgb_0_255": [
+            170.0,
+            154.0,
+            156.0
+          ],
+          "median_linear_Y_0_1": 0.341194,
+          "median_rgb_luma_Yprime_0_255": 157.546,
+          "median_rgb_chroma_0_255": 16.0,
+          "median_rgb_HSV_saturation": 0.094118
+        },
+        "blender_baseline_f207845": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            27,
+            365,
+            40,
+            419
+          ],
+          "pixels": 702,
+          "median_srgb_0_255": [
+            157.0,
+            162.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.35852,
+          "median_rgb_luma_Yprime_0_255": 160.72,
+          "median_rgb_chroma_0_255": 5.0,
+          "median_rgb_HSV_saturation": 0.030864
+        },
+        "opengl_baseline_f207845": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            21,
+            274,
+            30,
+            314
+          ],
+          "pixels": 360,
+          "median_srgb_0_255": [
+            144.0,
+            132.0,
+            126.5
+          ],
+          "median_linear_Y_0_1": 0.239643,
+          "median_rgb_luma_Yprime_0_255": 134.154,
+          "median_rgb_chroma_0_255": 17.5,
+          "median_rgb_HSV_saturation": 0.121528
+        },
+        "blender_draft_a": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            14,
+            182,
+            20,
+            209
+          ],
+          "pixels": 162,
+          "median_srgb_0_255": [
+            162.0,
+            170.0,
+            174.0
+          ],
+          "median_linear_Y_0_1": 0.393381,
+          "median_rgb_luma_Yprime_0_255": 168.588,
+          "median_rgb_chroma_0_255": 12.0,
+          "median_rgb_HSV_saturation": 0.068966
+        },
+        "blender_draft_b": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            14,
+            182,
+            20,
+            209
+          ],
+          "pixels": 162,
+          "median_srgb_0_255": [
+            151.0,
+            157.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.330185,
+          "median_rgb_luma_Yprime_0_255": 155.869,
+          "median_rgb_chroma_0_255": 8.0,
+          "median_rgb_HSV_saturation": 0.050314
+        },
+        "blender_draft_c": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            21,
+            274,
+            30,
+            314
+          ],
+          "pixels": 360,
+          "median_srgb_0_255": [
+            150.0,
+            157.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.330786,
+          "median_rgb_luma_Yprime_0_255": 155.656,
+          "median_rgb_chroma_0_255": 9.0,
+          "median_rgb_HSV_saturation": 0.056604
+        },
+        "blender_draft_d": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            14,
+            182,
+            20,
+            209
+          ],
+          "pixels": 162,
+          "median_srgb_0_255": [
+            151.0,
+            157.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.333355,
+          "median_rgb_luma_Yprime_0_255": 155.869,
+          "median_rgb_chroma_0_255": 8.0,
+          "median_rgb_HSV_saturation": 0.050314
+        },
+        "blender_final_v6": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            27,
+            365,
+            40,
+            419
+          ],
+          "pixels": 702,
+          "median_srgb_0_255": [
+            149.0,
+            156.0,
+            158.0
+          ],
+          "median_linear_Y_0_1": 0.325415,
+          "median_rgb_luma_Yprime_0_255": 154.656,
+          "median_rgb_chroma_0_255": 9.0,
+          "median_rgb_HSV_saturation": 0.056962
+        },
+        "opengl_final_v6": {
+          "normalized_box_uv": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixel_box_xyxy_exclusive": [
+            21,
+            274,
+            30,
+            314
+          ],
+          "pixels": 360,
+          "median_srgb_0_255": [
+            174.0,
+            157.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.356858,
+          "median_rgb_luma_Yprime_0_255": 160.759,
+          "median_rgb_chroma_0_255": 17.0,
+          "median_rgb_HSV_saturation": 0.097701
+        }
+      },
+      "linear_Y_ratio_to_reference": {
+        "blender_baseline_f207845": 1.0508,
+        "opengl_baseline_f207845": 0.7024,
+        "blender_draft_a": 1.153,
+        "blender_draft_b": 0.9677,
+        "blender_draft_c": 0.9695,
+        "blender_draft_d": 0.977,
+        "blender_final_v6": 0.9538,
+        "opengl_final_v6": 1.0459
+      }
+    },
+    {
+      "id": "door_right_casing",
+      "label": "Jamba derecha de la puerta",
+      "images": {
+        "reference": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            338,
+            314,
+            347,
+            621
+          ],
+          "pixels": 2763,
+          "median_srgb_0_255": [
+            178.0,
+            165.0,
+            189.0
+          ],
+          "median_linear_Y_0_1": 0.400494,
+          "median_rgb_luma_Yprime_0_255": 169.497,
+          "median_rgb_chroma_0_255": 24.0,
+          "median_rgb_HSV_saturation": 0.126984
+        },
+        "blender_baseline_f207845": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            338,
+            314,
+            347,
+            621
+          ],
+          "pixels": 2763,
+          "median_srgb_0_255": [
+            215.0,
+            185.0,
+            163.0
+          ],
+          "median_linear_Y_0_1": 0.517893,
+          "median_rgb_luma_Yprime_0_255": 189.79,
+          "median_rgb_chroma_0_255": 52.0,
+          "median_rgb_HSV_saturation": 0.24186
+        },
+        "opengl_baseline_f207845": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            254,
+            235,
+            260,
+            466
+          ],
+          "pixels": 1386,
+          "median_srgb_0_255": [
+            184.0,
+            164.0,
+            160.0
+          ],
+          "median_linear_Y_0_1": 0.392793,
+          "median_rgb_luma_Yprime_0_255": 167.963,
+          "median_rgb_chroma_0_255": 24.0,
+          "median_rgb_HSV_saturation": 0.130435
+        },
+        "blender_draft_a": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            169,
+            157,
+            174,
+            310
+          ],
+          "pixels": 765,
+          "median_srgb_0_255": [
+            247.0,
+            235.0,
+            218.0
+          ],
+          "median_linear_Y_0_1": 0.842528,
+          "median_rgb_luma_Yprime_0_255": 236.324,
+          "median_rgb_chroma_0_255": 29.0,
+          "median_rgb_HSV_saturation": 0.117409
+        },
+        "blender_draft_b": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            169,
+            157,
+            174,
+            310
+          ],
+          "pixels": 765,
+          "median_srgb_0_255": [
+            210.0,
+            181.0,
+            160.0
+          ],
+          "median_linear_Y_0_1": 0.492875,
+          "median_rgb_luma_Yprime_0_255": 185.649,
+          "median_rgb_chroma_0_255": 50.0,
+          "median_rgb_HSV_saturation": 0.238095
+        },
+        "blender_draft_c": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            254,
+            235,
+            260,
+            466
+          ],
+          "pixels": 1386,
+          "median_srgb_0_255": [
+            214.0,
+            188.0,
+            172.0
+          ],
+          "median_linear_Y_0_1": 0.533921,
+          "median_rgb_luma_Yprime_0_255": 192.372,
+          "median_rgb_chroma_0_255": 42.0,
+          "median_rgb_HSV_saturation": 0.196262
+        },
+        "blender_draft_d": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            169,
+            157,
+            174,
+            310
+          ],
+          "pixels": 765,
+          "median_srgb_0_255": [
+            214.0,
+            188.0,
+            172.0
+          ],
+          "median_linear_Y_0_1": 0.532411,
+          "median_rgb_luma_Yprime_0_255": 192.372,
+          "median_rgb_chroma_0_255": 42.0,
+          "median_rgb_HSV_saturation": 0.196262
+        },
+        "blender_final_v6": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            338,
+            314,
+            347,
+            621
+          ],
+          "pixels": 2763,
+          "median_srgb_0_255": [
+            184.0,
+            166.0,
+            157.0
+          ],
+          "median_linear_Y_0_1": 0.400553,
+          "median_rgb_luma_Yprime_0_255": 169.177,
+          "median_rgb_chroma_0_255": 27.0,
+          "median_rgb_HSV_saturation": 0.146739
+        },
+        "opengl_final_v6": {
+          "normalized_box_uv": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixel_box_xyxy_exclusive": [
+            254,
+            235,
+            260,
+            466
+          ],
+          "pixels": 1386,
+          "median_srgb_0_255": [
+            185.0,
+            165.0,
+            161.0
+          ],
+          "median_linear_Y_0_1": 0.397978,
+          "median_rgb_luma_Yprime_0_255": 168.963,
+          "median_rgb_chroma_0_255": 24.0,
+          "median_rgb_HSV_saturation": 0.12973
+        }
+      },
+      "linear_Y_ratio_to_reference": {
+        "blender_baseline_f207845": 1.2931,
+        "opengl_baseline_f207845": 0.9808,
+        "blender_draft_a": 2.1037,
+        "blender_draft_b": 1.2307,
+        "blender_draft_c": 1.3332,
+        "blender_draft_d": 1.3294,
+        "blender_final_v6": 1.0001,
+        "opengl_final_v6": 0.9937
+      }
+    },
+    {
+      "id": "front_mint_upper",
+      "label": "Azulejo menta frontal alto",
+      "images": {
+        "reference": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            402,
+            218,
+            418,
+            230
+          ],
+          "pixels": 192,
+          "median_srgb_0_255": [
+            132.0,
+            169.5,
+            169.0
+          ],
+          "median_linear_Y_0_1": 0.367503,
+          "median_rgb_luma_Yprime_0_255": 161.491,
+          "median_rgb_chroma_0_255": 37.5,
+          "median_rgb_HSV_saturation": 0.221239
+        },
+        "blender_baseline_f207845": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            402,
+            218,
+            418,
+            230
+          ],
+          "pixels": 192,
+          "median_srgb_0_255": [
+            129.0,
+            153.0,
+            150.0
+          ],
+          "median_linear_Y_0_1": 0.296516,
+          "median_rgb_luma_Yprime_0_255": 147.681,
+          "median_rgb_chroma_0_255": 24.0,
+          "median_rgb_HSV_saturation": 0.156863
+        },
+        "opengl_baseline_f207845": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            301,
+            163,
+            313,
+            173
+          ],
+          "pixels": 120,
+          "median_srgb_0_255": [
+            164.0,
+            188.0,
+            192.0
+          ],
+          "median_linear_Y_0_1": 0.476647,
+          "median_rgb_luma_Yprime_0_255": 183.186,
+          "median_rgb_chroma_0_255": 28.0,
+          "median_rgb_HSV_saturation": 0.145833
+        },
+        "blender_draft_a": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            201,
+            109,
+            209,
+            115
+          ],
+          "pixels": 48,
+          "median_srgb_0_255": [
+            149.0,
+            189.0,
+            190.0
+          ],
+          "median_linear_Y_0_1": 0.465025,
+          "median_rgb_luma_Yprime_0_255": 180.568,
+          "median_rgb_chroma_0_255": 41.0,
+          "median_rgb_HSV_saturation": 0.215789
+        },
+        "blender_draft_b": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            201,
+            109,
+            209,
+            115
+          ],
+          "pixels": 48,
+          "median_srgb_0_255": [
+            126.0,
+            150.0,
+            149.0
+          ],
+          "median_linear_Y_0_1": 0.284182,
+          "median_rgb_luma_Yprime_0_255": 144.825,
+          "median_rgb_chroma_0_255": 24.0,
+          "median_rgb_HSV_saturation": 0.16
+        },
+        "blender_draft_c": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            301,
+            163,
+            313,
+            173
+          ],
+          "pixels": 120,
+          "median_srgb_0_255": [
+            129.0,
+            155.0,
+            156.0
+          ],
+          "median_linear_Y_0_1": 0.305101,
+          "median_rgb_luma_Yprime_0_255": 149.545,
+          "median_rgb_chroma_0_255": 27.0,
+          "median_rgb_HSV_saturation": 0.173077
+        },
+        "blender_draft_d": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            201,
+            109,
+            209,
+            115
+          ],
+          "pixels": 48,
+          "median_srgb_0_255": [
+            128.0,
+            154.5,
+            156.0
+          ],
+          "median_linear_Y_0_1": 0.302835,
+          "median_rgb_luma_Yprime_0_255": 148.974,
+          "median_rgb_chroma_0_255": 28.0,
+          "median_rgb_HSV_saturation": 0.179487
+        },
+        "blender_final_v6": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            402,
+            218,
+            418,
+            230
+          ],
+          "pixels": 192,
+          "median_srgb_0_255": [
+            146.0,
+            183.0,
+            186.0
+          ],
+          "median_linear_Y_0_1": 0.435231,
+          "median_rgb_luma_Yprime_0_255": 175.35,
+          "median_rgb_chroma_0_255": 40.0,
+          "median_rgb_HSV_saturation": 0.215054
+        },
+        "opengl_final_v6": {
+          "normalized_box_uv": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixel_box_xyxy_exclusive": [
+            301,
+            163,
+            313,
+            173
+          ],
+          "pixels": 120,
+          "median_srgb_0_255": [
+            164.0,
+            188.0,
+            192.0
+          ],
+          "median_linear_Y_0_1": 0.476647,
+          "median_rgb_luma_Yprime_0_255": 183.186,
+          "median_rgb_chroma_0_255": 28.0,
+          "median_rgb_HSV_saturation": 0.145833
+        }
+      },
+      "linear_Y_ratio_to_reference": {
+        "blender_baseline_f207845": 0.8068,
+        "opengl_baseline_f207845": 1.297,
+        "blender_draft_a": 1.2654,
+        "blender_draft_b": 0.7733,
+        "blender_draft_c": 0.8302,
+        "blender_draft_d": 0.824,
+        "blender_final_v6": 1.1843,
+        "opengl_final_v6": 1.297
+      }
+    },
+    {
+      "id": "front_pink_middle",
+      "label": "Azulejo rosa frontal medio",
+      "images": {
+        "reference": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            402,
+            337,
+            418,
+            352
+          ],
+          "pixels": 240,
+          "median_srgb_0_255": [
+            196.0,
+            139.0,
+            160.0
+          ],
+          "median_linear_Y_0_1": 0.326353,
+          "median_rgb_luma_Yprime_0_255": 152.634,
+          "median_rgb_chroma_0_255": 57.0,
+          "median_rgb_HSV_saturation": 0.290816
+        },
+        "blender_baseline_f207845": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            402,
+            337,
+            418,
+            352
+          ],
+          "pixels": 240,
+          "median_srgb_0_255": [
+            198.0,
+            136.0,
+            152.0
+          ],
+          "median_linear_Y_0_1": 0.318811,
+          "median_rgb_luma_Yprime_0_255": 150.336,
+          "median_rgb_chroma_0_255": 62.0,
+          "median_rgb_HSV_saturation": 0.313131
+        },
+        "opengl_baseline_f207845": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            301,
+            252,
+            313,
+            264
+          ],
+          "pixels": 144,
+          "median_srgb_0_255": [
+            223.0,
+            159.0,
+            187.0
+          ],
+          "median_linear_Y_0_1": 0.440721,
+          "median_rgb_luma_Yprime_0_255": 174.628,
+          "median_rgb_chroma_0_255": 64.0,
+          "median_rgb_HSV_saturation": 0.286996
+        },
+        "blender_draft_a": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            201,
+            168,
+            209,
+            176
+          ],
+          "pixels": 64,
+          "median_srgb_0_255": [
+            226.0,
+            170.0,
+            196.0
+          ],
+          "median_linear_Y_0_1": 0.489037,
+          "median_rgb_luma_Yprime_0_255": 183.783,
+          "median_rgb_chroma_0_255": 56.0,
+          "median_rgb_HSV_saturation": 0.247788
+        },
+        "blender_draft_b": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            201,
+            168,
+            209,
+            176
+          ],
+          "pixels": 64,
+          "median_srgb_0_255": [
+            192.5,
+            133.0,
+            150.0
+          ],
+          "median_linear_Y_0_1": 0.30249,
+          "median_rgb_luma_Yprime_0_255": 146.877,
+          "median_rgb_chroma_0_255": 59.5,
+          "median_rgb_HSV_saturation": 0.309091
+        },
+        "blender_draft_c": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            301,
+            252,
+            313,
+            264
+          ],
+          "pixels": 144,
+          "median_srgb_0_255": [
+            197.0,
+            137.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.322648,
+          "median_rgb_luma_Yprime_0_255": 151.344,
+          "median_rgb_chroma_0_255": 60.0,
+          "median_rgb_HSV_saturation": 0.304569
+        },
+        "blender_draft_d": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            201,
+            168,
+            209,
+            176
+          ],
+          "pixels": 64,
+          "median_srgb_0_255": [
+            196.0,
+            137.0,
+            158.0
+          ],
+          "median_linear_Y_0_1": 0.320957,
+          "median_rgb_luma_Yprime_0_255": 151.06,
+          "median_rgb_chroma_0_255": 59.0,
+          "median_rgb_HSV_saturation": 0.30102
+        },
+        "blender_final_v6": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            402,
+            337,
+            418,
+            352
+          ],
+          "pixels": 240,
+          "median_srgb_0_255": [
+            196.0,
+            136.0,
+            158.0
+          ],
+          "median_linear_Y_0_1": 0.318127,
+          "median_rgb_luma_Yprime_0_255": 150.344,
+          "median_rgb_chroma_0_255": 60.0,
+          "median_rgb_HSV_saturation": 0.306122
+        },
+        "opengl_final_v6": {
+          "normalized_box_uv": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixel_box_xyxy_exclusive": [
+            301,
+            252,
+            313,
+            264
+          ],
+          "pixels": 144,
+          "median_srgb_0_255": [
+            223.0,
+            159.0,
+            187.0
+          ],
+          "median_linear_Y_0_1": 0.440721,
+          "median_rgb_luma_Yprime_0_255": 174.628,
+          "median_rgb_chroma_0_255": 64.0,
+          "median_rgb_HSV_saturation": 0.286996
+        }
+      },
+      "linear_Y_ratio_to_reference": {
+        "blender_baseline_f207845": 0.9769,
+        "opengl_baseline_f207845": 1.3504,
+        "blender_draft_a": 1.4985,
+        "blender_draft_b": 0.9269,
+        "blender_draft_c": 0.9886,
+        "blender_draft_d": 0.9835,
+        "blender_final_v6": 0.9748,
+        "opengl_final_v6": 1.3504
+      }
+    },
+    {
+      "id": "front_mint_lower",
+      "label": "Azulejo menta frontal bajo",
+      "images": {
+        "reference": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            424,
+            453,
+            441,
+            467
+          ],
+          "pixels": 238,
+          "median_srgb_0_255": [
+            140.0,
+            165.0,
+            167.0
+          ],
+          "median_linear_Y_0_1": 0.350939,
+          "median_rgb_luma_Yprime_0_255": 159.829,
+          "median_rgb_chroma_0_255": 27.0,
+          "median_rgb_HSV_saturation": 0.161677
+        },
+        "blender_baseline_f207845": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            424,
+            453,
+            441,
+            467
+          ],
+          "pixels": 238,
+          "median_srgb_0_255": [
+            141.0,
+            161.0,
+            153.0
+          ],
+          "median_linear_Y_0_1": 0.334524,
+          "median_rgb_luma_Yprime_0_255": 156.17,
+          "median_rgb_chroma_0_255": 20.0,
+          "median_rgb_HSV_saturation": 0.124224
+        },
+        "opengl_baseline_f207845": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            318,
+            340,
+            330,
+            350
+          ],
+          "pixels": 120,
+          "median_srgb_0_255": [
+            143.0,
+            167.0,
+            169.0
+          ],
+          "median_linear_Y_0_1": 0.363416,
+          "median_rgb_luma_Yprime_0_255": 162.042,
+          "median_rgb_chroma_0_255": 26.0,
+          "median_rgb_HSV_saturation": 0.153846
+        },
+        "blender_draft_a": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            212,
+            227,
+            220,
+            234
+          ],
+          "pixels": 56,
+          "median_srgb_0_255": [
+            160.0,
+            200.0,
+            198.0
+          ],
+          "median_linear_Y_0_1": 0.528364,
+          "median_rgb_luma_Yprime_0_255": 191.352,
+          "median_rgb_chroma_0_255": 40.0,
+          "median_rgb_HSV_saturation": 0.2
+        },
+        "blender_draft_b": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            212,
+            227,
+            220,
+            234
+          ],
+          "pixels": 56,
+          "median_srgb_0_255": [
+            136.0,
+            157.0,
+            150.0
+          ],
+          "median_linear_Y_0_1": 0.315502,
+          "median_rgb_luma_Yprime_0_255": 152.03,
+          "median_rgb_chroma_0_255": 21.0,
+          "median_rgb_HSV_saturation": 0.133758
+        },
+        "blender_draft_c": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            318,
+            340,
+            330,
+            350
+          ],
+          "pixels": 120,
+          "median_srgb_0_255": [
+            139.0,
+            162.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.338328,
+          "median_rgb_luma_Yprime_0_255": 156.894,
+          "median_rgb_chroma_0_255": 23.0,
+          "median_rgb_HSV_saturation": 0.141975
+        },
+        "blender_draft_d": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            212,
+            227,
+            220,
+            234
+          ],
+          "pixels": 56,
+          "median_srgb_0_255": [
+            138.5,
+            162.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.33782,
+          "median_rgb_luma_Yprime_0_255": 156.787,
+          "median_rgb_chroma_0_255": 23.5,
+          "median_rgb_HSV_saturation": 0.145062
+        },
+        "blender_final_v6": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            424,
+            453,
+            441,
+            467
+          ],
+          "pixels": 238,
+          "median_srgb_0_255": [
+            137.0,
+            161.0,
+            159.0
+          ],
+          "median_linear_Y_0_1": 0.333113,
+          "median_rgb_luma_Yprime_0_255": 155.753,
+          "median_rgb_chroma_0_255": 24.0,
+          "median_rgb_HSV_saturation": 0.149068
+        },
+        "opengl_final_v6": {
+          "normalized_box_uv": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixel_box_xyxy_exclusive": [
+            318,
+            340,
+            330,
+            350
+          ],
+          "pixels": 120,
+          "median_srgb_0_255": [
+            142.5,
+            167.0,
+            169.0
+          ],
+          "median_linear_Y_0_1": 0.362972,
+          "median_rgb_luma_Yprime_0_255": 161.936,
+          "median_rgb_chroma_0_255": 26.5,
+          "median_rgb_HSV_saturation": 0.156805
+        }
+      },
+      "linear_Y_ratio_to_reference": {
+        "blender_baseline_f207845": 0.9532,
+        "opengl_baseline_f207845": 1.0356,
+        "blender_draft_a": 1.5056,
+        "blender_draft_b": 0.899,
+        "blender_draft_c": 0.9641,
+        "blender_draft_d": 0.9626,
+        "blender_final_v6": 0.9492,
+        "opengl_final_v6": 1.0343
+      }
+    },
+    {
+      "id": "right_pink_below_window",
+      "label": "Azulejo rosa bajo la ventana, sobre el radiador",
+      "images": {
+        "reference": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            578,
+            552,
+            588,
+            559
+          ],
+          "pixels": 70,
+          "median_srgb_0_255": [
+            187.0,
+            142.0,
+            157.0
+          ],
+          "median_linear_Y_0_1": 0.320946,
+          "median_rgb_luma_Yprime_0_255": 152.65,
+          "median_rgb_chroma_0_255": 45.0,
+          "median_rgb_HSV_saturation": 0.240642
+        },
+        "blender_baseline_f207845": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            578,
+            552,
+            588,
+            559
+          ],
+          "pixels": 70,
+          "median_srgb_0_255": [
+            236.0,
+            163.0,
+            174.0
+          ],
+          "median_linear_Y_0_1": 0.470832,
+          "median_rgb_luma_Yprime_0_255": 179.314,
+          "median_rgb_chroma_0_255": 73.0,
+          "median_rgb_HSV_saturation": 0.309322
+        },
+        "opengl_baseline_f207845": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            434,
+            414,
+            441,
+            420
+          ],
+          "pixels": 42,
+          "median_srgb_0_255": [
+            182.0,
+            131.0,
+            156.0
+          ],
+          "median_linear_Y_0_1": 0.28578,
+          "median_rgb_luma_Yprime_0_255": 143.648,
+          "median_rgb_chroma_0_255": 51.0,
+          "median_rgb_HSV_saturation": 0.28022
+        },
+        "blender_draft_a": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            289,
+            276,
+            294,
+            280
+          ],
+          "pixels": 20,
+          "median_srgb_0_255": [
+            255.0,
+            193.0,
+            219.0
+          ],
+          "median_linear_Y_0_1": 0.645144,
+          "median_rgb_luma_Yprime_0_255": 208.058,
+          "median_rgb_chroma_0_255": 62.0,
+          "median_rgb_HSV_saturation": 0.243137
+        },
+        "blender_draft_b": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            289,
+            276,
+            294,
+            280
+          ],
+          "pixels": 20,
+          "median_srgb_0_255": [
+            226.0,
+            157.0,
+            170.0
+          ],
+          "median_linear_Y_0_1": 0.431044,
+          "median_rgb_luma_Yprime_0_255": 172.608,
+          "median_rgb_chroma_0_255": 69.0,
+          "median_rgb_HSV_saturation": 0.30531
+        },
+        "blender_draft_c": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            434,
+            414,
+            441,
+            420
+          ],
+          "pixels": 42,
+          "median_srgb_0_255": [
+            230.0,
+            161.0,
+            179.0
+          ],
+          "median_linear_Y_0_1": 0.455674,
+          "median_rgb_luma_Yprime_0_255": 176.969,
+          "median_rgb_chroma_0_255": 69.0,
+          "median_rgb_HSV_saturation": 0.3
+        },
+        "blender_draft_d": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            289,
+            276,
+            294,
+            280
+          ],
+          "pixels": 20,
+          "median_srgb_0_255": [
+            229.5,
+            161.0,
+            180.0
+          ],
+          "median_linear_Y_0_1": 0.455052,
+          "median_rgb_luma_Yprime_0_255": 176.935,
+          "median_rgb_chroma_0_255": 68.5,
+          "median_rgb_HSV_saturation": 0.298475
+        },
+        "blender_final_v6": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            578,
+            552,
+            588,
+            559
+          ],
+          "pixels": 70,
+          "median_srgb_0_255": [
+            204.0,
+            147.0,
+            166.0
+          ],
+          "median_linear_Y_0_1": 0.36458,
+          "median_rgb_luma_Yprime_0_255": 160.49,
+          "median_rgb_chroma_0_255": 57.0,
+          "median_rgb_HSV_saturation": 0.279412
+        },
+        "opengl_final_v6": {
+          "normalized_box_uv": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixel_box_xyxy_exclusive": [
+            434,
+            414,
+            441,
+            420
+          ],
+          "pixels": 42,
+          "median_srgb_0_255": [
+            182.0,
+            130.0,
+            156.0
+          ],
+          "median_linear_Y_0_1": 0.283106,
+          "median_rgb_luma_Yprime_0_255": 142.932,
+          "median_rgb_chroma_0_255": 52.0,
+          "median_rgb_HSV_saturation": 0.285714
+        }
+      },
+      "linear_Y_ratio_to_reference": {
+        "blender_baseline_f207845": 1.467,
+        "opengl_baseline_f207845": 0.8904,
+        "blender_draft_a": 2.0101,
+        "blender_draft_b": 1.343,
+        "blender_draft_c": 1.4198,
+        "blender_draft_d": 1.4178,
+        "blender_final_v6": 1.136,
+        "opengl_final_v6": 0.8821
+      }
+    }
+  ],
+  "light_findings": [
+    "En baseline Blender, la hoja de puerta y el rosa frontal medio estan cerca de la referencia. La jamba y el rosa bajo ventana tienen exceso de Y; la menta frontal alta tiene deficit. Esto desaconseja una correccion global de exposicion.",
+    "En baseline OpenGL la hoja de puerta queda oscura, mientras los controles frontales altos quedan claros. No requiere la misma redistribucion que Blender.",
+    "C/D mejoran el rosa frontal respecto a B: Y .323/.321 frente a referencia .326; la hoja queda cerca en Y (.331/.333 frente a .341), aunque sigue mas fria y menos rosada que la referencia.",
+    "C/D aun tienen exceso en jamba derecha (Y .534/.532 frente a .400) y rosa bajo ventana (.456/.455 frente a .321). La menta alta tiene deficit (.305/.303 frente a .368), mientras la menta baja ya esta proxima (.338/.338 frente a .351).",
+    "Aumentar un relleno enlazado exclusivamente a la menta y concentrado en la franja alta ayudaria: falta aproximadamente .063 de Y arriba y solo .013 abajo. Aumentar uniformemente toda la menta no garantiza conservar la zona baja. Mantener hoja, rosas, marcos y exposicion global fuera de ese ajuste.",
+    "La menta alta de C/D es RGB129/155/156 y128/154.5/156 frente a132/169.5/169; el deficit principal esta en verde/azul. El relleno menta existente tiene direccion cromatica util, pero requiere caida espacial hacia abajo. No se deduce una potencia en vatios exacta a partir de la respuesta tonemapeada.",
+    "La comparacion C/D cambia poco las seis ROI: el contraste metalico se debe juzgar aparte. Visualmente C presenta una gran zona blanca saturada en la parte baja del radiador; D elimina esa zona, aunque el metal queda mas uniforme y oscuro. Esto no invalida la mejora de los controles de pared."
+  ],
+  "floor_diagnosis": {
+    "samples": [
+      {
+        "id": "pink_reference_1",
+        "image": "reference",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.408,
+          0.863,
+          0.432,
+          0.877
+        ],
+        "pixel_box_xyxy_exclusive": [
+          294,
+          1105,
+          311,
+          1123
+        ],
+        "pixels": 306,
+        "median_srgb_0_255": [
+          178.0,
+          152.0,
+          163.0
+        ],
+        "median_linear_Y_0_1": 0.345658,
+        "median_rgb_luma_Yprime_0_255": 158.322,
+        "median_rgb_chroma_0_255": 26.0,
+        "median_rgb_HSV_saturation": 0.146067
+      },
+      {
+        "id": "pink_reference_2",
+        "image": "reference",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.868,
+          0.943,
+          0.892,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          625,
+          1207,
+          642,
+          1225
+        ],
+        "pixels": 306,
+        "median_srgb_0_255": [
+          177.0,
+          154.0,
+          171.0
+        ],
+        "median_linear_Y_0_1": 0.353986,
+        "median_rgb_luma_Yprime_0_255": 160.117,
+        "median_rgb_chroma_0_255": 23.0,
+        "median_rgb_HSV_saturation": 0.129944
+      },
+      {
+        "id": "mint_reference_1",
+        "image": "reference",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.158,
+          0.923,
+          0.18200000000000002,
+          0.937
+        ],
+        "pixel_box_xyxy_exclusive": [
+          114,
+          1181,
+          131,
+          1199
+        ],
+        "pixels": 306,
+        "median_srgb_0_255": [
+          141.0,
+          170.0,
+          169.0
+        ],
+        "median_linear_Y_0_1": 0.372767,
+        "median_rgb_luma_Yprime_0_255": 163.762,
+        "median_rgb_chroma_0_255": 29.0,
+        "median_rgb_HSV_saturation": 0.170588
+      },
+      {
+        "id": "mint_reference_2",
+        "image": "reference",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.668,
+          0.943,
+          0.6920000000000001,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          481,
+          1207,
+          498,
+          1225
+        ],
+        "pixels": 306,
+        "median_srgb_0_255": [
+          145.0,
+          170.0,
+          172.0
+        ],
+        "median_linear_Y_0_1": 0.37839,
+        "median_rgb_luma_Yprime_0_255": 164.829,
+        "median_rgb_chroma_0_255": 27.0,
+        "median_rgb_HSV_saturation": 0.156977
+      },
+      {
+        "id": "pink_opengl_1",
+        "image": "opengl_floor_v6_a",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.158,
+          0.923,
+          0.18200000000000002,
+          0.937
+        ],
+        "pixel_box_xyxy_exclusive": [
+          85,
+          886,
+          98,
+          900
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          162.0,
+          152.0,
+          155.0
+        ],
+        "median_linear_Y_0_1": 0.325044,
+        "median_rgb_luma_Yprime_0_255": 154.343,
+        "median_rgb_chroma_0_255": 10.0,
+        "median_rgb_HSV_saturation": 0.061728,
+        "raycast_world_center": [
+          -1.523333,
+          -0.452936,
+          0.016
+        ],
+        "sampled_albedo_center_srgb_0_255": [
+          174.0,
+          163.0,
+          157.0
+        ],
+        "sampled_flow_mask_at_center": 0.0,
+        "albedo_artifact": "floor_v6_a_sampled_albedo",
+        "flow_artifact": "floor_v6_a_sampled_flow"
+      },
+      {
+        "id": "pink_opengl_2",
+        "image": "opengl_floor_v6_a",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.348,
+          0.943,
+          0.372,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          188,
+          905,
+          201,
+          919
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          163.0,
+          155.0,
+          158.0
+        ],
+        "median_linear_Y_0_1": 0.336978,
+        "median_rgb_luma_Yprime_0_255": 156.917,
+        "median_rgb_chroma_0_255": 8.0,
+        "median_rgb_HSV_saturation": 0.04908,
+        "raycast_world_center": [
+          -1.283985,
+          -0.583317,
+          0.016
+        ],
+        "sampled_albedo_center_srgb_0_255": [
+          175.0,
+          163.0,
+          157.0
+        ],
+        "sampled_flow_mask_at_center": 0.0,
+        "albedo_artifact": "floor_v6_a_sampled_albedo",
+        "flow_artifact": "floor_v6_a_sampled_flow"
+      },
+      {
+        "id": "mint_opengl_1",
+        "image": "opengl_floor_v6_a",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.188,
+          0.813,
+          0.21200000000000002,
+          0.827
+        ],
+        "pixel_box_xyxy_exclusive": [
+          102,
+          780,
+          114,
+          794
+        ],
+        "pixels": 168,
+        "median_srgb_0_255": [
+          145.0,
+          160.0,
+          157.5
+        ],
+        "median_linear_Y_0_1": 0.335907,
+        "median_rgb_luma_Yprime_0_255": 156.63,
+        "median_rgb_chroma_0_255": 15.0,
+        "median_rgb_HSV_saturation": 0.09375,
+        "raycast_world_center": [
+          -1.461141,
+          -0.040571,
+          0.016
+        ],
+        "sampled_albedo_center_srgb_0_255": [
+          150.0,
+          169.0,
+          145.0
+        ],
+        "sampled_flow_mask_at_center": 0.0,
+        "albedo_artifact": "floor_v6_a_sampled_albedo",
+        "flow_artifact": "floor_v6_a_sampled_flow"
+      },
+      {
+        "id": "mint_opengl_2",
+        "image": "opengl_floor_v6_a",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.668,
+          0.943,
+          0.6920000000000001,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          361,
+          905,
+          374,
+          919
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          152.0,
+          159.0,
+          149.0
+        ],
+        "median_linear_Y_0_1": 0.336576,
+        "median_rgb_luma_Yprime_0_255": 156.79,
+        "median_rgb_chroma_0_255": 10.0,
+        "median_rgb_HSV_saturation": 0.062893,
+        "raycast_world_center": [
+          -0.877606,
+          -0.700524,
+          0.016
+        ],
+        "sampled_albedo_center_srgb_0_255": [
+          151.0,
+          170.0,
+          146.0
+        ],
+        "sampled_flow_mask_at_center": 0.0,
+        "albedo_artifact": "floor_v6_a_sampled_albedo",
+        "flow_artifact": "floor_v6_a_sampled_flow"
+      },
+      {
+        "id": "pink_opengl_b_1",
+        "image": "opengl_floor_v6_b",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.158,
+          0.923,
+          0.18200000000000002,
+          0.937
+        ],
+        "pixel_box_xyxy_exclusive": [
+          85,
+          886,
+          98,
+          900
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          175.0,
+          152.0,
+          166.0
+        ],
+        "median_linear_Y_0_1": 0.343236,
+        "median_rgb_luma_Yprime_0_255": 157.901,
+        "median_rgb_chroma_0_255": 23.0,
+        "median_rgb_HSV_saturation": 0.131429,
+        "paired_sample_a": "pink_opengl_1",
+        "raycast_world_center": [
+          -1.523333,
+          -0.452936,
+          0.016
+        ],
+        "mask_note": "Mismo centro y misma mascara que A segun el cambio declarado para B; no se remuestreo el archivo de textura compartido."
+      },
+      {
+        "id": "pink_opengl_b_2",
+        "image": "opengl_floor_v6_b",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.348,
+          0.943,
+          0.372,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          188,
+          905,
+          201,
+          919
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          175.0,
+          155.0,
+          170.0
+        ],
+        "median_linear_Y_0_1": 0.354589,
+        "median_rgb_luma_Yprime_0_255": 160.335,
+        "median_rgb_chroma_0_255": 20.0,
+        "median_rgb_HSV_saturation": 0.114286,
+        "paired_sample_a": "pink_opengl_2",
+        "raycast_world_center": [
+          -1.283985,
+          -0.583317,
+          0.016
+        ],
+        "mask_note": "Mismo centro y misma mascara que A segun el cambio declarado para B; no se remuestreo el archivo de textura compartido."
+      },
+      {
+        "id": "mint_opengl_b_1",
+        "image": "opengl_floor_v6_b",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.188,
+          0.813,
+          0.21200000000000002,
+          0.827
+        ],
+        "pixel_box_xyxy_exclusive": [
+          102,
+          780,
+          114,
+          794
+        ],
+        "pixels": 168,
+        "median_srgb_0_255": [
+          143.0,
+          168.0,
+          170.5
+        ],
+        "median_linear_Y_0_1": 0.367346,
+        "median_rgb_luma_Yprime_0_255": 162.865,
+        "median_rgb_chroma_0_255": 27.5,
+        "median_rgb_HSV_saturation": 0.16129,
+        "paired_sample_a": "mint_opengl_1",
+        "raycast_world_center": [
+          -1.461141,
+          -0.040571,
+          0.016
+        ],
+        "mask_note": "Mismo centro y misma mascara que A segun el cambio declarado para B; no se remuestreo el archivo de textura compartido."
+      },
+      {
+        "id": "mint_opengl_b_2",
+        "image": "opengl_floor_v6_b",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.668,
+          0.943,
+          0.6920000000000001,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          361,
+          905,
+          374,
+          919
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          150.0,
+          167.0,
+          163.0
+        ],
+        "median_linear_Y_0_1": 0.368611,
+        "median_rgb_luma_Yprime_0_255": 163.097,
+        "median_rgb_chroma_0_255": 17.0,
+        "median_rgb_HSV_saturation": 0.101796,
+        "paired_sample_a": "mint_opengl_2",
+        "raycast_world_center": [
+          -0.877606,
+          -0.700524,
+          0.016
+        ],
+        "mask_note": "Mismo centro y misma mascara que A segun el cambio declarado para B; no se remuestreo el archivo de textura compartido."
+      },
+      {
+        "id": "pink_opengl_final_1",
+        "image": "opengl_final_v6",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.158,
+          0.923,
+          0.18200000000000002,
+          0.937
+        ],
+        "pixel_box_xyxy_exclusive": [
+          85,
+          886,
+          98,
+          900
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          174.0,
+          152.0,
+          166.0
+        ],
+        "median_linear_Y_0_1": 0.342083,
+        "median_rgb_luma_Yprime_0_255": 157.688,
+        "median_rgb_chroma_0_255": 22.0,
+        "median_rgb_HSV_saturation": 0.126437,
+        "paired_sample_a": "pink_opengl_1"
+      },
+      {
+        "id": "pink_opengl_final_2",
+        "image": "opengl_final_v6",
+        "material_class": "pink",
+        "normalized_box_uv": [
+          0.348,
+          0.943,
+          0.372,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          188,
+          905,
+          201,
+          919
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          175.0,
+          155.0,
+          170.0
+        ],
+        "median_linear_Y_0_1": 0.354589,
+        "median_rgb_luma_Yprime_0_255": 160.335,
+        "median_rgb_chroma_0_255": 20.0,
+        "median_rgb_HSV_saturation": 0.114286,
+        "paired_sample_a": "pink_opengl_2"
+      },
+      {
+        "id": "mint_opengl_final_1",
+        "image": "opengl_final_v6",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.188,
+          0.813,
+          0.21200000000000002,
+          0.827
+        ],
+        "pixel_box_xyxy_exclusive": [
+          102,
+          780,
+          114,
+          794
+        ],
+        "pixels": 168,
+        "median_srgb_0_255": [
+          143.0,
+          168.0,
+          170.5
+        ],
+        "median_linear_Y_0_1": 0.367346,
+        "median_rgb_luma_Yprime_0_255": 162.865,
+        "median_rgb_chroma_0_255": 27.5,
+        "median_rgb_HSV_saturation": 0.16129,
+        "paired_sample_a": "mint_opengl_1"
+      },
+      {
+        "id": "mint_opengl_final_2",
+        "image": "opengl_final_v6",
+        "material_class": "mint",
+        "normalized_box_uv": [
+          0.668,
+          0.943,
+          0.6920000000000001,
+          0.957
+        ],
+        "pixel_box_xyxy_exclusive": [
+          361,
+          905,
+          374,
+          919
+        ],
+        "pixels": 182,
+        "median_srgb_0_255": [
+          150.0,
+          167.0,
+          163.0
+        ],
+        "median_linear_Y_0_1": 0.368611,
+        "median_rgb_luma_Yprime_0_255": 163.097,
+        "median_rgb_chroma_0_255": 17.0,
+        "median_rgb_HSV_saturation": 0.101796,
+        "paired_sample_a": "mint_opengl_2"
+      }
+    ],
+    "camera_for_albedo_raycast": {
+      "camera": [
+        -1.5,
+        -2.0,
+        1.4,
+        1.29,
+        -0.21
+      ],
+      "fov": [
+        0.7
+      ]
+    },
+    "reflection_plane_z": 0.016,
+    "conclusion": "B corrige de forma clara el apagado gris y el matiz beige/oliva de A en las ROI neutras. Las dos muestras rosas de B quedan proximas a la referencia en RGB y Y; la primera menta tambien. La segunda menta mantiene deficit azul (RGB150/167/163 frente a145/170/172), compatible con una contribucion local calida de luz/reflejo. Estos datos no justifican subir otra vez globalmente la saturacion del suelo.",
+    "support": "Rosas A:162/152/155 y163/155/158; B:175/152/166 y175/155/170; referencia:178/152/163 y177/154/171. Mentas A:145/160/157.5 y152/159/149; B:143/168/170.5 y150/167/163; referencia:141/170/169 y145/170/172. Y de B en rosas .343/.355 frente a .346/.354; en mentas .367/.369 frente a .373/.378.",
+    "limitation": "Son colores finales de superficies reflectantes, no recuperacion del albedo original. No se separa causalmente cada aporte de luz/probe/reflejo sin una captura controlada adicional; no se solicito crear nuevos candidatos.",
+    "diagnosis_before_b": {
+      "conclusion": "El damero neutral OpenGL esta mas apagado y cambia de matiz frente a las muestras de referencia; no es atribuible solo al reflejo. El albedo actual ya contiene rosa beige (aprox.174/163/157) y menta oliva (aprox.150/169/145) en puntos con mascara cero. La absorcion horneada del canal azul [1.04,0.98,0.77] contribuye a ese cambio antes de iluminar/reflejar. El render reduce aun mas el croma en varias celdas.",
+      "support": "Rosas de referencia muestreados: aprox.178/152/163 y177/154/171; rosas GL:162/152/155 y163/155/158. Mentas de referencia:141/170/169 y145/170/172; mentas GL:145/160/158 y152/159/149."
+    },
+    "candidate_b_declared_change": {
+      "pink_base_hex": "BEA2AB",
+      "mint_base_hex": "93B3A3",
+      "neutral_absorption": [
+        1,
+        1,
+        1
+      ],
+      "unchanged": [
+        "mascara de manchas",
+        "ondas"
+      ],
+      "source": "Parametros declarados por root para la captura B; no se cambiaron durante la revision."
+    },
+    "class_summary_method": "Media aritmetica de las dos medianas por ROI de cada clase. Describe unicamente estas muestras; no es una puntuacion de parecido.",
+    "class_summaries": {
+      "reference": {
+        "pink": {
+          "mean_of_median_RGB": [
+            177.5,
+            153.0,
+            167.0
+          ],
+          "mean_of_median_Y": 0.349822,
+          "mean_RGB_chroma": 24.5
+        },
+        "mint": {
+          "mean_of_median_RGB": [
+            143.0,
+            170.0,
+            170.5
+          ],
+          "mean_of_median_Y": 0.375579,
+          "mean_RGB_chroma": 28.0
+        }
+      },
+      "opengl_floor_v6_a": {
+        "pink": {
+          "mean_of_median_RGB": [
+            162.5,
+            153.5,
+            156.5
+          ],
+          "mean_of_median_Y": 0.331011,
+          "mean_RGB_chroma": 9.0
+        },
+        "mint": {
+          "mean_of_median_RGB": [
+            148.5,
+            159.5,
+            153.25
+          ],
+          "mean_of_median_Y": 0.336241,
+          "mean_RGB_chroma": 12.5
+        }
+      },
+      "opengl_floor_v6_b": {
+        "pink": {
+          "mean_of_median_RGB": [
+            175.0,
+            153.5,
+            168.0
+          ],
+          "mean_of_median_Y": 0.348912,
+          "mean_RGB_chroma": 21.5
+        },
+        "mint": {
+          "mean_of_median_RGB": [
+            146.5,
+            167.5,
+            166.75
+          ],
+          "mean_of_median_Y": 0.367978,
+          "mean_RGB_chroma": 22.25
+        }
+      }
+    },
+    "final_v6_note": "Las cuatro ROI neutras se vuelven a medir en room-opengl.png final; consultar muestras opengl_final_v6. La conclusion cromatica favorable a B se conserva, sin inferir de ella igualdad del reflejo o de las manchas."
+  },
+  "updated_at_utc": "2026-10-09T03:23:33.331690+00:00",
+  "blender_cd_context": {
+    "source": "Parametros declarados por el agente que genera los renders; no modificados durante esta medicion.",
+    "door_W": 105,
+    "window_W": 121,
+    "ref_fill_W": 27,
+    "ref_fill_color": [
+      0.7,
+      0.48,
+      0.39
+    ],
+    "mint_linked_fill_W": 5,
+    "mint_linked_fill_color": [
+      0.35,
+      0.65,
+      1
+    ],
+    "difference": "C/D difieren en iluminacion del metal y resolucion de render. Ambos incluyen las ondas nuevas del piso."
+  },
+  "final_v6_findings": [
+    "La puerta OpenGL mejora de Y .240 a .357 frente a referencia .341. La jamba Blender mejora de .518 a .401 frente a .400, pero su RGB184/166/157 sigue mas calido y menos azulado que178/165/189 de referencia.",
+    "El rosa bajo ventana Blender baja de Y .471 a .365 (referencia .321). El rosa frontal sigue cerca: .318 frente a .326.",
+    "El relleno alto de Blender elimina el deficit de menta y lo sobrepasa: Y .435 frente a referencia .368; baseline .297. Es una sobrecorreccion local, no una mejora inequívoca de esa ROI. La menta baja .333 sigue proxima a .351.",
+    "OpenGL conserva menta/rosa frontales altos claros: Y .477/.441 frente a .368/.326. El ajuste de la puerta no corrige esas superficies ceramicas. La menta baja .363 queda cerca de .351."
+  ]
+}

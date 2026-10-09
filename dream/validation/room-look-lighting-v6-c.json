@@ -1,0 +1,257 @@
+{
+  "phase": "lighting-v6-c",
+  "scope": "Color diagnostics within corresponding wall/sky regions. Masks are color classes, not exact geometry registration. These statistics do not certify visual fidelity.",
+  "images": {
+    "reference": {
+      "path": "referencias/estetica/evidencias/video-35/11s.png",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3",
+      "materials": {
+        "pink_wall": {
+          "mean_srgb": [
+            195.76,
+            142.1,
+            163.03
+          ],
+          "std_srgb": [
+            8.55,
+            5.72,
+            6.98
+          ],
+          "value_p95": 207.0,
+          "saturation_mean": 0.2727,
+          "pixels": 5621
+        },
+        "mint_wall": {
+          "mean_srgb": [
+            140.69,
+            164.55,
+            169.46
+          ],
+          "std_srgb": [
+            9.14,
+            5.29,
+            9.11
+          ],
+          "value_p95": 180.0,
+          "saturation_mean": 0.1725,
+          "pixels": 6999
+        },
+        "blue_sky": {
+          "mean_srgb": [
+            150.28,
+            174.13,
+            241.79
+          ],
+          "std_srgb": [
+            9.57,
+            2.46,
+            3.71
+          ],
+          "value_p95": 246.0,
+          "saturation_mean": 0.3778,
+          "pixels": 10250
+        },
+        "floor_region": {
+          "mean_srgb": [
+            156.4,
+            159.31,
+            161.01
+          ],
+          "std_srgb": [
+            19.21,
+            10.31,
+            20.35
+          ],
+          "pixels": 51450,
+          "limitation": "Contains different arrangements of reflection and patches; mean color is diagnostic only."
+        }
+      }
+    },
+    "opengl": {
+      "path": "validation/room-floor-v6-a.png",
+      "dimensions": [
+        540,
+        960
+      ],
+      "sha256": "2dbe4308ba92059067dee98b29d999c319ef4f2b44d616c4252c4eb38a15a321",
+      "materials": {
+        "pink_wall": {
+          "mean_srgb": [
+            200.15,
+            144.85,
+            168.75
+          ],
+          "std_srgb": [
+            20.71,
+            15.85,
+            17.04
+          ],
+          "value_p95": 225.0,
+          "saturation_mean": 0.2753,
+          "pixels": 3755
+        },
+        "mint_wall": {
+          "mean_srgb": [
+            145.25,
+            167.71,
+            170.04
+          ],
+          "std_srgb": [
+            17.7,
+            18.04,
+            18.93
+          ],
+          "value_p95": 197.0,
+          "saturation_mean": 0.1466,
+          "pixels": 8855
+        },
+        "blue_sky": {
+          "mean_srgb": [
+            143.86,
+            176.11,
+            241.7
+          ],
+          "std_srgb": [
+            6.71,
+            3.04,
+            0.91
+          ],
+          "value_p95": 242.0,
+          "saturation_mean": 0.4047,
+          "pixels": 10750
+        },
+        "floor_region": {
+          "mean_srgb": [
+            160.09,
+            161.19,
+            159.25
+          ],
+          "std_srgb": [
+            15.6,
+            8.0,
+            9.73
+          ],
+          "pixels": 51450,
+          "limitation": "Contains different arrangements of reflection and patches; mean color is diagnostic only."
+        }
+      },
+      "mean_rgb_error": {
+        "pink_wall": [
+          4.39,
+          2.75,
+          5.72
+        ],
+        "mint_wall": [
+          4.56,
+          3.16,
+          0.58
+        ],
+        "blue_sky": [
+          -6.42,
+          1.98,
+          -0.09
+        ],
+        "floor_region": [
+          3.69,
+          1.88,
+          -1.76
+        ]
+      }
+    },
+    "blender": {
+      "path": "validation/room-lighting-v6-c.png",
+      "dimensions": [
+        540,
+        960
+      ],
+      "sha256": "824e4f1fd1bf24c4cc9f204d644dda56f897f6763326cf190c26071710266e0a",
+      "materials": {
+        "pink_wall": {
+          "mean_srgb": [
+            194.34,
+            139.25,
+            156.75
+          ],
+          "std_srgb": [
+            11.58,
+            9.18,
+            7.27
+          ],
+          "value_p95": 209.0,
+          "saturation_mean": 0.2825,
+          "pixels": 3657
+        },
+        "mint_wall": {
+          "mean_srgb": [
+            135.56,
+            158.93,
+            155.09
+          ],
+          "std_srgb": [
+            8.98,
+            7.74,
+            7.8
+          ],
+          "value_p95": 173.0,
+          "saturation_mean": 0.1481,
+          "pixels": 8763
+        },
+        "blue_sky": {
+          "mean_srgb": [
+            143.71,
+            176.4,
+            241.14
+          ],
+          "std_srgb": [
+            6.74,
+            3.0,
+            0.87
+          ],
+          "value_p95": 242.0,
+          "saturation_mean": 0.404,
+          "pixels": 10750
+        },
+        "floor_region": {
+          "mean_srgb": [
+            152.9,
+            160.03,
+            163.7
+          ],
+          "std_srgb": [
+            12.28,
+            6.27,
+            8.14
+          ],
+          "pixels": 51450,
+          "limitation": "Contains different arrangements of reflection and patches; mean color is diagnostic only."
+        }
+      },
+      "mean_rgb_error": {
+        "pink_wall": [
+          -1.42,
+          -2.85,
+          -6.28
+        ],
+        "mint_wall": [
+          -5.13,
+          -5.62,
+          -14.37
+        ],
+        "blue_sky": [
+          -6.57,
+          2.27,
+          -0.65
+        ],
+        "floor_region": [
+          -3.5,
+          0.72,
+          2.69
+        ]
+      }
+    }
+  }
+}

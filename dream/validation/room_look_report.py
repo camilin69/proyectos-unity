@@ -5,8 +5,11 @@ import numpy as np
 from PIL import Image
 
 root=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser();parser.add_argument('--phase',default='current');args=parser.parse_args()
-paths={'reference':'referencias/estetica/evidencias/video-35/11s.png','opengl':'validation/room-opengl.png','blender':'validation/room-blender.png'}
+parser=argparse.ArgumentParser();parser.add_argument('--phase',default='current')
+parser.add_argument('--opengl-image',default='validation/room-opengl.png')
+parser.add_argument('--blender-image',default='validation/room-blender.png')
+args=parser.parse_args()
+paths={'reference':'referencias/estetica/evidencias/video-35/11s.png','opengl':args.opengl_image,'blender':args.blender_image}
 report={'phase':args.phase,'scope':'Color diagnostics within corresponding wall/sky regions. Masks are color classes, not exact geometry registration. These statistics do not certify visual fidelity.','images':{}}
 for name,path in paths.items():
     file=root/path;im=Image.open(file).convert('RGB');a=np.asarray(im.resize((360,640)),float)

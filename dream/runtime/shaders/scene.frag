@@ -48,6 +48,23 @@ vec3 light(vec3 n,vec3 v,vec3 l,vec3 base,float rough,float metal,vec3 radiance)
  vec3 f0=mix(vec3(.04),base,metal);vec3 F=f0+(1.-f0)*pow(1.-vh,5.);
  return ((1.-F)*(1.-metal)*base/PI+D*G*F/max(4.*nv*nl,.001))*radiance*nl;
 }
+vec3 floorSpecularReturn(vec3 p,vec3 n,vec3 v,vec3 base,float rough){
+ // Continuous area return from the wet floor, complementing the LDR probe.
+ // Above a vertical tube, the reflected view points down toward this surface.
+ vec3 ray=reflect(-v,n);
+ // Evaluate derivatives before masking upward rays; derivatives inside a
+ // fragment-dependent early-return branch are undefined near that boundary.
+ float distance=(.05-p.z)/min(ray.z,-.001);
+ vec2 hit=(p+ray*distance).xy;
+ float spread=max(.025,max(distance*rough*rough,.5*length(fwidth(hit))));
+ vec2 lower=smoothstep(vec2(-1.7,-2.2)-spread,vec2(-1.7,-2.2)+spread,hit);
+ vec2 upper=smoothstep(vec2(-.7,.8)-spread,vec2(-.7,.8)+spread,hit);
+ // Difference of cumulative filters preserves area under broad footprints.
+ // Multiplying four edges would leave residual light as spread -> infinity.
+ vec2 axis=max(lower-upper,vec2(0.));float coverage=axis.x*axis.y;
+ vec3 f=base+(1.-base)*pow(1.-max(dot(n,v),0.),5.);
+ return vec3(.90,.96,1.)*.75*coverage*f*float(ray.z<-.001&&p.z>.05);
+}
 void main(){
  vec4 m=baseRough[matId];float rough=m.a,metal=properties[matId].x;int kind=int(properties[matId].y+.1);
  if(renderPass==0&&(kind==4||kind==6||kind==9))discard;
@@ -103,7 +120,19 @@ void main(){
  vec3 positions[3]=vec3[](vec3(-1.1,2.5,2.2),vec3(.25,.9,2.4),vec3(-.975,-.5,2.85));
  vec3 colors[3]=vec3[](vec3(.83,.87,1.)*3.,vec3(1.,.85,.94)*3.5,vec3(.85,1.,.96)*1.8);
  // Broad highlights approximate the large window/door light sources.
- if(environment==0){for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,mix(.48,.30,metal)),metal,colors[i]*roomRadiance/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}}
+ if(environment==0){
+   for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,mix(.48,.30,metal)),metal,colors[i]*roomRadiance/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}
+   if(metal>.8)color+=floorSpecularReturn(worldPos,n,v,base,rough);
+   // The painted leaf faces away from the direct window lights. Give this
+   // diffuse paint the missing broad return from the left/front room wall;
+   // the glazed ceramics retain their separately calibrated room fill.
+   if(kind==0&&metal<.05&&rough<.6){
+     vec3 wallReturn=vec3(-2.25,clamp(worldPos.y,.45,2.45),clamp(worldPos.z,.35,2.60));
+     vec3 delta=wallReturn-worldPos;
+     vec3 bounce=vec3(1.15,.95,1.45)/(1.+dot(delta,delta)*.65);
+     color+=light(n,v,normalize(delta),base,max(rough,.7),metal,bounce)*mix(.65,1.,ao);
+   }
+ }
  else {color=base*(.48+.18*max(n.z,0.))*ao;color+=light(n,v,normalize(vec3(-.4,-.25,1)),base,max(rough,.3),metal,vec3(1.1,1.04,.93));if(kind==5)color+=base*.18*max(dot(-n,normalize(vec3(-.4,-.25,1))),0.);}
  if(kind==1&&environment==0){
    float film=texture(floorFlow,uv).b;

@@ -1,0 +1,120 @@
+{
+  "schema": "dream.floor_final_integrity.v6",
+  "verified_at_utc": "2026-10-09T03:10:07.703661+00:00",
+  "status": "pass",
+  "scope": "Integrity of the final selected v6 floor map set and in-memory reproducibility of its normal/flow. This does not certify rendered visual fidelity or regenerate active images.",
+  "final_palette_srgb": {
+    "pink": "BEA2AB",
+    "mint": "93B3A3"
+  },
+  "final_neutral_absorption_linear": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "files": {
+    "floor_pink_albedo": {
+      "png": {
+        "sha256": "e6f81bc8042c153477c1d7d5f10f6d6f9cf3b96bd41f72fa769b3251cbf37abd",
+        "bytes": 56141
+      },
+      "bmp": {
+        "sha256": "e4c2440fb842d36ae81aea9ebd6fe1fefcc8e1c63085c788f368e1cc2fab23ae",
+        "bytes": 4718646
+      },
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixels_identical": true
+    },
+    "floor_mint_albedo": {
+      "png": {
+        "sha256": "ed10972865c6c993e54a92ba243ba820ef2d589245919cf783a5b94fe348a64b",
+        "bytes": 61312
+      },
+      "bmp": {
+        "sha256": "8fd985a8a602e2a598c0801105a2bfec5754f571ecc7d6ae473281ab66bbbdc8",
+        "bytes": 4718646
+      },
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixels_identical": true
+    },
+    "floor_surface_albedo": {
+      "png": {
+        "sha256": "f5466f8cebdcd8bfea8e458d56480c8236fed35d4914fac865d991ffea06e80c",
+        "bytes": 241889
+      },
+      "bmp": {
+        "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+        "bytes": 4718646
+      },
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixels_identical": true
+    },
+    "floor_flow": {
+      "png": {
+        "sha256": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
+        "bytes": 542533
+      },
+      "bmp": {
+        "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+        "bytes": 4718646
+      },
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixels_identical": true
+    },
+    "floor_normal": {
+      "png": {
+        "sha256": "45115549bef0b5295e583a581f5a5f5a43bab99cc179e4b0521a11e374d96302",
+        "bytes": 516430
+      },
+      "bmp": {
+        "sha256": "62abefaeb891e210c36a46de2ecf8febddb2aa3a59b2e5d90f273e96fdff7b12",
+        "bytes": 4718646
+      },
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixels_identical": true
+    }
+  },
+  "metadata_sha256": "bbce0a32e988ce4bbed4ce4453e97eef32a35e5c25525d6794933e40d9130405",
+  "helper_sha256": "20512d55518caf8b4e5e73feea2034b226dc9cb3e82240485677fadfa1cdbfd2",
+  "production_generator_sha256": "004b81aeba9b8b9d3e356a442915a7ef8b71aa3d59e841348eee6350a37f981f",
+  "current_checks": {
+    "five_png_bmp_pairs_pixels_identical": true,
+    "flow_rg_equals_normal_rg": true,
+    "flow_b_equals_f207845": true,
+    "pure_helper_reproduces_active_normal_pixels": true,
+    "pure_helper_reproduces_active_flow_pixels": true,
+    "pure_helper_input_mask_unchanged": true,
+    "global_numpy_rng_unchanged": true,
+    "normal_opposite_edges_identical": true,
+    "optional_roughness_not_generated": true,
+    "active_images_unchanged_during_check": true
+  },
+  "film_mask_reference": {
+    "commit": "f207845",
+    "floor_flow_png_sha256": "f3efdbc5f38e15f6fef77df113dbb1888e5e1be470a57d51b224c2d62a7cab7e",
+    "blue_channel_only": true
+  },
+  "historical_verification": {
+    "scope": "Previous integration check, before the final intentional palette/absorption changes.",
+    "pure_helper_and_production": "The extracted helper and production generator previously reproduced all ten then-active PNG/BMP files exactly in temporary output directories.",
+    "diagnostic_generator": "The historical f207845 diagnostic reproduced its twelve candidate maps, including its optional roughness.",
+    "limitation": "These historical production/albedo parity results do not assert that the final albedos equal f207845 or that the final palette was regenerated during this check."
+  },
+  "final_albedo_policy": "Final albedos intentionally changed to pink BEA2AB, mint 93B3A3 and absorption [1,1,1]. No equality to the old f207845 albedos is claimed.",
+  "writes": "Only dream/validation/floor-v6-validation.json; no texture/script/metadata edits, Blender calls or temporary directories."
+}

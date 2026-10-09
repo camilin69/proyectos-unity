@@ -141,6 +141,6 @@
     512
   ],
   "mapping": "longitude=atan2(y,x)/(2*pi)+0.5; latitude=asin(z)/pi+0.5, BMP bottom-up",
-  "png_sha256": "ed8ba669269d3344bc189bca264dc6add794e064d1ef5993edf067a31140cd6a",
+  "png_sha256": "f33450780b88a0898c9e5fb4603f47175166942993da459c887c5264628f69dc",
   "scope": "Static LDR interior reflection; box projected at runtime. Does not encode dynamic objects or HDR radiance."
 }

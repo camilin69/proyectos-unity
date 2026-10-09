@@ -92,6 +92,7 @@ selecciona el ajuste predeterminado. El coste depende de la resolución y la GPU
 - `blender/make_textures.py`: texturas procedurales originales; requiere NumPy y Pillow.
 - `blender/make_cloud_sky.py`: cielo con volumen precalculado, sombras lavanda y panorama sin costuras; requiere también SciPy.
 - `blender/make_room_finishes.py`: mapas de color, normal y distorsión del suelo; requiere NumPy, Pillow y SciPy.
+- `blender/floor_ripple.py`: campo de altura continuo y reproducible que genera las normales del suelo.
 - `blender/bake_room_probe.py`: captura seis vistas del interior mediante un temporizador de Blender.
 - `blender/pack_room_probe.py`: convierte esas vistas al mapa de reflexión del visor; requiere NumPy, Pillow y SciPy.
 - `assets/pastel_room.glb`: intercambio estándar de geometría/materiales. No representa todos los efectos del visor.
@@ -114,6 +115,11 @@ El suelo de la habitación es una superficie cerrada continua con un único mapa
 de damero y manchas (`floor_surface_albedo`), un mapa normal para Blender y
 un mapa de inclinación/máscara (`floor_flow`) para OpenGL. Los mapas anteriores
 `floor_pink_albedo` y `floor_mint_albedo` se conservan como variantes de referencia.
+Las ondulaciones combinan escalas de 1,25 m, 38 cm y 11 cm, con amplitud
+irregular en coordenadas del suelo. Normal y distorsión derivan de la misma
+altura; sus canales de inclinación coinciden. No dependen de la cámara ni de
+las manchas de color. El damero conserva rosa y menta sin la antigua absorción
+azul que se usaba para compensar el reflejo exclusivo del cielo.
 
 El metal de la habitación usa un mapa de reflexión interior LDR estático,
 `room_probe`, con corrección de perspectiva aproximada según los límites de la
@@ -121,6 +127,11 @@ habitación y filtrado según rugosidad. No contiene objetos dinámicos ni radia
 HDR, y no resuelve iluminación global. Debe regenerarse después de cambiar la
 geometría, los materiales o las luces del interior. El suelo conserva su reflejo
 planar independiente.
+Un retorno de luz rectangular desde el suelo complementa el reflejo del metal;
+se filtra por rugosidad y tamaño de píxel y cambia con la posición del observador.
+Es una aproximación de iluminación indirecta sin oclusión dinámica. En Blender,
+luces con receptores definidos equilibran pared, marcos y cromo. Estos aportes
+no convierten el mapa LDR en iluminación global ni se trasladan dentro del GLB.
 
 ## Editar y exportar desde Blender
 
@@ -229,7 +240,7 @@ geometría transparente entrecruzada compleja necesitará otro tratamiento.
 
 `validation/room-comparison.png` muestra referencia, Blender y OpenGL con el mismo
 aspecto vertical. `room-geometry-review.json` registra los hitos de composición;
-`room-look-before-v5.json` y `room-look-after-v5.json` registran color por regiones.
+`room-look-before-v6.json` y `room-look-after-v6.json` registran color por regiones.
 Estas medias son diagnósticos, no porcentajes de fidelidad. La evaluación visual
 y sus diferencias pendientes están en `fidelity-review.json`.
 Para investigar materiales, `--debug-shading 1`, `2` o `3` muestra albedo,
@@ -239,10 +250,13 @@ comparación de cobertura sin MSAA y con 4 muestras, junto con las pruebas de
 redimensionado y cambio de escena. Sus tiempos corresponden a contextos ocultos
 sin sincronización vertical y al shader indicado en el informe; no garantizan
 FPS en pantalla completa ni verifican por sí solos la calibración visual final.
-`validation/room-render-v5.json` registra la integración posterior de materiales,
+`validation/room-render-v6.json` registra la integración posterior de materiales,
 reflejos y mapas, con los hashes de la captura y sus activos. Las imágenes
 `floor-finish-v4-candidate-*` documentan una variante histórica; el suelo activo
-usa la versión v5 suavizada registrada en `assets/textures/floor_finish.json`.
+usa la versión v6 registrada en `assets/textures/floor_finish.json`.
+`room-light-regions-v6.json` documenta muestras de puerta, marcos, paredes y
+baldosas que guiaron esta pasada; los borradores identificados allí son pruebas
+intermedias, no la captura final.
 
 ## Próximas etapas
 

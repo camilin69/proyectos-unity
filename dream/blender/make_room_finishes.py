@@ -15,6 +15,7 @@ import math
 import numpy as np
 from scipy.ndimage import gaussian_filter, zoom, map_coordinates
 from PIL import Image, ImageDraw
+from floor_ripple import generate_floor_ripple
 
 ASSET_TEXTURES=Path(__file__).resolve().parents[1]/'assets/textures'
 parser=argparse.ArgumentParser(description=__doc__)
@@ -120,7 +121,7 @@ def save(name,rgb):
     im=Image.fromarray(np.uint8(np.rint(np.clip(rgb*255,0,255))))
     im.save(root/f'{name}.png');im.save(root/f'{name}.bmp')
 
-base_colors={'pink':'AAA3AF','mint':'93AAA3'}
+base_colors={'pink':'BEA2AB','mint':'93B3A3'}
 colors={}
 for name,hexcolor in base_colors.items():
     color=np.array([int(hexcolor[i:i+2],16)/255 for i in (0,2,4)])
@@ -138,20 +139,19 @@ base=colors['mint']*(1-pink_weight[:,:,None])+colors['pink']*pink_weight[:,:,Non
 # Small low-frequency value variation keeps the neutral regions continuous.
 base*=1+(large[:,:,None]-.5)*.06
 surface=base*(1-strength[:,:,None])+linear(film)*strength[:,:,None]
-# Absorption of the neutral wet coating counters the blue environment while
-# leaving the localized coral/lime interference colors intact.
-neutral_absorption=np.array([1.04,.98,.77])
+# The interior reflection probe replaces the old blue-only sky contribution;
+# retain the authored rose/mint substrate instead of pre-absorbing its blue.
+neutral_absorption=np.ones(3)
 surface*=neutral_absorption*(1-mask[:,:,None])+mask[:,:,None]
 save('floor_surface_albedo',srgb(surface))
 
-# Broad millimetre-scale undulations, with a smaller crossing wave, produce
-# a continuous moving-water-like distortion once reflected by the renderer.
-height=.008*np.sin(x*4.5+y*2.1)+.006*np.sin(y*5.3-x*1.7)+.004*gaussian_filter(medium,3)
-dy,dx=np.gradient(height,-5.4/(h-1),2.85/(w-1))
-normal_length=np.sqrt(1+dx*dx+dy*dy)
-nx=-dx/normal_length;ny=-dy/normal_length;nz=1/normal_length
-save('floor_flow',np.stack([nx*.5+.5,ny*.5+.5,mask],axis=-1))
-save('floor_normal',np.stack([nx*.5+.5,ny*.5+.5,nz*.5+.5],axis=-1))
+# The helper owns an independent RNG: accepted albedos and the film mask
+# above remain byte-identical. Optional roughness is not integrated.
+ripple=generate_floor_ripple(np.uint8(np.rint(np.clip(mask*255,0,255))))
+nx,ny,nz=np.moveaxis(ripple['normal'],-1,0)
+for name,pixels in [('floor_flow',ripple['flow_rgb']),('floor_normal',ripple['normal_rgb'])]:
+    image=Image.fromarray(pixels,'RGB')
+    image.save(root/(name+'.png'));image.save(root/(name+'.bmp'))
 screen_rows,screen_cols=np.indices((640,360),dtype=float)
 screen_u=(screen_cols+.5)/360;screen_v=(screen_rows+.5)/640
 rays=forward+right[None,None,:]*((2*screen_u-1)*aspect*tan_half_fov)[:,:,None]+up[None,None,:]*((1-2*screen_v)*tan_half_fov)[:,:,None]
@@ -159,18 +159,20 @@ distance=(floor_z-eye[2])/rays[:,:,2]
 hits=eye+rays*distance[:,:,None]
 visible_floor=(distance>0)&(hits[:,:,0]>=-2.4)&(hits[:,:,0]<=.45)&(hits[:,:,1]>=-2.7)&(hits[:,:,1]<=2.7)
 projected_mask=map_coordinates(mask,[(2.7-hits[:,:,1])/5.4*(h-1),(hits[:,:,0]+2.4)/2.85*(w-1)],order=1,mode='constant',cval=0)
-manifest={'source':'authored isolated interference pools, continuous slab v5 softened iridescence',
+manifest={'source':'continuous slab v6 organic ripples with calibrated rose/mint substrate and v5 softened iridescence',
     'output_role':'active' if active_output else 'variant',
     'base_colors_srgb':base_colors,'color_space':'albedo sRGB; flow and normal linear',
     'blend':'linear-light RGB','room_uv_extent_m':[2.85,5.4],
     'world_uv_bounds':{'x':[-2.4,.45],'y':[-2.7,2.7]},'image_top_world_y':2.7,
     'tile_period_m':.6,'joint_style':'soft refracted colour transition, no dark grout',
     'primary_albedo':'floor_surface_albedo.png','seed':1431,
+    'ripple_parameters':ripple['parameters'],
+    'roughness_policy':'Existing constant material roughness retained; experimental roughness map is not integrated.',
     'neutral_absorption_linear':neutral_absorption.tolist(),
     'hero_palette_srgb':{'coral':np.rint(hero_coral*255).astype(int).tolist(),
                          'lime':np.rint(hero_lime*255).astype(int).tolist(),
                          'cyan':np.rint(hero_cyan*255).astype(int).tolist()},
-    'hero_color_policy':'Stronger separated hues only inside the original main pool footprint; other pools and neutral tile colors retained.',
+    'hero_color_policy':'Original pool footprint and film palette retained; neutral checker calibrated against rose/mint floor samples.',
     'placement':{'method':'reference image coordinates raycast onto the current camera floor plane',
                  'camera':camera_values,'tan_half_fov':tan_half_fov,'aspect':aspect,
                  'floor_z':floor_z,'patches':patches},
@@ -180,7 +182,8 @@ manifest={'source':'authored isolated interference pools, continuous slab v5 sof
                   'projected_floor_strong_fraction':float(np.mean(projected_mask[visible_floor]>.5)),
                   'projection_scope':'camera rays hitting the slab; excludes no occluding geometry',
                   'normal_xy_rms':float(np.sqrt(np.mean(nx*nx+ny*ny))),
-                  'normal_xy_p95':float(np.percentile(np.sqrt(nx*nx+ny*ny),95))},
+                  'normal_xy_p95':float(np.percentile(np.sqrt(nx*nx+ny*ny),95)),
+                  'normal_statistics_source':'analytic scalar-height field from floor_ripple.generate_floor_ripple/v6'},
     'limitation':'Artistic approximation with fixed albedo colors. Reflections respond to view angle; this is not a physical thin-film simulation.'}
 (root/'floor_finish.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 

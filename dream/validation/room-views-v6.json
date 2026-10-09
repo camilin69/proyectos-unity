@@ -1,0 +1,65 @@
+{
+  "result": "PASS",
+  "scope": "Two fixed, walkable-position material captures. PASS covers successful OpenGL rendering and restored camera configuration only; visual evidence is limited to the two still images.",
+  "size": [
+    960,
+    720
+  ],
+  "opaque_samples": 4,
+  "frames_each": 8,
+  "fixed_time_s": 0,
+  "configuration_restored_sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+  "captures": [
+    {
+      "camera": [
+        -1.2,
+        -0.9,
+        1.4,
+        0.79,
+        -0.32
+      ],
+      "image": "room-view-radiator-v6.png",
+      "image_sha256": "14ca35f4ffb254d37f6d453ce1118c37e408c51a5cd69c39c95265b4c3e3b593",
+      "output": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=20688 glass_groups=0 water=0\nframes=8 elapsed=0.567093 vertices=20688 gl_error=0 camera=-1.2,-0.9,1.4 yaw=0.79"
+    },
+    {
+      "camera": [
+        -0.65,
+        -1.8,
+        1.4,
+        1.6,
+        -0.21
+      ],
+      "image": "room-view-right-v6.png",
+      "image_sha256": "b2df52699fcd934cfde9552007beb188e5437ddfe5a4ac94efe872d84aef9bb3",
+      "output": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=20688 glass_groups=0 water=0\nframes=8 elapsed=0.852914 vertices=20688 gl_error=0 camera=-0.65,-1.8,1.4 yaw=1.6"
+    }
+  ],
+  "performance_claim": false,
+  "blender_rendering_concurrently": true,
+  "visual_review": {
+    "reviewed_by": [
+      "root",
+      "room_landmarks"
+    ],
+    "result": "LIMITED_STATIC_REVIEW",
+    "observations": [
+      "Both captures show continuous room geometry with the doorway, window, wall tiles, radiator and floor present from the recorded positions.",
+      "The closer radiator view shows continuous metallic vertical highlights and a distorted reflection on the floor.",
+      "The second view shows the open leaf nearly edge-on and the radiator from another angle; a strong localized ceramic highlight remains near the window."
+    ],
+    "not_verified": [
+      "Motion stability or flicker between camera poses",
+      "All grazing-angle or mirror configurations",
+      "Complete manual traversal or collision coverage",
+      "Final reference fidelity"
+    ],
+    "reference_fidelity_accepted": false
+  },
+  "current_shader_sha256": "c7f968aa24a50ac3b57b83f6fe07a83926cd265d6afd5e7f0af1251bc0a8785a",
+  "limitations": [
+    "Only two still viewpoints are covered; there is no continuous camera path in this evidence.",
+    "Render timing occurred in hidden windows while Blender was active and is not a fullscreen FPS claim.",
+    "These observations do not replace the separate fidelity review."
+  ]
+}

@@ -7,7 +7,7 @@
     "blender": "5.2.1",
     "runtime": "C++17 / OpenGL 3.3",
     "triangles": 6896,
-    "objects_in_blender_scene": 725,
+    "objects_in_blender_scene": 728,
     "materials": 9,
     "implemented": [
       "editable_room",
@@ -35,7 +35,11 @@
       "local_box_projected_reflection_probe",
       "screen_footprint_reflection_filter",
       "separated_cylinder_cap_normals",
-      "softened_local_floor_iridescence"
+      "softened_local_floor_iridescence",
+      "spatial_painted_door_bounce",
+      "continuous_filtered_floor_return_on_metal",
+      "floor_reflection_ripple_field",
+      "final_eevee_256_sample_reference_render"
     ],
     "visual_match_accepted": false,
     "remaining": [
@@ -65,14 +69,14 @@
         720
       ]
     ],
-    "smoke_elapsed_s": 17.6158,
+    "smoke_elapsed_s": 27.7046,
     "opengl_error": 0,
     "mouse_horizontal_direction": "pass",
     "runtime_dll_dependencies": "Windows system DLLs only",
     "limitation": "Hidden-context integration run without vsync; elapsed time is not a fullscreen FPS guarantee. Not an exhaustive manual playtest.",
     "asset_integrity": "PASS",
-    "opengl_final_static_frames": 2,
-    "opengl_final_static_elapsed_s": 0.819795,
+    "opengl_final_static_frames": 8,
+    "opengl_final_static_elapsed_s": 0.59965,
     "look_metrics_limitation": "Matching vertical aspect ratios and selected material-class color regions. Region means are diagnostic, not a fidelity percentage or exact geometry registration."
   },
   "not_implemented": [
@@ -124,13 +128,13 @@
       "pastel_room"
     ],
     "scene_cycle_frames": 720,
-    "scene_cycle_elapsed_s": 17.6158,
+    "scene_cycle_elapsed_s": 27.7046,
     "scene_cycle_gl_error": 0,
     "scene_cycle_resolution": [
       1280,
       720
     ],
-    "scope": "Hidden OpenGL integration run; Blender rendering was concurrent. Not a fullscreen performance guarantee.",
+    "scope": "Current hidden OpenGL scene cycle/resize and saved final render, syntax and asset checks. Technical PASS does not grant final visual acceptance or fullscreen performance.",
     "water_vertices_covered": 72960,
     "canal_capsules": 32,
     "room_portrait_capture": [
@@ -141,19 +145,48 @@
       720,
       1280
     ],
-    "python_syntax": "PASS",
+    "python_syntax": "PASS - 15 files",
     "room_floor_nonmanifold_edges": 0,
     "room_geometry_review": "PASS for material calibration; remaining landmark offsets documented",
-    "room_look_report": "room-look-after-v5.json",
+    "room_look_report": "room-look-after-v6.json",
     "opaque_msaa_samples": 4,
     "room_probe_png_bmp_parity": "PASS",
     "room_probe_face_count": 6,
     "room_normal_flow_rg_parity": "PASS",
-    "current_room_static_capture_frames": 2,
-    "current_room_static_elapsed_s": 0.819795,
-    "current_room_static_gl_error": 0
+    "current_room_static_capture_frames": 8,
+    "current_room_static_elapsed_s": 0.59965,
+    "current_room_static_gl_error": 0,
+    "cpp_syntax": "PASS - no diagnostics",
+    "diff_whitespace": "PASS",
+    "room_floor_map_png_bmp_parity": "PASS",
+    "blender_render_state": "complete",
+    "blender_render_samples": 256,
+    "blender_render_callback_registered": false,
+    "room_render_report": "room-render-v6.json",
+    "alternative_views_report": "room-views-v6.json",
+    "retained_prior_checks": {
+      "navigation_steps": 69000,
+      "animation": "Earlier PASS for water, foliage and waterfall; full animation suite not rerun during v6 closure.",
+      "room_floor_nonmanifold_edges": 0
+    }
   },
   "goal_complete": false,
-  "remaining_goal_requirement": "Refine spatial lighting and material response against the reference; the atrium remains a functional visual prototype.",
-  "quality_revision": "room-reference-finish-v5 / opaque-msaa-4x / atrium-garden-channel-v2"
+  "remaining_goal_requirement": "Continue reference fidelity work on spatial lighting, floor/reflection naturalness and material detail; the atrium remains a functional visual prototype. Technical v6 checks passed, but visual acceptance is still false.",
+  "quality_revision": "room-reference-finish-v6 / opaque-msaa-4x / atrium-garden-channel-v2",
+  "evidence_hashes_v6": {
+    "blender/pastel_room.blend": "0dde3680c16bf296cc57c2db883bb2cbfa489af47864baf7028e7fc597b8c599",
+    "runtime/shaders/scene.frag": "c7f968aa24a50ac3b57b83f6fe07a83926cd265d6afd5e7f0af1251bc0a8785a",
+    "assets/pastel_room.dreammesh": "076cfbd2098849e593b89a780785ae6c5eecf20877d525c24f9efa0b21c328f6",
+    "assets/pastel_room.glb": "f7b685f51f0e859aaa8be45b5e774d01e85f90b7fbe2e25d9809d332b16f2bc6",
+    "assets/textures/room_probe.png": "f33450780b88a0898c9e5fb4603f47175166942993da459c887c5264628f69dc",
+    "assets/textures/floor_surface_albedo.png": "f5466f8cebdcd8bfea8e458d56480c8236fed35d4914fac865d991ffea06e80c",
+    "assets/textures/floor_flow.png": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
+    "assets/textures/floor_normal.png": "45115549bef0b5295e583a581f5a5f5a43bab99cc179e4b0521a11e374d96302",
+    "validation/room-blender.png": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
+    "validation/room-opengl.png": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
+    "validation/room-comparison.png": "3b3625bbd95d25a76d06bd40bae666649407fb8c454163a5f648a87e7307abd6",
+    "validation/room-look-after-v6.json": "b35701a38f7ea44265bac0503c7a41a959dd57e646eff29a1a05764baf2e3b60",
+    "validation/room-views-v6.json": "ae93d2ab4130f7dadb169b0d6bcf6a82a6d6b10d2e295ef3babe50de09517da4",
+    "validation/room-render-v6.json": "51efa352bd6f1f6bc0c4f36d80fbb98c9f68306b49781cd4af5ba6bf4475aef1"
+  }
 }

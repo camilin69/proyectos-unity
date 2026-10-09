@@ -6,3 +6,5 @@ validation/*.log
 __pycache__/
 # Disposable texture variants; selected maps and review evidence are tracked.
 assets/textures/floor_candidate/
+assets/textures/floor_v6_candidate/
+validation/floor-baseline-f207845/
