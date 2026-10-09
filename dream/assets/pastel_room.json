@@ -12,8 +12,8 @@
     "DREAM_MAT_plaid.007",
     "DREAM_MAT_ceiling.007"
   ],
-  "vertices": 20688,
-  "triangles": 6896,
+  "vertices": 31056,
+  "triangles": 10352,
   "objects": [
     {
       "name": "GEO-DREAM-floor_surface",
@@ -7562,30 +7562,8 @@
       ]
     },
     {
-      "name": "GEO-DREAM-curtain",
-      "first_vertex": 13920,
-      "vertex_count": 1536,
-      "kind": 2,
-      "center": [
-        0.20106060802936554,
-        0.5999999046325684,
-        1.965545654296875
-      ]
-    },
-    {
-      "name": "GEO-DREAM-curtain.001",
-      "first_vertex": 15456,
-      "vertex_count": 1536,
-      "kind": 2,
-      "center": [
-        0.20106060802936554,
-        1.749999761581421,
-        1.965545654296875
-      ]
-    },
-    {
       "name": "GEO-DREAM-radiator_fin",
-      "first_vertex": 16992,
+      "first_vertex": 13920,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7596,7 +7574,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.001",
-      "first_vertex": 17124,
+      "first_vertex": 14052,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7607,7 +7585,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.002",
-      "first_vertex": 17256,
+      "first_vertex": 14184,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7618,7 +7596,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.003",
-      "first_vertex": 17388,
+      "first_vertex": 14316,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7629,7 +7607,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.004",
-      "first_vertex": 17520,
+      "first_vertex": 14448,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7640,7 +7618,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.005",
-      "first_vertex": 17652,
+      "first_vertex": 14580,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7651,7 +7629,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.006",
-      "first_vertex": 17784,
+      "first_vertex": 14712,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7662,7 +7640,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.007",
-      "first_vertex": 17916,
+      "first_vertex": 14844,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7673,7 +7651,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.008",
-      "first_vertex": 18048,
+      "first_vertex": 14976,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7684,7 +7662,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.009",
-      "first_vertex": 18180,
+      "first_vertex": 15108,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7695,7 +7673,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.010",
-      "first_vertex": 18312,
+      "first_vertex": 15240,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7706,7 +7684,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.011",
-      "first_vertex": 18444,
+      "first_vertex": 15372,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7717,7 +7695,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.012",
-      "first_vertex": 18576,
+      "first_vertex": 15504,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7728,7 +7706,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.013",
-      "first_vertex": 18708,
+      "first_vertex": 15636,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7739,7 +7717,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.014",
-      "first_vertex": 18840,
+      "first_vertex": 15768,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7750,7 +7728,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.015",
-      "first_vertex": 18972,
+      "first_vertex": 15900,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7761,7 +7739,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.016",
-      "first_vertex": 19104,
+      "first_vertex": 16032,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7772,7 +7750,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.017",
-      "first_vertex": 19236,
+      "first_vertex": 16164,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7783,7 +7761,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.018",
-      "first_vertex": 19368,
+      "first_vertex": 16296,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7794,7 +7772,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.019",
-      "first_vertex": 19500,
+      "first_vertex": 16428,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7805,7 +7783,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.020",
-      "first_vertex": 19632,
+      "first_vertex": 16560,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7816,7 +7794,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.021",
-      "first_vertex": 19764,
+      "first_vertex": 16692,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7827,7 +7805,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.022",
-      "first_vertex": 19896,
+      "first_vertex": 16824,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7838,7 +7816,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_fin.023",
-      "first_vertex": 20028,
+      "first_vertex": 16956,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7849,7 +7827,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_pipe",
-      "first_vertex": 20160,
+      "first_vertex": 17088,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7860,7 +7838,7 @@
     },
     {
       "name": "GEO-DREAM-radiator_pipe.001",
-      "first_vertex": 20292,
+      "first_vertex": 17220,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7871,7 +7849,7 @@
     },
     {
       "name": "GEO-DREAM-skirting_left",
-      "first_vertex": 20424,
+      "first_vertex": 17352,
       "vertex_count": 132,
       "kind": 0,
       "center": [
@@ -7882,13 +7860,35 @@
     },
     {
       "name": "GEO-DREAM-skirting_right",
-      "first_vertex": 20556,
+      "first_vertex": 17484,
       "vertex_count": 132,
       "kind": 0,
       "center": [
         0.419999897480011,
         0.0,
         0.06000000238418579
+      ]
+    },
+    {
+      "name": "GEO-DREAM-curtain-0",
+      "first_vertex": 17616,
+      "vertex_count": 6720,
+      "kind": 2,
+      "center": [
+        0.187721848487854,
+        0.5922406315803528,
+        1.9674402475357056
+      ]
+    },
+    {
+      "name": "GEO-DREAM-curtain-1",
+      "first_vertex": 24336,
+      "vertex_count": 6720,
+      "kind": 2,
+      "center": [
+        0.18772189319133759,
+        1.7577590942382812,
+        1.9674402475357056
       ]
     }
   ],
@@ -7909,7 +7909,7 @@
   "ao": {
     "method": "8 cosine hemisphere rays, 0.65 m radius",
     "minimum": 0.35,
-    "corners": 8674,
+    "corners": 11092,
     "excluded_occluder_kinds": [
       4,
       6,

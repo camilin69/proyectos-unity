@@ -1,0 +1,100 @@
+{
+  "scene": "DREAM_MeadowKitchen",
+  "object_count": 56,
+  "mesh_count": 53,
+  "render_status": "complete",
+  "blender_version": "5.2.1 LTS",
+  "preserved_scenes": [
+    [
+      "DREAM_Atrium",
+      780
+    ],
+    [
+      "DREAM_PastelRoom",
+      729
+    ],
+    [
+      "Scene",
+      3
+    ]
+  ],
+  "projected_bounds_unoccluded": {
+    "range_body": [
+      1.9655607603490353,
+      407.0353239774704,
+      161.56437015533447,
+      628.0594825744629
+    ],
+    "microwave": [
+      119.33124768733978,
+      352.21541225910187,
+      216.8475764989853,
+      403.6059319972992
+    ],
+    "entry_leaf": [
+      418.2016222476959,
+      -181.34207725524902,
+      520.6719696521759,
+      994.2926466464996
+    ],
+    "upper_cabinet": [
+      -49.894258081912994,
+      144.55787241458893,
+      175.37354028224945,
+      305.75262010097504
+    ]
+  },
+  "schema": "dream.kitchen.geometry_iteration.v1",
+  "recorded_at_utc": "2026-10-09T04:11:56.746897+00:00",
+  "accepted": false,
+  "goal_complete": false,
+  "runtime_implemented": false,
+  "geometry_gate": "pending",
+  "materials": "Diagnostic grayscale only; meadow is a flat footprint, sky is a blue backdrop.",
+  "visual_findings": [
+    "Removed foreground cabinet that incorrectly obscured the oven.",
+    "Appliance fronts are now visible in an inferred oblique alcove.",
+    "Oven body approximately matches visible height; full projected bounds include occlusion behind entry frame.",
+    "Microwave and upper cabinet still extend too far right versus source.",
+    "Entry leaf, ceiling grid and paving/grass boundary need more fitting.",
+    "No verification of animation or navigation; 0s and 4.5s views still need scene camera matches."
+  ],
+  "reference": "referencias/estetica/evidencias/video-42/02s.png",
+  "artifacts": [
+    {
+      "path": "blender/build_kitchen.py",
+      "bytes": 13035,
+      "sha256": "e75941d80a259fb46a0cf80fd4b30b4d070507ecfe935b6c576db6c2b270c2be"
+    },
+    {
+      "path": "blender/kitchen_plan.json",
+      "bytes": 24826,
+      "sha256": "2fa96a93e105998d01fe597e440d48462eee5304641e3e7d7809b20273626e02"
+    },
+    {
+      "path": "blender/kitchen_meadow.blend",
+      "bytes": 3738404,
+      "sha256": "5abc985f5e67dc706995cf2914ec56f07d9b749159dbe54476097165405d7d78"
+    },
+    {
+      "path": "validation/kitchen-blockout.png",
+      "bytes": 441652,
+      "sha256": "9ed3e957d1bf339fd3d6088afca7dd5d9ffb887454dbac2331b4289fb9faa5eb"
+    },
+    {
+      "path": "validation/kitchen-blockout-initial.png",
+      "bytes": 464249,
+      "sha256": "fc418d221958ec3c730afbcf9bfb16c209828ea1c72e9149b4f1558ceec106d2"
+    },
+    {
+      "path": "validation/kitchen-blockout-comparison.png",
+      "bytes": 622538,
+      "sha256": "974b2ad34212d13547497f70046caf97cfc1eb183b4c62f06ccaabb66b014432"
+    },
+    {
+      "path": "validation/kitchen-blockout-scene.json",
+      "bytes": 905,
+      "sha256": "980a0a89bdac4924806abb084fe14ce367320f85b3ac841e6cb22e058ae09894"
+    }
+  ]
+}

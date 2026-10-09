@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "iteration": "v7-floor",
+  "baseline": "v7 accepted local ceramic fill on ab59747 assets",
+  "runtime": {
+    "gpu": "Intel HD Graphics 630",
+    "size": [
+      540,
+      960
+    ],
+    "msaa": 4,
+    "frames": 8,
+    "time": 0,
+    "hidden": true
+  },
+  "selected_variant": "1",
+  "proposed_to_root": true,
+  "visual_acceptance_final": false,
+  "candidate_count": 2,
+  "variants": {
+    "baseline": {
+      "image": "room-floor-v7-baseline.png",
+      "image_sha256": "ecd72ba44c0abc1a713f874fcc21d7b7673409f6425304310b8af01bacf37f56",
+      "gl_error": 0,
+      "neutral_controls": {
+        "pink_opengl_final_1": {
+          "material_class": "pink",
+          "box": [
+            0.158,
+            0.923,
+            0.18200000000000002,
+            0.937
+          ],
+          "median_srgb": [
+            174.0,
+            152.0,
+            166.0
+          ],
+          "median_linear_Y": 0.342083
+        },
+        "pink_opengl_final_2": {
+          "material_class": "pink",
+          "box": [
+            0.348,
+            0.943,
+            0.372,
+            0.957
+          ],
+          "median_srgb": [
+            175.0,
+            154.0,
+            169.0
+          ],
+          "median_linear_Y": 0.350897
+        },
+        "mint_opengl_final_1": {
+          "material_class": "mint",
+          "box": [
+            0.188,
+            0.813,
+            0.21200000000000002,
+            0.827
+          ],
+          "median_srgb": [
+            143.0,
+            168.0,
+            170.5
+          ],
+          "median_linear_Y": 0.367346
+        },
+        "mint_opengl_final_2": {
+          "material_class": "mint",
+          "box": [
+            0.668,
+            0.943,
+            0.6920000000000001,
+            0.957
+          ],
+          "median_srgb": [
+            150.0,
+            167.0,
+            163.0
+          ],
+          "median_linear_Y": 0.368611
+        }
+      },
+      "reflection_coefficients": [
+        0.1,
+        0.34
+      ],
+      "blur_pixels": 6,
+      "elapsed_seconds": 0.363165,
+      "shader_sha256": "0f9b3aef4c9de1b5152a4d8946abff2f18595cd8d617cae8fd5167a65f0c1c6f"
+    },
+    "1": {
+      "image": "room-floor-v7-1.png",
+      "image_sha256": "2f036240b330b5016340dffa3a5db9b6440de27d61f6320a09e62be28de039f8",
+      "gl_error": 0,
+      "neutral_controls": {
+        "pink_opengl_final_1": {
+          "material_class": "pink",
+          "box": [
+            0.158,
+            0.923,
+            0.18200000000000002,
+            0.937
+          ],
+          "median_srgb": [
+            173.0,
+            152.0,
+            165.0
+          ],
+          "median_linear_Y": 0.340573
+        },
+        "pink_opengl_final_2": {
+          "material_class": "pink",
+          "box": [
+            0.348,
+            0.943,
+            0.372,
+            0.957
+          ],
+          "median_srgb": [
+            173.0,
+            155.0,
+            169.0
+          ],
+          "median_linear_Y": 0.351915
+        },
+        "mint_opengl_final_1": {
+          "material_class": "mint",
+          "box": [
+            0.188,
+            0.813,
+            0.21200000000000002,
+            0.827
+          ],
+          "median_srgb": [
+            144.0,
+            167.0,
+            174.0
+          ],
+          "median_linear_Y": 0.366244
+        },
+        "mint_opengl_final_2": {
+          "material_class": "mint",
+          "box": [
+            0.668,
+            0.943,
+            0.6920000000000001,
+            0.957
+          ],
+          "median_srgb": [
+            153.0,
+            165.5,
+            162.0
+          ],
+          "median_linear_Y": 0.36425
+        }
+      },
+      "reflection_coefficients": [
+        0.18,
+        0.45
+      ],
+      "blur_pixels": 6,
+      "elapsed_seconds": 0.404541,
+      "shader_sha256": "f1fef771f1cd78f1d89b00567a051e8fa63fd4750faa8e0410adb1aa1eeded19"
+    },
+    "2": {
+      "image": "room-floor-v7-2.png",
+      "image_sha256": "34d6889a2692e2c4eaafd953fc384055f32a15b7fa370fec8ff25982dbeb49c6",
+      "gl_error": 0,
+      "neutral_controls": {
+        "pink_opengl_final_1": {
+          "material_class": "pink",
+          "box": [
+            0.158,
+            0.923,
+            0.18200000000000002,
+            0.937
+          ],
+          "median_srgb": [
+            173.0,
+            151.0,
+            164.0
+          ],
+          "median_linear_Y": 0.336978
+        },
+        "pink_opengl_final_2": {
+          "material_class": "pink",
+          "box": [
+            0.348,
+            0.943,
+            0.372,
+            0.957
+          ],
+          "median_srgb": [
+            173.0,
+            155.0,
+            168.5
+          ],
+          "median_linear_Y": 0.351728
+        },
+        "mint_opengl_final_1": {
+          "material_class": "mint",
+          "box": [
+            0.188,
+            0.813,
+            0.21200000000000002,
+            0.827
+          ],
+          "median_srgb": [
+            145.0,
+            168.0,
+            175.0
+          ],
+          "median_linear_Y": 0.370593
+        },
+        "mint_opengl_final_2": {
+          "material_class": "mint",
+          "box": [
+            0.668,
+            0.943,
+            0.6920000000000001,
+            0.957
+          ],
+          "median_srgb": [
+            153.0,
+            165.0,
+            162.0
+          ],
+          "median_linear_Y": 0.364606
+        }
+      },
+      "reflection_coefficients": [
+        0.18,
+        0.45
+      ],
+      "blur_pixels": 4,
+      "elapsed_seconds": 0.336485
+    }
+  },
+  "choice_reason": "Variant1 increases the wet return across the floor, making the distorted doorway/panel reflections readable outside the radiator region. Variant2 makes the fine regular radiator ripple pattern more prominent without a clear broad-surface benefit; the original 6-pixel blur was therefore restored.",
+  "difference_from_reference": "The source video still combines broader liquid deformation and localized bright iridescence more naturally. The floor now reflects more, but this is an incremental optical improvement, not final fidelity acceptance.",
+  "method": "Neutral controls reuse material-class ROIs from room-light-regions-v6.json. Medians describe image-relative color, not exact texture identity or physical light. No camera, gamma, texture, normal, palette or geometry changes were made.",
+  "preserved_light_controls": {
+    "door_leaf": {
+      "pixels_equal": true
+    },
+    "door_right_casing": {
+      "pixels_equal": true
+    },
+    "front_mint_upper": {
+      "pixels_equal": true
+    },
+    "front_pink_middle": {
+      "pixels_equal": true
+    },
+    "front_mint_lower": {
+      "pixels_equal": true
+    },
+    "right_pink_below_window": {
+      "pixels_equal": true
+    }
+  },
+  "asset_hash_checks": {
+    "assets/pastel_room.dreammesh": true,
+    "assets/pastel_room.scene": true,
+    "assets/textures/floor_surface_albedo.bmp": true,
+    "assets/textures/floor_flow.bmp": true,
+    "assets/textures/room_probe.bmp": true
+  },
+  "unchanged_areas": [
+    "ceramic v7 direct-light correction",
+    "paint bounce",
+    "room/environment probe logic",
+    "metal return",
+    "atrium branch"
+  ],
+  "reflection_formula": "f = 0.18 + 0.45 * pow(1 - max(dot(n,v),0),4) for environment0 floor only",
+  "diff_image": {
+    "path": "room-floor-v7-diff.png",
+    "encoding": "Absolute channel difference between variant1 and baseline, multiplied by6 for visibility, clipped to255. It is diagnostic, not a beauty render."
+  },
+  "limits": [
+    "One portrait camera, no motion or all-angle verification in this local comparison.",
+    "Hidden elapsed times are not a fullscreen FPS guarantee.",
+    "Reflection-driven neutral color shifts are expected; no attempt was made to force pixel-exact RGB against the video.",
+    "Root will integrate changed curtains/geometry separately; these captures intentionally preserve the prior exported asset bytes."
+  ]
+}

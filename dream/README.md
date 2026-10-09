@@ -2,6 +2,31 @@
 
 Trabajo independiente dentro de la rama `dream`. El visor no utiliza Unity.
 
+## Alcance completo
+
+El objetivo actual es reproducir los **13 escenarios distintos de los cuatro
+videos**, respetando sus referencias, texturas, iluminación y movimiento.
+`validation/all-scenes-plan.json` registra cada escenario, todas sus apariciones,
+evidencias, pasos de construcción y estado. Los regresos a un mismo lugar se
+comparan como vistas adicionales; los cierres editoriales no son otros lugares.
+
+| Video | Escenarios |
+|---|---|
+| 35 | Atrio inundado, paseo de palmeras, escalera al cielo, habitación de nubes |
+| 42 | Cocina a la pradera, salida al océano, pasillo ondulado, pasarela acuática |
+| 51 | Árbol monumental sobre la ladera |
+| 52 | Transporte de cristal, atrio acuático, ascensor acuario, sala planetaria |
+
+La habitación y el atrio acuático tienen versiones recorribles. Son avances;
+su parecido aún debe revisarse con el criterio de reproducción solicitado.
+Los demás escenarios no se consideran implementados por estar inventariados.
+
+La cocina abierta a la pradera ya tiene un primer modelo gris en
+`blender/kitchen_meadow.blend`, construido con `blender/build_kitchen.py` y
+los parámetros de `blender/kitchen_plan.json`. Su comparación está en
+`validation/kitchen-blockout-comparison.png`. Aún requiere ajustar geometría,
+materiales, césped e iluminación; todavía no está disponible en el visor.
+
 ## Estado
 
 Hay una primera habitación pastel editable en Blender y recorrible en OpenGL:
@@ -88,6 +113,7 @@ selecciona el ajuste predeterminado. El coste depende de la resolución y la GPU
 - `blender/atrium.blend`: atrio editable con agua, vegetación y arquitectura.
 - `blender/build_atrium.py`: construcción del atrio; admite una fase de volúmenes simples.
 - `blender/build_room.py`: construcción reproducible de la habitación dentro de Blender.
+- `blender/curtain_mesh.py`: cortinas cerradas con pliegues variables y UV continuos, compartidas entre ambos renderizadores.
 - `blender/export_runtime.py`: exportación de geometría evaluada, materiales y oclusión local.
 - `blender/make_textures.py`: texturas procedurales originales; requiere NumPy y Pillow.
 - `blender/make_cloud_sky.py`: cielo con volumen precalculado, sombras lavanda y panorama sin costuras; requiere también SciPy.
@@ -132,6 +158,11 @@ se filtra por rugosidad y tamaño de píxel y cambia con la posición del observ
 Es una aproximación de iluminación indirecta sin oclusión dinámica. En Blender,
 luces con receptores definidos equilibran pared, marcos y cromo. Estos aportes
 no convierten el mapa LDR en iluminación global ni se trasladan dentro del GLB.
+La revisión v7 reduce el relleno de la cerámica frontal alta con una transición
+suave en coordenadas del mundo. En Blender, un retorno cálido limitado a la
+puerta corrige el matiz azul sin cambiar la exposición de toda la habitación.
+Las dos cortinas tienen grosor de 1,6 mm, bordes curvos y pliegues variables;
+conservan su mapa de cuadros. La habitación suma 10.352 triángulos.
 
 ## Editar y exportar desde Blender
 
@@ -240,7 +271,7 @@ geometría transparente entrecruzada compleja necesitará otro tratamiento.
 
 `validation/room-comparison.png` muestra referencia, Blender y OpenGL con el mismo
 aspecto vertical. `room-geometry-review.json` registra los hitos de composición;
-`room-look-before-v6.json` y `room-look-after-v6.json` registran color por regiones.
+`room-look-before-v7.json` y `room-look-after-v7.json` registran color por regiones.
 Estas medias son diagnósticos, no porcentajes de fidelidad. La evaluación visual
 y sus diferencias pendientes están en `fidelity-review.json`.
 Para investigar materiales, `--debug-shading 1`, `2` o `3` muestra albedo,
@@ -250,20 +281,24 @@ comparación de cobertura sin MSAA y con 4 muestras, junto con las pruebas de
 redimensionado y cambio de escena. Sus tiempos corresponden a contextos ocultos
 sin sincronización vertical y al shader indicado en el informe; no garantizan
 FPS en pantalla completa ni verifican por sí solos la calibración visual final.
-`validation/room-render-v6.json` registra la integración posterior de materiales,
+`validation/room-render-v7.json` registra la integración posterior de materiales,
 reflejos y mapas, con los hashes de la captura y sus activos. Las imágenes
 `floor-finish-v4-candidate-*` documentan una variante histórica; el suelo activo
 usa la versión v6 registrada en `assets/textures/floor_finish.json`.
 `room-light-regions-v6.json` documenta muestras de puerta, marcos, paredes y
 baldosas que guiaron esta pasada; los borradores identificados allí son pruebas
 intermedias, no la captura final.
+`curtain-v7-topology.json` comprueba el cierre y las UV de las cortinas;
+`room-light-v7.json` y `room-floor-v7.json` documentan los ensayos de luz y
+reflejo anteriores a la exportación final. Los controles funcionales y los
+informes visuales identifican por separado qué demuestra cada prueba.
 
 ## Próximas etapas
 
-1. Afinar suavidad de reflejos, respuesta del metal y luz frente a la referencia.
-2. Afinar el agua y el vidrio del atrio frente a la referencia.
-3. Ajustar distribución y densidad de la vegetación, que ya tiene hojas anchas, helechos y lianas.
-4. Revisar encuadres y acabado del atrio, ya construido y recorrible en planta baja.
+1. Contrastar habitación y atrio con todas sus vistas de referencia y corregir las diferencias de forma, luz y materiales.
+2. Construir los once escenarios restantes siguiendo el inventario y los pasos de sus análisis, empezando por volúmenes y encuadre.
+3. Extender el visor con catálogo, recursos y perfiles de iluminación por escena; la navegación de escaleras y galerías requiere alturas, además de las colisiones planas actuales.
+4. Exportar y comprobar cada escenario: recorrido, patrones y UV, iluminación, reflejos, agua, vegetación y movimiento cuando aparezcan en su video.
 
 Primero se verifica cada escena por separado. OpenGL 3.3 es la base actual;
 Vulkan no está implementado. La licencia de GLFW está en `runtime/licenses/`.

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "iteration": "v7",
+  "recorded_at": "2026-10-08T22:41:55.980272-05:00",
+  "build": {
+    "result": "PASS",
+    "command": "powershell -ExecutionPolicy Bypass -File .\\dream\\runtime\\build.ps1",
+    "run_switch_used": false,
+    "exit_code": 0,
+    "compiler_output": "",
+    "compiler_diagnostics": 0,
+    "compiler": "MinGW-w64 GCC 13.2",
+    "flags": "-std=c++17 -O2 -Wall -Wextra -static",
+    "linked_dependencies": "Local GLFW 3.4 static library, opengl32, gdi32",
+    "wall_time_seconds": 6.7602593,
+    "scope": "Clean compile and link from current C++ sources through the repository build script. GLSL is compiled at runtime, not by this build."
+  },
+  "artifacts": [
+    {
+      "path": "runtime/build.ps1",
+      "bytes": 1252,
+      "sha256": "a4912dfcb5eb904dd96c21fea3a4ebd5b21b7075b6b46ae89c7c224e5b7547d4"
+    },
+    {
+      "path": "runtime/src/main.cpp",
+      "bytes": 12597,
+      "sha256": "f62ffa9813bd0d2917a1718255770fc89d21de7e9b5d5f11001cfd686265df10"
+    },
+    {
+      "path": "runtime/src/render_support.hpp",
+      "bytes": 9052,
+      "sha256": "ab71f75e4f4ca9f850b8c96427c16044b4ec7ea6c0ec050bf2f850a24520aa96"
+    },
+    {
+      "path": "runtime/src/scene.hpp",
+      "bytes": 3293,
+      "sha256": "adfbd0923ce2ca319067cdeae30ac513efe6507e024b36fd98e4cdd319658e8f"
+    },
+    {
+      "path": "runtime/src/math.hpp",
+      "bytes": 1177,
+      "sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3"
+    },
+    {
+      "path": "runtime/src/gl_api.hpp",
+      "bytes": 2289,
+      "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5"
+    },
+    {
+      "path": "runtime/shaders/scene.frag",
+      "bytes": 10071,
+      "sha256": "f1fef771f1cd78f1d89b00567a051e8fa63fd4750faa8e0410adb1aa1eeded19"
+    },
+    {
+      "path": "runtime/shaders/scene.vert",
+      "bytes": 1082,
+      "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e"
+    },
+    {
+      "path": "runtime/shaders/present.frag",
+      "bytes": 1225,
+      "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf"
+    },
+    {
+      "path": "runtime/build/dream.exe",
+      "bytes": 3270323,
+      "sha256": "ad873551ad797009fb8773621da0e8c4f0cc679edb01d27c8658583769cd1e9f"
+    },
+    {
+      "path": "assets/pastel_room.scene",
+      "bytes": 207,
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b"
+    },
+    {
+      "path": "assets/atrium.scene",
+      "bytes": 3882,
+      "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519"
+    },
+    {
+      "path": "validation/navigation_test.cpp",
+      "bytes": 4530,
+      "sha256": "f37fdef65210b977c700e834d63acad2d2df31315ce27549ee551a47f515ec29"
+    }
+  ],
+  "current_room_export_observed": {
+    "triangles": 10352,
+    "vertices": 31056,
+    "materials": 9,
+    "glb_bytes": 1862948,
+    "asset_verification": "Root reports verify_assets PASS for room and atrium; this agent did not repeat that suite."
+  },
+  "completion_scope_review": {
+    "basis": "Read-only inspection of current input handlers, render loop, SceneSettings movement/collision code, asset loader and navigation test source, together with previously recorded passing results.",
+    "walking": {
+      "present": true,
+      "behavior": "WASD movement follows horizontal yaw, diagonal movement is normalized, Shift changes speed, frame dt is capped and collision movement is split into steps no longer than 0.08 m.",
+      "scope": "Ground-plane walking constrained to the authored room and atrium circulation; upper galleries and sky are not traversable."
+    },
+    "looking": {
+      "present": true,
+      "behavior": "Left click captures GLFW cursor; mouse delta updates yaw and pitch, pitch is clamped near vertical, Esc releases and R resets camera.",
+      "prior_evidence": "room-walk-v6.log records mouse_orientation=PASS. This unit direction check is not an exhaustive hardware/manual input test."
+    },
+    "collision": {
+      "present": true,
+      "behavior": "Three repeated projections handle discs, capsules, rectangular room bounds and radial atrium boundary.",
+      "test_source_coverage": "navigation_test.cpp exercises large door/wall moves, capsule sides/ends/diagonals, 360 approaches to the pond, every exported canal capsule from both sides and full outer circulation in both directions.",
+      "prior_recorded_result": "69,000 movement checks PASS in the retained validation record. This build-only step did not rerun them."
+    },
+    "scene_loading": {
+      "present": true,
+      "behavior": "Keys1/2 load configuration and mesh into temporary owners before replacement, upload material arrays and reset spawn/yaw/pitch. Invalid names, missing/malformed settings, invalid mesh headers, truncated mesh payloads or out-of-range transparent draw groups raise explicit errors.",
+      "prior_evidence": "room-walk-v6.log records room/atrium/room, 720 frames, gl_error=0 with resize exercised by smoke mode."
+    },
+    "assets": {
+      "present": true,
+      "behavior": "The binary resolves the dream root from its executable location or --root, loads .scene/.dreammesh/.draws plus bitmap textures, and compiles shader files on startup. A restart is required for edited geometry, maps or shaders.",
+      "scope": "Successful C++ linking alone does not prove the new final probe or mesh renders correctly."
+    },
+    "resizing": {
+      "present": true,
+      "behavior": "Each frame reads framebuffer size and resizes opaque/composite/MSAA/reflection targets; minimized zero-size frames wait.",
+      "prior_evidence": "The v6 smoke path resized640x480 then1280x720 with collected GL error0. No fresh v7 render run was performed in this build-only step."
+    }
+  },
+  "pending_integration": {
+    "final_probe_pack": "Pending at delegation: Blender probe capture was active. This agent did not claim completion or launch the rebuilt viewer.",
+    "new_runtime_capture_executed": false,
+    "fresh_final_shader_compile_verified": false,
+    "new_final_render_fidelity_claim": false
+  },
+  "limitations": [
+    "No FPS or fullscreen performance claim.",
+    "No runtime or image captures were launched because final probe packaging is pending.",
+    "No status.json, fidelity-review.json, code, materials or geometry were changed in this build/review task.",
+    "Earlier functional tests support their stated scope; they are not silently relabeled as new v7 execution or final visual acceptance."
+  ]
+}

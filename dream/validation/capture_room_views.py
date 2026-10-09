@@ -1,5 +1,6 @@
 """Capture material checks from two walkable positions; restore camera config."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import re
@@ -7,12 +8,15 @@ import subprocess
 from PIL import Image
 
 root = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--revision', default='v7', choices=['v6', 'v7'])
+revision = parser.parse_args().revision
 config = root / 'assets/pastel_room.scene'
 original = config.read_bytes()
 original_hash = hashlib.sha256(original).hexdigest()
 views = [
-    ('room-view-radiator-v6', [-1.2, -.9, 1.4, .79, -.32]),
-    ('room-view-right-v6', [-.65, -1.8, 1.4, 1.60, -.21]),
+    (f'room-view-radiator-{revision}', [-1.2, -.9, 1.4, .79, -.32]),
+    (f'room-view-right-{revision}', [-.65, -1.8, 1.4, 1.60, -.21]),
 ]
 records = []
 try:
@@ -36,9 +40,9 @@ finally:
     config.write_bytes(original)
 
 assert hashlib.sha256(config.read_bytes()).hexdigest() == original_hash
-report = {'result': 'PASS', 'scope': 'Two fixed, walkable-position material captures; visual review is separate.',
+report = {'result': 'PASS', 'revision': revision, 'scope': 'Two fixed, walkable-position material captures; visual review is separate.',
           'size': [960, 720], 'opaque_samples': 4, 'frames_each': 8, 'fixed_time_s': 0,
           'configuration_restored_sha256': original_hash, 'captures': records,
-          'performance_claim': False, 'blender_rendering_concurrently': True}
-(root / 'validation/room-views-v6.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+          'performance_claim': False, 'performance_context': 'Other GPU workload was not isolated or measured.'}
+(root / 'validation' / f'room-views-{revision}.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(report))

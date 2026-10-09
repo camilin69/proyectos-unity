@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "revision": "v7",
+  "scope": "Two fixed, walkable-position material captures; visual review is separate.",
+  "size": [
+    960,
+    720
+  ],
+  "opaque_samples": 4,
+  "frames_each": 8,
+  "fixed_time_s": 0,
+  "configuration_restored_sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+  "captures": [
+    {
+      "camera": [
+        -1.2,
+        -0.9,
+        1.4,
+        0.79,
+        -0.32
+      ],
+      "image": "room-view-radiator-v7.png",
+      "image_sha256": "28cb4be1b3703297f853c6970de36fad4a7e712e72cad17c722a16cb079e3c75",
+      "output": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=31056 glass_groups=0 water=0\nframes=8 elapsed=0.561525 vertices=31056 gl_error=0 camera=-1.2,-0.9,1.4 yaw=0.79"
+    },
+    {
+      "camera": [
+        -0.65,
+        -1.8,
+        1.4,
+        1.6,
+        -0.21
+      ],
+      "image": "room-view-right-v7.png",
+      "image_sha256": "ff3cf5f45cedb7f817f1311e3e6d04472889c5421c324419948820f7e00bad5e",
+      "output": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=31056 glass_groups=0 water=0\nframes=8 elapsed=0.473001 vertices=31056 gl_error=0 camera=-0.65,-1.8,1.4 yaw=1.6"
+    }
+  ],
+  "performance_claim": false,
+  "performance_context": "Other GPU workload was not isolated or measured."
+}

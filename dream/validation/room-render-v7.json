@@ -1,0 +1,677 @@
+{
+  "schema_version": 2,
+  "revision": "room-reference-finish-v7",
+  "baseline_revision": "ab59747",
+  "generated_at": "2026-10-08T22:49:56.615113-05:00",
+  "status": "technical_checks_passed_expanded_goal_in_progress",
+  "goal_complete": false,
+  "visual_match_accepted": false,
+  "expanded_scope": {
+    "request": "Recreate all distinct environments in the four supplied videos, following the agreed production steps.",
+    "status": "in_progress",
+    "implemented_runtime_scenes": [
+      "pastel_room",
+      "atrium"
+    ],
+    "all_scenes_implemented": false,
+    "all_scenes_fidelity_accepted": false,
+    "inventory": "validation/all-scenes-plan.json",
+    "inventory_status": "catalogued_execution_plan_available",
+    "unique_scenes": 13,
+    "temporal_entries": 20,
+    "implemented_prototypes": 2,
+    "without_runtime_implementation": 11,
+    "strictly_accepted_scenes": 0,
+    "inventory_sha256": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074",
+    "inventory_note": "Four return views and three editorial endings are recorded within 20 timeline entries. The 13-scene inventory is complete as a planning index; implementation and strict fidelity acceptance are not."
+  },
+  "requirement_review": [
+    {
+      "id": 1,
+      "requirement": "Editable pastel room in Blender with tiles, reflective floor and cloud doorway.",
+      "status": "implemented_iteration_verified",
+      "evidence": [
+        "blender/pastel_room.blend",
+        "validation/room-blender.png",
+        "validation/curtain-v7-topology.json"
+      ],
+      "limitation": "Verified current editable/exported iteration; exact reference recreation remains unaccepted."
+    },
+    {
+      "id": 2,
+      "requirement": "C++/OpenGL viewer with walking and mouse look.",
+      "status": "implemented_technical_checks_passed",
+      "evidence": [
+        "validation/room-build-v7.json",
+        "validation/room-walk-v7.log",
+        "validation/room-views-v7.json"
+      ],
+      "limitation": "Two current scenes, ground-plane collision and sampled integration tests; no exhaustive manual playtest or fullscreen FPS guarantee."
+    },
+    {
+      "id": 3,
+      "requirement": "Reference lighting and material fidelity.",
+      "status": "in_progress",
+      "visual_match_accepted": false,
+      "evidence": [
+        "validation/room-look-after-v7.json",
+        "validation/room-comparison.png",
+        "validation/room-light-v7.json",
+        "validation/room-floor-v7.json"
+      ],
+      "limitation": "Selected luminance controls improve, but color diagnostics and incremental visual approval do not establish complete likeness."
+    },
+    {
+      "id": 4,
+      "requirement": "Water, vegetation and futuristic atrium, extended to all environments in the four videos.",
+      "status": "partially_implemented_expanded_scope_in_progress",
+      "evidence": [
+        "assets/atrium.glb",
+        "validation/animation.json",
+        "validation/atrium-static-v7.log",
+        "validation/atrium-time2-v7.log",
+        "validation/all-scenes-plan.json"
+      ],
+      "limitation": "The inventory now identifies 13 distinct scenes and 20 temporal entries: two implemented runtime prototypes, 11 scenes without runtime implementation and zero strict fidelity acceptances. Construction and per-scene reference validation remain incomplete."
+    }
+  ],
+  "blender_render": {
+    "scene": "DREAM_PastelRoom",
+    "blender_version": "5.2.1",
+    "engine": "EEVEE",
+    "samples": 256,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "objects_in_scene": 729,
+    "render_state": "complete",
+    "callback_registered": false,
+    "blend_saved": "blender/pastel_room.blend",
+    "image": "validation/room-blender.png",
+    "completion_evidence": "Root confirmed completed render state, unregistered callback, 729 scene objects, saved blend filepath and current render via Blender MCP. Root reviewed the render and regenerated the comparison/look report before these hashes were recorded.",
+    "viewport_scope": "The MCP viewport screenshot showed exterior editor geometry; final visual quality was reviewed in the saved renders, not inferred from that viewport."
+  },
+  "opengl_final_capture": {
+    "image": "validation/room-opengl.png",
+    "scene": "pastel_room",
+    "frames": 8,
+    "dimensions": [
+      540,
+      960
+    ],
+    "elapsed_seconds": 0.474882,
+    "gl_error": 0,
+    "opaque_msaa_samples": 4,
+    "gpu": "Intel(R) HD Graphics 630",
+    "opengl": "3.3.0 - Build 31.0.101.2141",
+    "camera": [
+      -1.5,
+      -2.0,
+      1.4,
+      1.29,
+      -0.21
+    ],
+    "completion_evidence": "Root confirmed successful final capture and visually reviewed it. This agent read the current log, verified the look-report image hash and hashed the saved runtime inputs.",
+    "fullscreen_fps_claim": false,
+    "log": "validation/room-static-v7.log",
+    "vertices": 31056
+  },
+  "smoke": {
+    "result": "PASS",
+    "log": "validation/room-walk-v7.log",
+    "session_id": 34798,
+    "exit_code": 0,
+    "frames": 720,
+    "elapsed_seconds": 21.7685,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "resize_exercised": [
+      [
+        640,
+        480
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "scene_cycle": [
+      "pastel_room",
+      "atrium",
+      "pastel_room"
+    ],
+    "mouse_orientation": "PASS",
+    "gl_error": 0,
+    "opaque_msaa_samples": 4,
+    "final_camera": [
+      -2.15,
+      -0.978829,
+      1.4
+    ],
+    "final_yaw": 4.49,
+    "verification": "The saved log was read and confirms the mouse check, GPU, sample count, complete scene cycle, frame count and GL error status. Root confirmed process exit 0.",
+    "fullscreen_fps_claim": false
+  },
+  "checks": {
+    "cpp_build": {
+      "result": "PASS",
+      "command": "powershell -ExecutionPolicy Bypass -File .\\dream\\runtime\\build.ps1",
+      "run_switch_used": false,
+      "exit_code": 0,
+      "compiler_output": "",
+      "compiler_diagnostics": 0,
+      "compiler": "MinGW-w64 GCC 13.2",
+      "flags": "-std=c++17 -O2 -Wall -Wextra -static",
+      "linked_dependencies": "Local GLFW 3.4 static library, opengl32, gdi32",
+      "wall_time_seconds": 6.7602593,
+      "scope": "Clean compile and link from current C++ sources through the repository build script. GLSL is compiled at runtime, not by this build.",
+      "report": "validation/room-build-v7.json",
+      "integration_note": "The build report predates final probe packaging. Current static, alternative-view, smoke and animation runs in this report supersede its pending runtime-integration stage."
+    },
+    "python_syntax": {
+      "result": "PASS",
+      "files": 16,
+      "method": "ast.parse of every current .py in dream/blender and dream/validation; no bytecode writes"
+    },
+    "diff_whitespace": {
+      "result": "PASS",
+      "command": "git diff --check -- dream",
+      "note": "Only CRLF normalization notices; no whitespace errors."
+    },
+    "room_assets": {
+      "result": "PASS",
+      "materials": 9,
+      "vertices": 31056,
+      "triangles": 10352,
+      "glb_bytes": 1862948,
+      "transparent_draws": 0,
+      "waterfall_draws": 0,
+      "navigation_verified": false,
+      "water_vertices_covered": 0,
+      "embedded_glb_images": 5
+    },
+    "atrium_assets": {
+      "result": "PASS",
+      "materials": 16,
+      "vertices": 537522,
+      "triangles": 179174,
+      "glb_bytes": 6982972,
+      "transparent_draws": 45,
+      "waterfall_draws": 1,
+      "navigation_verified": true,
+      "water_vertices_covered": 72960,
+      "embedded_glb_images": 2
+    },
+    "probe": {
+      "result": "PASS",
+      "png_bmp_pixel_parity": true,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "face_count": 6,
+      "asset_manifest_status": "complete",
+      "face_manifest_status": "complete",
+      "asset_manifest_png_sha256_matches": true,
+      "scope": "Static LDR six-face probe and metadata; not a dynamic-reflection or general GI proof."
+    },
+    "floor_maps": {
+      "result": "PASS",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "png_bmp_pixel_parity": [
+        "floor_surface_albedo",
+        "floor_flow",
+        "floor_normal"
+      ],
+      "normal_flow_rg_identical": true
+    },
+    "curtain_map": {
+      "result": "PASS",
+      "dimensions": [
+        512,
+        512
+      ],
+      "png_bmp_pixel_parity": true,
+      "geometry_and_export_report": "validation/curtain-v7-topology.json"
+    },
+    "alternative_views": {
+      "result": "PASS",
+      "report": "validation/room-views-v7.json",
+      "visual_review": "Root inspected both final images.",
+      "scope": "Two fixed still views only; not temporal stability, all grazing angles or full traversal."
+    },
+    "animation": {
+      "result": "PASS",
+      "report": "validation/animation.json",
+      "times_s": [
+        0,
+        2
+      ],
+      "camera_equal": true,
+      "regions": {
+        "water": {
+          "xyxy": [
+            350,
+            495,
+            500,
+            530
+          ],
+          "mean_absolute_channel_delta": 5.929650793650794,
+          "changed_pixels": 4674
+        },
+        "foliage": {
+          "xyxy": [
+            210,
+            390,
+            300,
+            530
+          ],
+          "mean_absolute_channel_delta": 3.3452910052910054,
+          "changed_pixels": 4555
+        },
+        "waterfall": {
+          "xyxy": [
+            565,
+            280,
+            594,
+            420
+          ],
+          "mean_absolute_channel_delta": 4.077011494252874,
+          "changed_pixels": 2222
+        },
+        "static_control": {
+          "xyxy": [
+            870,
+            200,
+            920,
+            280
+          ],
+          "mean_absolute_channel_delta": 0.0,
+          "changed_pixels": 0
+        }
+      },
+      "fresh_execution": "Root confirmed current executable runs at t=0 and t=2; logs and current animation report read for this closure.",
+      "logs": [
+        "validation/atrium-static-v7.log",
+        "validation/atrium-time2-v7.log"
+      ],
+      "scope": "Rendered variation in fixed crops; not a physical water simulation or full animation quality score."
+    },
+    "final_artifact_hash_consistency": {
+      "result": "PASS",
+      "look_report_images_match_files": true,
+      "final_blender_image_differs_from_v6": true,
+      "binary_matches_build_report": true
+    }
+  },
+  "implementation_notes": [
+    "Upper front ceramic direct illumination is reduced locally in world space; lower ceramic and painted-door controls remain unchanged in the isolated light test.",
+    "Room floor reflection response is 0.18 + 0.45 * facing, retaining the prior normal/flow maps, palette and nine-tap filter width.",
+    "Two closed static draped curtain meshes preserve the plaid material and UV repeat; room export now has 10,352 triangles.",
+    "The six-face static LDR room probe was regenerated and packed after the current geometry export.",
+    "No implementation changes were made during this technical closure."
+  ],
+  "limitations": [
+    "This is an incremental v7 technical report, not completion of all environments from the four videos.",
+    "Technical integrity, regional metrics and root approval of individual improvements do not certify exact reference fidelity.",
+    "Hidden OpenGL elapsed times are not fullscreen FPS measurements; concurrent GPU workload was not isolated.",
+    "Two alternative still views do not verify temporal stability, all grazing angles or exhaustive manual play.",
+    "The 69,000 navigation checks in status.json are retained prior evidence; the current v7 smoke cycle and animation pair were freshly executed by root.",
+    "The isolated room-light and room-floor v7 candidates precede the final curtain/probe integration; use room-opengl.png for current output.",
+    "The all-scenes inventory was reconciled as metadata after the v7 technical run; this does not rerun tests or establish implementation/acceptance of its 11 remaining runtime scenes. Fidelity review remains a separate visual assessment."
+  ],
+  "artifacts": [
+    {
+      "path": "blender/pastel_room.blend",
+      "bytes": 3644865,
+      "sha256": "06f20d645c28c58e3831c3107e61ec78e56af0dd5b70f7b10a4bc6b7dfb60782"
+    },
+    {
+      "path": "blender/build_room.py",
+      "bytes": 16437,
+      "sha256": "efd78f5d36473d7928725acff5fb09148bdafd78fb1d8f383b93186b084c4146"
+    },
+    {
+      "path": "blender/bake_room_probe.py",
+      "bytes": 4448,
+      "sha256": "8b2f6e8d7ca4f8a6e207a85a822d2c6b1662497c8d2e22e3dbf10b9e63afabd7"
+    },
+    {
+      "path": "blender/pack_room_probe.py",
+      "bytes": 1952,
+      "sha256": "bddccf32063697b9eb5a9904953aa3d52a4862dcdcc2fd1467649b1ddf6b87d1"
+    },
+    {
+      "path": "blender/export_runtime.py",
+      "bytes": 5433,
+      "sha256": "e42354a1735c5c146ada943b190d31e6e8c26c5bf3128b188584acd29d4c3ad1"
+    },
+    {
+      "path": "blender/make_room_finishes.py",
+      "bytes": 15020,
+      "sha256": "004b81aeba9b8b9d3e356a442915a7ef8b71aa3d59e841348eee6350a37f981f"
+    },
+    {
+      "path": "blender/floor_ripple.py",
+      "bytes": 4361,
+      "sha256": "20512d55518caf8b4e5e73feea2034b226dc9cb3e82240485677fadfa1cdbfd2"
+    },
+    {
+      "path": "runtime/src/main.cpp",
+      "bytes": 12597,
+      "sha256": "f62ffa9813bd0d2917a1718255770fc89d21de7e9b5d5f11001cfd686265df10"
+    },
+    {
+      "path": "runtime/src/render_support.hpp",
+      "bytes": 9052,
+      "sha256": "ab71f75e4f4ca9f850b8c96427c16044b4ec7ea6c0ec050bf2f850a24520aa96"
+    },
+    {
+      "path": "runtime/src/gl_api.hpp",
+      "bytes": 2289,
+      "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5"
+    },
+    {
+      "path": "runtime/shaders/scene.frag",
+      "bytes": 10071,
+      "sha256": "f1fef771f1cd78f1d89b00567a051e8fa63fd4750faa8e0410adb1aa1eeded19"
+    },
+    {
+      "path": "runtime/shaders/scene.vert",
+      "bytes": 1082,
+      "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e"
+    },
+    {
+      "path": "runtime/shaders/present.frag",
+      "bytes": 1225,
+      "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf"
+    },
+    {
+      "path": "runtime/build/dream.exe",
+      "bytes": 3270323,
+      "sha256": "ad873551ad797009fb8773621da0e8c4f0cc679edb01d27c8658583769cd1e9f"
+    },
+    {
+      "path": "assets/pastel_room.dreammesh",
+      "bytes": 1242544,
+      "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79"
+    },
+    {
+      "path": "assets/pastel_room.glb",
+      "bytes": 1862948,
+      "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167"
+    },
+    {
+      "path": "assets/pastel_room.json",
+      "bytes": 174596,
+      "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c"
+    },
+    {
+      "path": "assets/pastel_room.scene",
+      "bytes": 207,
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b"
+    },
+    {
+      "path": "assets/textures/room_probe.png",
+      "bytes": 441023,
+      "sha256": "17dbcba045a32f6e1b3636c8a5bd1fbb995b076be1c427cf301259ec0c68b00b",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    {
+      "path": "assets/textures/room_probe.bmp",
+      "bytes": 1572918,
+      "sha256": "6fefba61794ab2a2b2c3957dd7272e28357f024c8d4de531335f492b31b00410"
+    },
+    {
+      "path": "assets/textures/room_probe.json",
+      "bytes": 2603,
+      "sha256": "76ffc8e996a1cbb107bbd65bb2336a3cd93615ff5a8d5b26164aded763454df1"
+    },
+    {
+      "path": "assets/textures/floor_surface_albedo.png",
+      "bytes": 241889,
+      "sha256": "f5466f8cebdcd8bfea8e458d56480c8236fed35d4914fac865d991ffea06e80c",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/textures/floor_surface_albedo.bmp",
+      "bytes": 4718646,
+      "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4"
+    },
+    {
+      "path": "assets/textures/floor_flow.png",
+      "bytes": 542533,
+      "sha256": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/textures/floor_flow.bmp",
+      "bytes": 4718646,
+      "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098"
+    },
+    {
+      "path": "assets/textures/floor_normal.png",
+      "bytes": 516430,
+      "sha256": "45115549bef0b5295e583a581f5a5f5a43bab99cc179e4b0521a11e374d96302",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/textures/floor_normal.bmp",
+      "bytes": 4718646,
+      "sha256": "62abefaeb891e210c36a46de2ecf8febddb2aa3a59b2e5d90f273e96fdff7b12"
+    },
+    {
+      "path": "validation/room-probe-faces/manifest.json",
+      "bytes": 2235,
+      "sha256": "0a5f9df0c4bdd3e80e0f5dbbcaf8797a9af2d07be6cb04321f7b5f9cb964ac68"
+    },
+    {
+      "path": "validation/room-blender.png",
+      "bytes": 1175253,
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
+      "dimensions": [
+        720,
+        1280
+      ]
+    },
+    {
+      "path": "validation/room-opengl.png",
+      "bytes": 355698,
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "dimensions": [
+        540,
+        960
+      ]
+    },
+    {
+      "path": "validation/room-comparison.png",
+      "bytes": 631408,
+      "sha256": "bfcf6adb02bd28ed790637b89730c95f432c7a581c686a5059e937617f18e0c2",
+      "dimensions": [
+        1080,
+        676
+      ]
+    },
+    {
+      "path": "validation/room-look-after-v7.json",
+      "bytes": 5875,
+      "sha256": "7cafd266977d7241689841a9d448f8195f07b3425f2471dc60d19011db131f26"
+    },
+    {
+      "path": "validation/room-view-radiator-v7.png",
+      "bytes": 407940,
+      "sha256": "28cb4be1b3703297f853c6970de36fad4a7e712e72cad17c722a16cb079e3c75",
+      "dimensions": [
+        960,
+        720
+      ]
+    },
+    {
+      "path": "validation/room-view-right-v7.png",
+      "bytes": 402038,
+      "sha256": "ff3cf5f45cedb7f817f1311e3e6d04472889c5421c324419948820f7e00bad5e",
+      "dimensions": [
+        960,
+        720
+      ]
+    },
+    {
+      "path": "validation/room-views-v7.json",
+      "bytes": 1522,
+      "sha256": "d77d14a6f476e4cf1717fdd3f198283cca58cd582cd00b25bc0a36d62e9f262c"
+    },
+    {
+      "path": "validation/room-walk-v7.log",
+      "bytes": 394,
+      "sha256": "04fd6e99cc11642c1e92bba8003e580fe02dd1b822fd441ea7122eed9c96850a"
+    },
+    {
+      "path": "validation/room-walk-v7.ppm",
+      "bytes": 2764816,
+      "sha256": "0314b29a648a5ad51d5af53d17c583291da55cfdff9cfa639f36b40ba0d5efca"
+    },
+    {
+      "path": "blender/make_floor_ripple_v6.py",
+      "bytes": 10770,
+      "sha256": "1d01196552ade150a4e3543d9cf25c82e8e074bfc780d268bff069c03fbd6a3c"
+    },
+    {
+      "path": "blender/curtain_mesh.py",
+      "bytes": 7701,
+      "sha256": "efd4e72273612fa0f0194cfa9d9f4a45e56e92358ca431b5a5ff504ed774a4cb"
+    },
+    {
+      "path": "runtime/src/scene.hpp",
+      "bytes": 3293,
+      "sha256": "adfbd0923ce2ca319067cdeae30ac513efe6507e024b36fd98e4cdd319658e8f"
+    },
+    {
+      "path": "runtime/build.ps1",
+      "bytes": 1252,
+      "sha256": "a4912dfcb5eb904dd96c21fea3a4ebd5b21b7075b6b46ae89c7c224e5b7547d4"
+    },
+    {
+      "path": "validation/room-static-v7.log",
+      "bytes": 250,
+      "sha256": "c0b319708da88da7e1049cb0eca11995dbf5a10b9c65b0142ce958ae009fba87"
+    },
+    {
+      "path": "validation/room-build-v7.json",
+      "bytes": 6660,
+      "sha256": "2f7a91597353a88f9516708dd8e41cb13333a9af5eca614ae1eeee56c4436246"
+    },
+    {
+      "path": "validation/room-light-v7.json",
+      "bytes": 8376,
+      "sha256": "8e4b290bb5f16bb459c63b0a3e903edc7939d87ead138ad546d15a765b5bcdb6"
+    },
+    {
+      "path": "validation/room-floor-v7.json",
+      "bytes": 8262,
+      "sha256": "bc23dc41ebc1b8a5fb246a87a6a2f46c13dd9d8fca4ac603b29d80377453b588"
+    },
+    {
+      "path": "validation/curtain-v7-topology.json",
+      "bytes": 11872,
+      "sha256": "25557e6c237c5672ed544c2b98a267c0f974d90fb92b9810266e6a150b44bd32"
+    },
+    {
+      "path": "validation/animation.json",
+      "bytes": 995,
+      "sha256": "fec61a195f252af9cc3171bdadd66e4e21ed19fbe0f345bcdc0c2367c1ea266a"
+    },
+    {
+      "path": "validation/atrium-static-v7.log",
+      "bytes": 249,
+      "sha256": "07c041cea62e800b9a88ec91a334f93e35ec9a12372a9d17aad05c6d1926b48f"
+    },
+    {
+      "path": "validation/atrium-time2-v7.log",
+      "bytes": 249,
+      "sha256": "eb9f298dbd141a1cf6100d7eec292c67ad509bba2b6d2226c1d6a892ebf74747"
+    },
+    {
+      "path": "assets/textures/curtain_plaid.png",
+      "bytes": 14583,
+      "sha256": "decd5dca776978bb5894e7e5f817abdd6c9d426da067d40a09659b3e531fa4e8",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/textures/curtain_plaid.bmp",
+      "bytes": 786486,
+      "sha256": "b2beebdc00b454ed42f35f3646e3ee20c96505966a64a2ca7ebe731aa63defc8"
+    },
+    {
+      "path": "assets/atrium.dreammesh",
+      "bytes": 21501408,
+      "sha256": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db"
+    },
+    {
+      "path": "assets/atrium.glb",
+      "bytes": 6982972,
+      "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418"
+    },
+    {
+      "path": "assets/atrium.scene",
+      "bytes": 3882,
+      "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519"
+    },
+    {
+      "path": "validation/all-scenes-plan.json",
+      "bytes": 220233,
+      "sha256": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074"
+    }
+  ],
+  "metadata_reconciliation": {
+    "recorded_at_utc": "2026-10-09T04:06:57.709958+00:00",
+    "mode": "metadata_only_no_render_or_test_execution",
+    "inventory_path": "validation/all-scenes-plan.json",
+    "inventory_sha256": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074",
+    "listed_artifacts_checked_before_update": 54,
+    "listed_artifacts_after_inventory_link": 55,
+    "changed_artifact_records": [
+      {
+        "path": "validation/curtain-v7-topology.json",
+        "previous_sha256": "e3bf6d05b267d7e389649e8aa1958fc14c3ba44ca5c849ed733b748f2e892215",
+        "current_sha256": "25557e6c237c5672ed544c2b98a267c0f974d90fb92b9810266e6a150b44bd32",
+        "previous_bytes": 11405,
+        "current_bytes": 11872,
+        "classification": "validation_metadata_updated_after_original_report",
+        "reason": "Curtain report now includes final Blender shape/UV visual review and its current image hash. Rendered images, geometry, runtime sources and executable hashes are unchanged."
+      }
+    ],
+    "render_images_changed": false,
+    "runtime_or_scene_assets_changed": false,
+    "technical_results_policy": "Existing v7 execution results retain their original scope and time. Hash reconciliation is not a fresh build, render, navigation or animation test.",
+    "previous_room_render_report_sha256": "fcc5c5ac08b0e455332454ee589c624be2023757e9e811b5f463c9036c624c31",
+    "kitchen_progress_documentation": [
+      {
+        "path": "validation/all-scenes-plan.json",
+        "previous_sha256": "dcc073321bcbce68f3ab58d2473b89cf0264c117f007fa08a8ee6ba7b0546086",
+        "current_sha256": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074",
+        "classification": "kitchen_progress_documentation_only"
+      }
+    ]
+  }
+}

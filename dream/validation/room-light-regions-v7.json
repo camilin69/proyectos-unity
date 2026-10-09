@@ -1,0 +1,508 @@
+{
+  "schema": 1,
+  "baseline_commit": "ab59747",
+  "scope": "Selected light regions only. Not a whole-scene fidelity score, motion test or completion claim. Current goal covers all thirteen environments.",
+  "method": "Reuse normalized v6 surface ROI; round coordinates per resolution; median sRGB and per-pixel linear luminance.",
+  "images": {
+    "reference": {
+      "path": "referencias/estetica/evidencias/video-35/11s.png",
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "regions": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixels": 702,
+          "median_srgb": [
+            170.0,
+            154.0,
+            156.0
+          ],
+          "median_linear_Y": 0.341194
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixels": 2763,
+          "median_srgb": [
+            178.0,
+            165.0,
+            189.0
+          ],
+          "median_linear_Y": 0.400494
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixels": 192,
+          "median_srgb": [
+            132.0,
+            169.5,
+            169.0
+          ],
+          "median_linear_Y": 0.367503
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixels": 240,
+          "median_srgb": [
+            196.0,
+            139.0,
+            160.0
+          ],
+          "median_linear_Y": 0.326353
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixels": 238,
+          "median_srgb": [
+            140.0,
+            165.0,
+            167.0
+          ],
+          "median_linear_Y": 0.350939
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixels": 70,
+          "median_srgb": [
+            187.0,
+            142.0,
+            157.0
+          ],
+          "median_linear_Y": 0.320946
+        }
+      }
+    },
+    "blender_before": {
+      "path": "validation/room-blender-baseline-ab59747.png",
+      "sha256": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "regions": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixels": 702,
+          "median_srgb": [
+            149.0,
+            156.0,
+            158.0
+          ],
+          "median_linear_Y": 0.325415
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixels": 2763,
+          "median_srgb": [
+            184.0,
+            166.0,
+            157.0
+          ],
+          "median_linear_Y": 0.400553
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixels": 192,
+          "median_srgb": [
+            146.0,
+            183.0,
+            186.0
+          ],
+          "median_linear_Y": 0.435231
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixels": 240,
+          "median_srgb": [
+            196.0,
+            136.0,
+            158.0
+          ],
+          "median_linear_Y": 0.318127
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixels": 238,
+          "median_srgb": [
+            137.0,
+            161.0,
+            159.0
+          ],
+          "median_linear_Y": 0.333113
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixels": 70,
+          "median_srgb": [
+            204.0,
+            147.0,
+            166.0
+          ],
+          "median_linear_Y": 0.36458
+        }
+      }
+    },
+    "opengl_before": {
+      "path": "validation/room-baseline-ab59747.png",
+      "sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
+      "dimensions": [
+        540,
+        960
+      ],
+      "regions": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixels": 360,
+          "median_srgb": [
+            174.0,
+            157.0,
+            159.0
+          ],
+          "median_linear_Y": 0.356858
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixels": 1386,
+          "median_srgb": [
+            185.0,
+            165.0,
+            161.0
+          ],
+          "median_linear_Y": 0.397978
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixels": 120,
+          "median_srgb": [
+            164.0,
+            188.0,
+            192.0
+          ],
+          "median_linear_Y": 0.476647
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixels": 144,
+          "median_srgb": [
+            223.0,
+            159.0,
+            187.0
+          ],
+          "median_linear_Y": 0.440721
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixels": 120,
+          "median_srgb": [
+            142.5,
+            167.0,
+            169.0
+          ],
+          "median_linear_Y": 0.362972
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixels": 42,
+          "median_srgb": [
+            182.0,
+            130.0,
+            156.0
+          ],
+          "median_linear_Y": 0.283106
+        }
+      }
+    },
+    "blender_final": {
+      "path": "validation/room-blender.png",
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "regions": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixels": 702,
+          "median_srgb": [
+            175.0,
+            157.0,
+            160.0
+          ],
+          "median_linear_Y": 0.356441
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixels": 2763,
+          "median_srgb": [
+            186.0,
+            167.0,
+            157.0
+          ],
+          "median_linear_Y": 0.404203
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixels": 192,
+          "median_srgb": [
+            138.0,
+            169.0,
+            171.0
+          ],
+          "median_linear_Y": 0.367195
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixels": 240,
+          "median_srgb": [
+            196.0,
+            136.0,
+            158.0
+          ],
+          "median_linear_Y": 0.318127
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixels": 238,
+          "median_srgb": [
+            138.0,
+            161.0,
+            159.0
+          ],
+          "median_linear_Y": 0.333962
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixels": 70,
+          "median_srgb": [
+            205.0,
+            147.0,
+            167.0
+          ],
+          "median_linear_Y": 0.366366
+        }
+      }
+    },
+    "opengl_final": {
+      "path": "validation/room-opengl.png",
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "dimensions": [
+        540,
+        960
+      ],
+      "regions": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "pixels": 360,
+          "median_srgb": [
+            174.0,
+            157.0,
+            159.0
+          ],
+          "median_linear_Y": 0.356858
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "pixels": 1386,
+          "median_srgb": [
+            185.0,
+            165.0,
+            161.0
+          ],
+          "median_linear_Y": 0.397978
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "pixels": 120,
+          "median_srgb": [
+            145.0,
+            168.0,
+            170.0
+          ],
+          "median_linear_Y": 0.369273
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "pixels": 144,
+          "median_srgb": [
+            199.0,
+            142.0,
+            167.0
+          ],
+          "median_linear_Y": 0.342781
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "pixels": 120,
+          "median_srgb": [
+            142.5,
+            167.0,
+            169.0
+          ],
+          "median_linear_Y": 0.362972
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "pixels": 42,
+          "median_srgb": [
+            182.0,
+            130.0,
+            156.0
+          ],
+          "median_linear_Y": 0.283106
+        }
+      }
+    }
+  }
+}

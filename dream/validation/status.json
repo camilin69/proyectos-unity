@@ -1,13 +1,13 @@
 {
   "date": "2026-10-08",
   "branch": "dream",
-  "status": "prototype_in_progress",
+  "status": "expanded_project_in_progress",
   "reference": "video-35/11s.png",
   "room": {
     "blender": "5.2.1",
     "runtime": "C++17 / OpenGL 3.3",
-    "triangles": 6896,
-    "objects_in_blender_scene": 728,
+    "triangles": 10352,
+    "objects_in_blender_scene": 729,
     "materials": 9,
     "implemented": [
       "editable_room",
@@ -39,7 +39,11 @@
       "spatial_painted_door_bounce",
       "continuous_filtered_floor_return_on_metal",
       "floor_reflection_ripple_field",
-      "final_eevee_256_sample_reference_render"
+      "final_eevee_256_sample_reference_render",
+      "world_space_upper_front_ceramic_fill",
+      "moderately_increased_wet_floor_reflection",
+      "closed_static_draped_curtains",
+      "regenerated_room_probe_for_v7_geometry"
     ],
     "visual_match_accepted": false,
     "remaining": [
@@ -47,7 +51,8 @@
       "floor_reflection_naturalness",
       "curtain_drape_and_material_detail",
       "metal_highlight_distribution"
-    ]
+    ],
+    "vertices": 31056
   },
   "validation": {
     "compiler": "MinGW-w64 GCC 13.2",
@@ -69,14 +74,14 @@
         720
       ]
     ],
-    "smoke_elapsed_s": 27.7046,
+    "smoke_elapsed_s": 21.7685,
     "opengl_error": 0,
     "mouse_horizontal_direction": "pass",
     "runtime_dll_dependencies": "Windows system DLLs only",
     "limitation": "Hidden-context integration run without vsync; elapsed time is not a fullscreen FPS guarantee. Not an exhaustive manual playtest.",
     "asset_integrity": "PASS",
     "opengl_final_static_frames": 8,
-    "opengl_final_static_elapsed_s": 0.59965,
+    "opengl_final_static_elapsed_s": 0.474882,
     "look_metrics_limitation": "Matching vertical aspect ratios and selected material-class color regions. Region means are diagnostic, not a fidelity percentage or exact geometry registration."
   },
   "not_implemented": [
@@ -121,20 +126,20 @@
     "atrium_asset_integrity": "PASS",
     "navigation_steps": 69000,
     "navigation": "PASS",
-    "animation": "PASS - water, foliage and waterfall at t=0/t=2; static control unchanged",
+    "animation": "PASS - current executable t=0/t=2 water, foliage and waterfall; static control unchanged",
     "scene_cycle": [
       "pastel_room",
       "atrium",
       "pastel_room"
     ],
     "scene_cycle_frames": 720,
-    "scene_cycle_elapsed_s": 27.7046,
+    "scene_cycle_elapsed_s": 21.7685,
     "scene_cycle_gl_error": 0,
     "scene_cycle_resolution": [
       1280,
       720
     ],
-    "scope": "Current hidden OpenGL scene cycle/resize and saved final render, syntax and asset checks. Technical PASS does not grant final visual acceptance or fullscreen performance.",
+    "scope": "Current v7 build, hidden OpenGL cycle/resize, static and alternative views, animation pair, completed Blender render, syntax and asset checks. Expanded all-video reconstruction remains in progress; technical PASS does not grant visual fidelity or fullscreen performance.",
     "water_vertices_covered": 72960,
     "canal_capsules": 32,
     "room_portrait_capture": [
@@ -145,16 +150,16 @@
       720,
       1280
     ],
-    "python_syntax": "PASS - 15 files",
+    "python_syntax": "PASS - 16 files",
     "room_floor_nonmanifold_edges": 0,
     "room_geometry_review": "PASS for material calibration; remaining landmark offsets documented",
-    "room_look_report": "room-look-after-v6.json",
+    "room_look_report": "room-look-after-v7.json",
     "opaque_msaa_samples": 4,
     "room_probe_png_bmp_parity": "PASS",
     "room_probe_face_count": 6,
     "room_normal_flow_rg_parity": "PASS",
     "current_room_static_capture_frames": 8,
-    "current_room_static_elapsed_s": 0.59965,
+    "current_room_static_elapsed_s": 0.474882,
     "current_room_static_gl_error": 0,
     "cpp_syntax": "PASS - no diagnostics",
     "diff_whitespace": "PASS",
@@ -162,31 +167,167 @@
     "blender_render_state": "complete",
     "blender_render_samples": 256,
     "blender_render_callback_registered": false,
-    "room_render_report": "room-render-v6.json",
-    "alternative_views_report": "room-views-v6.json",
+    "room_render_report": "room-render-v7.json",
+    "alternative_views_report": "room-views-v7.json",
     "retained_prior_checks": {
       "navigation_steps": 69000,
-      "animation": "Earlier PASS for water, foliage and waterfall; full animation suite not rerun during v6 closure.",
+      "navigation": "Earlier PASS; not rerun during v7 closure.",
       "room_floor_nonmanifold_edges": 0
-    }
+    },
+    "cpp_build": "PASS - compiled and linked with zero diagnostics",
+    "cpp_build_report": "room-build-v7.json",
+    "room_curtain_map_png_bmp_parity": "PASS",
+    "room_curtain_topology_and_export_parity": "PASS",
+    "inventory_report": "all-scenes-plan.json",
+    "metadata_hash_reconciliation": "PASS - existing listed artifacts checked; curtain report metadata and completed inventory reconciled without rerunning technical tests."
   },
   "goal_complete": false,
-  "remaining_goal_requirement": "Continue reference fidelity work on spatial lighting, floor/reflection naturalness and material detail; the atrium remains a functional visual prototype. Technical v6 checks passed, but visual acceptance is still false.",
-  "quality_revision": "room-reference-finish-v6 / opaque-msaa-4x / atrium-garden-channel-v2",
-  "evidence_hashes_v6": {
-    "blender/pastel_room.blend": "0dde3680c16bf296cc57c2db883bb2cbfa489af47864baf7028e7fc597b8c599",
-    "runtime/shaders/scene.frag": "c7f968aa24a50ac3b57b83f6fe07a83926cd265d6afd5e7f0af1251bc0a8785a",
-    "assets/pastel_room.dreammesh": "076cfbd2098849e593b89a780785ae6c5eecf20877d525c24f9efa0b21c328f6",
-    "assets/pastel_room.glb": "f7b685f51f0e859aaa8be45b5e774d01e85f90b7fbe2e25d9809d332b16f2bc6",
-    "assets/textures/room_probe.png": "f33450780b88a0898c9e5fb4603f47175166942993da459c887c5264628f69dc",
-    "assets/textures/floor_surface_albedo.png": "f5466f8cebdcd8bfea8e458d56480c8236fed35d4914fac865d991ffea06e80c",
-    "assets/textures/floor_flow.png": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
-    "assets/textures/floor_normal.png": "45115549bef0b5295e583a581f5a5f5a43bab99cc179e4b0521a11e374d96302",
-    "validation/room-blender.png": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
-    "validation/room-opengl.png": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
-    "validation/room-comparison.png": "3b3625bbd95d25a76d06bd40bae666649407fb8c454163a5f648a87e7307abd6",
-    "validation/room-look-after-v6.json": "b35701a38f7ea44265bac0503c7a41a959dd57e646eff29a1a05764baf2e3b60",
-    "validation/room-views-v6.json": "ae93d2ab4130f7dadb169b0d6bcf6a82a6d6b10d2e295ef3babe50de09517da4",
-    "validation/room-render-v6.json": "51efa352bd6f1f6bc0c4f36d80fbb98c9f68306b49781cd4af5ba6bf4475aef1"
+  "remaining_goal_requirement": "Execute the recorded all-scenes plan: reproduce and validate all 13 environments across 20 temporal entries. Two runtime prototypes exist, 11 scenes lack runtime implementation and zero are accepted as strict reference replicas; inventory creation is already complete.",
+  "quality_revision": "room-reference-finish-v7 / opaque-msaa-4x / atrium-garden-channel-v2 / expanded-four-video-scope",
+  "expanded_scope": {
+    "request": "Recreate all distinct environments in the four supplied videos, following the agreed production steps.",
+    "status": "in_progress",
+    "implemented_runtime_scenes": [
+      "pastel_room",
+      "atrium"
+    ],
+    "all_scenes_implemented": false,
+    "all_scenes_fidelity_accepted": false,
+    "inventory": "validation/all-scenes-plan.json",
+    "inventory_status": "catalogued_execution_plan_available",
+    "unique_scenes": 13,
+    "temporal_entries": 20,
+    "implemented_prototypes": 2,
+    "without_runtime_implementation": 11,
+    "strictly_accepted_scenes": 0,
+    "inventory_sha256": "dcc073321bcbce68f3ab58d2473b89cf0264c117f007fa08a8ee6ba7b0546086",
+    "inventory_note": "Four return views and three editorial endings are recorded within 20 timeline entries. The 13-scene inventory is complete as a planning index; implementation and strict fidelity acceptance are not."
+  },
+  "requirement_review": [
+    {
+      "id": 1,
+      "requirement": "Editable pastel room in Blender with tiles, reflective floor and cloud doorway.",
+      "status": "implemented_iteration_verified",
+      "evidence": [
+        "blender/pastel_room.blend",
+        "validation/room-blender.png",
+        "validation/curtain-v7-topology.json"
+      ],
+      "limitation": "Verified current editable/exported iteration; exact reference recreation remains unaccepted."
+    },
+    {
+      "id": 2,
+      "requirement": "C++/OpenGL viewer with walking and mouse look.",
+      "status": "implemented_technical_checks_passed",
+      "evidence": [
+        "validation/room-build-v7.json",
+        "validation/room-walk-v7.log",
+        "validation/room-views-v7.json"
+      ],
+      "limitation": "Two current scenes, ground-plane collision and sampled integration tests; no exhaustive manual playtest or fullscreen FPS guarantee."
+    },
+    {
+      "id": 3,
+      "requirement": "Reference lighting and material fidelity.",
+      "status": "in_progress",
+      "visual_match_accepted": false,
+      "evidence": [
+        "validation/room-look-after-v7.json",
+        "validation/room-comparison.png",
+        "validation/room-light-v7.json",
+        "validation/room-floor-v7.json"
+      ],
+      "limitation": "Selected luminance controls improve, but color diagnostics and incremental visual approval do not establish complete likeness."
+    },
+    {
+      "id": 4,
+      "requirement": "Water, vegetation and futuristic atrium, extended to all environments in the four videos.",
+      "status": "partially_implemented_expanded_scope_in_progress",
+      "evidence": [
+        "assets/atrium.glb",
+        "validation/animation.json",
+        "validation/atrium-static-v7.log",
+        "validation/atrium-time2-v7.log",
+        "validation/all-scenes-plan.json"
+      ],
+      "limitation": "The inventory now identifies 13 distinct scenes and 20 temporal entries: two implemented runtime prototypes, 11 scenes without runtime implementation and zero strict fidelity acceptances. Construction and per-scene reference validation remain incomplete."
+    }
+  ],
+  "historical_evidence_hashes": {
+    "v6": {
+      "blender/pastel_room.blend": "0dde3680c16bf296cc57c2db883bb2cbfa489af47864baf7028e7fc597b8c599",
+      "runtime/shaders/scene.frag": "c7f968aa24a50ac3b57b83f6fe07a83926cd265d6afd5e7f0af1251bc0a8785a",
+      "assets/pastel_room.dreammesh": "076cfbd2098849e593b89a780785ae6c5eecf20877d525c24f9efa0b21c328f6",
+      "assets/pastel_room.glb": "f7b685f51f0e859aaa8be45b5e774d01e85f90b7fbe2e25d9809d332b16f2bc6",
+      "assets/textures/room_probe.png": "f33450780b88a0898c9e5fb4603f47175166942993da459c887c5264628f69dc",
+      "assets/textures/floor_surface_albedo.png": "f5466f8cebdcd8bfea8e458d56480c8236fed35d4914fac865d991ffea06e80c",
+      "assets/textures/floor_flow.png": "a289cb277f1564d44eac5c951bb9130d1593f347549163d8903e06fa75631a5d",
+      "assets/textures/floor_normal.png": "45115549bef0b5295e583a581f5a5f5a43bab99cc179e4b0521a11e374d96302",
+      "validation/room-blender.png": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
+      "validation/room-opengl.png": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
+      "validation/room-comparison.png": "3b3625bbd95d25a76d06bd40bae666649407fb8c454163a5f648a87e7307abd6",
+      "validation/room-look-after-v6.json": "b35701a38f7ea44265bac0503c7a41a959dd57e646eff29a1a05764baf2e3b60",
+      "validation/room-views-v6.json": "ae93d2ab4130f7dadb169b0d6bcf6a82a6d6b10d2e295ef3babe50de09517da4",
+      "validation/room-render-v6.json": "51efa352bd6f1f6bc0c4f36d80fbb98c9f68306b49781cd4af5ba6bf4475aef1"
+    },
+    "v7_before_inventory_metadata_reconciliation": {
+      "validation/room-render-v7.json": "fcc5c5ac08b0e455332454ee589c624be2023757e9e811b5f463c9036c624c31",
+      "validation/curtain-v7-topology.json": "e3bf6d05b267d7e389649e8aa1958fc14c3ba44ca5c849ed733b748f2e892215"
+    }
+  },
+  "evidence_hashes_v7": {
+    "blender/pastel_room.blend": "06f20d645c28c58e3831c3107e61ec78e56af0dd5b70f7b10a4bc6b7dfb60782",
+    "runtime/src/main.cpp": "f62ffa9813bd0d2917a1718255770fc89d21de7e9b5d5f11001cfd686265df10",
+    "runtime/shaders/scene.frag": "f1fef771f1cd78f1d89b00567a051e8fa63fd4750faa8e0410adb1aa1eeded19",
+    "runtime/build/dream.exe": "ad873551ad797009fb8773621da0e8c4f0cc679edb01d27c8658583769cd1e9f",
+    "assets/pastel_room.dreammesh": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+    "assets/pastel_room.glb": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167",
+    "assets/textures/room_probe.png": "17dbcba045a32f6e1b3636c8a5bd1fbb995b076be1c427cf301259ec0c68b00b",
+    "validation/room-blender.png": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
+    "validation/room-opengl.png": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+    "validation/room-comparison.png": "bfcf6adb02bd28ed790637b89730c95f432c7a581c686a5059e937617f18e0c2",
+    "validation/room-look-after-v7.json": "7cafd266977d7241689841a9d448f8195f07b3425f2471dc60d19011db131f26",
+    "validation/room-views-v7.json": "d77d14a6f476e4cf1717fdd3f198283cca58cd582cd00b25bc0a36d62e9f262c",
+    "validation/room-build-v7.json": "2f7a91597353a88f9516708dd8e41cb13333a9af5eca614ae1eeee56c4436246",
+    "validation/animation.json": "fec61a195f252af9cc3171bdadd66e4e21ed19fbe0f345bcdc0c2367c1ea266a",
+    "validation/room-render-v7.json": "03ddb80f32c552698020814d06c6e48227ba46c11cbbfd9ce53ee56d699d075e",
+    "validation/all-scenes-plan.json": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074",
+    "validation/curtain-v7-topology.json": "25557e6c237c5672ed544c2b98a267c0f974d90fb92b9810266e6a150b44bd32"
+  },
+  "metadata_reconciliation": {
+    "recorded_at_utc": "2026-10-09T04:06:57.709958+00:00",
+    "mode": "metadata_only_no_render_or_test_execution",
+    "inventory_path": "validation/all-scenes-plan.json",
+    "inventory_sha256": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074",
+    "listed_artifacts_checked_before_update": 54,
+    "listed_artifacts_after_inventory_link": 55,
+    "changed_artifact_records": [
+      {
+        "path": "validation/curtain-v7-topology.json",
+        "previous_sha256": "e3bf6d05b267d7e389649e8aa1958fc14c3ba44ca5c849ed733b748f2e892215",
+        "current_sha256": "25557e6c237c5672ed544c2b98a267c0f974d90fb92b9810266e6a150b44bd32",
+        "previous_bytes": 11405,
+        "current_bytes": 11872,
+        "classification": "validation_metadata_updated_after_original_report",
+        "reason": "Curtain report now includes final Blender shape/UV visual review and its current image hash. Rendered images, geometry, runtime sources and executable hashes are unchanged."
+      }
+    ],
+    "render_images_changed": false,
+    "runtime_or_scene_assets_changed": false,
+    "technical_results_policy": "Existing v7 execution results retain their original scope and time. Hash reconciliation is not a fresh build, render, navigation or animation test.",
+    "previous_room_render_report_sha256": "fcc5c5ac08b0e455332454ee589c624be2023757e9e811b5f463c9036c624c31",
+    "kitchen_progress_documentation": [
+      {
+        "path": "validation/all-scenes-plan.json",
+        "previous_sha256": "dcc073321bcbce68f3ab58d2473b89cf0264c117f007fa08a8ee6ba7b0546086",
+        "current_sha256": "04f72b47b2b111d6ad003afc62c3a82f3e430655e01ff06dc1a12fcb65e0c074",
+        "classification": "kitchen_progress_documentation_only"
+      }
+    ]
+  },
+  "kitchen_progress": {
+    "stage": "gray_blockout_rendered_no_runtime",
+    "report": "validation/kitchen-blockout.json",
+    "geometry_accepted": false
   }
 }

@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "version": "curtain-v7",
+  "status": "geometry_uv_export_parity_and_final_renderer_visual_checks_passed",
+  "source": "../blender/curtain_mesh.py",
+  "reference": "../referencias/estetica/evidencias/video-35/11s.png",
+  "scope": "Two closed draped curtain meshes only; accepted material, plaid texture, location convention and UV repeat preserved.",
+  "visual_basis": "Reference has curved asymmetric edges and soft nonuniform folds; current render reads as straight extruded rectangular strips.",
+  "limitations": [
+    "Static cloth approximation, not a cloth simulation or exact reconstruction.",
+    "These checks establish mesh integrity, not final appearance. Blender/OpenGL comparison required after integration.",
+    "The two sides of each curtain are offset by half thickness; envelope can extend by at most 0.8 mm beyond the middle surface."
+  ],
+  "panels": [
+    {
+      "panel": 0,
+      "topology": {
+        "version": "curtain-static-drape-v7",
+        "vertices": 1122,
+        "quads": 1120,
+        "triangles_after_triangulation": 2240,
+        "surface_quads_per_side": 512,
+        "rim_quads": 96,
+        "expected_euler_characteristic": 2,
+        "expected_edge_face_incidence": 2,
+        "bounds_before_window_wall_shift_m": {
+          "x": [
+            2.0949611813931295,
+            2.1771915503799093
+          ],
+          "y": [
+            0.4296360604660455,
+            0.7703637519579443
+          ],
+          "z": [
+            1.257076115168242,
+            2.6800123888086
+          ]
+        },
+        "parameters": {
+          "center_y": 0.6,
+          "aperture_side": 1,
+          "x_plane": 2.15,
+          "width": 0.34,
+          "bottom_z": 1.25,
+          "height": 1.43,
+          "thickness": 0.0016,
+          "segments_u": 32,
+          "segments_v": 16,
+          "broad_pleats": 3,
+          "uv_repeat_u": 1.0,
+          "uv_repeat_v": 2.0
+        },
+        "construction": "Two offset surfaces, shared closed rim; no modifiers or simulation.",
+        "uv_policy": "Fixed material coordinates per grid vertex; matching front/back, flat rim."
+      },
+      "checks": {
+        "closed_manifold_edges": true,
+        "opposite_shared_edge_winding": true,
+        "euler_characteristic_two": true,
+        "positive_signed_volume": true,
+        "nondegenerate_triangles": true,
+        "loop_uv_count_matches_faces": true,
+        "all_coordinates_finite": true,
+        "uv_in_preserved_repeat_range": true,
+        "deterministic": true
+      },
+      "unique_edges": 2240,
+      "signed_volume_m3": 0.0011312632748128177,
+      "minimum_triangle_area_m2": 5.870996389240556e-06
+    },
+    {
+      "panel": 1,
+      "topology": {
+        "version": "curtain-static-drape-v7",
+        "vertices": 1122,
+        "quads": 1120,
+        "triangles_after_triangulation": 2240,
+        "surface_quads_per_side": 512,
+        "rim_quads": 96,
+        "expected_euler_characteristic": 2,
+        "expected_edge_face_incidence": 2,
+        "bounds_before_window_wall_shift_m": {
+          "x": [
+            2.0949611813931255,
+            2.177191550379894
+          ],
+          "y": [
+            1.5796362480420558,
+            1.9203639395339591
+          ],
+          "z": [
+            1.2570761151682472,
+            2.6800123888086
+          ]
+        },
+        "parameters": {
+          "center_y": 1.75,
+          "aperture_side": -1,
+          "x_plane": 2.15,
+          "width": 0.34,
+          "bottom_z": 1.25,
+          "height": 1.43,
+          "thickness": 0.0016,
+          "segments_u": 32,
+          "segments_v": 16,
+          "broad_pleats": 3,
+          "uv_repeat_u": 1.0,
+          "uv_repeat_v": 2.0
+        },
+        "construction": "Two offset surfaces, shared closed rim; no modifiers or simulation.",
+        "uv_policy": "Fixed material coordinates per grid vertex; matching front/back, flat rim."
+      },
+      "checks": {
+        "closed_manifold_edges": true,
+        "opposite_shared_edge_winding": true,
+        "euler_characteristic_two": true,
+        "positive_signed_volume": true,
+        "nondegenerate_triangles": true,
+        "loop_uv_count_matches_faces": true,
+        "all_coordinates_finite": true,
+        "uv_in_preserved_repeat_range": true,
+        "deterministic": true
+      },
+      "unique_edges": 2240,
+      "signed_volume_m3": 0.0011293907558656698,
+      "minimum_triangle_area_m2": 6.3091396392465744e-06
+    }
+  ],
+  "integration_source_review": {
+    "scope": "Read-only source review; no Blender execution and no claim about final exported geometry.",
+    "source_sha256": {
+      "dream/blender/curtain_mesh.py": "efd4e72273612fa0f0194cfa9d9f4a45e56e92358ca431b5a5ff504ed774a4cb",
+      "dream/blender/build_room.py": "efd78f5d36473d7928725acff5fb09148bdafd78fb1d8f383b93186b084c4146",
+      "dream/blender/export_runtime.py": "e42354a1735c5c146ada943b190d31e6e8c26c5bf3128b188584acd29d4c3ad1"
+    },
+    "builder_window_y": [
+      0.7,
+      1.65
+    ],
+    "defaults_equal_explicit_builder_arguments": true,
+    "panel_count": 2,
+    "centers_y_m": [
+      0.6,
+      1.75
+    ],
+    "wall_shift_x_m": -1.95,
+    "shift_applied_by_prefix": "GEO-DREAM-curtain-",
+    "receiver_collection": "DREAM_reference_full_receivers",
+    "receiver_reason": "Both are MESH objects with cloth material; excluded from the ivory/right-wall soft receiver subset.",
+    "material_kind": 2,
+    "runtime_export": "Export uses evaluated triangle loops, corner normals and per-loop UVs. No geometry deformation applies to kind 2.",
+    "uv_rim_note": "Rim UVs collapse across the 1.6 mm thickness intentionally. Kind 2 uses only plaid albedo and does not require tangent-space normal maps.",
+    "orientation_checks": [
+      {
+        "all_front_faces_toward_room": true,
+        "all_back_faces_away_from_room": true,
+        "back_uvs_are_front_uvs_in_reversed_face_order": true
+      },
+      {
+        "all_front_faces_toward_room": true,
+        "all_back_faces_away_from_room": true,
+        "back_uvs_are_front_uvs_in_reversed_face_order": true
+      }
+    ],
+    "cost": {
+      "previous_triangles_both_panels": 1024,
+      "new_triangles_both_panels": 4480,
+      "additional_triangles": 3456,
+      "additional_unindexed_vertices": 10368,
+      "additional_dreammesh_vertex_bytes": 414720,
+      "basis": "Two old 32x8 single-sided grids versus two new 32x16 closed shells; DREAMM02 has 40 bytes per exported vertex."
+    }
+  },
+  "blender_draft_visual_review": {
+    "scope": "Curtain shape, plaid continuity and gross visual defects only; no judgment on lighting, palette or other objects.",
+    "evidence": [
+      {
+        "path": "dream/validation/room-lighting-v7-d.png",
+        "dimensions_px": [
+          360,
+          640
+        ],
+        "sha256": "742f009e2f2d732a9e16d96cfd84bd8b1432eef44b51e136544790c3bfec0a3a"
+      },
+      {
+        "path": "dream/validation/room-blender-baseline-ab59747.png",
+        "dimensions_px": [
+          720,
+          1280
+        ],
+        "sha256": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db"
+      },
+      {
+        "path": "dream/referencias/estetica/evidencias/video-35/11s.png",
+        "dimensions_px": [
+          720,
+          1280
+        ],
+        "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3"
+      }
+    ],
+    "accepted_as_incremental_shape_improvement": true,
+    "exact_reference_match_claimed": false,
+    "observed_improvements": [
+      "The inner edge has a mild curve instead of a rigid straight rectangular silhouette.",
+      "Pleat depth varies along the drop and gives a more cloth-like shape.",
+      "Plaid bands remain visually continuous across the folds; no obvious UV jumps or extra texture mirroring are visible."
+    ],
+    "remaining_differences": [
+      "Reference drape and lateral lean are more pronounced than this restrained shape.",
+      "The 360x640 draft limits assessment of the 1.6 mm rim and fine fold shading."
+    ],
+    "not_observed_in_draft": [
+      "Obvious holes, detached strips or gross self-intersections."
+    ],
+    "pending": "Inspect the final Blender/OpenGL exports at delivery resolution before claiming final renderer parity."
+  },
+  "renderer_geometry_parity": {
+    "scope": "Geometric export parity and visual continuity of the plaid in three real OpenGL views. This does not assert pixel-perfect appearance, lighting parity or exact reference fidelity.",
+    "asset_sha256": {
+      "dream/assets/pastel_room.json": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c",
+      "dream/assets/pastel_room.dreammesh": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79"
+    },
+    "export_checks": [
+      {
+        "object": "GEO-DREAM-curtain-0",
+        "checks": {
+          "exported_triangles": 2240,
+          "position_max_error_m": 2.012431846536154e-07,
+          "positions_match_helper_after_shift_within_1um": true,
+          "uv_matches_material_coordinates": true,
+          "normals_match_triangle_orientation": true,
+          "normals_unit_length_within_1e_minus_6": true,
+          "material_kind_two": true,
+          "all_values_finite": true
+        }
+      },
+      {
+        "object": "GEO-DREAM-curtain-1",
+        "checks": {
+          "exported_triangles": 2240,
+          "position_max_error_m": 2.0411686544146398e-07,
+          "positions_match_helper_after_shift_within_1um": true,
+          "uv_matches_material_coordinates": true,
+          "normals_match_triangle_orientation": true,
+          "normals_unit_length_within_1e_minus_6": true,
+          "material_kind_two": true,
+          "all_values_finite": true
+        }
+      }
+    ],
+    "opengl_evidence": [
+      {
+        "path": "dream/validation/room-opengl.png",
+        "dimensions_px": [
+          540,
+          960
+        ],
+        "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c"
+      },
+      {
+        "path": "dream/validation/room-view-radiator-v7.png",
+        "dimensions_px": [
+          960,
+          720
+        ],
+        "sha256": "28cb4be1b3703297f853c6970de36fad4a7e712e72cad17c722a16cb079e3c75"
+      },
+      {
+        "path": "dream/validation/room-view-right-v7.png",
+        "dimensions_px": [
+          960,
+          720
+        ],
+        "sha256": "ff3cf5f45cedb7f817f1311e3e6d04472889c5421c324419948820f7e00bad5e"
+      }
+    ],
+    "visual_result": "Both closed curtains preserve their drape and plaid across the front, radiator-side and right-side views. No obvious missing faces, UV jumps, inverted shading, detached strips or gross intersections are visible in those views.",
+    "accepted_for_current_iteration": true,
+    "remaining_reference_difference": "Reference has stronger lateral lean and a more relaxed drape; no exact cloth reconstruction is claimed.",
+    "final_blender_review": {
+      "path": "dream/validation/room-blender.png",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
+      "reviewed": true,
+      "scope": "Curtain shape and UV continuity only, against OpenGL views and earlier Blender draft D.",
+      "result": "Final Blender retains the curved inner edge, variable folds and continuous plaid observed in OpenGL. No obvious holes, texture jumps, detached strips or gross intersections are visible.",
+      "limitation": "Visual geometry agreement, not a pixel-perfect appearance match. Reference drape remains more pronounced."
+    }
+  }
+}

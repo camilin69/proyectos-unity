@@ -184,22 +184,18 @@ for z in [wz0-.04,wz1+.04]:box('window_casing',(2.36,wc,z),(.16,wy1-wy0+.2,.12),
 box('window_mullion',(2.34,wc,2.16),(.13,wy1-wy0,.055),ivory,.012)
 box('window_sill',(2.25,wc,wz0-.09),(.42,wy1-wy0+.3,.07),ivory,.015)
 rod('curtain_rail',(2.17,wy0-.24,2.7),(2.17,wy1+.24,2.7),.018,chrome)
-for center in [wy0-.10,wy1+.10]:
-    verts=[];faces=[];uv=[];nx=32;nz=8
-    for j in range(nz+1):
-        for i in range(nx+1):
-            u=i/nx;v=j/nz
-            verts.append((2.15+.035*math.cos(u*math.tau*3),center+(u-.5)*.34,1.25+v*1.43+.018*math.cos(u*math.tau*3)))
-    for j in range(nz):
-        for i in range(nx):
-            a=j*(nx+1)+i;faces.append((a,a+1,a+nx+2,a+nx+1))
-    mesh=bpy.data.meshes.new('DREAM_curtain');mesh.from_pydata(verts,[],faces);mesh.materials.append(cloth)
+curtain_ns={}
+exec((ROOT/'blender/curtain_mesh.py').read_text(encoding='utf-8'),curtain_ns)
+for index,data in enumerate(curtain_ns['make_room_curtains'](wy0,wy1)):
+    mesh=bpy.data.meshes.new(f'DREAM_curtain_{index}');mesh.from_pydata(data['vertices'],[],data['faces']);mesh.materials.append(cloth)
     layer=mesh.uv_layers.new()
-    for poly in mesh.polygons:
-        poly.use_smooth=True
-        for li in poly.loop_indices:
-            vi=mesh.loops[li].vertex_index;layer.data[li].uv=((vi%(nx+1))/nx,(vi//(nx+1))/nz*2)
-    o=bpy.data.objects.new('GEO-DREAM-curtain',mesh);scene.collection.objects.link(o)
+    for poly,uvs,smooth in zip(mesh.polygons,data['face_uvs'],data['smooth_faces']):
+        poly.use_smooth=smooth
+        for li,uv in zip(poly.loop_indices,uvs):layer.data[li].uv=uv
+    sharp={tuple(sorted(e)) for e in data['sharp_edges']}
+    for edge in mesh.edges:edge.use_edge_sharp=tuple(sorted(edge.vertices)) in sharp
+    mesh.update()
+    o=bpy.data.objects.new(f'GEO-DREAM-curtain-{index}',mesh);scene.collection.objects.link(o)
 for i in range(24):
     y=.12+i*(1.055-.12)/23
     rod('radiator_fin',(2.19,y,.18),(2.19,y,.93),.016,chrome)
@@ -253,7 +249,7 @@ link_receivers(reference_fill,'DREAM_reference_full_receivers',
                [o for o in scene.objects if o.type=='MESH' and o not in soft_receivers])
 soft_fill=area('reference_soft_fill',(-.7,1.2,1.5),(-.7,2.7,1.5),13.5,(.70,.48,.39),2.2)
 link_receivers(soft_fill,'DREAM_reference_soft_receivers',soft_receivers)
-mint_fill=area('mint_sky_fill',(-1,.9,2.5),(-.8,2.7,2.4),24,(.70,.83,1),2.2)
+mint_fill=area('mint_sky_fill',(-1,.9,2.5),(-.8,2.7,2.4),14,(.70,.83,1),2.2)
 link_receivers(mint_fill,'DREAM_mint_sky_fill_receivers',
                [o for o in scene.objects if o.name.startswith('GEO-DREAM-front_tile') and o.active_material==mint and o.location.z>2.05])
 chrome_return=area('chrome_strip',(-1.2,-.7,.05),(-1.2,-.7,1.05),12,(.90,.96,1),1)
@@ -261,11 +257,16 @@ chrome_return.data.shape='RECTANGLE';chrome_return.data.size_y=3
 chrome_return.data.diffuse_factor=0;chrome_return.data.specular_factor=1
 link_receivers(chrome_return,'DREAM_chrome_strip_receivers',
                [o for o in scene.objects if o.name.startswith('GEO-DREAM-radiator')])
+# Local warm wall return offsets the blue sky cast on the inward door face.
+# Keep its receivers on the hinged paint/handle, preserving frame calibration.
+door_return=area('door_color_return',(-2.15,.3,1.5),(-1.65,1.85,1.3),14,(1,.03,.06),2)
+link_receivers(door_return,'DREAM_door_color_receivers',
+               [o for o in scene.objects if o.type=='MESH' and o.parent==hinge])
 cam=bpy.data.cameras.new('DREAM_Camera');co=bpy.data.objects.new('DREAM_Camera',cam);scene.collection.objects.link(co);scene.camera=co
 co.location=(-1.5,-2.0,1.4);target=co.location+Vector((math.cos(1.29)*math.cos(-.21),math.sin(1.29)*math.cos(-.21),math.sin(-.21)))*4
 co.rotation_euler=(target-co.location).to_track_quat('-Z','Y').to_euler();cam.sensor_fit='VERTICAL';cam.sensor_height=24;cam.lens=24/(2*.7);cam.clip_end=250
 scene['dream_reference']='video-35, 11 seconds'
-scene['dream_stage']='blockout' if BLOCKOUT else 'reference-finish-v6'
+scene['dream_stage']='blockout' if BLOCKOUT else 'reference-finish-v7'
 scene['dream_asset']='pastel_room'
 if BLOCKOUT:
     grey=material('blockout','C2C2C2',.7)

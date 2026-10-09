@@ -1,205 +1,507 @@
 {
   "schema": "dream.visual_fidelity_review.v1",
-  "accepted": false,
   "language": "es",
-  "baseline_commit": "f207845",
-  "iteration": "v6",
-  "scope": "Revision final de habitacion Blender/OpenGL frente a video-35/11s y baselines f207845. Atrio OpenGL reobservado frente a video-52/05s, sin cambios visuales durante v6. El objetivo es recrear estetica y materiales; no identidad pixel a pixel ni reconstruir todos los planos o toda la geografia de los cuatro videos.",
-  "acceptance_meaning": "accepted=false indica que aun no se declara finalizado el ajuste fino de parecido en luz/materiales. No significa ausencia de implementacion, inviabilidad o bloqueo. La direccion estetica ya esta establecida.",
+  "accepted": false,
+  "goal_complete": false,
+  "baseline_commit": "ab59747",
+  "iteration": "v7",
+  "reviewed_at_utc": "2026-10-09T03:51:14.723033+00:00",
+  "scope": "El usuario amplio el objetivo a replicar TODOS los escenarios de los cuatro videos tal como aparecen, siguiendo los pasos propuestos para cada uno. La entrega actual contiene dos prototipos. Esta revision constata el avance v7 y no declara terminado el nuevo objetivo.",
+  "scope_change": {
+    "latest_user_request": "Quiero que repliques todos los escenarios de los videos, cada escenario debes generarlo tal cual esta en el video. siguiendo los pasos propuestos para cada uno.",
+    "effect": "La aproximacion estetica coherente deja de ser suficiente para aceptar la entrega completa. Se requiere inventario y reproduccion por escenario, vistas y materiales, incluyendo los planos de retorno. El umbral anterior no se usa para cerrar este alcance ampliado."
+  },
+  "inventory_summary": {
+    "unique_scenes": 13,
+    "temporal_entries": 20,
+    "implemented_prototypes": 2,
+    "unimplemented_scenes": 11,
+    "strict_reference_reproductions_accepted": 0,
+    "plan": "dream/validation/all-scenes-plan.json"
+  },
   "artifacts": {
     "room_reference": {
       "path": "dream/referencias/estetica/evidencias/video-35/11s.png",
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3",
       "width_px": 720,
       "height_px": 1280,
-      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3",
       "visually_inspected_this_review": true
     },
     "room_opengl": {
       "path": "dream/validation/room-opengl.png",
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
       "width_px": 540,
       "height_px": 960,
-      "sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
       "visually_inspected_this_review": true
     },
     "room_blender": {
       "path": "dream/validation/room-blender.png",
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
       "width_px": 720,
       "height_px": 1280,
-      "sha256": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
       "visually_inspected_this_review": true
     },
     "room_baseline": {
-      "path": "dream/validation/room-baseline-f207845.png",
+      "path": "dream/validation/room-baseline-ab59747.png",
+      "sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
       "width_px": 540,
       "height_px": 960,
-      "sha256": "f9bae316f322e3007967944bdb5d8387863aa82dd97909b658a2d9f5cd68734a",
       "visually_inspected_this_review": true
     },
     "room_blender_baseline": {
-      "path": "dream/validation/room-blender-baseline-f207845.png",
+      "path": "dream/validation/room-blender-baseline-ab59747.png",
+      "sha256": "08020ab356c7dac50f86b5f7b6f2d6b8c5dfa18277f682368d0018dd7d6b34db",
       "width_px": 720,
       "height_px": 1280,
-      "sha256": "184613575a0c406c4352f20550083e3d7dfbdbb2b7d02da68471a459340a2a9b",
+      "visually_inspected_this_review": true
+    },
+    "room_view_radiator": {
+      "path": "dream/validation/room-view-radiator-v7.png",
+      "sha256": "28cb4be1b3703297f853c6970de36fad4a7e712e72cad17c722a16cb079e3c75",
+      "width_px": 960,
+      "height_px": 720,
+      "visually_inspected_this_review": true
+    },
+    "room_view_right": {
+      "path": "dream/validation/room-view-right-v7.png",
+      "sha256": "ff3cf5f45cedb7f817f1311e3e6d04472889c5421c324419948820f7e00bad5e",
+      "width_px": 960,
+      "height_px": 720,
       "visually_inspected_this_review": true
     },
     "atrium_reference": {
       "path": "dream/referencias/estetica/evidencias/video-52/05s.png",
+      "sha256": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70",
       "width_px": 478,
       "height_px": 850,
-      "sha256": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70",
       "visually_inspected_this_review": true
     },
     "atrium_opengl": {
       "path": "dream/validation/atrium-opengl.png",
+      "sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
       "width_px": 960,
       "height_px": 720,
-      "sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
       "visually_inspected_this_review": true
     }
   },
   "method": {
-    "inspection": "Inspeccion visual directa de los siete PNG despues de finalizar los renders; dimensiones y SHA256 comprobados. Sin porcentajes inventados de similitud.",
-    "comparability": "Habitacion y referencia son 9:16 a distintas resoluciones. Atrio 4:3 frente a referencia vertical. Se comparan superficies y caracter visual, sin exigir registro pixel a pixel.",
-    "regional_measurements": "dream/validation/room-light-regions-v6.json contiene coordenadas, medianas sRGB y Y lineal de regiones concretas. Y describe la imagen procesada, no potencia de luces ni una nota global de fidelidad.",
-    "functional_evidence": "Las pruebas funcionales de assets, navegacion, agua/hojas/cascada y ejecucion fueron reportadas por el agente principal. No se reejecutaron aqui. Su resultado no demuestra parecido visual; una captura fija tampoco demuestra animacion.",
-    "blender_atrium": "No evaluado en esta iteracion."
+    "inspection": "Revision de Blender/OpenGL finales v7, baselines ab59747 y dos vistas adicionales GL. Referencias de habitacion/atrio y cuatro mosaicos temporales inspeccionados. Hashes finales verificados.",
+    "measurement": "Se conservan coordenadas y medianas RGB/Y de seis superficies de habitacion como diagnostico. No son una puntuacion de parecido ni sustituyen geometria/composicion.",
+    "functional_evidence": "Pruebas de ejecucion/navegacion/assets/animacion reportadas y documentadas aparte. No se reejecutaron para esta revision y no demuestran reproduccion visual completa.",
+    "limitations": "Mosaicos y PNG orientan el inventario; los tiempos originales son aproximados y las trayectorias completas requieren revisar el video. No se ha certificado una replica temporal de todos los fotogramas."
   },
   "room": {
     "accepted": false,
-    "aesthetic_direction_established": true,
-    "visually_present": [
-      "habitacion pastel rosa/menta",
-      "suelo continuo ajedrezado con acabado humedo y manchas localizadas",
-      "cielo onirico en las aperturas",
-      "puerta, cortinas y radiador",
-      "misma escena reconocible en Blender y OpenGL"
-    ],
+    "coherent_aesthetic_approximation": true,
+    "strict_reference_reproduction_accepted": false,
     "evidenced_improvements": [
       {
-        "finding": "La puerta OpenGL pierde el oscurecimiento gris del baseline y se aproxima al rosa neutro de referencia. En su ROI, Y pasa .240 a .357 frente a .341. No se atribuye este cambio a toda la ceramica, que mantiene su iluminacion anterior.",
+        "finding": "La puerta Blender pierde el matiz azul verdoso y se aproxima a la pintura crema rosada. La franja menta alta queda mas equilibrada; OpenGL tambien corrige el exceso de brillo de la ceramica alta.",
         "evidence": [
+          "room_blender_baseline",
+          "room_blender",
           "room_baseline",
           "room_opengl",
           "room_reference"
         ]
       },
       {
-        "finding": "Blender reduce el exceso en la jamba y bajo la ventana: Y .518 a .401 en jamba (referencia .400), y .471 a .365 en rosa bajo ventana (referencia .321). La ventana conserva un foco luminoso, pero el marco deja de dominar tanto.",
+        "finding": "Las cortinas adquieren bordes curvos y pliegues menos uniformes, sin discontinuidad visible del plaid. Las vistas adicionales OpenGL conservan su integridad.",
         "evidence": [
-          "room_blender_baseline",
           "room_blender",
-          "room_reference"
+          "room_opengl",
+          "room_view_right",
+          "room_view_radiator"
         ]
       },
       {
-        "finding": "El suelo OpenGL recupera rosas y mentas mas cercanos a referencia, con menos gris/beige en las zonas neutras. En Blender las ondulaciones rompen el reflejo recto y alargado del marco; el acabado se percibe mas acuoso.",
+        "finding": "OpenGL amplifica la lectura mojada del suelo fuera del radiador, conservando las zonas rosas/menta. La habitacion mantiene una respuesta material coherente desde las dos vistas adicionales.",
         "evidence": [
           "room_baseline",
-          "room_blender_baseline",
           "room_opengl",
-          "room_blender",
-          "room_reference"
-        ]
-      },
-      {
-        "finding": "El radiador Blender gana reflejos claros y oscuros frente al aspecto uniforme del baseline. No conserva la extensa zona blanca saturada vista en un candidato intermedio; ese candidato no es el resultado final.",
-        "evidence": [
-          "room_blender_baseline",
-          "room_blender"
+          "room_view_right",
+          "room_view_radiator"
         ]
       }
     ],
-    "remaining_differences": [
+    "required_for_expanded_scope": [
       {
-        "priority": "medium",
-        "area": "Distribucion y color de luz",
-        "finding": "El relleno menta alto Blender ahora sobrepasa la referencia: Y .435 frente a .368; antes era .297. OpenGL conserva la ceramica alta mas clara (.477 menta/.441 rosa frente a .368/.326). La hoja Blender sigue fria; igualar Y de la jamba no ha igualado su matiz.",
-        "next_action": "Ajustar localmente la franja alta y el balance de color entre pintura/ceramica; mantener los controles bajos y evitar una correccion global de exposicion.",
-        "evidence": [
-          "room_reference",
-          "room_blender",
-          "room_opengl"
-        ]
+        "area": "Camaras, composicion y geometria",
+        "reason": "La composicion sigue siendo una aproximacion: distribucion de azulejos, relacion visual de puerta/ventana/radiador y abertura hacia cielo difieren. Se ha calibrado sobre todo 11s; el retorno de 23s al final aun no tiene trayectoria y comparacion propias.",
+        "action": "Registrar ambos intervalos contra el original y ajustar camaras/landmarks antes de dar por replicada la habitacion."
       },
       {
-        "priority": "medium",
-        "area": "Acabado mojado del suelo",
-        "finding": "La referencia integra brillos coral/lima/cian y reflejos liquidos de forma mas continua. Blender tiene distorsiones amplias y difusas; OpenGL combina zonas de damero bastante planas con ondulacion fina muy localizada alrededor del reflejo metalico. El nuevo color base no resuelve por si solo esa diferencia optica.",
-        "next_action": "Afinar escala y reparto del reflejo/ondulacion y el brillo local de manchas; conservar las zonas neutras y su nueva paleta.",
-        "evidence": [
-          "room_reference",
-          "room_blender",
-          "room_opengl"
-        ]
-      },
-      {
-        "priority": "medium",
-        "area": "Respuesta del cromo",
-        "finding": "El radiador es reconociblemente metalico, pero Blender conserva un tono frio y OpenGL unas bandas mas regulares que los reflejos contrastados de referencia. La mejora de v6 no equivale a identidad material.",
-        "next_action": "Afinar contraste y direccion del entorno reflejado sin volver al radiador uniformemente blanco.",
-        "evidence": [
-          "room_reference",
-          "room_blender",
-          "room_opengl"
-        ]
+        "area": "Respuesta del suelo, cromo y luz",
+        "reason": "La referencia combina manchas luminosas y deformacion liquida con otra distribucion y escala. Blender conserva reflejos mas amplios/difusos y OpenGL ondulacion metalica mas regular. El cielo usa bandas de nubes distintas. Con la exigencia tal cual estas diferencias visibles requieren seguimiento.",
+        "action": "Comparar superficies y nubes en varios fotogramas del plano y su retorno; ajustar respuesta optica, patrones y movimiento sobre evidencia."
       }
+    ],
+    "optional_only_if_not_visible_in_reference": [
+      "Topologia de caras nunca mostradas, siempre que no altere sombras, reflejos ni navegacion.",
+      "Simulacion fisica de tela si la forma y movimiento observados pueden reproducirse de manera controlada."
     ],
     "regressions_requiring_revert": [],
-    "local_overcorrection": "La menta superior Blender cambia deficit por exceso de luz. Merece ajuste localizado; no justifica revertir toda la iteracion.",
-    "verdict": "Avance concreto frente a f207845 en puerta OpenGL, aperturas Blender, paleta del suelo y lectura del metal. La habitacion ya comunica la estetica pastel surreal y humeda solicitada. Persisten diferencias de acabado identificables; no se declara equivalencia final con la referencia."
+    "verdict": "v7 mejora de forma verificable la aproximacion visual. No se revierte ese progreso. La habitacion sigue siendo un prototipo bajo el nuevo requisito de replica por escenario y secuencia."
   },
   "atrium": {
     "accepted": false,
-    "evidenced_improvements": [
-      {
-        "finding": "La captura actual muestra estanque y canal, cascada, vegetacion/lianas, galerias curvas, acentos lima y esferas: el atrio esta abordado. Una imagen fija no prueba su animacion.",
-        "evidence": [
-          "atrium_opengl",
-          "atrium_reference"
-        ]
-      }
+    "implementation_status": "implemented_prototype",
+    "strict_reference_reproduction_accepted": false,
+    "image_unchanged_from_v6": true,
+    "present": [
+      "galerias curvas",
+      "columnas informativas",
+      "agua y canal conectado",
+      "cascada",
+      "vegetacion y lianas",
+      "esferas suspendidas"
     ],
-    "remaining_differences": [
+    "required_for_expanded_scope": [
       {
-        "priority": "medium",
-        "area": "Luz y riqueza optica",
-        "finding": "El atrio OpenGL conserva una luz mas uniforme y materiales menos ricos que la referencia: vidrio de lectura debil, agua azul relativamente uniforme y causticas poco perceptibles frente al agua cian luminosa de la imagen suministrada.",
-        "next_action": "Mejorar la relacion entre luz solar, ambiente, vidrio y reflejo/causticas del agua, conservando la estructura y el recorrido ya abordados.",
-        "evidence": [
-          "atrium_opengl",
-          "atrium_reference"
-        ]
+        "area": "Arquitectura y profundidad",
+        "reason": "La referencia muestra un recorrido curvo, varias alturas y ciudad exterior con proporciones/composicion que el atrio circular simplificado no reproduce.",
+        "action": "Registrar el plano 4.1-8.13s del video52 y ajustar geometria visible, recorrido y fondo."
       },
       {
-        "priority": "medium",
-        "area": "Cascada, follaje y esferas",
-        "finding": "La cascada sigue leyendose como hebras regularmente espaciadas y las hojas/esferas son mas simplificadas que en la referencia. Son diferencias de acabado y variedad visual, no ausencia de esos elementos.",
-        "next_action": "Refinar variacion de hebras y respuesta material de hojas/esferas dentro del presupuesto del visor; no ampliar esta tarea a reproducir otros videos completos.",
-        "evidence": [
-          "atrium_opengl",
-          "atrium_reference"
-        ]
+        "area": "Optica y detalle visible",
+        "reason": "Agua, vidrio, iluminacion, vegetacion, esferas y paneles son mas simples: faltan riqueza de causticas, transparencia y variacion observadas. Ahora son diferencias requeridas para fidelidad, no solo mejoras opcionales de un atrio aproximado.",
+        "action": "Calibrar esos materiales y detalles con fotogramas nativos y el movimiento del plano."
       }
     ],
-    "verdict": "El PNG del atrio conserva exactamente el hash de la revision anterior: sin nueva mejora visual atribuible a v6. Agua/canal, cascada, vegetacion y arquitectura estan presentes, pero luz, vidrio, causticas y variedad optica siguen mas simples que en referencia. accepted=false describe acabado, no ausencia ni bloqueo.",
-    "review_status": "current_opengl_reinspected_v6; image_hash_unchanged; blender_atrium_not_reviewed",
-    "requested_elements_present": [
-      "arquitectura curva",
-      "agua y canal conectado",
-      "vegetacion y lianas",
-      "cascada",
-      "columnas informativas",
-      "esferas suspendidas"
-    ]
+    "verdict": "Atrio abordado y funcional, pero no replica estricta. No hay cambio visual nuevo de atrio atribuible a v7."
   },
-  "feasibility": {
-    "blender": "Viabilidad alta. Arquitectura, materiales, agua y vegetacion de esta familia de referencias se pueden construir; conseguir una estetica reconocible tiene dificultad media y un acabado muy proximo exige mas calibracion artistica de luz, reflejos y composicion.",
-    "opengl": "Viabilidad alta con dificultad tecnica mayor: hay que mantener materiales, iluminacion y reflejos del agua/metal, transparencias y vegetacion dentro de un presupuesto de tiempo real. Las capturas actuales prueban una base visual concreta, no una promesa de equivalencia automatica con Blender.",
-    "practical_workflow": "Blender para autorar geometria, UV y materiales; C++/OpenGL para el entorno recorrible. Compartir escenas y mapas reduce trabajo duplicado, aunque la calibracion entre ambos renderizadores sigue siendo necesaria.",
-    "scope_limit": "Esta revision sustenta habitacion y atrio mostrados. No certifica la recreacion completa de los cuatro videos ni asigna porcentajes o plazos sin un alcance definido."
+  "unimplemented_required_scenes": [
+    "video-35/atrio_inundado",
+    "video-35/paseo_palmeras",
+    "video-35/escalera_cielo",
+    "video-42/cocina_pradera",
+    "video-42/salida_oceano",
+    "video-42/pasillo_ondulado",
+    "video-42/pasarela_poolroom",
+    "video-51/arbol_monumental",
+    "video-52/transporte_cristal",
+    "video-52/ascensor_acuario",
+    "video-52/sala_planetaria"
+  ],
+  "regional_diagnostics_v7": {
+    "room_blender": {
+      "door_leaf": {
+        "normalized_box_uv": [
+          0.038,
+          0.285,
+          0.056,
+          0.327
+        ],
+        "pixel_box_xyxy_exclusive": [
+          27,
+          365,
+          40,
+          419
+        ],
+        "median_RGB": [
+          175.0,
+          157.0,
+          160.0
+        ],
+        "median_linear_Y": 0.356441,
+        "reference_RGB": [
+          170.0,
+          154.0,
+          156.0
+        ],
+        "reference_Y": 0.341194
+      },
+      "door_right_casing": {
+        "normalized_box_uv": [
+          0.47,
+          0.245,
+          0.482,
+          0.485
+        ],
+        "pixel_box_xyxy_exclusive": [
+          338,
+          314,
+          347,
+          621
+        ],
+        "median_RGB": [
+          186.0,
+          167.0,
+          157.0
+        ],
+        "median_linear_Y": 0.404203,
+        "reference_RGB": [
+          178.0,
+          165.0,
+          189.0
+        ],
+        "reference_Y": 0.400494
+      },
+      "front_mint_upper": {
+        "normalized_box_uv": [
+          0.558,
+          0.17,
+          0.58,
+          0.18
+        ],
+        "pixel_box_xyxy_exclusive": [
+          402,
+          218,
+          418,
+          230
+        ],
+        "median_RGB": [
+          138.0,
+          169.0,
+          171.0
+        ],
+        "median_linear_Y": 0.367195,
+        "reference_RGB": [
+          132.0,
+          169.5,
+          169.0
+        ],
+        "reference_Y": 0.367503
+      },
+      "front_pink_middle": {
+        "normalized_box_uv": [
+          0.558,
+          0.263,
+          0.58,
+          0.275
+        ],
+        "pixel_box_xyxy_exclusive": [
+          402,
+          337,
+          418,
+          352
+        ],
+        "median_RGB": [
+          196.0,
+          136.0,
+          158.0
+        ],
+        "median_linear_Y": 0.318127,
+        "reference_RGB": [
+          196.0,
+          139.0,
+          160.0
+        ],
+        "reference_Y": 0.326353
+      },
+      "front_mint_lower": {
+        "normalized_box_uv": [
+          0.589,
+          0.354,
+          0.612,
+          0.365
+        ],
+        "pixel_box_xyxy_exclusive": [
+          424,
+          453,
+          441,
+          467
+        ],
+        "median_RGB": [
+          138.0,
+          161.0,
+          159.0
+        ],
+        "median_linear_Y": 0.333962,
+        "reference_RGB": [
+          140.0,
+          165.0,
+          167.0
+        ],
+        "reference_Y": 0.350939
+      },
+      "right_pink_below_window": {
+        "normalized_box_uv": [
+          0.803,
+          0.431,
+          0.817,
+          0.437
+        ],
+        "pixel_box_xyxy_exclusive": [
+          578,
+          552,
+          588,
+          559
+        ],
+        "median_RGB": [
+          205.0,
+          147.0,
+          167.0
+        ],
+        "median_linear_Y": 0.366366,
+        "reference_RGB": [
+          187.0,
+          142.0,
+          157.0
+        ],
+        "reference_Y": 0.320946
+      }
+    },
+    "room_opengl": {
+      "door_leaf": {
+        "normalized_box_uv": [
+          0.038,
+          0.285,
+          0.056,
+          0.327
+        ],
+        "pixel_box_xyxy_exclusive": [
+          21,
+          274,
+          30,
+          314
+        ],
+        "median_RGB": [
+          174.0,
+          157.0,
+          159.0
+        ],
+        "median_linear_Y": 0.356858,
+        "reference_RGB": [
+          170.0,
+          154.0,
+          156.0
+        ],
+        "reference_Y": 0.341194
+      },
+      "door_right_casing": {
+        "normalized_box_uv": [
+          0.47,
+          0.245,
+          0.482,
+          0.485
+        ],
+        "pixel_box_xyxy_exclusive": [
+          254,
+          235,
+          260,
+          466
+        ],
+        "median_RGB": [
+          185.0,
+          165.0,
+          161.0
+        ],
+        "median_linear_Y": 0.397978,
+        "reference_RGB": [
+          178.0,
+          165.0,
+          189.0
+        ],
+        "reference_Y": 0.400494
+      },
+      "front_mint_upper": {
+        "normalized_box_uv": [
+          0.558,
+          0.17,
+          0.58,
+          0.18
+        ],
+        "pixel_box_xyxy_exclusive": [
+          301,
+          163,
+          313,
+          173
+        ],
+        "median_RGB": [
+          145.0,
+          168.0,
+          170.0
+        ],
+        "median_linear_Y": 0.369273,
+        "reference_RGB": [
+          132.0,
+          169.5,
+          169.0
+        ],
+        "reference_Y": 0.367503
+      },
+      "front_pink_middle": {
+        "normalized_box_uv": [
+          0.558,
+          0.263,
+          0.58,
+          0.275
+        ],
+        "pixel_box_xyxy_exclusive": [
+          301,
+          252,
+          313,
+          264
+        ],
+        "median_RGB": [
+          199.0,
+          142.0,
+          167.0
+        ],
+        "median_linear_Y": 0.342781,
+        "reference_RGB": [
+          196.0,
+          139.0,
+          160.0
+        ],
+        "reference_Y": 0.326353
+      },
+      "front_mint_lower": {
+        "normalized_box_uv": [
+          0.589,
+          0.354,
+          0.612,
+          0.365
+        ],
+        "pixel_box_xyxy_exclusive": [
+          318,
+          340,
+          330,
+          350
+        ],
+        "median_RGB": [
+          142.5,
+          167.0,
+          169.0
+        ],
+        "median_linear_Y": 0.362972,
+        "reference_RGB": [
+          140.0,
+          165.0,
+          167.0
+        ],
+        "reference_Y": 0.350939
+      },
+      "right_pink_below_window": {
+        "normalized_box_uv": [
+          0.803,
+          0.431,
+          0.817,
+          0.437
+        ],
+        "pixel_box_xyxy_exclusive": [
+          434,
+          414,
+          441,
+          420
+        ],
+        "median_RGB": [
+          182.0,
+          130.0,
+          156.0
+        ],
+        "median_linear_Y": 0.283106,
+        "reference_RGB": [
+          187.0,
+          142.0,
+          157.0
+        ],
+        "reference_Y": 0.320946
+      }
+    }
   },
-  "overall_verdict": "v6 es progreso visual verificable, no bloqueo. La base para recrear estos ambientes existe en ambos medios. Aun falta refinar la coincidencia de luz y respuesta optica; las validaciones funcionales y la fidelidad visual se mantienen separadas.",
-  "reviewed_at_utc": "2026-10-09T03:23:33.331690+00:00",
-  "iteration_classification": "progress",
+  "overall_verdict": "Progreso v7 conservado; nuevo objetivo global incompleto. Hay dos prototipos y once escenarios pendientes. La aceptacion exige revisar cada escenario y sus vistas/intervalos frente a su video, conservando las texturas de referencia y distinguiendo datos observados de decisiones de reconstruccion.",
+  "iteration_classification": "progress_with_expanded_scope",
   "blocked": false
 }

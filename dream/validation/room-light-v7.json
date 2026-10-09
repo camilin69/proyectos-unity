@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "iteration": "v7",
+  "baseline_commit": "ab59747",
+  "method": "Exact normalized ROI from room-light-regions-v6.json, round(u*width)/round(v*height), median per-channel sRGB and median per-pixel linear Y. Diagnostic only; not a fidelity percentage.",
+  "reference": "../referencias/estetica/evidencias/video-35/11s.png",
+  "runtime": {
+    "gpu": "Intel HD Graphics 630",
+    "dimensions": [
+      540,
+      960
+    ],
+    "frames": 8,
+    "time": 0,
+    "msaa": 4
+  },
+  "variants": {
+    "baseline": {
+      "image": "room-light-v7-baseline.png",
+      "gl_error": 0,
+      "measurements": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "reference_Y": 0.341194,
+          "Y": 0.356858,
+          "RGB": [
+            174.0,
+            157.0,
+            159.0
+          ]
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "reference_Y": 0.400494,
+          "Y": 0.397978,
+          "RGB": [
+            185.0,
+            165.0,
+            161.0
+          ]
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "reference_Y": 0.367503,
+          "Y": 0.476647,
+          "RGB": [
+            164.0,
+            188.0,
+            192.0
+          ]
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "reference_Y": 0.326353,
+          "Y": 0.440721,
+          "RGB": [
+            223.0,
+            159.0,
+            187.0
+          ]
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "reference_Y": 0.350939,
+          "Y": 0.362972,
+          "RGB": [
+            142.5,
+            167.0,
+            169.0
+          ]
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "reference_Y": 0.320946,
+          "Y": 0.283106,
+          "RGB": [
+            182.0,
+            130.0,
+            156.0
+          ]
+        }
+      },
+      "image_sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
+      "shader_sha256": "c7f968aa24a50ac3b57b83f6fe07a83926cd265d6afd5e7f0af1251bc0a8785a",
+      "elapsed_seconds": 0.380806
+    },
+    "a": {
+      "image": "room-light-v7-a.png",
+      "gl_error": 0,
+      "direct_radiance_scale": 0.68,
+      "measurements": {
+        "door_leaf": {
+          "box": [
+            0.038,
+            0.285,
+            0.056,
+            0.327
+          ],
+          "reference_Y": 0.341194,
+          "Y": 0.356858,
+          "RGB": [
+            174.0,
+            157.0,
+            159.0
+          ]
+        },
+        "door_right_casing": {
+          "box": [
+            0.47,
+            0.245,
+            0.482,
+            0.485
+          ],
+          "reference_Y": 0.400494,
+          "Y": 0.397978,
+          "RGB": [
+            185.0,
+            165.0,
+            161.0
+          ]
+        },
+        "front_mint_upper": {
+          "box": [
+            0.558,
+            0.17,
+            0.58,
+            0.18
+          ],
+          "reference_Y": 0.367503,
+          "Y": 0.369273,
+          "RGB": [
+            145.0,
+            168.0,
+            170.0
+          ]
+        },
+        "front_pink_middle": {
+          "box": [
+            0.558,
+            0.263,
+            0.58,
+            0.275
+          ],
+          "reference_Y": 0.326353,
+          "Y": 0.342781,
+          "RGB": [
+            199.0,
+            142.0,
+            167.0
+          ]
+        },
+        "front_mint_lower": {
+          "box": [
+            0.589,
+            0.354,
+            0.612,
+            0.365
+          ],
+          "reference_Y": 0.350939,
+          "Y": 0.362972,
+          "RGB": [
+            142.5,
+            167.0,
+            169.0
+          ]
+        },
+        "right_pink_below_window": {
+          "box": [
+            0.803,
+            0.431,
+            0.817,
+            0.437
+          ],
+          "reference_Y": 0.320946,
+          "Y": 0.283106,
+          "RGB": [
+            182.0,
+            130.0,
+            156.0
+          ]
+        }
+      },
+      "image_sha256": "ecd72ba44c0abc1a713f874fcc21d7b7673409f6425304310b8af01bacf37f56",
+      "shader_sha256": "0f9b3aef4c9de1b5152a4d8946abff2f18595cd8d617cae8fd5167a65f0c1c6f",
+      "elapsed_seconds": 0.365726
+    }
+  },
+  "baseline_asset_hashes": {
+    "assets/pastel_room.dreammesh": "076cfbd2098849e593b89a780785ae6c5eecf20877d525c24f9efa0b21c328f6",
+    "assets/pastel_room.scene": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+    "assets/textures/floor_surface_albedo.bmp": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+    "assets/textures/floor_flow.bmp": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+    "assets/textures/room_probe.bmp": "8bd0f7c8d1f9b002f295a03582a32752fb03d13f4633d9fd1d794322ed593fbe"
+  },
+  "accepted_by_visual_audit": false,
+  "selected_variant": "a",
+  "variant_count": 1,
+  "selection_reason": "The first candidate removes most upper-front ceramic overillumination while keeping the lower-wall and painted-door control pixels unchanged. No extra candidate was needed for this bounded lighting adjustment; final visual acceptance remains with the independent audit.",
+  "change": {
+    "file": "runtime/shaders/scene.frag",
+    "region": "interior direct-light block only",
+    "scope": "environment==0 and kind==3",
+    "world_field": {
+      "height_fade_m": [
+        1.45,
+        1.85
+      ],
+      "front_wall_y_fade_m": [
+        2.35,
+        2.65
+      ],
+      "front_facing_normal_weight": "smoothstep(0.75,0.98,-normal.y)"
+    },
+    "incident_direct_radiance_scale": 0.68,
+    "ambient_unchanged": true,
+    "palette_albedo_unchanged": true,
+    "paint_bounce_unchanged": true,
+    "atrium_branch_unchanged": true,
+    "global_exposure_unchanged": true,
+    "camera_unchanged": true,
+    "note": "Art-directed world-space irradiance correction before BRDF evaluation. It is not a camera-space overlay or a claimed physical shadow solution."
+  },
+  "control_pixels": {
+    "door_leaf": {
+      "pixels_equal": true,
+      "max_channel_change": 0
+    },
+    "door_right_casing": {
+      "pixels_equal": true,
+      "max_channel_change": 0
+    },
+    "front_mint_lower": {
+      "pixels_equal": true,
+      "max_channel_change": 0
+    },
+    "right_pink_below_window": {
+      "pixels_equal": true,
+      "max_channel_change": 0
+    }
+  },
+  "baseline_assets_unchanged_at_capture_review": {
+    "assets/pastel_room.dreammesh": true,
+    "assets/pastel_room.scene": true,
+    "assets/textures/floor_surface_albedo.bmp": true,
+    "assets/textures/floor_flow.bmp": true,
+    "assets/textures/room_probe.bmp": true
+  },
+  "limitations": [
+    "Median Y is image-relative and includes albedo, normals and view response; it is not a physical illuminance measurement or a fidelity score.",
+    "Only the existing portrait camera was rendered in this local check; alternate-view stability and full visual acceptance remain integration/audit work.",
+    "The atrium branch is unchanged by code inspection; this report does not claim a new atrium render test.",
+    "The lower pink tile below the window remains darker than its reference; this task deliberately preserved the low controls.",
+    "Hidden-window elapsed times are not fullscreen FPS claims.",
+    "The middle pink control retains a small positive Y difference (0.342781 vs reference 0.326353)."
+  ],
+  "preserved_final_artifact": {
+    "path": "room-opengl.png",
+    "sha256": "4dfc8fd8d1db98ce265c2952f11e6edc6ef96d934a1a5c52ee448ba995664068",
+    "overwritten_by_this_task": false
+  }
+}

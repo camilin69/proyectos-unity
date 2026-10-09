@@ -1,0 +1,651 @@
+{
+  "schema_version": 1,
+  "asset_id": "kitchen_meadow",
+  "scene_name_proposed": "DREAM_MeadowKitchen",
+  "status": "gray_blockout_rendered_geometry_not_accepted",
+  "language": "es",
+  "scope": "Primer plano de video-42, cocina abierta a pradera. Escenario independiente de pastel_room y atrium; Blender genera la geometría y C++/OpenGL la presenta.",
+  "path_base": "repository_root",
+  "sources": [
+    {
+      "path": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+      "sha256": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657",
+      "role": "original íntegro"
+    },
+    {
+      "path": "dream/referencias/estetica/video-42.json",
+      "sha256": "90008b76d2616527383d10bd3e16e2aa67a84eacf4d375dfbb1efb359bf26abd",
+      "role": "análisis previo, contrastado con imágenes"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-42.jpg",
+      "sha256": "cc9ef4c42a0b608d53a4584d7636121233763a29aead2035a8ca64460f26e142",
+      "role": "inventario temporal, tiempos aproximados"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-42/02s.png",
+      "sha256": "51c351a6eed595922775a6ccb94aacf5ae9fb0bf0b666c0d3986b21aa085a04d",
+      "role": "fotograma principal de calibración"
+    },
+    {
+      "path": "dream/referencias/estetica/texturas/video-42/cesped_interior.png",
+      "sha256": "421e666b26f8290b5316d21d013ee9489563fb58741e4e81055d5f818d84c81f",
+      "role": "recorte de referencia; no albedo ni textura repetible"
+    }
+  ],
+  "reviewed_views": [
+    {
+      "path": "dream/referencias/estetica/evidencias/video-42/02s.png",
+      "timestamp_s": 2,
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "role": "cámara principal e hitos"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-42.jpg",
+      "role": "secuencia general de los cuatro ambientes del video"
+    },
+    {
+      "source_video": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+      "timestamp_s": 0,
+      "role": "encuadre inicial, cuatro discos de cocina y marco de entrada",
+      "extraction": "FFmpeg -ss 0 -frames:v 1; JPEG en memoria, no se escribió otro archivo"
+    },
+    {
+      "source_video": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+      "timestamp_s": 4.5,
+      "role": "vista más cercana de horno, microondas, campana y armarios",
+      "extraction": "FFmpeg -ss 4.5 -frames:v 1; JPEG en memoria, no se escribió otro archivo"
+    }
+  ],
+  "video_42_environment_inventory": [
+    {
+      "id": "kitchen_meadow",
+      "approximate_interval_s": [
+        0,
+        6.17
+      ],
+      "observed": "Cocina con césped que continúa hacia pradera; techo rosa luminoso.",
+      "planned_here": true
+    },
+    {
+      "id": "ocean_exit",
+      "approximate_interval_s": [
+        6.17,
+        12.33
+      ],
+      "observed": "Vestíbulo inundado turquesa, azulejos rosa/crema, peldaños, postes y carteles EXIT; salida al océano.",
+      "planned_here": false
+    },
+    {
+      "id": "wavy_corridor",
+      "approximate_interval_s": [
+        12.33,
+        17.37
+      ],
+      "observed": "Pasillo descendente rosa, techo turquesa, puertas, pasamanos oscuros y suelo de franjas pastel.",
+      "planned_here": false
+    },
+    {
+      "id": "poolroom_walkway",
+      "approximate_interval_s": [
+        17.37,
+        24.57
+      ],
+      "observed": "Pasarela azul entre agua oscura, filas de columnas y techo bajo con luces coloreadas.",
+      "planned_here": false
+    }
+  ],
+  "evidence_policy": {
+    "observed_vs_inferred": "Hitos de imagen y presencia de elementos provienen de inspección visual; dimensiones, óptica, posiciones 3D y parámetros PBR son semillas ajustables, no recuperaciones del original.",
+    "measurement_method": "Lectura manual de píxeles sobre 02s.png nativo; tolerancias expresas. No se realizó reconstrucción fotogramétrica ni ajuste automático de cámara.",
+    "image_coordinates": "Origen superior izquierdo; X hacia derecha, Y hacia abajo. Normalizado por ancho 478 y alto 850.",
+    "occlusion": "El lado derecho del hueco exterior y algunos muebles están tapados/cortados. No completar detalles como hechos observados.",
+    "overlays": "Marca y texto social son edición del video; preservar atribución en referencias, no convertirlos en geometría ni iluminación.",
+    "audio": "No analizado; no se especifica música o ambiente sonoro."
+  },
+  "landmarks_primary_02s": [
+    {
+      "id": "exterior_opening_upper_left",
+      "pixel_xy": [
+        226,
+        171
+      ],
+      "normalized_xy": [
+        0.4728,
+        0.20118
+      ],
+      "uncertainty_px": 5,
+      "note": "Intersección del dintel y la jamba izquierda del hueco al campo."
+    },
+    {
+      "id": "exterior_opening_upper_edge_occlusion",
+      "pixel_xy": [
+        468,
+        166
+      ],
+      "normalized_xy": [
+        0.97908,
+        0.19529
+      ],
+      "uncertainty_px": 5,
+      "note": "Último extremo visible del dintel; NO es una esquina derecha confirmada."
+    },
+    {
+      "id": "exterior_opening_left_ground_contact",
+      "pixel_xy": [
+        213,
+        552
+      ],
+      "normalized_xy": [
+        0.44561,
+        0.64941
+      ],
+      "uncertainty_px": 8,
+      "note": "Contacto aproximado de jamba izquierda y suelo/vegetación."
+    },
+    {
+      "id": "grass_sky_horizon_left",
+      "pixel_xy": [
+        234,
+        341
+      ],
+      "normalized_xy": [
+        0.48954,
+        0.40118
+      ],
+      "uncertainty_px": 5,
+      "note": "Horizonte visible junto al extremo izquierdo; pequeñas formas blancas lo interrumpen."
+    },
+    {
+      "id": "grass_sky_horizon_right",
+      "pixel_xy": [
+        459,
+        347
+      ],
+      "normalized_xy": [
+        0.96025,
+        0.40824
+      ],
+      "uncertainty_px": 5,
+      "note": "La línea de campo/cielo es casi horizontal."
+    },
+    {
+      "id": "microwave_visible_body",
+      "pixel_xyxy": [
+        80,
+        346,
+        177,
+        403
+      ],
+      "normalized_xyxy": [
+        0.16736,
+        0.40706,
+        0.37029,
+        0.47412
+      ],
+      "uncertainty_px": 7,
+      "note": "Cuerpo claro y pantalla verde oscura; perspectiva oblicua."
+    },
+    {
+      "id": "oven_visible_body",
+      "pixel_xyxy": [
+        81,
+        411,
+        173,
+        633
+      ],
+      "normalized_xyxy": [
+        0.16946,
+        0.48353,
+        0.36192,
+        0.74471
+      ],
+      "uncertainty_px": 9,
+      "note": "Cuerpo visible del horno, con manija horizontal y ventanilla verdosa; caja 2D conservadora."
+    },
+    {
+      "id": "ceiling_luminous_visible_extent",
+      "pixel_xyxy": [
+        74,
+        0,
+        416,
+        91
+      ],
+      "normalized_xyxy": [
+        0.15481,
+        0.0,
+        0.87029,
+        0.10706
+      ],
+      "uncertainty_px": 9,
+      "note": "Techo emisor rosado parcialmente recortado por el borde superior; no representa su rectángulo completo."
+    },
+    {
+      "id": "foreground_right_door_knob",
+      "pixel_xy": [
+        460,
+        442
+      ],
+      "normalized_xy": [
+        0.96234,
+        0.52
+      ],
+      "uncertainty_px": 6,
+      "note": "Pequeño pomo en la hoja/jamba de primer plano; borde derecho oculto."
+    },
+    {
+      "id": "grass_paving_boundary_near_oven",
+      "pixel_xy": [
+        132,
+        651
+      ],
+      "normalized_xy": [
+        0.27615,
+        0.76588
+      ],
+      "uncertainty_px": 10,
+      "note": "Borde orgánico irregular, no una división recta."
+    },
+    {
+      "id": "grass_paving_boundary_foreground",
+      "pixel_xy": [
+        89,
+        740
+      ],
+      "normalized_xy": [
+        0.18619,
+        0.87059
+      ],
+      "uncertainty_px": 12,
+      "note": "Continuación aproximada de la franja crema junto a los muebles."
+    }
+  ],
+  "composition_constraints": [
+    "La abertura al campo ocupa aproximadamente la mitad derecha; la fila de muebles queda a la izquierda.",
+    "El horizonte queda cerca del 40.5% de la altura, dentro del hueco. No sustituir el campo por un mural plano.",
+    "Césped cercano irregular continúa por el umbral sin un salto de altura visible; queda una franja crema junto a la cocina.",
+    "El cielo superior es cian y la masa de nubes del horizonte es lavanda azulada; no reutilizar sin ajuste la distribución angular del cielo de la habitación.",
+    "Paneles luminosos rosas en techo, marco algo verdoso, muebles claros con tinte verdoso/rosa por la luz.",
+    "No colocar muebles ni vegetación alta delante del paisaje visible."
+  ],
+  "observed_elements": [
+    {
+      "id": "room_shell",
+      "count": "1 interior visible parcialmente",
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "dream/referencias/estetica/evidencias/video-42.jpg"
+      ],
+      "description": "Paredes rosa apagado, techo bajo con marco verdoso y hueco rectangular amplio al campo.",
+      "geometry": "Envolvente cerrada salvo entrada y salida; dintel/jambas con espesor."
+    },
+    {
+      "id": "foreground_entry_frame",
+      "count": "1 entrada con bordes parciales",
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png"
+      ],
+      "description": "Jamba izquierda clara de primer plano y hoja/borde derecho con pomo.",
+      "geometry": "Marco y hoja separada mínima; no inventar el detalle de la cara oculta."
+    },
+    {
+      "id": "electric_range",
+      "count": 1,
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "original@0s",
+        "original@4.5s"
+      ],
+      "description": "Cocina blanca/crema con horno, cuatro discos negros en dos filas, panel trasero pequeño, manija horizontal y ventana verdosa.",
+      "geometry": "Cuerpo biselado, cuatro discos, controles simplificados según resolución, puerta y ventanilla separadas."
+    },
+    {
+      "id": "microwave",
+      "count": 1,
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "original@4.5s"
+      ],
+      "description": "Caja clara sobre encimera al lado del fondo de la cocina; pantalla verde oscura y controles estrechos a la derecha.",
+      "geometry": "Caja con pequeños biseles, receso frontal oscuro y franja de controles; no colocarlo encima de los discos."
+    },
+    {
+      "id": "base_cabinet_counter_run",
+      "count": "1 tramo visible con al menos un frente inferior",
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "original@4.5s"
+      ],
+      "description": "Frentes claros, encimera continua junto al horno, zócalo y franja de pavimento expuesta.",
+      "geometry": "Cajas modulares; número exacto de puertas no confirmado, calibrar divisiones visibles."
+    },
+    {
+      "id": "upper_cabinet_and_hood",
+      "count": "1 conjunto visible parcial; campana 1",
+      "evidence": [
+        "original@0s",
+        "original@4.5s"
+      ],
+      "description": "Armario alto claro y campana blanca fina sobre la cocina. Algunas caras quedan cortadas.",
+      "geometry": "Caja superior y campana delgada con labio inferior; no añadir almacenaje no observado."
+    },
+    {
+      "id": "ceiling_light_grid",
+      "count": "2 paneles inferiores completos y partes de la fila superior visibles",
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "original@0s"
+      ],
+      "description": "Retícula de paneles rosados con barras/blancos luminosos interiores; cuatro bandas claras reconocibles en la parte visible inferior.",
+      "geometry": "Plano de difusor con marcos opacos; configuración inicial 2 columnas x 2 filas, ajustable al recorte."
+    },
+    {
+      "id": "grass_floor_and_meadow",
+      "count": "1 superficie continua",
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "dream/referencias/estetica/texturas/video-42/cesped_interior.png",
+        "original@0s",
+        "original@4.5s"
+      ],
+      "description": "Hierba baja verde amarillenta de altura y densidad irregular, tanto dentro como fuera; horizonte casi plano.",
+      "geometry": "Base de terreno continua, briznas opacas cerca y detalle progresivamente menor a distancia."
+    },
+    {
+      "id": "distant_white_shapes",
+      "count": "pequeño grupo indeterminado",
+      "evidence": [
+        "dream/referencias/estetica/evidencias/video-42/02s.png",
+        "original@0s"
+      ],
+      "description": "Siluetas blancas pequeñas al fondo izquierdo del paisaje; identidad y edificios exactos no recuperables.",
+      "geometry": "Siluetas simples solo si visibles al encuadre final; no inventar una ciudad detallada."
+    }
+  ],
+  "not_observed_do_not_add": [
+    "personajes",
+    "árboles cercanos",
+    "fregadero",
+    "frigorífico",
+    "mesa o sillas",
+    "adornos de encimera",
+    "agua sobre el suelo",
+    "reflejo especular de piscina"
+  ],
+  "constructor_data_proposal": {
+    "planned_builder": "dream/blender/build_kitchen.py",
+    "planned_data_source": "dream/blender/kitchen_plan.json",
+    "axes": "Z arriba, metros, +Y hacia la pradera, muebles en pared -X.",
+    "seed_status": "Dimensiones y cámara propuestas para un primer bloque gris. No son un encaje validado y deben ajustarse contra los hitos antes de materiales.",
+    "camera_seed": {
+      "position_m": [
+        -0.35,
+        -2.8,
+        1.45
+      ],
+      "yaw_rad": 1.53,
+      "pitch_rad": -0.12,
+      "tan_half_vertical_fov": 0.65,
+      "primary_render_px": [
+        478,
+        850
+      ],
+      "production_comparison_px": [
+        720,
+        1280
+      ]
+    },
+    "layout_seed": {
+      "room_bounds_xy_m": [
+        -1.65,
+        1.85,
+        -1.5,
+        1.8
+      ],
+      "ceiling_z_m": 2.8,
+      "wall_thickness_m": 0.12,
+      "exterior_opening": {
+        "wall_y_m": 1.8,
+        "x_min_m": -0.255,
+        "x_max_m": 1.75,
+        "bottom_z_m": 0.0,
+        "top_z_m": 2.64,
+        "note": "Anchura derecha inferida: parcialmente oculta en referencia."
+      },
+      "left_counter_run": {
+        "wall_x_m": -1.25,
+        "front_x_m": -0.63,
+        "y_min_m": 0.39,
+        "y_max_m": 1.63,
+        "countertop_z_m": 1.1
+      },
+      "range": {
+        "center_y_m": 0.7,
+        "width_along_y_m": 0.62,
+        "depth_along_x_m": 0.62,
+        "height_m": 1.1
+      },
+      "microwave": {
+        "center_y_m": 1.3,
+        "width_along_y_m": 0.48,
+        "depth_along_x_m": 0.37,
+        "height_m": 0.29,
+        "base_z_m": 1.12
+      },
+      "upper_units": {
+        "bottom_z_m": 1.72,
+        "top_z_m": 2.4,
+        "depth_m": 0.32
+      },
+      "grass": {
+        "base_z_m": 0.005,
+        "near_blade_height_m": [
+          0.035,
+          0.11
+        ],
+        "blade_width_m": [
+          0.004,
+          0.012
+        ],
+        "continuous_world_uv": true,
+        "exterior_extent_initial_m": 160,
+        "paving_strip_width_m": [
+          0.25,
+          0.5
+        ],
+        "note": "Límite hierba/pavimento se ajusta con una curva en el mundo, no pintado para una sola cámara."
+      },
+      "foreground_entry": {
+        "wall_y_m": -1.5,
+        "x_min_m": -0.67,
+        "x_max_m": 0.13,
+        "top_z_m": 2.4,
+        "note": "Semilla para marco parcial del primer plano, no medida recuperada; ajustar con cámara en bloque gris.",
+        "leaf_open_outward_deg": 30
+      },
+      "cabinet_run_transform": {
+        "rotation_z_deg": -40,
+        "offset_x_m": -0.22,
+        "offset_y_m": 0,
+        "basis": "Inferred oblique alcove to expose appliance fronts; geometry gate pending, not recovered original layout."
+      }
+    },
+    "mesh_groups": [
+      "shell_and_openings",
+      "entry_frame_and_partial_leaf",
+      "range_and_four_hobs",
+      "microwave",
+      "counter_and_cabinets",
+      "hood",
+      "ceiling_frames_and_diffusers",
+      "grass_base",
+      "grass_near_batches",
+      "distant_silhouettes"
+    ],
+    "object_prefix": "GEO-DREAM-kitchen-",
+    "ownership": "El constructor modifica solo objetos propios de DREAM_MeadowKitchen; conserva habitación y atrio.",
+    "materials": [
+      {
+        "id": "kitchen_wall_pink",
+        "base_srgb_hex_seed": "D3A0A3",
+        "roughness_seed": 0.8,
+        "metallic": 0,
+        "observation": "Rosa difuso, sin retícula cerámica visible en este plano."
+      },
+      {
+        "id": "appliance_cream",
+        "base_srgb_hex_seed": "DFDECB",
+        "roughness_seed": 0.4,
+        "metallic": 0,
+        "observation": "Esmalte claro bajo luz rosa/verdosa; pequeños reflejos, no metal espejo."
+      },
+      {
+        "id": "cabinet_cream",
+        "base_srgb_hex_seed": "DDD5C1",
+        "roughness_seed": 0.6,
+        "metallic": 0,
+        "observation": "Muebles claros sin veta de madera marcada."
+      },
+      {
+        "id": "paving_cream",
+        "base_srgb_hex_seed": "D1BDAA",
+        "roughness_seed": 0.72,
+        "metallic": 0,
+        "observation": "Franja mate/satinada, sin agua ni charcos evidentes."
+      },
+      {
+        "id": "ceiling_frame_mint_olive",
+        "base_srgb_hex_seed": "ABA988",
+        "roughness_seed": 0.75,
+        "metallic": 0,
+        "observation": "Marco del techo verdoso bajo mezcla de luces."
+      },
+      {
+        "id": "hob_dark",
+        "base_srgb_hex_seed": "373A34",
+        "roughness_seed": 0.58,
+        "metallic_seed": 0.15,
+        "observation": "Cuatro círculos oscuros; no emisión roja visible."
+      },
+      {
+        "id": "appliance_window_green",
+        "base_srgb_hex_seed": "4D7353",
+        "roughness_seed": 0.26,
+        "metallic": 0,
+        "observation": "Ventanas verdes oscuras, material exacto incierto; evitar vidrio completamente transparente."
+      },
+      {
+        "id": "ceiling_diffuser_pink",
+        "base_srgb_hex_seed": "EFB1CD",
+        "emission_color_srgb_seed": [
+          1,
+          0.58,
+          0.75
+        ],
+        "observation": "Difusor con barras de luz más blancas y suaves; luminaria visible más contribución de luz independiente."
+      },
+      {
+        "id": "grass",
+        "base_srgb_hex_seed_palette": [
+          "678663",
+          "96A071",
+          "B8B68A"
+        ],
+        "roughness_seed": 0.9,
+        "metallic": 0,
+        "observation": "Color multiescala, puntas claras y sombras entre briznas. El recorte incluye luz y perspectiva; reconstruir mapas propios."
+      }
+    ],
+    "lighting_seed": {
+      "type": "Luz exterior amplia y emisión rosa de techo con fuentes de área separadas",
+      "ceiling_emission_and_light_decoupled": true,
+      "exterior": "Cielo cian y capa de nubes lavanda cerca del horizonte; transición campo/cielo propia para esta escena.",
+      "avoid": "No trasladar luces rosas localizadas, reflejos ni probe de la habitación a este escenario."
+    },
+    "grass_budget_proposal": {
+      "near_batches": true,
+      "initial_near_triangles_budget": 12000,
+      "distance_lod": true,
+      "approach": "Briznas triangulares opacas agrupadas; base texturada continua para distancia. Requiere medir rendimiento real, no es una cifra de calidad garantizada.",
+      "avoid": "No exportar miles de objetos individuales ni confiar solo en un plano verde uniforme."
+    },
+    "planned_exports": [
+      "dream/blender/kitchen_meadow.blend",
+      "dream/assets/kitchen_meadow.glb",
+      "dream/assets/kitchen_meadow.dreammesh",
+      "dream/assets/kitchen_meadow.json",
+      "dream/assets/kitchen_meadow.scene"
+    ],
+    "runtime_requirements": [
+      "Añadir kitchen_meadow al registro de escenas y un preset propio de cámara/navegación; main.cpp actualmente acepta pastel_room y atrium.",
+      "Declarar iluminación/entorno de cocina explícitos; no hacerla caer accidentalmente en la iluminación especial de habitación environment=0 ni en el único else del atrio.",
+      "Añadir recursos de hierba/cielo propios sin sobrescribir cloud_sky, floor_surface_albedo, leaf_detail o room_probe activos.",
+      "Las clases actuales 0..9 ya tienen usos específicos; reservar por nombre una clase nueva de hierba si hace falta y verificar el contrato Blender/export/shader.",
+      "No usar kind=1 para la hierba: activa el reflejo y acabado del suelo de la habitación. No reutilizar kind=5 sin revisar movimiento y textura de hojas tropicales.",
+      "Mantener lectura sRGB para color y lineal para normales/rugosidad; PNG y BMP deben contener los mismos píxeles.",
+      "Definir colisiones de muebles, paredes y hoja de entrada; salida continua y transitable al campo en un área acotada."
+    ],
+    "build_order": [
+      "Cámara, envolvente y huecos en gris",
+      "Posición y silueta de muebles y techo",
+      "Superficie continua de hierba y franja de pavimento",
+      "Materiales y cielo propios",
+      "Iluminación rosa/interior frente a exterior",
+      "Briznas cercanas, pequeños controles y horizonte distante",
+      "Exportación y comparación real en OpenGL"
+    ],
+    "blockout_implementation": {
+      "path": "dream/blender/build_kitchen.py",
+      "stage": "Executed through Blender MCP: 53 meshes, 56 objects; gray render inspected.",
+      "backdrop": "Azul plano diagnóstico; sin reutilizar el cielo de habitación.",
+      "grass": "Solo huella geométrica continua y terreno; las briznas esperan a que pase la geometría.",
+      "scope": "Editable blend and gray render saved; no final textures, material calibration, runtime export or navigation.",
+      "open_issue": "Microondas y armario superior demasiado a la derecha; reticula del techo y borde del pavimento pendientes de encaje. Distribucion diagonal inferida, requiere revisar vistas 0/4.5s.",
+      "source_sha256": "e75941d80a259fb46a0cf80fd4b30b4d070507ecfe935b6c576db6c2b270c2be"
+    }
+  },
+  "validation_plan": {
+    "geometry_gate": {
+      "compare": "02s.png y 0/4.5s del original, con cámaras documentadas",
+      "target_landmark_error_normalized": 0.015,
+      "status": "Umbral propuesto para hitos rígidos visibles; no resultado medido. Ajustar por incertidumbre/oclusión sin inventar correspondencias.",
+      "checks": [
+        "Hueco al campo, horizonte y disposición de muebles",
+        "Un horno y un microondas; cuatro discos visibles",
+        "Entrada y salida abiertas, sin vacíos en otras paredes",
+        "Continuidad de césped y pavimento expuesto",
+        "Techo luminoso con la retícula visible correcta"
+      ]
+    },
+    "material_gate": [
+      "Muebles claros bajo iluminación pastel sin saturación excesiva",
+      "Hierba orgánica cercana y horizonte profundo, no alfombra plana ni agua",
+      "Ausencia de reflejos de habitación/atrio filtrados al nuevo entorno",
+      "Cielo cian con capa lavanda localizada, sin nube gigante de la habitación ocupando el hueco"
+    ],
+    "renderer_gate": [
+      "Captura Blender y OpenGL desde cámara equivalente",
+      "Verificar posiciones, winding, normales y UV de exportación",
+      "Probar entrada, junto a horno y umbral para evitar trampas de cámara única",
+      "Medir tiempo de frame en GPU objetivo después de añadir hierba"
+    ],
+    "required_evidence_before_acceptance": [
+      "Vista principal registrada",
+      "Dos vistas auxiliares reales",
+      "Reporte de geometría/materiales con diferencias pendientes",
+      "Reporte PNG/BMP y exportación",
+      "Captura breve del recorrido interior-exterior"
+    ],
+    "accepted": false,
+    "reason": "Modelo gris renderizado. Horno y huecos legibles, pero faltan ajustes y comprobacion de vistas adicionales; materiales y runtime pendientes."
+  },
+  "unresolved": [
+    "Escala métrica absoluta, focal original y trayectoria exacta no recuperadas.",
+    "Número exacto de puertas de armario y contenido detrás de cámara no visibles.",
+    "Identidad exacta de siluetas lejanas indeterminada.",
+    "Movimiento fino de hierba no evaluado temporalmente; las vistas inspeccionadas no justifican una animación intensa."
+  ]
+}

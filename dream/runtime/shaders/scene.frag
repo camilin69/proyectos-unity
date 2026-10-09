@@ -121,7 +121,11 @@ void main(){
  vec3 colors[3]=vec3[](vec3(.83,.87,1.)*3.,vec3(1.,.85,.94)*3.5,vec3(.85,1.,.96)*1.8);
  // Broad highlights approximate the large window/door light sources.
  if(environment==0){
-   for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,mix(.48,.30,metal)),metal,colors[i]*roomRadiance/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}
+   // Limit the broad analytical fill on the upper front ceramic wall. This
+   // authored irradiance field is anchored to the room, with a soft height
+   // transition; lower tiles, side walls and painted trim keep their fill.
+   float upperFrontFill=kind==3?smoothstep(1.45,1.85,worldPos.z)*smoothstep(2.35,2.65,worldPos.y)*smoothstep(.75,.98,-n.y):0.;
+   for(int i=0;i<3;i++){vec3 delta=positions[i]-worldPos;color+=light(n,v,normalize(delta),base,max(rough,mix(.48,.30,metal)),metal,colors[i]*roomRadiance*mix(1.,.68,upperFrontFill)/(1.+dot(delta,delta)*.14))*mix(.75,1.,ao);}
    if(metal>.8)color+=floorSpecularReturn(worldPos,n,v,base,rough);
    // The painted leaf faces away from the direct window lights. Give this
    // diffuse paint the missing broad return from the left/front room wall;
@@ -160,7 +164,7 @@ void main(){
        reflectedColor+=texture(reflection,sampleUV+vec2(x,y)*blur).rgb*.10;
    }else reflectedColor=texture(floorReflection,sampleUV).rgb;
    float facing=pow(1.-max(dot(n,v),0.),4.);
-   float f=environment==0?.10+.34*facing:.18+.5*facing;
+   float f=environment==0?.18+.45*facing:.18+.5*facing;
    color=mix(color,reflectedColor,f);
  }
  // Gentle contact darkening at the base of the walls; not a replacement for shadows.
