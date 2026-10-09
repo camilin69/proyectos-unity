@@ -1,0 +1,41 @@
+{
+  "times_s": [
+    0,
+    2
+  ],
+  "camera_equal": true,
+  "regions": {
+    "water": {
+      "xyxy": [
+        350,
+        495,
+        500,
+        530
+      ],
+      "mean_absolute_channel_delta": 5.542095238095238,
+      "changed_pixels": 4570
+    },
+    "foliage": {
+      "xyxy": [
+        210,
+        390,
+        300,
+        530
+      ],
+      "mean_absolute_channel_delta": 3.2054497354497355,
+      "changed_pixels": 3151
+    },
+    "static_control": {
+      "xyxy": [
+        870,
+        200,
+        920,
+        280
+      ],
+      "mean_absolute_channel_delta": 0.0,
+      "changed_pixels": 0
+    }
+  },
+  "scope": "Rendered variation in fixed crops; not a physical water simulation or full animation quality score.",
+  "result": "PASS"
+}

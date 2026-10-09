@@ -9,9 +9,15 @@ azulejos rosa/menta, puerta abierta hacia un cielo de nubes, ventana, cortinas
 de cuadros, radiador y suelo con reflejo planar. La referencia principal es
 `referencias/estetica/evidencias/video-35/11s.png`.
 
+También hay un atrio azul/lima basado en `video-52/05s.png`: galerías curvas,
+estanque, jardineras, columnas informativas, vidrio y esferas decorativas.
+El agua tiene ondas geométricas, refracción según profundidad y reflejos;
+las hojas tienen movimiento suave. El suelo usa su propio plano de reflexión.
+
 **Es un prototipo visual, no una reproducción terminada de los cuatro videos.**
-Faltan nubes más naturales, el acabado iridiscente del suelo y una calibración
-más cercana de cámara/luz/color. Agua, vegetación y atrio siguen pendientes.
+Faltan nubes más naturales, el acabado iridiscente de la habitación y una
+calibración más cercana de cámara/luz/color. En el atrio aún se debe refinar
+el acabado de vidrio, la diversidad vegetal y la arquitectura frente al video.
 Las capturas de `validation/` muestran el resultado real, no una propuesta.
 
 ## Ejecutar en Windows
@@ -48,21 +54,35 @@ Controles:
 | Capturar el ratón y mirar | Clic izquierdo, mover ratón |
 | Liberar el ratón | Esc |
 | Volver al encuadre inicial | R |
+| Habitación pastel | 1 |
+| Atrio con agua y plantas | 2 |
 | Ampliar la ventana | Botón maximizar o arrastrar sus bordes |
 | Salir | Cerrar la ventana |
 
 El recorrido está limitado al interior. La puerta abierta es geometría y tiene
 colisión; el cielo es un entorno lejano, sin terreno exterior transitable.
+En el atrio se recorre la planta baja; las galerías superiores son visuales.
+Hay colisiones con el estanque, las columnas y las jardineras.
+
+Para iniciar directamente en el atrio:
+
+```powershell
+.\dream\runtime\build\dream.exe --scene atrium
+```
 
 ## Archivos
 
 - `blender/pastel_room.blend`: escena editable, con las imágenes empaquetadas.
+- `blender/atrium.blend`: atrio editable con agua, vegetación y arquitectura.
+- `blender/build_atrium.py`: construcción del atrio; admite una fase de volúmenes simples.
 - `blender/build_room.py`: construcción reproducible de la habitación dentro de Blender.
 - `blender/export_runtime.py`: exportación de geometría evaluada, materiales y oclusión local.
 - `blender/make_textures.py`: texturas procedurales originales; requiere NumPy y Pillow.
 - `assets/pastel_room.glb`: intercambio estándar de geometría/materiales. No representa todos los efectos del visor.
 - `assets/pastel_room.dreammesh`: malla utilizada por el visor, Z arriba, metros.
 - `assets/pastel_room.json`: inventario, cámara y datos de exportación.
+- `assets/atrium.*`: malla, GLB, inventario y configuración del atrio.
+- `assets/*.scene`: cámara y colisiones; `*.draws`: grupos de vidrio ordenados por distancia.
 - `assets/textures/`: mapas compartidos; PNG para Blender y BMP para el cargador C++.
 - `runtime/src/`, `runtime/shaders/`: código C++17 y GLSL 3.30.
 - `referencias/estetica/`: cuatro análisis JSON, videos originales, fotogramas y recortes conservados.
@@ -88,8 +108,11 @@ uint32 (materiales/vértices), 8 float32 por material y 10 float32 por vértice
 little-endian. El GLB estándar usa la conversión de ejes propia de glTF.
 
 El visor admite hasta 32 materiales. Los tipos actuales son 0 = estándar,
-1 = suelo reflectante, 2 = tejido, 3 = cerámica. La iluminación, el límite de
-recorrido y el plano de reflexión todavía están configurados para esta habitación.
+1 = suelo reflectante, 2 = tejido, 3 = cerámica, 4 = agua, 5 = hojas,
+6 = vidrio, 7 = señal luminosa, 8 = esfera decorativa. El séptimo float del
+material puede indicar opacidad de vidrio. Cámara y colisiones se cargan desde
+`.scene`; el perfil de luz y el suelo del atrio todavía tienen parámetros específicos.
+Las esferas usan un mapa procedural decorativo, no un mapa geográfico fiel.
 
 ## Verificación reproducible
 
@@ -103,12 +126,25 @@ para verificar el framebuffer del reflejo. Imprime `gl_error=0` al terminar bien
 La captura es PPM. Es una prueba de integración; no certifica rendimiento en
 pantalla completa ni reemplaza una sesión de juego manual.
 
+Prueba de agua, cambio de escena, redimensionado y regreso al atrio:
+
+```powershell
+.\dream\runtime\build\dream.exe --scene atrium --hidden --smoke --cycle --frames 720 --width 1280 --height 720
+```
+
+`validation/verify_assets.py atrium` valida la malla y el GLB con Python estándar.
+`validation/navigation_test.cpp` comprueba las colisiones con 64.800 pasos.
+`validation/verify_animation.py` compara capturas a `--time 0` y `--time 2`
+(requiere NumPy y Pillow); las ondas y las hojas deben cambiar y una región
+estática debe permanecer igual. El vidrio se ordena por objetos, no por píxeles:
+geometría transparente entrecruzada compleja necesitará otro tratamiento.
+
 ## Próximas etapas
 
 1. Afinar nubes, reflejos iridiscentes, luz y encuadre frente a la referencia.
-2. Incorporar agua con ondas, reflejos y profundidad aparente.
-3. Vegetación con variación de silueta y movimiento moderado.
-4. Construir el atrio azul/lima con arquitectura curva, agua y vidrio.
+2. Afinar el agua y el vidrio del atrio frente a la referencia.
+3. Dar más variedad y densidad a la vegetación.
+4. Revisar encuadres y acabado del atrio, ya construido y recorrible en planta baja.
 
 Primero se verifica cada escena por separado. OpenGL 3.3 es la base actual;
 Vulkan no está implementado. La licencia de GLFW está en `runtime/licenses/`.

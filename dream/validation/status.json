@@ -59,9 +59,56 @@
     "look_metrics_limitation": "Global color and brightness diagnostics only. Different aspect ratios; bright-mask IoU is not a geometry or fidelity score."
   },
   "not_implemented": [
-    "water",
-    "vegetation",
-    "futuristic_atrium",
     "vulkan"
-  ]
+  ],
+  "atrium": {
+    "stage": "functional_prototype",
+    "reference": "video-52/05s.png",
+    "objects_in_blender_scene": 838,
+    "triangles": 182860,
+    "materials": 15,
+    "glass_groups": 44,
+    "implemented": [
+      "ground_floor_walking",
+      "curved_galleries",
+      "planters",
+      "wind_deformed_leaves",
+      "water_vertex_waves",
+      "depth_based_refraction",
+      "separate_water_and_floor_reflections",
+      "sorted_glass_groups",
+      "FXAA",
+      "scene_switching"
+    ],
+    "visual_match_accepted": false,
+    "remaining": [
+      "lighting_and_material_fidelity",
+      "natural_clouds",
+      "vegetation_variety",
+      "architectural_detail"
+    ]
+  },
+  "latest_validation": {
+    "compile_warnings": 0,
+    "room_asset_integrity": "PASS",
+    "atrium_asset_integrity": "PASS",
+    "navigation_steps": 64800,
+    "navigation": "PASS",
+    "animation": "PASS - validation/animation.json",
+    "scene_cycle": [
+      "atrium",
+      "pastel_room",
+      "atrium"
+    ],
+    "scene_cycle_frames": 720,
+    "scene_cycle_elapsed_s": 8.94872,
+    "scene_cycle_gl_error": 0,
+    "scene_cycle_resolution": [
+      1280,
+      720
+    ],
+    "scope": "Hidden OpenGL integration run; not a full-screen performance guarantee."
+  },
+  "goal_complete": false,
+  "remaining_goal_requirement": "Match lighting and materials to the references; both scenes still have visible fidelity differences."
 }

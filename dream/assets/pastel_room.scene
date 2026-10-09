@@ -1,0 +1,7 @@
+# Camera XYZ, yaw and pitch (radians). Z-up metres.
+camera -0.05 -1.35 1.6 1.32 -0.24
+fov 0.9
+reflection 0.016
+environment 0
+bounds -2.15 2.02 -2.45 2.36
+capsule -1.82 2.6 -1.491573 1.17742 0.22
