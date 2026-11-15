@@ -1,0 +1,30 @@
+# Unity: carpetas regenerables
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vs/
+.vscode/
+sysinfo.txt
+crashlytics-build.properties
+
+# Musica comercial con derechos (Limousine): solo para la presentacion en clase, nunca en el repo publico
+/Assets/_Project/Audio/Music/*.wav
+/Assets/_Project/Audio/Music/*.ogg
+/Assets/_Project/Audio/Music/*.mp3

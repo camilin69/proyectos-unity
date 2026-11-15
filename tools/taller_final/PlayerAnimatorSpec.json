@@ -1,0 +1,461 @@
+{
+  "name": "Sonador",
+  "comment": "Unica fuente de verdad del Animator Controller del personaje de SUENO LUCIDO. AnimatorBuilder construye el .controller desde aqui, animator_diagram.py dibuja el diagrama desde aqui, y AnimatorMatchesSpecTests exige que el .controller real coincida. Speed esta en m/s: caminar 1.25, trotar 2.1.",
+  "parameters": [
+    {
+      "name": "Speed",
+      "type": "Float",
+      "default": 0.0
+    },
+    {
+      "name": "Grounded",
+      "type": "Bool",
+      "default": true
+    },
+    {
+      "name": "VerticalSpeed",
+      "type": "Float",
+      "default": 0.0
+    },
+    {
+      "name": "Flying",
+      "type": "Bool",
+      "default": false
+    },
+    {
+      "name": "Swimming",
+      "type": "Bool",
+      "default": false
+    },
+    {
+      "name": "Jump",
+      "type": "Trigger"
+    },
+    {
+      "name": "Pickup",
+      "type": "Trigger"
+    }
+  ],
+  "defaultState": "Idle",
+  "states": [
+    {
+      "name": "Idle",
+      "clip": "Idle",
+      "loop": true,
+      "speed": 1.0,
+      "layout": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "Walk",
+      "clip": "Walk",
+      "loop": true,
+      "speed": 1.0,
+      "layout": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "Jog",
+      "clip": "Jog",
+      "loop": true,
+      "speed": 1.0,
+      "layout": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "JumpStart",
+      "clip": "JumpStart",
+      "loop": false,
+      "speed": 1.0,
+      "layout": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "Fall",
+      "clip": "Fall",
+      "loop": true,
+      "speed": 1.0,
+      "layout": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "Land",
+      "clip": "Land",
+      "loop": false,
+      "speed": 1.0,
+      "layout": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Fly",
+      "clip": "Fly",
+      "loop": true,
+      "speed": 1.0,
+      "layout": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "Swim",
+      "clip": "Swim",
+      "loop": true,
+      "speed": 1.0,
+      "layout": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "Pickup",
+      "clip": "Pickup",
+      "loop": false,
+      "speed": 1.0,
+      "layout": [
+        1,
+        0
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "Idle",
+      "to": "Walk",
+      "conditions": [
+        {
+          "param": "Speed",
+          "mode": "Greater",
+          "threshold": 0.1
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.25
+    },
+    {
+      "from": "Walk",
+      "to": "Idle",
+      "conditions": [
+        {
+          "param": "Speed",
+          "mode": "Less",
+          "threshold": 0.05
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.3
+    },
+    {
+      "from": "Walk",
+      "to": "Jog",
+      "conditions": [
+        {
+          "param": "Speed",
+          "mode": "Greater",
+          "threshold": 1.6
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.3
+    },
+    {
+      "from": "Jog",
+      "to": "Walk",
+      "conditions": [
+        {
+          "param": "Speed",
+          "mode": "Less",
+          "threshold": 1.5
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.3
+    },
+    {
+      "from": "Idle",
+      "to": "JumpStart",
+      "conditions": [
+        {
+          "param": "Jump",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.1
+    },
+    {
+      "from": "Walk",
+      "to": "JumpStart",
+      "conditions": [
+        {
+          "param": "Jump",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.1
+    },
+    {
+      "from": "Jog",
+      "to": "JumpStart",
+      "conditions": [
+        {
+          "param": "Jump",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.1
+    },
+    {
+      "from": "JumpStart",
+      "to": "Fall",
+      "conditions": [],
+      "hasExitTime": true,
+      "exitTime": 0.9,
+      "duration": 0.15
+    },
+    {
+      "from": "Idle",
+      "to": "Fall",
+      "conditions": [
+        {
+          "param": "Grounded",
+          "mode": "IfNot"
+        },
+        {
+          "param": "VerticalSpeed",
+          "mode": "Less",
+          "threshold": -1.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.2
+    },
+    {
+      "from": "Walk",
+      "to": "Fall",
+      "conditions": [
+        {
+          "param": "Grounded",
+          "mode": "IfNot"
+        },
+        {
+          "param": "VerticalSpeed",
+          "mode": "Less",
+          "threshold": -1.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.2
+    },
+    {
+      "from": "Jog",
+      "to": "Fall",
+      "conditions": [
+        {
+          "param": "Grounded",
+          "mode": "IfNot"
+        },
+        {
+          "param": "VerticalSpeed",
+          "mode": "Less",
+          "threshold": -1.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.2
+    },
+    {
+      "from": "Fall",
+      "to": "Land",
+      "conditions": [
+        {
+          "param": "Grounded",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.08
+    },
+    {
+      "from": "Land",
+      "to": "Idle",
+      "conditions": [
+        {
+          "param": "Speed",
+          "mode": "Less",
+          "threshold": 0.1
+        }
+      ],
+      "hasExitTime": true,
+      "exitTime": 0.7,
+      "duration": 0.2
+    },
+    {
+      "from": "Land",
+      "to": "Walk",
+      "conditions": [
+        {
+          "param": "Speed",
+          "mode": "Greater",
+          "threshold": 0.1
+        }
+      ],
+      "hasExitTime": true,
+      "exitTime": 0.5,
+      "duration": 0.2
+    },
+    {
+      "from": "Idle",
+      "to": "Fly",
+      "conditions": [
+        {
+          "param": "Flying",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4
+    },
+    {
+      "from": "Walk",
+      "to": "Fly",
+      "conditions": [
+        {
+          "param": "Flying",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4
+    },
+    {
+      "from": "Jog",
+      "to": "Fly",
+      "conditions": [
+        {
+          "param": "Flying",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4
+    },
+    {
+      "from": "Fall",
+      "to": "Fly",
+      "conditions": [
+        {
+          "param": "Flying",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4
+    },
+    {
+      "from": "Fly",
+      "to": "Fall",
+      "conditions": [
+        {
+          "param": "Flying",
+          "mode": "IfNot"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4
+    },
+    {
+      "from": "Idle",
+      "to": "Swim",
+      "conditions": [
+        {
+          "param": "Swimming",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.35
+    },
+    {
+      "from": "Walk",
+      "to": "Swim",
+      "conditions": [
+        {
+          "param": "Swimming",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.35
+    },
+    {
+      "from": "Fall",
+      "to": "Swim",
+      "conditions": [
+        {
+          "param": "Swimming",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.25
+    },
+    {
+      "from": "Swim",
+      "to": "Idle",
+      "conditions": [
+        {
+          "param": "Swimming",
+          "mode": "IfNot"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4
+    },
+    {
+      "from": "Idle",
+      "to": "Pickup",
+      "conditions": [
+        {
+          "param": "Pickup",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.15
+    },
+    {
+      "from": "Walk",
+      "to": "Pickup",
+      "conditions": [
+        {
+          "param": "Pickup",
+          "mode": "If"
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.15
+    },
+    {
+      "from": "Pickup",
+      "to": "Idle",
+      "conditions": [],
+      "hasExitTime": true,
+      "exitTime": 0.9,
+      "duration": 0.2
+    }
+  ]
+}
