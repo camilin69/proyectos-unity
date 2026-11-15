@@ -14,6 +14,8 @@ namespace Dream
         public FootstepBank landBank;
         public AudioSource source;
         public float plantMargin = 0.022f, liftMargin = 0.05f;
+        public int StepCount { get; private set; }
+        public SurfaceType LastSurface { get; private set; }
 
         Transform _l, _r;
         float _rest;
@@ -74,14 +76,19 @@ namespace Dream
         {
             if (!source) return;
             var surface = SurfaceAt(at);
+            StepCount++;
+            LastSurface = surface;
             var bank = forced;
             if (bank == null && banks != null)
                 foreach (var b in banks) if (b && b.surface == surface) { bank = b; break; }
-            if (bank == null) return;
-            var clip = bank.Pick();
+            var clip = bank ? bank.Pick() : null;
+            float vol = bank ? bank.volume : 0.5f;
+            Vector2 pitch = bank ? bank.pitch : new Vector2(0.9f, 1.1f);
+            // sin grabaciones para esta superficie: paso sintetizado (Audio.ProceduralSteps)
+            if (!clip) clip = Audio.ProceduralSteps.Pick(forced ? SurfaceType.Stone : surface);
             if (!clip) return;
-            source.pitch = Random.Range(bank.pitch.x, bank.pitch.y) * (motor.Running ? 1.04f : 1f);
-            source.PlayOneShot(clip, bank.volume * gain * Random.Range(bank.volumeJitter.x, bank.volumeJitter.y) * (motor.Running ? 1.15f : 1f));
+            source.pitch = Random.Range(pitch.x, pitch.y) * (motor.Running ? 1.04f : 1f);
+            source.PlayOneShot(clip, vol * gain * Random.Range(0.8f, 1f) * (motor.Running ? 1.15f : 1f));
         }
     }
 }

@@ -64,6 +64,26 @@ namespace Dream.Tests
         }
 
         [UnityTest]
+        public IEnumerator AlCaminarSuenanPasosEnElAzulejo()
+        {
+            GameFlow.Instance.StartJourney();
+            yield return Until(() => Playing && JourneyManager.Instance.Current == 0, 20f, "el cuarto");
+            var rig = PlayerRig.Instance;
+            var steps = rig.GetComponent<FootstepSystem>();
+            rig.Motor.Teleport(new Vector3(-1.5f, 0.05f, -1.8f), 90f);
+            yield return new WaitForSeconds(0.5f);
+            int before = steps.StepCount;
+            rig.Motor.scriptedVelocity = new Vector3(1.25f, 0f, 0f);
+            yield return new WaitForSeconds(3f);
+            rig.Motor.scriptedVelocity = null;
+            int n = steps.StepCount - before;
+            // Walk: 0,45 s por paso -> unos 6-7 pasos en 3 s
+            Assert.GreaterOrEqual(n, 4, "pocos pasos: el contacto del pie no se detecta");
+            Assert.LessOrEqual(n, 10, "demasiados pasos: la histeresis no funciona");
+            Assert.AreEqual(SurfaceType.WetTile, steps.LastSurface, "el piso del cuarto es azulejo mojado");
+        }
+
+        [UnityTest]
         public IEnumerator LaTeclaFRecorreCuatroModos()
         {
             GameFlow.Instance.StartJourney();
