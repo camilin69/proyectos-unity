@@ -12,7 +12,12 @@ namespace Dream.EditorTools.Build
         // Vegetacion escaneada (Poly Haven, CC0), mas grande de lo normal: es un sueno. El camino hacia la puerta del otro cielo queda despejado.
         // Bosque en las colinas: tarjetas con la imagen del arbol real (renderizado en Blender), en arboledas que se
         // espesan hacia el horizonte.
-        static void Forest(Transform root, System.Func<float, float, float> G)
+        internal static void Forest(Transform root, System.Func<float, float, float> G) =>
+            Forest(root, G, new Vector2(0f, 18f), 48f, 265f, 520, (x, z) => Mathf.Abs(x) < 10f && z > -10f && z < 70f);
+
+        // Arboledas de tarjetas alrededor de un centro, entre dos radios; skip deja libres los caminos.
+        internal static void Forest(Transform root, System.Func<float, float, float> G, Vector2 center, float rMin, float rMax,
+                                    int count, System.Func<float, float, bool> skip)
         {
             var forest = Group("Bosque", root);
             forest.gameObject.AddComponent<Billboards>();
@@ -29,12 +34,12 @@ namespace Dream.EditorTools.Build
                 mats[i] = m;
             }
             var rng = new System.Random(21);
-            for (int n = 0; n < 520; n++)
+            for (int n = 0; n < count; n++)
             {
                 float ang = (float)(rng.NextDouble() * Mathf.PI * 2f);
-                float r = Mathf.Lerp(48f, 265f, Mathf.Sqrt((float)rng.NextDouble()));
-                float x = Mathf.Cos(ang) * r, z = Mathf.Sin(ang) * r + 18f;
-                if (Mathf.Abs(x) < 10f && z > -10f && z < 70f) continue;                       // la puerta del otro cielo se ve
+                float r = Mathf.Lerp(rMin, rMax, Mathf.Sqrt((float)rng.NextDouble()));
+                float x = Mathf.Cos(ang) * r + center.x, z = Mathf.Sin(ang) * r + center.y;
+                if (skip != null && skip(x, z)) continue;                                      // caminos y vistas despejados
                 if (Mathf.PerlinNoise(x * 0.018f + 4f, z * 0.018f) < 0.38f - r / 900f) continue; // arboledas, no un tablero
                 float k = 2.2f + (float)rng.NextDouble() * 1.6f;
                 var card = Prim(PrimitiveType.Quad, $"Arbol_{n:000}", forest, new Vector3(x, G(x, z) + 1.74f * k - 0.15f, z),
