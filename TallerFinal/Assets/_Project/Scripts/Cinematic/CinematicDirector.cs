@@ -13,6 +13,8 @@ namespace Dream.Cinematic
 
         public CinemachineCamera shotCamera;
         public bool Playing { get; private set; }
+        // Para las pruebas automaticas: todas las cinematicas se saltan como si se pulsara Tab.
+        public static bool AutoSkip;
 
         CinematicContext _ctx;
 
@@ -27,7 +29,7 @@ namespace Dream.Cinematic
         CinematicContext Begin()
         {
             Playing = true;
-            _ctx = new CinematicContext { camera = shotCamera, rig = PlayerRig.Instance, fader = ScreenFader.Instance };
+            _ctx = new CinematicContext { camera = shotCamera, rig = PlayerRig.Instance, fader = ScreenFader.Instance, Skipping = AutoSkip };
             GameFlow.Instance?.SetState(GameState.Cinematic);
             if (_ctx.rig) { _ctx.rig.Motor.controlEnabled = false; _ctx.rig.Motor.Stop(); }
             // la camara de rodaje arranca donde estaba la del jugador, para que el primer plano entre suave
@@ -73,7 +75,7 @@ namespace Dream.Cinematic
                 // detras de un fundido: nunca se ve la carga
                 if (ctx.fader && ctx.fader.Alpha < 0.99f) yield return ctx.fader.Fade(finale ? Color.white : Color.black, 1f, 0.5f);
                 yield return journey.LoadNext();
-                ctx.Skipping = false;
+                ctx.Skipping = AutoSkip;
                 var anchor = journey.Anchor;
                 var arrival = anchor ? (finale ? anchor.finaleArrival : anchor.arrival) : null;
                 if (arrival) yield return arrival.Run(ctx);

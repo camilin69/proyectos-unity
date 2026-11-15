@@ -1,0 +1,14 @@
+{
+    "name": "Dream.Tests.PlayMode",
+    "rootNamespace": "Dream.Tests",
+    "references": [
+        "Dream.Runtime",
+        "Unity.Cinemachine",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "overrideReferences": true,
+    "precompiledReferences": ["nunit.framework.dll"],
+    "autoReferenced": false,
+    "defineConstraints": ["UNITY_INCLUDE_TESTS"]
+}
