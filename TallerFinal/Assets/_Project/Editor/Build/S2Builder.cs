@@ -30,6 +30,7 @@ namespace Dream.EditorTools.Build
                 var m = Mat($"M_Arbol_Impostor_{i}", new Color(1.05f, 1.08f, 1f), 0.08f, 0f, null, 0f, false, true);
                 m.SetTexture("_BaseColorMap", AssetDatabase.LoadAssetAtPath<Texture2D>(path));
                 m.SetFloat("_AlphaCutoffEnable", 1f); m.SetFloat("_AlphaCutoff", 0.45f);
+                m.enableInstancing = true;
                 HDMaterial.ValidateMaterial(m);
                 mats[i] = m;
             }

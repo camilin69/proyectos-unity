@@ -25,13 +25,21 @@ namespace Dream.EditorTools.Build
                 y += 1.2f * Mathf.PerlinNoise(x * 0.02f + 5f, z * 0.02f) + 0.3f * Mathf.PerlinNoise(x * 0.09f, z * 0.09f);
                 // un rellano suave al pie del arbol: las raices se apoyan en tierra pareja en vez de flotar ladera abajo
                 float d = Mathf.Sqrt(x * x + z * z), w = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(17f, 8f, d));
-                return Mathf.Lerp(y, -1.2f + 0.6f, w);
+                y = Mathf.Lerp(y, -1.2f + 0.6f, w);
+                // alrededor, colinas que siguen hasta el horizonte; al fondo, montes que cierran la vista entre la bruma
+                float f = 0.6f * Mathf.PerlinNoise(x * 0.004f + 11f, z * 0.004f + 3f) + 0.3f * Mathf.PerlinNoise(x * 0.011f, z * 0.011f + 7f)
+                          + 0.1f * Mathf.PerlinNoise(x * 0.03f + 2f, z * 0.03f);
+                float hills = -16f + 44f * f;
+                float rc = Mathf.Sqrt(x * x + (z - 30f) * (z - 30f));
+                float blend = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(110f, 230f, rc));
+                float ring = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(650f, 1150f, rc)) * (55f + 30f * Mathf.PerlinNoise(x * 0.006f, z * 0.006f));
+                return Mathf.Lerp(y, hills, blend) + ring;
             }
-            const float y0 = -30f, h = 90f, size = 420f;
-            var terrain = MakeTerrain("T_Colina", null, new Vector3(-size / 2f, y0, -size / 2f), new Vector3(size, h, size), 257,
+            const float y0 = -40f, h = 170f, size = 2400f;
+            var terrain = MakeTerrain("T_Colina", null, new Vector3(-size / 2f, y0, -size / 2f), new Vector3(size, h, size), 1025,
                 (u, v) => (Hw(-size / 2f + u * size, -size / 2f + v * size) - y0) / h,
-                ("Pasto", new Color(0.46f, 0.66f, 0.3f), 6f), ("Flores", new Color(0.97f, 0.86f, 0.62f), 4f));
-            PaintLayer(terrain, 1, (u, v) => (Mathf.PerlinNoise(u * 12f + 3f, v * 12f) - 0.66f) * 5f);
+                ("Pasto", new Color(0.4f, 0.62f, 0.27f), 6f), ("Flores", new Color(0.52f, 0.7f, 0.3f), 4f));
+            PaintLayer(terrain, 1, (u, v) => (Mathf.PerlinNoise(u * 60f + 3f, v * 60f) - 0.6f) * 4f);
             terrain.gameObject.AddComponent<TerrainSurfaces>().layerSurfaces = new[] { SurfaceType.Grass, SurfaceType.Grass };
             float G(float x, float z) => Ground(terrain, x, z);
 
@@ -119,8 +127,8 @@ namespace Dream.EditorTools.Build
             ScatterInstanced(field, "shrub_02", 90, Near(0f, 60f, 140f, 30f, 0.3f), G, new Vector2(1f, 1.6f), 14, 0.25f, true);
             Scatter("boulder_01", veg, 14, Near(0f, 60f, 130f, 25f, 0.2f), G, new Vector2(1f, 2.4f), 15, 0.004f, SurfaceType.Stone, true);
             PolyModel("tree_stump_01", veg, new Vector3(-9f, G(-9f, 26f), 26f), 20f, SurfaceType.Wood);
-            S2Builder.Forest(veg, G, new Vector2(0f, 40f), 45f, 200f, 380,
-                             (x, z) => (Mathf.Abs(x) < 26f && z > -40f && z < 80f) || (Mathf.Abs(x) < 14f && z > 80f));
+            S2Builder.Forest(veg, G, new Vector2(0f, 40f), 45f, 1150f, 4500,
+                             (x, z) => (Mathf.Abs(x) < 26f && z > -40f && z < 80f) || (Mathf.Abs(x) < 14f && z > 80f && z < 200f));
 
             // ---------- nubes y el recuerdo: un vuelo corto ----------
             var clouds = Group("Nubes");
@@ -190,7 +198,7 @@ namespace Dream.EditorTools.Build
 
             GlobalVolume("Ambiente_Colina", a.transform, Profile("S3_Colina", p =>
             {
-                Fog(p, 700f, 200f, new Color(0.9f, 0.93f, 1f));
+                Fog(p, 650f, 260f, new Color(0.86f, 0.9f, 1f));
                 DreamSky(p, 14.1f);
             }), 1f);
             Save(scene, "S3_Colina");

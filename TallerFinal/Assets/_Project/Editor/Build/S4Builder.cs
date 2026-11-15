@@ -123,9 +123,17 @@ namespace Dream.EditorTools.Build
             Gate("El_tunel", a.transform, new Vector3(24f, top + 1f, 6f), new Vector3(1.6f, 2f, 1.6f), Sequence("Cine_El_Tunel", a.transform, d1, d2));
             CheckpointAt(a.transform, new Vector3(19f, top + 0.05f, 6f), 90f, new Vector3(2f, 3f, 4f));
 
-            GlobalVolume("Ambiente_Jardin", a.transform, Profile("S4_Jardin", p => { Fog(p, 90f, 30f, new Color(0.62f, 0.72f, 0.92f)); NightSky(p, 1f); ExposureLimits(p, 0.3f, 4f, 0f); }), 1f);
+            // cielo de atardecer morado con cometa (video 42): el cometa queda enfrente de la puerta del vestibulo (+X)
+            GlobalVolume("Ambiente_Jardin", a.transform, Profile("S4_Jardin", p =>
+            {
+                Fog(p, 120f, 30f, new Color(0.72f, 0.6f, 0.9f));
+                HdriSkyOverride(p, Hdri("dream_atardecer_cometa.png"), CometRotation, 60f);
+                ExposureLimits(p, 0.3f, 6f, 0.3f);
+            }), 1f);
             Save(scene, "S4_Jardin");
         }
+
+        public const float CometRotation = 270f;   // el cometa queda frente a la puerta (+X)
 
         const string VestDir = DreamScene.Dir + "/Vestibulo_Inundado/tex";
 
