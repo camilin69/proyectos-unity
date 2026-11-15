@@ -62,7 +62,7 @@ namespace Dream.Tests
 
         [TestCase("S2_Pradera")]
         [TestCase("S3_Colina")]
-        [TestCase("S5_Playa")]
+        [TestCase("S6_Playa")]
         public void LosTerrenosTienenCapasYSuperficies(string scene)
         {
             EditorSceneManager.OpenScene($"{Dir}/{scene}.unity");

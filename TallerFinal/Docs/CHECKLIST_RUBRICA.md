@@ -9,7 +9,7 @@
 | Diagrama de animación | `Docs/Diagrama_Animator.png`, generado de la misma spec que construye el controller | `AnimatorMatchesSpecTests` (diagrama = implementación) |
 | Entradas | WASD/flechas, ratón, Shift (trotar), Espacio (saltar/subir), E (recordar), Q (volar en S3), Ctrl (bajar), F (cámara de cine), Tab (saltar cinemática), Esc (pausa), Enter | `DreamInput` |
 | Física: colliders y triggers | CharacterController con detección de suelo por SphereCast; triggers de recuerdos, pasos, agua, puntos seguros y volúmenes | `PlayerMotor`, `TransitionGate`, `WaterZone`, `Checkpoint` |
-| Objetivo y progreso | Un recuerdo escondido por escenario abre el paso al siguiente; 7 escenarios | `JourneyPlayModeTests.SinElRecuerdoLaPuertaNoAbre` |
+| Objetivo y progreso | Un recuerdo escondido por escenario abre el paso al siguiente; 8 escenarios | `JourneyPlayModeTests.SinElRecuerdoLaPuertaNoAbre` |
 | Puntaje | 1000 por recuerdo + bono por rapidez (hasta 500); se cierra al final | `CoreRulesTests`, `ElViajeCompletoTerminaEnElCuartoAMedianoche` |
 | UI | Pantalla inicial (título, objetivo, controles, vaivén y calidad), HUD (sueño, hora, recuerdos, puntaje), pausa, panel final «¿DESPERTASTE?» | `UI/*` |
 | Sonido | Música en bucle sin costura tintada por escenario, pasos por superficie en el contacto real del pie, campanilla, zumbido de la luz, reverb por zona | `MusicPlayer`, `FootstepSystem`, `SfxPlayer` |

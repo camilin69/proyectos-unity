@@ -10,7 +10,7 @@ namespace Dream.EditorTools.Build
         public static void Build()
         {
             var scene = NewScene();
-            var a = Anchor(3, "El jardín inundado", new Vector3(0f, -2.6f, 0f), 45f, 20f, 21f, 4f);
+            var a = Anchor(3, "El jardín inundado", new Vector3(0f, -2.6f, 0f), 45f, 20f, 20.6f, 4f);
             a.ambienceKind = AmbienceKind.NocheSuave; a.musicLowPass = 3500f; a.musicVolume = 0.75f; a.musicReverb = 0.55f; a.respawnBelowY = -12f;
             var cue = Cue(a.transform);
             var g = Group("Jardin");

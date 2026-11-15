@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Dream.EditorTools.Build
 {
-    // Construye el viaje completo: Animator desde la spec, Boot y los 7 escenarios, y deja las escenas en Build
+    // Construye el viaje completo: Animator desde la spec, Boot y los 8 escenarios, y deja las escenas en Build
     // Settings en orden. Es la unica forma de generar las escenas: si algo cambia, se cambia aqui y se reconstruye.
     public static class JourneyBuilder
     {
@@ -21,6 +21,7 @@ namespace Dream.EditorTools.Build
             S5Builder.Build();
             S6Builder.Build();
             S7Builder.Build();
+            S8Builder.Build();
             var scenes = new[] { "Boot" }.Concat(JourneyManager.Scenes)
                 .Select(n => new EditorBuildSettingsScene($"{BuildKit.SceneDir}/{n}.unity", true)).ToArray();
             EditorBuildSettings.scenes = scenes;

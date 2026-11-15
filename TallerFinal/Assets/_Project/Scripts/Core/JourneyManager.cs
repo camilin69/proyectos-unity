@@ -4,14 +4,14 @@ using UnityEngine.SceneManagement;
 
 namespace Dream
 {
-    // Viaje lineal por los 7 escenarios. Boot queda siempre cargado; cada escenario entra en aditivo mientras la
+    // Viaje lineal por los 8 escenarios. Boot queda siempre cargado; cada escenario entra en aditivo mientras la
     // cinematica tapa la carga, y el anterior se descarga. Al terminar el 7 se vuelve al cuarto: es el bucle.
     public class JourneyManager : MonoBehaviour
     {
         public static JourneyManager Instance { get; private set; }
 
         public static readonly string[] Scenes =
-            { "S1_Cuarto", "S2_Pradera", "S3_Colina", "S4_Jardin", "S5_Playa", "S6_Piscina", "S7_Escalera" };
+            { "S1_Cuarto", "S2_Pradera", "S3_Colina", "S4_Jardin", "S5_Pasillo", "S6_Playa", "S7_Piscina", "S8_Escalera" };
 
         public int Current { get; private set; } = -1;
         public bool InFinale { get; private set; }

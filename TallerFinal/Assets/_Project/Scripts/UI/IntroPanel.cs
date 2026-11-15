@@ -19,7 +19,7 @@ namespace Dream.UI
 
             UIKit.Label(root, "Titulo", UIKit.Spaced("SUEÑO LÚCIDO"), 92, TextAnchor.MiddleCenter, UIKit.Ink,
                         new Vector2(0.05f, 0.70f), new Vector2(0.95f, 0.86f));
-            UIKit.Label(root, "Sub", "siete sueños entre el amanecer y la medianoche", 30, TextAnchor.MiddleCenter,
+            UIKit.Label(root, "Sub", "ocho sueños entre el amanecer y la medianoche", 30, TextAnchor.MiddleCenter,
                         new Color(UIKit.Ink.r, UIKit.Ink.g, UIKit.Ink.b, 0.75f), new Vector2(0.1f, 0.64f), new Vector2(0.9f, 0.70f), FontStyle.Italic);
             UIKit.Label(root, "Objetivo",
                 "En cada sueño hay un recuerdo escondido. Encuéntralo y el sueño te dejará pasar al siguiente.\n" +

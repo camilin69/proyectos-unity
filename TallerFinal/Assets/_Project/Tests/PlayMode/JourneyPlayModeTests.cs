@@ -105,7 +105,7 @@ namespace Dream.Tests
         [UnityTest]
         public IEnumerator ElViajeCompletoTerminaEnElCuartoAMedianoche()
         {
-            float[] hours = { 7f, 9f, 12f, 20f, 21.33f, 22.67f, 23.5f };
+            float[] hours = { 7f, 9f, 12f, 20f, 20.67f, 21.33f, 22.67f, 23.5f };
             GameFlow.Instance.StartJourney();
             for (int i = 0; i < JourneyManager.Scenes.Length; i++)
             {
@@ -127,7 +127,7 @@ namespace Dream.Tests
             yield return Until(() => GameFlow.Instance.State == GameState.Ended, 40f, "el final");
             Assert.AreEqual(0, JourneyManager.Instance.Current, "vuelve al cuarto");
             Assert.IsTrue(JourneyManager.Instance.InFinale);
-            Assert.AreEqual(7, ScoreSystem.Instance.Memories);
+            Assert.AreEqual(JourneyManager.Scenes.Length, ScoreSystem.Instance.Memories);
             Assert.IsTrue(ScoreSystem.Instance.Locked);
             Assert.AreEqual("00:00", TimeOfDay.Format(TimeOfDay.Instance.hour));
             int score = ScoreSystem.Instance.Score;
