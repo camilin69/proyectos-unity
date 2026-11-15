@@ -1,0 +1,461 @@
+{
+  "scene": "DREAM_WaveHallFormCandidate",
+  "objects": 109,
+  "cameras": 8,
+  "lights": 18,
+  "meshes": [
+    {
+      "name": "GEO-DREAM-wavehallform-continuous_stepped_floor",
+      "closed": true,
+      "volume_m3": 26.08226628012783
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-right_wall",
+      "closed": true,
+      "volume_m3": 8.569882460453593
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_before_door_0",
+      "closed": true,
+      "volume_m3": 2.434354116081954
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_below_door_0",
+      "closed": true,
+      "volume_m3": 0.29118320629477107
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_above_door_0",
+      "closed": true,
+      "volume_m3": 0.14125309030999886
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_0_leaf",
+      "closed": true,
+      "volume_m3": 0.13174623133652302
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_0_near_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_0_far_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_0_head_reveal",
+      "closed": true,
+      "volume_m3": 0.016630992725146402
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_0_round_fitting",
+      "closed": true,
+      "volume_m3": 8.862775636367008e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_before_door_1",
+      "closed": true,
+      "volume_m3": 0.6922550345258663
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_below_door_1",
+      "closed": true,
+      "volume_m3": 0.29118320629477107
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_above_door_1",
+      "closed": true,
+      "volume_m3": 0.14125309030999886
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_1_leaf",
+      "closed": true,
+      "volume_m3": 0.13174623133652302
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_1_near_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_1_far_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_1_head_reveal",
+      "closed": true,
+      "volume_m3": 0.016630992725146402
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-door_1_round_fitting",
+      "closed": true,
+      "volume_m3": 8.862775636367009e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-left_wall_after_doors",
+      "closed": true,
+      "volume_m3": 2.4844066787310615
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling",
+      "closed": true,
+      "volume_m3": 4.294977932999518
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-handrail_-1",
+      "closed": true,
+      "volume_m3": 0.034170810479008384
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-handrail_1",
+      "closed": true,
+      "volume_m3": 0.038863022321875634
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_floor",
+      "closed": true,
+      "volume_m3": 34.90216142426765
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_entrance_wing_-1",
+      "closed": true,
+      "volume_m3": 1.9067951099810267
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_entrance_wing_1",
+      "closed": true,
+      "volume_m3": 1.9067951099810267
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_side_-1",
+      "closed": true,
+      "volume_m3": 11.170513843607312
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_side_1",
+      "closed": true,
+      "volume_m3": 11.170513843607312
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_ceiling",
+      "closed": true,
+      "volume_m3": 22.241176160062206
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_back_wall",
+      "closed": true,
+      "volume_m3": 6.45136178284402
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_unresolved_rear_panel",
+      "closed": true,
+      "volume_m3": 0.6747002137775331
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_0",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_1",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_2",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_3",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_4",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_5",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_6",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_7",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_8",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_9",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_10",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_11",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_mullion_12",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_transom_1",
+      "closed": true,
+      "volume_m3": 0.00403999993175268
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_rear_transom_2",
+      "closed": true,
+      "volume_m3": 0.00403999993175268
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_0",
+      "closed": true,
+      "volume_m3": 0.010804145376520918
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_base_0",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_stem_0",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_1",
+      "closed": true,
+      "volume_m3": 0.01080414537652092
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_base_1",
+      "closed": true,
+      "volume_m3": 0.002129598373151748
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_stem_1",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_2",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_base_2",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_stem_2",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_3",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_base_3",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_stem_3",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_4",
+      "closed": true,
+      "volume_m3": 0.010804145376520923
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_base_4",
+      "closed": true,
+      "volume_m3": 0.002129598373151748
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-ceiling_fixture_stem_4",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-terminal_guard_left",
+      "closed": true,
+      "volume_m3": 0.004656493102397318
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-terminal_guard_right",
+      "closed": true,
+      "volume_m3": 0.00465649715332136
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_right_visible_form",
+      "closed": true,
+      "volume_m3": 0.24401895743636665
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_right_lower_inferred",
+      "closed": true,
+      "volume_m3": 0.3514624779701227
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_right_panel_region",
+      "closed": true,
+      "volume_m3": 0.0032250230848884596
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_left_visible_form",
+      "closed": true,
+      "volume_m3": 0.15891652192814398
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_left_lower_inferred",
+      "closed": true,
+      "volume_m3": 0.2780466158520947
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_0_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020252
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_0_mount",
+      "closed": true,
+      "volume_m3": 0.00180937511691739
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_1_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020255
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_1_mount",
+      "closed": true,
+      "volume_m3": 0.00180937511691739
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_2_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020253
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_2_mount",
+      "closed": true,
+      "volume_m3": 0.0018093751169173903
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_3_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020252
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_left_3_mount",
+      "closed": true,
+      "volume_m3": 0.0018093751169173903
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_0_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020253
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_0_mount",
+      "closed": true,
+      "volume_m3": 0.0018093751169173898
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_1_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020252
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_1_mount",
+      "closed": true,
+      "volume_m3": 0.0018093751169173898
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_2_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020255
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_2_mount",
+      "closed": true,
+      "volume_m3": 0.0018093751169173898
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_3_shade",
+      "closed": true,
+      "volume_m3": 0.008834841293020252
+    },
+    {
+      "name": "GEO-DREAM-wavehallform-hall_lamp_right_3_mount",
+      "closed": true,
+      "volume_m3": 0.00180937511691739
+    }
+  ],
+  "packed_images": {
+    "wave_floor_albedo.png": {
+      "packed_sha256": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af",
+      "source_identical": true
+    },
+    "wave_floor_roughness.png": {
+      "packed_sha256": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1",
+      "source_identical": true
+    },
+    "wave_floor_normal.png": {
+      "packed_sha256": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea",
+      "source_identical": true
+    },
+    "wave_wall_albedo.png": {
+      "packed_sha256": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb",
+      "source_identical": true
+    },
+    "wave_wall_roughness.png": {
+      "packed_sha256": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f",
+      "source_identical": true
+    },
+    "wave_paint_normal.png": {
+      "packed_sha256": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa",
+      "source_identical": true
+    },
+    "wave_ceiling_albedo.png": {
+      "packed_sha256": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5",
+      "source_identical": true
+    },
+    "wave_ceiling_roughness.png": {
+      "packed_sha256": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec",
+      "source_identical": true
+    }
+  },
+  "adjacent_floor_faces_uv_max_error_m": 0.0,
+  "inferred_lower_supports_visible": true,
+  "fidelity_accepted": false,
+  "runtime_exported": false
+}

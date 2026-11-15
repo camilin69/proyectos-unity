@@ -1,0 +1,59 @@
+{
+  "scope": "Four existing scene captures, 8 frames, time=0, MSAA4. Pixel comparison, not visual acceptance.",
+  "results": [
+    {
+      "scene": "pastel_room",
+      "baseline": "room-radiator-opengl-v9.png",
+      "framebuffer": [
+        540,
+        960
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-pastel_room.png",
+      "gl_error": 0
+    },
+    {
+      "scene": "stair_sky",
+      "baseline": "stair-frame-opengl-v5.png",
+      "framebuffer": [
+        540,
+        960
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-stair_sky.png",
+      "gl_error": 0
+    },
+    {
+      "scene": "kitchen_meadow",
+      "baseline": "kitchen-opengl.png",
+      "framebuffer": [
+        478,
+        850
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-kitchen_meadow.png",
+      "gl_error": 0
+    },
+    {
+      "scene": "atrium",
+      "baseline": "atrium-v8-current.png",
+      "framebuffer": [
+        960,
+        720
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-atrium.png",
+      "gl_error": 0
+    }
+  ],
+  "shader_sha256": "489e1f053c383187601cbe3e3fa5093b2575b51cb0bd5720929ce8341fe753c2",
+  "binary_sha256": "88ec7e406a7a9463c153156c9f4fd3a8c7154071718a2133e48f1b30554069a3"
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "dream.wave_packed_maps.v1",
+  "source_maps_preserved": true,
+  "inputs": [
+    {
+      "path": "assets/textures/wave_candidate/wave_wall_roughness.png",
+      "sha256": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f",
+      "channel": 0
+    },
+    {
+      "path": "assets/textures/wave_candidate/wave_ceiling_roughness.png",
+      "sha256": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec",
+      "channel": 1
+    },
+    {
+      "path": "assets/textures/wave_candidate/wave_exit_emission_dark.png",
+      "sha256": "096c1b9e0b13430281815cee5fb8fb36ab8d76ef76d10411dab8249f2841af57",
+      "channel": 2
+    }
+  ],
+  "outputs": [
+    {
+      "path": "assets/textures/wave_surface_data.png",
+      "sha256": "0f265b6a77a2d2e3fb74f62c4c13d570174e1e738171f9265d323b3fef2f6564"
+    },
+    {
+      "path": "assets/textures/wave_surface_data.bmp",
+      "sha256": "bf5b0f0c3347ca5e5346a8d5a2fe56807390a7930cf6b5d926b96ed2fbc734d5"
+    },
+    {
+      "path": "assets/textures/wave_neutral_environment.png",
+      "sha256": "7b5ab2faff4652e35795d74117b0fcab23ae5d2a4d809f1f48b66773b10ea721"
+    },
+    {
+      "path": "assets/textures/wave_neutral_environment.bmp",
+      "sha256": "f4a079251e841bbd166edefd1e0b4ec3a5e95bacac774270f195e2b45149068e"
+    }
+  ],
+  "linear_data_channels": {
+    "R": "wall roughness at metric UV/.5",
+    "G": "ceiling roughness at metric UV/.5",
+    "B": "sign emission mask at clamped decal UV"
+  },
+  "emission_resampling": "bilinear 256x128 to 512x512; original aspect restored by decal UV geometry",
+  "environment": "Neutral dark placeholder outside the closed shell; not a source panorama."
+}

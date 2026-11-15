@@ -1,0 +1,15 @@
+{
+  "schema": "dream.original_texture_maps.v1",
+  "source_pixels_used": false,
+  "purpose": "Ocean-exit reconstruction proposal; not recovered original textures.",
+  "maps": {
+    "exit_here.png": "9e84fceaaa5480f2b7dd30e0ebfe45a07fa2557d038dd5d522e7897c798a15d6",
+    "exit_lamp.png": "0a6b2d3f584da295dac63604f5f60eb40145745b357185b107b34bd9cabc66dd",
+    "foam_mask.png": "0d11268552608bcf611015f4c11c6f078d03c6b794e1f0eaf52bd75b431a2990",
+    "pink_tile_albedo.png": "847ca246278fc61eee90e441ee81f939d3978110767d8bd61a759e0b81954c90",
+    "pink_tile_height.png": "4083224500871b23e4a80614258de0395d2088c73f7cb9a14519572fe43e1d7d",
+    "pink_tile_roughness.png": "ed68e77d18c49da896a97810e56b3d3d0e993142dd6964b1b12bc345e11ea602",
+    "ripple_height.png": "46a59d8722698201388a68feded466cde35aae2e5143a55686a075db2d2d2a98",
+    "sunset_stars.png": "f5d0a932d3c9afc277afb77988d0afdbec03c1b4e2eb2e13145323f05ee70b82"
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "format": "DREAMM02",
+  "axes": "Z-up, right handed, metres",
+  "materials": [
+    "DREAM_KITCHEN_MAT_wall",
+    "DREAM_KITCHEN_MAT_appliance",
+    "DREAM_KITCHEN_MAT_cabinet",
+    "DREAM_KITCHEN_MAT_trim",
+    "DREAM_KITCHEN_MAT_paving",
+    "DREAM_KITCHEN_MAT_ceiling_frame",
+    "DREAM_KITCHEN_MAT_hob",
+    "DREAM_KITCHEN_MAT_toe",
+    "DREAM_KITCHEN_MAT_microwave_window",
+    "DREAM_KITCHEN_MAT_oven_window",
+    "DREAM_KITCHEN_MAT_diffuser",
+    "DREAM_KITCHEN_MAT_light_bar",
+    "DREAM_KITCHEN_MAT_grass_ground",
+    "DREAM_KITCHEN_MAT_grass_blades"
+  ],
+  "vertices": 596367,
+  "triangles": 198789,
+  "objects": [
+    {
+      "name": "GEO-DREAM-kitchen-floor_support",
+      "first_vertex": 0,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.09999999403953552,
+        -0.7999999523162842,
+        -0.03999999910593033
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-left_wall",
+      "first_vertex": 36,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -1.7099997997283936,
+        0.1499999761581421,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-right_wall",
+      "first_vertex": 72,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        1.9100000858306885,
+        0.1499999761581421,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling",
+      "first_vertex": 108,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.1000000536441803,
+        0.1499999761581421,
+        2.8399996757507324
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-exterior_wall_left",
+      "first_vertex": 144,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.95250004529953,
+        1.7999998331069946,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-exterior_wall_right",
+      "first_vertex": 180,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        1.8000001907348633,
+        1.7999998331069946,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-exterior_header",
+      "first_vertex": 216,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.747499942779541,
+        1.7999998331069946,
+        2.6974997520446777
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_wall_left",
+      "first_vertex": 252,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -1.159999966621399,
+        -1.5,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_wall_right",
+      "first_vertex": 288,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.9899999499320984,
+        -1.5,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_header",
+      "first_vertex": 324,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.26999998092651367,
+        -1.5,
+        2.5999999046325684
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-exterior_jamb_left",
+      "first_vertex": 360,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.2549999952316284,
+        1.75,
+        1.2975000143051147
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-exterior_jamb_right",
+      "first_vertex": 396,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        1.7500001192092896,
+        1.75,
+        1.2975000143051147
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-exterior_lintel",
+      "first_vertex": 432,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.747499942779541,
+        1.75,
+        2.619999885559082
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_jamb_left",
+      "first_vertex": 468,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.6700000166893005,
+        -1.5149999856948853,
+        1.2000000476837158
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_jamb_right",
+      "first_vertex": 504,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        0.12999999523162842,
+        -1.5149999856948853,
+        1.2000000476837158
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_leaf",
+      "first_vertex": 540,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        0.3909609913825989,
+        -1.210173487663269,
+        1.2000004053115845
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-entry_knob",
+      "first_vertex": 864,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        0.2102956771850586,
+        -1.4108227491378784,
+        1.258000135421753
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-base_cabinet_near",
+      "first_vertex": 1044,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.540639042854309,
+        0.3592028319835663,
+        0.5250000357627869
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-counter_near",
+      "first_vertex": 1368,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.5406395196914673,
+        0.3592028021812439,
+        1.090000033378601
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-base_front_near",
+      "first_vertex": 1692,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.2970370054244995,
+        0.15479636192321777,
+        0.5699999332427979
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-base_toe_near",
+      "first_vertex": 2016,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -1.3299767971038818,
+        0.1824362426996231,
+        0.04500000178813934
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-base_cabinet_far",
+      "first_vertex": 2052,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.7307265996932983,
+        1.3244184255599976,
+        0.5250000357627869
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-counter_far",
+      "first_vertex": 2376,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.7307266592979431,
+        1.3244186639785767,
+        1.090000033378601
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-base_front_far",
+      "first_vertex": 2700,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.4871245324611664,
+        1.1200122833251953,
+        0.5699999332427979
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-base_toe_far",
+      "first_vertex": 3024,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.5200644731521606,
+        1.147652268409729,
+        0.04500000178813934
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-range_body",
+      "first_vertex": 3060,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.0874736309051514,
+        0.8992643356323242,
+        0.5350000858306885
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-range_top",
+      "first_vertex": 3384,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.0874738693237305,
+        0.8992643356323242,
+        1.0869998931884766
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hob_0_0",
+      "first_vertex": 3708,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -1.3134541511535645,
+        0.8633097410202026,
+        1.1049997806549072
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hob_0_1",
+      "first_vertex": 3888,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -1.0913069248199463,
+        1.1280548572540283,
+        1.1049997806549072
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hob_1_0",
+      "first_vertex": 4068,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -1.0836405754089355,
+        0.670473575592041,
+        1.1049997806549072
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hob_1_1",
+      "first_vertex": 4248,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -0.8614934682846069,
+        0.9352185130119324,
+        1.1049997806549072
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-range_back_controls",
+      "first_vertex": 4428,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.2973698377609253,
+        1.075387716293335,
+        1.2000001668930054
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_door",
+      "first_vertex": 4752,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.8438714146614075,
+        0.6948577761650085,
+        0.5257999897003174
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_window",
+      "first_vertex": 5076,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.8323809504508972,
+        0.6852158308029175,
+        0.7699999213218689
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_handle",
+      "first_vertex": 5400,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.8132298588752747,
+        0.6691461801528931,
+        0.9799998998641968
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_lower_panel",
+      "first_vertex": 5724,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.8308490514755249,
+        0.6839302778244019,
+        0.0950000062584877
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_control_0",
+      "first_vertex": 6048,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -0.9519766569137573,
+        0.5317973494529724,
+        1.0449999570846558
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_control_1",
+      "first_vertex": 6228,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -0.8686712980270386,
+        0.6310767531394958,
+        1.0449999570846558
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_control_2",
+      "first_vertex": 6408,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -0.7853659987449646,
+        0.7303560972213745,
+        1.0449999570846558
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-oven_control_3",
+      "first_vertex": 6588,
+      "vertex_count": 180,
+      "kind": 0,
+      "center": [
+        -0.7020606994628906,
+        0.8296354413032532,
+        1.0449999570846558
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-microwave",
+      "first_vertex": 6768,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.8574778437614441,
+        1.2884860038757324,
+        1.2825000286102295
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-microwave_window",
+      "first_vertex": 7092,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -0.7391729950904846,
+        1.137000322341919,
+        1.2825000286102295
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-microwave_controls",
+      "first_vertex": 7416,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.592365562915802,
+        1.3104029893875122,
+        1.2825000286102295
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-upper_cabinet",
+      "first_vertex": 7452,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.2795149087905884,
+        0.9037570953369141,
+        2.1499993801116943
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hood",
+      "first_vertex": 7776,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.2177011966705322,
+        1.0085376501083374,
+        1.86500084400177
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hood_lower_lip",
+      "first_vertex": 8100,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -1.121945858001709,
+        0.9281896352767944,
+        1.840000033378601
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-hood_back_cover",
+      "first_vertex": 8136,
+      "vertex_count": 324,
+      "kind": 0,
+      "center": [
+        -1.2636638879776,
+        1.0471054315567017,
+        1.7300004959106445
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-cabinet_run_backing",
+      "first_vertex": 8460,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -1.4405169486999512,
+        0.999691367149353,
+        1.399999976158142
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_panel_frame",
+      "first_vertex": 8496,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -0.25060009956359863,
+        -0.055000003427267075,
+        2.7649998664855957
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_diffuser_0_0",
+      "first_vertex": 8532,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.636323094367981,
+        -0.20975428819656372,
+        2.7219998836517334
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_0_0_0",
+      "first_vertex": 8568,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.7885897755622864,
+        -0.1669827103614807,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_0_0_1",
+      "first_vertex": 8604,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.4840562045574188,
+        -0.25252586603164673,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_diffuser_0_1",
+      "first_vertex": 8640,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.49932199716567993,
+        0.27796927094459534,
+        2.7219998836517334
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_0_1_0",
+      "first_vertex": 8676,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.6515887379646301,
+        0.32074084877967834,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_0_1_1",
+      "first_vertex": 8712,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.3470551669597626,
+        0.23519769310951233,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_diffuser_1_0",
+      "first_vertex": 8748,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.0018780454993247986,
+        -0.3879692852497101,
+        2.7219998836517334
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_1_0_0",
+      "first_vertex": 8784,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.15414482355117798,
+        -0.3451976478099823,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_1_0_1",
+      "first_vertex": 8820,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        0.15038874745368958,
+        -0.4307408332824707,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_diffuser_1_1",
+      "first_vertex": 8856,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        0.13512302935123444,
+        0.09975430369377136,
+        2.7219998836517334
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_1_1_0",
+      "first_vertex": 8892,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        -0.017143771052360535,
+        0.14252589643001556,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-ceiling_bar_1_1_1",
+      "first_vertex": 8928,
+      "vertex_count": 36,
+      "kind": 7,
+      "center": [
+        0.2873898148536682,
+        0.05698271095752716,
+        2.7129998207092285
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-grass_interior_blockout",
+      "first_vertex": 8964,
+      "vertex_count": 75,
+      "kind": 11,
+      "center": [
+        -0.5132538676261902,
+        -0.7999999523162842,
+        0.0059999991208314896
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-meadow_blockout",
+      "first_vertex": 9039,
+      "vertex_count": 6,
+      "kind": 11,
+      "center": [
+        0.0,
+        250.89999389648438,
+        0.006000000052154064
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-grass_blades_near",
+      "first_vertex": 9045,
+      "vertex_count": 232596,
+      "kind": 11,
+      "center": [
+        0.5419577956199646,
+        -0.9986826777458191,
+        0.021293874830007553
+      ]
+    },
+    {
+      "name": "GEO-DREAM-kitchen-grass_blades_mid",
+      "first_vertex": 241641,
+      "vertex_count": 354726,
+      "kind": 11,
+      "center": [
+        -0.25124743580818176,
+        3.6094701290130615,
+        0.021107137203216553
+      ]
+    }
+  ],
+  "camera": {
+    "position": [
+      -0.3499999940395355,
+      -2.799999952316284,
+      1.4800000190734863
+    ],
+    "vertical_fov_degrees": 66.04773552772669,
+    "forward": [
+      0.040461692959070206,
+      0.9912470579147339,
+      -0.1256667524576187
+    ]
+  },
+  "source": "blender/kitchen_meadow.blend",
+  "ao": {
+    "method": "8 cosine hemisphere rays, 0.65 m radius",
+    "minimum": 0.35,
+    "corners": 507459,
+    "excluded_occluder_kinds": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "unoccluded_receiver_kinds": [
+      11
+    ],
+    "detail_objects_excluded": []
+  },
+  "navigation": {
+    "kind": "ground_support_with_capsules",
+    "eye_height_m": 1.474,
+    "capsules": [
+      [
+        -1.7100000381469727,
+        -1.5,
+        -1.7100000381469727,
+        1.7999999523162842,
+        0.2199999986588955
+      ],
+      [
+        1.909999966621399,
+        -1.5,
+        1.909999966621399,
+        1.7999999523162842,
+        0.2199999986588955
+      ],
+      [
+        -1.649999976158142,
+        1.7999999523162842,
+        -0.2549999952316284,
+        1.7999999523162842,
+        0.2199999986588955
+      ],
+      [
+        1.7999999523162842,
+        1.7400000095367432,
+        1.7999999523162842,
+        1.8599998950958252,
+        0.21000000074505806
+      ],
+      [
+        -1.649999976158142,
+        -1.5,
+        -0.6699999570846558,
+        -1.5,
+        0.2199999986588955
+      ],
+      [
+        0.12999999523162842,
+        -1.5,
+        1.850000023841858,
+        -1.5,
+        0.2199999986588955
+      ],
+      [
+        0.13,
+        -1.5,
+        0.6519218729599094,
+        -0.9203470361276325,
+        0.18
+      ],
+      [
+        -1.4942851605897032,
+        -0.1300581588481977,
+        -0.3372674554913072,
+        1.2488218478979243,
+        0.19
+      ],
+      [
+        -1.999874513138544,
+        0.2941816804026941,
+        -1.524926954751993,
+        -0.10434664066801036,
+        0.18
+      ],
+      [
+        -0.8428568080401478,
+        1.673061687148816,
+        -0.36790924965359684,
+        1.2745333660781115,
+        0.18
+      ]
+    ],
+    "surface_count": 2,
+    "runtime_validation": "pending actual walk/collision checks"
+  }
+}

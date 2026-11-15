@@ -1,0 +1,142 @@
+{
+  "schema": "dream.wave_terminal_fit.v1",
+  "accepted": false,
+  "points": [
+    {
+      "id": "left_near_top",
+      "free_xyz_m": [
+        -1.372241386549136,
+        10.88596081734565,
+        0.06175237301842863
+      ],
+      "constrained_xyz_m": [
+        -1.1128583933210567,
+        9.67865329067617,
+        0.27218602973384565
+      ],
+      "free_max_point_error_px": 7.3833123389242274,
+      "constrained_max_point_error_px": 11.374991645834001
+    },
+    {
+      "id": "left_far_top",
+      "free_xyz_m": [
+        -1.0737152686174674,
+        10.32787959284215,
+        0.04751520252283159
+      ],
+      "constrained_xyz_m": [
+        -1.1128583933210567,
+        10.648861926482107,
+        -0.07278176838137851
+      ],
+      "free_max_point_error_px": 6.25416480900354,
+      "constrained_max_point_error_px": 10.210193671255034
+    },
+    {
+      "id": "left_near_foot",
+      "free_xyz_m": [
+        -1.1295856322793472,
+        9.786186089878294,
+        -0.907467355805232
+      ],
+      "constrained_xyz_m": [
+        -1.1128583933210567,
+        9.67865329067617,
+        -0.9299902854928828
+      ],
+      "free_max_point_error_px": 5.932963747051908,
+      "constrained_max_point_error_px": 7.26365614717772
+    },
+    {
+      "id": "left_far_foot",
+      "free_xyz_m": [
+        -1.1942383704349997,
+        11.999433370328145,
+        -1.7330382862179499
+      ],
+      "constrained_xyz_m": [
+        -1.1128583933210567,
+        10.648861926482107,
+        -1.274958083608107
+      ],
+      "free_max_point_error_px": 6.862896481610771,
+      "constrained_max_point_error_px": 11.14390330651679
+    },
+    {
+      "id": "right_near_top",
+      "free_xyz_m": [
+        0.8065659200869992,
+        8.203332189174992,
+        0.4092000762325575
+      ],
+      "constrained_xyz_m": [
+        0.9862524373661615,
+        9.67865329067617,
+        0.27218602973384565
+      ],
+      "free_max_point_error_px": 4.463677725931883,
+      "constrained_max_point_error_px": 8.36628883273857
+    },
+    {
+      "id": "right_far_top",
+      "free_xyz_m": [
+        0.7130659422479403,
+        8.146655349744073,
+        0.3432537426440468
+      ],
+      "constrained_xyz_m": [
+        0.9862524373661615,
+        10.648861926482107,
+        -0.07278176838137851
+      ],
+      "free_max_point_error_px": 4.332203520055502,
+      "constrained_max_point_error_px": 10.097627063350782
+    },
+    {
+      "id": "right_near_foot",
+      "free_xyz_m": [
+        0.9899164788857365,
+        9.292512892039422,
+        -0.7617257319439259
+      ],
+      "constrained_xyz_m": [
+        0.9862524373661615,
+        9.67865329067617,
+        -0.9299902854928828
+      ],
+      "free_max_point_error_px": 5.802783193608513,
+      "constrained_max_point_error_px": 9.49480079232213
+    },
+    {
+      "id": "right_far_foot",
+      "free_xyz_m": [
+        1.1099462056945957,
+        12.325363093658467,
+        -1.826940005073361
+      ],
+      "constrained_xyz_m": [
+        0.9862524373661615,
+        10.648861926482107,
+        -1.274958083608107
+      ],
+      "free_max_point_error_px": 6.140468104517478,
+      "constrained_max_point_error_px": 10.310279975042162
+    }
+  ],
+  "parameters": {
+    "left_x": -1.1128583933210567,
+    "right_x": 0.9862524373661615,
+    "near_y": 9.67865329067617,
+    "length": 0.9702086358059374,
+    "near_floor_z": -0.9299902854928828,
+    "height": 1.2021763152267284,
+    "descent": 0.34496779811522416
+  },
+  "point_distance_rms_px": 6.247431909629851,
+  "free_point_distance_rms_px": 3.882006416396596,
+  "limitations": [
+    "Camera reconstruction and tracked metal edges remain uncertain; fitted coordinates are not surveyed dimensions.",
+    "Occluded foot positions may lie on trim instead of the walkable floor.",
+    "The constrained pair must be checked against the actual stair mesh before building."
+  ]
+}

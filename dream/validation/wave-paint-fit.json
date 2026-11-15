@@ -1,0 +1,228 @@
+{
+  "schema": "dream.wave_paint_fit.v1",
+  "accepted": false,
+  "status": "candidate_needs_render_and_secondary_view",
+  "parameters": {
+    "period_x_m": 5.54369250671431,
+    "period_s_m": 4.46519794285846,
+    "phase": 0.6863645501164858,
+    "offset_u": -0.11085074134954703
+  },
+  "baseline": [
+    6.6,
+    5.5,
+    0,
+    0
+  ],
+  "source": "wave-reference-14s.png",
+  "sample_count": 11,
+  "manual_samples": [
+    {
+      "pixel": [
+        200,
+        790
+      ],
+      "colour_label_estimate": "teal",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        -0.10215611755847931,
+        0.766217052936554,
+        -0.029889225959777832
+      ],
+      "metric_uv": [
+        -0.10215611755847931,
+        2.796106278896332
+      ]
+    },
+    {
+      "pixel": [
+        350,
+        780
+      ],
+      "colour_label_estimate": "teal",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        0.3351132273674011,
+        0.7985225319862366,
+        -0.02988886833190918
+      ],
+      "metric_uv": [
+        0.3351132273674011,
+        2.8284114003181458
+      ]
+    },
+    {
+      "pixel": [
+        75,
+        730
+      ],
+      "colour_label_estimate": "teal",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        -0.5142831206321716,
+        0.9806448817253113,
+        -0.05977833271026611
+      ],
+      "metric_uv": [
+        -0.5142831206321716,
+        3.0404232144355774
+      ]
+    },
+    {
+      "pixel": [
+        390,
+        700
+      ],
+      "colour_label_estimate": "ochre",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        0.5614776611328125,
+        1.1397573947906494,
+        -0.0896676778793335
+      ],
+      "metric_uv": [
+        0.5614776611328125,
+        3.229425072669983
+      ]
+    },
+    {
+      "pixel": [
+        320,
+        670
+      ],
+      "colour_label_estimate": "ochre",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        0.3312741219997406,
+        1.2747399806976318,
+        -0.0896676778793335
+      ],
+      "metric_uv": [
+        0.3312741219997406,
+        3.3644076585769653
+      ]
+    },
+    {
+      "pixel": [
+        185,
+        635
+      ],
+      "colour_label_estimate": "coral",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        -0.19815218448638916,
+        1.4845271110534668,
+        -0.11955678462982178
+      ],
+      "metric_uv": [
+        -0.19815218448638916,
+        3.6040838956832886
+      ]
+    },
+    {
+      "pixel": [
+        100,
+        590
+      ],
+      "colour_label_estimate": "pink",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        -0.6248162388801575,
+        1.8088579177856445,
+        -0.14944589138031006
+      ],
+      "metric_uv": [
+        -0.6248162388801575,
+        3.9583038091659546
+      ]
+    },
+    {
+      "pixel": [
+        55,
+        560
+      ],
+      "colour_label_estimate": "ochre",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        -0.9078661799430847,
+        2.0450046062469482,
+        -0.14944589138031006
+      ],
+      "metric_uv": [
+        -0.9078661799430847,
+        4.194450497627258
+      ]
+    },
+    {
+      "pixel": [
+        230,
+        540
+      ],
+      "colour_label_estimate": "lavender",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        -0.005137629806995392,
+        2.269305467605591,
+        -0.1494457721710205
+      ],
+      "metric_uv": [
+        -0.005137629806995392,
+        4.418751239776611
+      ]
+    },
+    {
+      "pixel": [
+        390,
+        575
+      ],
+      "colour_label_estimate": "teal",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        0.813042938709259,
+        1.9711971282958984,
+        -0.1494460105895996
+      ],
+      "metric_uv": [
+        0.813042938709259,
+        4.120643138885498
+      ]
+    },
+    {
+      "pixel": [
+        280,
+        490
+      ],
+      "colour_label_estimate": "teal",
+      "hit": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "position": [
+        0.33588963747024536,
+        2.903421401977539,
+        -0.14944589138031006
+      ],
+      "metric_uv": [
+        0.33588963747024536,
+        5.052867293357849
+      ]
+    }
+  ],
+  "baseline_interval_rms": 0.7261409218758725,
+  "candidate_interval_rms": 0.0004555006445254028,
+  "candidate_interval_errors": [
+    0.0,
+    0.0008714100167275252,
+    0.0,
+    0.0,
+    0.0011453276299630277,
+    0.0,
+    0.0,
+    0.0004205404974165772,
+    0.0,
+    0.0,
+    0.0001852136647670921
+  ],
+  "limitations": [
+    "Manual colour labels may be ambiguous under light/reflections.",
+    "Only foreground points used; distant geometry already mismatches the reference.",
+    "This is a fit diagnostic, not a fidelity score or validation set."
+  ]
+}

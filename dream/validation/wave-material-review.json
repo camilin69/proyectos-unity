@@ -1,0 +1,343 @@
+{
+  "schema": "dream.wave_material_review.v1",
+  "stage": "blender_material_prototype_with_two_rendered_views",
+  "accepted": false,
+  "geometry_fidelity_accepted": false,
+  "runtime_available": false,
+  "primary_reference_time_s": 14,
+  "secondary_reference_time_s": 15.5,
+  "native_audit": {
+    "scene": "DREAM_WaveCorridor",
+    "scene_objects": 63,
+    "mesh_objects": 49,
+    "image_count": 8,
+    "all_images_packed": true,
+    "single_scene_native_file_verified": true,
+    "images": [
+      {
+        "name": "wave_floor_albedo.png",
+        "packed": true,
+        "colour_space": "sRGB"
+      },
+      {
+        "name": "wave_floor_roughness.png",
+        "packed": true,
+        "colour_space": "Non-Color"
+      },
+      {
+        "name": "wave_floor_normal.png",
+        "packed": true,
+        "colour_space": "Non-Color"
+      },
+      {
+        "name": "wave_wall_albedo.png",
+        "packed": true,
+        "colour_space": "sRGB"
+      },
+      {
+        "name": "wave_wall_roughness.png",
+        "packed": true,
+        "colour_space": "Non-Color"
+      },
+      {
+        "name": "wave_paint_normal.png",
+        "packed": true,
+        "colour_space": "Non-Color"
+      },
+      {
+        "name": "wave_ceiling_albedo.png",
+        "packed": true,
+        "colour_space": "sRGB"
+      },
+      {
+        "name": "wave_ceiling_roughness.png",
+        "packed": true,
+        "colour_space": "Non-Color"
+      }
+    ],
+    "repeat_apply_identical_geometry_transforms_uvs": true,
+    "signature": "af04fc7d6c141d246fd62da6462e1051f831f8db9c6122657bcd5cc38eab6d2b",
+    "repeat_apply_no_extra_objects": true,
+    "primary_camera": "CAM-DREAM-wavecorridor-reference14s_seed",
+    "render_px": [
+      478,
+      850
+    ],
+    "strict_fidelity_accepted": false,
+    "native_file_bytes": 1654772,
+    "native_sha256": "f594de81639afcf1048535beef22a9c03a6c1763404886f87234f3650cf74aca"
+  },
+  "technical_checks": {
+    "checker_render_inspected": true,
+    "full_closed_surface_uv_coverage": true,
+    "floor_hall_uv_error_m": 0,
+    "eight_images_packed_in_single_scene_native": true,
+    "source_files_unchanged": {
+      "dream/referencias/estetica/video-42.json": "90008b76d2616527383d10bd3e16e2aa67a84eacf4d375dfbb1efb359bf26abd",
+      "dream/referencias/estetica/evidencias/video-42/13s.png": "63d422800733f320af7a95dacff0f04d67aa7440ae5799b6cc822c6887c908aa",
+      "dream/referencias/estetica/texturas/video-42/suelo_ondas_pintadas.png": "398a9d3774b5f0188a782090af56b1c6ae9b12c1c019e48389ebaeedeb0ea12b",
+      "dream/referencias/estetica/texturas/video-42/techo_texturado.png": "8df5f4b461ec8886c6ad760154c2a11a6a361f8b7952359c8aec347d2001fd30",
+      "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657"
+    },
+    "repeat_apply_does_not_duplicate_objects_or_change_geometry_uvs": true,
+    "scope": "These checks prove storage and UV consistency, not reproduction fidelity."
+  },
+  "observed_improvements": [
+    "Paint uses continuous floor arclength across treads/risers and into the hall.",
+    "Foreground paint placement fitted to 11 manually interpreted colour regions.",
+    "Ceiling, wall and floor have separate colour, roughness and normal maps.",
+    "Floor coat uses the normal map, breaking up the initial smooth highlights.",
+    "Limited surface-region brightness comparison improved wall/floor balance."
+  ],
+  "material_calibration": {
+    "roi_xyxy": {
+      "right_wall": [
+        350,
+        260,
+        410,
+        390
+      ],
+      "ceiling": [
+        160,
+        35,
+        210,
+        70
+      ],
+      "foreground_teal": [
+        140,
+        760,
+        260,
+        825
+      ]
+    },
+    "median_srgb_255": {
+      "wave-reference-14s.png": {
+        "right_wall": [
+          162.0,
+          109.0,
+          107.0
+        ],
+        "ceiling": [
+          85.0,
+          95.0,
+          95.0
+        ],
+        "foreground_teal": [
+          139.0,
+          159.0,
+          159.0
+        ]
+      },
+      "wave-material-initial.png": {
+        "right_wall": [
+          192.0,
+          142.0,
+          132.0
+        ],
+        "ceiling": [
+          64.0,
+          79.0,
+          76.0
+        ],
+        "foreground_teal": [
+          50.0,
+          49.0,
+          61.0
+        ]
+      },
+      "wave-material-v2.png": {
+        "right_wall": [
+          193.0,
+          142.0,
+          132.0
+        ],
+        "ceiling": [
+          58.0,
+          74.0,
+          71.0
+        ],
+        "foreground_teal": [
+          69.0,
+          100.0,
+          94.0
+        ]
+      },
+      "wave-material-v3.png": {
+        "right_wall": [
+          163.0,
+          119.0,
+          111.0
+        ],
+        "ceiling": [
+          55.0,
+          72.0,
+          68.0
+        ],
+        "foreground_teal": [
+          119.0,
+          168.0,
+          158.0
+        ]
+      },
+      "wave-material-v4.png": {
+        "right_wall": [
+          165.0,
+          121.0,
+          113.0
+        ],
+        "ceiling": [
+          98.0,
+          131.0,
+          131.0
+        ],
+        "foreground_teal": [
+          120.0,
+          170.0,
+          160.0
+        ]
+      },
+      "wave-material-v5.png": {
+        "right_wall": [
+          164.0,
+          120.0,
+          111.5
+        ],
+        "ceiling": [
+          75.0,
+          99.0,
+          98.0
+        ],
+        "foreground_teal": [
+          120.0,
+          169.0,
+          158.0
+        ]
+      }
+    },
+    "scope": "Three small same-camera regions; not whole-image fidelity or recovered albedo."
+  },
+  "lighting": {
+    "downward_areas_w": 40,
+    "point_bounce_w": 30,
+    "floor_entrance_return_w": 280,
+    "ceiling_return_w": 30,
+    "exposure_stops": -1.2,
+    "engine": "BLENDER_EEVEE",
+    "samples": 64,
+    "raytracing": true,
+    "inference": "Surface-linked floor/ceiling returns approximate missing indirect bounce; light positions/powers are authored."
+  },
+  "history": {
+    "initial": "initial UV phase and gray-stage exposure",
+    "v2": "foreground paint registration, coat normals, entrance fill",
+    "v3": "wall/floor light balance; ceiling return was not linked into the scene",
+    "v4": "ceiling return membership repaired; 80 W too bright in sampled region",
+    "v5": "current 30 W ceiling return; both reference views rendered"
+  },
+  "remaining": [
+    "Source hall is a brighter open space; current dark grid is unresolved geometry.",
+    "Step distribution and door thresholds still disagree between the views.",
+    "Far-floor ribbon pattern and width do not yet match the source.",
+    "Floor reflection spread, roughness scale and compression/optical softness differ.",
+    "Red exit plaques, utility plates and door details are missing.",
+    "No C++/OpenGL profile, export, navigation verification or animated camera match yet."
+  ],
+  "next_action": "Refine shared geometry and paint using both views, including the far hall and door bases, before treating the scene as a faithful reference match.",
+  "artifacts": [
+    {
+      "path": "dream/blender/wave_corridor.blend",
+      "bytes": 1654772,
+      "sha256": "f594de81639afcf1048535beef22a9c03a6c1763404886f87234f3650cf74aca"
+    },
+    {
+      "path": "dream/blender/finish_wave_corridor.py",
+      "bytes": 14431,
+      "sha256": "8685b0e4a0647febd6d9d0a7a99ba9b82cfdfafcd35c6f1d93b58d9400243e06"
+    },
+    {
+      "path": "dream/validation/wave-gray-v2.blend",
+      "bytes": 190096,
+      "sha256": "db14e9f638900875cad95f006bf648e53f112d5233848159898a8f18dcd008b8"
+    },
+    {
+      "path": "dream/validation/wave-gray-v2.png",
+      "bytes": 339317,
+      "sha256": "f50061d454e84a1a720f67862d86ce3ca5c4edb4adc2eee80748e079ec4df3b4"
+    },
+    {
+      "path": "dream/validation/wave-gray-v2-secondary.png",
+      "bytes": 336452,
+      "sha256": "6010fc285da7df55175d4577666e27d64593002252944368ecbdef345d352838"
+    },
+    {
+      "path": "dream/validation/wave-uv-checker.png",
+      "bytes": 498493,
+      "sha256": "57e6b3b22747a6c96d4623560c164dcd37fccc725a872c994b13cbde5ee9cdca"
+    },
+    {
+      "path": "dream/validation/wave-uv-coverage.json",
+      "bytes": 8860,
+      "sha256": "b6d7c73eb38313fd441e2429e9175adcb1e456a81237b846de209d875e230790"
+    },
+    {
+      "path": "dream/validation/wave-material-coverage.json",
+      "bytes": 8945,
+      "sha256": "c62eddca8196496951bcf9ada21ab394bf647f2e065ccf657521f458e8bc085a"
+    },
+    {
+      "path": "dream/validation/wave-paint-fit.json",
+      "bytes": 5237,
+      "sha256": "42041b03ab936d6d584d4283a3e25ebb7668abd4ab8d0a1550852ecc36683106"
+    },
+    {
+      "path": "dream/validation/wave-material-initial.png",
+      "bytes": 508679,
+      "sha256": "da4851c22b532c8927dee1285f8781a44c99766bdbc4d091d14d607ec96cdd0b"
+    },
+    {
+      "path": "dream/validation/wave-material-v2.png",
+      "bytes": 528144,
+      "sha256": "19383cd3c00f5c404c55d92666e21152a3834816a7927cf2a1dfd7d83f475502"
+    },
+    {
+      "path": "dream/validation/wave-material-v2-secondary.png",
+      "bytes": 558494,
+      "sha256": "6ff0d4bc2b492888606c9ab73f268e454a68fff52007467a4edb371b172a9272"
+    },
+    {
+      "path": "dream/validation/wave-material-v3.png",
+      "bytes": 533566,
+      "sha256": "8e15078f20b50182aa2913094df2b7ca8ec8a6074f910ee9716481dabd3cd36c"
+    },
+    {
+      "path": "dream/validation/wave-material-v4.png",
+      "bytes": 541883,
+      "sha256": "e15692953dfad57b26b09c73f34c8f702cd13bc37752d72a6d651c6c8797af35"
+    },
+    {
+      "path": "dream/validation/wave-material-v5.png",
+      "bytes": 534962,
+      "sha256": "154545d618adcf4e3316a4bd239be5b79bae43cef376a073ccac047aaabe9c64"
+    },
+    {
+      "path": "dream/validation/wave-material-v5-secondary.png",
+      "bytes": 537299,
+      "sha256": "21c994258ff1af630dbf10e4187e3194c18e16ae32e1412503e33de9b9e86910"
+    },
+    {
+      "path": "dream/validation/wave-material-comparison.png",
+      "bytes": 1064628,
+      "sha256": "b88eb39c3f2791c01dd21016ff04992f6ce3b1d0ffbdfe66db2a49552f74e87a"
+    },
+    {
+      "path": "dream/validation/wave-secondary-comparison.png",
+      "bytes": 686771,
+      "sha256": "50b7cfd5721a3c33a1c51743c67a6e14f685c07200f6a2e2c578a26cfeba6586"
+    },
+    {
+      "path": "dream/validation/wave-native-audit.json",
+      "bytes": 1553,
+      "sha256": "84b8681abe53498d1d33076e5f10f7962fe3c5f148ca248dac6fa7bf3ba60ef1"
+    }
+  ]
+}

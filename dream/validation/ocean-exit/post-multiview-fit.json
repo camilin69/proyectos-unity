@@ -1,0 +1,133 @@
+{
+  "schema": "dream.ocean_exit_post_multiview.v1",
+  "camera_9s": {
+    "position_m": [
+      -0.040346532831546565,
+      0.7561979614587163,
+      0.8246882335279774
+    ],
+    "yaw_rad": 1.5350324661021544,
+    "pitch_rad": 0.08371357423298308,
+    "roll_rad": -0.00866576746264992,
+    "tan_half_vertical_fov": 0.85,
+    "render_px": [
+      478,
+      850
+    ],
+    "time_s": 9,
+    "principal_y_px": 224.10021449508235,
+    "shift_y": -0.4202924382948068
+  },
+  "door_9s_rms_px": 3.575410745697344,
+  "post_old_xyz_height": [
+    0.585,
+    2.547,
+    0.676
+  ],
+  "post_candidate_xyz_height": [
+    0.6537365151933198,
+    2.697861012842479,
+    0.7148304711712397
+  ],
+  "views": [
+    {
+      "time_s": 7,
+      "use": "fit",
+      "observed_head_px": [
+        347,
+        276
+      ],
+      "observed_water_intersection_px": [
+        359,
+        425
+      ],
+      "old_projected_px": [
+        [
+          340.3580720858083,
+          271.9217988276771
+        ],
+        [
+          359.0819557684036,
+          424.9824824596902
+        ]
+      ],
+      "new_projected_px": [
+        [
+          346.58807772705825,
+          262.22319083932194
+        ],
+        [
+          364.32154884869146,
+          413.44575081132416
+        ]
+      ],
+      "water_intersection_error_px": 12.720831594790717
+    },
+    {
+      "time_s": 9,
+      "use": "fit",
+      "observed_head_px": [
+        382,
+        282
+      ],
+      "observed_water_intersection_px": [
+        397,
+        489
+      ],
+      "old_projected_px": [
+        [
+          376.2492321564753,
+          306.53210657062994
+        ],
+        [
+          402.9094077731065,
+          502.90722723090613
+        ]
+      ],
+      "new_projected_px": [
+        [
+          381.4553248659,
+          293.14011361213
+        ],
+        [
+          406.4432623638638,
+          483.62150370066615
+        ]
+      ],
+      "water_intersection_error_px": 10.867540039710681
+    },
+    {
+      "time_s": 11.5,
+      "use": "held_out",
+      "observed_head_px": null,
+      "observed_water_intersection_px": [
+        472.0,
+        532.0
+      ],
+      "old_projected_px": [
+        [
+          559.7784422767634,
+          323.1093493210021
+        ],
+        [
+          620.9195127038001,
+          673.5740809303281
+        ]
+      ],
+      "new_projected_px": [
+        [
+          543.0441237611051,
+          299.9357350259201
+        ],
+        [
+          596.1750323786483,
+          618.9061018209519
+        ]
+      ],
+      "water_intersection_error_px": 151.5655277427952
+    }
+  ],
+  "measurement_uncertainty": "Head +/-3px or more where overlaid text intersects; foam/water intersection +/-12px. Metric scale and camera intrinsics remain assumptions.",
+  "decision": "rejected: assuming the visible post end is at water z=0 leaves a 151.6 px endpoint error in the reserved view.",
+  "accepted": false
+}

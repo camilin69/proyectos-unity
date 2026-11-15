@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-09T05:11:04.973586+00:00",
+  "status": "PASS",
+  "scope": "Validación CPU del export kitchen_meadow v3 con césped denso; sin edición de assets, renderer, geometría ni navegación.",
+  "path_base": "dream",
+  "baseline_report": {
+    "path": "validation/kitchen-asset-validation.json",
+    "sha256": "7958a70b588b6b6d2a4bb424c425aa266c27967bc942cbc89ad98f48fcc23342",
+    "preserved": true
+  },
+  "initial_failure": {
+    "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py kitchen_meadow",
+    "exit_code": 1,
+    "assertion": "GLB exceeds its scene-specific asset budget",
+    "only_failure_reached": "El export pasó todos los controles previos y se detuvo en el techo histórico de 15 MiB."
+  },
+  "verifier_change": {
+    "kind": "scene_specific_asset_budget",
+    "kitchen_meadow_budget_bytes": 35000000,
+    "stair_sky_budget_bytes_unchanged": 45000000,
+    "all_other_scene_budget_bytes_unchanged": 15728640,
+    "authorization": "Root autorizó 35 MB exclusivamente para kitchen_meadow si el tamaño era el único fallo.",
+    "checks_relaxed": [],
+    "note": "No se relajaron controles de materiales, variantes, normales unitarias, alineación por cara, UV world XY/4, AO, rangos, formatos, escenas GLB ni imágenes embebidas."
+  },
+  "checks": [
+    {
+      "asset": "kitchen_meadow",
+      "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py kitchen_meadow",
+      "exit_code": 0,
+      "result": {
+        "result": "PASS",
+        "materials": 14,
+        "vertices": 596367,
+        "asset": "kitchen_meadow",
+        "triangles": 198789,
+        "glb_bytes": 21652568,
+        "glb_budget_bytes": 35000000,
+        "transparent_draws": 0,
+        "waterfall_draws": 0,
+        "navigation_verified": false,
+        "water_vertices_covered": 0,
+        "embedded_glb_images": 2,
+        "profile": "kitchen_meadow",
+        "texture_roles": {
+          "sky": "assets/textures/kitchen_sky.bmp",
+          "plaid": "assets/textures/kitchen_neutral_white.bmp",
+          "ceramic_normal": "assets/textures/kitchen_neutral_normal.bmp",
+          "ceramic_roughness": "assets/textures/kitchen_neutral_white.bmp",
+          "leaf": "assets/textures/kitchen_neutral_white.bmp",
+          "globe": "assets/textures/kitchen_neutral_white.bmp",
+          "floor_surface": "assets/textures/kitchen_grass_albedo.bmp",
+          "floor_flow": "assets/textures/kitchen_grass_normal.bmp",
+          "probe": "assets/textures/kitchen_sky.bmp"
+        },
+        "grass_variants": {
+          "0": {
+            "vertices": 81,
+            "uv_max_error": 0,
+            "ao_min": 1,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 4.516145180311071e-05,
+            "minimum_normal_face_dot": 1
+          },
+          "1": {
+            "vertices": 587322,
+            "uv_max_error": 0,
+            "ao_min": 1,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 3.48793806810128e-05,
+            "minimum_normal_face_dot": 0.999999897043492
+          }
+        },
+        "plush_variants": {},
+        "ao_excluded_detail_objects": {}
+      }
+    },
+    {
+      "asset": "pastel_room",
+      "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py pastel_room",
+      "exit_code": 0,
+      "result": {
+        "result": "PASS",
+        "materials": 9,
+        "vertices": 31056,
+        "asset": "pastel_room",
+        "triangles": 10352,
+        "glb_bytes": 1862948,
+        "glb_budget_bytes": 15728640,
+        "transparent_draws": 0,
+        "waterfall_draws": 0,
+        "navigation_verified": false,
+        "water_vertices_covered": 0,
+        "embedded_glb_images": 5,
+        "profile": "pastel_room",
+        "texture_roles": {
+          "sky": "assets/textures/cloud_sky.bmp",
+          "plaid": "assets/textures/curtain_plaid.bmp",
+          "ceramic_normal": "assets/textures/ceramic_normal.bmp",
+          "ceramic_roughness": "assets/textures/ceramic_roughness.bmp",
+          "leaf": "assets/textures/leaf_detail.bmp",
+          "globe": "assets/textures/biosphere.bmp",
+          "floor_surface": "assets/textures/floor_surface_albedo.bmp",
+          "floor_flow": "assets/textures/floor_flow.bmp",
+          "probe": "assets/textures/room_probe.bmp"
+        },
+        "grass_variants": {},
+        "plush_variants": {},
+        "ao_excluded_detail_objects": {}
+      }
+    },
+    {
+      "asset": "atrium",
+      "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py atrium",
+      "exit_code": 0,
+      "result": {
+        "result": "PASS",
+        "materials": 16,
+        "vertices": 537522,
+        "asset": "atrium",
+        "triangles": 179174,
+        "glb_bytes": 6982972,
+        "glb_budget_bytes": 15728640,
+        "transparent_draws": 45,
+        "waterfall_draws": 1,
+        "navigation_verified": true,
+        "water_vertices_covered": 72960,
+        "embedded_glb_images": 2,
+        "profile": "atrium",
+        "texture_roles": {
+          "sky": "assets/textures/cloud_sky.bmp",
+          "plaid": "assets/textures/curtain_plaid.bmp",
+          "ceramic_normal": "assets/textures/ceramic_normal.bmp",
+          "ceramic_roughness": "assets/textures/ceramic_roughness.bmp",
+          "leaf": "assets/textures/leaf_detail.bmp",
+          "globe": "assets/textures/biosphere.bmp",
+          "floor_surface": "assets/textures/floor_surface_albedo.bmp",
+          "floor_flow": "assets/textures/floor_flow.bmp",
+          "probe": "assets/textures/room_probe.bmp"
+        },
+        "grass_variants": {},
+        "plush_variants": {},
+        "ao_excluded_detail_objects": {}
+      }
+    },
+    {
+      "asset": "stair_sky",
+      "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py stair_sky",
+      "exit_code": 0,
+      "result": {
+        "result": "PASS",
+        "materials": 6,
+        "vertices": 1061622,
+        "asset": "stair_sky",
+        "triangles": 353874,
+        "glb_bytes": 39530196,
+        "glb_budget_bytes": 45000000,
+        "transparent_draws": 0,
+        "waterfall_draws": 0,
+        "navigation_verified": false,
+        "water_vertices_covered": 0,
+        "embedded_glb_images": 4,
+        "profile": "stair_sky",
+        "texture_roles": {
+          "sky": "assets/textures/stair_sky.bmp",
+          "plaid": "assets/textures/stair_plush_albedo.bmp",
+          "ceramic_normal": "assets/textures/stair_plush_normal.bmp",
+          "ceramic_roughness": "assets/textures/stair_neutral_white.bmp",
+          "leaf": "assets/textures/stair_neutral_white.bmp",
+          "globe": "assets/textures/stair_neutral_white.bmp",
+          "floor_surface": "assets/textures/stair_grass_albedo.bmp",
+          "floor_flow": "assets/textures/stair_grass_normal.bmp",
+          "probe": "assets/textures/stair_sky.bmp"
+        },
+        "grass_variants": {
+          "0": {
+            "vertices": 16824,
+            "uv_max_error": 0,
+            "ao_min": 1,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 8.289190081301759e-06,
+            "minimum_normal_face_dot": 0.943041021438815
+          },
+          "1": {
+            "vertices": 717066,
+            "uv_max_error": 0,
+            "ao_min": 1,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 6.257443072447417e-05,
+            "minimum_normal_face_dot": 0.9999999125012515
+          }
+        },
+        "plush_variants": {
+          "0": {
+            "vertices": 318276,
+            "uv_max_error": 4.76837158203125e-07,
+            "ao_min": 0.3499999940395355,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 4.739352051389995e-06,
+            "minimum_normal_face_dot": 0.9981724575812245,
+            "projection_triangles": {
+              "xy": 20116,
+              "xz": 35041,
+              "yz": 50935
+            },
+            "near_tie_alternate_triangles": 0
+          }
+        },
+        "ao_excluded_detail_objects": {
+          "GEO-DREAM-stair-detail_plush": {
+            "vertices": 314388,
+            "ao_min": 1,
+            "ao_max": 1
+          },
+          "GEO-DREAM-stair-detail_grass": {
+            "vertices": 717066,
+            "ao_min": 1,
+            "ao_max": 1
+          }
+        }
+      }
+    }
+  ],
+  "dense_grass": {
+    "ground_corners": 81,
+    "blade_corners": 587322,
+    "blade_triangles": 195774,
+    "blade_uv_max_error": 0,
+    "blade_min_normal_face_dot": 0.999999897043492,
+    "blade_min_triangle_area_m2": 3.48793806810128e-05,
+    "blade_ao_range": [
+      1,
+      1
+    ],
+    "normal_check": "Las normales del césped nuevo mantienen dot(corner normal, triangle normal) >0.99. Las briznas curvas trianguladas no necesitaron excepción ni una tolerancia más débil."
+  },
+  "navigation_evidence": {
+    "report": "validation/kitchen-navigation-validation.json",
+    "report_sha256": "045f363bac72428ab764ffb1476955a30bc2d951b000982f90eeff2a2a925b67",
+    "current_scene_identical_to_prior_run": true,
+    "hash_comparison": {
+      "dream/runtime/src/scene.hpp": {
+        "historical_sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+        "current_sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+        "identical": true
+      },
+      "dream/runtime/src/math.hpp": {
+        "historical_sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+        "current_sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+        "identical": true
+      },
+      "dream/validation/kitchen-navigation.cpp": {
+        "historical_sha256": "357bf3d7216a1e73e430e35651c946c64180ddc3919c8edb63308e02ebd4affe",
+        "current_sha256": "357bf3d7216a1e73e430e35651c946c64180ddc3919c8edb63308e02ebd4affe",
+        "identical": true
+      },
+      "dream/assets/kitchen_meadow.scene": {
+        "historical_sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "current_sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "identical": true
+      }
+    },
+    "metadata_capsules_match_current_scene": true,
+    "metadata_surface_count_matches_current_scene": true,
+    "capsules": 10,
+    "surfaces": 2,
+    "new_route_run": false,
+    "note": "Se comprobó procedencia por hash y coherencia de cápsulas/superficies; no se atribuye una nueva ejecución del recorrido a este informe. La nueva malla de detalle no se convierte por ello en colisión física validada."
+  },
+  "optimization_pending": {
+    "required": true,
+    "mesh_triangles": 198789,
+    "runtime_mesh_bytes": 23855144,
+    "glb_bytes": 21652568,
+    "reason": "El detalle geométrico denso aumenta memoria, transferencia y coste de dibujo. El presupuesto permite revisar este prototipo; no representa optimización ni FPS garantizados.",
+    "next_options": [
+      "Reducir densidad de briznas lejanas y concentrarlas en siluetas y primer plano.",
+      "Añadir niveles de detalle o instanciación para la vegetación.",
+      "Medir rendimiento real a resolución objetivo antes de seguir elevando densidad."
+    ]
+  },
+  "diff_whitespace": "PASS: git diff --check -- dream/validation/verify_assets.py",
+  "limitations": [
+    "Validación CPU: no se ejecutaron capturas, navegación o benchmark GPU en esta tarea.",
+    "PNG/BMP se comprueban por formato y dimensiones; no se declara igualdad de píxeles decodificados.",
+    "La fidelidad del césped y del warm fill se evalúa aparte en renders; este PASS no es aprobación visual."
+  ],
+  "goal_complete": false,
+  "final_visual_acceptance": false,
+  "artifacts": [
+    {
+      "path": "assets/atrium.draws",
+      "bytes": 2977,
+      "sha256": "ac7fe05a7e1392fb8b1de3c2dcd4fd1ca6e4225014f5a787b42e50426ca6954e"
+    },
+    {
+      "path": "assets/atrium.dreammesh",
+      "bytes": 21501408,
+      "sha256": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db"
+    },
+    {
+      "path": "assets/atrium.glb",
+      "bytes": 6982972,
+      "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418"
+    },
+    {
+      "path": "assets/atrium.json",
+      "bytes": 201940,
+      "sha256": "2e9c41e193e40149b7e1162c534b862a7f53f07fdad1c0b1393875b939ec9a15"
+    },
+    {
+      "path": "assets/atrium.scene",
+      "bytes": 3882,
+      "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519"
+    },
+    {
+      "path": "assets/kitchen_meadow.draws",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "assets/kitchen_meadow.dreammesh",
+      "bytes": 23855144,
+      "sha256": "dbe12905f338e672df5fe873a5a96a41a5a7861c94c911f58e9d5c29b9cbf85e"
+    },
+    {
+      "path": "assets/kitchen_meadow.glb",
+      "bytes": 21652568,
+      "sha256": "67150f13300d368d23ac73abbd33012466d124a00a96ecfa6368f1df753da936"
+    },
+    {
+      "path": "assets/kitchen_meadow.json",
+      "bytes": 19485,
+      "sha256": "bddf887ce4009277893bebd126f5b983559c0371fc1368aded05727a6f4d6f65"
+    },
+    {
+      "path": "assets/kitchen_meadow.scene",
+      "bytes": 1117,
+      "sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7"
+    },
+    {
+      "path": "assets/pastel_room.draws",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "assets/pastel_room.dreammesh",
+      "bytes": 1242544,
+      "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79"
+    },
+    {
+      "path": "assets/pastel_room.glb",
+      "bytes": 1862948,
+      "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167"
+    },
+    {
+      "path": "assets/pastel_room.json",
+      "bytes": 174596,
+      "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c"
+    },
+    {
+      "path": "assets/pastel_room.scene",
+      "bytes": 207,
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b"
+    },
+    {
+      "path": "assets/scene_catalog.cat",
+      "bytes": 4823,
+      "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6"
+    },
+    {
+      "path": "assets/stair_sky.draws",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "assets/stair_sky.dreammesh",
+      "bytes": 42465088,
+      "sha256": "d52c956509e738d759a12f1352b15a946df180cb26935cd07e9cacbcd429f77b"
+    },
+    {
+      "path": "assets/stair_sky.glb",
+      "bytes": 39530196,
+      "sha256": "15b9ee977bc385c4037b16bbe54933f7a00bf310ff238d1e8c43d3f159f239af"
+    },
+    {
+      "path": "assets/stair_sky.json",
+      "bytes": 23407,
+      "sha256": "6b79e47913443a7d187cb1cf838bc4011467b9a26dcefc8f30c10ffc7c07ded0"
+    },
+    {
+      "path": "assets/stair_sky.scene",
+      "bytes": 764,
+      "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_albedo.bmp",
+      "bytes": 3145782,
+      "sha256": "6e3d2b301b951da37795f81f47339d8763ff95e6ea364b500f43e2c9dad5cb74"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_albedo.png",
+      "bytes": 1164079,
+      "sha256": "975dd1744e08743f61dd0ebc08b531a800c35485ed767ba378160e916e8aeb2b"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_normal.bmp",
+      "bytes": 3145782,
+      "sha256": "31c96a1515ab32ab6b3da07c4aa8ed775914524d63e693d65041f9e4c39140ed"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_normal.png",
+      "bytes": 1837318,
+      "sha256": "9187f29c0949f4971f92b5b3d3db2119073fe9ac9f587a6778edc7a2cd132508"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_normal.bmp",
+      "bytes": 102,
+      "sha256": "2972e220fb5606ba7865ec37d5cd5e2968e3c72c04b369e66e69f0fc2f8b47a8"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_normal.png",
+      "bytes": 76,
+      "sha256": "3d41646de11179347cba387d740809ba54bfe4bd35bc65fd6c1bbc606eb05aff"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_white.bmp",
+      "bytes": 102,
+      "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_white.png",
+      "bytes": 76,
+      "sha256": "7d001f8fab18d1119fc5976ea2f716929d139013e9b4fcec48c9531b7ca4212c"
+    },
+    {
+      "path": "assets/textures/kitchen_sky.bmp",
+      "bytes": 6291510,
+      "sha256": "e5ead6a9f343b44eaec479fea66874eac4006bb261a778344fdc78894222b1e7"
+    },
+    {
+      "path": "assets/textures/kitchen_sky.png",
+      "bytes": 113039,
+      "sha256": "047ae8681c9a821406bb212bbc83b81664e1d1bcbb196c41bd2880f5a10848ea"
+    },
+    {
+      "path": "blender/export_runtime.py",
+      "bytes": 6448,
+      "sha256": "b1df311143e38262e85a7a092d8a4d860e9d4e4d34dc8ca70fb91f2f37fe362d"
+    },
+    {
+      "path": "validation/kitchen-asset-validation.json",
+      "bytes": 9146,
+      "sha256": "7958a70b588b6b6d2a4bb424c425aa266c27967bc942cbc89ad98f48fcc23342"
+    },
+    {
+      "path": "validation/kitchen-navigation-validation.json",
+      "bytes": 27525,
+      "sha256": "045f363bac72428ab764ffb1476955a30bc2d951b000982f90eeff2a2a925b67"
+    },
+    {
+      "path": "validation/verify_assets.py",
+      "bytes": 15988,
+      "sha256": "de33e105fa0f2a01be41c33a695f6c3970230e7e3b10e06345c6c88fd773c032"
+    }
+  ]
+}

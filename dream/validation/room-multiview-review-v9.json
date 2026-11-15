@@ -1,0 +1,687 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T05:34:47.861150+00:00",
+  "scene": "DREAM_PastelRoom",
+  "scope": "Revisión offline multivista y corrección acotada del constructor; no se invocó Blender MCP, no se renderizó ni exportó ni cambió shader.",
+  "path_base": "repository_root",
+  "status": "constructor_and_incremental_helper_ready_live_verification_pending",
+  "skill": "multiview-fit-loop; used to separate observed residuals, camera ambiguity and unverified render gates. Orthographic IoU/size thresholds do not apply to these perspective video frames.",
+  "source_review": {
+    "source": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+    "source_sha256": "3147a71d5ce0b7e964fb424810d27fbeb70a87c26a501c26b7a94446ba7f75ce",
+    "fps": 30.0,
+    "declared_frame_count": 887,
+    "decoded_frame_count": 887,
+    "native_dimensions_px": [
+      720,
+      1280
+    ],
+    "method": "OpenCV sequential decode of every frame; overview images every 1s and native saved images at selected room timestamps. Human review is of these sampled images, not every decoded frame.",
+    "room_frames": [
+      {
+        "time_requested_s": 10.9,
+        "frame_index_zero_based": 327,
+        "actual_time_s": 10.9,
+        "path": "dream/validation/room-multiview-v9/reference-10p9s.png",
+        "sha256": "978fc24a1fb3838a1f30894181e20932701e222dc1bd2d95efc7279ec607e781"
+      },
+      {
+        "time_requested_s": 11,
+        "frame_index_zero_based": 330,
+        "actual_time_s": 11.0,
+        "path": "dream/validation/room-multiview-v9/reference-11s.png",
+        "sha256": "f7d4c1ebd16962737bccfc5dff4ed93d0809d0fd57694bb5520f30cdaf0f4117"
+      },
+      {
+        "time_requested_s": 11.5,
+        "frame_index_zero_based": 345,
+        "actual_time_s": 11.5,
+        "path": "dream/validation/room-multiview-v9/reference-11p5s.png",
+        "sha256": "39a01dd74d8994ce7299dbe920bd5435ba80ce16ecd8ecbf4d553dea745eb2c2"
+      },
+      {
+        "time_requested_s": 12,
+        "frame_index_zero_based": 360,
+        "actual_time_s": 12.0,
+        "path": "dream/validation/room-multiview-v9/reference-12s.png",
+        "sha256": "a959b21d150ef04c12f50f453b743895b6a420a189803fa88973a0a50618adcc"
+      },
+      {
+        "time_requested_s": 12.5,
+        "frame_index_zero_based": 375,
+        "actual_time_s": 12.5,
+        "path": "dream/validation/room-multiview-v9/reference-12p5s.png",
+        "sha256": "eabab90a87e07ffcc3a1c1d08e97165b09e56d9bb0630e9c28cd024e51feb5e7"
+      },
+      {
+        "time_requested_s": 13,
+        "frame_index_zero_based": 390,
+        "actual_time_s": 13.0,
+        "path": "dream/validation/room-multiview-v9/reference-13s.png",
+        "sha256": "000fe3257d6f82e888bd0681a8423959580ce13af5b49ede4a959e365fe044bd"
+      },
+      {
+        "time_requested_s": 13.5,
+        "frame_index_zero_based": 405,
+        "actual_time_s": 13.5,
+        "path": "dream/validation/room-multiview-v9/reference-13p5s.png",
+        "sha256": "438d8f3ff1990ad854a30bb5130e5024957504e30a2453e593d5776bc36f47f4"
+      },
+      {
+        "time_requested_s": 23.1,
+        "frame_index_zero_based": 693,
+        "actual_time_s": 23.1,
+        "path": "dream/validation/room-multiview-v9/reference-23p1s.png",
+        "sha256": "0f6f8e7707dbef4306684a5d3ec642b5b8a43c275007175b4b975488740b1b74"
+      },
+      {
+        "time_requested_s": 23.5,
+        "frame_index_zero_based": 705,
+        "actual_time_s": 23.5,
+        "path": "dream/validation/room-multiview-v9/reference-23p5s.png",
+        "sha256": "4ba8721ce188442146c0e4c75933b16305b9920d820a9b432819099461b09076"
+      },
+      {
+        "time_requested_s": 24,
+        "frame_index_zero_based": 720,
+        "actual_time_s": 24.0,
+        "path": "dream/validation/room-multiview-v9/reference-24s.png",
+        "sha256": "702718d4e178716252982b0e2fc72aaa230c459d4842d4cdb11d18fe7b610068"
+      },
+      {
+        "time_requested_s": 24.5,
+        "frame_index_zero_based": 735,
+        "actual_time_s": 24.5,
+        "path": "dream/validation/room-multiview-v9/reference-24p5s.png",
+        "sha256": "d88ebd49fbaf653603ba52988ee3e822f9110a924e28e37a691ed40fd51be6bb"
+      },
+      {
+        "time_requested_s": 25,
+        "frame_index_zero_based": 750,
+        "actual_time_s": 25.0,
+        "path": "dream/validation/room-multiview-v9/reference-25s.png",
+        "sha256": "c3f3dac757e0f295e74c2167f83fdb6ae874b4c18001c8b552687330dd0eb253"
+      },
+      {
+        "time_requested_s": 25.5,
+        "frame_index_zero_based": 765,
+        "actual_time_s": 25.5,
+        "path": "dream/validation/room-multiview-v9/reference-25p5s.png",
+        "sha256": "b807c91c319817efc7afe2678699e26607322ce3338a4c2af010b16ad05a27c1"
+      },
+      {
+        "time_requested_s": 26,
+        "frame_index_zero_based": 780,
+        "actual_time_s": 26.0,
+        "path": "dream/validation/room-multiview-v9/reference-26s.png",
+        "sha256": "524242e26e1175daaa9218aebc1eb016d144439c4135ecbc50c13e1f370c29af"
+      },
+      {
+        "time_requested_s": 26.5,
+        "frame_index_zero_based": 795,
+        "actual_time_s": 26.5,
+        "path": "dream/validation/room-multiview-v9/reference-26p5s.png",
+        "sha256": "fa84953ed80c3d88fd214333b3e928cf72a6df33fc7fd28d5a5a3f822395e8a2"
+      },
+      {
+        "time_requested_s": 27,
+        "frame_index_zero_based": 810,
+        "actual_time_s": 27.0,
+        "path": "dream/validation/room-multiview-v9/reference-27s.png",
+        "sha256": "bd6085d92c5d158434930b097f68b67be81146bf3893cdb3421461c9258c72ad"
+      },
+      {
+        "time_requested_s": 28,
+        "frame_index_zero_based": 840,
+        "actual_time_s": 28.0,
+        "path": "dream/validation/room-multiview-v9/reference-28s.png",
+        "sha256": "a67215fa47da37e6bcceda433deb01937fa10c034224ec3253b687749899c8a4"
+      },
+      {
+        "time_requested_s": 29,
+        "frame_index_zero_based": 870,
+        "actual_time_s": 29.0,
+        "path": "dream/validation/room-multiview-v9/reference-29s.png",
+        "sha256": "13d9631245fa56c340ba3700a6530711ee362302449b5547a31a5a21cba95d74"
+      }
+    ],
+    "overview": "dream/validation/room-multiview-v9/video35-full-timeline.png",
+    "room_contact_sheet": "dream/validation/room-multiview-v9/room-reference-intervals.png"
+  },
+  "cut_evidence": {
+    "detected": [
+      {
+        "first_frame_index_zero_based": 324,
+        "time_s": 10.8,
+        "mean_abs_rgb_delta_8bit": 67.54400634765625,
+        "before_image": "dream/validation/room-multiview-v9/cut-10.800s-before.png",
+        "after_image": "dream/validation/room-multiview-v9/cut-10.800s-after.png"
+      },
+      {
+        "first_frame_index_zero_based": 699,
+        "time_s": 23.3,
+        "mean_abs_rgb_delta_8bit": 39.365577697753906,
+        "before_image": "dream/validation/room-multiview-v9/cut-23.300s-before.png",
+        "after_image": "dream/validation/room-multiview-v9/cut-23.300s-after.png"
+      }
+    ],
+    "reviewed_after_detection": true,
+    "note": "El retorno de la habitación empieza en el frame699 (23.300s a30fps), no23.0s exactos. Frame698 aún muestra escalera. El primer intervalo empieza en324/10.800s. Son cortes visuales comprobados; no se reescribió el inventario ni el análisis fuente."
+  },
+  "reference_views_reviewed": {
+    "primary_interval": "10.9,11,11.5,12,12.5,13,13.5s",
+    "return_interval": "23.5,24,24.5,25,25.5,26,26.5,27,28,29s; 23.1s se excluye porque todavía muestra escalera.",
+    "full_video_method": "Se decodificaron secuencialmente los887frames del video. La inspección humana es del mosaico a1fps y los18frames seleccionados; no se afirma inspección individual de cada frame.",
+    "audio": "No evaluado; no interviene en esta revisión geométrica."
+  },
+  "findings": [
+    {
+      "id": "radiator_lower_connections",
+      "confidence": "high_for_presence_inferred_for_metric_dimensions",
+      "observation": "En11s se distingue la conexión del extremo visible. El regreso23.3–24s deja ver ambos extremos: codos/collares laterales inferiores y bajantes hacia el suelo. En24.5s vuelve a distinguirse el extremo lejano.",
+      "constructor_before": "24fin rods y2colectores horizontales, sin bajantes al suelo. Los renders actuales muestran las terminaciones de los colectores suspendidas sobre el rodapié.",
+      "decision": "Añadir seis piezas cerradas: dos stubs, dos bajantes y dos collares. Conservar posición y tamaño del cuerpo del radiador.",
+      "exact_crops": [
+        {
+          "source": "dream/validation/room-multiview-v9/reference-11s.png",
+          "crop": "dream/validation/room-multiview-v9/reference-11s-radiator-detail.png",
+          "box_xyxy_exclusive": [
+            550,
+            555,
+            720,
+            860
+          ],
+          "resized": false
+        },
+        {
+          "source": "dream/validation/room-multiview-v9/reference-24s.png",
+          "crop": "dream/validation/room-multiview-v9/reference-24s-radiator-detail.png",
+          "box_xyxy_exclusive": [
+            365,
+            650,
+            720,
+            1080
+          ],
+          "resized": false
+        },
+        {
+          "source": "dream/validation/room-multiview-v9/reference-24p5s.png",
+          "crop": "dream/validation/room-multiview-v9/reference-24p5s-radiator-detail.png",
+          "box_xyxy_exclusive": [
+            340,
+            645,
+            720,
+            1130
+          ],
+          "resized": false
+        }
+      ]
+    },
+    {
+      "id": "door_leaf_projection",
+      "confidence": "visible_residual_unresolved_cause",
+      "observation": "La hoja actual alcanza mucho más arriba que la silueta visible de11s. El regreso incluye acercamiento y giro; no está registrada su cámara con la geometría actual.",
+      "decision": "No cambiar altura, bisagra, sentido de apertura ni proporciones para forzar un único extremo de silueta. La posición exacta de vértices ocultos no está establecida; revisar cámaras y marcos en ambos intervalos antes de modificar.",
+      "final_match_claimed": false
+    },
+    {
+      "id": "window_and_room_proportions",
+      "confidence": "stage_level_only",
+      "observation": "Ventana con montante horizontal, radiador inferior, esquina y banda alta mantienen orden y disposición reconocibles en ambos intervalos. El regreso revela más superficie lateral, pero los renders secundarios actuales no están registrados a esa cámara.",
+      "decision": "Conservar valores calibrados. No existe evidencia suficiente aquí para derivar una nueva anchura/altura mundial sin mezclar error de cámara.",
+      "multiview_geometry_accepted": false
+    }
+  ],
+  "implementation": {
+    "builder": "dream/blender/build_room.py",
+    "incremental_helper": "dream/blender/room_radiator_details.py",
+    "helper_api": "apply_radiator_returns(scene=None, material=None)",
+    "helper_import_behavior": "Sólo define especificaciones/función; importar no ejecuta bpy, no guarda, renderiza ni exporta.",
+    "data_api_only": true,
+    "scene_target": "DREAM_PastelRoom",
+    "object_prefix": "GEO-DREAM-radiator_return_",
+    "object_count_expected": 6,
+    "world_specs_m": [
+      {
+        "name": "GEO-DREAM-radiator_return_near_stub",
+        "a": [
+          0.28,
+          0.08,
+          0.22
+        ],
+        "b": [
+          0.28,
+          0.045,
+          0.22
+        ],
+        "radius": 0.014
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_near_drop",
+        "a": [
+          0.28,
+          0.045,
+          0.22
+        ],
+        "b": [
+          0.28,
+          0.045,
+          0.006
+        ],
+        "radius": 0.012
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_near_collar",
+        "a": [
+          0.28,
+          0.045,
+          0.201
+        ],
+        "b": [
+          0.28,
+          0.045,
+          0.239
+        ],
+        "radius": 0.022
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_stub",
+        "a": [
+          0.28,
+          1.1,
+          0.22
+        ],
+        "b": [
+          0.28,
+          1.135,
+          0.22
+        ],
+        "radius": 0.014
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_drop",
+        "a": [
+          0.28,
+          1.135,
+          0.22
+        ],
+        "b": [
+          0.28,
+          1.135,
+          0.006
+        ],
+        "radius": 0.012
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_collar",
+        "a": [
+          0.28,
+          1.135,
+          0.201
+        ],
+        "b": [
+          0.28,
+          1.135,
+          0.239
+        ],
+        "radius": 0.022
+      }
+    ],
+    "shared_specification": true,
+    "material": "Cromo existente de radiator_fin; ninguna entrada de material nueva.",
+    "uv": "UV cilíndrico de caras y proyección de tapas sólo en piezas nuevas; UV existentes intactas.",
+    "idempotency_design": "Sólo sustituye objetos de su prefijo en la escena objetivo. Aborta ante nombre perteneciente a otra escena u objeto compartido con otra escena.",
+    "lighting_parity": "Las piezas nuevas se incorporan a las colecciones de receptores chrome_strip y reference_full si existen; no se modifican parámetros de luz ni membresías existentes.",
+    "preserved": [
+      "24fins y colectores previos",
+      "cámara/FOV/exposición",
+      "hueco de puerta y hoja/bisagra",
+      "ventana y cortinas",
+      "suelo y paredes",
+      "materiales/texturas y mapas existentes",
+      "perfil/runtime/shaders/navegación"
+    ],
+    "predicted_export_delta": {
+      "triangles": 264,
+      "corners": 792,
+      "materials": 0,
+      "note": "Conteo analítico de6cilindros12lados con tapas; no resultado de una exportación ejecutada."
+    }
+  },
+  "analytic_projection": {
+    "camera_xyz_m": [
+      -1.5,
+      -2,
+      1.4
+    ],
+    "yaw_rad": 1.29,
+    "pitch_rad": -0.21,
+    "tan_half_vertical_fov": 0.7,
+    "size_px": [
+      720,
+      1280
+    ],
+    "centerlines": [
+      {
+        "name": "GEO-DREAM-radiator_return_near_stub",
+        "a_px": [
+          746.383,
+          856.26
+        ],
+        "b_px": [
+          754.524,
+          861.362
+        ]
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_near_drop",
+        "a_px": [
+          754.524,
+          861.362
+        ],
+        "b_px": [
+          747.993,
+          928.709
+        ]
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_near_collar",
+        "a_px": [
+          753.936,
+          867.433
+        ],
+        "b_px": [
+          755.115,
+          855.273
+        ]
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_stub",
+        "a_px": [
+          573.713,
+          748.043
+        ],
+        "b_px": [
+          569.386,
+          745.332
+        ]
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_drop",
+        "a_px": [
+          569.386,
+          745.332
+        ],
+        "b_px": [
+          566.875,
+          795.521
+        ]
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_collar",
+        "a_px": [
+          569.161,
+          749.837
+        ],
+        "b_px": [
+          569.612,
+          740.817
+        ]
+      }
+    ],
+    "method": "Analytic pinhole of authored centerlines at existing primary camera,720x1280,tanHalfVFov0.7; no occlusion, surface width, Blender modifiers or renderer involved.",
+    "interpretation": "El extremo cercano queda fuera del encuadre primario (x≈748–755px); el lejano aparece junto al radiador (x≈567–574px). Hace falta la vista lateral para comprobar ambas conexiones. No es un render ni encaje por píxel."
+  },
+  "checks": {
+    "python_ast_syntax": "PASS: build_room.py y room_radiator_details.py",
+    "pure_spec_import_without_bpy": "PASS",
+    "finite_nonzero_unique_geometry_specs": "PASS",
+    "stub_to_drop_shared_endpoint": "PASS",
+    "floor_entry": "PASS: bajante hasta z=.006 frente a recubrimiento z=.016; penetra10mm para evitar hueco artificial.",
+    "closed_cylinder_topology": "PASS analítico: aristas con dos incidencias opuestas, Euler2, tapas coherentes. Blender/evaluated normals no comprobados todavía.",
+    "diff_whitespace": "PASS: git diff --check -- dream/blender/build_room.py dream/blender/room_radiator_details.py",
+    "live_apply_executed": false,
+    "new_render_reviewed": false,
+    "export_executed": false
+  },
+  "lighting_reflection_followup_proposal": {
+    "implemented": false,
+    "reason": "El parecido restante depende de distribución de reflejos, escala de ondas y brillo de cromo, además de registrar cámaras; no basta cambiar otra proporción por intuición.",
+    "controlled_candidates": [
+      {
+        "surface": "cromo radiador",
+        "candidate": "Tras comprobar las conexiones en Blender, ensayar chrome_strip energy12→15 únicamente en sus receptores existentes.",
+        "preserve": "exposure .10 y luces de cerámica/puerta; comparar blanco especular y zonas oscuras en11s y vista del regreso antes de aceptar.",
+        "status": "semilla de prueba, no ajuste aplicado ni garantía de mejora"
+      },
+      {
+        "surface": "suelo mojado",
+        "candidate": "Separar una prueba de escala de onda≈1.4× de otra de normal strength .65→.45 en Blender; no combinarlas inicialmente.",
+        "evidence": "El reflejo actual del radiador produce dientes/ondas bastante regulares; la referencia distribuye bandas deformadas más suaves e irregulares.",
+        "preserve": "albedo/paleta y cámara; comparar reflejo completo y sus sombras en vista principal y lateral, no sólo una mancha luminosa.",
+        "status": "semillas para pruebas limitadas, no valores recuperados del video"
+      }
+    ],
+    "runtime_note": "Los parámetros Blender no se transfieren íntegros por GLB. Cualquier ajuste óptico posterior requiere calibración propia del runtime y renovación explícita del probe si corresponde."
+  },
+  "next_live_steps": [
+    "Ejecutar el helper por MCP con apply_radiator_returns(); verificar6nombres y ausencia de cambios en las piezas originales.",
+    "Capturar vista principal y una vista lateral del radiador; comprobar continuidad de tubos, escala y ausencia de penetraciones visibles no deseadas.",
+    "Si el detalle funciona, guardar .blend y exportar por el flujo habitual; esta tarea no lo realizó.",
+    "Registrar cámaras del regreso antes de juzgar tamaño de ventana/hoja/radiador o dar aceptación multivista."
+  ],
+  "acceptance": {
+    "ready_for_incremental_blender_test": true,
+    "sufficient_to_continue_material_calibration": true,
+    "geometry_final_accepted": false,
+    "visual_fidelity_accepted": false,
+    "global_goal_complete": false
+  },
+  "artifacts": [
+    {
+      "path": "dream/blender/build_room.py",
+      "bytes": 16819,
+      "sha256": "34ff3598a42055073211aaef40fc3e909473c3aeab83dc93bb4bbff9f28c3dd5"
+    },
+    {
+      "path": "dream/blender/room_radiator_details.py",
+      "bytes": 5374,
+      "sha256": "1ee5c82ef6430b1d381ad1cbdda781338af7bee4dda6898688c3ee5c0ce46a28"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/11s.png",
+      "bytes": 417579,
+      "sha256": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3"
+    },
+    {
+      "path": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+      "bytes": 5180951,
+      "sha256": "3147a71d5ce0b7e964fb424810d27fbeb70a87c26a501c26b7a94446ba7f75ce"
+    },
+    {
+      "path": "dream/validation/room-blender.png",
+      "bytes": 1175253,
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a"
+    },
+    {
+      "path": "dream/validation/room-comparison.png",
+      "bytes": 631408,
+      "sha256": "bfcf6adb02bd28ed790637b89730c95f432c7a581c686a5059e937617f18e0c2"
+    },
+    {
+      "path": "dream/validation/room-geometry-review.json",
+      "bytes": 7267,
+      "sha256": "d68aaf741ccec679456aacc66e998550206b7c9706216c62acce5dea2b85faef"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/analysis.json",
+      "bytes": 2170,
+      "sha256": "2a34663e7eb15ee2da78099c477e7344b1d96ae2e80227b91c4263422d1b9ceb"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/cut-10.800s-after.png",
+      "bytes": 348424,
+      "sha256": "543b3c06c828253832c0c4d8e84735cb902e6dbd5cb1af792e2748644d4e62f7"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/cut-10.800s-before.png",
+      "bytes": 478021,
+      "sha256": "6ff87d8a3962141122075da35e6552d3e9d9eccca8f0d11b5b2b457fe1454a5f"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/cut-23.300s-after.png",
+      "bytes": 458116,
+      "sha256": "6029ac8dbcb01ad645409459c36a69ea682dfc610a5e8ba26679315ac5b85c7b"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/cut-23.300s-before.png",
+      "bytes": 513707,
+      "sha256": "fab91b7a2ff3967137a2508bdce676e8688bb857cbe326761d5d3998ff1b85a1"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/extraction.json",
+      "bytes": 5600,
+      "sha256": "1466895cde93e243fe360815301347d921f92d7f56ba025cdfa52f9b3f22e195"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/radiator-crops.json",
+      "bytes": 830,
+      "sha256": "c83df0a94ce901099e3156e11d0966d62a14e10da0d4ccffd05c18dd433d0217"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-10p9s.png",
+      "bytes": 416404,
+      "sha256": "978fc24a1fb3838a1f30894181e20932701e222dc1bd2d95efc7279ec607e781"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-11p5s.png",
+      "bytes": 413312,
+      "sha256": "39a01dd74d8994ce7299dbe920bd5435ba80ce16ecd8ecbf4d553dea745eb2c2"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-11s-radiator-detail.png",
+      "bytes": 44012,
+      "sha256": "70f4ca2152f2f8f32ff429a9bac96407081d772c242e596ec8fa811212c6e8f2"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-11s.png",
+      "bytes": 415682,
+      "sha256": "f7d4c1ebd16962737bccfc5dff4ed93d0809d0fd57694bb5520f30cdaf0f4117"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-12p5s.png",
+      "bytes": 414793,
+      "sha256": "eabab90a87e07ffcc3a1c1d08e97165b09e56d9bb0630e9c28cd024e51feb5e7"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-12s.png",
+      "bytes": 394240,
+      "sha256": "a959b21d150ef04c12f50f453b743895b6a420a189803fa88973a0a50618adcc"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-13p5s.png",
+      "bytes": 495826,
+      "sha256": "438d8f3ff1990ad854a30bb5130e5024957504e30a2453e593d5776bc36f47f4"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-13s.png",
+      "bytes": 460512,
+      "sha256": "000fe3257d6f82e888bd0681a8423959580ce13af5b49ede4a959e365fe044bd"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-23p1s.png",
+      "bytes": 509228,
+      "sha256": "0f6f8e7707dbef4306684a5d3ec642b5b8a43c275007175b4b975488740b1b74"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-23p5s.png",
+      "bytes": 501538,
+      "sha256": "4ba8721ce188442146c0e4c75933b16305b9920d820a9b432819099461b09076"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-24p5s-radiator-detail.png",
+      "bytes": 108268,
+      "sha256": "48908c007f8cc14ce4594b62a12f1830926986f9ec84a554eda29a2916c78a0e"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-24p5s.png",
+      "bytes": 432028,
+      "sha256": "d88ebd49fbaf653603ba52988ee3e822f9110a924e28e37a691ed40fd51be6bb"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-24s-radiator-detail.png",
+      "bytes": 97095,
+      "sha256": "b14287a8ab75d765131c731c253973785b99d60945942eaf1ac414c817996b8c"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-24s.png",
+      "bytes": 478561,
+      "sha256": "702718d4e178716252982b0e2fc72aaa230c459d4842d4cdb11d18fe7b610068"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-25p5s.png",
+      "bytes": 328817,
+      "sha256": "b807c91c319817efc7afe2678699e26607322ce3338a4c2af010b16ad05a27c1"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-25s.png",
+      "bytes": 282289,
+      "sha256": "c3f3dac757e0f295e74c2167f83fdb6ae874b4c18001c8b552687330dd0eb253"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-26p5s.png",
+      "bytes": 338423,
+      "sha256": "fa84953ed80c3d88fd214333b3e928cf72a6df33fc7fd28d5a5a3f822395e8a2"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-26s.png",
+      "bytes": 316382,
+      "sha256": "524242e26e1175daaa9218aebc1eb016d144439c4135ecbc50c13e1f370c29af"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-27s.png",
+      "bytes": 309047,
+      "sha256": "bd6085d92c5d158434930b097f68b67be81146bf3893cdb3421461c9258c72ad"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-28s.png",
+      "bytes": 330365,
+      "sha256": "a67215fa47da37e6bcceda433deb01937fa10c034224ec3253b687749899c8a4"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/reference-29s.png",
+      "bytes": 263660,
+      "sha256": "13d9631245fa56c340ba3700a6530711ee362302449b5547a31a5a21cba95d74"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/room-reference-intervals.png",
+      "bytes": 1139416,
+      "sha256": "a60d78e610b47cc69fe9cb33ad81be3155f3b4efc95cf2766878a7b7e5cbf9ad"
+    },
+    {
+      "path": "dream/validation/room-multiview-v9/video35-full-timeline.png",
+      "bytes": 1533940,
+      "sha256": "5f8f24b189197fa39835b6732a1899be9b87f86f6a355e44e7bc25ffb46e1874"
+    },
+    {
+      "path": "dream/validation/room-opengl.png",
+      "bytes": 355698,
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c"
+    },
+    {
+      "path": "dream/validation/room-view-radiator-v7.png",
+      "bytes": 407940,
+      "sha256": "28cb4be1b3703297f853c6970de36fad4a7e712e72cad17c722a16cb079e3c75"
+    },
+    {
+      "path": "dream/validation/room-view-right-v7.png",
+      "bytes": 402038,
+      "sha256": "ff3cf5f45cedb7f817f1311e3e6d04472889c5421c324419948820f7e00bad5e"
+    },
+    {
+      "path": "dream/validation/room-views-v7.json",
+      "bytes": 1522,
+      "sha256": "d77d14a6f476e4cf1717fdd3f198283cca58cd582cd00b25bc0a36d62e9f262c"
+    }
+  ]
+}

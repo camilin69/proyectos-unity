@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "status": "procedural_candidates_not_scene_validated",
+  "source": "dream/blender/make_kitchen_textures.py",
+  "maps": {
+    "kitchen_grass_albedo": {
+      "size_px": [
+        1024,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "color_space": "sRGB",
+      "horizontal_seam_pixels_equal": true,
+      "sha256": {
+        "png": "975dd1744e08743f61dd0ebc08b531a800c35485ed767ba378160e916e8aeb2b",
+        "bmp": "6e3d2b301b951da37795f81f47339d8763ff95e6ea364b500f43e2c9dad5cb74"
+      }
+    },
+    "kitchen_grass_normal": {
+      "size_px": [
+        1024,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "color_space": "Non-Color",
+      "horizontal_seam_pixels_equal": true,
+      "sha256": {
+        "png": "9187f29c0949f4971f92b5b3d3db2119073fe9ac9f587a6778edc7a2cd132508",
+        "bmp": "31c96a1515ab32ab6b3da07c4aa8ed775914524d63e693d65041f9e4c39140ed"
+      }
+    },
+    "kitchen_sky": {
+      "size_px": [
+        2048,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "color_space": "sRGB",
+      "horizontal_seam_pixels_equal": true,
+      "sha256": {
+        "png": "047ae8681c9a821406bb212bbc83b81664e1d1bcbb196c41bd2880f5a10848ea",
+        "bmp": "e5ead6a9f343b44eaec479fea66874eac4006bb261a778344fdc78894222b1e7"
+      }
+    },
+    "kitchen_neutral_white": {
+      "size_px": [
+        4,
+        4
+      ],
+      "png_bmp_pixels_equal": true,
+      "color_space": "sRGB",
+      "horizontal_seam_pixels_equal": true,
+      "sha256": {
+        "png": "7d001f8fab18d1119fc5976ea2f716929d139013e9b4fcec48c9531b7ca4212c",
+        "bmp": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a"
+      }
+    },
+    "kitchen_neutral_normal": {
+      "size_px": [
+        4,
+        4
+      ],
+      "png_bmp_pixels_equal": true,
+      "color_space": "Non-Color",
+      "horizontal_seam_pixels_equal": true,
+      "sha256": {
+        "png": "3d41646de11179347cba387d740809ba54bfe4bd35bc65fd6c1bbc606eb05aff",
+        "bmp": "2972e220fb5606ba7865ec37d5cd5e2968e3c72c04b369e66e69f0fc2f8b47a8"
+      }
+    }
+  },
+  "contract": {
+    "grass_kind": 11,
+    "grass_ground_variant": 0,
+    "grass_blade_variant": 1,
+    "color_sampler_slot": "floorSurface",
+    "normal_sampler_slot": "floorFlow",
+    "grass_uv": "world X/4, world Y/4, continuous across interior/meadow",
+    "normal_strength": 0.24,
+    "roughness": 0.9,
+    "sky_runtime_uv": "u=atan2(Y,X)/(2pi)+.5; v=asin(Z)/pi+.5; BMP loader flips rows",
+    "sky_png_rows": "+Z at top, -Z at bottom",
+    "blender_environment_mapping_scale": [
+      1,
+      -1,
+      1
+    ]
+  },
+  "limitations": [
+    "No scene render or final material acceptance yet.",
+    "Sky is an original LDR procedural approximation, not recovered HDRI.",
+    "Grass map period is 4 m; geometry and mipmaps are needed for close/far continuity.",
+    "Reference crops retain their original illumination and are not used as albedo."
+  ],
+  "grass_vertical_seam_pixels_equal": true,
+  "source_sha256": "04b91a8cca91907dd8c0873f88ef3a562bd7e08fc02cb44cdea7c7b6f0d2ac60"
+}

@@ -1,0 +1,295 @@
+{
+  "schema": "dream.wave_third_view.v1",
+  "accepted": false,
+  "geometry_modified": false,
+  "time_s": 17,
+  "hypothesis": "Second corridor lamp remains the first fully visible lamp at 17 s.",
+  "fixed_eye_height_m": 1.600462984441152,
+  "best": {
+    "camera": {
+      "position_m": [
+        -0.08905715784583018,
+        1.2087215413632801,
+        1.397596373415322
+      ],
+      "yaw_rad": 1.6045184324930077,
+      "pitch_rad": -0.4296466809876015,
+      "roll_rad": -0.08046464286105089,
+      "tan_half_vertical_fov": 0.9590039863520616,
+      "render_px": [
+        478,
+        850
+      ]
+    },
+    "support_z_m": -0.20286661102582984,
+    "weighted_rms": 1.505656190938714
+  },
+  "trials": [
+    {
+      "camera": {
+        "position_m": [
+          -0.08905715784583018,
+          1.2087215413632801,
+          1.397596373415322
+        ],
+        "yaw_rad": 1.6045184324930077,
+        "pitch_rad": -0.4296466809876015,
+        "roll_rad": -0.08046464286105089,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.20286661102582984,
+      "weighted_rms": 1.505656190938714
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.08194476939786499,
+          1.2400100000001795,
+          1.3468797206588647
+        ],
+        "yaw_rad": 1.601018485497766,
+        "pitch_rad": -0.4219038366920624,
+        "roll_rad": -0.07175772874667682,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.2535832637822873,
+      "weighted_rms": 1.5611747628948343
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.07242953047495847,
+          1.4000100000002242,
+          1.3468797206588647
+        ],
+        "yaw_rad": 1.598659971435145,
+        "pitch_rad": -0.4184554423430039,
+        "roll_rad": -0.06489179896197246,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.2535832637822873,
+      "weighted_rms": 1.601437765628609
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.014939740042972579,
+          2.9397816264983003,
+          1.1668797206588648
+        ],
+        "yaw_rad": 1.5399233504434502,
+        "pitch_rad": -0.3087537058593012,
+        "roll_rad": 0.06572326066226881,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.4335832637822873,
+      "weighted_rms": 5.5443524885343125
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.044721775863493476,
+          3.2899625405609054,
+          0.9868797206588648
+        ],
+        "yaw_rad": 1.4873466074755723,
+        "pitch_rad": -0.21109707328590485,
+        "roll_rad": 0.14999999999999986,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.6135832637822872,
+      "weighted_rms": 8.81233884372154
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.19373216725381376,
+          3.64014345462351,
+          0.8068797206588648
+        ],
+        "yaw_rad": 1.4352764022034261,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": 0.14999999999999997,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.7935832637822872,
+      "weighted_rms": 13.161471733650183
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.6499999999999999,
+          3.9903243686861147,
+          0.6268797206588649
+        ],
+        "yaw_rad": 1.8999999999999997,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": -0.13003637051643058,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.9735832637822871,
+      "weighted_rms": 21.617110650247014
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.0,
+          4.57025264137436,
+          0.6268797206588649
+        ],
+        "yaw_rad": 1.57,
+        "pitch_rad": -0.4,
+        "roll_rad": 0.0,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.9735832637822871,
+      "weighted_rms": 10000.0
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "next_lamp_center",
+      "source_px": [
+        245,
+        111
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        243.8950662501806,
+        103.7051349158948
+      ],
+      "distance_px": 7.378071237578767
+    },
+    {
+      "id": "far_lamp_center",
+      "source_px": [
+        244,
+        151
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        241.37733450163412,
+        165.0600667994861
+      ],
+      "distance_px": 14.302582029910889
+    },
+    {
+      "id": "hall_lamp_0",
+      "source_px": [
+        243,
+        175
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        240.60282349723138,
+        183.9342260285846
+      ],
+      "distance_px": 9.250235127566452
+    },
+    {
+      "id": "hall_lamp_1",
+      "source_px": [
+        242,
+        192
+      ],
+      "uncertainty_px": 8,
+      "projected_px": [
+        240.29734192841033,
+        191.3785460430297
+      ],
+      "distance_px": 1.8125257320610613
+    },
+    {
+      "id": "aperture_top_left",
+      "source_px": [
+        148,
+        189
+      ],
+      "uncertainty_px": 9,
+      "projected_px": [
+        175.73873190992367,
+        173.81885235501602
+      ],
+      "distance_px": 31.621266448221526
+    },
+    {
+      "id": "aperture_top_right",
+      "source_px": [
+        334,
+        182
+      ],
+      "uncertainty_px": 12,
+      "projected_px": [
+        306.6022913042006,
+        162.7870163336558
+      ],
+      "distance_px": 33.463012164822985
+    }
+  ],
+  "held_out": [
+    {
+      "side": "left",
+      "projected_rail_end_px": [
+        200.10957520364104,
+        349.13753831832673
+      ],
+      "source_possible_rail_end_px": [
+        148,
+        329
+      ],
+      "distance_px": 55.86526897300324,
+      "use": "excluded diagnostic: upright handrail may differ from low edge-trim termination"
+    },
+    {
+      "side": "right",
+      "projected_rail_end_px": [
+        304.13103038020546,
+        341.65150346476025
+      ],
+      "source_possible_rail_end_px": [
+        322,
+        335
+      ],
+      "distance_px": 19.06679243121029,
+      "use": "excluded diagnostic: upright handrail may differ from low edge-trim termination"
+    }
+  ],
+  "limitations": [
+    "Only the camera is fitted; the full original video trajectory is not recovered.",
+    "Lamp correspondence and the hall aperture corners remain manually assigned and approximate.",
+    "The possible rail endpoints are not fit inputs; their mismatches must not be hidden."
+  ],
+  "geometry_source_sha256": "c9c8bba2435b59eb4b5a78f3c5d06100f2d624eb6ab3deeeeffc75e685accd20"
+}

@@ -1,0 +1,902 @@
+{
+  "format": "DREAMM02",
+  "axes": "Z-up, right handed, metres",
+  "materials": [
+    "DREAM_STAIR_MAT_plush",
+    "DREAM_STAIR_MAT_grass",
+    "DREAM_STAIR_MAT_mint",
+    "DREAM_STAIR_MAT_frame",
+    "DREAM_STAIR_MAT_rail",
+    "DREAM_STAIR_MAT_blades"
+  ],
+  "vertices": 1061766,
+  "triangles": 353922,
+  "objects": [
+    {
+      "name": "GEO-DREAM-stair-detail_plush",
+      "first_vertex": 0,
+      "vertex_count": 314388,
+      "kind": 12,
+      "center": [
+        0.0025295200757682323,
+        1.7364373207092285,
+        1.0184763669967651
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-detail_grass",
+      "first_vertex": 314388,
+      "vertex_count": 717066,
+      "kind": 11,
+      "center": [
+        -0.013634171336889267,
+        -0.5925188064575195,
+        0.8115187287330627
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_01",
+      "first_vertex": 1031454,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        0.1459999829530716,
+        0.0625
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_01",
+      "first_vertex": 1031778,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        0.14600001275539398,
+        0.0625000074505806
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_01",
+      "first_vertex": 1032102,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        0.14600001275539398,
+        0.0625000074505806
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_02",
+      "first_vertex": 1032426,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        0.4459999203681946,
+        0.14249998331069946
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_02",
+      "first_vertex": 1032750,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        0.44599997997283936,
+        0.14250001311302185
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_02",
+      "first_vertex": 1033074,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        0.44599997997283936,
+        0.14250001311302185
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_03",
+      "first_vertex": 1033398,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        0.7460001111030579,
+        0.22249998152256012
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_03",
+      "first_vertex": 1033722,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        0.7459998726844788,
+        0.2224999964237213
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_03",
+      "first_vertex": 1034046,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        0.7459998726844788,
+        0.2224999964237213
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_04",
+      "first_vertex": 1034370,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        1.0460002422332764,
+        0.30250000953674316
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_04",
+      "first_vertex": 1034694,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        1.046000361442566,
+        0.30250000953674316
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_04",
+      "first_vertex": 1035018,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        1.046000361442566,
+        0.30250000953674316
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_05",
+      "first_vertex": 1035342,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        1.3459999561309814,
+        0.3825000822544098
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_05",
+      "first_vertex": 1035666,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        1.34600031375885,
+        0.3824999928474426
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_05",
+      "first_vertex": 1035990,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        1.34600031375885,
+        0.3824999928474426
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_06",
+      "first_vertex": 1036314,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        1.6460002660751343,
+        0.46250003576278687
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_06",
+      "first_vertex": 1036638,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        1.645999789237976,
+        0.4624999761581421
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_06",
+      "first_vertex": 1036962,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        1.645999789237976,
+        0.4624999761581421
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_07",
+      "first_vertex": 1037286,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        1.9460006952285767,
+        0.5425000190734863
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_07",
+      "first_vertex": 1037610,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        1.9460002183914185,
+        0.5424999594688416
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_07",
+      "first_vertex": 1037934,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        1.9460002183914185,
+        0.5424999594688416
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_08",
+      "first_vertex": 1038258,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        2.245999574661255,
+        0.6225000619888306
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_08",
+      "first_vertex": 1038582,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        2.246000289916992,
+        0.6224998235702515
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_08",
+      "first_vertex": 1038906,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        2.246000289916992,
+        0.6224998235702515
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_09",
+      "first_vertex": 1039230,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        2.5460002422332764,
+        0.7024999260902405
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_09",
+      "first_vertex": 1039554,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        2.5460002422332764,
+        0.7024998068809509
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_09",
+      "first_vertex": 1039878,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        2.5460002422332764,
+        0.7024998068809509
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_10",
+      "first_vertex": 1040202,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        2.845999240875244,
+        0.7824999094009399
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_10",
+      "first_vertex": 1040526,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        2.8459997177124023,
+        0.7824997305870056
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_10",
+      "first_vertex": 1040850,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        2.8459997177124023,
+        0.7824997305870056
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_11",
+      "first_vertex": 1041174,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        3.1460001468658447,
+        0.8624998927116394
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_11",
+      "first_vertex": 1041498,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        3.1459996700286865,
+        0.8624997735023499
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_11",
+      "first_vertex": 1041822,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        3.1459996700286865,
+        0.8624997735023499
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-tread_12",
+      "first_vertex": 1042146,
+      "vertex_count": 324,
+      "kind": 12,
+      "center": [
+        -4.896095973094816e-08,
+        3.4460012912750244,
+        0.9424998760223389
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_green_tread_12",
+      "first_vertex": 1042470,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        -1.080000638961792,
+        3.44599986076355,
+        0.9424998164176941
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_green_tread_12",
+      "first_vertex": 1042794,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        1.0799996852874756,
+        3.44599986076355,
+        0.9424998164176941
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-approach_ground",
+      "first_vertex": 1043118,
+      "vertex_count": 36,
+      "kind": 11,
+      "center": [
+        0.0,
+        -2.75,
+        -0.07999999821186066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-upper_landing",
+      "first_vertex": 1043154,
+      "vertex_count": 324,
+      "kind": 11,
+      "center": [
+        9.366444686520481e-08,
+        4.400001049041748,
+        0.9425002932548523
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_bank",
+      "first_vertex": 1043478,
+      "vertex_count": 4344,
+      "kind": 11,
+      "center": [
+        -3.202495574951172,
+        1.4750006198883057,
+        0.7355043888092041
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_bank",
+      "first_vertex": 1047822,
+      "vertex_count": 4344,
+      "kind": 11,
+      "center": [
+        3.202495574951172,
+        1.4750006198883057,
+        0.7355043888092041
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-surround_left",
+      "first_vertex": 1052166,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        -4.334020137786865,
+        3.9200000762939453,
+        4.5
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-surround_right",
+      "first_vertex": 1052202,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        4.334020137786865,
+        3.9200000762939453,
+        4.5
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-surround_above",
+      "first_vertex": 1052238,
+      "vertex_count": 3408,
+      "kind": 0,
+      "center": [
+        3.7645038197808844e-09,
+        3.9200174808502197,
+        6.849289417266846
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-surround_below",
+      "first_vertex": 1055646,
+      "vertex_count": 36,
+      "kind": 0,
+      "center": [
+        2.9802322387695312e-08,
+        3.9200000762939453,
+        0.9599999785423279
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_lower_return",
+      "first_vertex": 1055682,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        -1.040000081062317,
+        -0.40000006556510925,
+        0.899999737739563
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_inclined_rail",
+      "first_vertex": 1055910,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        -1.040000081062317,
+        1.725000262260437,
+        1.8499997854232788
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_upper_return",
+      "first_vertex": 1056138,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        -1.040000081062317,
+        3.5700008869171143,
+        2.75
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_lower_elbow",
+      "first_vertex": 1056366,
+      "vertex_count": 672,
+      "kind": 0,
+      "center": [
+        -1.0399999618530273,
+        1.1437294444860413e-09,
+        0.9000002145767212
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_upper_elbow",
+      "first_vertex": 1057038,
+      "vertex_count": 672,
+      "kind": 0,
+      "center": [
+        -1.0399999618530273,
+        3.4500017166137695,
+        2.799999952316284
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_post_0",
+      "first_vertex": 1057710,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        -1.040000319480896,
+        -0.2199999839067459,
+        0.4449999928474426
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_post_1",
+      "first_vertex": 1057938,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        -1.040000319480896,
+        1.399999976158142,
+        1.2305071353912354
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-left_post_2",
+      "first_vertex": 1058166,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        -1.040000319480896,
+        3.3600006103515625,
+        2.330216884613037
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_lower_return",
+      "first_vertex": 1058394,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        1.040000081062317,
+        -0.40000006556510925,
+        0.899999737739563
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_inclined_rail",
+      "first_vertex": 1058622,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        1.0399999618530273,
+        1.725000262260437,
+        1.8499997854232788
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_upper_return",
+      "first_vertex": 1058850,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        1.040000081062317,
+        3.5700008869171143,
+        2.75
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_lower_elbow",
+      "first_vertex": 1059078,
+      "vertex_count": 672,
+      "kind": 0,
+      "center": [
+        1.040000081062317,
+        1.1437294444860413e-09,
+        0.9000002145767212
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_upper_elbow",
+      "first_vertex": 1059750,
+      "vertex_count": 672,
+      "kind": 0,
+      "center": [
+        1.040000081062317,
+        3.4500017166137695,
+        2.799999952316284
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_post_0",
+      "first_vertex": 1060422,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        1.0400002002716064,
+        -0.2199999839067459,
+        0.4449999928474426
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_post_1",
+      "first_vertex": 1060650,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        1.0400002002716064,
+        1.399999976158142,
+        1.2305071353912354
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-right_post_2",
+      "first_vertex": 1060878,
+      "vertex_count": 228,
+      "kind": 0,
+      "center": [
+        1.0400002002716064,
+        3.3600006103515625,
+        2.330216884613037
+      ]
+    },
+    {
+      "name": "GEO-DREAM-stair-frame_solid_profile",
+      "first_vertex": 1061106,
+      "vertex_count": 660,
+      "kind": 0,
+      "center": [
+        0.0,
+        3.909144401550293,
+        3.3647427558898926
+      ]
+    }
+  ],
+  "camera": {
+    "position": [
+      0.022059999406337738,
+      -3.4388699531555176,
+      1.5499999523162842
+    ],
+    "vertical_fov_degrees": 61.70413730138675,
+    "forward": [
+      0.05081436410546303,
+      0.9987066388130188,
+      0.0017323922365903854
+    ]
+  },
+  "source": "blender/stair_sky.blend",
+  "ao": {
+    "method": "8 cosine hemisphere rays, 0.65 m radius",
+    "minimum": 0.35,
+    "corners": 901327,
+    "excluded_occluder_kinds": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "unoccluded_receiver_kinds": [
+      11
+    ],
+    "detail_objects_excluded": [
+      "GEO-DREAM-stair-detail_plush",
+      "GEO-DREAM-stair-detail_grass"
+    ]
+  },
+  "navigation": {
+    "schema_version": 1,
+    "kind": "stair_support_surfaces",
+    "status": "configured_for_height_support_runtime_validation_pending",
+    "eye_height_m": 1.55,
+    "agent_radius_m": 0.18,
+    "max_step_up_m": 0.18,
+    "max_step_down_m": 0.18,
+    "center_corridor_xyxy_m": [
+      -0.72,
+      -5.2,
+      0.72,
+      5.0
+    ],
+    "support_surfaces": [
+      {
+        "id": "approach",
+        "xyxy_m": [
+          -0.93,
+          -5.2,
+          0.93,
+          0.0
+        ],
+        "support_z_m": 0.0
+      },
+      {
+        "id": "tread_01",
+        "xyxy_m": [
+          -0.93,
+          0.0,
+          0.93,
+          0.3
+        ],
+        "support_z_m": 0.16
+      },
+      {
+        "id": "tread_02",
+        "xyxy_m": [
+          -0.93,
+          0.3,
+          0.93,
+          0.6
+        ],
+        "support_z_m": 0.32
+      },
+      {
+        "id": "tread_03",
+        "xyxy_m": [
+          -0.93,
+          0.6,
+          0.93,
+          0.8999999999999999
+        ],
+        "support_z_m": 0.48
+      },
+      {
+        "id": "tread_04",
+        "xyxy_m": [
+          -0.93,
+          0.8999999999999999,
+          0.93,
+          1.2
+        ],
+        "support_z_m": 0.64
+      },
+      {
+        "id": "tread_05",
+        "xyxy_m": [
+          -0.93,
+          1.2,
+          0.93,
+          1.5
+        ],
+        "support_z_m": 0.8
+      },
+      {
+        "id": "tread_06",
+        "xyxy_m": [
+          -0.93,
+          1.5,
+          0.93,
+          1.8
+        ],
+        "support_z_m": 0.96
+      },
+      {
+        "id": "tread_07",
+        "xyxy_m": [
+          -0.93,
+          1.7999999999999998,
+          0.93,
+          2.0999999999999996
+        ],
+        "support_z_m": 1.12
+      },
+      {
+        "id": "tread_08",
+        "xyxy_m": [
+          -0.93,
+          2.1,
+          0.93,
+          2.4
+        ],
+        "support_z_m": 1.28
+      },
+      {
+        "id": "tread_09",
+        "xyxy_m": [
+          -0.93,
+          2.4,
+          0.93,
+          2.6999999999999997
+        ],
+        "support_z_m": 1.44
+      },
+      {
+        "id": "tread_10",
+        "xyxy_m": [
+          -0.93,
+          2.6999999999999997,
+          0.93,
+          2.9999999999999996
+        ],
+        "support_z_m": 1.6
+      },
+      {
+        "id": "tread_11",
+        "xyxy_m": [
+          -0.93,
+          3.0,
+          0.93,
+          3.3
+        ],
+        "support_z_m": 1.76
+      },
+      {
+        "id": "tread_12",
+        "xyxy_m": [
+          -0.93,
+          3.3,
+          0.93,
+          3.5999999999999996
+        ],
+        "support_z_m": 1.92
+      },
+      {
+        "id": "upper_landing",
+        "xyxy_m": [
+          -0.93,
+          3.6,
+          0.93,
+          5.2
+        ],
+        "support_z_m": 1.92
+      }
+    ],
+    "boundary_convention": "Use y_min <= y < y_max, taking the following tread at a shared edge.",
+    "outside_corridor": "Blocked until additional traversable terrain is explicitly authored.",
+    "top_end": "Stop before landing edge; onward scene transition is not implemented.",
+    "runtime_note": "SceneSettings consumes 14 support surfaces and enforces .18 m step limits."
+  }
+}

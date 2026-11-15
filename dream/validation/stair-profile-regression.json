@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T04:53:55.880239+00:00",
+  "scope": "Build current runtime and render unchanged room/atrium at deterministic settings after adding the planned stair shader profile. Baseline files preserved. No staircase render or visual acceptance claim.",
+  "build": {
+    "command": "dream/runtime/build.ps1",
+    "exit_code": 0,
+    "warnings": 0
+  },
+  "graphics": {
+    "renderer": "Intel(R) HD Graphics 630",
+    "version": "3.3.0 - Build 31.0.101.2141",
+    "shader_compilation": "PASS: scene, sky and present linked during both real GL runs"
+  },
+  "render_settings": {
+    "frames": 8,
+    "fixed_time_s": 0,
+    "samples": 4,
+    "hidden": true
+  },
+  "source_sha256": {
+    "dream/runtime/build.ps1": "522ad146f3cb0fc5a7bad437753301d98b1c7941f9e24abceb6149e45c074dbd",
+    "dream/runtime/build/dream.exe": "89fb156cbe983a89d13761ad25e30efa6dc01b27c0e66b71ba4c5817aa8d4d64",
+    "dream/runtime/src/main.cpp": "47c27e9c2887d6107c2929ddae68dd24adf54d8fd5de7199228468902f5edc03",
+    "dream/runtime/src/scene_catalog.hpp": "79eb7e6fb00c22b2b48b9a37d6fa2ba6e295935ffb08c87d6057179b0d48e353",
+    "dream/runtime/shaders/scene.frag": "de5a8fb2c152fe480f662f21a91d16f0a4a76c2b57cbf938ad67f17493ba6633",
+    "dream/assets/scene_catalog.cat": "a6e76edc9a7c969d91816dfb4ad68117fd609e602aeee2486cad169b18b7a105",
+    "dream/assets/pastel_room.scene": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+    "dream/assets/pastel_room.dreammesh": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+    "dream/assets/atrium.scene": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519",
+    "dream/assets/atrium.dreammesh": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db"
+  },
+  "comparisons": [
+    {
+      "scene": "pastel_room",
+      "baseline": "dream/validation/room-opengl.png",
+      "capture": "dream/validation/room-stair-regression.png",
+      "size_px": [
+        540,
+        960
+      ],
+      "baseline_sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "capture_sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "baseline_preserved": true,
+      "pixel_identical": true,
+      "changed_pixels": 0,
+      "changed_pixel_fraction": 0.0,
+      "mean_absolute_rgb_error_8bit": 0.0,
+      "maximum_rgb_error_8bit": 0,
+      "run": {
+        "exit_code": 0,
+        "gl_error": 0,
+        "frames": 8,
+        "vertices": 31056,
+        "elapsed_s": 0.347601,
+        "performance_claim": false
+      },
+      "command": "dream/runtime/build/dream.exe --root dream --scene pastel_room --hidden --width 540 --height 960 --frames 8 --time 0 --samples 4 --capture dream/runtime/build/room-stair-regression.ppm"
+    },
+    {
+      "scene": "atrium",
+      "baseline": "dream/validation/atrium-opengl.png",
+      "capture": "dream/validation/atrium-stair-regression.png",
+      "size_px": [
+        960,
+        720
+      ],
+      "baseline_sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+      "capture_sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+      "baseline_preserved": true,
+      "pixel_identical": true,
+      "changed_pixels": 0,
+      "changed_pixel_fraction": 0.0,
+      "mean_absolute_rgb_error_8bit": 0.0,
+      "maximum_rgb_error_8bit": 0,
+      "run": {
+        "exit_code": 0,
+        "gl_error": 0,
+        "frames": 8,
+        "vertices": 537522,
+        "elapsed_s": 0.787749,
+        "performance_claim": false
+      },
+      "command": "dream/runtime/build/dream.exe --root dream --scene atrium --hidden --width 960 --height 720 --frames 8 --time 0 --samples 4 --capture dream/runtime/build/atrium-stair-regression.ppm"
+    }
+  ],
+  "staircase_status": "planned, not enabled by this regression check",
+  "limitations": [
+    "Pixel comparisons only apply to the recorded spawn cameras, resolutions, fixed time and driver. They do not establish reference fidelity or frame-rate performance."
+  ],
+  "status": "PASS_PIXEL_IDENTICAL"
+}

@@ -1,0 +1,20 @@
+{
+  "scenes_in_saved_file": [
+    "DREAM_OceanExit"
+  ],
+  "meshes": 29,
+  "images": [
+    "DREAM-ocean-sunset_stars_v2.png",
+    "DREAM-ocean-ripple_height.png",
+    "DREAM-ocean-pink_tile_roughness.png",
+    "DREAM-ocean-pink_tile_height.png",
+    "DREAM-ocean-pink_tile_albedo.png",
+    "DREAM-ocean-foam_mask.png",
+    "DREAM-ocean-exit_lamp.png",
+    "DREAM-ocean-exit_here.png"
+  ],
+  "cameras": [
+    "CAM-DREAM-ocean-7s",
+    "CAM-DREAM-ocean-11.5s"
+  ]
+}

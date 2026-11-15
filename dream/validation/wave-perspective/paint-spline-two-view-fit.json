@@ -1,0 +1,90 @@
+{
+  "schema": "dream.wave_paint_spline.v1",
+  "accepted": false,
+  "runtime_promoted": false,
+  "knots_s_m": [
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0
+  ],
+  "center_x_m": [
+    1.2319172253651904,
+    2.3145019614274425,
+    0.8533836280195941,
+    -0.16407599079202462,
+    -0.0330343934671842,
+    -0.6220706878661623,
+    -1.6550019059035774,
+    0.8364362205707717,
+    0.6121621608430715,
+    -2.6443899655014516
+  ],
+  "width_scale_m": 1.1405101074634454,
+  "metrics": {
+    "training": {
+      "samples": 25,
+      "interval_rms": 0.0998768272625385,
+      "inside_label_band_fraction": 0.76
+    },
+    "heldout_17s": {
+      "samples": 13,
+      "interval_rms": 0.8688509760319688,
+      "inside_label_band_fraction": 0.15384615384615385
+    }
+  },
+  "source_labels": "validation/wave-perspective/paint-fit.json",
+  "texture": "assets/textures/wave_perspective_candidate/wave_floor_albedo.png",
+  "uv_domain_m": {
+    "x": [
+      -5,
+      5
+    ],
+    "s": [
+      0,
+      32
+    ]
+  },
+  "palette_srgb": {
+    "teal": [
+      110,
+      161,
+      158
+    ],
+    "lavender": [
+      147,
+      145,
+      184
+    ],
+    "pink": [
+      208,
+      150,
+      165
+    ],
+    "coral": [
+      217,
+      133,
+      119
+    ],
+    "ochre": [
+      213,
+      181,
+      120
+    ]
+  },
+  "source_rgb_baked": false,
+  "limitations": [
+    "Only labelled portions of the floor constrain the spline.",
+    "Outside s=2..11 m, continuation is provisional and must not be called reference-matched.",
+    "The 17s colour samples are withheld from fitting; no whole-image fidelity score is implied.",
+    "The source/camera floor interpretation is still provisional."
+  ],
+  "texture_artifact_retained": false,
+  "history_note": "Parameters and results retained; the first generated map was replaced during the later three-view experiment. Neither map was applied to Blender or OpenGL."
+}

@@ -1,0 +1,786 @@
+{
+  "schema_version": 2,
+  "status": "candidate_applied_to_plan_pending_real_render",
+  "accepted": false,
+  "seed_constructor": {
+    "path": "dream/blender/build_wave_corridor.py",
+    "ownership_token": "-DREAM-wavecorridor-",
+    "axes": "Z up; +Y descends toward the destination; +X right; metres.",
+    "camera_seed": {
+      "position_m": [
+        -0.02,
+        -0.3,
+        1.55
+      ],
+      "yaw_rad": 1.565,
+      "pitch_rad": -0.305,
+      "roll_rad": 0.0,
+      "tan_half_vertical_fov": 0.72,
+      "render_px": [
+        478,
+        850
+      ],
+      "status": "Analytical framing seed; not registered to Blender render."
+    },
+    "secondary_camera_seed": {
+      "position_m": [
+        -0.42,
+        4.0,
+        1.05
+      ],
+      "yaw_rad": 1.52,
+      "pitch_rad": -0.27,
+      "roll_rad": 0.0,
+      "tan_half_vertical_fov": 0.72,
+      "status": "Inspection seed near second flight; not registered to15.5s."
+    },
+    "corridor": {
+      "half_width_m": 1.1,
+      "start_y_m": -2.0,
+      "end_y_m": 10.8,
+      "ceiling_z_m": 2.5,
+      "wall_thickness_m": 0.18,
+      "ceiling_thickness_m": 0.16,
+      "solid_bottom_z_m": -1.46
+    },
+    "floor": {
+      "base_z_m": 0.0,
+      "flights": [
+        {
+          "id": "near",
+          "start_y_m": 0.6,
+          "riser_count": 5,
+          "riser_m": 0.1,
+          "tread_m": 0.28
+        },
+        {
+          "id": "middle",
+          "start_y_m": 4.1,
+          "riser_count": 4,
+          "riser_m": 0.1,
+          "tread_m": 0.28
+        },
+        {
+          "id": "far",
+          "start_y_m": 7.2,
+          "riser_count": 3,
+          "riser_m": 0.1,
+          "tread_m": 0.28
+        }
+      ],
+      "model": "One closed extruded cross-section; horizontal tread faces plus vertical risers and flat landings, continuous solid underneath.",
+      "count_and_dimensions_inferred": true,
+      "continuous_ramp_alternative": "Not selected: current frames show tread edges. If later evidence requires a slope, use the same profile helper with nonvertical segments and implement/test slope support separately."
+    },
+    "doors": {
+      "side": -1,
+      "centres_y_m": [
+        -0.55,
+        3.18
+      ],
+      "width_m": 0.92,
+      "height_m": 2.16,
+      "recess_m": 0.12,
+      "leaf_thickness_m": 0.045,
+      "frame_width_m": 0.075,
+      "frame_projection_m": 0.018,
+      "frame_bevel_m": 0.007,
+      "leaf_base_clearance_m": 0.012,
+      "note": "True wall openings split into wall solids; closed door leaf is recessed within the wall. Door bottom follows its landing, never clips across a stair flight."
+    },
+    "rails": {
+      "offset_from_wall_m": 0.09,
+      "height_above_floor_m": 0.83,
+      "radius_m": 0.033,
+      "sample_spacing_m": 0.075,
+      "tube_sides": 12,
+      "bracket_spacing_m": 1.35,
+      "bracket_radius_m": 0.012,
+      "note": "Two total runs (one on each wall), broad diagonal on each flight and level on landings. Small rounded elbows emerge from a continuous swept tube; no disconnected zigzag pieces."
+    },
+    "ceiling_lights": {
+      "centres_y_m": [
+        0.65,
+        2.7,
+        4.9,
+        7.2,
+        9.5
+      ],
+      "body_radius_m": 0.16,
+      "body_depth_m": 0.105,
+      "base_radius_m": 0.174,
+      "base_depth_m": 0.035,
+      "segments": 20,
+      "note": "Rounded closed ellipsoids/short bases. Gray diagnostic fixtures; not final emission/glow."
+    },
+    "destination_hall": {
+      "half_width_m": 2.8,
+      "end_y_m": 16.8,
+      "ceiling_z_m": 2.5,
+      "column_x_m": [
+        -1.35,
+        1.35
+      ],
+      "column_y_m": 13.1,
+      "column_size_m": 0.22,
+      "back_panel_margin_m": 0.26,
+      "back_grid_columns": 6,
+      "back_grid_rows": 3,
+      "note": "Minimal bounded hall inferred from visible expansion and rear grid. Panel is diagnostic gray, not a confirmed mirror, window or outside landscape."
+    },
+    "diagnostic_render": {
+      "engine": "BLENDER_EEVEE",
+      "samples": 64,
+      "view_transform": "Standard",
+      "world_gray": 0.22,
+      "material_calibration": false,
+      "save_render_export": false
+    },
+    "material_intent_pending": {
+      "floor": "Glossy continuous pastel wave paint; preserve crop as evidence; derive own maps after geometry/camera pass.",
+      "walls": "Pink low-gloss paint",
+      "ceiling": "Teal matte fine-grain paint",
+      "doors": "Pale cream smooth paint",
+      "rails": "Dark metal with thin bright return",
+      "fixtures": "White diffusers with separate light contribution"
+    },
+    "preserved_texture_crops": [
+      "dream/referencias/estetica/texturas/video-42/suelo_ondas_pintadas.png",
+      "dream/referencias/estetica/texturas/video-42/techo_texturado.png"
+    ]
+  },
+  "parameters": {
+    "cx": -0.0692892415649669,
+    "cz": 1.460126912250797,
+    "yaw": 1.537198096676229,
+    "pitch": -0.3440033719571118,
+    "roll": 0.03925355372311127,
+    "tan": 0.803860936419869,
+    "ceiling": 2.3493934334525717,
+    "end": 10.053947273920816,
+    "door_first_y": 2.2703691758361697,
+    "door_y": 4.545535969502113,
+    "door_w": 1.1711238400026418,
+    "door_h": 2.1799488642832565,
+    "door_z": -0.351296715105986,
+    "near_drop": 0.14944592963942518,
+    "near_end": 1.851580269030767,
+    "mid_start": 3.723426101768838,
+    "mid_len": 1.8020101414333964,
+    "mid_drop": 0.7102205692066209,
+    "rail_h": 0.34635466973299645,
+    "lamp_a": 3.998500035278225,
+    "lamp_b": 5.9314683147367475,
+    "lamp_c": 8.47965616566642
+  },
+  "solver_success": true,
+  "weighted_candidate_rms": 0.4453511769044943,
+  "landmarks": [
+    {
+      "id": "aperture_top_left",
+      "reference_px": [
+        171,
+        183
+      ],
+      "uncertainty_px": 7,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        173.39693690316724,
+        182.06879724704558
+      ],
+      "candidate_px": [
+        171.15078874508282,
+        179.66698591294144
+      ],
+      "candidate_error_px": 3.3364232570485486
+    },
+    {
+      "id": "aperture_top_right",
+      "reference_px": [
+        295,
+        182
+      ],
+      "uncertainty_px": 7,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        299.44778660991625,
+        182.13616937255182
+      ],
+      "candidate_px": [
+        294.24765238536145,
+        184.89132514131146
+      ],
+      "candidate_error_px": 2.987605731356135
+    },
+    {
+      "id": "aperture_floor_left",
+      "reference_px": [
+        169,
+        353
+      ],
+      "uncertainty_px": 12,
+      "use": "excluded",
+      "exclusion_reason": "Apparent boundary may be far stair/trim bend rather than hall floor seam.",
+      "seed_px": [
+        179.78672144990722,
+        388.35190839595947
+      ],
+      "candidate_px": [
+        172.26065532524038,
+        371.8295837863994
+      ],
+      "candidate_error_px": 19.109816815423766
+    },
+    {
+      "id": "aperture_floor_right",
+      "reference_px": [
+        289,
+        352
+      ],
+      "uncertainty_px": 12,
+      "use": "excluded",
+      "exclusion_reason": "Apparent boundary may be far stair/trim bend rather than hall floor seam.",
+      "seed_px": [
+        293.56640076210334,
+        388.19300644363716
+      ],
+      "candidate_px": [
+        281.6872262001541,
+        375.2201801404764
+      ],
+      "candidate_error_px": 24.344474247842896
+    },
+    {
+      "id": "second_door_outer_top_near",
+      "reference_px": [
+        88,
+        169
+      ],
+      "uncertainty_px": 7,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        14.559143255171563,
+        203.80311613871464
+      ],
+      "candidate_px": [
+        90.94404664208724,
+        167.81340985563406
+      ],
+      "candidate_error_px": 3.1741781300821086
+    },
+    {
+      "id": "second_door_outer_top_far",
+      "reference_px": [
+        127,
+        184
+      ],
+      "uncertainty_px": 7,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        70.60006976959457,
+        212.7765453931237
+      ],
+      "candidate_px": [
+        123.1567876107776,
+        183.65408024386994
+      ],
+      "candidate_error_px": 3.8587487539814815
+    },
+    {
+      "id": "second_door_bottom_far",
+      "reference_px": [
+        146,
+        410
+      ],
+      "uncertainty_px": 12,
+      "use": "excluded",
+      "exclusion_reason": "Dark edge occludes leaf/jamb: 146,410 is not a measured sill.",
+      "seed_px": [
+        94.83077302499566,
+        529.6069882625246
+      ],
+      "candidate_px": [
+        130.16482927424488,
+        410.1159926081484
+      ],
+      "candidate_error_px": 15.835595542920291
+    },
+    {
+      "id": "first_near_rail_corner_left",
+      "reference_px": [
+        95,
+        405
+      ],
+      "uncertainty_px": 9,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        107.48319300360981,
+        404.8155313589421
+      ],
+      "candidate_px": [
+        103.92888103464696,
+        399.9190946833948
+      ],
+      "candidate_error_px": 10.273291359987079
+    },
+    {
+      "id": "first_near_rail_corner_right",
+      "reference_px": [
+        357,
+        398
+      ],
+      "uncertainty_px": 9,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        368.7731495045564,
+        404.41062365452194
+      ],
+      "candidate_px": [
+        357.27751312221324,
+        407.3146509943271
+      ],
+      "candidate_error_px": 9.318784077288171
+    },
+    {
+      "id": "nearest_full_lamp_center",
+      "reference_px": [
+        246,
+        111
+      ],
+      "uncertainty_px": 6,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        237.72379855374746,
+        120.75603292598561
+      ],
+      "candidate_px": [
+        240.7861017350773,
+        110.58651923228149
+      ],
+      "candidate_error_px": 5.230267819360408
+    },
+    {
+      "id": "next_lamp_center",
+      "reference_px": [
+        237,
+        151
+      ],
+      "uncertainty_px": 5,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        236.98741170335373,
+        158.48969490750534
+      ],
+      "candidate_px": [
+        236.48142357284763,
+        151.11457037115798
+      ],
+      "candidate_error_px": 0.5310818023105225
+    },
+    {
+      "id": "far_lamp_center",
+      "reference_px": [
+        232,
+        176
+      ],
+      "uncertainty_px": 5,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        236.60693334843086,
+        177.98602571279977
+      ],
+      "candidate_px": [
+        233.80470086330934,
+        176.31560765394778
+      ],
+      "candidate_error_px": 1.8320898987931467
+    },
+    {
+      "id": "first_door_outer_top_far",
+      "reference_px": [
+        45,
+        143
+      ],
+      "uncertainty_px": 9,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        -18890.859342543736,
+        -12412.807520913331
+      ],
+      "candidate_px": [
+        44.236996817127874,
+        144.8451383321639
+      ],
+      "candidate_error_px": 1.9966745658453258
+    },
+    {
+      "id": "middle_trim_end_left",
+      "reference_px": [
+        146,
+        417
+      ],
+      "uncertainty_px": 10,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        134.01637912889777,
+        413.6349047306065
+      ],
+      "candidate_px": [
+        141.22163721433134,
+        412.93433786805093
+      ],
+      "candidate_error_px": 6.273942897622501
+    },
+    {
+      "id": "middle_trim_end_right",
+      "reference_px": [
+        309,
+        416
+      ],
+      "uncertainty_px": 10,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        341.3201795012406,
+        413.2964688998199
+      ],
+      "candidate_px": [
+        314.8688511410497,
+        417.8800463119032
+      ],
+      "candidate_error_px": 6.1626283232644194
+    },
+    {
+      "id": "near_flight_end_right",
+      "reference_px": [
+        445,
+        533
+      ],
+      "uncertainty_px": 15,
+      "use": "fit",
+      "exclusion_reason": null,
+      "seed_px": [
+        472.880966149134,
+        533.4084140090928
+      ],
+      "candidate_px": [
+        449.22040726252425,
+        529.4608165359831
+      ],
+      "candidate_error_px": 5.507963058476163
+    }
+  ],
+  "mesh_checks": {
+    "floor": {
+      "vertices": 56,
+      "faces": 80,
+      "triangles": 108,
+      "closed": true,
+      "opposite_edge_winding": true,
+      "euler_characteristic": 2,
+      "signed_volume_m3": 25.23930250543001,
+      "min_triangle_area_m2": 0.0037408715364732966,
+      "finite_complete_uv": true
+    },
+    "trims": [
+      {
+        "vertices": 1994,
+        "faces": 2004,
+        "triangles": 3984,
+        "closed": true,
+        "opposite_edge_winding": true,
+        "euler_characteristic": 2,
+        "signed_volume_m3": 0.03935968560613256,
+        "min_triangle_area_m2": 6.514498833202961e-06,
+        "finite_complete_uv": true
+      },
+      {
+        "vertices": 1994,
+        "faces": 2004,
+        "triangles": 3984,
+        "closed": true,
+        "opposite_edge_winding": true,
+        "euler_characteristic": 2,
+        "signed_volume_m3": 0.03935968560613493,
+        "min_triangle_area_m2": 6.514498833202961e-06,
+        "finite_complete_uv": true
+      }
+    ]
+  },
+  "navigation_candidate": {
+    "schema_version": 1,
+    "kind": "candidate_step_support_partition",
+    "status": "geometry_unvalidated_not_exported",
+    "requires_shape_confirmation": true,
+    "eye_height_m": 1.55,
+    "max_step_up_m": 0.18,
+    "max_step_down_m": 0.18,
+    "center_corridor_xyxy_m": [
+      -0.78,
+      -1.75,
+      0.78,
+      15.9
+    ],
+    "support_surfaces": [
+      {
+        "id": "flat_00",
+        "xyxy_m": [
+          -1.1,
+          -2.0,
+          1.1,
+          0.6
+        ],
+        "support_z_m": 0.0
+      },
+      {
+        "id": "flat_01",
+        "xyxy_m": [
+          -1.1,
+          0.6,
+          1.1,
+          0.8503160538061534
+        ],
+        "support_z_m": -0.02988918592788504
+      },
+      {
+        "id": "flat_02",
+        "xyxy_m": [
+          -1.1,
+          0.8503160538061534,
+          1.1,
+          1.1006321076123067
+        ],
+        "support_z_m": -0.05977837185577008
+      },
+      {
+        "id": "flat_03",
+        "xyxy_m": [
+          -1.1,
+          1.1006321076123067,
+          1.1,
+          1.3509481614184602
+        ],
+        "support_z_m": -0.08966755778365512
+      },
+      {
+        "id": "flat_04",
+        "xyxy_m": [
+          -1.1,
+          1.3509481614184602,
+          1.1,
+          1.6012642152246137
+        ],
+        "support_z_m": -0.11955674371154015
+      },
+      {
+        "id": "flat_05",
+        "xyxy_m": [
+          -1.1,
+          1.6012642152246137,
+          1.1,
+          1.8515802690307672
+        ],
+        "support_z_m": -0.14944592963942518
+      },
+      {
+        "id": "flat_06",
+        "xyxy_m": [
+          -1.1,
+          1.8515802690307672,
+          1.1,
+          3.723426101768838
+        ],
+        "support_z_m": -0.14944592963942518
+      },
+      {
+        "id": "flat_07",
+        "xyxy_m": [
+          -1.1,
+          3.723426101768838,
+          1.1,
+          4.1739286371271875
+        ],
+        "support_z_m": -0.3270010719410804
+      },
+      {
+        "id": "flat_08",
+        "xyxy_m": [
+          -1.1,
+          4.1739286371271875,
+          1.1,
+          4.6244311724855365
+        ],
+        "support_z_m": -0.5045562142427357
+      },
+      {
+        "id": "flat_09",
+        "xyxy_m": [
+          -1.1,
+          4.6244311724855365,
+          1.1,
+          5.074933707843885
+        ],
+        "support_z_m": -0.6821113565443909
+      },
+      {
+        "id": "flat_10",
+        "xyxy_m": [
+          -1.1,
+          5.074933707843885,
+          1.1,
+          5.525436243202234
+        ],
+        "support_z_m": -0.8596664988460462
+      },
+      {
+        "id": "flat_11",
+        "xyxy_m": [
+          -1.1,
+          5.525436243202234,
+          1.1,
+          7.2
+        ],
+        "support_z_m": -0.8596664988460462
+      },
+      {
+        "id": "flat_12",
+        "xyxy_m": [
+          -1.1,
+          7.2,
+          1.1,
+          7.48
+        ],
+        "support_z_m": -0.9596664988460462
+      },
+      {
+        "id": "flat_13",
+        "xyxy_m": [
+          -1.1,
+          7.48,
+          1.1,
+          7.76
+        ],
+        "support_z_m": -1.0596664988460462
+      },
+      {
+        "id": "flat_14",
+        "xyxy_m": [
+          -1.1,
+          7.76,
+          1.1,
+          8.040000000000001
+        ],
+        "support_z_m": -1.1596664988460463
+      },
+      {
+        "id": "flat_15",
+        "xyxy_m": [
+          -1.1,
+          8.040000000000001,
+          1.1,
+          10.053947273920816
+        ],
+        "support_z_m": -1.1596664988460463
+      },
+      {
+        "id": "destination_hall",
+        "xyxy_m": [
+          -2.8,
+          10.053947273920816,
+          2.8,
+          16.8
+        ],
+        "support_z_m": -1.1596664988460463
+      }
+    ],
+    "continuous_ramps_supported": false,
+    "continuous_ramp_note": "A continuous ramp is an alternative hypothesis, not implemented. Current SceneSettings only accepts constant-height rectangles and cannot consume arbitrary sloped planes; do not approximate a visible ramp with arbitrarily many invisible teleports."
+  },
+  "door_checks": [
+    {
+      "centre_y_m": 2.2703691758361697,
+      "threshold_z_m": -0.351296715105986,
+      "adjacent_floor_near_mid_far_z_m": [
+        -0.14944592963942518,
+        -0.14944592963942518,
+        -0.14944592963942518
+      ],
+      "corridor_floor_flat_across_door": true,
+      "occlusion_requires_render": true
+    },
+    {
+      "centre_y_m": 4.545535969502113,
+      "threshold_z_m": -0.351296715105986,
+      "adjacent_floor_near_mid_far_z_m": [
+        -0.3270010719410804,
+        -0.5045562142427357,
+        -0.8596664988460461
+      ],
+      "corridor_floor_flat_across_door": false,
+      "occlusion_requires_render": true
+    }
+  ],
+  "bounds_reached": [],
+  "limitations": [
+    "One-frame regularized candidate: no lens, metric scale, threshold or exact stair count recovered.",
+    "Low guard/skirting is a hypothesis. Secondary frames do not unambiguously resolve trim height.",
+    "Sill and apparent hall floor seam excluded from fit: occluded/ambiguous assignments.",
+    "Independent closed door openings do not force a flat floor beneath. Next render must check unsupported sill and occlusion.",
+    "Secondary frames reviewed for structure only; no multi-view camera solve or visibility check.",
+    "No Blender mutation/render/export, material or decorative addition in this offline pass."
+  ],
+  "historical_initial_render": {
+    "path": "dream/validation/wave-gray-initial.png",
+    "sha256": "c009c040046edabc40c69a4b46ecb65a5db48873036c403c53b915a5a7ccd40b",
+    "root_reported_scene_objects": 82,
+    "blend": "dream/blender/wave_corridor.blend",
+    "preserved": true
+  },
+  "source_hashes": {
+    "dream/blender/build_wave_corridor.py": "e9feb82bf547e6d48580578682569f6bd7334723509089a98f8eff0a2e922773",
+    "dream/validation/fit_wave_geometry.py": "f9f46b343d8c57d1c7135e27eced8eef8213c173e11b87975b462b41664fd45e",
+    "dream/validation/wave-reference-14s.png": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48"
+  },
+  "projection_proof": "dream/validation/wave-geometry-v2-projection.png",
+  "pure_validation": {
+    "status": "PASS",
+    "blender_executed_in_this_pass": false,
+    "syntax_files": [
+      "dream\\blender\\build_wave_corridor.py",
+      "dream\\validation\\fit_wave_geometry.py"
+    ],
+    "door_openings": 2,
+    "invalid_inputs_rejected": [
+      "threshold_nan",
+      "threshold_count",
+      "overlapping_doors",
+      "negative_width",
+      "door_above_ceiling"
+    ],
+    "support_rectangles": 17,
+    "continuous_y_partition": true,
+    "total_descent_m": 1.1596664988460463,
+    "maximum_drop_m": 0.17755514230165526,
+    "same_solver_run_twice_identical_parameters": true,
+    "projection_proof_sha256": "b662e01e701e209e674790aebeed1b37146cec7b37d7baf74a87b24f11e4c7ac",
+    "final_plan_sha256": "264927feac4dad8ec29cf797ce9542d119eaa566a667df33ccb2ece8f7667d32"
+  },
+  "next_render_review": [
+    "Check lower jamb/leaf occlusion: first threshold is ~0.20 m below its adjacent floor; second opening faces a descending span. These are inferred, not confirmed architecture.",
+    "Check subtle first flight (five inferred ~0.030 m rises) and steeper middle flight (~0.178 m per step): only three broad grade changes are visually supported, not exact riser heights/counts.",
+    "Inspect door verticals: the far jamb is still narrower/straighter than source near its obscured bottom; do not promote its occlusion to a sill anchor.",
+    "Assess low guard/skirting vs handrail, and the hall seam that was excluded from fit.",
+    "Compare registered secondary views before geometry acceptance."
+  ]
+}

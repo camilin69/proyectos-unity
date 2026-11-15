@@ -1,0 +1,35 @@
+[
+  {
+    "source": "dream/validation/room-multiview-v9/reference-11s.png",
+    "crop": "dream/validation/room-multiview-v9/reference-11s-radiator-detail.png",
+    "box_xyxy_exclusive": [
+      550,
+      555,
+      720,
+      860
+    ],
+    "resized": false
+  },
+  {
+    "source": "dream/validation/room-multiview-v9/reference-24s.png",
+    "crop": "dream/validation/room-multiview-v9/reference-24s-radiator-detail.png",
+    "box_xyxy_exclusive": [
+      365,
+      650,
+      720,
+      1080
+    ],
+    "resized": false
+  },
+  {
+    "source": "dream/validation/room-multiview-v9/reference-24p5s.png",
+    "crop": "dream/validation/room-multiview-v9/reference-24p5s-radiator-detail.png",
+    "box_xyxy_exclusive": [
+      340,
+      645,
+      720,
+      1130
+    ],
+    "resized": false
+  }
+]

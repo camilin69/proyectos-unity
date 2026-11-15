@@ -1,13 +1,13 @@
 {
-  "date": "2026-10-08",
+  "date": "2026-10-09",
   "branch": "dream",
   "status": "expanded_project_in_progress",
   "reference": "video-35/11s.png",
   "room": {
     "blender": "5.2.1",
     "runtime": "C++17 / OpenGL 3.3",
-    "triangles": 10352,
-    "objects_in_blender_scene": 729,
+    "triangles": 10616,
+    "objects_in_blender_scene": 735,
     "materials": 9,
     "implemented": [
       "editable_room",
@@ -43,7 +43,8 @@
       "world_space_upper_front_ceramic_fill",
       "moderately_increased_wet_floor_reflection",
       "closed_static_draped_curtains",
-      "regenerated_room_probe_for_v7_geometry"
+      "regenerated_room_probe_for_v7_geometry",
+      "six_radiator_connection_pieces"
     ],
     "visual_match_accepted": false,
     "remaining": [
@@ -52,7 +53,16 @@
       "curtain_drape_and_material_detail",
       "metal_highlight_distribution"
     ],
-    "vertices": 31056
+    "vertices": 31848,
+    "historical_v7_geometry": {
+      "triangles": 10352,
+      "objects_in_blender_scene": 729,
+      "vertices": 31056
+    },
+    "current_geometry_report": "validation/room-radiator-v9.json",
+    "current_geometry_note": "Six radiator connection pieces added; previous 716 exported objects retain exact geometry/normals/UV/material. Camera and .scene unchanged; prior v7 reports remain historical.",
+    "current_opengl_capture": "validation/room-radiator-opengl-v9.png",
+    "current_blender_capture": "validation/room-radiator-blender-v9.png"
   },
   "validation": {
     "compiler": "MinGW-w64 GCC 13.2",
@@ -82,7 +92,8 @@
     "asset_integrity": "PASS",
     "opengl_final_static_frames": 8,
     "opengl_final_static_elapsed_s": 0.474882,
-    "look_metrics_limitation": "Matching vertical aspect ratios and selected material-class color regions. Region means are diagnostic, not a fidelity percentage or exact geometry registration."
+    "look_metrics_limitation": "Matching vertical aspect ratios and selected material-class color regions. Region means are diagnostic, not a fidelity percentage or exact geometry registration.",
+    "evidence_scope": "Historical room v7 test run; retained numbers do not describe the current four-scene build."
   },
   "not_implemented": [
     "vulkan"
@@ -139,7 +150,7 @@
       1280,
       720
     ],
-    "scope": "Current v7 build, hidden OpenGL cycle/resize, static and alternative views, animation pair, completed Blender render, syntax and asset checks. Expanded all-video reconstruction remains in progress; technical PASS does not grant visual fidelity or fullscreen performance.",
+    "scope": "Historical room/atrium integration metrics remain unchanged. Current six-scene evidence is listed in current_validation_reports; ocean visual acceptance remains pending.",
     "water_vertices_covered": 72960,
     "canal_capsules": 32,
     "room_portrait_capture": [
@@ -179,17 +190,26 @@
     "room_curtain_map_png_bmp_parity": "PASS",
     "room_curtain_topology_and_export_parity": "PASS",
     "inventory_report": "all-scenes-plan.json",
-    "metadata_hash_reconciliation": "PASS - existing listed artifacts checked; curtain report metadata and completed inventory reconciled without rerunning technical tests."
+    "metadata_hash_reconciliation": "PASS - existing listed artifacts checked; curtain report metadata and completed inventory reconciled without rerunning technical tests.",
+    "ocean_exit_runtime_build": "PASS · C++17/OpenGL 3.3 build",
+    "ocean_exit_scene_validation": "PASS · catalog reports six available scenes",
+    "ocean_exit_gl_captures": "PASS · shader times 0 and 2.5 s, both gl_error=0",
+    "ocean_exit_navigation": "PASS · crossed doorway to y=8.31 m; left border stopped at x=-0.64 m",
+    "all_six_one_frame_smokes": "PASS · gl_error=0"
   },
   "goal_complete": false,
-  "remaining_goal_requirement": "Execute the recorded all-scenes plan: reproduce and validate all 13 environments across 20 temporal entries. Two runtime prototypes exist, 11 scenes lack runtime implementation and zero are accepted as strict reference replicas; inventory creation is already complete.",
-  "quality_revision": "room-reference-finish-v7 / opaque-msaa-4x / atrium-garden-channel-v2 / expanded-four-video-scope",
+  "remaining_goal_requirement": "Reproduce and validate all 13 environments across 20 temporal entries. Six runtime prototypes are available, seven scenes lack runtime implementation, and zero scenes have strict visual acceptance.",
+  "quality_revision": "room-reference-finish-v7 / opaque-msaa-4x / atrium-garden-channel-v2 / expanded-four-video-scope / explicit-4-profile-catalog / kitchen-and-stair-material-prototypes",
   "expanded_scope": {
     "request": "Recreate all distinct environments in the four supplied videos, following the agreed production steps.",
     "status": "in_progress",
     "implemented_runtime_scenes": [
       "pastel_room",
-      "atrium"
+      "atrium",
+      "kitchen_meadow",
+      "stair_sky",
+      "wave_corridor",
+      "v42_ocean_exit"
     ],
     "all_scenes_implemented": false,
     "all_scenes_fidelity_accepted": false,
@@ -197,11 +217,12 @@
     "inventory_status": "catalogued_execution_plan_available",
     "unique_scenes": 13,
     "temporal_entries": 20,
-    "implemented_prototypes": 2,
-    "without_runtime_implementation": 11,
+    "implemented_prototypes": 6,
+    "without_runtime_implementation": 7,
     "strictly_accepted_scenes": 0,
-    "inventory_sha256": "dcc073321bcbce68f3ab58d2473b89cf0264c117f007fa08a8ee6ba7b0546086",
-    "inventory_note": "Four return views and three editorial endings are recorded within 20 timeline entries. The 13-scene inventory is complete as a planning index; implementation and strict fidelity acceptance are not."
+    "inventory_sha256": "b952547811b65421701a53c5aef069747ed2c5b73f663dd49694438c7c254d55",
+    "inventory_note": "Four return views and three editorial endings are recorded within 20 timeline entries. The 13-scene inventory is complete as a planning index; implementation and strict fidelity acceptance are not.",
+    "blender_only_prototypes": 0
   },
   "requirement_review": [
     {
@@ -224,7 +245,8 @@
         "validation/room-walk-v7.log",
         "validation/room-views-v7.json"
       ],
-      "limitation": "Two current scenes, ground-plane collision and sampled integration tests; no exhaustive manual playtest or fullscreen FPS guarantee."
+      "limitation": "Six scenes have explicit profiles. Supported stairs and the ocean exit use configured support surfaces; continuous ramps and moving platforms remain unimplemented. No fullscreen FPS guarantee.",
+      "historical_v7_limitation": "Two current scenes, ground-plane collision and sampled integration tests; no exhaustive manual playtest or fullscreen FPS guarantee."
     },
     {
       "id": 3,
@@ -235,9 +257,11 @@
         "validation/room-look-after-v7.json",
         "validation/room-comparison.png",
         "validation/room-light-v7.json",
-        "validation/room-floor-v7.json"
+        "validation/room-floor-v7.json",
+        "validation/ocean-exit/runtime-prototype.json",
+        "validation/ocean-exit/runtime-comparison.png"
       ],
-      "limitation": "Selected luminance controls improve, but color diagnostics and incremental visual approval do not establish complete likeness."
+      "limitation": "Water, foam, reflection and lighting differ from the video; strict visual acceptance remains pending."
     },
     {
       "id": 4,
@@ -248,9 +272,11 @@
         "validation/animation.json",
         "validation/atrium-static-v7.log",
         "validation/atrium-time2-v7.log",
-        "validation/all-scenes-plan.json"
+        "validation/all-scenes-plan.json",
+        "validation/ocean-exit/runtime-prototype.json"
       ],
-      "limitation": "The inventory now identifies 13 distinct scenes and 20 temporal entries: two implemented runtime prototypes, 11 scenes without runtime implementation and zero strict fidelity acceptances. Construction and per-scene reference validation remain incomplete."
+      "limitation": "13 distinct scenes / 20 temporal entries: six runtime prototypes, seven without runtime and zero strict fidelity acceptances. All-scene construction and reference validation remain incomplete.",
+      "historical_v7_limitation": "The earlier inventory snapshot recorded 13 distinct scenes and 20 temporal entries: two runtime prototypes, 11 scenes without runtime implementation and zero strict fidelity acceptances. Construction and per-scene reference validation remain incomplete."
     }
   ],
   "historical_evidence_hashes": {
@@ -326,8 +352,271 @@
     ]
   },
   "kitchen_progress": {
-    "stage": "gray_blockout_rendered_no_runtime",
-    "report": "validation/kitchen-blockout.json",
-    "geometry_accepted": false
+    "stage": "material_v3_applied_exported_GL_light_calibrated_Blender_v4_reviewed_limited",
+    "report": "validation/kitchen-runtime-integration.json",
+    "navigation_report": "validation/kitchen-navigation-validation.json",
+    "look_report": "validation/kitchen-look-v3.json",
+    "geometry_accepted": false,
+    "visual_match_accepted": false,
+    "helper_candidate": "Dense tuft helper applied and exported. OpenGL light calibrated with before/after captures; Blender v3 and subsequent linked-light v4 reviewed separately in kitchen-look-v3.json. Strict reference acceptance remains pending.",
+    "asset_report": "validation/kitchen-asset-validation-v3.json",
+    "current_limits": [
+      "Cielo superior oscuro y banco demasiado rosado/compacto; mapa/cielo no modificados aquí.",
+      "Barras del techo duras y paneles demasiado luminosos, medianas emisivas iguales al prelight; la ROI de panel incluye una franja del marco que sí cambia.",
+      "Armario alto GL algo claro/rosado; sombras y gradientes espaciales de muebles pendientes.",
+      "Hierba todavía muestra grupos/manchas y diferencia de matiz interior/exterior; falta naturalidad y detalle a distancia.",
+      "Blender v4 mejora la sobreexposición frente a v3, pero los electrodomésticos siguen azulados y el armario alto sigue muy claro; el panel se acerca en luminancia pero conserva exceso violeta.",
+      "Proporciones de muebles/techo/huecos y cobertura de todo el intervalo de vídeo pendientes."
+    ]
+  },
+  "current_runtime_inventory": {
+    "available_prototypes": 6,
+    "planned_without_runtime": 7,
+    "strictly_accepted": 0,
+    "catalog": "assets/scene_catalog.cat",
+    "historical_evidence_policy": "Earlier reports retain their source versions and timestamps; the current catalog snapshot includes the ocean exit as the sixth runtime prototype.",
+    "profiles": {
+      "pastel_room": 0,
+      "atrium": 1,
+      "kitchen_meadow": 2,
+      "stair_sky": 3,
+      "wave_corridor": 4,
+      "ocean_exit": 5
+    },
+    "verified_at_utc": "2026-10-09T18:00:09+00:00",
+    "validation": "--validate-scenes PASS for all six profiles; one-frame OpenGL renders for all six have gl_error=0; ocean door traversal, rail collision and animated water smoke tests pass."
+  },
+  "stair_progress": {
+    "stage": "material_prototype_runtime_available_visual_calibration_pending",
+    "asset_report": "validation/stair-frame-v5.json",
+    "navigation_report": "validation/stair-navigation-validation.json",
+    "look_report": "validation/stair-look-initial.json",
+    "profile_regression_report": "validation/stair-profile-regression.json",
+    "runtime_alias": "stair_sky",
+    "environment": 3,
+    "reference": "video-35/09s.png and video-35/21s.png",
+    "geometry_accepted": false,
+    "visual_match_accepted": false,
+    "asset_validation": "PASS: current frame/grid export has 353922 triangles, 68 scene objects / 63 exported mesh objects and GLB 39460148 bytes within the 45 MB stair-only technical budget; strict visual acceptance remains false.",
+    "navigation_validation": "Historical PASS: 2232 checks, 705 positions, 14 supports and 1.92 m ascent/descent. No route rerun in frame v5; .scene is byte-identical to the tested configuration.",
+    "remaining": [
+      "foreground_grass_too_dark",
+      "angular_grass_and_plush_fibres",
+      "vertical_green_risers_exposed",
+      "tread_lighting_too_dim",
+      "cloud_silhouette_and_rail_highlight_distribution",
+      "mesh_size_optimization"
+    ],
+    "historical_asset_validation": "PASS: 353874 triangles; GLB 39530196 bytes within the 45 MB stair-only technical budget; visual acceptance remains false.",
+    "historical_asset_report": "validation/stair-sky-geometry-review.json",
+    "frame_revision": "Continuous closed pink frame verified in front/oblique/rear views; upper-wall tessellation removes the first-export broad AO rectangle. Same wall extent/material and unchanged scene/navigation file.",
+    "frame_fix_accepted": true,
+    "frame_report": "validation/stair-frame-v5.json",
+    "current_opengl_capture": "validation/stair-frame-opengl-v5.png",
+    "blender_frame_views": [
+      "validation/stair-frame-blender-v5.png",
+      "validation/stair-frame-oblique-v5.png",
+      "validation/stair-frame-rear-v5.png"
+    ],
+    "blender_view_note": "Rendered before the shape-preserving upper-box grid subdivision; final OpenGL uses the retessellated asset."
+  },
+  "current_validation_reports": {
+    "runtime_integration_v8": "validation/runtime-integration-v8.json",
+    "catalog_cpu_check": {
+      "status": "PASS",
+      "available": 6,
+      "planned": 7,
+      "glfw_initialized": false,
+      "performed_at_utc": "2026-10-09T18:00:09+00:00"
+    },
+    "catalog_implementation_historical": "validation/scene-catalog.json",
+    "height_controller_historical": "validation/navigation-height-validation.json",
+    "kitchen_runtime_initial": "validation/kitchen-runtime-integration.json",
+    "kitchen_navigation": "validation/kitchen-navigation-validation.json",
+    "kitchen_look_initial": "validation/kitchen-look-initial.json",
+    "stair_geometry_and_assets": "validation/stair-sky-geometry-review.json",
+    "stair_navigation": "validation/stair-navigation-validation.json",
+    "stair_profile_regression": "validation/stair-profile-regression.json",
+    "stair_look_initial_to_v4": "validation/stair-look-initial.json",
+    "policy": "Each linked report retains its own tested source/capture hashes. Technical PASS never grants strict visual acceptance.",
+    "kitchen_look_v3": "validation/kitchen-look-v3.json",
+    "kitchen_assets_v3": "validation/kitchen-asset-validation-v3.json",
+    "stair_frame_v5": "validation/stair-frame-v5.json",
+    "room_radiator_v9": "validation/room-radiator-v9.json",
+    "wave_materials": "validation/wave-material-review.json",
+    "wave_details": "validation/wave-details-review.json",
+    "wave_materials_initial": "validation/wave-material-review.json",
+    "wave_runtime": "validation/wave-runtime-integration.json",
+    "wave_hall_candidate": "validation/wave-hall-review.json",
+    "wave_motion_candidate": "validation/wave-motion/review.json",
+    "wave_terminal_candidate": "validation/wave-terminal/review.json",
+    "wave_aperture_candidate": "validation/wave-aperture/review.json",
+    "wave_hall_structure_candidate": "validation/wave-hall-structure/review.json",
+    "wave_perspective_and_wall_candidate": "validation/wave-perspective/review.json",
+    "ocean_exit_runtime": "validation/ocean-exit/runtime-prototype.json",
+    "ocean_exit_navigation": "runtime/tests/ocean_exit_navigation.cpp"
+  },
+  "implementation_reconciliation": {
+    "recorded_at_utc": "2026-10-09T05:06:45.194558+00:00",
+    "mode": "metadata_update_with_cpu_catalog_validation_no_new_GPU_test",
+    "plan_sha256": "9c79cb157a0e3a2160a0d42c5dc98e2b5fb2642a8d14a97ad98dd0e1708efc7d",
+    "catalog_sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+    "historical_hash_policy": "evidence_hashes_v7, historical_evidence_hashes and metadata_reconciliation remain verbatim historical records; differing current source hashes do not rewrite earlier evidence.",
+    "original_reference_files_modified": false
+  },
+  "current_report_hashes": {
+    "validation/runtime-integration-v8.json": "5281d3de3d25419e14d553c37113279d4eb979915324ac8800ae40c778b8a213",
+    "validation/all-scenes-plan.json": "b952547811b65421701a53c5aef069747ed2c5b73f663dd49694438c7c254d55",
+    "assets/scene_catalog.cat": "5117f14b3a6d8ee414a5c36d3c00838767581735e7a8298e66b0d7bd1e625721",
+    "validation/kitchen-look-initial.json": "8c266950992519b2bb5ed5ef13eb362bcbcc6ee6c745110aaff97bc083351ebf",
+    "validation/kitchen-runtime-integration.json": "da951006edb7dd182d3d250b813e5d411742da695dcf18f572099e01c0c0b276",
+    "validation/kitchen-navigation-validation.json": "045f363bac72428ab764ffb1476955a30bc2d951b000982f90eeff2a2a925b67",
+    "validation/stair-look-initial.json": "d3af28ac16d86db11249df8ac4dd8a63e0446ef5e0bddaa6de546d3ce4355943",
+    "validation/stair-navigation-validation.json": "27a4b1d9721bd45682203d4691f257c65b0c49334483b8e2b17dcb96e03858eb",
+    "validation/stair-profile-regression.json": "d4368589e10d6c78c899cfab6887baa1cb69373f0bba875a703adb76dd327270",
+    "validation/stair-sky-geometry-review.json": "29e6cd0217076d92706e222124afadf1fb195a977af8b12b4e14ab6bd9857b4d",
+    "validation/kitchen-look-v3.json": "d10eba1b6509a97894a5d4caa0d8d414da6cf97c0d37c63f477065a5fcd8fd1a",
+    "validation/kitchen-asset-validation-v3.json": "013f392acb75c526434aef60c2e913dc68c13f4fbb148a7eef9a9e63681c26fd",
+    "validation/stair-frame-v5.json": "4130bc95597b7fb19fc5746a2d8155fefc2bd3f7ebb67886380e90bb0b81485c",
+    "validation/stair-frame-grid-v5.json": "28cb5b959adc1333e950baab5bb3cc9e37e91a33a8f6c1bd8b9d2f2df97d5ac9",
+    "validation/room-radiator-v9.json": "d0ea675e70deb0a96394e0e35bb1d8c2c8efd8616e093bd1f0c18575d6fd76fe",
+    "validation/wave-material-review.json": "a4c9ed07bbe732299bfc62265759677e22a049d34f43d53ad4df72bef2fdaaff",
+    "validation/wave-details-review.json": "f713373af8d94eb9c27aa80e67649f20c4118aa442ff2e113f3ef134f19bb619",
+    "validation/wave-runtime-integration.json": "1eafdfa2fca71b1eb4d09a15caaef86baae162434055f5d6ac4b0a823b35b99b",
+    "validation/wave-hall-review.json": "4b92690b57a4afd9a581dc224c143e7fffa394a86c1346edd3ef9297217a145b",
+    "validation/wave-motion/review.json": "c83e352b0aa39436014aac5a456b7cd1665e0e970ebf9ac0667418e641dea9c0",
+    "validation/wave-terminal/review.json": "ff1d687b289b9453e62bf1e51be56dbb540d1d2986fe99b4398bc1246c8900ae",
+    "validation/wave-aperture/review.json": "adc2cf6dcfa93800856e1d670b9d0fd90b5b000a46067c80fcd89edef31551c3",
+    "validation/wave-hall-structure/review.json": "8f73b920df1d264ed3803518ee0367551cda8267f222cb2d5b912f3edec705c3",
+    "validation/wave-perspective/review.json": "a22bfb2b8586cbd806ddd9973c81b2463298c62d6f4793eb02fa983e362f2aaa",
+    "validation/ocean-exit/review.json": "51e3722a3e432480762bb4c64bafb857a37324c2030596be98b04fc462116eb5",
+    "validation/ocean-exit-motion/review.json": "e29432abc6e3dd33065ba4e718bd044d400cfc5695eeb0e61bc2376760a42c8a",
+    "validation/ocean-exit/runtime-prototype.json": "7def426d51b10e919aa567cc0fedde6f924918764ebec2637771c5fcc526167c",
+    "assets/v42_ocean_exit.dreammesh": "c32c72f3700b77d5fd81166111b634680f04cf998ed04ab6feb33df32af6d0c6",
+    "assets/v42_ocean_exit.scene": "3bd3b1a06dae64a02176a1a947a49139d17d48d16fdbc09637d147bcca8ca92c",
+    "runtime/shaders/scene.frag": "dc297432761f111c1a0d2ff722e6f8a247118b2f47bf55e19a9388245a95b423",
+    "validation/ocean-exit/runtime-candidate-v6.json": "4837003555c284c5c8844fdeba0cc6d8c1a0b2a324d00bdaf8e8f0fa23c6cbbb",
+    "runtime/shaders/scene.vert": "893e7f14c8b0aa2f42601effe8aae85c5916d5b6a324ff982edfdacc15444126",
+    "runtime/shaders/sky.frag": "0e29968d0fecb4e81cbff9bc6a7f28a476945919ab13436762e35ba60b503b3a"
+  },
+  "current_kitchen_v3_capture": {
+    "recorded_at_utc": "2026-10-09T05:20:53.030601+00:00",
+    "source_shader_sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+    "opengl_sha256": "b295213807722c5f5e02715ce10bc606ed1f2faecafa044ee4e7e8fa1c028e03",
+    "blender_v3_sha256": "eb64a83e80d6f4a842cb0b8230efbadc19a492c165dd469214f3407dd79706df",
+    "blender_v4_sha256": "700c30b83dd10ae4467b18bc02ff92edbb1003b59fc712d5b5ad40f1a4c602db",
+    "prelight_sha256": "1c7f79ebecc12c73d2e72b903f26268579e0a38fa489137d719f933fde65126b",
+    "gl_error": 0,
+    "frames": 8,
+    "framebuffer_px": [
+      478,
+      850
+    ],
+    "visual_acceptance": false
+  },
+  "wave_progress": {
+    "stage": "implemented_prototype_reference_fidelity_pending",
+    "review": "validation/wave-runtime-integration.json",
+    "blender": "blender/wave_corridor.blend",
+    "packed_images": 10,
+    "scene_objects": 76,
+    "runtime_available": true,
+    "strict_visual_acceptance": false,
+    "remaining": [
+      "The source hall is bright and open; the current dark grid is unresolved geometry.",
+      "Nonuniform stair heights and door thresholds still disagree across source views.",
+      "Far-floor ribbon placement, widths and optical softness remain approximate.",
+      "OpenGL has emitter reflections, but no architectural reflections or equivalent local shadows yet.",
+      "OpenGL floor brightness and wall shading still differ from the current Blender render and the source.",
+      "Sign proportions/glow, fittings and trim cross section remain approximate.",
+      "Animated source-camera trajectory is not reconstructed; free walking is functional only."
+    ],
+    "mesh_objects": 62,
+    "separate_hall_candidate": {
+      "native": "blender/wave_corridor_hall_candidate.blend",
+      "report": "validation/wave-hall-review.json",
+      "runtime_promoted": false,
+      "accepted": false,
+      "next_action": "Jointly fit corridor floor, camera poses and hall supports from additional views. Do not adjust lights to hide this geometric residual."
+    },
+    "separate_motion_candidate": {
+      "native": "blender/wave_corridor_motion_candidate.blend",
+      "comparison": "validation/wave-motion/comparison.png",
+      "runtime_promoted": false,
+      "next_action": "Reconstruct the terminal upright handrails and hall entrance from continuous tracks; separate those supports from the low wall trim before refining the floor profile.",
+      "report": "validation/wave-motion/review.json",
+      "accepted": false,
+      "camera_count": 7
+    },
+    "separate_joint_candidate": {
+      "native": "blender/wave_corridor_joint_candidate.blend",
+      "third_view_report": "validation/wave-joint-third-view.json",
+      "runtime_promoted": false,
+      "accepted": false,
+      "finding": "Two-view fit failed the independent 17s view: both lamp hypotheses left the second doorway in the frame."
+    },
+    "separate_terminal_candidate": {
+      "native": "blender/wave_corridor_terminal_candidate.blend",
+      "comparison": "validation/wave-terminal/comparison.png",
+      "runtime_promoted": false,
+      "next_action": "Resolve the conflicting 17s ceiling/opening-top observations against the continuous source before changing ceiling geometry or promoting the new floor. Then refine hall supports using full surfaces, separating pale paint, turquoise cladding and floor contact.",
+      "report": "validation/wave-terminal/review.json",
+      "accepted": false
+    },
+    "separate_aperture_candidate": {
+      "native": "blender/wave_corridor_aperture_candidate.blend",
+      "comparison": "validation/wave-aperture/comparison.png",
+      "runtime_promoted": false,
+      "next_action": "Replace the provisional hall supports and rear grid using complete source silhouettes, separating pale paint from turquoise cladding and floor contact.",
+      "report": "validation/wave-aperture/review.json",
+      "accepted": false
+    },
+    "separate_hall_structure_candidate": {
+      "native": "blender/wave_corridor_hall_structure_candidate.blend",
+      "material_native": "blender/wave_corridor_hall_look_candidate.blend",
+      "comparison": "validation/wave-hall-structure/comparison.png",
+      "material_comparison": "validation/wave-hall-structure/look-comparison-17s.png",
+      "runtime_promoted": false,
+      "next_action": "Revisit source floor-contact evidence and camera/floor constraints together before exporting the hall; then refit floor pattern coordinates and architectural reflections.",
+      "report": "validation/wave-hall-structure/review.json",
+      "accepted": false
+    },
+    "separate_wall_detail_candidate": {
+      "native": "blender/wave_corridor_wall_detail_candidate.blend",
+      "comparison": "validation/wave-perspective/wall-comparison.png",
+      "detail": "validation/wave-perspective/wall-panel-detail.png",
+      "runtime_promoted": false,
+      "next_action": "Check directional constraints from ceiling edges and panel edges to distinguish camera error from panel shape; use painted-boundary correspondences across short source intervals for floor depth, excluding highlights.",
+      "report": "validation/wave-perspective/review.json",
+      "accepted": false
+    }
+  },
+  "wave_runtime_reconciliation": {
+    "recorded_at_utc": "2026-10-09T12:23:20.481010+00:00",
+    "report": "validation/wave-runtime-integration.json",
+    "references_modified": false
+  },
+  "ocean_exit_progress": {
+    "status": "implemented_runtime_prototype_reference_fidelity_pending",
+    "native": "blender/ocean_exit_water.blend",
+    "report": "validation/ocean-exit-motion/review.json",
+    "comparison": "validation/ocean-exit-motion/comparison.png",
+    "preview": "validation/ocean-exit-motion/water-preview.mp4",
+    "initial_report": "validation/ocean-exit/review.json",
+    "runtime_promoted": true,
+    "accepted": false,
+    "remaining": [
+      "Post is visible at 11.5s, but the visible submerged length, bent head and width still differ from the source. Refraction was not included in the geometric fit.",
+      "Foam is too smooth and uniform; it does not yet reproduce turbulent fronts, breakup around borders, or the source motion.",
+      "Exterior ocean waves repeat in regular bands; the source has irregular multi-scale waves.",
+      "Magenta reflection distribution, surface detail, tile gloss, sky streaks, horizon silhouette, service door and small wall fixtures remain unmatched.",
+      "Fixed-lens door fits still have 3.58px RMS at 9s and 5.74px at 11.5s; source labels and camera model need further refinement.",
+      "The C++/OpenGL profile, shifted projection, analytic wave motion, water shading and initial navigation/collision smoke test are implemented; optical fidelity and a longer manual traversal still need review."
+    ],
+    "runtime_report": "validation/ocean-exit/runtime-prototype.json",
+    "runtime_comparison": "validation/ocean-exit/runtime-comparison.png",
+    "latest_runtime_candidate": "validation/ocean-exit/runtime-candidate-v6.json",
+    "latest_runtime_comparison": "validation/ocean-exit/runtime-comparison-v6.png",
+    "navigation_test": "runtime/tests/ocean_exit_navigation.cpp"
   }
 }

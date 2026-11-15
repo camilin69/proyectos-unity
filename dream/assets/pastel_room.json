@@ -12,8 +12,8 @@
     "DREAM_MAT_plaid.007",
     "DREAM_MAT_ceiling.007"
   ],
-  "vertices": 31056,
-  "triangles": 10352,
+  "vertices": 31848,
+  "triangles": 10616,
   "objects": [
     {
       "name": "GEO-DREAM-floor_surface",
@@ -7890,6 +7890,72 @@
         1.7577590942382812,
         1.9674402475357056
       ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_near_stub",
+      "first_vertex": 31056,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000011920929,
+        0.06249997764825821,
+        0.2199999988079071
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_near_drop",
+      "first_vertex": 31188,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000309944153,
+        0.04500000923871994,
+        0.11300002783536911
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_near_collar",
+      "first_vertex": 31320,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000309944153,
+        0.04500000178813934,
+        0.2199999988079071
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_far_stub",
+      "first_vertex": 31452,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.28000006079673767,
+        1.1175003051757812,
+        0.2199999988079071
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_far_drop",
+      "first_vertex": 31584,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000309944153,
+        1.1349999904632568,
+        0.11300002783536911
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_far_collar",
+      "first_vertex": 31716,
+      "vertex_count": 132,
+      "kind": 0,
+      "center": [
+        0.2800000309944153,
+        1.1350001096725464,
+        0.2199999988079071
+      ]
     }
   ],
   "camera": {
@@ -7909,11 +7975,16 @@
   "ao": {
     "method": "8 cosine hemisphere rays, 0.65 m radius",
     "minimum": 0.35,
-    "corners": 11092,
+    "corners": 11380,
     "excluded_occluder_kinds": [
       4,
       6,
-      9
-    ]
+      9,
+      11
+    ],
+    "unoccluded_receiver_kinds": [
+      11
+    ],
+    "detail_objects_excluded": []
   }
 }

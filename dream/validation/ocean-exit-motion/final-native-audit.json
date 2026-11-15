@@ -1,0 +1,407 @@
+{
+  "schema": "dream.ocean_exit_motion_audit.v1",
+  "objects": 35,
+  "meshes": [
+    {
+      "name": "GEO-DREAM-oceanwater-bed",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-ceiling",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-wall_-1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_side_-1_0",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_side_-1_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-exit_pier_-1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_pier_-1_0",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_pier_-1_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-jamb_-1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-low_border_-1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-pink_cap_-1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-wall_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_side_1_0",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_side_1_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-exit_pier_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_pier_1_0",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-tile_pier_1_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-jamb_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-low_border_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-pink_cap_1",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-header",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-head_frame",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-service_door",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-service_pushbar",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-bent_access_post",
+      "vertices": 120,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-exit_here",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-exit_lamp",
+      "vertices": 8,
+      "closed": true,
+      "boundary_edges": 0
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-interior_water",
+      "vertices": 15561,
+      "closed": false,
+      "boundary_edges": 520
+    },
+    {
+      "name": "GEO-DREAM-oceanwater-ocean",
+      "vertices": 28620,
+      "closed": false,
+      "boundary_edges": 690
+    }
+  ],
+  "samples": {
+    "1": {
+      "interior_water": {
+        "min_z": -0.040996138006448746,
+        "max_z": 0.04099823534488678,
+        "sample_z": [
+          -0.011094470508396626,
+          0.023741465061903,
+          -0.03687824308872223,
+          -0.007738705724477768
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.040989313274621964,
+        "max_z": 0.04098914936184883,
+        "sample_z": [
+          -0.0015994887799024582,
+          -0.000666958512738347,
+          0.023206844925880432,
+          -0.00033473834628239274
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.0,
+      "max_threshold_seam_error_m": 0.0003100437656686772
+    },
+    "16": {
+      "interior_water": {
+        "min_z": -0.040995676070451736,
+        "max_z": 0.04099839925765991,
+        "sample_z": [
+          -0.030558643862605095,
+          0.016540300101041794,
+          -0.029457077383995056,
+          0.019465269520878792
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.04099233075976372,
+        "max_z": 0.04099598154425621,
+        "sample_z": [
+          0.001662245485931635,
+          0.023292675614356995,
+          0.02075398713350296,
+          -0.00042644230416044593
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.01666666753590107,
+      "max_threshold_seam_error_m": 0.0003415730159886943
+    },
+    "31": {
+      "interior_water": {
+        "min_z": -0.04099162667989731,
+        "max_z": 0.04099956154823303,
+        "sample_z": [
+          -0.03939525783061981,
+          -0.004606402479112148,
+          -0.005543962121009827,
+          0.03587517887353897
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.04099596291780472,
+        "max_z": 0.04098626598715782,
+        "sample_z": [
+          0.003910056781023741,
+          0.03194117546081543,
+          0.005560023244470358,
+          -0.0003731169272214174
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.03333333507180214,
+      "max_threshold_seam_error_m": 0.00033569489184248624
+    },
+    "61": {
+      "interior_water": {
+        "min_z": -0.04099579155445099,
+        "max_z": 0.04099009186029434,
+        "sample_z": [
+          -0.0032041464000940323,
+          -0.040770530700683594,
+          0.03343350440263748,
+          0.0177509393543005
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.040998753160238266,
+        "max_z": 0.04099009558558464,
+        "sample_z": [
+          0.027209367603063583,
+          0.013400327414274216,
+          -0.027884524315595627,
+          -0.0005795446340925992
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.06666667014360428,
+      "max_threshold_seam_error_m": 0.0003245019278583783
+    },
+    "91": {
+      "interior_water": {
+        "min_z": -0.040993206202983856,
+        "max_z": 0.040984056890010834,
+        "sample_z": [
+          0.029526568949222565,
+          -0.010172557085752487,
+          0.015484705567359924,
+          -0.0028838766738772392
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.04096246138215065,
+        "max_z": 0.04096115753054619,
+        "sample_z": [
+          0.024852555245161057,
+          0.006238534115254879,
+          -0.013828177005052567,
+          -0.0002904779394157231
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.10000000149011612,
+      "max_threshold_seam_error_m": 0.0003014931401516263
+    },
+    "136": {
+      "interior_water": {
+        "min_z": -0.040996428579092026,
+        "max_z": 0.040998104959726334,
+        "sample_z": [
+          0.010057841427624226,
+          0.01549692451953888,
+          0.0007705185562372208,
+          -0.022583289071917534
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.04098670557141304,
+        "max_z": 0.04099879041314125,
+        "sample_z": [
+          -0.03630592301487923,
+          -0.030572090297937393,
+          0.005492334254086018,
+          0.0010431120172142982
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.15000000596046448,
+      "max_threshold_seam_error_m": 0.0002821217977976853
+    },
+    "181": {
+      "interior_water": {
+        "min_z": -0.040996138006448746,
+        "max_z": 0.04099823534488678,
+        "sample_z": [
+          -0.011094470508396626,
+          0.023741465061903,
+          -0.03687824308872223,
+          -0.007738705724477768
+        ],
+        "valid_drivers": true
+      },
+      "ocean": {
+        "min_z": -0.040989313274621964,
+        "max_z": 0.04098914936184883,
+        "sample_z": [
+          -0.0015994887799024582,
+          -0.000666958512738347,
+          0.023206844925880432,
+          -0.00033473834628239274
+        ],
+        "valid_drivers": true
+      },
+      "foam_uv_offset_y": 0.20000000298023224,
+      "max_threshold_seam_error_m": 0.0003100437656686772
+    }
+  },
+  "packed_images": {
+    "DREAM-ocean-exit_here.png.001": "9e84fceaaa5480f2b7dd30e0ebfe45a07fa2557d038dd5d522e7897c798a15d6",
+    "DREAM-ocean-pink_tile_roughness.png.001": "ed68e77d18c49da896a97810e56b3d3d0e993142dd6964b1b12bc345e11ea602",
+    "DREAM-ocean-ripple_height.png.001": "46a59d8722698201388a68feded466cde35aae2e5143a55686a075db2d2d2a98",
+    "DREAM-ocean-foam_mask.png.001": "0d11268552608bcf611015f4c11c6f078d03c6b794e1f0eaf52bd75b431a2990",
+    "DREAM-ocean-exit_lamp.png.001": "0a6b2d3f584da295dac63604f5f60eb40145745b357185b107b34bd9cabc66dd",
+    "DREAM-ocean-pink_tile_albedo.png.001": "847ca246278fc61eee90e441ee81f939d3978110767d8bd61a759e0b81954c90",
+    "DREAM-ocean-pink_tile_height.png.001": "4083224500871b23e4a80614258de0395d2088c73f7cb9a14519572fe43e1d7d",
+    "DREAM-ocean-sunset_stars_v2.png.001": "3a2a0f544e9570e66f8a91edc813277a0b3ad5e0f4af99d1a39844a7cd1fcdd6"
+  },
+  "saved_file": {
+    "scenes": [
+      "DREAM_OceanExitWater"
+    ],
+    "images": [
+      "DREAM-ocean-sunset_stars_v2.png.001",
+      "DREAM-ocean-ripple_height.png.001",
+      "DREAM-ocean-pink_tile_roughness.png.001",
+      "DREAM-ocean-pink_tile_height.png.001",
+      "DREAM-ocean-pink_tile_albedo.png.001",
+      "DREAM-ocean-foam_mask.png.001",
+      "DREAM-ocean-exit_lamp.png.001",
+      "DREAM-ocean-exit_here.png.001"
+    ],
+    "actions": [
+      "MAT-DREAM-oceanwater-oceanAction",
+      "MAT-DREAM-oceanwater-interior_waterAction"
+    ]
+  },
+  "live_shape_key_counts": {
+    "interior_water": 5,
+    "ocean": 5
+  },
+  "render_engine": "CYCLES",
+  "native_render_samples": 64,
+  "wave_loop_6s_verified": true,
+  "foam_loop_claimed": false,
+  "runtime_promoted": false,
+  "accepted": false,
+  "limitations": [
+    "These checks establish motion and a continuous doorway surface; they do not establish visual fidelity.",
+    "Frame 181 matches displacement only: foam UVs continue moving and do not loop at six seconds."
+  ]
+}

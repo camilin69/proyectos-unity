@@ -1,0 +1,1392 @@
+{
+  "schema": "dream.wave_third_view.v1",
+  "accepted": false,
+  "geometry_modified": false,
+  "time_s": 17,
+  "hypothesis": "Two lamp correspondence hypotheses compared; best retained without changing geometry.",
+  "fixed_eye_height_m": 1.600462984441152,
+  "best": {
+    "camera": {
+      "position_m": [
+        -0.09967526449716184,
+        1.1971568962507095,
+        1.397596373415322
+      ],
+      "yaw_rad": 1.6021167100373566,
+      "pitch_rad": -0.43014583538518364,
+      "roll_rad": -0.08011087700706328,
+      "tan_half_vertical_fov": 0.9590039863520616,
+      "render_px": [
+        478,
+        850
+      ]
+    },
+    "support_z_m": -0.20286661102582984,
+    "lamp_correspondence": [
+      "next_lamp_center",
+      "far_lamp_center",
+      "hall_lamp_0"
+    ],
+    "observed": {
+      "next_lamp_center": [
+        [
+          245,
+          111
+        ],
+        7
+      ],
+      "far_lamp_center": [
+        [
+          244,
+          151
+        ],
+        7
+      ],
+      "hall_lamp_0": [
+        [
+          243,
+          175
+        ],
+        7
+      ],
+      "aperture_top_left": [
+        [
+          148,
+          189
+        ],
+        9
+      ],
+      "aperture_top_right": [
+        [
+          334,
+          182
+        ],
+        12
+      ]
+    },
+    "weighted_rms": 1.647143129037968
+  },
+  "trials": [
+    {
+      "camera": {
+        "position_m": [
+          -0.09967526449716184,
+          1.1971568962507095,
+          1.397596373415322
+        ],
+        "yaw_rad": 1.6021167100373566,
+        "pitch_rad": -0.43014583538518364,
+        "roll_rad": -0.08011087700706328,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.20286661102582984,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 1.647143129037968
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.09152713148354294,
+          1.2400100000001795,
+          1.3468797206588647
+        ],
+        "yaw_rad": 1.5981178322456255,
+        "pitch_rad": -0.42146465572243025,
+        "roll_rad": -0.0701865563042621,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.2535832637822873,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 1.7068550683332995
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.0807547358150497,
+          1.4000100000002242,
+          1.3468797206588647
+        ],
+        "yaw_rad": 1.5956928513782656,
+        "pitch_rad": -0.41753452839495103,
+        "roll_rad": -0.06282409699560017,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.2535832637822873,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 1.7467830547215484
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.0183656320262361,
+          2.9397816264983003,
+          1.1668797206588648
+        ],
+        "yaw_rad": 1.5265997783039695,
+        "pitch_rad": -0.29552820180523426,
+        "roll_rad": 0.0874862319542287,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.4335832637822873,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 5.684743697449529
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.04780805364589598,
+          3.2899625405609054,
+          0.9868797206588648
+        ],
+        "yaw_rad": 1.4833612161531493,
+        "pitch_rad": -0.19234564590264744,
+        "roll_rad": 0.14999999999999994,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.6135832637822872,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 8.913542194028517
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.3411062016407642,
+          3.64014345462351,
+          0.8068797206588648
+        ],
+        "yaw_rad": 1.3749612760847865,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": 0.14999999999999997,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.7935832637822872,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 13.507670540516596
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.6499999999999999,
+          3.9903243686861147,
+          0.6268797206588649
+        ],
+        "yaw_rad": 1.8999999999999997,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": -0.07849120063630058,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.9735832637822871,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 22.92464785193085
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.0,
+          4.57025264137436,
+          0.6268797206588649
+        ],
+        "yaw_rad": 1.57,
+        "pitch_rad": -0.4,
+        "roll_rad": 0.0,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.9735832637822871,
+      "lamp_correspondence": [
+        "next_lamp_center",
+        "far_lamp_center",
+        "hall_lamp_0"
+      ],
+      "observed": {
+        "next_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "far_lamp_center": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 10000.0
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.10423258234577361,
+          1.239990000000179,
+          1.397596373415322
+        ],
+        "yaw_rad": 1.6428297135476608,
+        "pitch_rad": -0.46390264136613857,
+        "roll_rad": -0.14999999995483762,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.20286661102582984,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 2.557168351824024
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.10286892157162156,
+          1.3999900000002237,
+          1.3468797206588647
+        ],
+        "yaw_rad": 1.6429697908505307,
+        "pitch_rad": -0.4571505339834612,
+        "roll_rad": -0.14999999999995758,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.2535832637822873,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 2.5180016639037106
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.10065140572921862,
+          2.9397616264982993,
+          1.3468797206588647
+        ],
+        "yaw_rad": 1.6428374030875037,
+        "pitch_rad": -0.4387798291032422,
+        "roll_rad": -0.14999999999882638,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.2535832637822873,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 2.2832801976615094
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.09352816138481729,
+          3.032998051890896,
+          1.1668797206588648
+        ],
+        "yaw_rad": 1.6439010628383954,
+        "pitch_rad": -0.4141606924871922,
+        "roll_rad": -0.14999999999995778,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.4335832637822873,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 2.31853952053521
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.0850512682125815,
+          3.2899625405609054,
+          0.9868797206588648
+        ],
+        "yaw_rad": 1.6452125059988596,
+        "pitch_rad": -0.3851457590042037,
+        "roll_rad": -0.14999999805359757,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.6135832637822872,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 2.4378376319151394
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.07497932994723033,
+          3.64014345462351,
+          0.8068797206588648
+        ],
+        "yaw_rad": 1.6468903846086607,
+        "pitch_rad": -0.3510787991278932,
+        "roll_rad": -0.14993977346503098,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.7935832637822872,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 2.7099773109815857
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.06272681411849172,
+          3.9903243686861147,
+          0.6268797206588649
+        ],
+        "yaw_rad": 1.6483411152808671,
+        "pitch_rad": -0.3132197435850826,
+        "roll_rad": -0.1483259896778073,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.9735832637822871,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 3.1536394022939436
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.05627602135406645,
+          4.34050528274872,
+          0.6268797206588649
+        ],
+        "yaw_rad": 1.648019343948382,
+        "pitch_rad": -0.2988186559009655,
+        "roll_rad": -0.14528009166127412,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.9735832637822871,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 3.4550772962348817
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.6499999999999999,
+          7.200010000000001,
+          0.5268797206588649
+        ],
+        "yaw_rad": 1.843023109675405,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": -0.048782350089795805,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -1.073583263782287,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 14.843549527419546
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.6499999999999999,
+          7.480010000000001,
+          0.4268797206588648
+        ],
+        "yaw_rad": 1.8911590665498974,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": -0.05830787077869904,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -1.1735832637822872,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 21.497530773504508
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.6499999999999999,
+          7.76001,
+          0.3268797206588647
+        ],
+        "yaw_rad": 1.8999999999999997,
+        "pitch_rad": -0.12000000000000001,
+        "roll_rad": -0.005690184949050684,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -1.2735832637822873,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 32.46522954879252
+    },
+    {
+      "camera": {
+        "position_m": [
+          0.0,
+          8.29960072839462,
+          0.3268797206588647
+        ],
+        "yaw_rad": 1.57,
+        "pitch_rad": -0.4,
+        "roll_rad": 0.0,
+        "tan_half_vertical_fov": 0.9590039863520616,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -1.2735832637822873,
+      "lamp_correspondence": [
+        "far_lamp_center",
+        "hall_lamp_0",
+        "hall_lamp_1"
+      ],
+      "observed": {
+        "far_lamp_center": [
+          [
+            245,
+            111
+          ],
+          7
+        ],
+        "hall_lamp_0": [
+          [
+            244,
+            151
+          ],
+          7
+        ],
+        "hall_lamp_1": [
+          [
+            243,
+            175
+          ],
+          7
+        ],
+        "aperture_top_left": [
+          [
+            148,
+            189
+          ],
+          9
+        ],
+        "aperture_top_right": [
+          [
+            334,
+            182
+          ],
+          12
+        ]
+      },
+      "weighted_rms": 10000.0
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "next_lamp_center",
+      "source_px": [
+        245,
+        111
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        244.18529932027036,
+        103.7534863611807
+      ],
+      "distance_px": 7.292166832646247
+    },
+    {
+      "id": "far_lamp_center",
+      "source_px": [
+        244,
+        151
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        240.93967651365924,
+        164.89921161508306
+      ],
+      "distance_px": 14.232134884194597
+    },
+    {
+      "id": "hall_lamp_0",
+      "source_px": [
+        243,
+        175
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        239.93907238573266,
+        183.75003586043147
+      ],
+      "distance_px": 9.269973323511833
+    },
+    {
+      "id": "aperture_top_left",
+      "source_px": [
+        148,
+        189
+      ],
+      "uncertainty_px": 9,
+      "projected_px": [
+        175.27654258136573,
+        173.60555521143164
+      ],
+      "distance_px": 31.320898862282633
+    },
+    {
+      "id": "aperture_top_right",
+      "source_px": [
+        334,
+        182
+      ],
+      "uncertainty_px": 12,
+      "projected_px": [
+        305.98116921492243,
+        162.6682619932143
+      ],
+      "distance_px": 34.04072521151413
+    }
+  ],
+  "held_out": [
+    {
+      "side": "left",
+      "projected_rail_end_px": [
+        199.65812219494865,
+        348.80610364852316
+      ],
+      "source_possible_rail_end_px": [
+        148,
+        329
+      ],
+      "distance_px": 55.324888887771735,
+      "use": "excluded diagnostic: upright handrail may differ from low edge-trim termination"
+    },
+    {
+      "side": "right",
+      "projected_rail_end_px": [
+        303.5478678513249,
+        341.301432685866
+      ],
+      "source_possible_rail_end_px": [
+        322,
+        335
+      ],
+      "distance_px": 19.49844185381668,
+      "use": "excluded diagnostic: upright handrail may differ from low edge-trim termination"
+    }
+  ],
+  "limitations": [
+    "Only the camera is fitted; the full original video trajectory is not recovered.",
+    "Lamp correspondence and the hall aperture corners remain manually assigned and approximate.",
+    "The possible rail endpoints are not fit inputs; their mismatches must not be hidden."
+  ],
+  "geometry_source_sha256": "c9c8bba2435b59eb4b5a78f3c5d06100f2d624eb6ab3deeeeffc75e685accd20"
+}

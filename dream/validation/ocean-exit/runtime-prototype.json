@@ -1,0 +1,63 @@
+{
+  "schema": "dream.ocean_exit_runtime_prototype.v1",
+  "scene_id": "video-42/salida_oceano",
+  "alias": "v42_ocean_exit",
+  "status": "available",
+  "visual_acceptance": "pending",
+  "renderer": {
+    "api": "OpenGL",
+    "version": "3.3",
+    "shaders": "GLSL 330 core",
+    "device": "Intel(R) HD Graphics 630"
+  },
+  "export": {
+    "format": "DREAMM02",
+    "materials": 9,
+    "vertices": 267840,
+    "triangles": 89280,
+    "blend": "blender/v42_ocean_exit.blend",
+    "glb": "assets/v42_ocean_exit.glb",
+    "mesh": "assets/v42_ocean_exit.dreammesh"
+  },
+  "water": {
+    "meshes": 2,
+    "method": "screen-space refraction and planar scene reflection, plus analytic travelling waves and advected foam mask",
+    "reference_time_origin": "exported frame 1 corresponds to source video 7.0 s",
+    "tested_shader_times_s": [
+      0.0,
+      2.5
+    ],
+    "image_mean_absolute_difference": 3.2618311592419396
+  },
+  "textures": {
+    "originals_preserved": "assets/textures/ocean_exit/",
+    "runtime_maps": "assets/textures/ocean_exit_runtime/",
+    "unique_rgb24_maps": 8,
+    "catalog_texture_roles": 9
+  },
+  "verification": {
+    "build": "PASS",
+    "catalog_validation": "PASS · 6 available scenes",
+    "mouse_orientation_smoke": "PASS",
+    "runtime_framebuffer": "478x850",
+    "gl_error": 0,
+    "captured_frames": 1,
+    "render_times_s": [
+      0.0,
+      2.5
+    ],
+    "navigation": "PASS · crossed the exit to y=8.31 m and stopped at the left border x=-0.64 m"
+  },
+  "captures": [
+    "validation/ocean-exit/runtime-final-7s.png",
+    "validation/ocean-exit/runtime-final-9.5s.png",
+    "validation/ocean-exit/runtime-comparison.png"
+  ],
+  "known_gaps": [
+    "Water color and foam distribution differ from the reference.",
+    "Pink reflections and lighting spill need calibration.",
+    "The captured water is a shader approximation, not a fluid simulation.",
+    "Visual acceptance remains pending against all reference views."
+  ],
+  "accepted": false
+}

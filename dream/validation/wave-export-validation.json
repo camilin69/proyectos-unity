@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "floor_metric_uv_max_error": 4.76837158203125e-07,
+  "painted_floor_corners": 156,
+  "sign_front_corners": 12,
+  "support_geometry_samples": 153,
+  "camera_basis_max_error": 1.9245747656659873e-07,
+  "packed_data_channels": "wall roughness / ceiling roughness / sign emission",
+  "glb_texture_uv_sets_present": true,
+  "strict_fidelity_accepted": false,
+  "sha256": {
+    "assets/wave_corridor.dreammesh": "7c558f098c63c2f06af3b359820976fe1ba63e9c958b2ce497754ec8aba6a53b",
+    "assets/wave_corridor.scene": "140a87463ec2ef6fb03445e295e96c383a8593b1606fd61e7ccbd364d812e945",
+    "assets/wave_corridor.json": "a38e78f7d62ca8ea36a7c38e011873e333071742b0eb530e8fa2d1ae055e2b68",
+    "assets/wave_corridor.glb": "ea96cc78e05296bf98091ca8e3eab4d09bebe04114c25e995931702558a9a78d",
+    "assets/textures/wave_surface_data.png": "0f265b6a77a2d2e3fb74f62c4c13d570174e1e738171f9265d323b3fef2f6564"
+  }
+}

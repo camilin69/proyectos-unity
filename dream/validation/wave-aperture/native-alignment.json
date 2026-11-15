@@ -1,0 +1,229 @@
+{
+  "passed": true,
+  "saved_scenes": [
+    "DREAM_WaveApertureCandidate"
+  ],
+  "actual_camera_corner_projections": [
+    {
+      "time_s": 14.0,
+      "side": "left",
+      "render_projection_px": [
+        164.6808176636696,
+        165.336474776268
+      ],
+      "source_error_px": 6.231667796162243,
+      "solver_error_px": 6.231681197069648
+    },
+    {
+      "time_s": 14.0,
+      "side": "right",
+      "render_projection_px": [
+        295.41942822933197,
+        180.78067004680634
+      ],
+      "source_error_px": 6.331760160847993,
+      "solver_error_px": 6.331739563002147
+    },
+    {
+      "time_s": 14.5,
+      "side": "left",
+      "render_projection_px": [
+        187.6837408542633,
+        162.3288094997406
+      ],
+      "source_error_px": 5.927588073394984,
+      "solver_error_px": 5.927629688504163
+    },
+    {
+      "time_s": 14.5,
+      "side": "right",
+      "render_projection_px": [
+        326.14007019996643,
+        177.41972506046295
+      ],
+      "source_error_px": 3.923994316115869,
+      "solver_error_px": 3.9239317097280506
+    },
+    {
+      "time_s": 15.0,
+      "side": "left",
+      "render_projection_px": [
+        205.73300158977509,
+        121.88991010189056
+      ],
+      "source_error_px": 5.81249184647729,
+      "solver_error_px": 5.812534525094934
+    },
+    {
+      "time_s": 15.0,
+      "side": "right",
+      "render_projection_px": [
+        355.3619420528412,
+        146.3901847600937
+      ],
+      "source_error_px": 3.6981844440205855,
+      "solver_error_px": 3.6981774588504304
+    },
+    {
+      "time_s": 15.5,
+      "side": "left",
+      "render_projection_px": [
+        263.5350705385208,
+        204.87603843212128
+      ],
+      "source_error_px": 4.493246217869486,
+      "solver_error_px": 4.493291506771998
+    },
+    {
+      "time_s": 15.5,
+      "side": "right",
+      "render_projection_px": [
+        418.74873530864716,
+        225.96789598464966
+      ],
+      "source_error_px": 4.001620247257113,
+      "solver_error_px": 4.0016173046683265
+    },
+    {
+      "time_s": 16.0,
+      "side": "left",
+      "render_projection_px": [
+        231.33058774471283,
+        215.32785892486572
+      ],
+      "source_error_px": 2.6050563702772314,
+      "solver_error_px": 2.6050171343474573
+    },
+    {
+      "time_s": 16.0,
+      "side": "right",
+      "render_projection_px": [
+        394.9510408639908,
+        245.36691904067993
+      ],
+      "source_error_px": 3.390016355556365,
+      "solver_error_px": 3.390101596820856
+    },
+    {
+      "time_s": 16.5,
+      "side": "left",
+      "render_projection_px": [
+        188.27534264326096,
+        150.18466114997864
+      ],
+      "source_error_px": 1.5916879563718387,
+      "solver_error_px": 1.591684922364779
+    },
+    {
+      "time_s": 16.5,
+      "side": "right",
+      "render_projection_px": [
+        375.6775779724121,
+        183.2040786743164
+      ],
+      "source_error_px": 5.377604753625208,
+      "solver_error_px": 5.377594186069988
+    },
+    {
+      "time_s": 17.0,
+      "side": "left",
+      "render_projection_px": [
+        128.4394564628601,
+        84.91834998130798
+      ],
+      "source_error_px": 2.951252038737089,
+      "solver_error_px": 2.951183270673615
+    },
+    {
+      "time_s": 17.0,
+      "side": "right",
+      "render_projection_px": [
+        344.1695011854172,
+        139.00206387043
+      ],
+      "source_error_px": 6.000330696408246,
+      "solver_error_px": 6.000400035929656
+    }
+  ],
+  "actual_wall_and_roof_checks": [
+    {
+      "object": "GEO-DREAM-waveaperture-left_wall_after_doors",
+      "actual_end_y_m": 8.485786437988281,
+      "expected_end_y_m": 8.485786747247756
+    },
+    {
+      "object": "GEO-DREAM-waveaperture-right_wall",
+      "actual_end_y_m": 9.902316093444824,
+      "expected_end_y_m": 9.902316201354425
+    },
+    {
+      "object": "GEO-DREAM-waveaperture-ceiling",
+      "sample_xy": [
+        -0.5,
+        8.484786747247757
+      ],
+      "actual_bottom_z_m": 2.5056862831115723,
+      "expected_z_m": 2.505686096471568
+    },
+    {
+      "object": "GEO-DREAM-waveaperture-ceiling",
+      "sample_xy": [
+        0.5,
+        8.484786747247757
+      ],
+      "actual_bottom_z_m": 2.5056862831115723,
+      "expected_z_m": 2.505686096471568
+    },
+    {
+      "object": "GEO-DREAM-waveaperture-hall_ceiling",
+      "sample_xy": [
+        -0.5,
+        8.486786747247756
+      ],
+      "actual_bottom_z_m": 2.505686044692993,
+      "expected_z_m": 2.505686096471568
+    },
+    {
+      "object": "GEO-DREAM-waveaperture-hall_ceiling",
+      "sample_xy": [
+        0.5,
+        8.486786747247756
+      ],
+      "actual_bottom_z_m": 2.5056862831115723,
+      "expected_z_m": 2.505686096471568
+    }
+  ],
+  "emitter_clearances": [
+    {
+      "id": 0,
+      "body_bottom_z_m": 2.241318702697754,
+      "emitter_z_m": 2.2163188457489014,
+      "clearance_m": 0.02499985694885254
+    },
+    {
+      "id": 1,
+      "body_bottom_z_m": 2.241318702697754,
+      "emitter_z_m": 2.2163188457489014,
+      "clearance_m": 0.02499985694885254
+    },
+    {
+      "id": 2,
+      "body_bottom_z_m": 2.241318702697754,
+      "emitter_z_m": 2.2163188457489014,
+      "clearance_m": 0.02499985694885254
+    },
+    {
+      "id": 3,
+      "body_bottom_z_m": 2.241318702697754,
+      "emitter_z_m": 2.2163188457489014,
+      "clearance_m": 0.02499985694885254
+    },
+    {
+      "id": 4,
+      "body_bottom_z_m": 2.241318702697754,
+      "emitter_z_m": 2.2163188457489014,
+      "clearance_m": 0.02499985694885254
+    }
+  ],
+  "scope": "Native projection, wall extents, ceiling seam and emitter clearance only; no complete scene fidelity or runtime navigation claim."
+}

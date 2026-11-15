@@ -1,0 +1,882 @@
+{
+  "schema_version": 1,
+  "stage": "local_frame_fill_and_ao_tessellation_verified",
+  "accepted": false,
+  "captured_at_utc": "2026-10-09T05:34:33.191531+00:00",
+  "before_export": [
+    {
+      "path": "dream/assets/stair_sky.scene",
+      "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+      "bytes": 764,
+      "mtime_utc": "2026-10-09T05:01:46.921371+00:00"
+    },
+    {
+      "path": "dream/assets/stair_sky.json",
+      "sha256": "6b79e47913443a7d187cb1cf838bc4011467b9a26dcefc8f30c10ffc7c07ded0",
+      "bytes": 23407,
+      "mtime_utc": "2026-10-09T05:01:46.920369+00:00"
+    },
+    {
+      "path": "dream/assets/stair_sky.glb",
+      "sha256": "15b9ee977bc385c4037b16bbe54933f7a00bf310ff238d1e8c43d3f159f239af",
+      "bytes": 39530196,
+      "mtime_utc": "2026-10-09T05:01:48.081533+00:00"
+    },
+    {
+      "path": "dream/assets/stair_sky.dreammesh",
+      "sha256": "d52c956509e738d759a12f1352b15a946df180cb26935cd07e9cacbcd429f77b",
+      "bytes": 42465088,
+      "mtime_utc": "2026-10-09T05:01:46.890423+00:00"
+    },
+    {
+      "path": "dream/assets/stair_sky.draws",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "bytes": 2,
+      "mtime_utc": "2026-10-09T05:01:46.921371+00:00"
+    },
+    {
+      "path": "dream/validation/stair-blender.png",
+      "sha256": "a2fc9828db6c74c87e90e680dcdcf85ca995eef402f4f0ec10f0166df88360a0",
+      "bytes": 1353511,
+      "mtime_utc": "2026-10-09T04:59:58.351986+00:00"
+    },
+    {
+      "path": "dream/validation/stair-opengl.png",
+      "sha256": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5",
+      "bytes": 474998,
+      "mtime_utc": "2026-10-09T05:08:24.699629+00:00"
+    },
+    {
+      "path": "dream/validation/stair-side-blender.png",
+      "sha256": "323526c3bd4ce6961983ec3351242c4dc9eb4753294e0eeabd5d1c48db8d1ec7",
+      "bytes": 643647,
+      "mtime_utc": "2026-10-09T05:00:15.649093+00:00"
+    }
+  ],
+  "note": "Root requested capture before stair solid-frame v5 export. These are historical baseline artifacts, not results of the forthcoming export.",
+  "first_export_attempt": {
+    "recorded_at_utc": "2026-10-09T05:44:11.551166+00:00",
+    "artifacts": [
+      {
+        "path": "dream/assets/stair_sky.scene",
+        "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+        "bytes": 764
+      },
+      {
+        "path": "dream/assets/stair_sky.json",
+        "sha256": "5833f75d354ee5aefedbfff54c4edd30879987d3756b0198dcfda691a8b2a92e",
+        "bytes": 20574
+      },
+      {
+        "path": "dream/assets/stair_sky.glb",
+        "sha256": "c9d5342ee0c49d2837c886fce32bf136a96bc774d89194e4c80afcc29a5435a6",
+        "bytes": 39425880
+      },
+      {
+        "path": "dream/assets/stair_sky.dreammesh",
+        "sha256": "168fd92b9a78647a386d118b274210f1d5f874a40e7f176dc1c53a290710675b",
+        "bytes": 42335968
+      },
+      {
+        "path": "dream/assets/stair_sky.draws",
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      {
+        "path": "dream/validation/stair-frame-blender-v5.png",
+        "sha256": "377ca09f6d4f560cd8373a057653384fc5ffb8f4af041fa0149214d5a986372b",
+        "bytes": 1348739,
+        "dimensions_px": [
+          720,
+          1280
+        ]
+      },
+      {
+        "path": "dream/validation/stair-frame-oblique-v5.png",
+        "sha256": "9181d1ccb196327af141241a413354da6d852ea7f1f0830c810633137941afc6",
+        "bytes": 355970,
+        "dimensions_px": [
+          640,
+          480
+        ]
+      },
+      {
+        "path": "dream/validation/stair-frame-rear-v5.png",
+        "sha256": "d93a54c10291b51ca1e0e10400c21bcce20b3924d76e921e68b69347a6c8541c",
+        "bytes": 380818,
+        "dimensions_px": [
+          640,
+          480
+        ]
+      },
+      {
+        "path": "dream/validation/stair-frame-opengl-v5-ao-initial.png",
+        "sha256": "f299dc89428265f3e520b12aecfccd59b592870a3a274e68707fc68474b0baa9",
+        "bytes": 473605,
+        "dimensions_px": [
+          540,
+          960
+        ]
+      },
+      {
+        "path": "dream/validation/stair-frame-opengl-v5-ao-initial.log",
+        "sha256": "ef5335b9989c919cd001e4834470f76e176c66fd4682f939a69e271ef7ab2419",
+        "bytes": 350
+      }
+    ],
+    "assets_check": {
+      "command": "python dream/validation/verify_assets.py stair_sky",
+      "exit_code": 0,
+      "result": "PASS",
+      "materials": 6,
+      "vertices": 1058394,
+      "triangles": 352798,
+      "glb_bytes": 39425880,
+      "glb_budget_bytes": 45000000,
+      "embedded_glb_images": 4,
+      "navigation_route_test_rerun": false
+    },
+    "capture": {
+      "command": "dream/runtime/build/dream.exe --hidden --scene stair_sky --frames 8 --time 0 --samples 4 --width 540 --height 960 --capture dream/validation/stair-frame-opengl-v5.ppm",
+      "exit_code": 0,
+      "frames": 8,
+      "elapsed_s": 0.393916,
+      "gl_error": 0,
+      "framebuffer_px": [
+        540,
+        960
+      ],
+      "note": "Saved separately as stair-frame-opengl-v5-ao-initial.png; fixed time hidden capture, not a gameplay FPS guarantee."
+    },
+    "finding": {
+      "frame_fill": "The pink body is now continuous under the mouldings in Blender and GL. Oblique/rear renders show a real solid volume.",
+      "integration_regression": "New broad dark rectangle above the opening in GL: coarse surround_above has front AO0.35 at z4.69858 and AO1 atz9.0, interpolated over its4.3m height. Baseline did not show this shape.",
+      "repair_pending": "Subdivide only the unchanged closed mint upper box; retain AO and same surface/material. Helper prepared, root applies and exports sequentially."
+    },
+    "accepted_for_final_integration": false,
+    "scene_sha_unchanged": true
+  },
+  "frame_colour_diagnostic": {
+    "method": "Manually chosen native-pixel rectangles; identical boxes across each same-resolution before/after pair. RGB statistics without colour correction. R-G>10 classifies warm paint coverage only, not resemblance or a fidelity percentage. Reference09 composition differs slightly; its RGB is contextual, not an exact per-pixel target.",
+    "images": {
+      "reference09": {
+        "path": "dream/referencias/estetica/evidencias/video-35/09s.png",
+        "sha256": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde",
+        "dimensions_px": [
+          720,
+          1280
+        ],
+        "regions": [
+          {
+            "region": "header_body",
+            "box_xyxy": [
+              110,
+              157,
+              450,
+              163
+            ],
+            "median_srgb_255": [
+              206.0,
+              156.0,
+              146.0
+            ],
+            "median_linear_Y": 0.38892813660080483,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          },
+          {
+            "region": "left_jamb_body",
+            "box_xyxy": [
+              28,
+              250,
+              48,
+              470
+            ],
+            "median_srgb_255": [
+              199.0,
+              154.0,
+              148.0
+            ],
+            "median_linear_Y": 0.3742324238586334,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          }
+        ]
+      },
+      "blender_before": {
+        "path": "dream/validation/stair-blender.png",
+        "sha256": "a2fc9828db6c74c87e90e680dcdcf85ca995eef402f4f0ec10f0166df88360a0",
+        "dimensions_px": [
+          720,
+          1280
+        ],
+        "regions": [
+          {
+            "region": "header_body",
+            "box_xyxy": [
+              110,
+              157,
+              450,
+              163
+            ],
+            "median_srgb_255": [
+              205.0,
+              166.0,
+              162.0
+            ],
+            "median_linear_Y": 0.42967456895430045,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 0.8112745098039216
+          },
+          {
+            "region": "left_jamb_body",
+            "box_xyxy": [
+              28,
+              250,
+              48,
+              470
+            ],
+            "median_srgb_255": [
+              205.0,
+              165.0,
+              160.0
+            ],
+            "median_linear_Y": 0.4242746824007801,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 0.9993181818181818
+          }
+        ]
+      },
+      "blender_v5": {
+        "path": "dream/validation/stair-frame-blender-v5.png",
+        "sha256": "377ca09f6d4f560cd8373a057653384fc5ffb8f4af041fa0149214d5a986372b",
+        "dimensions_px": [
+          720,
+          1280
+        ],
+        "regions": [
+          {
+            "region": "header_body",
+            "box_xyxy": [
+              110,
+              157,
+              450,
+              163
+            ],
+            "median_srgb_255": [
+              211.0,
+              169.0,
+              164.0
+            ],
+            "median_linear_Y": 0.4490515400606565,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          },
+          {
+            "region": "left_jamb_body",
+            "box_xyxy": [
+              28,
+              250,
+              48,
+              470
+            ],
+            "median_srgb_255": [
+              202.0,
+              163.0,
+              159.0
+            ],
+            "median_linear_Y": 0.4125414548205742,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          }
+        ]
+      },
+      "opengl_before": {
+        "path": "dream/validation/stair-opengl.png",
+        "sha256": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5",
+        "dimensions_px": [
+          540,
+          960
+        ],
+        "regions": [
+          {
+            "region": "header_body",
+            "box_xyxy": [
+              83,
+              118,
+              338,
+              122
+            ],
+            "median_srgb_255": [
+              136.0,
+              151.0,
+              140.0
+            ],
+            "median_linear_Y": 0.3224885873742128,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 0.4764705882352941
+          },
+          {
+            "region": "left_jamb_body",
+            "box_xyxy": [
+              21,
+              188,
+              36,
+              353
+            ],
+            "median_srgb_255": [
+              145.0,
+              158.0,
+              146.0
+            ],
+            "median_linear_Y": 0.3224885873742128,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 0.3333333333333333
+          }
+        ]
+      },
+      "opengl_first_export": {
+        "path": "dream/validation/stair-frame-opengl-v5-ao-initial.png",
+        "sha256": "f299dc89428265f3e520b12aecfccd59b592870a3a274e68707fc68474b0baa9",
+        "dimensions_px": [
+          540,
+          960
+        ],
+        "regions": [
+          {
+            "region": "header_body",
+            "box_xyxy": [
+              83,
+              118,
+              338,
+              122
+            ],
+            "median_srgb_255": [
+              195.0,
+              146.0,
+              135.0
+            ],
+            "median_linear_Y": 0.3390914046716061,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          },
+          {
+            "region": "left_jamb_body",
+            "box_xyxy": [
+              21,
+              188,
+              36,
+              353
+            ],
+            "median_srgb_255": [
+              194.0,
+              145.0,
+              134.0
+            ],
+            "median_linear_Y": 0.3344136233487503,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          }
+        ]
+      },
+      "opengl_final": {
+        "path": "dream/validation/stair-frame-opengl-v5.png",
+        "sha256": "c8dd9e1f659a111aa15971c1a73777fa5df51e723214e531df05493f49778483",
+        "bytes": 473302,
+        "dimensions_px": [
+          540,
+          960
+        ],
+        "regions": [
+          {
+            "region": "header_body",
+            "box_xyxy": [
+              83,
+              118,
+              338,
+              122
+            ],
+            "median_srgb_255": [
+              195.0,
+              146.0,
+              135.0
+            ],
+            "median_linear_Y": 0.3390914046716061,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          },
+          {
+            "region": "left_jamb_body",
+            "box_xyxy": [
+              21,
+              188,
+              36,
+              353
+            ],
+            "median_srgb_255": [
+              194.0,
+              145.0,
+              134.0
+            ],
+            "median_linear_Y": 0.3344136233487503,
+            "warm_paint_pixel_fraction_R_minus_G_gt10": 1.0
+          }
+        ]
+      }
+    }
+  },
+  "references": [
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/09s.png",
+      "sha256": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde",
+      "scope": "Front jamb/header colour and uninterrupted body; source supports filled front, not exact inferred rear depth."
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/21s.png",
+      "sha256": "600a100bd9c343bf52eb52328461d72f02f06391845175189d4f107fe626f2c2",
+      "scope": "Oblique grass/rail context; almost all of frame is cropped. It cannot confirm rear frame shape."
+    }
+  ],
+  "completed_at_utc": "2026-10-09T05:48:42.116684+00:00",
+  "local_frame_fix_accepted": true,
+  "whole_scene_visual_match_accepted": false,
+  "goal_complete": false,
+  "scope": "Filled structural frame and local AO integration only; no whole-scene fidelity acceptance.",
+  "historical_snapshot_policy": "Before-export and first-attempt asset entries are timestamped hash snapshots; old asset binaries were not duplicated. Baseline images and the rejected initial GL image remain unchanged at their listed paths.",
+  "final_artifacts": [
+    {
+      "path": "dream/assets/stair_sky.scene",
+      "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+      "bytes": 764
+    },
+    {
+      "path": "dream/assets/stair_sky.json",
+      "sha256": "03efcd38555a88aac02730e344af6879cbc2318a74299b095236d71efdbaf992",
+      "bytes": 20576
+    },
+    {
+      "path": "dream/assets/stair_sky.glb",
+      "sha256": "b5e5440fd9008a0494a8bf94c35b016933137452df6d2097f030405267c2f45b",
+      "bytes": 39460148
+    },
+    {
+      "path": "dream/assets/stair_sky.dreammesh",
+      "sha256": "307a4f31bc485e8bb4b5e2bbdca90adc61973f528c7999131684f726c841ccdf",
+      "bytes": 42470848
+    },
+    {
+      "path": "dream/assets/stair_sky.draws",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "bytes": 2
+    },
+    {
+      "path": "dream/blender/stair_frame.py",
+      "sha256": "ab74cfe401a4379381dbcece1ef05dfad3cee457e15e008dacda9791dc7e3682",
+      "bytes": 14960
+    },
+    {
+      "path": "dream/blender/stair_sky_plan.json",
+      "sha256": "a1bf0bdba6a08ccbc4881b765481a3031a3cc0d0fdb81ab66bb2d0af20ae3e0f",
+      "bytes": 30572
+    },
+    {
+      "path": "dream/blender/stair_sky.blend",
+      "sha256": "a9427dc24c762bbf00cea07ac6132bbe2bfa342090901f850e530769a192a019",
+      "bytes": 40478861
+    },
+    {
+      "path": "dream/runtime/shaders/scene.frag",
+      "sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+      "bytes": 14866
+    },
+    {
+      "path": "dream/runtime/build/dream.exe",
+      "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+      "bytes": 3345304
+    },
+    {
+      "path": "dream/assets/scene_catalog.cat",
+      "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+      "bytes": 4823
+    },
+    {
+      "path": "dream/validation/verify_assets.py",
+      "sha256": "de33e105fa0f2a01be41c33a695f6c3970230e7e3b10e06345c6c88fd773c032",
+      "bytes": 15988
+    },
+    {
+      "path": "dream/validation/stair-frame-grid-v5.json",
+      "sha256": "28cb5b959adc1333e950baab5bb3cc9e37e91a33a8f6c1bd8b9d2f2df97d5ac9",
+      "bytes": 1102
+    },
+    {
+      "path": "dream/validation/stair-frame-blender-v5.png",
+      "sha256": "377ca09f6d4f560cd8373a057653384fc5ffb8f4af041fa0149214d5a986372b",
+      "bytes": 1348739,
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "path": "dream/validation/stair-frame-oblique-v5.png",
+      "sha256": "9181d1ccb196327af141241a413354da6d852ea7f1f0830c810633137941afc6",
+      "bytes": 355970,
+      "dimensions_px": [
+        640,
+        480
+      ]
+    },
+    {
+      "path": "dream/validation/stair-frame-rear-v5.png",
+      "sha256": "d93a54c10291b51ca1e0e10400c21bcce20b3924d76e921e68b69347a6c8541c",
+      "bytes": 380818,
+      "dimensions_px": [
+        640,
+        480
+      ]
+    },
+    {
+      "path": "dream/validation/stair-frame-opengl-v5.png",
+      "sha256": "c8dd9e1f659a111aa15971c1a73777fa5df51e723214e531df05493f49778483",
+      "bytes": 473302,
+      "dimensions_px": [
+        540,
+        960
+      ]
+    },
+    {
+      "path": "dream/validation/stair-frame-opengl-v5.ppm",
+      "sha256": "93faaa1b993b0bbfd9c41a7839e07caccdd6eca0065fdc2c7fc6df71478e8377",
+      "bytes": 1555215
+    },
+    {
+      "path": "dream/validation/stair-frame-opengl-v5.log",
+      "sha256": "f200ea0593731cf80bd5935eadc111c6f704b4e703e547d641b9567e7bb126ce",
+      "bytes": 350
+    }
+  ],
+  "asset_changes": [
+    {
+      "path": "dream/assets/stair_sky.scene",
+      "changed": false
+    },
+    {
+      "path": "dream/assets/stair_sky.json",
+      "changed": true
+    },
+    {
+      "path": "dream/assets/stair_sky.glb",
+      "changed": true
+    },
+    {
+      "path": "dream/assets/stair_sky.dreammesh",
+      "changed": true
+    },
+    {
+      "path": "dream/assets/stair_sky.draws",
+      "changed": false
+    }
+  ],
+  "final_cpu_asset_validation": {
+    "command": "python dream/validation/verify_assets.py stair_sky",
+    "exit_code": 0,
+    "result": {
+      "result": "PASS",
+      "materials": 6,
+      "vertices": 1061766,
+      "asset": "stair_sky",
+      "triangles": 353922,
+      "glb_bytes": 39460148,
+      "glb_budget_bytes": 45000000,
+      "transparent_draws": 0,
+      "waterfall_draws": 0,
+      "navigation_verified": false,
+      "water_vertices_covered": 0,
+      "embedded_glb_images": 4,
+      "profile": "stair_sky",
+      "texture_roles": {
+        "sky": "assets/textures/stair_sky.bmp",
+        "plaid": "assets/textures/stair_plush_albedo.bmp",
+        "ceramic_normal": "assets/textures/stair_plush_normal.bmp",
+        "ceramic_roughness": "assets/textures/stair_neutral_white.bmp",
+        "leaf": "assets/textures/stair_neutral_white.bmp",
+        "globe": "assets/textures/stair_neutral_white.bmp",
+        "floor_surface": "assets/textures/stair_grass_albedo.bmp",
+        "floor_flow": "assets/textures/stair_grass_normal.bmp",
+        "probe": "assets/textures/stair_sky.bmp"
+      },
+      "grass_variants": {
+        "0": {
+          "vertices": 16824,
+          "uv_max_error": 0,
+          "ao_min": 1,
+          "ao_max": 1,
+          "minimum_triangle_area_m2": 8.289190081301759e-06,
+          "minimum_normal_face_dot": 0.943041021438815
+        },
+        "1": {
+          "vertices": 717066,
+          "uv_max_error": 0,
+          "ao_min": 1,
+          "ao_max": 1,
+          "minimum_triangle_area_m2": 6.257443072447417e-05,
+          "minimum_normal_face_dot": 0.9999999125012515
+        }
+      },
+      "plush_variants": {
+        "0": {
+          "vertices": 318276,
+          "uv_max_error": 4.76837158203125e-07,
+          "ao_min": 0.3499999940395355,
+          "ao_max": 1,
+          "minimum_triangle_area_m2": 4.739352051389995e-06,
+          "minimum_normal_face_dot": 0.9981724575812245,
+          "projection_triangles": {
+            "xy": 20116,
+            "xz": 35041,
+            "yz": 50935
+          },
+          "near_tie_alternate_triangles": 0
+        }
+      },
+      "ao_excluded_detail_objects": {
+        "GEO-DREAM-stair-detail_plush": {
+          "vertices": 314388,
+          "ao_min": 1,
+          "ao_max": 1
+        },
+        "GEO-DREAM-stair-detail_grass": {
+          "vertices": 717066,
+          "ao_min": 1,
+          "ao_max": 1
+        }
+      }
+    },
+    "scope": "Current mesh, normals, UVs, material roles, AO rules and embedded GLB checks; navigation_verified=false means this verifier did not execute a route."
+  },
+  "final_opengl_capture": {
+    "command": "dream/runtime/build/dream.exe --hidden --scene stair_sky --frames 8 --time 0 --samples 4 --width 540 --height 960 --capture dream/validation/stair-frame-opengl-v5.ppm",
+    "exit_code": 0,
+    "frames": 8,
+    "fixed_time_s": 0,
+    "opaque_samples": 4,
+    "reflection_samples": 1,
+    "framebuffer_px": [
+      540,
+      960
+    ],
+    "elapsed_s": 0.376132,
+    "vertices": 1061766,
+    "gl_error": 0,
+    "gpu": "Intel HD Graphics630",
+    "driver": "OpenGL3.3 Build31.0.101.2141",
+    "limitation": "Hidden deterministic integration capture; not an FPS guarantee or full manual playtest."
+  },
+  "geometry": {
+    "frame_export_object": {
+      "name": "GEO-DREAM-stair-frame_solid_profile",
+      "first_vertex": 1061106,
+      "vertex_count": 660,
+      "kind": 0,
+      "center": [
+        0.0,
+        3.909144401550293,
+        3.3647427558898926
+      ]
+    },
+    "upper_surround_export_object": {
+      "name": "GEO-DREAM-stair-surround_above",
+      "first_vertex": 1052238,
+      "vertex_count": 3408,
+      "kind": 0,
+      "center": [
+        3.7645038197808844e-09,
+        3.9200174808502197,
+        6.849289417266846
+      ]
+    },
+    "objects_in_export": 63,
+    "frame_surface_policy": "Continuous closed U solid:39 front,39 back,26 foot cap,3 inner reveal and3 outer side faces; intentionally plain pink PBR on real surfaces, metric UVs.",
+    "upper_grid": {
+      "helper_sha256": "ab74cfe401a4379381dbcece1ef05dfad3cee457e15e008dacda9791dc7e3682",
+      "pure_math": "PASS",
+      "bpy_applied": true,
+      "bounds_min": [
+        -1.66804,
+        -0.11,
+        -2.15071
+      ],
+      "bounds_max": [
+        1.66804,
+        0.11,
+        2.15071
+      ],
+      "grid_counts_xyz": [
+        14,
+        1,
+        18
+      ],
+      "vertices": 570,
+      "quads": 568,
+      "triangles": 1136,
+      "closed_edge_incidence_two": true,
+      "opposite_edge_winding": true,
+      "euler": 2,
+      "signed_volume_m3": 3.156973871391943,
+      "original_box_volume_m3": 3.156973871392,
+      "min_triangle_area_m2": 0.026212057142857074,
+      "all_vertices_on_original_six_planes": true,
+      "deterministic_pure_output": true,
+      "max_cell_edge_m": 0.23896777777777778,
+      "live_idempotence": {
+        "result": "PASS",
+        "first_changed": true,
+        "second_changed": false,
+        "evidence": "Parent/root MCP application confirmation in this task; audit agent did not call Blender."
+      },
+      "application_note": "Only upper mint box mesh replaced; same dimensions/transform/material; all six planes preserved and AO remains enabled."
+    },
+    "blender_views": "The three v5 Blender images were rendered after frame replacement but before upper mint box retessellation. They prove frame volume/fill; final retessellation is checked mathematically and in the final OpenGL export."
+  },
+  "control_region_comparisons": [
+    {
+      "comparison": "OpenGL frame-only check",
+      "before": "dream/validation/stair-opengl.png",
+      "after": "dream/validation/stair-frame-opengl-v5.png",
+      "regions": [
+        {
+          "region": "above_frame_ao_rectangle",
+          "box_xyxy": [
+            70,
+            20,
+            390,
+            80
+          ],
+          "maximum_channel_delta_255": 1,
+          "changed_pixels": 62
+        },
+        {
+          "region": "grass_foreground",
+          "box_xyxy": [
+            108,
+            874,
+            432,
+            941
+          ],
+          "maximum_channel_delta_255": 0,
+          "changed_pixels": 0
+        },
+        {
+          "region": "stair_middle",
+          "box_xyxy": [
+            162,
+            509,
+            324,
+            768
+          ],
+          "maximum_channel_delta_255": 0,
+          "changed_pixels": 0
+        },
+        {
+          "region": "cloud_middle",
+          "box_xyxy": [
+            108,
+            182,
+            378,
+            384
+          ],
+          "maximum_channel_delta_255": 0,
+          "changed_pixels": 0
+        }
+      ]
+    },
+    {
+      "comparison": "Blender frame view before grid",
+      "before": "dream/validation/stair-blender.png",
+      "after": "dream/validation/stair-frame-blender-v5.png",
+      "regions": [
+        {
+          "region": "grass_foreground",
+          "box_xyxy": [
+            144,
+            1165,
+            576,
+            1254
+          ],
+          "maximum_channel_delta_255": 0,
+          "changed_pixels": 0
+        },
+        {
+          "region": "stair_middle",
+          "box_xyxy": [
+            216,
+            678,
+            432,
+            1024
+          ],
+          "maximum_channel_delta_255": 0,
+          "changed_pixels": 0
+        },
+        {
+          "region": "cloud_middle",
+          "box_xyxy": [
+            144,
+            243,
+            504,
+            512
+          ],
+          "maximum_channel_delta_255": 0,
+          "changed_pixels": 0
+        }
+      ]
+    }
+  ],
+  "ao_fix": {
+    "initial_problem": "The coarse top wall spread AO 0.35 at its bottom corners over a 4.3 m height, creating a rectangular dark patch.",
+    "repair": "Closed 14 x 1 x 18 grid with maximum cell edge 0.239 m; same box extent/material/UV policy, AO retained.",
+    "result": "The broad rectangle is removed in final OpenGL. The region above the frame returns to baseline median RGB [128, 161, 149]; 62 of 19,200 pixels differ by at most one channel level. Grass, stair and cloud controls are exactly unchanged.",
+    "front_surface_ao_range": [
+      0.3499999940395355,
+      1.0
+    ],
+    "final_front_ao_above_z5_65_range": [
+      1.0,
+      1.0
+    ],
+    "visually_verified": true
+  },
+  "navigation": {
+    "scene_file_unchanged": true,
+    "scene_sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+    "route_test_rerun": false,
+    "retained_route_report": "dream/validation/stair-navigation-validation.json",
+    "reason": "Frame opening keeps its existing safe clearance and only upper wall tessellation changed. Existing route evidence remains historical; this task asserts byte-identical scene/navigation configuration, not a newly executed route."
+  },
+  "findings": [
+    {
+      "priority": "local_fix_verified",
+      "finding": "Pink header and jamb bodies now remain filled between shallow mouldings; the previous mint gaps and disconnected-line appearance are gone in GL.",
+      "evidence": "Native before/after header crops and warm-paint coverage ROIs."
+    },
+    {
+      "priority": "local_fix_verified",
+      "finding": "Oblique/rear Blender views show solid returns, side depth and rear cap. Rear depth is a coherent construction, not recovered geometry:21s crops nearly all of the source frame.",
+      "evidence": "stair-frame-oblique-v5.png and stair-frame-rear-v5.png; source21s limitation."
+    },
+    {
+      "priority": "integration_fix_verified",
+      "finding": "Upper-wall retessellation removes the large AO rectangle while keeping frame fill, grass, stair and sky controls unchanged.",
+      "evidence": "Current CPU export check and final540x960 OpenGL image."
+    },
+    {
+      "priority": "whole_scene_pending",
+      "finding": "Foreground grass remains dark/angular with exposed green riser faces; pink fibres look stiff and tread light lacks the bright plush highlights of09s. Clouds and rail highlights still differ.",
+      "evidence": "Current main views versus09s and oblique21s; none of these materials/lights was changed in this correction."
+    }
+  ],
+  "no_claims": [
+    "No strict acceptance of the stair scene or the13-scene objective.",
+    "No matching of unseen rear frame geometry claimed.",
+    "No new Blender render after upper-box subdivision.",
+    "No new navigation route or room/atrium GPU regression run attributed to this report."
+  ],
+  "comparison_contact": {
+    "path": "dream/validation/stair-frame-header-comparison-v5.png",
+    "sha256": "eb4fa43787ef5f75b4c524de050ee0bec699e8998a677a83dd3684f444aa12ba",
+    "dimensions_px": [
+      720,
+      850
+    ],
+    "note": "Header crops at native pixel size; GL and Blender sources have different dimensions; no fidelity score derived."
+  }
+}

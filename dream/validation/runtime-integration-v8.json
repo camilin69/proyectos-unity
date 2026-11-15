@@ -1,0 +1,848 @@
+{
+  "schema": "dream.runtime_integration.v8",
+  "created_at_utc": "2026-10-09T05:22:23.563008+00:00",
+  "status": "PASS",
+  "path_base": "repository_root",
+  "scope": "Integración técnica del ejecutable existente y shader estable, sin recompilación ni cambios artísticos. Catálogo CPU, cuatro capturas estáticas, comparación RGB nativa y ciclo de escenas con smoke.",
+  "expected_scene_shader_sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+  "shader_matches_expected": true,
+  "gpu": "Intel(R) HD Graphics 630",
+  "driver_opengl": "3.3.0 - Build 31.0.101.2141",
+  "build": {
+    "recompiled_this_task": false,
+    "executable": "dream/runtime/build/dream.exe",
+    "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+    "source_binary_provenance": "Root proporcionó el ejecutable ya compilado del main actual; esta tarea registra hashes y ejecuta ese binario, sin afirmar una recompilación propia."
+  },
+  "catalog": {
+    "command": "dream/runtime/build/dream.exe --validate-scenes",
+    "exit_code": 0,
+    "backend": "CPU; GLFW not initialized",
+    "scenes": [
+      {
+        "id": "video-35/escalera_cielo",
+        "alias": "stair_sky"
+      },
+      {
+        "id": "video-35/habitacion_nubes",
+        "alias": "pastel_room"
+      },
+      {
+        "id": "video-42/cocina_pradera",
+        "alias": "kitchen_meadow"
+      },
+      {
+        "id": "video-52/atrio_acuatico",
+        "alias": "atrium"
+      }
+    ],
+    "log": "dream/validation/runtime-catalog-v8-current.log"
+  },
+  "captures": [
+    {
+      "scene": "pastel_room",
+      "command": "dream/runtime/build/dream.exe --hidden --scene pastel_room --frames 8 --time 0 --samples 4 --width 540 --height 960 --capture .\\dream\\validation\\room-v8-current.ppm",
+      "exit_code": 0,
+      "hidden": true,
+      "time_s_fixed": 0,
+      "opaque_samples": 4,
+      "reflection_samples": 1,
+      "result": {
+        "frames": 8,
+        "elapsed_s_reported_by_app": 0.363374,
+        "vertices": 31056,
+        "gl_error": 0,
+        "framebuffer_px": [
+          540,
+          960
+        ],
+        "camera_xyz": [
+          -1.5,
+          -2.0,
+          1.4
+        ],
+        "yaw_rad": 1.29
+      },
+      "log": "dream/validation/room-v8-current.log",
+      "pixel_comparison": {
+        "label": "room",
+        "capture": "dream/validation/room-v8-current.png",
+        "baseline": "dream/validation/room-opengl.png",
+        "capture_dimensions_px": [
+          540,
+          960
+        ],
+        "baseline_dimensions_px": [
+          540,
+          960
+        ],
+        "same_dimensions": true,
+        "ppm_sha256": "69fc425fce0e7db4f94ff0e62a15133c5362b5613ceef51319857ba64452344b",
+        "png_sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+        "baseline_sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+        "comparison": "native decoded RGB8 without resizing",
+        "identical_pixels": true,
+        "changed_pixels": 0,
+        "changed_pixel_fraction": 0,
+        "mean_abs_channel_delta_8bit": 0,
+        "maximum_abs_channel_delta_8bit": 0
+      }
+    },
+    {
+      "scene": "atrium",
+      "command": "dream/runtime/build/dream.exe --hidden --scene atrium --frames 8 --time 0 --samples 4 --width 960 --height 720 --capture .\\dream\\validation\\atrium-v8-current.ppm",
+      "exit_code": 0,
+      "hidden": true,
+      "time_s_fixed": 0,
+      "opaque_samples": 4,
+      "reflection_samples": 1,
+      "result": {
+        "frames": 8,
+        "elapsed_s_reported_by_app": 0.810117,
+        "vertices": 537522,
+        "gl_error": 0,
+        "framebuffer_px": [
+          960,
+          720
+        ],
+        "camera_xyz": [
+          3.5,
+          -3.7,
+          1.85
+        ],
+        "yaw_rad": 2.06
+      },
+      "log": "dream/validation/atrium-v8-current.log",
+      "pixel_comparison": {
+        "label": "atrium",
+        "capture": "dream/validation/atrium-v8-current.png",
+        "baseline": "dream/validation/atrium-opengl.png",
+        "capture_dimensions_px": [
+          960,
+          720
+        ],
+        "baseline_dimensions_px": [
+          960,
+          720
+        ],
+        "same_dimensions": true,
+        "ppm_sha256": "e34e60f9884b64bc716f8a0f648635a43e0d5328dc1ede544addb582746c0ecc",
+        "png_sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+        "baseline_sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+        "comparison": "native decoded RGB8 without resizing",
+        "identical_pixels": true,
+        "changed_pixels": 0,
+        "changed_pixel_fraction": 0,
+        "mean_abs_channel_delta_8bit": 0,
+        "maximum_abs_channel_delta_8bit": 0
+      }
+    },
+    {
+      "scene": "kitchen_meadow",
+      "command": "dream/runtime/build/dream.exe --hidden --scene kitchen_meadow --frames 8 --time 0 --samples 4 --width 478 --height 850 --capture .\\dream\\validation\\kitchen-v8-current.ppm",
+      "exit_code": 0,
+      "hidden": true,
+      "time_s_fixed": 0,
+      "opaque_samples": 4,
+      "reflection_samples": 1,
+      "result": {
+        "frames": 8,
+        "elapsed_s_reported_by_app": 0.34628,
+        "vertices": 596367,
+        "gl_error": 0,
+        "framebuffer_px": [
+          478,
+          850
+        ],
+        "camera_xyz": [
+          -0.35,
+          -2.8,
+          1.48
+        ],
+        "yaw_rad": 1.53
+      },
+      "log": "dream/validation/kitchen-v8-current.log",
+      "pixel_comparison": {
+        "label": "kitchen",
+        "capture": "dream/validation/kitchen-v8-current.png",
+        "baseline": "dream/validation/kitchen-opengl.png",
+        "capture_dimensions_px": [
+          478,
+          850
+        ],
+        "baseline_dimensions_px": [
+          478,
+          850
+        ],
+        "same_dimensions": true,
+        "ppm_sha256": "3a9f5285f01263a72c4fb941f29228b6517bde0741a83e9715a6d051657711e7",
+        "png_sha256": "b295213807722c5f5e02715ce10bc606ed1f2faecafa044ee4e7e8fa1c028e03",
+        "baseline_sha256": "b295213807722c5f5e02715ce10bc606ed1f2faecafa044ee4e7e8fa1c028e03",
+        "comparison": "native decoded RGB8 without resizing",
+        "identical_pixels": true,
+        "changed_pixels": 0,
+        "changed_pixel_fraction": 0,
+        "mean_abs_channel_delta_8bit": 0,
+        "maximum_abs_channel_delta_8bit": 0
+      }
+    },
+    {
+      "scene": "stair_sky",
+      "command": "dream/runtime/build/dream.exe --hidden --scene stair_sky --frames 8 --time 0 --samples 4 --width 540 --height 960 --capture .\\dream\\validation\\stair-v8-current.ppm",
+      "exit_code": 0,
+      "hidden": true,
+      "time_s_fixed": 0,
+      "opaque_samples": 4,
+      "reflection_samples": 1,
+      "result": {
+        "frames": 8,
+        "elapsed_s_reported_by_app": 0.368747,
+        "vertices": 1061622,
+        "gl_error": 0,
+        "framebuffer_px": [
+          540,
+          960
+        ],
+        "camera_xyz": [
+          0.02206,
+          -3.43887,
+          1.55
+        ],
+        "yaw_rad": 1.51996
+      },
+      "log": "dream/validation/stair-v8-current.log",
+      "pixel_comparison": {
+        "label": "stair",
+        "capture": "dream/validation/stair-v8-current.png",
+        "baseline": "dream/validation/stair-opengl.png",
+        "capture_dimensions_px": [
+          540,
+          960
+        ],
+        "baseline_dimensions_px": [
+          540,
+          960
+        ],
+        "same_dimensions": true,
+        "ppm_sha256": "f511cf7a28283049c9bce6028ac2e440d665951d52ae69770ae5affd545a654a",
+        "png_sha256": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5",
+        "baseline_sha256": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5",
+        "comparison": "native decoded RGB8 without resizing",
+        "identical_pixels": true,
+        "changed_pixels": 0,
+        "changed_pixel_fraction": 0,
+        "mean_abs_channel_delta_8bit": 0,
+        "maximum_abs_channel_delta_8bit": 0
+      }
+    }
+  ],
+  "smoke": {
+    "command": "dream/runtime/build/dream.exe --hidden --scene stair_sky --cycle --smoke --frames 481 --width 640 --height 360 --samples 4",
+    "exit_code": 0,
+    "hidden": true,
+    "opaque_samples": 4,
+    "result": {
+      "frames": 481,
+      "elapsed_s_reported_by_app": 1.60487,
+      "vertices": 1061622,
+      "gl_error": 0,
+      "framebuffer_px": [
+        640,
+        360
+      ],
+      "camera_xyz": [
+        0.023415,
+        -3.41224,
+        1.55
+      ],
+      "yaw_rad": 1.53329
+    },
+    "mouse_orientation": "PASS",
+    "scene_sequence": [
+      "stair_sky",
+      "atrium",
+      "stair_sky"
+    ],
+    "resize_requests_px": [
+      [
+        640,
+        480
+      ],
+      [
+        640,
+        360
+      ]
+    ],
+    "resize_evidence": "El código smoke solicita esos tamaños en frames120 y180; terminó481frames y registró framebuffer final640x360. Los tamaños intermedios no se registran individualmente.",
+    "log": "dream/validation/runtime-smoke-v8-current.log",
+    "navigation_scope": "Cambio y recarga de escenas; no se presenta como una nueva prueba unitaria de navegación ni de ascenso completo por escalera."
+  },
+  "pixel_regression": {
+    "all_four_native_images_identical": true,
+    "method": "PPM capturado convertido sin remuestreo a PNG RGB8. Comparación de cada canal/píxel contra el PNG opengl actual del mismo escenario. Dimensiones nativas iguales en los cuatro pares.",
+    "not_reference_fidelity_score": true
+  },
+  "kitchen_blender_v4": {
+    "saved_source": "dream/blender/kitchen_meadow.blend",
+    "sha256": "d42bb6c110d277e476eb908801d0e0d6f31a204f44d3eb756ba9245063e9311b",
+    "light_change_provenance": "Root confirmó que la nueva iluminación Blender v4 se guardó en kitchen_meadow.blend. Esta tarea no volvió a ejecutar Blender ni inspeccionó sus nodos de luz.",
+    "runtime_effect": "La luz nueva de Blender no modifica el runtime exportado probado: los cinco archivos kitchen_meadow siguen idénticos al reporte CPU v3 y la captura actual coincide exactamente con kitchen-opengl.png. El visor carga assets exportados, no el .blend.",
+    "export_hash_comparison_to_v3": {
+      "assets/kitchen_meadow.scene": {
+        "v3_cpu_report_sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "current_sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "identical": true
+      },
+      "assets/kitchen_meadow.json": {
+        "v3_cpu_report_sha256": "bddf887ce4009277893bebd126f5b983559c0371fc1368aded05727a6f4d6f65",
+        "current_sha256": "bddf887ce4009277893bebd126f5b983559c0371fc1368aded05727a6f4d6f65",
+        "identical": true
+      },
+      "assets/kitchen_meadow.dreammesh": {
+        "v3_cpu_report_sha256": "dbe12905f338e672df5fe873a5a96a41a5a7861c94c911f58e9d5c29b9cbf85e",
+        "current_sha256": "dbe12905f338e672df5fe873a5a96a41a5a7861c94c911f58e9d5c29b9cbf85e",
+        "identical": true
+      },
+      "assets/kitchen_meadow.draws": {
+        "v3_cpu_report_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "current_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "identical": true
+      },
+      "assets/kitchen_meadow.glb": {
+        "v3_cpu_report_sha256": "67150f13300d368d23ac73abbd33012466d124a00a96ecfa6368f1df753da936",
+        "current_sha256": "67150f13300d368d23ac73abbd33012466d124a00a96ecfa6368f1df753da936",
+        "identical": true
+      }
+    }
+  },
+  "input_stability": {
+    "snapshot_count": 55,
+    "all_unchanged_during_run": true,
+    "changed_paths": [],
+    "before": {
+      "dream/assets/atrium.draws": {
+        "sha256": "ac7fe05a7e1392fb8b1de3c2dcd4fd1ca6e4225014f5a787b42e50426ca6954e",
+        "bytes": 2977
+      },
+      "dream/assets/atrium.dreammesh": {
+        "sha256": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db",
+        "bytes": 21501408
+      },
+      "dream/assets/atrium.glb": {
+        "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418",
+        "bytes": 6982972
+      },
+      "dream/assets/atrium.json": {
+        "sha256": "2e9c41e193e40149b7e1162c534b862a7f53f07fdad1c0b1393875b939ec9a15",
+        "bytes": 201940
+      },
+      "dream/assets/atrium.scene": {
+        "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519",
+        "bytes": 3882
+      },
+      "dream/assets/kitchen_meadow.draws": {
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      "dream/assets/kitchen_meadow.dreammesh": {
+        "sha256": "dbe12905f338e672df5fe873a5a96a41a5a7861c94c911f58e9d5c29b9cbf85e",
+        "bytes": 23855144
+      },
+      "dream/assets/kitchen_meadow.glb": {
+        "sha256": "67150f13300d368d23ac73abbd33012466d124a00a96ecfa6368f1df753da936",
+        "bytes": 21652568
+      },
+      "dream/assets/kitchen_meadow.json": {
+        "sha256": "bddf887ce4009277893bebd126f5b983559c0371fc1368aded05727a6f4d6f65",
+        "bytes": 19485
+      },
+      "dream/assets/kitchen_meadow.scene": {
+        "sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "bytes": 1117
+      },
+      "dream/assets/pastel_room.draws": {
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      "dream/assets/pastel_room.dreammesh": {
+        "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+        "bytes": 1242544
+      },
+      "dream/assets/pastel_room.glb": {
+        "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167",
+        "bytes": 1862948
+      },
+      "dream/assets/pastel_room.json": {
+        "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c",
+        "bytes": 174596
+      },
+      "dream/assets/pastel_room.scene": {
+        "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+        "bytes": 207
+      },
+      "dream/assets/scene_catalog.cat": {
+        "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+        "bytes": 4823
+      },
+      "dream/assets/stair_sky.draws": {
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      "dream/assets/stair_sky.dreammesh": {
+        "sha256": "d52c956509e738d759a12f1352b15a946df180cb26935cd07e9cacbcd429f77b",
+        "bytes": 42465088
+      },
+      "dream/assets/stair_sky.glb": {
+        "sha256": "15b9ee977bc385c4037b16bbe54933f7a00bf310ff238d1e8c43d3f159f239af",
+        "bytes": 39530196
+      },
+      "dream/assets/stair_sky.json": {
+        "sha256": "6b79e47913443a7d187cb1cf838bc4011467b9a26dcefc8f30c10ffc7c07ded0",
+        "bytes": 23407
+      },
+      "dream/assets/stair_sky.scene": {
+        "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+        "bytes": 764
+      },
+      "dream/assets/textures/biosphere.bmp": {
+        "sha256": "ea7b5419b0f4121d841f80cc087bce76dc6b296fec059425b2db24f180966a56",
+        "bytes": 1572918
+      },
+      "dream/assets/textures/ceramic_normal.bmp": {
+        "sha256": "0162a54a7a19232d2436e41954c008edb6bb734f34c0ac374f77ef9c30d46758",
+        "bytes": 786486
+      },
+      "dream/assets/textures/ceramic_roughness.bmp": {
+        "sha256": "45327104b6f6ba63adb5325d7131c5be2263f2d1a352a80e7d678a2692728117",
+        "bytes": 786486
+      },
+      "dream/assets/textures/cloud_sky.bmp": {
+        "sha256": "becd61cbea45caf92a03fc9e49160fca5ce27852c62cb9e9f2710a5fab00633c",
+        "bytes": 6291510
+      },
+      "dream/assets/textures/curtain_plaid.bmp": {
+        "sha256": "b2beebdc00b454ed42f35f3646e3ee20c96505966a64a2ca7ebe731aa63defc8",
+        "bytes": 786486
+      },
+      "dream/assets/textures/floor_flow.bmp": {
+        "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+        "bytes": 4718646
+      },
+      "dream/assets/textures/floor_surface_albedo.bmp": {
+        "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+        "bytes": 4718646
+      },
+      "dream/assets/textures/kitchen_grass_albedo.bmp": {
+        "sha256": "6e3d2b301b951da37795f81f47339d8763ff95e6ea364b500f43e2c9dad5cb74",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/kitchen_grass_normal.bmp": {
+        "sha256": "31c96a1515ab32ab6b3da07c4aa8ed775914524d63e693d65041f9e4c39140ed",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/kitchen_neutral_normal.bmp": {
+        "sha256": "2972e220fb5606ba7865ec37d5cd5e2968e3c72c04b369e66e69f0fc2f8b47a8",
+        "bytes": 102
+      },
+      "dream/assets/textures/kitchen_neutral_white.bmp": {
+        "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a",
+        "bytes": 102
+      },
+      "dream/assets/textures/kitchen_sky.bmp": {
+        "sha256": "e5ead6a9f343b44eaec479fea66874eac4006bb261a778344fdc78894222b1e7",
+        "bytes": 6291510
+      },
+      "dream/assets/textures/leaf_detail.bmp": {
+        "sha256": "b3db23a0e53372e59b47808d951a7d42c9fdfc7499ea2fb8d9556a9e8f56cc83",
+        "bytes": 393270
+      },
+      "dream/assets/textures/room_probe.bmp": {
+        "sha256": "6fefba61794ab2a2b2c3957dd7272e28357f024c8d4de531335f492b31b00410",
+        "bytes": 1572918
+      },
+      "dream/assets/textures/stair_grass_albedo.bmp": {
+        "sha256": "62ccc8b7c281da2c97398aa8066693287744330a1562820812f52769372ccc6a",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_grass_normal.bmp": {
+        "sha256": "6e4f33410b32ff755bd8a70290333107e789c3e68aab89b6664373a95dcb38c9",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_neutral_white.bmp": {
+        "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a",
+        "bytes": 102
+      },
+      "dream/assets/textures/stair_plush_albedo.bmp": {
+        "sha256": "b4b75baf8ec1a0e4de4fba05432f67c53880c9db2d48e7b53b2020c410469a95",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_plush_normal.bmp": {
+        "sha256": "f71c1b30b031ed2b05e2164fdf9052b14a9078555fe362aa8ab9ac6066a19987",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_sky.bmp": {
+        "sha256": "34a1429a5ade65cbd5388d1d9753c6dca34a6a155091aec803edff4fc497de5d",
+        "bytes": 6291510
+      },
+      "dream/blender/kitchen_meadow.blend": {
+        "sha256": "d42bb6c110d277e476eb908801d0e0d6f31a204f44d3eb756ba9245063e9311b",
+        "bytes": 40300931
+      },
+      "dream/runtime/build/dream.exe": {
+        "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+        "bytes": 3345304
+      },
+      "dream/runtime/shaders/present.frag": {
+        "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf",
+        "bytes": 1225
+      },
+      "dream/runtime/shaders/present.vert": {
+        "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+        "bytes": 126
+      },
+      "dream/runtime/shaders/scene.frag": {
+        "sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+        "bytes": 14866
+      },
+      "dream/runtime/shaders/scene.vert": {
+        "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e",
+        "bytes": 1082
+      },
+      "dream/runtime/shaders/sky.frag": {
+        "sha256": "c32f78643b2104f9f9426e06fd7eb857b322e7d8fa7e1f118c814d910db81cfb",
+        "bytes": 361
+      },
+      "dream/runtime/shaders/sky.vert": {
+        "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+        "bytes": 126
+      },
+      "dream/runtime/src/gl_api.hpp": {
+        "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5",
+        "bytes": 2289
+      },
+      "dream/runtime/src/main.cpp": {
+        "sha256": "9aed414db9186426ec9095ebc25ede6cfed6e028683cd709f70d90ba084eedc9",
+        "bytes": 14696
+      },
+      "dream/runtime/src/math.hpp": {
+        "sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+        "bytes": 1177
+      },
+      "dream/runtime/src/render_support.hpp": {
+        "sha256": "7f41452681974af89830881f366d13014fe07bbe866ac683a737f59021b2829e",
+        "bytes": 9744
+      },
+      "dream/runtime/src/scene.hpp": {
+        "sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+        "bytes": 11538
+      },
+      "dream/runtime/src/scene_catalog.hpp": {
+        "sha256": "79eb7e6fb00c22b2b48b9a37d6fa2ba6e295935ffb08c87d6057179b0d48e353",
+        "bytes": 10051
+      }
+    },
+    "after": {
+      "dream/assets/atrium.draws": {
+        "sha256": "ac7fe05a7e1392fb8b1de3c2dcd4fd1ca6e4225014f5a787b42e50426ca6954e",
+        "bytes": 2977
+      },
+      "dream/assets/atrium.dreammesh": {
+        "sha256": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db",
+        "bytes": 21501408
+      },
+      "dream/assets/atrium.glb": {
+        "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418",
+        "bytes": 6982972
+      },
+      "dream/assets/atrium.json": {
+        "sha256": "2e9c41e193e40149b7e1162c534b862a7f53f07fdad1c0b1393875b939ec9a15",
+        "bytes": 201940
+      },
+      "dream/assets/atrium.scene": {
+        "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519",
+        "bytes": 3882
+      },
+      "dream/assets/kitchen_meadow.draws": {
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      "dream/assets/kitchen_meadow.dreammesh": {
+        "sha256": "dbe12905f338e672df5fe873a5a96a41a5a7861c94c911f58e9d5c29b9cbf85e",
+        "bytes": 23855144
+      },
+      "dream/assets/kitchen_meadow.glb": {
+        "sha256": "67150f13300d368d23ac73abbd33012466d124a00a96ecfa6368f1df753da936",
+        "bytes": 21652568
+      },
+      "dream/assets/kitchen_meadow.json": {
+        "sha256": "bddf887ce4009277893bebd126f5b983559c0371fc1368aded05727a6f4d6f65",
+        "bytes": 19485
+      },
+      "dream/assets/kitchen_meadow.scene": {
+        "sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "bytes": 1117
+      },
+      "dream/assets/pastel_room.draws": {
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      "dream/assets/pastel_room.dreammesh": {
+        "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+        "bytes": 1242544
+      },
+      "dream/assets/pastel_room.glb": {
+        "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167",
+        "bytes": 1862948
+      },
+      "dream/assets/pastel_room.json": {
+        "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c",
+        "bytes": 174596
+      },
+      "dream/assets/pastel_room.scene": {
+        "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+        "bytes": 207
+      },
+      "dream/assets/scene_catalog.cat": {
+        "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+        "bytes": 4823
+      },
+      "dream/assets/stair_sky.draws": {
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      "dream/assets/stair_sky.dreammesh": {
+        "sha256": "d52c956509e738d759a12f1352b15a946df180cb26935cd07e9cacbcd429f77b",
+        "bytes": 42465088
+      },
+      "dream/assets/stair_sky.glb": {
+        "sha256": "15b9ee977bc385c4037b16bbe54933f7a00bf310ff238d1e8c43d3f159f239af",
+        "bytes": 39530196
+      },
+      "dream/assets/stair_sky.json": {
+        "sha256": "6b79e47913443a7d187cb1cf838bc4011467b9a26dcefc8f30c10ffc7c07ded0",
+        "bytes": 23407
+      },
+      "dream/assets/stair_sky.scene": {
+        "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+        "bytes": 764
+      },
+      "dream/assets/textures/biosphere.bmp": {
+        "sha256": "ea7b5419b0f4121d841f80cc087bce76dc6b296fec059425b2db24f180966a56",
+        "bytes": 1572918
+      },
+      "dream/assets/textures/ceramic_normal.bmp": {
+        "sha256": "0162a54a7a19232d2436e41954c008edb6bb734f34c0ac374f77ef9c30d46758",
+        "bytes": 786486
+      },
+      "dream/assets/textures/ceramic_roughness.bmp": {
+        "sha256": "45327104b6f6ba63adb5325d7131c5be2263f2d1a352a80e7d678a2692728117",
+        "bytes": 786486
+      },
+      "dream/assets/textures/cloud_sky.bmp": {
+        "sha256": "becd61cbea45caf92a03fc9e49160fca5ce27852c62cb9e9f2710a5fab00633c",
+        "bytes": 6291510
+      },
+      "dream/assets/textures/curtain_plaid.bmp": {
+        "sha256": "b2beebdc00b454ed42f35f3646e3ee20c96505966a64a2ca7ebe731aa63defc8",
+        "bytes": 786486
+      },
+      "dream/assets/textures/floor_flow.bmp": {
+        "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+        "bytes": 4718646
+      },
+      "dream/assets/textures/floor_surface_albedo.bmp": {
+        "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+        "bytes": 4718646
+      },
+      "dream/assets/textures/kitchen_grass_albedo.bmp": {
+        "sha256": "6e3d2b301b951da37795f81f47339d8763ff95e6ea364b500f43e2c9dad5cb74",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/kitchen_grass_normal.bmp": {
+        "sha256": "31c96a1515ab32ab6b3da07c4aa8ed775914524d63e693d65041f9e4c39140ed",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/kitchen_neutral_normal.bmp": {
+        "sha256": "2972e220fb5606ba7865ec37d5cd5e2968e3c72c04b369e66e69f0fc2f8b47a8",
+        "bytes": 102
+      },
+      "dream/assets/textures/kitchen_neutral_white.bmp": {
+        "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a",
+        "bytes": 102
+      },
+      "dream/assets/textures/kitchen_sky.bmp": {
+        "sha256": "e5ead6a9f343b44eaec479fea66874eac4006bb261a778344fdc78894222b1e7",
+        "bytes": 6291510
+      },
+      "dream/assets/textures/leaf_detail.bmp": {
+        "sha256": "b3db23a0e53372e59b47808d951a7d42c9fdfc7499ea2fb8d9556a9e8f56cc83",
+        "bytes": 393270
+      },
+      "dream/assets/textures/room_probe.bmp": {
+        "sha256": "6fefba61794ab2a2b2c3957dd7272e28357f024c8d4de531335f492b31b00410",
+        "bytes": 1572918
+      },
+      "dream/assets/textures/stair_grass_albedo.bmp": {
+        "sha256": "62ccc8b7c281da2c97398aa8066693287744330a1562820812f52769372ccc6a",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_grass_normal.bmp": {
+        "sha256": "6e4f33410b32ff755bd8a70290333107e789c3e68aab89b6664373a95dcb38c9",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_neutral_white.bmp": {
+        "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a",
+        "bytes": 102
+      },
+      "dream/assets/textures/stair_plush_albedo.bmp": {
+        "sha256": "b4b75baf8ec1a0e4de4fba05432f67c53880c9db2d48e7b53b2020c410469a95",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_plush_normal.bmp": {
+        "sha256": "f71c1b30b031ed2b05e2164fdf9052b14a9078555fe362aa8ab9ac6066a19987",
+        "bytes": 3145782
+      },
+      "dream/assets/textures/stair_sky.bmp": {
+        "sha256": "34a1429a5ade65cbd5388d1d9753c6dca34a6a155091aec803edff4fc497de5d",
+        "bytes": 6291510
+      },
+      "dream/blender/kitchen_meadow.blend": {
+        "sha256": "d42bb6c110d277e476eb908801d0e0d6f31a204f44d3eb756ba9245063e9311b",
+        "bytes": 40300931
+      },
+      "dream/runtime/build/dream.exe": {
+        "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+        "bytes": 3345304
+      },
+      "dream/runtime/shaders/present.frag": {
+        "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf",
+        "bytes": 1225
+      },
+      "dream/runtime/shaders/present.vert": {
+        "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+        "bytes": 126
+      },
+      "dream/runtime/shaders/scene.frag": {
+        "sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+        "bytes": 14866
+      },
+      "dream/runtime/shaders/scene.vert": {
+        "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e",
+        "bytes": 1082
+      },
+      "dream/runtime/shaders/sky.frag": {
+        "sha256": "c32f78643b2104f9f9426e06fd7eb857b322e7d8fa7e1f118c814d910db81cfb",
+        "bytes": 361
+      },
+      "dream/runtime/shaders/sky.vert": {
+        "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+        "bytes": 126
+      },
+      "dream/runtime/src/gl_api.hpp": {
+        "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5",
+        "bytes": 2289
+      },
+      "dream/runtime/src/main.cpp": {
+        "sha256": "9aed414db9186426ec9095ebc25ede6cfed6e028683cd709f70d90ba084eedc9",
+        "bytes": 14696
+      },
+      "dream/runtime/src/math.hpp": {
+        "sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+        "bytes": 1177
+      },
+      "dream/runtime/src/render_support.hpp": {
+        "sha256": "7f41452681974af89830881f366d13014fe07bbe866ac683a737f59021b2829e",
+        "bytes": 9744
+      },
+      "dream/runtime/src/scene.hpp": {
+        "sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+        "bytes": 11538
+      },
+      "dream/runtime/src/scene_catalog.hpp": {
+        "sha256": "79eb7e6fb00c22b2b48b9a37d6fa2ba6e295935ffb08c87d6057179b0d48e353",
+        "bytes": 10051
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "path": "dream/validation/runtime-catalog-v8-current.log",
+      "sha256": "79fb7dbecd0ecdea21d6f647403a5265207e438a49fd9c3006597fa0e4208417",
+      "bytes": 453
+    },
+    {
+      "path": "dream/validation/runtime-smoke-v8-current.log",
+      "sha256": "af93963ef0cb9f6e95eb26e4a1b005e4183fb58bde7cdc0addc4db877086e3a9",
+      "bytes": 599
+    },
+    {
+      "path": "dream/validation/room-v8-current.ppm",
+      "sha256": "69fc425fce0e7db4f94ff0e62a15133c5362b5613ceef51319857ba64452344b",
+      "bytes": 1555215
+    },
+    {
+      "path": "dream/validation/room-v8-current.png",
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "bytes": 355698
+    },
+    {
+      "path": "dream/validation/room-v8-current.log",
+      "sha256": "c828504ad908b8ebcd57a1d527ccbc2504d349eab6465202c4b5aa2273ae5c18",
+      "bytes": 334
+    },
+    {
+      "path": "dream/validation/atrium-v8-current.ppm",
+      "sha256": "e34e60f9884b64bc716f8a0f648635a43e0d5328dc1ede544addb582746c0ecc",
+      "bytes": 2073615
+    },
+    {
+      "path": "dream/validation/atrium-v8-current.png",
+      "sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+      "bytes": 546453
+    },
+    {
+      "path": "dream/validation/atrium-v8-current.log",
+      "sha256": "e359e41dedb1112119d7334c46fbd1f77366cf227ece5df8dc144dc3368e11c4",
+      "bytes": 327
+    },
+    {
+      "path": "dream/validation/kitchen-v8-current.ppm",
+      "sha256": "3a9f5285f01263a72c4fb941f29228b6517bde0741a83e9715a6d051657711e7",
+      "bytes": 1218915
+    },
+    {
+      "path": "dream/validation/kitchen-v8-current.png",
+      "sha256": "b295213807722c5f5e02715ce10bc606ed1f2faecafa044ee4e7e8fa1c028e03",
+      "bytes": 228571
+    },
+    {
+      "path": "dream/validation/kitchen-v8-current.log",
+      "sha256": "a8366169b14c946917378e8506bdbce4ae11ad5b542f5cdaa2ca1747a711e1a8",
+      "bytes": 343
+    },
+    {
+      "path": "dream/validation/stair-v8-current.ppm",
+      "sha256": "f511cf7a28283049c9bce6028ac2e440d665951d52ae69770ae5affd545a654a",
+      "bytes": 1555215
+    },
+    {
+      "path": "dream/validation/stair-v8-current.png",
+      "sha256": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5",
+      "bytes": 474998
+    },
+    {
+      "path": "dream/validation/stair-v8-current.log",
+      "sha256": "58fac3749ed8115decfb6a786276f493e8d9e774c5f9a31d8c654fb369125fb7",
+      "bytes": 345
+    }
+  ],
+  "limitations": [
+    "Pruebas en contexto oculto y tiempos reportados por la aplicación: no benchmark de pantalla completa, FPS garantizados ni prueba manual exhaustiva.",
+    "La coincidencia de capturas detecta regresiones respecto al runtime actual; no demuestra fidelidad a los videos.",
+    "El ciclo smoke cubre stair_sky→atrium→stair_sky; las otras dos escenas tienen carga y captura independiente, no un recorrido interactivo nuevo.",
+    "No se repitieron pruebas unitarias de navegación, animación temporal ni controles CPU de malla ya documentados.",
+    "Objetivo completo y aceptación visual permanecen pendientes."
+  ],
+  "visual_acceptance": false,
+  "goal_complete": false
+}

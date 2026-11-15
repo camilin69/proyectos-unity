@@ -1,0 +1,88 @@
+{
+  "cut_detection": [
+    {
+      "first_frame_index_zero_based": 324,
+      "time_s": 10.8,
+      "mean_abs_rgb_delta_8bit": 67.54400634765625,
+      "before_image": "dream/validation/room-multiview-v9/cut-10.800s-before.png",
+      "after_image": "dream/validation/room-multiview-v9/cut-10.800s-after.png"
+    },
+    {
+      "first_frame_index_zero_based": 699,
+      "time_s": 23.3,
+      "mean_abs_rgb_delta_8bit": 39.365577697753906,
+      "before_image": "dream/validation/room-multiview-v9/cut-23.300s-before.png",
+      "after_image": "dream/validation/room-multiview-v9/cut-23.300s-after.png"
+    }
+  ],
+  "cut_method": "Maximum adjacent-frame mean absolute difference at 90x160 in two narrow intervals; image pairs reviewed separately, not inferred solely from the score.",
+  "projection": [
+    {
+      "name": "GEO-DREAM-radiator_return_near_stub",
+      "a_px": [
+        746.383,
+        856.26
+      ],
+      "b_px": [
+        754.524,
+        861.362
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_near_drop",
+      "a_px": [
+        754.524,
+        861.362
+      ],
+      "b_px": [
+        747.993,
+        928.709
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_near_collar",
+      "a_px": [
+        753.936,
+        867.433
+      ],
+      "b_px": [
+        755.115,
+        855.273
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_far_stub",
+      "a_px": [
+        573.713,
+        748.043
+      ],
+      "b_px": [
+        569.386,
+        745.332
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_far_drop",
+      "a_px": [
+        569.386,
+        745.332
+      ],
+      "b_px": [
+        566.875,
+        795.521
+      ]
+    },
+    {
+      "name": "GEO-DREAM-radiator_return_far_collar",
+      "a_px": [
+        569.161,
+        749.837
+      ],
+      "b_px": [
+        569.612,
+        740.817
+      ]
+    }
+  ],
+  "projection_method": "Analytic pinhole of authored centerlines at existing primary camera,720x1280,tanHalfVFov0.7; no occlusion, surface width, Blender modifiers or renderer involved."
+}

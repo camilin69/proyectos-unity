@@ -1,0 +1,940 @@
+{
+  "schema": "dream.wave_paint_multiview.v1",
+  "accepted": false,
+  "runtime_promoted": false,
+  "baseline_parameters": [
+    5.54369250671431,
+    4.46519794285846,
+    0.6863645501164858,
+    -0.11085074134954703
+  ],
+  "candidate_parameters": [
+    9.045227021457098,
+    13.548614060537833,
+    0.1758681636615589,
+    -0.12763729101468363
+  ],
+  "parameter_names": [
+    "period_x_m",
+    "period_s_m",
+    "phase",
+    "offset_u"
+  ],
+  "label_review": "Labels checked on current timestamped source overlays and local RGB. Two old 14s glare samples excluded, and inherited colour mislabels corrected. These labels supersede the older single-view paint sample semantics.",
+  "baseline": {
+    "training": {
+      "samples": 25,
+      "interval_rms": 0.728864950310945,
+      "inside_label_band_fraction": 0.32
+    },
+    "heldout_17s": {
+      "samples": 13,
+      "interval_rms": 1.0765564651977095,
+      "inside_label_band_fraction": 0.15384615384615385
+    }
+  },
+  "candidate": {
+    "training": {
+      "samples": 25,
+      "interval_rms": 0.34164007095674237,
+      "inside_label_band_fraction": 0.32
+    },
+    "heldout_17s": {
+      "samples": 13,
+      "interval_rms": 0.5648873155917724,
+      "inside_label_band_fraction": 0.15384615384615385
+    }
+  },
+  "samples": [
+    {
+      "time_s": 14,
+      "pixel": [
+        350,
+        780
+      ],
+      "label": "teal",
+      "metric_uv": [
+        0.36507436505069135,
+        2.8893684234754993
+      ],
+      "point_m": [
+        0.36507436505069135,
+        0.8204535167317413,
+        -0.06891490674375755
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        114.0,
+        149.0,
+        142.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        75,
+        730
+      ],
+      "label": "teal",
+      "metric_uv": [
+        -0.5730134767538786,
+        3.1763874699811065
+      ],
+      "point_m": [
+        -0.5730134767538786,
+        1.0385576564935908,
+        -0.13782981348751533
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        105.0,
+        142.0,
+        139.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        390,
+        700
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        0.6407595345815061,
+        3.45067777641231
+      ],
+      "point_m": [
+        0.6407595345815061,
+        1.2439330561810371,
+        -0.20674472023127288
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        180.0,
+        147.0,
+        108.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        320,
+        670
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        0.39548177273004437,
+        3.73395097629886
+      ],
+      "point_m": [
+        0.39548177273004437,
+        1.458291349323829,
+        -0.27565962697503044
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        157.0,
+        139.0,
+        108.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        185,
+        635
+      ],
+      "label": "teal",
+      "metric_uv": [
+        -0.23463461851004339,
+        4.07626591898749
+      ],
+      "point_m": [
+        -0.23463461851004339,
+        1.7316913852687013,
+        -0.3445745337187882
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        122.0,
+        132.0,
+        132.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        100,
+        590
+      ],
+      "label": "coral",
+      "metric_uv": [
+        -0.7365713882122948,
+        4.406456517705965
+      ],
+      "point_m": [
+        -0.7365713882122948,
+        2.0618819839871754,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        163.0,
+        119.0,
+        96.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        55,
+        560
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        -1.0712086143521478,
+        4.674724517066978
+      ],
+      "point_m": [
+        -1.0712086143521478,
+        2.3301499833481887,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        167.0,
+        128.0,
+        94.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        390,
+        575
+      ],
+      "label": "teal",
+      "metric_uv": [
+        0.9623989310619754,
+        4.598366001998897
+      ],
+      "point_m": [
+        0.9623989310619754,
+        2.2537914682801072,
+        -0.3445745337187882
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        86.0,
+        111.0,
+        106.0
+      ]
+    },
+    {
+      "time_s": 14,
+      "pixel": [
+        280,
+        490
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        0.39339826264810507,
+        5.661560941105991
+      ],
+      "point_m": [
+        0.39339826264810507,
+        3.316986407387202,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        95.0,
+        101.0,
+        127.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        20,
+        800
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        -0.8394782250934139,
+        4.7700229631916296
+      ],
+      "point_m": [
+        -0.8394782250934139,
+        2.4254484294728407,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        188.0,
+        150.0,
+        113.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        80,
+        800
+      ],
+      "label": "pink",
+      "metric_uv": [
+        -0.6482741340170501,
+        4.816624783121447
+      ],
+      "point_m": [
+        -0.6482741340170501,
+        2.472050249402658,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        186.0,
+        120.0,
+        133.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        140,
+        800
+      ],
+      "label": "coral",
+      "metric_uv": [
+        -0.4542823514333915,
+        4.863906041952972
+      ],
+      "point_m": [
+        -0.4542823514333915,
+        2.519331508234183,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        190.0,
+        118.0,
+        106.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        220,
+        800
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        -0.19118382574799136,
+        4.9280305596281435
+      ],
+      "point_m": [
+        -0.19118382574799136,
+        2.583456025909354,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        180.0,
+        140.0,
+        104.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        330,
+        800
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        0.17912503032644028,
+        5.018285253092339
+      ],
+      "point_m": [
+        0.17912503032644028,
+        2.67371071937355,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        123.0,
+        129.0,
+        148.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        450,
+        800
+      ],
+      "label": "teal",
+      "metric_uv": [
+        0.5948289246878271,
+        5.119603995385443
+      ],
+      "point_m": [
+        0.5948289246878271,
+        2.7750294616666538,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        101.0,
+        131.0,
+        124.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        80,
+        680
+      ],
+      "label": "pink",
+      "metric_uv": [
+        -0.909213691692798,
+        5.3143528936353315
+      ],
+      "point_m": [
+        -0.909213691692798,
+        2.9697783599165426,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        173.0,
+        110.0,
+        121.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        140,
+        680
+      ],
+      "label": "coral",
+      "metric_uv": [
+        -0.6583087855606828,
+        5.380850368099737
+      ],
+      "point_m": [
+        -0.6583087855606828,
+        3.036275834380948,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        182.0,
+        106.0,
+        95.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        220,
+        680
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        -0.31624061621398936,
+        5.471508895694414
+      ],
+      "point_m": [
+        -0.31624061621398936,
+        3.126934361975625,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        166.0,
+        128.0,
+        95.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        330,
+        680
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        0.16872614122904267,
+        5.600039919923063
+      ],
+      "point_m": [
+        0.16872614122904267,
+        3.255465386204274,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        114.0,
+        117.0,
+        141.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        450,
+        680
+      ],
+      "label": "teal",
+      "metric_uv": [
+        0.7180907513832959,
+        5.7456383448344726
+      ],
+      "point_m": [
+        0.7180907513832959,
+        3.4010638111156837,
+        -0.344574533718788
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        90.0,
+        119.0,
+        110.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        175,
+        570
+      ],
+      "label": "pink",
+      "metric_uv": [
+        -0.8635808635359823,
+        6.676050247721749
+      ],
+      "point_m": [
+        -0.8635808635359823,
+        4.189405081894324,
+        -0.4866451658274238
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        145.0,
+        100.0,
+        108.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        295,
+        545
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        -0.13987128677190527,
+        8.541371534675248
+      ],
+      "point_m": [
+        -0.13987128677190527,
+        5.628514472521915,
+        -0.9128570621533312
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        137.0,
+        124.0,
+        142.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        375,
+        520
+      ],
+      "label": "pink",
+      "metric_uv": [
+        0.6456906252112498,
+        9.370668361900186
+      ],
+      "point_m": [
+        0.6456906252112498,
+        6.457811299746853,
+        -0.9128570621533312
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        170.0,
+        111.0,
+        120.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        310,
+        480
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        -0.10078427220878697,
+        10.368872616727957
+      ],
+      "point_m": [
+        -0.10078427220878697,
+        7.456015554574624,
+        -0.9128570621533312
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        126.0,
+        120.0,
+        142.0
+      ]
+    },
+    {
+      "time_s": 15.5,
+      "pixel": [
+        275,
+        500
+      ],
+      "label": "teal",
+      "metric_uv": [
+        -0.45360004026125783,
+        9.562622841014228
+      ],
+      "point_m": [
+        -0.45360004026125783,
+        6.649765778860896,
+        -0.9128570621533312
+      ],
+      "used_for_fit": true,
+      "source_rgb_diagnostic": [
+        101.0,
+        130.0,
+        128.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        30,
+        800
+      ],
+      "label": "pink",
+      "metric_uv": [
+        -0.49393294981703034,
+        7.015775223216237
+      ],
+      "point_m": [
+        -0.49393294981703034,
+        4.387059425280176,
+        -0.6287157979360595
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        167.0,
+        86.0,
+        93.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        100,
+        800
+      ],
+      "label": "pink",
+      "metric_uv": [
+        -0.28719423191456533,
+        7.027677310652177
+      ],
+      "point_m": [
+        -0.28719423191456533,
+        4.398961512716116,
+        -0.6287157979360595
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        154.0,
+        89.0,
+        97.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        220,
+        800
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        0.07423865926667118,
+        7.048485245985765
+      ],
+      "point_m": [
+        0.07423865926667118,
+        4.4197694480497045,
+        -0.6287157979360595
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        114.0,
+        110.0,
+        128.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        400,
+        800
+      ],
+      "label": "teal",
+      "metric_uv": [
+        0.6336772564917768,
+        7.080692503372135
+      ],
+      "point_m": [
+        0.6336772564917768,
+        4.451976705436074,
+        -0.6287157979360595
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        99.0,
+        118.0,
+        107.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        100,
+        650
+      ],
+      "label": "pink",
+      "metric_uv": [
+        -0.512849100950663,
+        7.963304928433073
+      ],
+      "point_m": [
+        -0.512849100950663,
+        5.192518498388376,
+        -0.7707864300446955
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        169.0,
+        106.0,
+        111.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        200,
+        650
+      ],
+      "label": "coral",
+      "metric_uv": [
+        -0.05627213256897949,
+        7.999757398284269
+      ],
+      "point_m": [
+        -0.05627213256897949,
+        5.228970968239572,
+        -0.7707864300446955
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        171.0,
+        92.0,
+        90.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        300,
+        650
+      ],
+      "label": "ochre",
+      "metric_uv": [
+        0.41379869356908694,
+        8.037287198962694
+      ],
+      "point_m": [
+        0.41379869356908694,
+        5.266500768917998,
+        -0.7707864300446957
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        165.0,
+        125.0,
+        101.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        100,
+        600
+      ],
+      "label": "teal",
+      "metric_uv": [
+        -0.6739199319982324,
+        8.6683243763664
+      ],
+      "point_m": [
+        -0.6739199319982324,
+        5.755467314213066,
+        -0.9128570621533311
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        93.0,
+        119.0,
+        116.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        200,
+        580
+      ],
+      "label": "teal",
+      "metric_uv": [
+        -0.12301470640504593,
+        8.922684148351273
+      ],
+      "point_m": [
+        -0.12301470640504593,
+        6.00982708619794,
+        -0.9128570621533311
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        107.0,
+        130.0,
+        131.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        305,
+        565
+      ],
+      "label": "pink",
+      "metric_uv": [
+        0.5555050638416742,
+        9.163768665648032
+      ],
+      "point_m": [
+        0.5555050638416742,
+        6.2509116034947,
+        -0.9128570621533311
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        173.0,
+        112.0,
+        119.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        150,
+        510
+      ],
+      "label": "teal",
+      "metric_uv": [
+        -0.6060851315153124,
+        9.849874806487403
+      ],
+      "point_m": [
+        -0.6060851315153124,
+        6.937017744334069,
+        -0.9128570621533308
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        112.0,
+        137.0,
+        134.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        225,
+        490
+      ],
+      "label": "lavender",
+      "metric_uv": [
+        -0.02916685390297337,
+        10.32543931142617
+      ],
+      "point_m": [
+        -0.02916685390297337,
+        7.412582249272837,
+        -0.9128570621533313
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        126.0,
+        118.0,
+        153.0
+      ]
+    },
+    {
+      "time_s": 17,
+      "pixel": [
+        325,
+        510
+      ],
+      "label": "pink",
+      "metric_uv": [
+        0.8142366889918474,
+        10.029485933961006
+      ],
+      "point_m": [
+        0.8142366889918474,
+        7.116628871807674,
+        -0.9128570621533311
+      ],
+      "used_for_fit": false,
+      "source_rgb_diagnostic": [
+        180.0,
+        110.0,
+        120.0
+      ]
+    }
+  ],
+  "excluded_samples": [
+    {
+      "time_s": 15.5,
+      "pixel": [
+        20,
+        680
+      ],
+      "label": "ochre",
+      "reason": "Ray misses current floor geometry; not silently reassigned to another surface."
+    }
+  ],
+  "limitations": [
+    "Sparse manually interpreted colour labels; reflections can change perceived colour.",
+    "Geometry/cameras are still provisional; paint fitting does not validate them.",
+    "17s labels are held out from the paint optimizer, but the camera itself was fitted using source evidence."
+  ]
+}

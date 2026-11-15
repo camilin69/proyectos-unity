@@ -1,0 +1,757 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T04:48:15.339543+00:00",
+  "scene": "DREAM_StairSky",
+  "asset_id": "stair_sky",
+  "stage": "gray_geometry_review",
+  "path_base": "repository_root",
+  "evidence": [
+    {
+      "path": "dream/validation/stair-sky-blockout.png",
+      "sha256": "01b980f57945767d8b0f610a008115370c4df896a8e456963f45bec348327a8a"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/09s.png",
+      "sha256": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/21s.png",
+      "sha256": "600a100bd9c343bf52eb52328461d72f02f06391845175189d4f107fe626f2c2"
+    },
+    {
+      "path": "dream/blender/stair_sky_plan.json",
+      "sha256": "a1017cd341b3690b0b305147a4525cd12592efa4b37fc128af78ae0361d093b6"
+    },
+    {
+      "path": "dream/blender/build_stair_sky.py",
+      "sha256": "b012665f1366a2c20728bd15a7900d99c3a5845b1f8700241d62235ab9e3926a"
+    },
+    {
+      "path": "dream/validation/stair-sky-scene.json",
+      "sha256": "f59ab6a03bf2ff07a3ce5c7b1e390907937be47122777cffe8bc66f3cf58049e"
+    }
+  ],
+  "method": {
+    "primary_images_px": [
+      720,
+      1280
+    ],
+    "inspection": "Inspección visual del render gris real y fotograma 09s. Hitos estimados manualmente; no segmentación automática ni ajuste por píxel.",
+    "secondary_reference": "21s y los fotogramas laterales descritos en el plan justifican volúmenes. No existe en esta revisión un render secundario registrado para medir encaje.",
+    "state_provenance": "El estado prepared_not_executed del plan es histórico: stair-sky-blockout.png y stair-sky-scene.json documentan ejecución posterior por root. Las semillas analíticas del plan no se presentan como mediciones del render."
+  },
+  "landmarks": [
+    {
+      "id": "first_riser_ground_left",
+      "reference_xy_px": [
+        4,
+        1125
+      ],
+      "gray_xy_px_approx": [
+        4,
+        1134
+      ],
+      "reference_uv": [
+        0.00556,
+        0.87891
+      ],
+      "gray_uv_approx": [
+        0.00556,
+        0.88594
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        0,
+        9
+      ],
+      "manual_uncertainty_px": 12
+    },
+    {
+      "id": "first_riser_ground_right",
+      "reference_xy_px": [
+        588,
+        1127
+      ],
+      "gray_xy_px_approx": [
+        585,
+        1120
+      ],
+      "reference_uv": [
+        0.81667,
+        0.88047
+      ],
+      "gray_uv_approx": [
+        0.8125,
+        0.875
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        -3,
+        -7
+      ],
+      "manual_uncertainty_px": 12
+    },
+    {
+      "id": "top_tread_front_left",
+      "reference_xy_px": [
+        153,
+        583
+      ],
+      "gray_xy_px_approx": [
+        153,
+        583
+      ],
+      "reference_uv": [
+        0.2125,
+        0.45547
+      ],
+      "gray_uv_approx": [
+        0.2125,
+        0.45547
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        0,
+        0
+      ],
+      "manual_uncertainty_px": 8
+    },
+    {
+      "id": "top_tread_front_right",
+      "reference_xy_px": [
+        445,
+        583
+      ],
+      "gray_xy_px_approx": [
+        449,
+        583
+      ],
+      "reference_uv": [
+        0.61806,
+        0.45547
+      ],
+      "gray_uv_approx": [
+        0.62361,
+        0.45547
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        4,
+        0
+      ],
+      "manual_uncertainty_px": 8
+    },
+    {
+      "id": "frame_outer_top_left",
+      "reference_xy_px": [
+        25,
+        145
+      ],
+      "gray_xy_px_approx": [
+        25,
+        139
+      ],
+      "reference_uv": [
+        0.03472,
+        0.11328
+      ],
+      "gray_uv_approx": [
+        0.03472,
+        0.10859
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        0,
+        -6
+      ],
+      "manual_uncertainty_px": 7
+    },
+    {
+      "id": "frame_outer_top_right",
+      "reference_xy_px": [
+        572,
+        150
+      ],
+      "gray_xy_px_approx": [
+        570,
+        151
+      ],
+      "reference_uv": [
+        0.79444,
+        0.11719
+      ],
+      "gray_uv_approx": [
+        0.79167,
+        0.11797
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        -2,
+        1
+      ],
+      "manual_uncertainty_px": 7
+    },
+    {
+      "id": "left_rail_upper_bend",
+      "reference_xy_px": [
+        145,
+        455
+      ],
+      "gray_xy_px_approx": [
+        139,
+        444
+      ],
+      "reference_uv": [
+        0.20139,
+        0.35547
+      ],
+      "gray_uv_approx": [
+        0.19306,
+        0.34687
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        -6,
+        -11
+      ],
+      "manual_uncertainty_px": 7
+    },
+    {
+      "id": "right_rail_upper_bend",
+      "reference_xy_px": [
+        458,
+        456
+      ],
+      "gray_xy_px_approx": [
+        464,
+        445
+      ],
+      "reference_uv": [
+        0.63611,
+        0.35625
+      ],
+      "gray_uv_approx": [
+        0.64444,
+        0.34766
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        6,
+        -11
+      ],
+      "manual_uncertainty_px": 7
+    },
+    {
+      "id": "bank_right_at_image_edge",
+      "reference_xy_px": [
+        719,
+        456
+      ],
+      "gray_xy_px_approx": [
+        719,
+        475
+      ],
+      "reference_uv": [
+        0.99861,
+        0.35625
+      ],
+      "gray_uv_approx": [
+        0.99861,
+        0.37109
+      ],
+      "delta_gray_minus_reference_px_approx": [
+        0,
+        19
+      ],
+      "manual_uncertainty_px": 12
+    }
+  ],
+  "positive_findings": [
+    "Las doce huellas centrales, su crecimiento hacia primer plano y los bordes superior e inferior encajan en la composición principal. El conteo y la escala siguen siendo reconstruidos, no datos originales recuperados.",
+    "El marco real, sus molduras, los tramos principales de barandilla y los taludes volumétricos conservan la organización de la referencia.",
+    "Las bandas laterales siguen huellas y contrahuellas; el escenario se construye con volumen y un hueco abierto, no con una imagen colocada frente a cámara."
+  ],
+  "residuals": [
+    {
+      "priority": 1,
+      "item": "Extensión inferior derecha del pasamanos",
+      "evidence": "El tubo gris termina con tapa visible aproximadamente en (660,865); la referencia continúa hasta salir por el borde derecho cerca de (720,896).",
+      "next_action": "Alargar la extensión inferior desde 0.40 m hacia una semilla de 0.70–0.80 m y comprobar proyección y soporte. Es propuesta, no edición ejecutada.",
+      "blocks_initial_material_iteration": false
+    },
+    {
+      "priority": 1,
+      "item": "Siluetas de peluche y césped",
+      "evidence": "El gris conserva aristas duras y dientes laterales; la referencia tiene fibras y perfiles vegetales suaves. El talud derecho alcanza el borde unos 19 px más bajo en gris.",
+      "next_action": "Preparar materiales y detalle superficial, manteniendo pendiente geometría de fibra/brizna donde cambia la silueta. Un normal map por sí solo no corrige ese contorno.",
+      "blocks_initial_material_iteration": false
+    },
+    {
+      "priority": 1,
+      "item": "Validación desde otra vista",
+      "evidence": "Sólo el encuadre 09s tiene aquí un render gris comparado. Profundidad de rellanos, número de postes y recorrido original permanecen inferidos.",
+      "next_action": "Comprobar volumen desde cámara oblicua y frente a 21s antes de aceptar geometría final.",
+      "blocks_initial_material_iteration": false
+    }
+  ],
+  "stage_gate": {
+    "initial_uv_material_iteration_allowed": true,
+    "geometry_final_accepted": false,
+    "uv_export_verified": true,
+    "final_visual_acceptance": false,
+    "global_goal_complete": false,
+    "reason": "Los volúmenes y límites principales son suficientemente estables para una primera iteración reversible de UV/materiales. Persisten ajustes locales y falta verificación multivista; el color, luz, nubes y parecido final no forman parte de este gate."
+  },
+  "navigation_scope": {
+    "authored_support_surfaces": 14,
+    "authored_riser_m": 0.16,
+    "runtime_navigation_tested_by_this_review": false,
+    "note": "El plan y snapshot contienen un contrato de alturas; esta revisión no ejecutó navegación ni determina el estado actual del controlador."
+  },
+  "cpu_asset_validation": {
+    "state": "PASS",
+    "contract_requested": {
+      "known_kinds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "kind_10_allowed": false,
+      "kind_12_variant": 0,
+      "plush_uv": "World polygon-normal dominant projection /0.28: abs(nz)>=max(abs(nx),abs(ny)) => xy; else abs(ny)>=abs(nx) => xz; else yz. Geometry verifier derives triangle face normal; permits alternate axes only within 0.0002 of the largest absolute component to tolerate float32 ties.",
+      "kind_11_uv": "World XY/4 para terreno y briznas.",
+      "normals": "All unit to existing length-squared tolerance 0.002. Stair grass ground permits smooth normals in same face hemisphere, including slopes and vertical/underside faces; other grass retains >0.99 face alignment and ground +Z. Plush normals must share face hemisphere."
+    },
+    "note": "Export real validado por CPU. No se modificaron assets ni renderer. La autorización de materiales del gate gris y su evidencia histórica se conservan; este PASS técnico no es aceptación visual ni resultado de navegación.",
+    "verifier_sha256": "b46184103d71354cf610423936d7e0ff3d103b253d4ca3a2968eb4fa33582200",
+    "regression_runs": [
+      {
+        "asset": "kitchen_meadow",
+        "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py kitchen_meadow",
+        "exit_code": 0,
+        "result": {
+          "result": "PASS",
+          "materials": 14,
+          "vertices": 145935,
+          "asset": "kitchen_meadow",
+          "triangles": 48645,
+          "glb_bytes": 7424704,
+          "glb_budget_bytes": 15728640,
+          "transparent_draws": 0,
+          "waterfall_draws": 0,
+          "navigation_verified": false,
+          "water_vertices_covered": 0,
+          "embedded_glb_images": 2,
+          "profile": "kitchen_meadow",
+          "texture_roles": {
+            "sky": "assets/textures/kitchen_sky.bmp",
+            "plaid": "assets/textures/kitchen_neutral_white.bmp",
+            "ceramic_normal": "assets/textures/kitchen_neutral_normal.bmp",
+            "ceramic_roughness": "assets/textures/kitchen_neutral_white.bmp",
+            "leaf": "assets/textures/kitchen_neutral_white.bmp",
+            "globe": "assets/textures/kitchen_neutral_white.bmp",
+            "floor_surface": "assets/textures/kitchen_grass_albedo.bmp",
+            "floor_flow": "assets/textures/kitchen_grass_normal.bmp",
+            "probe": "assets/textures/kitchen_sky.bmp"
+          },
+          "grass_variants": {
+            "0": {
+              "vertices": 81,
+              "uv_max_error": 0,
+              "ao_min": 1,
+              "ao_max": 1,
+              "minimum_triangle_area_m2": 4.516145180311071e-05,
+              "minimum_normal_face_dot": 1
+            },
+            "1": {
+              "vertices": 136890,
+              "uv_max_error": 0,
+              "ao_min": 1,
+              "ao_max": 1,
+              "minimum_triangle_area_m2": 3.357327072528253e-05,
+              "minimum_normal_face_dot": 0.999999913064822
+            }
+          },
+          "plush_variants": {},
+          "ao_excluded_detail_objects": {}
+        },
+        "wall_time_seconds": 2.6382494
+      },
+      {
+        "asset": "pastel_room",
+        "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py pastel_room",
+        "exit_code": 0,
+        "result": {
+          "result": "PASS",
+          "materials": 9,
+          "vertices": 31056,
+          "asset": "pastel_room",
+          "triangles": 10352,
+          "glb_bytes": 1862948,
+          "glb_budget_bytes": 15728640,
+          "transparent_draws": 0,
+          "waterfall_draws": 0,
+          "navigation_verified": false,
+          "water_vertices_covered": 0,
+          "embedded_glb_images": 5,
+          "profile": "pastel_room",
+          "texture_roles": {
+            "sky": "assets/textures/cloud_sky.bmp",
+            "plaid": "assets/textures/curtain_plaid.bmp",
+            "ceramic_normal": "assets/textures/ceramic_normal.bmp",
+            "ceramic_roughness": "assets/textures/ceramic_roughness.bmp",
+            "leaf": "assets/textures/leaf_detail.bmp",
+            "globe": "assets/textures/biosphere.bmp",
+            "floor_surface": "assets/textures/floor_surface_albedo.bmp",
+            "floor_flow": "assets/textures/floor_flow.bmp",
+            "probe": "assets/textures/room_probe.bmp"
+          },
+          "grass_variants": {},
+          "plush_variants": {},
+          "ao_excluded_detail_objects": {}
+        },
+        "wall_time_seconds": 0.9851291
+      },
+      {
+        "asset": "atrium",
+        "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py atrium",
+        "exit_code": 0,
+        "result": {
+          "result": "PASS",
+          "materials": 16,
+          "vertices": 537522,
+          "asset": "atrium",
+          "triangles": 179174,
+          "glb_bytes": 6982972,
+          "glb_budget_bytes": 15728640,
+          "transparent_draws": 45,
+          "waterfall_draws": 1,
+          "navigation_verified": true,
+          "water_vertices_covered": 72960,
+          "embedded_glb_images": 2,
+          "profile": "atrium",
+          "texture_roles": {
+            "sky": "assets/textures/cloud_sky.bmp",
+            "plaid": "assets/textures/curtain_plaid.bmp",
+            "ceramic_normal": "assets/textures/ceramic_normal.bmp",
+            "ceramic_roughness": "assets/textures/ceramic_roughness.bmp",
+            "leaf": "assets/textures/leaf_detail.bmp",
+            "globe": "assets/textures/biosphere.bmp",
+            "floor_surface": "assets/textures/floor_surface_albedo.bmp",
+            "floor_flow": "assets/textures/floor_flow.bmp",
+            "probe": "assets/textures/room_probe.bmp"
+          },
+          "grass_variants": {},
+          "plush_variants": {},
+          "ao_excluded_detail_objects": {}
+        },
+        "wall_time_seconds": 3.8276456
+      }
+    ],
+    "focused_checks": {
+      "source_syntax": "PASS via ast.parse and successful real verifier runs",
+      "diff_check": "PASS git diff --check -- dream/validation/verify_assets.py",
+      "kind10_rejected": "PASS: Unknown material kind",
+      "kind12_variant1_rejected": "PASS: Unknown plush variant (expected 0)",
+      "plush_projection_xy_xz_yz": "PASS: each valid synthetic triangle accepted; UV offset 0.01 rejected in every axis",
+      "method": "Executed the actual material and plush for-loops extracted from current verifier AST in memory; no temporary assets modified.",
+      "rerun_with_final_verifier": true
+    },
+    "limitations": [
+      "CPU mesh/profile/image-container validation only; no GPU capture, FPS, visual fidelity or stair traversal result is claimed here.",
+      "PNG/BMP check covers format and matching dimensions, not decoded pixel parity.",
+      "353874 triangles and 42.47 MB runtime mesh require later density/LOD/memory review. This is an initial prototype budget, not final optimization.",
+      "The earlier gray geometry evidence remains historical; the later 0.80 m rail change and material renders need their separate visual review."
+    ],
+    "validated_utc": "2026-10-09T05:05:36.705247+00:00",
+    "stair_run": {
+      "asset": "stair_sky",
+      "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py stair_sky",
+      "exit_code": 0,
+      "result": {
+        "result": "PASS",
+        "materials": 6,
+        "vertices": 1061622,
+        "asset": "stair_sky",
+        "triangles": 353874,
+        "glb_bytes": 39530196,
+        "glb_budget_bytes": 45000000,
+        "transparent_draws": 0,
+        "waterfall_draws": 0,
+        "navigation_verified": false,
+        "water_vertices_covered": 0,
+        "embedded_glb_images": 4,
+        "profile": "stair_sky",
+        "texture_roles": {
+          "sky": "assets/textures/stair_sky.bmp",
+          "plaid": "assets/textures/stair_plush_albedo.bmp",
+          "ceramic_normal": "assets/textures/stair_plush_normal.bmp",
+          "ceramic_roughness": "assets/textures/stair_neutral_white.bmp",
+          "leaf": "assets/textures/stair_neutral_white.bmp",
+          "globe": "assets/textures/stair_neutral_white.bmp",
+          "floor_surface": "assets/textures/stair_grass_albedo.bmp",
+          "floor_flow": "assets/textures/stair_grass_normal.bmp",
+          "probe": "assets/textures/stair_sky.bmp"
+        },
+        "grass_variants": {
+          "0": {
+            "vertices": 16824,
+            "uv_max_error": 0,
+            "ao_min": 1,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 8.289190081301759e-06,
+            "minimum_normal_face_dot": 0.943041021438815
+          },
+          "1": {
+            "vertices": 717066,
+            "uv_max_error": 0,
+            "ao_min": 1,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 6.257443072447417e-05,
+            "minimum_normal_face_dot": 0.9999999125012515
+          }
+        },
+        "plush_variants": {
+          "0": {
+            "vertices": 318276,
+            "uv_max_error": 4.76837158203125e-07,
+            "ao_min": 0.3499999940395355,
+            "ao_max": 1,
+            "minimum_triangle_area_m2": 4.739352051389995e-06,
+            "minimum_normal_face_dot": 0.9981724575812245,
+            "projection_triangles": {
+              "xy": 20116,
+              "xz": 35041,
+              "yz": 50935
+            },
+            "near_tie_alternate_triangles": 0
+          }
+        },
+        "ao_excluded_detail_objects": {
+          "GEO-DREAM-stair-detail_plush": {
+            "vertices": 314388,
+            "ao_min": 1,
+            "ao_max": 1
+          },
+          "GEO-DREAM-stair-detail_grass": {
+            "vertices": 717066,
+            "ao_min": 1,
+            "ao_max": 1
+          }
+        }
+      }
+    },
+    "failure_history": [
+      {
+        "phase": "first_attempt_before_catalog_activation",
+        "result": "FAIL",
+        "reason": "El perfil y la escena todavía figuraban planned. Root los activó; el verifier no omitió esa condición."
+      },
+      {
+        "phase": "complete_export_first_pass",
+        "result": "FAIL",
+        "reason": "Únicamente el techo histórico de GLB (15 MiB); todas las comprobaciones anteriores, incluidas UV/normales e imágenes embebidas/escena única, llegaron sin error."
+      }
+    ],
+    "asset_budget": {
+      "stair_sky_glb_bytes": 39530196,
+      "stair_sky_budget_bytes": 45000000,
+      "other_scenes_budget_bytes": 15728640,
+      "unit_note": "45 MB decimales para stair_sky; se conserva el límite histórico 15 MiB en las demás escenas.",
+      "reason": "Excepción explícita autorizada por root para el primer prototipo con fibras y briznas geométricas. El archivo real contiene 353874 triángulos, no una textura plana que simule toda la silueta.",
+      "optimization_pending": true,
+      "next_options": [
+        "Reducir densidad por distancia y mantener mayor detalle en contornos cercanos.",
+        "Instanciar o usar LOD para fibras/briznas en el runtime, manteniendo una exportación compatible.",
+        "Medir carga, memoria y coste de dibujo antes de ampliar el escenario."
+      ],
+      "performance_claim": "El tamaño aprobado es presupuesto de revisión, no garantía de FPS ni optimización final."
+    },
+    "hashes": [
+      {
+        "path": "dream/assets/atrium.draws",
+        "sha256": "ac7fe05a7e1392fb8b1de3c2dcd4fd1ca6e4225014f5a787b42e50426ca6954e",
+        "bytes": 2977
+      },
+      {
+        "path": "dream/assets/atrium.dreammesh",
+        "sha256": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db",
+        "bytes": 21501408
+      },
+      {
+        "path": "dream/assets/atrium.glb",
+        "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418",
+        "bytes": 6982972
+      },
+      {
+        "path": "dream/assets/atrium.json",
+        "sha256": "2e9c41e193e40149b7e1162c534b862a7f53f07fdad1c0b1393875b939ec9a15",
+        "bytes": 201940
+      },
+      {
+        "path": "dream/assets/atrium.scene",
+        "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519",
+        "bytes": 3882
+      },
+      {
+        "path": "dream/assets/kitchen_meadow.draws",
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      {
+        "path": "dream/assets/kitchen_meadow.dreammesh",
+        "sha256": "c16bc63d1fa167f2cd43d04bc5eac4dc27e664333d301a68fa197ef34a4f4cac",
+        "bytes": 5837864
+      },
+      {
+        "path": "dream/assets/kitchen_meadow.glb",
+        "sha256": "b806677da67d78138d69b104d25e2130b3e76803c17dd097f26df97ac69a1dc8",
+        "bytes": 7424704
+      },
+      {
+        "path": "dream/assets/kitchen_meadow.json",
+        "sha256": "9bdc2299c401314bd3bad8f60bd581c06a465ef4e58654732ca5216d653746b9",
+        "bytes": 19446
+      },
+      {
+        "path": "dream/assets/kitchen_meadow.scene",
+        "sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+        "bytes": 1117
+      },
+      {
+        "path": "dream/assets/pastel_room.draws",
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      {
+        "path": "dream/assets/pastel_room.dreammesh",
+        "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+        "bytes": 1242544
+      },
+      {
+        "path": "dream/assets/pastel_room.glb",
+        "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167",
+        "bytes": 1862948
+      },
+      {
+        "path": "dream/assets/pastel_room.json",
+        "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c",
+        "bytes": 174596
+      },
+      {
+        "path": "dream/assets/pastel_room.scene",
+        "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+        "bytes": 207
+      },
+      {
+        "path": "dream/assets/scene_catalog.cat",
+        "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+        "bytes": 4823
+      },
+      {
+        "path": "dream/assets/stair_sky.draws",
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "bytes": 2
+      },
+      {
+        "path": "dream/assets/stair_sky.dreammesh",
+        "sha256": "d52c956509e738d759a12f1352b15a946df180cb26935cd07e9cacbcd429f77b",
+        "bytes": 42465088
+      },
+      {
+        "path": "dream/assets/stair_sky.glb",
+        "sha256": "15b9ee977bc385c4037b16bbe54933f7a00bf310ff238d1e8c43d3f159f239af",
+        "bytes": 39530196
+      },
+      {
+        "path": "dream/assets/stair_sky.json",
+        "sha256": "6b79e47913443a7d187cb1cf838bc4011467b9a26dcefc8f30c10ffc7c07ded0",
+        "bytes": 23407
+      },
+      {
+        "path": "dream/assets/stair_sky.scene",
+        "sha256": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+        "bytes": 764
+      },
+      {
+        "path": "dream/assets/textures/stair_grass_albedo.bmp",
+        "sha256": "62ccc8b7c281da2c97398aa8066693287744330a1562820812f52769372ccc6a",
+        "bytes": 3145782
+      },
+      {
+        "path": "dream/assets/textures/stair_grass_albedo.png",
+        "sha256": "7a72343633666fc2eb202259180d172e1cef64817be296d994c772bb2f83d8d9",
+        "bytes": 805246
+      },
+      {
+        "path": "dream/assets/textures/stair_grass_normal.bmp",
+        "sha256": "6e4f33410b32ff755bd8a70290333107e789c3e68aab89b6664373a95dcb38c9",
+        "bytes": 3145782
+      },
+      {
+        "path": "dream/assets/textures/stair_grass_normal.png",
+        "sha256": "cb04aea6183140b8c1c9f3bd6b28ab5ec5273e3fbccee82ec5933a39679f05d1",
+        "bytes": 1947288
+      },
+      {
+        "path": "dream/assets/textures/stair_neutral_white.bmp",
+        "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a",
+        "bytes": 102
+      },
+      {
+        "path": "dream/assets/textures/stair_neutral_white.png",
+        "sha256": "7d001f8fab18d1119fc5976ea2f716929d139013e9b4fcec48c9531b7ca4212c",
+        "bytes": 76
+      },
+      {
+        "path": "dream/assets/textures/stair_plush_albedo.bmp",
+        "sha256": "b4b75baf8ec1a0e4de4fba05432f67c53880c9db2d48e7b53b2020c410469a95",
+        "bytes": 3145782
+      },
+      {
+        "path": "dream/assets/textures/stair_plush_albedo.png",
+        "sha256": "5e1e57e9f899d6b8a53e7a850e5490b3d77a39c180acf64395cb9fd55bf7c909",
+        "bytes": 1137490
+      },
+      {
+        "path": "dream/assets/textures/stair_plush_normal.bmp",
+        "sha256": "f71c1b30b031ed2b05e2164fdf9052b14a9078555fe362aa8ab9ac6066a19987",
+        "bytes": 3145782
+      },
+      {
+        "path": "dream/assets/textures/stair_plush_normal.png",
+        "sha256": "cec341a5104e78440aaf0f3d5bcf094be1d1890e534fc4853ef6548a70c45dc8",
+        "bytes": 2385273
+      },
+      {
+        "path": "dream/assets/textures/stair_sky.bmp",
+        "sha256": "34a1429a5ade65cbd5388d1d9753c6dca34a6a155091aec803edff4fc497de5d",
+        "bytes": 6291510
+      },
+      {
+        "path": "dream/assets/textures/stair_sky.png",
+        "sha256": "9c1445886518fb33d16d20c9d117a565c9b395f366a69969d8e5b6a9046c0670",
+        "bytes": 53709
+      },
+      {
+        "path": "dream/blender/export_runtime.py",
+        "sha256": "b1df311143e38262e85a7a092d8a4d860e9d4e4d34dc8ca70fb91f2f37fe362d",
+        "bytes": 6448
+      },
+      {
+        "path": "dream/validation/verify_assets.py",
+        "sha256": "b46184103d71354cf610423936d7e0ff3d103b253d4ca3a2968eb4fa33582200",
+        "bytes": 15956
+      }
+    ],
+    "plush_base_ao_observed": {
+      "objects": 12,
+      "vertices": 3888,
+      "ao_min": 0.3499999940395355,
+      "ao_max": 1.0,
+      "corners_below_unoccluded": 1581,
+      "note": "Los objetos base conservan AO observado; sólo los dos detail_objects_excluded declarados tienen exención de receptor verificada."
+    }
+  }
+}

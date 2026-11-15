@@ -1,0 +1,530 @@
+{
+  "schema": "dream.stair_surface_coverage.v1",
+  "stage": "material_prototype_pending_review",
+  "geometry_review": "validation/stair-sky-geometry-review.json",
+  "final_accepted": false,
+  "all_base_surfaces_mapped": true,
+  "coverage": [
+    {
+      "object": "GEO-DREAM-stair-tread_01",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_01",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_01",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_02",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_02",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_02",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_03",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_03",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_03",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_04",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_04",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_04",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_05",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_05",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_05",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_06",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_06",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_06",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_07",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_07",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_07",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_08",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_08",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_08",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_09",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_09",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_09",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_10",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_10",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_10",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_11",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_11",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_11",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-tread_12",
+      "role": "plush",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_green_tread_12",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_green_tread_12",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-approach_ground",
+      "role": "grass",
+      "faces": 6,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-upper_landing",
+      "role": "grass",
+      "faces": 54,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_bank",
+      "role": "grass",
+      "faces": 724,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_bank",
+      "role": "grass",
+      "faces": 724,
+      "uv": "WorldXY/4",
+      "surface_fill": "image"
+    },
+    {
+      "object": "GEO-DREAM-stair-surround_left",
+      "role": "mint",
+      "faces": 6,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-surround_right",
+      "role": "mint",
+      "faces": 6,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-surround_above",
+      "role": "mint",
+      "faces": 6,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-surround_below",
+      "role": "mint",
+      "faces": 6,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-frame_left",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-frame_right",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-frame_header",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-header_moulding_0",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_moulding_0",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_moulding_0",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-header_moulding_1",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_moulding_1",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_moulding_1",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-header_moulding_2",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_moulding_2",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_moulding_2",
+      "role": "frame",
+      "faces": 54,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_lower_return",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_inclined_rail",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_upper_return",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_lower_elbow",
+      "role": "rail",
+      "faces": 128,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_upper_elbow",
+      "role": "rail",
+      "faces": 128,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_post_0",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_post_1",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-left_post_2",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_lower_return",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_inclined_rail",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_upper_return",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_lower_elbow",
+      "role": "rail",
+      "faces": 128,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_upper_elbow",
+      "role": "rail",
+      "faces": 128,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_post_0",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_post_1",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    },
+    {
+      "object": "GEO-DREAM-stair-right_post_2",
+      "role": "rail",
+      "faces": 22,
+      "uv": "world dominant-axis / .28",
+      "surface_fill": "intentional plain PBR"
+    }
+  ],
+  "detail": {
+    "plush": {
+      "strands": 34932,
+      "triangles": 104796,
+      "vertices": 174660
+    },
+    "grass": {
+      "strands": 79674,
+      "triangles": 239022,
+      "vertices": 398370
+    }
+  },
+  "limits": [
+    "Grass uses planar world XY color on closed terrain; vertical green risers have degenerate UV and rely on color/geometric normal.",
+    "Plush is mapped per dominant face including backs and sides. Small normal differences at projection boundaries remain possible.",
+    "Sky is a distant panorama without moving volume."
+  ]
+}

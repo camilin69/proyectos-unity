@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "scope": "CPU-only rectangular support-height controller and no-surface compatibility. No GPU test or catalog activation performed.",
+  "status": "cpu_validation_passed_integration_pending",
+  "source_sha256": {
+    "dream/runtime/src/scene.hpp": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+    "dream/validation/navigation-height.cpp": "f51f0157f3b24b0eb2292e189593dd558606115f210f054a16cc16f1040b6e11",
+    "dream/validation/navigation_test.cpp": "f37fdef65210b977c700e834d63acad2d2df31315ce27549ee551a47f515ec29",
+    "dream/blender/stair_sky_plan.json": "a1017cd341b3690b0b305147a4525cd12592efa4b37fc128af78ae0361d093b6",
+    "dream/blender/build_stair_sky.py": "b012665f1366a2c20728bd15a7900d99c3a5845b1f8700241d62235ab9e3926a",
+    "dream/assets/pastel_room.scene": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+    "dream/assets/atrium.scene": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519"
+  },
+  "commands": [
+    "g++ -std=c++17 -O2 -Wall -Wextra -pedantic dream/validation/navigation-height.cpp -o dream/runtime/build/navigation-height.exe",
+    "dream/runtime/build/navigation-height.exe dream/assets",
+    "g++ -std=c++17 -O2 -Wall -Wextra -pedantic dream/validation/navigation_test.cpp -o dream/runtime/build/navigation-regression.exe",
+    "dream/runtime/build/navigation-regression.exe dream/assets"
+  ],
+  "build": {
+    "compiler": "MinGW-w64 g++",
+    "flags": [
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-pedantic"
+    ],
+    "warnings": 0
+  },
+  "height_test": {
+    "status": "PASS",
+    "checks": 1580,
+    "support_rectangles": 14,
+    "upward_risers": 12,
+    "downward_risers": 12,
+    "height_gain_m": 1.92,
+    "invalid_input_cases": 16,
+    "legacy_regression_scenes": 3,
+    "legacy_movement_sequences": 480,
+    "legacy_bit_exact": true,
+    "kitchen_source": "explicit_no_surface_fixture; kitchen_meadow.scene did not yet exist at test time"
+  },
+  "existing_navigation_test": {
+    "status": "PASS",
+    "checks": 69000,
+    "exported_canal_capsules": 32
+  },
+  "verified_behavior": [
+    "Keeps eye_height above current rectangular support while ascending and descending twelve 0.16 m risers.",
+    "Checks support coverage for the whole constrained movement segment, not just its endpoint; a 2 mm gap inside an 8 cm substep blocks movement.",
+    "A pose already in a gap or at an unsupported eye elevation does not snap to a nearby floor.",
+    "Overlapping levels retain the current supported height; a different level must connect by a shared edge.",
+    "Rejects upward/downward height changes beyond their separate configured limits.",
+    "Ignores requested vertical displacement in supported mode; this controller has no jump or flight.",
+    "Sweeps supported XY movement against discs/capsules so a long frame movement cannot skip an 8 mm obstacle.",
+    "Preserves original float operation order and XYZ results for scenes with no surfaces.",
+    "Retains far_clip=200 default and accepts a 1000 m profile with inline comments.",
+    "Rejects nonfinite values, malformed/trailing data, invalid dimensions/radii, unsupported/obstructed supported spawn and excessive movement inputs."
+  ],
+  "format": {
+    "surface": "surface xmin ymin xmax ymax support_z",
+    "bounds": "bounds xmin xmax ymin ymax (existing order, different from surface)",
+    "eye_height": "positive eye offset above support",
+    "step_limits": "nonnegative maximum upward and downward transitions in metres",
+    "surfaces_optional": true
+  },
+  "stair_export": {
+    "plan_sha256": "a1017cd341b3690b0b305147a4525cd12592efa4b37fc128af78ae0361d093b6",
+    "support_surfaces": [
+      {
+        "id": "approach",
+        "xyxy_m": [
+          -0.93,
+          -5.2,
+          0.93,
+          0.0
+        ],
+        "support_z_m": 0.0
+      },
+      {
+        "id": "tread_01",
+        "xyxy_m": [
+          -0.93,
+          0.0,
+          0.93,
+          0.3
+        ],
+        "support_z_m": 0.16
+      },
+      {
+        "id": "tread_02",
+        "xyxy_m": [
+          -0.93,
+          0.3,
+          0.93,
+          0.6
+        ],
+        "support_z_m": 0.32
+      },
+      {
+        "id": "tread_03",
+        "xyxy_m": [
+          -0.93,
+          0.6,
+          0.93,
+          0.8999999999999999
+        ],
+        "support_z_m": 0.48
+      },
+      {
+        "id": "tread_04",
+        "xyxy_m": [
+          -0.93,
+          0.8999999999999999,
+          0.93,
+          1.2
+        ],
+        "support_z_m": 0.64
+      },
+      {
+        "id": "tread_05",
+        "xyxy_m": [
+          -0.93,
+          1.2,
+          0.93,
+          1.5
+        ],
+        "support_z_m": 0.8
+      },
+      {
+        "id": "tread_06",
+        "xyxy_m": [
+          -0.93,
+          1.5,
+          0.93,
+          1.7999999999999998
+        ],
+        "support_z_m": 0.96
+      },
+      {
+        "id": "tread_07",
+        "xyxy_m": [
+          -0.93,
+          1.7999999999999998,
+          0.93,
+          2.1
+        ],
+        "support_z_m": 1.12
+      },
+      {
+        "id": "tread_08",
+        "xyxy_m": [
+          -0.93,
+          2.1,
+          0.93,
+          2.4
+        ],
+        "support_z_m": 1.28
+      },
+      {
+        "id": "tread_09",
+        "xyxy_m": [
+          -0.93,
+          2.4,
+          0.93,
+          2.6999999999999997
+        ],
+        "support_z_m": 1.44
+      },
+      {
+        "id": "tread_10",
+        "xyxy_m": [
+          -0.93,
+          2.6999999999999997,
+          0.93,
+          3.0
+        ],
+        "support_z_m": 1.6
+      },
+      {
+        "id": "tread_11",
+        "xyxy_m": [
+          -0.93,
+          3.0,
+          0.93,
+          3.3
+        ],
+        "support_z_m": 1.76
+      },
+      {
+        "id": "tread_12",
+        "xyxy_m": [
+          -0.93,
+          3.3,
+          0.93,
+          3.5999999999999996
+        ],
+        "support_z_m": 1.92
+      },
+      {
+        "id": "upper_landing",
+        "xyxy_m": [
+          -0.93,
+          3.6,
+          0.93,
+          5.2
+        ],
+        "support_z_m": 1.92
+      }
+    ],
+    "scene_lines": [
+      "eye_height 1.550000",
+      "step_limits 0.180000 0.180000",
+      "bounds -0.720000 0.720000 -5.200000 5.000000",
+      "surface -0.930000 -5.200000 0.930000 0.000000 0.000000 # approach",
+      "surface -0.930000 0.000000 0.930000 0.300000 0.160000 # tread_01",
+      "surface -0.930000 0.300000 0.930000 0.600000 0.320000 # tread_02",
+      "surface -0.930000 0.600000 0.930000 0.900000 0.480000 # tread_03",
+      "surface -0.930000 0.900000 0.930000 1.200000 0.640000 # tread_04",
+      "surface -0.930000 1.200000 0.930000 1.500000 0.800000 # tread_05",
+      "surface -0.930000 1.500000 0.930000 1.800000 0.960000 # tread_06",
+      "surface -0.930000 1.800000 0.930000 2.100000 1.120000 # tread_07",
+      "surface -0.930000 2.100000 0.930000 2.400000 1.280000 # tread_08",
+      "surface -0.930000 2.400000 0.930000 2.700000 1.440000 # tread_09",
+      "surface -0.930000 2.700000 0.930000 3.000000 1.600000 # tread_10",
+      "surface -0.930000 3.000000 0.930000 3.300000 1.760000 # tread_11",
+      "surface -0.930000 3.300000 0.930000 3.600000 1.920000 # tread_12",
+      "surface -0.930000 3.600000 0.930000 5.200000 1.920000 # upper_landing"
+    ],
+    "spawn_eye_z_rule": "support_z at spawn XY + eye_height; current approach spawn is z=1.55.",
+    "current_spawn_camera": {
+      "position_m": [
+        0.02206,
+        -3.43887,
+        1.55
+      ],
+      "yaw_rad": 1.51996,
+      "pitch_rad": 0.001732,
+      "tan_half_vertical_fov": 0.597352,
+      "render_px": [
+        720,
+        1280
+      ],
+      "status": "Semilla de proyección analítica ajustada a6 hitos rígidos aproximados; no verificada mediante render."
+    },
+    "corridor_note": "Use ±0.72 centre bounds, leaving 0.18 m agent radius plus 0.03 m margin inside the ±0.93 support width. Top bound ends at y=5.0, before support edge 5.2.",
+    "endpoint_note": "At an exact shared edge the current supported height remains valid until movement enters the next tread; no unconditional highest-surface snap. This is state-aware closed contact, not a stateless half-open highest-floor query.",
+    "exporter_instruction": "Map each dream_navigation.support_surfaces xyxy_m/support_z_m to one surface line. Round adjacent endpoints consistently to six decimal places; write eye_height, step_limits and centre-corridor bounds once. Do not mark catalog playable until integration and actual traversal are checked."
+  },
+  "limitations": [
+    "Axis-aligned constant-height rectangles only: no slopes, jumping, gravity or arbitrary mesh collision.",
+    "Height-changing surfaces must share an edge; author navigation patches as a partition rather than an overlapping lower floor beneath a raised step.",
+    "Swept obstacle contacts conservatively block the substep; no new continuous slide solver is implemented.",
+    "No rendering, catalog change, scene export or real gameplay traversal was performed in this subtask."
+  ]
+}

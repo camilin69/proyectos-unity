@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-09T04:44:26.271Z",
+  "status": "PASS",
+  "scope": "CPU exported-asset contract verification only; no renderer or assets modified.",
+  "baseline_failure": {
+    "asset": "kitchen_meadow",
+    "exit_code": 1,
+    "reason": "The previous verifier rejected kind 11 as Unknown material kind; no asset corruption was established by that failure."
+  },
+  "changes": [
+    "Accept explicit material kinds 0..9 and 11; kind 10 remains rejected. Grass allows only variant 0=ground and 1=blades.",
+    "Resolve the selected scene's nine texture roles through scene_catalog.cat and require companion PNG plus runtime RGB24 BMP with matching dimensions. Kitchen does not require room texture paths.",
+    "Keep all existing mesh/material/normal/AO/object-range/transparent-range/atrium-navigation/GLB checks. Texture existence checks now follow the selected profile and additionally validate headers/dimensions.",
+    "For grass require finite/unit normals through existing checks, positive triangle area, normals matching triangle winding, continuous worldXY/4 UV, AO=1 and metadata excluding grass from AO occluders. Kitchen object roles must match the ground/blade variants."
+  ],
+  "checks": [
+    {
+      "command": "& 'C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe' dream/validation/verify_assets.py kitchen_meadow",
+      "exit_code": 0,
+      "result": "PASS",
+      "asset": "kitchen_meadow",
+      "materials": 14,
+      "vertices": 145935,
+      "triangles": 48645,
+      "glb_bytes": 7424704,
+      "transparent_draws": 0,
+      "navigation_verified": false,
+      "water_vertices_covered": 0,
+      "embedded_glb_images": 2
+    },
+    {
+      "command": "& 'C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe' dream/validation/verify_assets.py pastel_room",
+      "exit_code": 0,
+      "result": "PASS",
+      "asset": "pastel_room",
+      "materials": 9,
+      "vertices": 31056,
+      "triangles": 10352,
+      "glb_bytes": 1862948,
+      "transparent_draws": 0,
+      "navigation_verified": false,
+      "water_vertices_covered": 0,
+      "embedded_glb_images": 5
+    },
+    {
+      "command": "& 'C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe' dream/validation/verify_assets.py atrium",
+      "exit_code": 0,
+      "result": "PASS",
+      "asset": "atrium",
+      "materials": 16,
+      "vertices": 537522,
+      "triangles": 179174,
+      "glb_bytes": 6982972,
+      "transparent_draws": 45,
+      "navigation_verified": true,
+      "water_vertices_covered": 72960,
+      "embedded_glb_images": 2
+    }
+  ],
+  "kitchen_grass": {
+    "0": {
+      "vertices": 81,
+      "uv_max_error": 0,
+      "ao_min": 1,
+      "ao_max": 1,
+      "minimum_triangle_area_m2": 0.00004516145180311071,
+      "minimum_normal_face_dot": 1
+    },
+    "1": {
+      "vertices": 136890,
+      "uv_max_error": 0,
+      "ao_min": 1,
+      "ao_max": 1,
+      "minimum_triangle_area_m2": 0.00003357327072528253,
+      "minimum_normal_face_dot": 0.999999913064822
+    }
+  },
+  "kitchen_texture_roles": {
+    "sky": "assets/textures/kitchen_sky.bmp",
+    "plaid": "assets/textures/kitchen_neutral_white.bmp",
+    "ceramic_normal": "assets/textures/kitchen_neutral_normal.bmp",
+    "ceramic_roughness": "assets/textures/kitchen_neutral_white.bmp",
+    "leaf": "assets/textures/kitchen_neutral_white.bmp",
+    "globe": "assets/textures/kitchen_neutral_white.bmp",
+    "floor_surface": "assets/textures/kitchen_grass_albedo.bmp",
+    "floor_flow": "assets/textures/kitchen_grass_normal.bmp",
+    "probe": "assets/textures/kitchen_sky.bmp"
+  },
+  "negative_kind10_check": {
+    "result": "PASS",
+    "case": "kind10_rejected",
+    "message": "Unknown material kind",
+    "method": "Execute the actual parsed material-validation loop with an in-memory kind10 record. No asset mutation."
+  },
+  "diff_whitespace": {
+    "command": "git diff --check -- dream/validation/verify_assets.py",
+    "result": "PASS"
+  },
+  "limitations": [
+    "CPU validation does not establish visual fidelity, GPU rendering, frame rate or kitchen navigation behavior.",
+    "Texture checks validate file presence, dimensions and supported BMP encoding; they do not replace PNG/BMP decoded-pixel parity reports.",
+    "The grass checks enforce the current exported flat-triangle, worldXY/4 and unoccluded-AO contract; a future contract change must update exporter and verifier explicitly."
+  ],
+  "goal_complete": false,
+  "final_visual_acceptance": false,
+  "artifacts": [
+    {
+      "path": "validation/verify_assets.py",
+      "bytes": 11331,
+      "sha256": "a529ffbfd2780e255d0285fa038c41fe653c6ac03b1a0fc23d63329b83c94f99"
+    },
+    {
+      "path": "assets/scene_catalog.cat",
+      "bytes": 4053,
+      "sha256": "e5e5252f50068372a368df093be3a3740fefc545f20c0ff0fd1f10042a193ea5"
+    },
+    {
+      "path": "blender/export_runtime.py",
+      "bytes": 6221,
+      "sha256": "75ae9a00a13eef514d2127f97c49d004e244dc097f1426080d52fb2121cfb9c2"
+    },
+    {
+      "path": "assets/kitchen_meadow.dreammesh",
+      "bytes": 5837864,
+      "sha256": "c16bc63d1fa167f2cd43d04bc5eac4dc27e664333d301a68fa197ef34a4f4cac"
+    },
+    {
+      "path": "assets/kitchen_meadow.json",
+      "bytes": 19446,
+      "sha256": "9bdc2299c401314bd3bad8f60bd581c06a465ef4e58654732ca5216d653746b9"
+    },
+    {
+      "path": "assets/kitchen_meadow.glb",
+      "bytes": 7424704,
+      "sha256": "b806677da67d78138d69b104d25e2130b3e76803c17dd097f26df97ac69a1dc8"
+    },
+    {
+      "path": "assets/kitchen_meadow.scene",
+      "bytes": 1117,
+      "sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7"
+    },
+    {
+      "path": "assets/kitchen_meadow.draws",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "assets/pastel_room.dreammesh",
+      "bytes": 1242544,
+      "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79"
+    },
+    {
+      "path": "assets/pastel_room.json",
+      "bytes": 174596,
+      "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c"
+    },
+    {
+      "path": "assets/pastel_room.glb",
+      "bytes": 1862948,
+      "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167"
+    },
+    {
+      "path": "assets/pastel_room.scene",
+      "bytes": 207,
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b"
+    },
+    {
+      "path": "assets/pastel_room.draws",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "assets/atrium.dreammesh",
+      "bytes": 21501408,
+      "sha256": "bb339fe18051f14b69b9fe465c5bc48e55a7aac4e154cab2ec1fe83b715017db"
+    },
+    {
+      "path": "assets/atrium.json",
+      "bytes": 201940,
+      "sha256": "2e9c41e193e40149b7e1162c534b862a7f53f07fdad1c0b1393875b939ec9a15"
+    },
+    {
+      "path": "assets/atrium.glb",
+      "bytes": 6982972,
+      "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418"
+    },
+    {
+      "path": "assets/atrium.scene",
+      "bytes": 3882,
+      "sha256": "f1082ed239043485413a698f03e575b50ca55d4ffc76d28b2ff9f81d6c83f519"
+    },
+    {
+      "path": "assets/atrium.draws",
+      "bytes": 2977,
+      "sha256": "ac7fe05a7e1392fb8b1de3c2dcd4fd1ca6e4225014f5a787b42e50426ca6954e"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_albedo.png",
+      "bytes": 1164079,
+      "sha256": "975dd1744e08743f61dd0ebc08b531a800c35485ed767ba378160e916e8aeb2b"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_albedo.bmp",
+      "bytes": 3145782,
+      "sha256": "6e3d2b301b951da37795f81f47339d8763ff95e6ea364b500f43e2c9dad5cb74"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_normal.png",
+      "bytes": 1837318,
+      "sha256": "9187f29c0949f4971f92b5b3d3db2119073fe9ac9f587a6778edc7a2cd132508"
+    },
+    {
+      "path": "assets/textures/kitchen_grass_normal.bmp",
+      "bytes": 3145782,
+      "sha256": "31c96a1515ab32ab6b3da07c4aa8ed775914524d63e693d65041f9e4c39140ed"
+    },
+    {
+      "path": "assets/textures/kitchen_sky.png",
+      "bytes": 113039,
+      "sha256": "047ae8681c9a821406bb212bbc83b81664e1d1bcbb196c41bd2880f5a10848ea"
+    },
+    {
+      "path": "assets/textures/kitchen_sky.bmp",
+      "bytes": 6291510,
+      "sha256": "e5ead6a9f343b44eaec479fea66874eac4006bb261a778344fdc78894222b1e7"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_white.png",
+      "bytes": 76,
+      "sha256": "7d001f8fab18d1119fc5976ea2f716929d139013e9b4fcec48c9531b7ca4212c"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_white.bmp",
+      "bytes": 102,
+      "sha256": "56b86f85a53a4314e8b55b9838f86bcd14ea42c0ff8bd974a6ebf9df57dd7f0a"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_normal.png",
+      "bytes": 76,
+      "sha256": "3d41646de11179347cba387d740809ba54bfe4bd35bc65fd6c1bbc606eb05aff"
+    },
+    {
+      "path": "assets/textures/kitchen_neutral_normal.bmp",
+      "bytes": 102,
+      "sha256": "2972e220fb5606ba7865ec37d5cd5e2968e3c72c04b369e66e69f0fc2f8b47a8"
+    }
+  ]
+}

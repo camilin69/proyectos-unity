@@ -1,0 +1,92 @@
+DREAM_SCENE_CATALOG 1
+# Explicit render profiles and texture roles. Paths are relative to dream/.
+# Availability is an implementation state, independent of reference acceptance.
+profile pastel_room 0 available
+texture pastel_room sky assets/textures/cloud_sky.bmp
+texture pastel_room plaid assets/textures/curtain_plaid.bmp
+texture pastel_room ceramic_normal assets/textures/ceramic_normal.bmp
+texture pastel_room ceramic_roughness assets/textures/ceramic_roughness.bmp
+texture pastel_room leaf assets/textures/leaf_detail.bmp
+texture pastel_room globe assets/textures/biosphere.bmp
+texture pastel_room floor_surface assets/textures/floor_surface_albedo.bmp
+texture pastel_room floor_flow assets/textures/floor_flow.bmp
+texture pastel_room probe assets/textures/room_probe.bmp
+profile atrium 1 available
+texture atrium sky assets/textures/cloud_sky.bmp
+texture atrium plaid assets/textures/curtain_plaid.bmp
+texture atrium ceramic_normal assets/textures/ceramic_normal.bmp
+texture atrium ceramic_roughness assets/textures/ceramic_roughness.bmp
+texture atrium leaf assets/textures/leaf_detail.bmp
+texture atrium globe assets/textures/biosphere.bmp
+texture atrium floor_surface assets/textures/floor_surface_albedo.bmp
+texture atrium floor_flow assets/textures/floor_flow.bmp
+texture atrium probe assets/textures/room_probe.bmp
+# Kitchen has its own maps; unused material roles bind neutral textures.
+profile kitchen_meadow 2 available
+texture kitchen_meadow sky assets/textures/kitchen_sky.bmp
+texture kitchen_meadow plaid assets/textures/kitchen_neutral_white.bmp
+texture kitchen_meadow ceramic_normal assets/textures/kitchen_neutral_normal.bmp
+texture kitchen_meadow ceramic_roughness assets/textures/kitchen_neutral_white.bmp
+texture kitchen_meadow leaf assets/textures/kitchen_neutral_white.bmp
+texture kitchen_meadow globe assets/textures/kitchen_neutral_white.bmp
+texture kitchen_meadow floor_surface assets/textures/kitchen_grass_albedo.bmp
+texture kitchen_meadow floor_flow assets/textures/kitchen_grass_normal.bmp
+texture kitchen_meadow probe assets/textures/kitchen_sky.bmp
+scene video-35/atrio_inundado v35_flooded_atrium planned pending - assets/v35_flooded_atrium.scene assets/v35_flooded_atrium.dreammesh "atrio inundado"
+scene video-35/paseo_palmeras v35_palm_walk planned pending - assets/v35_palm_walk.scene assets/v35_palm_walk.dreammesh "paseo palmeras"
+# Stair prototype: kind 12 plush, kind 11 grass, scene-local maps and sky.
+# Planned until the real export, support traversal and render checks pass.
+profile stair_sky 3 available
+texture stair_sky sky assets/textures/stair_sky.bmp
+texture stair_sky plaid assets/textures/stair_plush_albedo.bmp
+texture stair_sky ceramic_normal assets/textures/stair_plush_normal.bmp
+texture stair_sky ceramic_roughness assets/textures/stair_neutral_white.bmp
+texture stair_sky leaf assets/textures/stair_neutral_white.bmp
+texture stair_sky globe assets/textures/stair_neutral_white.bmp
+texture stair_sky floor_surface assets/textures/stair_grass_albedo.bmp
+texture stair_sky floor_flow assets/textures/stair_grass_normal.bmp
+texture stair_sky probe assets/textures/stair_sky.bmp
+scene video-35/escalera_cielo stair_sky available pending stair_sky assets/stair_sky.scene assets/stair_sky.dreammesh "escalera cielo"
+scene video-35/habitacion_nubes pastel_room available pending pastel_room assets/pastel_room.scene assets/pastel_room.dreammesh "habitacion nubes"
+scene video-42/cocina_pradera kitchen_meadow available pending kitchen_meadow assets/kitchen_meadow.scene assets/kitchen_meadow.dreammesh "cocina pradera"
+scene video-42/salida_oceano v42_ocean_exit available pending ocean_exit assets/v42_ocean_exit.scene assets/v42_ocean_exit.dreammesh "salida oceano"
+# Wave interior: metric UV floor/walls, decal UV signs, linear packed data.
+profile wave_corridor 4 available
+texture wave_corridor sky assets/textures/wave_neutral_environment.bmp
+texture wave_corridor plaid assets/textures/wave_candidate/wave_wall_albedo.bmp
+texture wave_corridor ceramic_normal assets/textures/wave_candidate/wave_paint_normal.bmp
+texture wave_corridor ceramic_roughness assets/textures/wave_candidate/wave_floor_roughness.bmp
+texture wave_corridor leaf assets/textures/wave_candidate/wave_ceiling_albedo.bmp
+texture wave_corridor globe assets/textures/wave_candidate/wave_exit_albedo_dark.bmp
+texture wave_corridor floor_surface assets/textures/wave_candidate/wave_floor_albedo.bmp
+texture wave_corridor floor_flow assets/textures/wave_candidate/wave_floor_normal.bmp
+texture wave_corridor probe assets/textures/wave_surface_data.bmp
+scene video-42/pasillo_ondulado wave_corridor available pending wave_corridor assets/wave_corridor.scene assets/wave_corridor.dreammesh "pasillo ondulado"
+scene video-42/pasarela_poolroom v42_poolroom_walkway planned pending - assets/v42_poolroom_walkway.scene assets/v42_poolroom_walkway.dreammesh "pasarela poolroom"
+# Monumental tree: authored bark, foliage, grass and clear-sky maps.
+profile monumental_tree 6 available
+texture monumental_tree sky assets/textures/monumental_tree/clear_blue_sky.bmp
+texture monumental_tree plaid assets/textures/monumental_tree/bark_albedo.bmp
+texture monumental_tree ceramic_normal assets/textures/monumental_tree/bark_normal.bmp
+texture monumental_tree ceramic_roughness assets/textures/monumental_tree/bark_roughness.bmp
+texture monumental_tree leaf assets/textures/monumental_tree/foliage_albedo.bmp
+texture monumental_tree globe assets/textures/monumental_tree/grass_roughness.bmp
+texture monumental_tree floor_surface assets/textures/monumental_tree/grass_albedo.bmp
+texture monumental_tree floor_flow assets/textures/monumental_tree/grass_normal.bmp
+texture monumental_tree probe assets/textures/monumental_tree/sky_linear_probe.bmp
+scene video-51/arbol_monumental v51_monumental_tree available pending monumental_tree assets/v51_monumental_tree.scene assets/v51_monumental_tree.dreammesh "arbol monumental"
+scene video-52/transporte_cristal v52_glass_transit planned pending - assets/v52_glass_transit.scene assets/v52_glass_transit.dreammesh "transporte cristal"
+scene video-52/atrio_acuatico atrium available pending atrium assets/atrium.scene assets/atrium.dreammesh "atrio acuatico"
+scene video-52/ascensor_acuario v52_aquarium_lift planned pending - assets/v52_aquarium_lift.scene assets/v52_aquarium_lift.dreammesh "ascensor acuario"
+scene video-52/sala_planetaria v52_planetarium planned pending - assets/v52_planetarium.scene assets/v52_planetarium.dreammesh "sala planetaria"
+# Ocean exit: scene-specific tiles, animated sea, foamed water and sunset sky.
+profile ocean_exit 5 available
+texture ocean_exit sky assets/textures/ocean_exit_runtime/ocean_sky.bmp
+texture ocean_exit plaid assets/textures/ocean_exit_runtime/ocean_tile.bmp
+texture ocean_exit ceramic_normal assets/textures/ocean_exit_runtime/ocean_tile_normal.bmp
+texture ocean_exit ceramic_roughness assets/textures/ocean_exit_runtime/ocean_tile_roughness.bmp
+texture ocean_exit leaf assets/textures/ocean_exit_runtime/ocean_foam.bmp
+texture ocean_exit globe assets/textures/ocean_exit_runtime/ocean_exit_lamp.bmp
+texture ocean_exit floor_surface assets/textures/ocean_exit_runtime/ocean_exit_here.bmp
+texture ocean_exit floor_flow assets/textures/ocean_exit_runtime/ocean_ripple_normal.bmp
+texture ocean_exit probe assets/textures/ocean_exit_runtime/ocean_sky.bmp

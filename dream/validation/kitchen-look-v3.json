@@ -1,0 +1,1576 @@
+{
+  "schema": "dream.kitchen_look_v3.v1",
+  "created_at_utc": "2026-10-09T05:20:53.030601+00:00",
+  "stage": "dense_grass_applied_exported_GL_light_calibrated_Blender_v4_reviewed",
+  "visual_accepted": false,
+  "goal_complete": false,
+  "scope": "Cocina v3 con césped denso exportado y Blender v4 con vinculación de luces. En esta calibración sólo se modificó iluminación dentro de environment==2 de scene.frag; root aplicó la revisión Blender v4 por separado.",
+  "artifacts": {
+    "reference": {
+      "path": "dream/referencias/estetica/evidencias/video-42/02s.png",
+      "sha256": "51c351a6eed595922775a6ccb94aacf5ae9fb0bf0b666c0d3986b21aa085a04d",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-08T23:35:51.922942+00:00"
+    },
+    "prelight_v3": {
+      "path": "dream/validation/kitchen-opengl-prelight-v3.png",
+      "sha256": "1c7f79ebecc12c73d2e72b903f26268579e0a38fa489137d719f933fde65126b",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-09T05:10:48.910584+00:00"
+    },
+    "trial_a": {
+      "path": "dream/validation/kitchen-opengl-light-v3-a.png",
+      "sha256": "b68dafa1e913ddef60037bfdae835de6c58009f7d5f528de34fb7a35d8412178",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-09T05:13:05.060639+00:00"
+    },
+    "opengl_v3": {
+      "path": "dream/validation/kitchen-opengl.png",
+      "sha256": "b295213807722c5f5e02715ce10bc606ed1f2faecafa044ee4e7e8fa1c028e03",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-09T05:14:31.885576+00:00"
+    },
+    "blender_v3": {
+      "path": "dream/validation/kitchen-blender-v3.png",
+      "sha256": "eb64a83e80d6f4a842cb0b8230efbadc19a492c165dd469214f3407dd79706df",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-09T05:05:05.399070+00:00"
+    },
+    "blender_v4": {
+      "path": "dream/validation/kitchen-blender.png",
+      "sha256": "700c30b83dd10ae4467b18bc02ff92edbb1003b59fc712d5b5ad40f1a4c602db",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-09T05:14:37.775585+00:00"
+    },
+    "blender_v2_frozen": {
+      "path": "dream/validation/kitchen-blender-v2.png",
+      "sha256": "3041377641ca643ee2cc5ad15df7ee9ce089916e929bb01bfd9e6449e652a149",
+      "dimensions_px": [
+        478,
+        850
+      ],
+      "modified_utc": "2026-10-09T04:35:34.032431+00:00"
+    }
+  },
+  "shader_isolation": {
+    "before_sha256": "de5a8fb2c152fe480f662f21a91d16f0a4a76c2b57cbf938ad67f17493ba6633",
+    "after_sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+    "outside_environment_2_unchanged": true,
+    "comparison": "Texto UTF-8 normalizando finales de línea, extrayendo el bloque por llaves equilibradas; prefijo y sufijo idénticos.",
+    "unchanged_source_sha256": "33bcf8a3268623b1d710f38b72fcf58da53abf39f342811f6752015d527504e3",
+    "before_environment_2": " else if(environment==2){\n   // Explicit kitchen lighting: a broad pink ceiling and daylight at the exit.\n   // This is an initial material profile, calibrated independently of the room.\n   float outside=smoothstep(1.65,2.05,worldPos.y);\n   vec3 ambient=mix(vec3(.70,.54,.55),vec3(.63,.74,.70),outside);\n   color=base*(.72+.22*max(n.z,0.))*ambient*mix(.55,1.,ao);\n   vec3 daylight=vec3(.65,2.4,3.2)-worldPos;\n   color+=light(n,v,normalize(daylight),base,max(rough,.5),metal,\n                vec3(1.25,1.40,1.35)/(1.+dot(daylight,daylight)*.045))*ao;\n   vec3 ceiling=vec3(-.25,-.05,2.67)-worldPos;\n   color+=light(n,v,normalize(ceiling),base,max(rough,.6),metal,\n                vec3(1.40,.50,.85)*(1.-outside)/(1.+dot(ceiling,ceiling)*.4))*ao;\n   if(kind==11){\n     color+=base*.11*max(dot(-n,normalize(vec3(-.2,.4,1.))),0.);\n     float haze=1.-exp(-max(length(eye-worldPos)-18.,0.)*.005);\n     color=mix(color,vec3(.30,.47,.39),haze);\n   }\n }",
+    "after_environment_2": " else if(environment==2){\n   // Explicit kitchen lighting: a broad pink ceiling and daylight at the exit.\n   // Scene-local diffuse returns calibrated against the kitchen reference.\n   float outside=smoothstep(1.65,2.05,worldPos.y);\n   vec3 ambient=mix(vec3(.70,.54,.55),vec3(.63,.74,.70),outside);\n   color=base*(.72+.22*max(n.z,0.))*ambient*mix(.55,1.,ao);\n   vec3 daylight=vec3(.65,2.4,3.2)-worldPos;\n   color+=light(n,v,normalize(daylight),base,max(rough,.5),metal,\n                vec3(1.25,1.40,1.35)/(1.+dot(daylight,daylight)*.045))*ao;\n   vec3 ceiling=vec3(-.25,-.05,2.67)-worldPos;\n   color+=light(n,v,normalize(ceiling),base,max(rough,.6),metal,\n                vec3(1.40,.50,.85)*(1.-outside)/(1.+dot(ceiling,ceiling)*.4))*ao;\n   if(kind==0&&metal<.05){\n     // Matte walls/soffit need the broad interior return missing from the\n     // analytical lamps. Orientation keeps the ceiling below the wall fill;\n     // enamel and cabinetry retain their independently lit highlights.\n     float mattePaint=smoothstep(.78,.82,rough)*(1.-outside);\n     vec3 paintedReturn=mix(vec3(1.42,1.50,1.23),vec3(2.12,2.35,1.96),\n                            1.-abs(n.z));\n     color*=mix(vec3(1.),paintedReturn,mattePaint);\n     if(rough<.65)color*=mix(vec3(1.15,1.20,1.15),vec3(1.),outside);\n   }\n   if(kind==11){\n     color+=base*.11*max(dot(-n,normalize(vec3(-.2,.4,1.))),0.);\n     // Low overlapping blades scatter a warm return indoors and receive a\n     // brighter, cooler exterior fill over several metres beyond the doorway.\n     float grassDaylight=smoothstep(1.0,5.2,worldPos.y);\n     color*=mix(vec3(1.75,1.43,1.30),vec3(2.33,2.11,3.15),grassDaylight);\n     // Haze is applied after the return so the horizon cannot overexpose.\n     float haze=1.-exp(-max(length(eye-worldPos)-18.,0.)*.005);\n     color=mix(color,vec3(.25,.40,.28),haze);\n   }\n }",
+    "limitation": "Aislamiento de fuente, no nuevos renders de env0/1/3."
+  },
+  "capture_checks": [
+    {
+      "version": "trial_a",
+      "command": "dream.exe --hidden --scene kitchen_meadow --capture dream/validation/kitchen-opengl-light-v3-a.ppm --frames 8 --time 0 --samples 4 --width 478 --height 850",
+      "frames": 8,
+      "opaque_msaa_samples": 4,
+      "framebuffer_px": [
+        478,
+        850
+      ],
+      "elapsed_s": 0.367772,
+      "gl_error": 0,
+      "decision": "Descartada como final por transición brusca y horizonte demasiado claro."
+    },
+    {
+      "version": "final_v3",
+      "command": "dream.exe --hidden --scene kitchen_meadow --capture dream/validation/kitchen-opengl.ppm --frames 8 --time 0 --samples 4 --width 478 --height 850",
+      "frames": 8,
+      "opaque_msaa_samples": 4,
+      "framebuffer_px": [
+        478,
+        850
+      ],
+      "camera": [
+        -0.35,
+        -2.8,
+        1.48
+      ],
+      "yaw": 1.53,
+      "elapsed_s": 0.498422,
+      "gl_error": 0,
+      "vertices": 596367,
+      "binary_sha256_recorded_after_capture": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+      "gpu": "Intel HD Graphics 630",
+      "opengl": "3.3.0 - Build 31.0.101.2141"
+    }
+  ],
+  "capture_limit": "Contexto oculto, tiempo fijo y 8 cuadros para comparar aspecto; no garantiza FPS ni sustituye recorrido manual.",
+  "method": {
+    "images_unmodified_except_lossless_PPM_to_PNG": true,
+    "roi_source": "validation/kitchen-look-initial.json",
+    "selection": "Mismas 10 ROI manuales explícitas; control luminoso de techo con cajas propias para fuente y render.",
+    "luminance": "Mediana por píxel de 0.2126 Rlinear + 0.7152 Glinear + 0.0722 Blinear tras decodificar sRGB. Diagnóstico de imagen, no medida física ni porcentaje de fidelidad.",
+    "limitations": "Geometría/cámara y compresión difieren. Colores medianos próximos no demuestran luz espacial ni semejanza completa."
+  },
+  "regions": [
+    {
+      "id": "pink_back_wall",
+      "description": "Paño rosa entre mueble y jamba, sin bordes.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.335,
+            0.215,
+            0.405,
+            0.305
+          ],
+          "box_pixels": [
+            160,
+            183,
+            194,
+            259
+          ],
+          "pixels": 2584,
+          "median_srgb_8bit": [
+            197.0,
+            139.0,
+            127.0
+          ],
+          "median_linear_luminance_Y": 0.318679,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.335,
+            0.215,
+            0.405,
+            0.305
+          ],
+          "box_pixels": [
+            160,
+            183,
+            194,
+            259
+          ],
+          "pixels": 2584,
+          "median_srgb_8bit": [
+            145.0,
+            97.0,
+            95.0
+          ],
+          "median_linear_luminance_Y": 0.153954,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.335,
+            0.215,
+            0.405,
+            0.305
+          ],
+          "box_pixels": [
+            160,
+            183,
+            194,
+            259
+          ],
+          "pixels": 2584,
+          "median_srgb_8bit": [
+            192.0,
+            134.0,
+            125.0
+          ],
+          "median_linear_luminance_Y": 0.297373,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.335,
+            0.215,
+            0.405,
+            0.305
+          ],
+          "box_pixels": [
+            160,
+            183,
+            194,
+            259
+          ],
+          "pixels": 2584,
+          "median_srgb_8bit": [
+            197.0,
+            139.0,
+            126.0
+          ],
+          "median_linear_luminance_Y": 0.318419,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.335,
+            0.215,
+            0.405,
+            0.305
+          ],
+          "box_pixels": [
+            160,
+            183,
+            194,
+            259
+          ],
+          "pixels": 2584,
+          "median_srgb_8bit": [
+            218.0,
+            163.0,
+            169.0
+          ],
+          "median_linear_luminance_Y": 0.439644,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.335,
+            0.215,
+            0.405,
+            0.305
+          ],
+          "box_pixels": [
+            160,
+            183,
+            194,
+            259
+          ],
+          "pixels": 2584,
+          "median_srgb_8bit": [
+            218.0,
+            163.0,
+            169.0
+          ],
+          "median_linear_luminance_Y": 0.439644,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "upper_soffit",
+      "description": "Franja de techo/soffit situada bajo los paneles, lejos de sus bordes.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.42,
+            0.115,
+            0.85,
+            0.13
+          ],
+          "box_pixels": [
+            201,
+            98,
+            406,
+            110
+          ],
+          "pixels": 2460,
+          "median_srgb_8bit": [
+            156.0,
+            137.0,
+            103.0
+          ],
+          "median_linear_luminance_Y": 0.259866,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.42,
+            0.115,
+            0.85,
+            0.13
+          ],
+          "box_pixels": [
+            201,
+            98,
+            406,
+            110
+          ],
+          "pixels": 2460,
+          "median_srgb_8bit": [
+            133.0,
+            114.0,
+            94.0
+          ],
+          "median_linear_luminance_Y": 0.178293,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.42,
+            0.115,
+            0.85,
+            0.13
+          ],
+          "box_pixels": [
+            201,
+            98,
+            406,
+            110
+          ],
+          "pixels": 2460,
+          "median_srgb_8bit": [
+            156.0,
+            137.0,
+            103.0
+          ],
+          "median_linear_luminance_Y": 0.259385,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.42,
+            0.115,
+            0.85,
+            0.13
+          ],
+          "box_pixels": [
+            201,
+            98,
+            406,
+            110
+          ],
+          "pixels": 2460,
+          "median_srgb_8bit": [
+            156.0,
+            137.0,
+            103.0
+          ],
+          "median_linear_luminance_Y": 0.259385,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.42,
+            0.115,
+            0.85,
+            0.13
+          ],
+          "box_pixels": [
+            201,
+            98,
+            406,
+            110
+          ],
+          "pixels": 2460,
+          "median_srgb_8bit": [
+            157.0,
+            144.0,
+            144.0
+          ],
+          "median_linear_luminance_Y": 0.29159,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.42,
+            0.115,
+            0.85,
+            0.13
+          ],
+          "box_pixels": [
+            201,
+            98,
+            406,
+            110
+          ],
+          "pixels": 2460,
+          "median_srgb_8bit": [
+            157.0,
+            144.0,
+            144.0
+          ],
+          "median_linear_luminance_Y": 0.29159,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "upper_cabinet",
+      "description": "Cara del armario alto a la izquierda, sin juntas.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.18,
+            0.2,
+            0.235,
+            0.29
+          ],
+          "box_pixels": [
+            86,
+            170,
+            112,
+            246
+          ],
+          "pixels": 1976,
+          "median_srgb_8bit": [
+            185.0,
+            151.0,
+            139.0
+          ],
+          "median_linear_luminance_Y": 0.345616,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.18,
+            0.2,
+            0.235,
+            0.29
+          ],
+          "box_pixels": [
+            86,
+            170,
+            112,
+            246
+          ],
+          "pixels": 1976,
+          "median_srgb_8bit": [
+            195.0,
+            161.0,
+            157.0
+          ],
+          "median_linear_luminance_Y": 0.395262,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.18,
+            0.2,
+            0.235,
+            0.29
+          ],
+          "box_pixels": [
+            86,
+            170,
+            112,
+            246
+          ],
+          "pixels": 1976,
+          "median_srgb_8bit": [
+            195.0,
+            161.0,
+            157.0
+          ],
+          "median_linear_luminance_Y": 0.399114,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.18,
+            0.2,
+            0.235,
+            0.29
+          ],
+          "box_pixels": [
+            86,
+            170,
+            112,
+            246
+          ],
+          "pixels": 1976,
+          "median_srgb_8bit": [
+            195.0,
+            161.0,
+            157.0
+          ],
+          "median_linear_luminance_Y": 0.399114,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.18,
+            0.2,
+            0.235,
+            0.29
+          ],
+          "box_pixels": [
+            86,
+            170,
+            112,
+            246
+          ],
+          "pixels": 1976,
+          "median_srgb_8bit": [
+            255.0,
+            255.0,
+            242.0
+          ],
+          "median_linear_luminance_Y": 0.991908,
+          "fraction_any_channel_ge_254": 0.92004
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.18,
+            0.2,
+            0.235,
+            0.29
+          ],
+          "box_pixels": [
+            86,
+            170,
+            112,
+            246
+          ],
+          "pixels": 1976,
+          "median_srgb_8bit": [
+            245.0,
+            230.0,
+            226.0
+          ],
+          "median_linear_luminance_Y": 0.814971,
+          "fraction_any_channel_ge_254": 0.187753
+        }
+      }
+    },
+    {
+      "id": "oven_lower_face",
+      "description": "Cara inferior del horno, por debajo de la ventana.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.27,
+            0.595,
+            0.33,
+            0.65
+          ],
+          "box_pixels": [
+            129,
+            506,
+            158,
+            552
+          ],
+          "pixels": 1334,
+          "median_srgb_8bit": [
+            160.0,
+            151.0,
+            136.0
+          ],
+          "median_linear_luminance_Y": 0.313844,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.27,
+            0.595,
+            0.33,
+            0.65
+          ],
+          "box_pixels": [
+            129,
+            506,
+            158,
+            552
+          ],
+          "pixels": 1334,
+          "median_srgb_8bit": [
+            153.0,
+            136.0,
+            127.0
+          ],
+          "median_linear_luminance_Y": 0.259129,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.27,
+            0.595,
+            0.33,
+            0.65
+          ],
+          "box_pixels": [
+            129,
+            506,
+            158,
+            552
+          ],
+          "pixels": 1334,
+          "median_srgb_8bit": [
+            163.0,
+            148.0,
+            135.0
+          ],
+          "median_linear_luminance_Y": 0.307156,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.27,
+            0.595,
+            0.33,
+            0.65
+          ],
+          "box_pixels": [
+            129,
+            506,
+            158,
+            552
+          ],
+          "pixels": 1334,
+          "median_srgb_8bit": [
+            163.0,
+            148.0,
+            135.0
+          ],
+          "median_linear_luminance_Y": 0.307156,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.27,
+            0.595,
+            0.33,
+            0.65
+          ],
+          "box_pixels": [
+            129,
+            506,
+            158,
+            552
+          ],
+          "pixels": 1334,
+          "median_srgb_8bit": [
+            214.0,
+            212.0,
+            214.0
+          ],
+          "median_linear_luminance_Y": 0.662381,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.27,
+            0.595,
+            0.33,
+            0.65
+          ],
+          "box_pixels": [
+            129,
+            506,
+            158,
+            552
+          ],
+          "pixels": 1334,
+          "median_srgb_8bit": [
+            150.0,
+            173.0,
+            195.0
+          ],
+          "median_linear_luminance_Y": 0.403113,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "sky_upper",
+      "description": "Cielo cian superior, sin logo ni texto.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.56,
+            0.205,
+            0.78,
+            0.27
+          ],
+          "box_pixels": [
+            268,
+            174,
+            373,
+            230
+          ],
+          "pixels": 5880,
+          "median_srgb_8bit": [
+            156.0,
+            219.0,
+            253.0
+          ],
+          "median_linear_luminance_Y": 0.647234,
+          "fraction_any_channel_ge_254": 0.428912
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.56,
+            0.205,
+            0.78,
+            0.27
+          ],
+          "box_pixels": [
+            268,
+            174,
+            373,
+            230
+          ],
+          "pixels": 5880,
+          "median_srgb_8bit": [
+            104.0,
+            187.0,
+            232.0
+          ],
+          "median_linear_luminance_Y": 0.443099,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.56,
+            0.205,
+            0.78,
+            0.27
+          ],
+          "box_pixels": [
+            268,
+            174,
+            373,
+            230
+          ],
+          "pixels": 5880,
+          "median_srgb_8bit": [
+            104.0,
+            187.0,
+            232.0
+          ],
+          "median_linear_luminance_Y": 0.443099,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.56,
+            0.205,
+            0.78,
+            0.27
+          ],
+          "box_pixels": [
+            268,
+            174,
+            373,
+            230
+          ],
+          "pixels": 5880,
+          "median_srgb_8bit": [
+            104.0,
+            187.0,
+            232.0
+          ],
+          "median_linear_luminance_Y": 0.443099,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.56,
+            0.205,
+            0.78,
+            0.27
+          ],
+          "box_pixels": [
+            268,
+            174,
+            373,
+            230
+          ],
+          "pixels": 5880,
+          "median_srgb_8bit": [
+            104.0,
+            187.0,
+            232.0
+          ],
+          "median_linear_luminance_Y": 0.443099,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.56,
+            0.205,
+            0.78,
+            0.27
+          ],
+          "box_pixels": [
+            268,
+            174,
+            373,
+            230
+          ],
+          "pixels": 5880,
+          "median_srgb_8bit": [
+            104.0,
+            187.0,
+            232.0
+          ],
+          "median_linear_luminance_Y": 0.443099,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "sky_horizon",
+      "description": "Cielo sobre el horizonte, sin campo ni marca de agua.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.52,
+            0.355,
+            0.84,
+            0.385
+          ],
+          "box_pixels": [
+            249,
+            302,
+            402,
+            327
+          ],
+          "pixels": 3825,
+          "median_srgb_8bit": [
+            146.0,
+            173.0,
+            253.0
+          ],
+          "median_linear_luminance_Y": 0.430626,
+          "fraction_any_channel_ge_254": 0.459869
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.52,
+            0.355,
+            0.84,
+            0.385
+          ],
+          "box_pixels": [
+            249,
+            302,
+            402,
+            327
+          ],
+          "pixels": 3825,
+          "median_srgb_8bit": [
+            177.0,
+            162.0,
+            223.0
+          ],
+          "median_linear_luminance_Y": 0.405155,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.52,
+            0.355,
+            0.84,
+            0.385
+          ],
+          "box_pixels": [
+            249,
+            302,
+            402,
+            327
+          ],
+          "pixels": 3825,
+          "median_srgb_8bit": [
+            177.0,
+            162.0,
+            223.0
+          ],
+          "median_linear_luminance_Y": 0.405155,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.52,
+            0.355,
+            0.84,
+            0.385
+          ],
+          "box_pixels": [
+            249,
+            302,
+            402,
+            327
+          ],
+          "pixels": 3825,
+          "median_srgb_8bit": [
+            177.0,
+            162.0,
+            223.0
+          ],
+          "median_linear_luminance_Y": 0.405155,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.52,
+            0.355,
+            0.84,
+            0.385
+          ],
+          "box_pixels": [
+            249,
+            302,
+            402,
+            327
+          ],
+          "pixels": 3825,
+          "median_srgb_8bit": [
+            177.0,
+            162.0,
+            223.0
+          ],
+          "median_linear_luminance_Y": 0.405155,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.52,
+            0.355,
+            0.84,
+            0.385
+          ],
+          "box_pixels": [
+            249,
+            302,
+            402,
+            327
+          ],
+          "pixels": 3825,
+          "median_srgb_8bit": [
+            177.0,
+            162.0,
+            223.0
+          ],
+          "median_linear_luminance_Y": 0.405155,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "grass_foreground",
+      "description": "Hierba próxima central, lejos del suelo liso y las jambas.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.45,
+            0.8,
+            0.7,
+            0.92
+          ],
+          "box_pixels": [
+            215,
+            680,
+            335,
+            782
+          ],
+          "pixels": 12240,
+          "median_srgb_8bit": [
+            134.0,
+            136.0,
+            90.0
+          ],
+          "median_linear_luminance_Y": 0.233004,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.45,
+            0.8,
+            0.7,
+            0.92
+          ],
+          "box_pixels": [
+            215,
+            680,
+            335,
+            782
+          ],
+          "pixels": 12240,
+          "median_srgb_8bit": [
+            104.0,
+            116.0,
+            81.0
+          ],
+          "median_linear_luminance_Y": 0.159835,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.45,
+            0.8,
+            0.7,
+            0.92
+          ],
+          "box_pixels": [
+            215,
+            680,
+            335,
+            782
+          ],
+          "pixels": 12240,
+          "median_srgb_8bit": [
+            135.0,
+            136.0,
+            92.0
+          ],
+          "median_linear_luminance_Y": 0.235495,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.45,
+            0.8,
+            0.7,
+            0.92
+          ],
+          "box_pixels": [
+            215,
+            680,
+            335,
+            782
+          ],
+          "pixels": 12240,
+          "median_srgb_8bit": [
+            135.0,
+            136.0,
+            92.0
+          ],
+          "median_linear_luminance_Y": 0.235495,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.45,
+            0.8,
+            0.7,
+            0.92
+          ],
+          "box_pixels": [
+            215,
+            680,
+            335,
+            782
+          ],
+          "pixels": 12240,
+          "median_srgb_8bit": [
+            100.0,
+            136.0,
+            106.0
+          ],
+          "median_linear_luminance_Y": 0.213949,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.45,
+            0.8,
+            0.7,
+            0.92
+          ],
+          "box_pixels": [
+            215,
+            680,
+            335,
+            782
+          ],
+          "pixels": 12240,
+          "median_srgb_8bit": [
+            100.0,
+            136.0,
+            106.0
+          ],
+          "median_linear_luminance_Y": 0.213949,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "grass_distant",
+      "description": "Hierba exterior distante, por debajo del horizonte.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.55,
+            0.45,
+            0.85,
+            0.49
+          ],
+          "box_pixels": [
+            263,
+            382,
+            406,
+            416
+          ],
+          "pixels": 4862,
+          "median_srgb_8bit": [
+            137.0,
+            172.0,
+            143.0
+          ],
+          "median_linear_luminance_Y": 0.367149,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.55,
+            0.45,
+            0.85,
+            0.49
+          ],
+          "box_pixels": [
+            263,
+            382,
+            406,
+            416
+          ],
+          "pixels": 4862,
+          "median_srgb_8bit": [
+            93.0,
+            124.0,
+            88.0
+          ],
+          "median_linear_luminance_Y": 0.174831,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.55,
+            0.45,
+            0.85,
+            0.49
+          ],
+          "box_pixels": [
+            263,
+            382,
+            406,
+            416
+          ],
+          "pixels": 4862,
+          "median_srgb_8bit": [
+            130.0,
+            168.0,
+            132.0
+          ],
+          "median_linear_luminance_Y": 0.344965,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.55,
+            0.45,
+            0.85,
+            0.49
+          ],
+          "box_pixels": [
+            263,
+            382,
+            406,
+            416
+          ],
+          "pixels": 4862,
+          "median_srgb_8bit": [
+            134.0,
+            171.0,
+            139.0
+          ],
+          "median_linear_luminance_Y": 0.360582,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.55,
+            0.45,
+            0.85,
+            0.49
+          ],
+          "box_pixels": [
+            263,
+            382,
+            406,
+            416
+          ],
+          "pixels": 4862,
+          "median_srgb_8bit": [
+            96.0,
+            145.0,
+            119.0
+          ],
+          "median_linear_luminance_Y": 0.240695,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.55,
+            0.45,
+            0.85,
+            0.49
+          ],
+          "box_pixels": [
+            263,
+            382,
+            406,
+            416
+          ],
+          "pixels": 4862,
+          "median_srgb_8bit": [
+            96.0,
+            145.0,
+            119.0
+          ],
+          "median_linear_luminance_Y": 0.240695,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "diffuser_panel",
+      "description": "Área rosa del panel, evitando barras blancas.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.3,
+            0.033,
+            0.405,
+            0.062
+          ],
+          "box_pixels": [
+            143,
+            28,
+            194,
+            53
+          ],
+          "pixels": 1275,
+          "median_srgb_8bit": [
+            246.0,
+            183.0,
+            206.0
+          ],
+          "median_linear_luminance_Y": 0.5927,
+          "fraction_any_channel_ge_254": 0.305882
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.3,
+            0.033,
+            0.405,
+            0.062
+          ],
+          "box_pixels": [
+            143,
+            28,
+            194,
+            53
+          ],
+          "pixels": 1275,
+          "median_srgb_8bit": [
+            255.0,
+            195.0,
+            204.0
+          ],
+          "median_linear_luminance_Y": 0.646498,
+          "fraction_any_channel_ge_254": 0.866667
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.3,
+            0.033,
+            0.405,
+            0.062
+          ],
+          "box_pixels": [
+            143,
+            28,
+            194,
+            53
+          ],
+          "pixels": 1275,
+          "median_srgb_8bit": [
+            255.0,
+            195.0,
+            204.0
+          ],
+          "median_linear_luminance_Y": 0.646498,
+          "fraction_any_channel_ge_254": 0.880784
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.3,
+            0.033,
+            0.405,
+            0.062
+          ],
+          "box_pixels": [
+            143,
+            28,
+            194,
+            53
+          ],
+          "pixels": 1275,
+          "median_srgb_8bit": [
+            255.0,
+            195.0,
+            204.0
+          ],
+          "median_linear_luminance_Y": 0.646498,
+          "fraction_any_channel_ge_254": 0.880784
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.3,
+            0.033,
+            0.405,
+            0.062
+          ],
+          "box_pixels": [
+            143,
+            28,
+            194,
+            53
+          ],
+          "pixels": 1275,
+          "median_srgb_8bit": [
+            255.0,
+            214.0,
+            244.0
+          ],
+          "median_linear_luminance_Y": 0.758848,
+          "fraction_any_channel_ge_254": 0.912157
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.3,
+            0.033,
+            0.405,
+            0.062
+          ],
+          "box_pixels": [
+            143,
+            28,
+            194,
+            53
+          ],
+          "pixels": 1275,
+          "median_srgb_8bit": [
+            238.0,
+            186.0,
+            228.0
+          ],
+          "median_linear_luminance_Y": 0.588964,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "diffuser_bright",
+      "description": "Control de una zona luminosa clara; cajas distintas para seguir la luz, no el fondo rosa.",
+      "images": {
+        "reference": {
+          "box_normalized": [
+            0.6,
+            0.036,
+            0.68,
+            0.067
+          ],
+          "box_pixels": [
+            287,
+            31,
+            325,
+            57
+          ],
+          "pixels": 988,
+          "median_srgb_8bit": [
+            239.0,
+            245.0,
+            254.0
+          ],
+          "median_linear_luminance_Y": 0.910501,
+          "fraction_any_channel_ge_254": 0.616397
+        },
+        "prelight_v3": {
+          "box_normalized": [
+            0.588,
+            0.044,
+            0.606,
+            0.063
+          ],
+          "box_pixels": [
+            281,
+            37,
+            290,
+            54
+          ],
+          "pixels": 153,
+          "median_srgb_8bit": [
+            255.0,
+            248.0,
+            255.0
+          ],
+          "median_linear_luminance_Y": 0.956148,
+          "fraction_any_channel_ge_254": 1.0
+        },
+        "trial_a": {
+          "box_normalized": [
+            0.588,
+            0.044,
+            0.606,
+            0.063
+          ],
+          "box_pixels": [
+            281,
+            37,
+            290,
+            54
+          ],
+          "pixels": 153,
+          "median_srgb_8bit": [
+            255.0,
+            248.0,
+            255.0
+          ],
+          "median_linear_luminance_Y": 0.956148,
+          "fraction_any_channel_ge_254": 1.0
+        },
+        "opengl_v3": {
+          "box_normalized": [
+            0.588,
+            0.044,
+            0.606,
+            0.063
+          ],
+          "box_pixels": [
+            281,
+            37,
+            290,
+            54
+          ],
+          "pixels": 153,
+          "median_srgb_8bit": [
+            255.0,
+            248.0,
+            255.0
+          ],
+          "median_linear_luminance_Y": 0.956148,
+          "fraction_any_channel_ge_254": 1.0
+        },
+        "blender_v3": {
+          "box_normalized": [
+            0.588,
+            0.044,
+            0.606,
+            0.063
+          ],
+          "box_pixels": [
+            281,
+            37,
+            290,
+            54
+          ],
+          "pixels": 153,
+          "median_srgb_8bit": [
+            255.0,
+            255.0,
+            255.0
+          ],
+          "median_linear_luminance_Y": 1.0,
+          "fraction_any_channel_ge_254": 1.0
+        },
+        "blender_v4": {
+          "box_normalized": [
+            0.588,
+            0.044,
+            0.606,
+            0.063
+          ],
+          "box_pixels": [
+            281,
+            37,
+            290,
+            54
+          ],
+          "pixels": 153,
+          "median_srgb_8bit": [
+            255.0,
+            255.0,
+            255.0
+          ],
+          "median_linear_luminance_Y": 1.0,
+          "fraction_any_channel_ge_254": 0.843137
+        }
+      }
+    }
+  ],
+  "image_control_deltas": {
+    "sky_upper": {
+      "max_channel_delta_8bit": 0,
+      "unchanged": true,
+      "boundary_note": null
+    },
+    "sky_horizon": {
+      "max_channel_delta_8bit": 0,
+      "unchanged": true,
+      "boundary_note": null
+    },
+    "diffuser_panel": {
+      "max_channel_delta_8bit": 25,
+      "unchanged": false,
+      "boundary_note": "La ROI del panel cruza una franja del marco; su mediana emisiva permanece igual, pero la franja cambia con el relleno."
+    },
+    "diffuser_bright": {
+      "max_channel_delta_8bit": 0,
+      "unchanged": true,
+      "boundary_note": null
+    }
+  },
+  "improvements": [
+    "Pared GL: Y .154 antes, .318419 después, referencia .318679.",
+    "Soffit .259385 vs referencia .259866 y horno .307156 vs .313844.",
+    "Césped próximo .235495 vs .233004 y lejano .360582 vs .367149; transición exterior gradual y bruma sin blanquear el horizonte.",
+    "Grupos de hierba bajos y curvados cubren más superficie que las púas anteriores, aunque siguen pareciendo manchas sobre una base plana."
+  ],
+  "blender_versions": {
+    "v3": "Render congelado antes de vinculación de luces; armario y horno sobreexpuestos.",
+    "v4": "Root limita relleno cálido a pared/techo/marcos y sol a hierba/pavimento; conserva geometría/materiales. El resultado reduce la luz de electrodomésticos, aunque vuelve a mostrar dominante azul en ellos. El panel alcanza Y=.588964 (ref .592700), pero RGB [238,186,228] mantiene exceso azul frente a [246,183,206]. Armario Y=.814971 y horno .403113 siguen por encima de .345616 y .313844 de referencia.",
+    "independence": "Estas luces Blender no se exportan a OpenGL y no son resultado del cambio env2."
+  },
+  "remaining_visual_differences": [
+    "Cielo superior oscuro y banco demasiado rosado/compacto; mapa/cielo no modificados aquí.",
+    "Barras del techo duras y paneles demasiado luminosos, medianas emisivas iguales al prelight; la ROI de panel incluye una franja del marco que sí cambia.",
+    "Armario alto GL algo claro/rosado; sombras y gradientes espaciales de muebles pendientes.",
+    "Hierba todavía muestra grupos/manchas y diferencia de matiz interior/exterior; falta naturalidad y detalle a distancia.",
+    "Blender v4 mejora la sobreexposición frente a v3, pero los electrodomésticos siguen azulados y el armario alto sigue muy claro; el panel se acerca en luminancia pero conserva exceso violeta.",
+    "Proporciones de muebles/techo/huecos y cobertura de todo el intervalo de vídeo pendientes."
+  ],
+  "asset_evidence": {
+    "report": "validation/kitchen-asset-validation-v3.json",
+    "sha256": "013f392acb75c526434aef60c2e913dc68c13f4fbb148a7eef9a9e63681c26fd",
+    "result": "PASS_CPU_198789_triangles_21652568_GLB_bytes",
+    "compared_unchanged_asset_paths": [
+      "assets/kitchen_meadow.draws",
+      "assets/kitchen_meadow.dreammesh",
+      "assets/kitchen_meadow.glb",
+      "assets/kitchen_meadow.json",
+      "assets/kitchen_meadow.scene",
+      "assets/textures/kitchen_grass_albedo.bmp",
+      "assets/textures/kitchen_grass_albedo.png",
+      "assets/textures/kitchen_grass_normal.bmp",
+      "assets/textures/kitchen_grass_normal.png",
+      "assets/textures/kitchen_neutral_normal.bmp",
+      "assets/textures/kitchen_neutral_normal.png",
+      "assets/textures/kitchen_neutral_white.bmp",
+      "assets/textures/kitchen_neutral_white.png",
+      "assets/textures/kitchen_sky.bmp",
+      "assets/textures/kitchen_sky.png"
+    ],
+    "navigation": "Configuración y controlador coinciden con la prueba anterior según ese informe; no se repitió su ruta en esta subtarea."
+  },
+  "historical_policy": "Los informes iniciales conservan sus versiones y hashes. kitchen-blender-v3.png congela v3; kitchen-blender.png corresponde ahora a v4. No se reescribió ningún informe antiguo para atribuirle nuevos resultados.",
+  "conclusion": "Candidato aplicado y evaluado de forma limitada. Mejoran controles de luz/color en OpenGL, mientras quedan diferencias visuales y de Blender. Inventario global 4 prototipos / 9 sin runtime / 0 aceptados."
+}

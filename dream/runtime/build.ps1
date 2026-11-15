@@ -1,4 +1,4 @@
-param([switch]$Run, [ValidateSet('pastel_room', 'atrium')][string]$Scene = 'pastel_room')
+param([switch]$Run, [ValidatePattern('^[a-z0-9_/-]+$')][string]$Scene = 'pastel_room')
 $ErrorActionPreference = 'Stop'
 $base = $PSScriptRoot
 $vendor = Join-Path $base 'vendor/glfw-3.4.bin.WIN64'

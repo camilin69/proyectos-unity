@@ -17,15 +17,131 @@ comparan como vistas adicionales; los cierres editoriales no son otros lugares.
 | 51 | Árbol monumental sobre la ladera |
 | 52 | Transporte de cristal, atrio acuático, ascensor acuario, sala planetaria |
 
-La habitación y el atrio acuático tienen versiones recorribles. Son avances;
-su parecido aún debe revisarse con el criterio de reproducción solicitado.
+Hay **6 prototipos recorribles, 7 escenarios sin versión ejecutable y 0 escenas
+aceptadas como reproducción visual terminada**. La habitación, el atrio acuático,
+la cocina, la escalera al cielo, el pasillo y la salida al océano tienen materiales y perfiles propios.
 Los demás escenarios no se consideran implementados por estar inventariados.
 
-La cocina abierta a la pradera ya tiene un primer modelo gris en
+La salida al océano tiene estudios editables en Blender: `blender/ocean_exit.blend`
+con los materiales base y `blender/ocean_exit_water.blend` con agua animada.
+La exportación recorrible para C++/OpenGL está en `blender/v42_ocean_exit.blend`.
+Incluye el vestíbulo, azulejos rosas, franja crema, carteles, bordes bajos, poste,
+agua interior y océano exterior. El visor anima el oleaje con un shader; no depende
+de Unity ni exporta una simulación de Blender. La última comparación es
+`validation/ocean-exit/runtime-comparison-v6.png` y el informe del candidato está
+en `validation/ocean-exit/runtime-candidate-v6.json`. Los azulejos y la luz del
+revestimiento mejoraron, pero la espuma, el color del agua interior, el poste y
+algunos reflejos siguen alejados de la referencia; la escena continúa sin
+aceptación visual final.
+
+El pasillo multicolor ya tiene un prototipo editable en
+`blender/wave_corridor.blend`, con diez imágenes empaquetadas y dos cámaras de
+comparación. También se puede recorrer en OpenGL con `--scene wave_corridor`.
+El dibujo del suelo continúa por peldaños, contrahuellas y vestíbulo.
+Se revisaron una cuadrícula de UV y dos renders con materiales; las comparaciones
+están en `validation/wave-material-comparison.png` y
+`validation/wave-secondary-comparison.png`. Todavía difieren el fondo, los
+desniveles, la base de las puertas y los reflejos. La revisión actual añade una
+base continua a los bordes oscuros, dos rótulos rojos, un pulsador y dos registros
+en la pared. Las capturas actuales son `validation/wave-details-v7.png` y
+`validation/wave-details-v7-secondary.png`; la comparación anterior conserva su
+estado histórico. La integración actual conserva los mapas y la cámara inclinada,
+incluye siete luces y permite bajar y subir los doce peldaños, con colisiones
+en las columnas del vestíbulo. Los reflejos de luminarias son una aproximación
+por emisor; todavía faltan reflejos del entorno y sombras equivalentes a Blender.
+El informe actual es `validation/wave-runtime-integration.json`; la comparación
+con el video y el render actual de Blender está en
+`validation/wave-runtime-comparison.png`. Los informes `wave-details-review.json`
+y `wave-material-review.json` conservan las etapas anteriores a la integración.
+
+Existe una variante editable del vestíbulo en
+`blender/wave_corridor_hall_candidate.blend`: añade pilares, filas laterales de
+lámparas y elementos horizontales observados al fondo. Se conserva por separado:
+en las dos vistas comparadas, la base del pilar principal queda unos 60–70 píxeles
+demasiado abajo. Sus dimensiones y la interpretación de las barras siguen
+pendientes de un ajuste conjunto de cámaras y niveles. Esta variante no reemplaza
+la exportación recorrible. Véanse `validation/wave-hall-comparison.png` y
+`validation/wave-hall-review.json`; los mapas permanecen empaquetados en el `.blend`.
+
+La revisión de movimiento está en `blender/wave_corridor_motion_candidate.blend`.
+Contiene siete cámaras estimadas a partir de puntos seguidos en el video. Los
+renders de 14, 15,5 y 17 segundos están comparados con sus referencias en
+`validation/wave-motion/comparison.png`. En la última vista la puerta ya sale
+del encuadre, pero todavía difieren la entrada al vestíbulo, las escaleras y los
+bordes del suelo. Es un estudio gris separado, sin aceptación visual ni nueva
+exportación OpenGL. `validation/wave-motion/review.json` registra los errores,
+las comprobaciones del modelo y la conservación de las texturas originales.
+
+La variante `blender/wave_corridor_terminal_candidate.blend` desarrolla esa
+entrada: incorpora dos barandas altas, prolonga los últimos escalones más allá
+de las paredes y cierra el suelo a ambos lados. Se comprobaron los cuatro apoyos
+de los postes sobre la malla real y se revisó el acceso desde atrás. La comparación
+de tres vistas está en `validation/wave-terminal/comparison.png`; el informe
+`validation/wave-terminal/review.json` conserva también las diferencias pendientes.
+El fondo del vestíbulo continúa provisional. El ajuste de la parte superior de
+la abertura empeora en la vista de 17 segundos y requiere revisar la interpretación
+del techo. Esta variante tampoco sustituye el prototipo OpenGL ni sus texturas.
+
+La revisión posterior `blender/wave_corridor_aperture_candidate.blend` corrige
+las referencias de esas esquinas y prueba dos finales de pared a distinta
+profundidad. Sobre las mismas observaciones corregidas, el error de las esquinas
+en cuatro vistas reservadas baja de 11,8 a 4,3 píxeles frente a la hipótesis de
+paredes alineadas. Se revisaron cuatro renders reales y se verificó la unión
+del techo; el fondo del vestíbulo sigue provisional. Véanse
+`validation/wave-aperture/comparison.png` y `validation/wave-aperture/review.json`.
+Las cifras anteriores del techo se conservan como historia, pero usaban otros
+puntos de referencia y no son directamente comparables con este ajuste.
+
+El estudio del vestíbulo continúa en
+`blender/wave_corridor_hall_structure_candidate.blend` y su variante con materiales
+`blender/wave_corridor_hall_look_candidate.blend`. Se reconstruyeron los contornos
+superiores visibles de los soportes y se añadieron filas laterales de luminarias.
+La variante con materiales conserva ocho mapas empaquetados, idénticos a los PNG
+de origen, y una cuadrícula de prueba verifica la cobertura de sus 83 mallas.
+Las tres vistas comparadas están en `validation/wave-hall-structure/comparison.png`.
+Los soportes completos todavía llegan demasiado abajo respecto al video: sus
+bases, el nivel del vestíbulo y la trayectoria de cámara requieren revisión
+conjunta. El patrón del suelo, los reflejos y las luminarias también difieren.
+El informe `validation/wave-hall-structure/review.json` registra estas limitaciones;
+la variante no sustituye la exportación OpenGL ni implica aceptación visual.
+
+`blender/wave_corridor_wall_detail_candidate.blend` añade los dos paneles de
+registro de la pared izquierda, con marcos y superficies interiores separados.
+Sus esquinas se ajustaron en tres vistas y se comprobaron en otras cuatro;
+el error medio cuadrático de distancia en estas últimas es de unos 5 píxeles.
+La comparación `validation/wave-perspective/wall-comparison.png` y su detalle
+`wall-panel-detail.png` muestran que todavía difieren la inclinación superior,
+el color interior y el grosor del marco. El informe
+`validation/wave-perspective/review.json` también documenta dos ensayos descartados:
+una interpretación de las bases que requiere un vestíbulo desproporcionado y un
+patrón de pintura que ajusta las vistas de entrenamiento pero falla en otra vista.
+Estos ensayos no se aplicaron al modelo ni a OpenGL. Las texturas originales
+permanecen conservadas y la variante mantiene ocho mapas empaquetados.
+
+La cocina abierta a la pradera tiene un prototipo con materiales en
 `blender/kitchen_meadow.blend`, construido con `blender/build_kitchen.py` y
-los parámetros de `blender/kitchen_plan.json`. Su comparación está en
-`validation/kitchen-blockout-comparison.png`. Aún requiere ajustar geometría,
-materiales, césped e iluminación; todavía no está disponible en el visor.
+los parámetros de `blender/kitchen_plan.json`. Sus capturas actuales están en
+`validation/kitchen-blender.png` y `validation/kitchen-opengl.png`.
+Se puede atravesar la cocina hasta la pradera y regresar. El césped denso ya está
+aplicado y exportado; se comparó la luz OpenGL antes y después con el mismo encuadre.
+La pared y varios controles de color se aproximan más a la referencia, pero siguen
+pendientes la naturalidad del césped, el cielo, los difusores y la distribución de luz.
+Blender conserva diferencias de brillo y matiz en los muebles. La evaluación es
+limitada y no concede aceptación visual final.
+La escalera al cielo tiene materiales, césped y fibras rosas en
+`blender/stair_sky.blend`, y una exportación que permite subir y bajar sus doce
+peldaños. Las vistas Blender principal y lateral están en
+`validation/stair-blender.png` y `validation/stair-side-blender.png`.
+El césped próximo aún resulta oscuro y las hojas/fibras se ven rígidas;
+también falta mejorar la luz de las huellas y la cobertura de los laterales verdes.
+La revisión del marco tiene frente, retornos y reverso sólidos con pintura rosa
+continua. Sus vistas están en `validation/stair-frame-*-v5.png`; el nuevo resultado
+OpenGL es `validation/stair-frame-opengl-v5.png`. Se corrigió una sombra rectangular
+del primer export sin cambiar la forma de la pared ni su material. Las capturas
+Blender v5 preceden esa subdivisión y no se presentan como renders posteriores.
+El catálogo ejecutable es `assets/scene_catalog.cat`: 6 disponibles de 13.
+Los informes anteriores conservan el inventario que existía cuando se ejecutaron;
+el estado actual está en `validation/all-scenes-plan.json` y `validation/status.json`.
 
 ## Estado
 
@@ -86,19 +202,59 @@ Controles:
 | Volver al encuadre inicial | R |
 | Habitación pastel | 1 |
 | Atrio con agua y plantas | 2 |
+| Siguiente escenario disponible | Tab o Av Pág |
+| Escenario anterior | Mayúsculas + Tab o Re Pág |
 | Ampliar la ventana | Botón maximizar o arrastrar sus bordes |
 | Salir | Cerrar la ventana |
 
-El recorrido está limitado al interior. La puerta abierta es geometría y tiene
+En la habitación el recorrido está limitado al interior. La puerta abierta es geometría y tiene
 colisión; el cielo es un entorno lejano, sin terreno exterior transitable.
 En el atrio se recorre la planta baja; las galerías superiores son visuales.
 Hay colisiones con el estanque, el canal, las columnas y las jardineras.
+En la cocina se puede salir a una zona acotada de la pradera. En la escalera,
+la altura de la cámara sigue los apoyos de cada peldaño y permite regresar.
+El cielo tras el marco es un entorno lejano, sin destino exterior transitable.
+En el pasillo multicolor se baja hasta el vestíbulo y se puede regresar;
+las dos puertas laterales permanecen cerradas. El cierre detrás de la cámara
+es una pared inferida para evitar ver el vacío, no un detalle observado del video.
+El controlador admite apoyos rectangulares y escalones; todavía no implementa
+rampas continuas, salto ni plataformas móviles.
+En la salida al océano se puede recorrer el vestíbulo y avanzar por la puerta hacia
+el agua. La superficie animada es un shader aproximado; la profundidad, las olas y
+los reflejos todavía no igualan el video.
 
 Para iniciar directamente en el atrio:
 
 ```powershell
 .\dream\runtime\build\dream.exe --scene atrium
 ```
+
+Para abrir la cocina:
+
+```powershell
+.\dream\runtime\build\dream.exe --scene kitchen_meadow
+```
+
+Para abrir la escalera al cielo:
+
+```powershell
+.\dream\runtime\build\dream.exe --scene stair_sky
+```
+
+Para abrir el pasillo multicolor:
+
+```powershell
+.\dream\runtime\build\dream.exe --scene wave_corridor
+```
+
+Para abrir la salida al océano:
+
+```powershell
+.\dream\runtime\build\dream.exe --scene v42_ocean_exit
+```
+
+`--list-scenes` enumera los 13 escenarios e indica cuáles están disponibles.
+`--validate-scenes` comprueba los recursos de las escenas disponibles sin abrir una ventana.
 
 El visor usa MSAA de 4 muestras para la geometría opaca y mantiene FXAA al
 presentar la imagen. Esto mejora la continuidad de juntas y tubos pequeños.
@@ -111,6 +267,12 @@ selecciona el ajuste predeterminado. El coste depende de la resolución y la GPU
 
 - `blender/pastel_room.blend`: escena editable, con las imágenes empaquetadas.
 - `blender/atrium.blend`: atrio editable con agua, vegetación y arquitectura.
+- `blender/kitchen_meadow.blend`: cocina y pradera con materiales propios.
+- `blender/stair_sky.blend`: escalera con apoyos, césped, fibras y marco hacia el cielo.
+- `blender/wave_corridor.blend`: pasillo pastel editable en fase de ajuste, con texturas incluidas; también tiene una exportación recorrible en OpenGL.
+- `blender/build_wave_corridor.py`, `blender/finish_wave_corridor.py`: construcción y aplicación de materiales del pasillo; ejecutar dentro de Blender mediante MCP.
+- `blender/wave_corridor_details.py`: bordes, rótulos, pulsador y registros del pasillo; dimensiones estimadas desde las referencias.
+- `blender/finish_kitchen.py`, `blender/finish_stair_sky.py`: aplicación de materiales y luz; los ajustes requieren comparación posterior.
 - `blender/build_atrium.py`: construcción del atrio; admite una fase de volúmenes simples.
 - `blender/build_room.py`: construcción reproducible de la habitación dentro de Blender.
 - `blender/curtain_mesh.py`: cortinas cerradas con pliegues variables y UV continuos, compartidas entre ambos renderizadores.
@@ -125,8 +287,13 @@ selecciona el ajuste predeterminado. El coste depende de la resolución y la GPU
 - `assets/pastel_room.dreammesh`: malla utilizada por el visor, Z arriba, metros.
 - `assets/pastel_room.json`: inventario, cámara y datos de exportación.
 - `assets/atrium.*`: malla, GLB, inventario y configuración del atrio.
+- `assets/kitchen_meadow.*`, `assets/stair_sky.*`, `assets/v42_ocean_exit.*`: exportaciones de los prototipos.
+- `runtime/tests/ocean_exit_navigation.cpp`: comprueba que el jugador atraviese la puerta y no cruce los bordes bajos.
+- `assets/scene_catalog.cat`: 13 IDs, disponibilidad y perfiles explícitos de recursos.
 - `assets/*.scene`: cámara, exposición y colisiones; `*.draws`: grupos transparentes ordenados por distancia.
 - `assets/textures/`: mapas compartidos; PNG para Blender y BMP para el cargador C++.
+- `blender/prepare_ocean_runtime_maps.py`: convierte los PNG originales del océano a mapas RGB24 para el visor.
+- `blender/prepare_ocean_exit_runtime.py`: asigna perfiles de material y navegación antes de `blender/export_runtime.py`.
 - `assets/textures/room_probe.*`: panorama interior estático y metadatos de posición, límites y procedencia.
 - `runtime/src/`, `runtime/shaders/`: código C++17 y GLSL 3.30.
 - `referencias/estetica/`: cuatro análisis JSON, videos originales, fotogramas y recortes conservados.
@@ -162,7 +329,9 @@ La revisión v7 reduce el relleno de la cerámica frontal alta con una transici�
 suave en coordenadas del mundo. En Blender, un retorno cálido limitado a la
 puerta corrige el matiz azul sin cambiar la exposición de toda la habitación.
 Las dos cortinas tienen grosor de 1,6 mm, bordes curvos y pliegues variables;
-conservan su mapa de cuadros. La habitación suma 10.352 triángulos.
+conservan su mapa de cuadros. La habitación suma 10.616 triángulos tras añadir seis conexiones del radiador.
+`validation/room-radiator-v9.json` documenta ese detalle y sus capturas;
+los informes y renders v7 se conservan como evidencia histórica.
 
 ## Editar y exportar desde Blender
 
@@ -236,11 +405,17 @@ little-endian. El GLB estándar usa la conversión de ejes propia de glTF.
 
 El visor admite hasta 32 materiales. Los tipos actuales son 0 = estándar,
 1 = suelo reflectante, 2 = tejido, 3 = cerámica, 4 = agua, 5 = hojas,
-6 = vidrio, 7 = señal luminosa, 8 = esfera decorativa, 9 = cascada.
+6 = vidrio, 7 = señal luminosa, 8 = esfera decorativa, 9 = cascada,
+11 = césped y 12 = tejido afelpado de la escalera.
 El séptimo float indica opacidad y el octavo la variante de albedo del suelo.
 La variante 2 identifica el suelo pastel continuo del visor actual.
-Cámara, exposición y colisiones se cargan desde
-`.scene`; el perfil de luz y el suelo del atrio todavía tienen parámetros específicos.
+El perfil del océano da a los tipos 7 y 8 sus señales y carteles propios.
+Cámara, exposición, colisiones y apoyos con altura se cargan desde `.scene`.
+El catálogo asigna perfiles propios: habitación 0, atrio 1, cocina 2, escalera 3,
+pasillo 4 y salida al océano 5. Esta última usa una cámara con centro desplazado
+verticalmente para conservar el encuadre de la puerta.
+La iluminación de cada perfil y los efectos de agua/fibras siguen siendo
+aproximaciones del visor; las luces de Blender no se transfieren automáticamente.
 Las esferas usan un mapa procedural decorativo, no un mapa geográfico fiel.
 
 ## Verificación reproducible
@@ -255,6 +430,13 @@ para verificar el framebuffer del reflejo. Imprime `gl_error=0` al terminar bien
 La captura es PPM. Es una prueba de integración; no certifica rendimiento en
 pantalla completa ni reemplaza una sesión de juego manual.
 
+Para comprobar la navegación de la salida al océano después de compilar:
+
+```powershell
+g++ -std=c++17 -O2 -Wall -Wextra -I .\dream\runtime\src .\dream\runtime\tests\ocean_exit_navigation.cpp -o .\dream\runtime\build\ocean_exit_navigation.exe
+.\dream\runtime\build\ocean_exit_navigation.exe .\dream\assets\v42_ocean_exit.scene
+```
+
 Prueba de agua, cambio de escena, redimensionado y regreso al atrio:
 
 ```powershell
@@ -262,8 +444,8 @@ Prueba de agua, cambio de escena, redimensionado y regreso al atrio:
 ```
 
 `validation/verify_assets.py atrium` valida la malla y el GLB con Python estándar.
-`validation/navigation_test.cpp` comprueba las colisiones; el export actual
-pasó 69.000 comprobaciones con las 32 cápsulas del canal.
+`validation/navigation_test.cpp` comprueba las colisiones; la revisión histórica
+de habitación/atrio pasó 69.000 comprobaciones con las 32 cápsulas del canal.
 `validation/verify_animation.py` compara capturas a `--time 0` y `--time 2`
 (requiere NumPy y Pillow); las ondas, la cascada y las hojas deben cambiar y una región
 estática debe permanecer igual. El vidrio se ordena por objetos, no por píxeles:
@@ -292,12 +474,34 @@ intermedias, no la captura final.
 `room-light-v7.json` y `room-floor-v7.json` documentan los ensayos de luz y
 reflejo anteriores a la exportación final. Los controles funcionales y los
 informes visuales identifican por separado qué demuestra cada prueba.
+Los resultados y hashes v7 describen aquella versión de habitación/atrio;
+no se presentan como pruebas recién ejecutadas de la versión actual del catálogo.
+
+Para cocina, `kitchen-runtime-integration.json`, `kitchen-navigation-validation.json`
+y `kitchen-look-initial.json` separan integración, recorrido y diferencias visuales.
+Esos informes iniciales conservan sus resultados históricos.
+`kitchen-asset-validation-v3.json` comprueba el export con césped denso;
+`kitchen-look-v3.json` compara OpenGL antes/después y los renders Blender v3/v4
+por separado. La captura anterior a la calibración se conserva en
+`kitchen-opengl-prelight-v3.png`; el ajuste sólo modifica el perfil de cocina.
+`stair-navigation-validation.json` registra 2.232 comprobaciones, 705 posiciones,
+14 apoyos y una subida/bajada de 1,92 m. `stair-sky-geometry-review.json` comprueba
+los activos de la escalera; `stair-profile-regression.json` registra el control
+de los perfiles anteriores. `stair-look-initial.json` compara cuatro iteraciones
+Blender y conserva las diferencias pendientes. Estos PASS técnicos no conceden
+aceptación visual. Cada informe identifica la versión de activos que comprobó.
+`stair-frame-v5.json` verifica el marco sólido, las tres vistas Blender y el export
+actual de 353.922 triángulos. Su captura OpenGL pasó con `gl_error=0`; el archivo
+de navegación sigue idéntico, sin atribuir una nueva prueba de recorrido.
+La corrección local del marco no concede aceptación visual a la escalera completa.
+`room-radiator-v9.json` registra las seis conexiones nuevas del radiador y confirma
+que la geometría anterior y la cámara permanecen iguales.
 
 ## Próximas etapas
 
-1. Contrastar habitación y atrio con todas sus vistas de referencia y corregir las diferencias de forma, luz y materiales.
-2. Construir los once escenarios restantes siguiendo el inventario y los pasos de sus análisis, empezando por volúmenes y encuadre.
-3. Extender el visor con catálogo, recursos y perfiles de iluminación por escena; la navegación de escaleras y galerías requiere alturas, además de las colisiones planas actuales.
+1. Refinar los seis prototipos frente a todas sus vistas de referencia: forma, luz, materiales y movimiento.
+2. Construir los siete escenarios sin versión ejecutable siguiendo el inventario y los pasos de sus análisis, empezando por volúmenes y encuadre.
+3. Incorporar sus recursos y perfiles al catálogo existente; ampliar navegación para rampas, terreno o plataformas cuando la referencia lo requiera.
 4. Exportar y comprobar cada escenario: recorrido, patrones y UV, iluminación, reflejos, agua, vegetación y movimiento cuando aparezcan en su video.
 
 Primero se verifica cada escena por separado. OpenGL 3.3 es la base actual;

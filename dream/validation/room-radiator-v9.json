@@ -1,0 +1,850 @@
+{
+  "schema": "dream.room_radiator_validation.v9",
+  "created_utc": "2026-10-09T05:48:04.842122+00:00",
+  "status": "PASS",
+  "scope": "Validación del export y captura de seis conexiones inferiores del radiador; sin reconstrucción completa de habitación, sin nueva calibración artística.",
+  "path_base": "repository_root",
+  "source_evidence": "dream/validation/room-multiview-review-v9.json",
+  "baseline": "dream/validation/room-radiator-v9-baseline/baseline.json",
+  "implementation": {
+    "helper": "dream/blender/room_radiator_details.py",
+    "builder": "dream/blender/build_room.py",
+    "live_applied_by": "root via Blender MCP",
+    "live_scene_object_count_reported": 735,
+    "exported_mesh_object_count": 722,
+    "six_detail_names": [
+      "GEO-DREAM-radiator_return_near_stub",
+      "GEO-DREAM-radiator_return_near_drop",
+      "GEO-DREAM-radiator_return_near_collar",
+      "GEO-DREAM-radiator_return_far_stub",
+      "GEO-DREAM-radiator_return_far_drop",
+      "GEO-DREAM-radiator_return_far_collar"
+    ],
+    "new_piece_details": [
+      {
+        "name": "GEO-DREAM-radiator_return_near_stub",
+        "vertices": 132,
+        "triangles": 44,
+        "material_indices": [
+          4
+        ],
+        "material_name": "DREAM_MAT_chrome.007",
+        "world_bounds_xyz_min": [
+          0.26600000262260437,
+          0.044999998062849045,
+          0.20600000023841858
+        ],
+        "world_bounds_xyz_max": [
+          0.2939999997615814,
+          0.07999999821186066,
+          0.23399999737739563
+        ],
+        "uv_min": [
+          0,
+          0
+        ],
+        "uv_max": [
+          1,
+          1
+        ],
+        "max_normal_length_squared_error": 0,
+        "ao_min": 0.3499999940395355,
+        "ao_max": 1
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_near_drop",
+        "vertices": 132,
+        "triangles": 44,
+        "material_indices": [
+          4
+        ],
+        "material_name": "DREAM_MAT_chrome.007",
+        "world_bounds_xyz_min": [
+          0.2679999768733978,
+          0.03299999237060547,
+          0.005999995861202478
+        ],
+        "world_bounds_xyz_max": [
+          0.29200002551078796,
+          0.05700001120567322,
+          0.2199999988079071
+        ],
+        "uv_min": [
+          0,
+          0
+        ],
+        "uv_max": [
+          1,
+          1
+        ],
+        "max_normal_length_squared_error": 2.384185791015625e-07,
+        "ao_min": 0.3499999940395355,
+        "ao_max": 0.9127574563026428
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_near_collar",
+        "vertices": 132,
+        "triangles": 44,
+        "material_indices": [
+          4
+        ],
+        "material_name": "DREAM_MAT_chrome.007",
+        "world_bounds_xyz_min": [
+          0.2580000162124634,
+          0.023000001907348633,
+          0.20100000500679016
+        ],
+        "world_bounds_xyz_max": [
+          0.3019999861717224,
+          0.06700000166893005,
+          0.23899999260902405
+        ],
+        "uv_min": [
+          0,
+          0
+        ],
+        "uv_max": [
+          1,
+          1
+        ],
+        "max_normal_length_squared_error": 1.1920928955078125e-07,
+        "ao_min": 0.3499999940395355,
+        "ao_max": 0.9232593774795532
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_stub",
+        "vertices": 132,
+        "triangles": 44,
+        "material_indices": [
+          4
+        ],
+        "material_name": "DREAM_MAT_chrome.007",
+        "world_bounds_xyz_min": [
+          0.26600000262260437,
+          1.100000023841858,
+          0.20600000023841858
+        ],
+        "world_bounds_xyz_max": [
+          0.2939999997615814,
+          1.1350001096725464,
+          0.23399999737739563
+        ],
+        "uv_min": [
+          0,
+          0
+        ],
+        "uv_max": [
+          1,
+          1
+        ],
+        "max_normal_length_squared_error": 5.960464477539063e-08,
+        "ao_min": 0.3499999940395355,
+        "ao_max": 0.9264221787452698
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_drop",
+        "vertices": 132,
+        "triangles": 44,
+        "material_indices": [
+          4
+        ],
+        "material_name": "DREAM_MAT_chrome.007",
+        "world_bounds_xyz_min": [
+          0.2679999768733978,
+          1.1230000257492065,
+          0.005999995861202478
+        ],
+        "world_bounds_xyz_max": [
+          0.29200002551078796,
+          1.1469999551773071,
+          0.2199999988079071
+        ],
+        "uv_min": [
+          0,
+          0
+        ],
+        "uv_max": [
+          1,
+          1
+        ],
+        "max_normal_length_squared_error": 2.384185791015625e-07,
+        "ao_min": 0.3499999940395355,
+        "ao_max": 0.9127574563026428
+      },
+      {
+        "name": "GEO-DREAM-radiator_return_far_collar",
+        "vertices": 132,
+        "triangles": 44,
+        "material_indices": [
+          4
+        ],
+        "material_name": "DREAM_MAT_chrome.007",
+        "world_bounds_xyz_min": [
+          0.2580000162124634,
+          1.1130000352859497,
+          0.20100000500679016
+        ],
+        "world_bounds_xyz_max": [
+          0.3019999861717224,
+          1.156999945640564,
+          0.23899999260902405
+        ],
+        "uv_min": [
+          0,
+          0
+        ],
+        "uv_max": [
+          1,
+          1
+        ],
+        "max_normal_length_squared_error": 1.1920928955078125e-07,
+        "ao_min": 0.3499999940395355,
+        "ao_max": 0.9232593774795532
+      }
+    ],
+    "new_materials": 0,
+    "reused_material": "DREAM_MAT_chrome.007; material index4 unchanged"
+  },
+  "asset_validation": {
+    "command": "C:/Users/HP/.Codex/skill-runtimes/blender/Scripts/python.exe dream/validation/verify_assets.py pastel_room",
+    "exit_code": 0,
+    "result": {
+      "result": "PASS",
+      "materials": 9,
+      "vertices": 31848,
+      "asset": "pastel_room",
+      "triangles": 10616,
+      "glb_bytes": 1878244,
+      "glb_budget_bytes": 15728640,
+      "transparent_draws": 0,
+      "waterfall_draws": 0,
+      "navigation_verified": false,
+      "water_vertices_covered": 0,
+      "embedded_glb_images": 5,
+      "profile": "pastel_room",
+      "texture_roles": {
+        "sky": "assets/textures/cloud_sky.bmp",
+        "plaid": "assets/textures/curtain_plaid.bmp",
+        "ceramic_normal": "assets/textures/ceramic_normal.bmp",
+        "ceramic_roughness": "assets/textures/ceramic_roughness.bmp",
+        "leaf": "assets/textures/leaf_detail.bmp",
+        "globe": "assets/textures/biosphere.bmp",
+        "floor_surface": "assets/textures/floor_surface_albedo.bmp",
+        "floor_flow": "assets/textures/floor_flow.bmp",
+        "probe": "assets/textures/room_probe.bmp"
+      },
+      "grass_variants": {},
+      "plush_variants": {},
+      "ao_excluded_detail_objects": {}
+    }
+  },
+  "baseline_invariants": {
+    "added_count": 6,
+    "removed_count": 0,
+    "old_object_count": 716,
+    "current_object_count": 722,
+    "materials_before": 9,
+    "materials_current": 9,
+    "material_float_block_identical": true,
+    "triangles_before": 10352,
+    "triangles_current": 10616,
+    "delta_triangles": 264,
+    "delta_corners": 792,
+    "existing_objects_checked": 716,
+    "existing_geometry_normals_uv_material_identical": true,
+    "objects_with_non_ao_changes": [],
+    "ao_changed_corners": 151,
+    "maximum_ao_delta": 0.4750876724720001,
+    "ao_objects_affected_count": 21,
+    "camera_metadata_identical": true,
+    "runtime_scene_byte_identical": true,
+    "draws_byte_identical": true,
+    "runtime_inputs_changed": []
+  },
+  "comparison_method": {
+    "mesh": "Matched all716 preexisting objects by name and vertex_count. Compared each exported corner first9float32 values (XYZ, normalXYZ, UV, material index) exactly; AO is the tenth value and measured separately. Material float block and ordered names remained identical.",
+    "scene": "Byte comparison of .scene and .draws plus exact equality of metadata camera.",
+    "ao": "151 preexisting corners changed in21 nearby objects after new occluders were exported. Maximum AO delta0.4750876725 occurs on an existing collector; no claim that the entire mesh binary stayed equal.",
+    "pixels": "Compared native decoded RGB8 without resizing; zero threshold measures exact differences. Additional >2/>8/>16 thresholds expose magnitude and location, not fidelity scores."
+  },
+  "lighting": {
+    "parameters_invariant_by_static_review": true,
+    "static_basis": "Helper assigns geometry, normals/UV, chrome material and collection links; it contains no assignment of light energy, color or transform. build_room change is only the shared helper call.",
+    "before_after_live_light_snapshot_available": false,
+    "live_parameter_invariance_claimed": false,
+    "current_memberships_confirmed_by_root_mcp": true,
+    "confirmation_context": "Root obtained live read-only membership output immediately before wavebuildv2. Every one of the6pieces belonged to DREAM_chrome_strip_receivers, DREAM_reference_full_receivers and Scene Collection.",
+    "memberships": {
+      "GEO-DREAM-radiator_return_near_stub": [
+        "DREAM_chrome_strip_receivers",
+        "DREAM_reference_full_receivers",
+        "Scene Collection"
+      ],
+      "GEO-DREAM-radiator_return_near_drop": [
+        "DREAM_chrome_strip_receivers",
+        "DREAM_reference_full_receivers",
+        "Scene Collection"
+      ],
+      "GEO-DREAM-radiator_return_near_collar": [
+        "DREAM_chrome_strip_receivers",
+        "DREAM_reference_full_receivers",
+        "Scene Collection"
+      ],
+      "GEO-DREAM-radiator_return_far_stub": [
+        "DREAM_chrome_strip_receivers",
+        "DREAM_reference_full_receivers",
+        "Scene Collection"
+      ],
+      "GEO-DREAM-radiator_return_far_drop": [
+        "DREAM_chrome_strip_receivers",
+        "DREAM_reference_full_receivers",
+        "Scene Collection"
+      ],
+      "GEO-DREAM-radiator_return_far_collar": [
+        "DREAM_chrome_strip_receivers",
+        "DREAM_reference_full_receivers",
+        "Scene Collection"
+      ]
+    },
+    "caveat": "Current memberships are verified. Prior light energies/colors/transforms were not snapshotted, so exact live before/after equality is not claimed."
+  },
+  "blender_render": {
+    "path": "dream/validation/room-radiator-blender-v9.png",
+    "dimensions_px": [
+      720,
+      1280
+    ],
+    "engine_reported_by_root_mcp": "EEVEE",
+    "samples_reported_by_root_mcp": 256,
+    "render_executed_in_this_subtask": false,
+    "completion_provenance": "Root initially received a timeout/no-data result, then its cell445 completed metadata and a separate read-only MCP query confirmed the saved image and6pieces. Existing completed render was inspected here; no rerender was requested."
+  },
+  "opengl_capture": {
+    "command": "dream/runtime/build/dream.exe --hidden --scene pastel_room --frames 8 --time 0 --samples 4 --width 540 --height 960 --capture dream/validation/room-radiator-opengl-v9.ppm",
+    "actual_cli_arguments": [
+      "--hidden",
+      "--scene",
+      "pastel_room",
+      "--frames",
+      "8",
+      "--time",
+      "0",
+      "--samples",
+      "4",
+      "--width",
+      "540",
+      "--height",
+      "960",
+      "--capture",
+      "dream/validation/room-radiator-opengl-v9.ppm"
+    ],
+    "exit_code": 0,
+    "frames": 8,
+    "elapsed_s_reported_by_app": 0.411866,
+    "vertices": 31848,
+    "gl_error": 0,
+    "framebuffer_px": [
+      540,
+      960
+    ],
+    "gpu": "Intel(R) HD Graphics630",
+    "driver_opengl": "3.3.0 - Build31.0.101.2141",
+    "opaque_samples": 4,
+    "reflection_samples": 1,
+    "image": "dream/validation/room-radiator-opengl-v9.png",
+    "log": "dream/validation/room-radiator-opengl-v9.log",
+    "recompiled": false
+  },
+  "image_differences": [
+    {
+      "renderer": "OpenGL",
+      "dimensions_px": [
+        540,
+        960
+      ],
+      "before": "dream/validation/room-radiator-v9-baseline/room-opengl.png",
+      "after": "dream/validation/room-radiator-opengl-v9.png",
+      "mean_abs_channel_delta_8bit": 0.0077147633744855965,
+      "max_abs_channel_delta_8bit": 49,
+      "changed_pixels": 2280,
+      "changed_fraction": 0.004398148148148148,
+      "changed_bbox_xyxy_exclusive": [
+        404,
+        552,
+        527,
+        720
+      ]
+    },
+    {
+      "renderer": "Blender",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "before": "dream/validation/room-radiator-v9-baseline/room-blender.png",
+      "after": "dream/validation/room-radiator-blender-v9.png",
+      "mean_abs_channel_delta_8bit": 0.03180591724537037,
+      "max_abs_channel_delta_8bit": 78,
+      "changed_pixels": 30883,
+      "changed_fraction": 0.03351019965277778,
+      "changed_bbox_xyxy_exclusive": [
+        0,
+        0,
+        720,
+        1280
+      ]
+    }
+  ],
+  "threshold_diagnostics": {
+    "threshold_diagnostics": [
+      {
+        "renderer": "OpenGL",
+        "max_channel_delta_strictly_greater_than": {
+          "2": {
+            "pixels": 516,
+            "bbox_xyxy_exclusive": [
+              415,
+              553,
+              440,
+              637
+            ]
+          },
+          "8": {
+            "pixels": 142,
+            "bbox_xyxy_exclusive": [
+              421,
+              555,
+              429,
+              596
+            ]
+          },
+          "16": {
+            "pixels": 82,
+            "bbox_xyxy_exclusive": [
+              422,
+              555,
+              429,
+              596
+            ]
+          }
+        }
+      },
+      {
+        "renderer": "Blender",
+        "max_channel_delta_strictly_greater_than": {
+          "2": {
+            "pixels": 1929,
+            "bbox_xyxy_exclusive": [
+              538,
+              738,
+              619,
+              847
+            ]
+          },
+          "8": {
+            "pixels": 778,
+            "bbox_xyxy_exclusive": [
+              560,
+              739,
+              610,
+              843
+            ]
+          },
+          "16": {
+            "pixels": 268,
+            "bbox_xyxy_exclusive": [
+              563,
+              739,
+              572,
+              838
+            ]
+          }
+        }
+      }
+    ],
+    "detail_image": "dream/validation/room-radiator-detail-v9.png",
+    "crop_boxes_native_rgb": {
+      "OpenGL": [
+        398,
+        528,
+        540,
+        742
+      ],
+      "Blender": [
+        530,
+        704,
+        720,
+        990
+      ]
+    },
+    "resizing_used": false
+  },
+  "visual_review": {
+    "images_inspected": [
+      "dream/validation/room-radiator-opengl-v9.png",
+      "dream/validation/room-radiator-blender-v9.png",
+      "dream/validation/room-radiator-detail-v9.png"
+    ],
+    "findings": [
+      "La conexión lejana que falta en el baseline ahora baja del colector al suelo en ambos renderers. No se aprecia un hueco flotante en esa entrada.",
+      "La diferencia OpenGL queda localizada en la zona inferior del radiador y su reflejo; 0.4398% de píxeles cambia al contar cualquier delta.",
+      "Blender presenta diferencias exactas leves a lo largo de la imagen. Los cambios de más de2niveles quedan en la zona del radiador/reflejo; no se atribuyen automáticamente todos los deltas leves a modificación de luces.",
+      "La cámara principal recorta el extremo cercano fuera de pantalla. Sus3piezas están verificadas en el asset y por presencia live de root, pero esta captura no demuestra su aspecto desde otra vista.",
+      "El cromo, los reflejos y el encaje global del cuarto siguen siendo aproximaciones a las referencias. No se cambia el gate final."
+    ]
+  },
+  "runtime_input_stability": {
+    "all23_inputs_unchanged": true,
+    "changed_paths": [],
+    "before_report": "dream/validation/room-radiator-v9-baseline/runtime-inputs.json",
+    "after": {
+      "dream/assets/scene_catalog.cat": {
+        "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+        "bytes": 4823
+      },
+      "dream/assets/textures/biosphere.bmp": {
+        "sha256": "ea7b5419b0f4121d841f80cc087bce76dc6b296fec059425b2db24f180966a56",
+        "bytes": 1572918
+      },
+      "dream/assets/textures/ceramic_normal.bmp": {
+        "sha256": "0162a54a7a19232d2436e41954c008edb6bb734f34c0ac374f77ef9c30d46758",
+        "bytes": 786486
+      },
+      "dream/assets/textures/ceramic_roughness.bmp": {
+        "sha256": "45327104b6f6ba63adb5325d7131c5be2263f2d1a352a80e7d678a2692728117",
+        "bytes": 786486
+      },
+      "dream/assets/textures/cloud_sky.bmp": {
+        "sha256": "becd61cbea45caf92a03fc9e49160fca5ce27852c62cb9e9f2710a5fab00633c",
+        "bytes": 6291510
+      },
+      "dream/assets/textures/curtain_plaid.bmp": {
+        "sha256": "b2beebdc00b454ed42f35f3646e3ee20c96505966a64a2ca7ebe731aa63defc8",
+        "bytes": 786486
+      },
+      "dream/assets/textures/floor_flow.bmp": {
+        "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+        "bytes": 4718646
+      },
+      "dream/assets/textures/floor_surface_albedo.bmp": {
+        "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+        "bytes": 4718646
+      },
+      "dream/assets/textures/leaf_detail.bmp": {
+        "sha256": "b3db23a0e53372e59b47808d951a7d42c9fdfc7499ea2fb8d9556a9e8f56cc83",
+        "bytes": 393270
+      },
+      "dream/assets/textures/room_probe.bmp": {
+        "sha256": "6fefba61794ab2a2b2c3957dd7272e28357f024c8d4de531335f492b31b00410",
+        "bytes": 1572918
+      },
+      "dream/runtime/build/dream.exe": {
+        "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+        "bytes": 3345304
+      },
+      "dream/runtime/shaders/present.frag": {
+        "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf",
+        "bytes": 1225
+      },
+      "dream/runtime/shaders/present.vert": {
+        "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+        "bytes": 126
+      },
+      "dream/runtime/shaders/scene.frag": {
+        "sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+        "bytes": 14866
+      },
+      "dream/runtime/shaders/scene.vert": {
+        "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e",
+        "bytes": 1082
+      },
+      "dream/runtime/shaders/sky.frag": {
+        "sha256": "c32f78643b2104f9f9426e06fd7eb857b322e7d8fa7e1f118c814d910db81cfb",
+        "bytes": 361
+      },
+      "dream/runtime/shaders/sky.vert": {
+        "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+        "bytes": 126
+      },
+      "dream/runtime/src/gl_api.hpp": {
+        "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5",
+        "bytes": 2289
+      },
+      "dream/runtime/src/main.cpp": {
+        "sha256": "9aed414db9186426ec9095ebc25ede6cfed6e028683cd709f70d90ba084eedc9",
+        "bytes": 14696
+      },
+      "dream/runtime/src/math.hpp": {
+        "sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+        "bytes": 1177
+      },
+      "dream/runtime/src/render_support.hpp": {
+        "sha256": "7f41452681974af89830881f366d13014fe07bbe866ac683a737f59021b2829e",
+        "bytes": 9744
+      },
+      "dream/runtime/src/scene.hpp": {
+        "sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+        "bytes": 11538
+      },
+      "dream/runtime/src/scene_catalog.hpp": {
+        "sha256": "79eb7e6fb00c22b2b48b9a37d6fa2ba6e295935ffb08c87d6057179b0d48e353",
+        "bytes": 10051
+      }
+    },
+    "probe_rebaked": false,
+    "note": "Binario, fuentes y mapas del perfil habitación permanecen iguales al baseline. El cambio visible procede del export geométrico/AO actualizado; el probe existente no se volvió a hornear."
+  },
+  "limitations": [
+    "Prueba técnica con contexto oculto: no garantía de FPS a pantalla completa ni prueba manual exhaustiva.",
+    "No se repitieron tests unitarios de navegación. La configuración runtime sigue byte-idéntica, pero no se añade una afirmación de colisión física de cada tubo.",
+    "Falta vista lateral registrada con el regreso del video para comprobar visualmente ambos extremos y las proporciones globales.",
+    "Los cambios de AO son esperables al añadir geometría oclusora; conservar UV/normales/materiales no significa conservar todos los valores de sombra."
+  ],
+  "acceptance": {
+    "asset_and_primary_capture_technical_pass": true,
+    "full_multiview_visual_fidelity_accepted": false,
+    "goal_complete": false
+  },
+  "artifacts": [
+    {
+      "path": "dream/assets/pastel_room.draws",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "bytes": 2
+    },
+    {
+      "path": "dream/assets/pastel_room.dreammesh",
+      "sha256": "49f3132c3dcda691c5463883b3bdda5a2c735c3a1f27a9aa5e8ad327eb5dc6ef",
+      "bytes": 1274224
+    },
+    {
+      "path": "dream/assets/pastel_room.glb",
+      "sha256": "b7bf7893532ee35ceaad4506d8be5c3a2c4adb943675a18db8a2fd975fcd1b47",
+      "bytes": 1878244
+    },
+    {
+      "path": "dream/assets/pastel_room.json",
+      "sha256": "d16bd5ff37dd3155978b1c95c2a48776561c3ed53b010dad01e0857eb70cb5f1",
+      "bytes": 176258
+    },
+    {
+      "path": "dream/assets/pastel_room.scene",
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+      "bytes": 207
+    },
+    {
+      "path": "dream/assets/scene_catalog.cat",
+      "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+      "bytes": 4823
+    },
+    {
+      "path": "dream/assets/textures/biosphere.bmp",
+      "sha256": "ea7b5419b0f4121d841f80cc087bce76dc6b296fec059425b2db24f180966a56",
+      "bytes": 1572918
+    },
+    {
+      "path": "dream/assets/textures/ceramic_normal.bmp",
+      "sha256": "0162a54a7a19232d2436e41954c008edb6bb734f34c0ac374f77ef9c30d46758",
+      "bytes": 786486
+    },
+    {
+      "path": "dream/assets/textures/ceramic_roughness.bmp",
+      "sha256": "45327104b6f6ba63adb5325d7131c5be2263f2d1a352a80e7d678a2692728117",
+      "bytes": 786486
+    },
+    {
+      "path": "dream/assets/textures/cloud_sky.bmp",
+      "sha256": "becd61cbea45caf92a03fc9e49160fca5ce27852c62cb9e9f2710a5fab00633c",
+      "bytes": 6291510
+    },
+    {
+      "path": "dream/assets/textures/curtain_plaid.bmp",
+      "sha256": "b2beebdc00b454ed42f35f3646e3ee20c96505966a64a2ca7ebe731aa63defc8",
+      "bytes": 786486
+    },
+    {
+      "path": "dream/assets/textures/floor_flow.bmp",
+      "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+      "bytes": 4718646
+    },
+    {
+      "path": "dream/assets/textures/floor_surface_albedo.bmp",
+      "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+      "bytes": 4718646
+    },
+    {
+      "path": "dream/assets/textures/leaf_detail.bmp",
+      "sha256": "b3db23a0e53372e59b47808d951a7d42c9fdfc7499ea2fb8d9556a9e8f56cc83",
+      "bytes": 393270
+    },
+    {
+      "path": "dream/assets/textures/room_probe.bmp",
+      "sha256": "6fefba61794ab2a2b2c3957dd7272e28357f024c8d4de531335f492b31b00410",
+      "bytes": 1572918
+    },
+    {
+      "path": "dream/blender/build_room.py",
+      "sha256": "34ff3598a42055073211aaef40fc3e909473c3aeab83dc93bb4bbff9f28c3dd5",
+      "bytes": 16819
+    },
+    {
+      "path": "dream/blender/export_runtime.py",
+      "sha256": "b1df311143e38262e85a7a092d8a4d860e9d4e4d34dc8ca70fb91f2f37fe362d",
+      "bytes": 6448
+    },
+    {
+      "path": "dream/blender/pastel_room.blend",
+      "sha256": "7ff6f56c219be391c50374528af39c04a9fd6f99ee4e0d09c50eb4e57c3a14f1",
+      "bytes": 40429462
+    },
+    {
+      "path": "dream/blender/room_radiator_details.py",
+      "sha256": "1ee5c82ef6430b1d381ad1cbdda781338af7bee4dda6898688c3ee5c0ce46a28",
+      "bytes": 5374
+    },
+    {
+      "path": "dream/runtime/build/dream.exe",
+      "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+      "bytes": 3345304
+    },
+    {
+      "path": "dream/runtime/shaders/present.frag",
+      "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf",
+      "bytes": 1225
+    },
+    {
+      "path": "dream/runtime/shaders/present.vert",
+      "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+      "bytes": 126
+    },
+    {
+      "path": "dream/runtime/shaders/scene.frag",
+      "sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+      "bytes": 14866
+    },
+    {
+      "path": "dream/runtime/shaders/scene.vert",
+      "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e",
+      "bytes": 1082
+    },
+    {
+      "path": "dream/runtime/shaders/sky.frag",
+      "sha256": "c32f78643b2104f9f9426e06fd7eb857b322e7d8fa7e1f118c814d910db81cfb",
+      "bytes": 361
+    },
+    {
+      "path": "dream/runtime/shaders/sky.vert",
+      "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+      "bytes": 126
+    },
+    {
+      "path": "dream/runtime/src/gl_api.hpp",
+      "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5",
+      "bytes": 2289
+    },
+    {
+      "path": "dream/runtime/src/main.cpp",
+      "sha256": "9aed414db9186426ec9095ebc25ede6cfed6e028683cd709f70d90ba084eedc9",
+      "bytes": 14696
+    },
+    {
+      "path": "dream/runtime/src/math.hpp",
+      "sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+      "bytes": 1177
+    },
+    {
+      "path": "dream/runtime/src/render_support.hpp",
+      "sha256": "7f41452681974af89830881f366d13014fe07bbe866ac683a737f59021b2829e",
+      "bytes": 9744
+    },
+    {
+      "path": "dream/runtime/src/scene.hpp",
+      "sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+      "bytes": 11538
+    },
+    {
+      "path": "dream/runtime/src/scene_catalog.hpp",
+      "sha256": "79eb7e6fb00c22b2b48b9a37d6fa2ba6e295935ffb08c87d6057179b0d48e353",
+      "bytes": 10051
+    },
+    {
+      "path": "dream/validation/room-multiview-review-v9.json",
+      "sha256": "faf579484838c8e5af448b711284c87031796b7cd1dbd58bc157e409f31fa5e7",
+      "bytes": 27173
+    },
+    {
+      "path": "dream/validation/room-radiator-blender-v9.png",
+      "sha256": "5a83f18d980c9cffc17d1036ee195ee7d03d6f3531e6945f82e93ac5554c62e1",
+      "bytes": 1175547
+    },
+    {
+      "path": "dream/validation/room-radiator-detail-v9.png",
+      "sha256": "622cca65a854df7ad3955c45d097344cf5ccf8c0bb6859a9f90fde41a9cc3c93",
+      "bytes": 123530
+    },
+    {
+      "path": "dream/validation/room-radiator-opengl-v9.log",
+      "sha256": "269bb350698ee8a96a23e0b31012ed765f857b01a6c44cc4697620be462d1f81",
+      "bytes": 334
+    },
+    {
+      "path": "dream/validation/room-radiator-opengl-v9.png",
+      "sha256": "409075ae8fb44218626e2c77b53fc510a5ead1b75d96e6d7e6a2ed493c213d0a",
+      "bytes": 355772
+    },
+    {
+      "path": "dream/validation/room-radiator-opengl-v9.ppm",
+      "sha256": "a3d914b51ffb148adf9fd948aef75afdc6cd092864f038f9829813904c437cfa",
+      "bytes": 1555215
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/baseline.json",
+      "sha256": "b0220a71c76db22c4157ece77c90066885a4c943d8c956fc1da22298037f237f",
+      "bytes": 2818
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/pastel_room.draws",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "bytes": 2
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/pastel_room.dreammesh",
+      "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+      "bytes": 1242544
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/pastel_room.glb",
+      "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167",
+      "bytes": 1862948
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/pastel_room.json",
+      "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c",
+      "bytes": 174596
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/pastel_room.scene",
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+      "bytes": 207
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/room-blender.png",
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
+      "bytes": 1175253
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/room-opengl.png",
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "bytes": 355698
+    },
+    {
+      "path": "dream/validation/room-radiator-v9-baseline/runtime-inputs.json",
+      "sha256": "a337c9d7f68ebdcf7a1789892ae4cca44acca3ef9e4d4f1f8d4f4ffb822a3110",
+      "bytes": 3859
+    },
+    {
+      "path": "dream/validation/verify_assets.py",
+      "sha256": "de33e105fa0f2a01be41c33a695f6c3970230e7e3b10e06345c6c88fd773c032",
+      "bytes": 15988
+    }
+  ]
+}

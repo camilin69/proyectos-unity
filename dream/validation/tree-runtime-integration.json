@@ -1,0 +1,55 @@
+{
+  "scene_id": "video-51/arbol_monumental",
+  "alias": "v51_monumental_tree",
+  "status": "implemented_prototype_reference_fidelity_pending",
+  "strict_acceptance": false,
+  "implementation": {
+    "blender_source": "dream/blender/v51_monumental_tree.blend",
+    "blender_builder": "dream/blender/build_monumental_tree.py",
+    "texture_generator": "dream/blender/generate_tree_textures.py",
+    "runtime_mesh": "dream/assets/v51_monumental_tree.dreammesh",
+    "interchange": "dream/assets/v51_monumental_tree.glb",
+    "scene_settings": "dream/assets/v51_monumental_tree.scene",
+    "runtime_metadata": "dream/assets/v51_monumental_tree.json",
+    "profile": "monumental_tree",
+    "environment": 6,
+    "mesh_objects": 54,
+    "materials": 9,
+    "vertices": 530688,
+    "triangles": 176896,
+    "runtime_mesh_bytes": 21227824,
+    "glb_bytes": 9283212
+  },
+  "navigation": {
+    "support": "analytic ramp",
+    "height": "z=-0.30*x",
+    "bounds_xy": [-42, 42, -70, 36],
+    "eye_height_m": 1.65,
+    "tree_obstacle_disc": [-7, 0, 2.8],
+    "round_trip_steps": 160,
+    "round_trip_height_change_m": 0
+  },
+  "validation": {
+    "scene_catalog": "PASS: all seven available scenes, including this scene, validate meshes/settings/textures on the CPU",
+    "navigation_height": "PASS: 1507 checks, including 160 supported tree-ramp movement steps and return to spawn elevation",
+    "opengl_capture": "PASS: OpenGL 3.3 on Intel HD Graphics 630, 992x736, 4x MSAA, one-frame capture, gl_error=0",
+    "mouse_orientation_smoke": "PASS",
+    "blender_render": "dream/validation/tree-preview.png",
+    "opengl_render": "dream/validation/tree-opengl-preview.png",
+    "reference_frame": "dream/referencias/estetica/evidencias/video-51/01s.png"
+  },
+  "source_texture_crops_preserved": {
+    "dream/referencias/estetica/texturas/video-51/cielo.png": "4c0868f9c1ebc5429d6658870b81445ceb3efa0868e7bfaf6f0dfe329588700a",
+    "dream/referencias/estetica/texturas/video-51/corteza.png": "356c9bb612b3452f74f42fa37f5531b718964788f408e719cf29b3b88bc10b2a",
+    "dream/referencias/estetica/texturas/video-51/follaje.png": "fb7e4b2347b2feec15a3adc6c67727eda3f734e62fb5c496c1f6dfab4fc32dd1",
+    "dream/referencias/estetica/texturas/video-51/hierba.png": "af9b0a83ae2b91075eee82827bb15605038ac2a53d372fcd98527df5cd456fdc"
+  },
+  "visual_acceptance": {
+    "accepted": false,
+    "limitations": [
+      "The canopy uses procedural low-poly leaves and remains more uniform than the photographic reference.",
+      "The sky and lawn texture response are approximate and need side-by-side camera calibration.",
+      "Only the opening composition has been matched; source camera motion and the closing editorial fade are not implemented."
+    ]
+  }
+}

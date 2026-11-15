@@ -1,0 +1,442 @@
+{
+  "schema": "dream.wave_hall_audit.v1",
+  "scene_objects": 122,
+  "mesh_objects": 92,
+  "hall_meshes": [
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_floor",
+      "closed": true,
+      "positive_volume": true,
+      "role": "floor",
+      "vertices": 1946,
+      "faces": 1944
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_side_-1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "wall",
+      "vertices": 1946,
+      "faces": 1944
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_entrance_return_-1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "wall",
+      "vertices": 152,
+      "faces": 150
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_side_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "wall",
+      "vertices": 1946,
+      "faces": 1944
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_entrance_return_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "wall",
+      "vertices": 152,
+      "faces": 150
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_ceiling",
+      "closed": true,
+      "positive_volume": true,
+      "role": "ceiling",
+      "vertices": 1946,
+      "faces": 1944
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_back_wall",
+      "closed": true,
+      "positive_volume": true,
+      "role": "wall",
+      "vertices": 866,
+      "faces": 864
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_column_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 152,
+      "faces": 150
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_column_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 152,
+      "faces": 150
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_column_accent",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_accent",
+      "vertices": 56,
+      "faces": 54
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_dark_bays",
+      "closed": true,
+      "positive_volume": true,
+      "role": "rear_panel",
+      "vertices": 728,
+      "faces": 726
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_2",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_3",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_4",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_5",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_6",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_7",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_8",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_9",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_mullion_10",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 98,
+      "faces": 96
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_transom_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 728,
+      "faces": 726
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rear_transom_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 728,
+      "faces": 726
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_horizontal_member_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 56,
+      "faces": 54
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_horizontal_member_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 56,
+      "faces": 54
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_horizontal_member_2",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 56,
+      "faces": 54
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_horizontal_member_3",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 56,
+      "faces": 54
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_horizontal_member_4",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 56,
+      "faces": 54
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rail_post_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 8,
+      "faces": 6
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_rail_post_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "hall_metal",
+      "vertices": 8,
+      "faces": 6
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_0_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_0_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_0_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_0_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_0_2",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_0_2",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_0_3",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_0_3",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_1_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_1_0",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_1_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_1_1",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_1_2",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_1_2",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_1_3",
+      "closed": true,
+      "positive_volume": true,
+      "role": "diffuser",
+      "vertices": 182,
+      "faces": 200
+    },
+    {
+      "object": "GEO-DREAM-wavecorridor-hall_fixture_base_1_3",
+      "closed": true,
+      "positive_volume": true,
+      "role": "door_trim",
+      "vertices": 182,
+      "faces": 200
+    }
+  ],
+  "native_inventory": {
+    "scenes": [
+      "DREAM_WaveCorridor"
+    ],
+    "objects": 122,
+    "images": [
+      "wave_wall_roughness.png",
+      "wave_wall_albedo.png",
+      "wave_paint_normal.png",
+      "wave_floor_roughness.png",
+      "wave_floor_normal.png",
+      "wave_floor_albedo.png",
+      "wave_exit_emission_dark.png",
+      "wave_exit_albedo_dark.png",
+      "wave_ceiling_roughness.png",
+      "wave_ceiling_albedo.png"
+    ]
+  },
+  "column_projection_diagnostics": [
+    {
+      "time_s": 14,
+      "projected_full_column_bounds_px": [
+        236.7134816646576,
+        205.82380890846252,
+        261.0065494775772,
+        317.7673727273941
+      ],
+      "source_pale_support_bounds_approx_px": [
+        232,
+        189,
+        260,
+        256
+      ],
+      "manual_uncertainty_px": 8,
+      "bottom_edge_difference_px": 61.767372727394104,
+      "interpretation": "Diagnostic only. Source head can be occluded by the corridor; no physical dimension or fit acceptance is inferred."
+    },
+    {
+      "time_s": 15.5,
+      "projected_full_column_bounds_px": [
+        348.71493005752563,
+        268.82154047489166,
+        380.2397595643997,
+        388.1505399942398
+      ],
+      "source_pale_support_bounds_approx_px": [
+        340,
+        238,
+        374,
+        318
+      ],
+      "manual_uncertainty_px": 8,
+      "bottom_edge_difference_px": 70.15053999423981,
+      "interpretation": "Diagnostic only. Source head can be occluded by the corridor; no physical dimension or fit acceptance is inferred."
+    }
+  ],
+  "candidate_sha256": "d9b8e771979dc6251131195a22e68c1c19f9481d3ac18f3fd79b63a548e2fb7f",
+  "runtime_promoted": false,
+  "strict_fidelity_accepted": false
+}

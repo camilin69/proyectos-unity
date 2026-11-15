@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "stage": "map_generation_and_analytical_contract_only",
+  "accepted": false,
+  "generator_sha256": "93291030b2a0a2722ac8388bfbbf0e5d1ed49a6104ce85d6529bff38282c0734",
+  "plan_sha256": "edd34e4960c32bc397450858c094e49e0ddc1a53badf2962b3f7cc576adb9703",
+  "syntax_ast_parse": "PASS",
+  "bpy_used": false,
+  "maps": 10,
+  "image_files": 20,
+  "repeat_run_image_hashes_identical": true,
+  "png_bmp_pixels_identical": true,
+  "source_original_and_preserved_reference_hashes": "PASS",
+  "periodic_map_edge_texels_identical": true,
+  "normal_checks": [
+    {
+      "name": "wave_floor_normal",
+      "unit_length_range": [
+        0.9958854220908662,
+        1.0042508651113493
+      ],
+      "rms_tangent_slope": 0.02915964896572319
+    },
+    {
+      "name": "wave_paint_normal",
+      "unit_length_range": [
+        0.9957000979818709,
+        1.0043121176610845
+      ],
+      "rms_tangent_slope": 0.04390097991154651
+    }
+  ],
+  "current_builder_uv_analytical_check": {
+    "source_sha256": "dd669eba73409ef4ec775fc8d6d03fe0fd892e9bf817a17a752bedf735698d1b",
+    "shared_tread_riser_edge_uvs_continuous": true,
+    "corridor_profile_arc_m": 13.999999999999996,
+    "note": "Read-only pure geometry check at preparation. Hall cube UV still needs application; this does not validate final Blender UV assignment or accepted geometry."
+  },
+  "rendered": false,
+  "runtime_integrated": false,
+  "fidelity_validated": false,
+  "total_image_bytes": 12564510,
+  "image_sha256": {
+    "wave_ceiling_albedo.bmp": "e541e9123ecbf15230fd76c889c4b02f92e3a28bf6a15a30242b8a4730999cc8",
+    "wave_ceiling_albedo.png": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5",
+    "wave_ceiling_roughness.bmp": "0582adcee26ff6a430ea0c2505cc01fdeb3f47a443e83a54d205ccf185644b23",
+    "wave_ceiling_roughness.png": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec",
+    "wave_exit_albedo_candidate.bmp": "8dab54661c484d97f464c646435190e2c8d09f9347bb2e661fea9bac684e27b8",
+    "wave_exit_albedo_candidate.png": "d39e49d26d952322c6daa3b1bbab4bf5320c0b1c71672523b9a8e301e89aba92",
+    "wave_exit_emission_candidate.bmp": "821806dcedfae2af4218c94dababb837dff977ab0cd82e191c459ae81ecb6b1e",
+    "wave_exit_emission_candidate.png": "8706116636d3c28f5c6c776e124bb96428977fa4fb99685fd9388ee086ac0f34",
+    "wave_floor_albedo.bmp": "e35503ac06c77b8d6aef11dc58b7955f31ef27c9439f755fb0235ad4bb22b962",
+    "wave_floor_albedo.png": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af",
+    "wave_floor_normal.bmp": "f54be2d14af93f5c55a178f08b801161969ebaf2882d3b4f870a49c8e349c1da",
+    "wave_floor_normal.png": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea",
+    "wave_floor_roughness.bmp": "ebbf9afe9ed62d31a3b054ca3b2887d804b3208bf41620d724ea516b44e8d224",
+    "wave_floor_roughness.png": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1",
+    "wave_paint_normal.bmp": "d6e096d35eedc5fe2fd41f76e214d94c9201e3d5a5f00db48829d96c54437fb8",
+    "wave_paint_normal.png": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa",
+    "wave_wall_albedo.bmp": "a2336c6d078f98942a1c7efb47e7301519d1269a76fe1da552ae7c1f010aa93e",
+    "wave_wall_albedo.png": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb",
+    "wave_wall_roughness.bmp": "933ebbbc0d9cdbced48ba1db88eb1b4837d92b00a503a43a08f3720f4f802263",
+    "wave_wall_roughness.png": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f"
+  }
+}

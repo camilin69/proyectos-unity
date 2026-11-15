@@ -1,0 +1,10 @@
+camera 0 -32 1.65 1.446 0.21
+fov 0.47
+far_clip 120
+exposure -0.08
+environment 6
+eye_height 1.65
+step_limits 0.32 0.32
+bounds -42 42 -70 36
+ramp -42 -70 42 36 0 -0.30 0
+disc -7 0 2.8

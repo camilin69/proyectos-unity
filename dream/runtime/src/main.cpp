@@ -1,16 +1,17 @@
 #include "render_support.hpp"
 
 int main(int argc,char** argv) {
+ bool glfwStarted=false;
  try {
     fs::path root=fs::absolute(fs::path(argv[0])).parent_path().parent_path().parent_path(),shot;
     std::string sceneName="pastel_room";
     int frameLimit=0,width=960,height=720,debugShading=0,samples=4;
-    bool hidden=false,smoke=false,cycle=false;
+    bool hidden=false,smoke=false,cycle=false,listScenes=false,validateScenes=false,sceneSelected=false;
     float fixedTime=-1;
     for(int i=1;i<argc;i++) {
         std::string a=argv[i];
         if(a=="--root"&&i+1<argc)root=argv[++i];
-        else if(a=="--scene"&&i+1<argc)sceneName=argv[++i];
+        else if(a=="--scene"&&i+1<argc){sceneName=argv[++i];sceneSelected=true;}
         else if(a=="--capture"&&i+1<argc)shot=argv[++i];
         else if(a=="--frames"&&i+1<argc)frameLimit=std::stoi(argv[++i]);
         else if(a=="--width"&&i+1<argc)width=std::stoi(argv[++i]);
@@ -21,11 +22,29 @@ int main(int argc,char** argv) {
         else if(a=="--hidden")hidden=true;
         else if(a=="--smoke")smoke=true;
         else if(a=="--cycle")cycle=true;
+        else if(a=="--list-scenes")listScenes=true;
+        else if(a=="--validate-scenes")validateScenes=true;
         else throw std::runtime_error("Unknown/incomplete argument: "+a);
     }
     if(width<64||height<64||width>8192||height>8192||frameLimit<0)throw std::runtime_error("Invalid dimensions/frame count");
     if(debugShading<0||debugShading>3)throw std::runtime_error("Debug shading must be 0=lit, 1=albedo, 2=normals or 3=AO");
     if(samples!=0&&samples!=2&&samples!=4)throw std::runtime_error("Samples must be 0, 2 or 4");
+    SceneCatalog catalog(root);
+    if(sceneSelected)catalog.requireAvailable(catalog.find(sceneName));
+    if(listScenes){catalog.print(std::cout);return 0;}
+    const SceneEntry& requested=catalog.find(sceneName);catalog.requireAvailable(requested);
+    auto validatedSettings=[&](const SceneEntry& entry) {
+        catalog.requireAvailable(entry);
+        auto configuration=std::make_unique<SceneSettings>(root/entry.settings);
+        if(configuration->environment!=catalog.profile(entry).environment)throw std::runtime_error("Scene/profile environment mismatch: "+entry.id);
+        catalog.validateMesh(entry);catalog.validateTextures(catalog.profile(entry));return configuration;
+    };
+    if(validateScenes) {
+        for(const auto* entry:catalog.available()){validatedSettings(*entry);std::cout<<"scene_validation=PASS id="<<entry->id<<" alias="<<entry->alias<<" profile="<<entry->profile<<" visual="<<(entry->visuallyAccepted?"accepted":"pending")<<"\n";}
+        std::cout<<"validation_backend=CPU glfw_initialized=false\n";return 0;
+    }
+    // Reject invalid exports before context creation, including canonical IDs.
+    validatedSettings(requested);sceneName=requested.alias;
     if(!shot.empty()&&frameLimit==0)frameLimit=1;
     if(smoke) {
         float originalYaw=yaw;captured=true;firstMouse=false;cursor(nullptr,10,0);
@@ -35,6 +54,7 @@ int main(int argc,char** argv) {
     }
     glfwSetErrorCallback([](int code,const char* message){std::cerr<<"GLFW "<<code<<": "<<message<<"\n";});
     if(!glfwInit())throw std::runtime_error("GLFW initialization failed");
+    glfwStarted=true;
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);
     glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_SRGB_CAPABLE,GLFW_TRUE);glfwWindowHint(GLFW_VISIBLE,hidden?GLFW_FALSE:GLFW_TRUE);
@@ -47,30 +67,31 @@ int main(int argc,char** argv) {
     GLuint sceneProgram=program(root/"runtime/shaders","scene"),skyProgram=program(root/"runtime/shaders","sky");
     GLuint presentProgram=program(root/"runtime/shaders","present"),emptyVao;
     glGenVertexArrays(1,&emptyVao);
-    GLuint sky=bitmap(root/"assets/textures/cloud_sky.bmp"),plaid=bitmap(root/"assets/textures/curtain_plaid.bmp");
-    GLuint ceramicNormal=bitmap(root/"assets/textures/ceramic_normal.bmp",false),ceramicRough=bitmap(root/"assets/textures/ceramic_roughness.bmp",false);
-    GLuint leaf=bitmap(root/"assets/textures/leaf_detail.bmp"),globe=bitmap(root/"assets/textures/biosphere.bmp");
-    GLuint floorSurface=bitmap(root/"assets/textures/floor_surface_albedo.bmp");
-    GLuint floorFlow=bitmap(root/"assets/textures/floor_flow.bmp",false);
-    GLuint roomProbe=bitmap(root/"assets/textures/room_probe.bmp");
-    // Longitude repeats; latitude must not blend the ceiling with the floor.
-    glBindTexture(GL_TEXTURE_2D,roomProbe);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
     ReflectTarget reflect,opaque,floorReflect,composite;
     MultisampleTarget coverage(samples);
     std::cout<<"opaque_msaa_samples="<<coverage.samples<<" reflection_samples=1\n";
     std::unique_ptr<Mesh> mesh;
     std::unique_ptr<SceneSettings> settings;
+    std::unique_ptr<SceneTextures> sceneTextures;
     auto resetCamera=[&](){eye=settings->spawn;yaw=settings->yaw;pitch=settings->pitch;firstMouse=true;};
     auto loadScene=[&](const std::string& name) {
-        if(name!="pastel_room"&&name!="atrium")throw std::runtime_error("Unknown scene: "+name);
-        auto nextSettings=std::make_unique<SceneSettings>(root/("assets/"+name+".scene"));
-        auto nextMesh=std::make_unique<Mesh>(root/("assets/"+name+".dreammesh"));
-        settings=std::move(nextSettings);mesh=std::move(nextMesh);sceneName=name;resetCamera();
+        const auto& entry=catalog.find(name);
+        auto nextSettings=validatedSettings(entry);
+        auto nextMesh=std::make_unique<Mesh>(root/entry.mesh);
+        auto nextTextures=std::make_unique<SceneTextures>(root,catalog.profile(entry));
+        settings=std::move(nextSettings);mesh=std::move(nextMesh);sceneTextures=std::move(nextTextures);sceneName=entry.alias;resetCamera();
         glUseProgram(sceneProgram);
         glUniform4fv(glGetUniformLocation(sceneProgram,"baseRough"),mesh->base.size(),mesh->base[0].data());
         glUniform4fv(glGetUniformLocation(sceneProgram,"properties"),mesh->props.size(),mesh->props[0].data());
-        integer(sceneProgram,"environment",settings->environment);scalar(sceneProgram,"reflectionHeight",settings->reflectionHeight);
-        std::cout<<"scene="<<name<<" vertices="<<mesh->count<<" glass_groups="<<mesh->glass.size()<<" water="<<mesh->water<<"\n";
+        integer(sceneProgram,"environment",catalog.profile(entry).environment);scalar(sceneProgram,"reflectionHeight",settings->reflectionHeight);scalar(sceneProgram,"farClip",settings->farClip);
+        std::vector<std::array<float,4>> positions,radiance;
+        for(const auto& l:settings->lights){positions.push_back({l.position.x,l.position.y,l.position.z,l.radius});radiance.push_back({l.radiance.x,l.radiance.y,l.radiance.z,float(l.receiver)});}
+        integer(sceneProgram,"localLightCount",int(positions.size()));
+        if(!positions.empty()){
+            glUniform4fv(glGetUniformLocation(sceneProgram,"localLights"),GLsizei(positions.size()),positions.front().data());
+            glUniform4fv(glGetUniformLocation(sceneProgram,"localRadiance"),GLsizei(radiance.size()),radiance.front().data());
+        }
+        std::cout<<"scene="<<sceneName<<" vertices="<<mesh->count<<" glass_groups="<<mesh->glass.size()<<" water="<<mesh->water<<" id="<<entry.id<<" profile="<<entry.profile<<" visual="<<(entry.visuallyAccepted?"accepted":"pending")<<"\n";
     };
     loadScene(sceneName);
     const std::string initialScene=sceneName;
@@ -81,28 +102,37 @@ int main(int argc,char** argv) {
     glUseProgram(presentProgram);integer(presentProgram,"sceneColor",5);integer(presentProgram,"sceneDepth",6);
     double previous=glfwGetTime(),begin=previous,lastTitle=previous;
     float elapsed=0;int frames=0;GLenum firstError=GL_NO_ERROR;
+    bool tabHeld=false,pageUpHeld=false,pageDownHeld=false;
 
     auto draw=[&](Vec3 pos,Vec3 dir,bool mirrored,int pass,int w,int h) {
         glViewport(0,0,w,h);
         Vec3 up{0,0,1},right=norm(cross(dir,up)),camUp=cross(right,dir);
-        texture(0,sky);texture(1,plaid);texture(2,mirrored?0:reflect.color);
-        texture(3,ceramicNormal);texture(4,ceramicRough);
+        if(settings->roll!=0){
+            const float angle=mirrored?-settings->roll:settings->roll;
+            const Vec3 rolledRight=right*std::cos(angle)+camUp*std::sin(angle);
+            camUp=camUp*std::cos(angle)-right*std::sin(angle);right=rolledRight;up=camUp;
+        }
+        const auto& maps=sceneTextures->ids;
+        texture(0,maps[0]);texture(1,maps[1]);texture(2,mirrored?0:reflect.color);
+        texture(3,maps[2]);texture(4,maps[3]);
         // Never sample an attachment of the framebuffer being written.
-        texture(5,pass==1?opaque.color:0);texture(6,pass==1?opaque.depth:0);texture(7,leaf);texture(8,globe);texture(9,mirrored?0:floorReflect.color);
-        texture(10,floorSurface);texture(11,floorFlow);texture(12,roomProbe);
+        texture(5,pass==1?opaque.color:0);texture(6,pass==1?opaque.depth:0);texture(7,maps[4]);texture(8,maps[5]);texture(9,mirrored?0:floorReflect.color);
+        texture(10,maps[6]);texture(11,maps[7]);texture(12,maps[8]);
         glDepthMask(GL_TRUE);
         if(pass==0) {
             glClearColor(.4f,.5f,.6f,1);glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
             glDisable(GL_DEPTH_TEST);glDisable(GL_CLIP_DISTANCE0);glUseProgram(skyProgram);
             vec(skyProgram,"forwardDir",dir);vec(skyProgram,"rightDir",right);vec(skyProgram,"upDir",camUp);
-            scalar(skyProgram,"aspect",float(w)/h);scalar(skyProgram,"tanHalfFov",settings->tanHalfFov);
+            scalar(skyProgram,"aspect",float(w)/h);scalar(skyProgram,"tanHalfFov",settings->tanHalfFov);scalar(skyProgram,"cameraShiftNdc",settings->cameraShiftNdc);
             glBindVertexArray(emptyVao);glDrawArrays(GL_TRIANGLES,0,3);
         }
         glEnable(GL_DEPTH_TEST);glEnable(GL_CLIP_DISTANCE0);glUseProgram(sceneProgram);
         vec(sceneProgram,"eye",pos);integer(sceneProgram,"reflected",mirrored?1:0);integer(sceneProgram,"renderPass",pass);
         integer(sceneProgram,"debugShading",debugShading);
         scalar(sceneProgram,"time",fixedTime>=0?fixedTime:elapsed);glUniform2f(glGetUniformLocation(sceneProgram,"resolution"),w,h);
-        Mat4 vp=multiply(perspective(2*std::atan(settings->tanHalfFov),float(w)/h,.05f,200),look(pos,dir,up));
+        Mat4 projection=perspective(2*std::atan(settings->tanHalfFov),float(w)/h,.05f,settings->farClip);
+        projection.v[9]=-settings->cameraShiftNdc;
+        Mat4 vp=multiply(projection,look(pos,dir,up));
         glUniformMatrix4fv(glGetUniformLocation(sceneProgram,"vp"),1,GL_FALSE,vp.v);glBindVertexArray(mesh->vao);
         if(pass==2) {
             auto groups=mesh->glass;
@@ -118,6 +148,12 @@ int main(int argc,char** argv) {
         if(glfwGetKey(window,GLFW_KEY_ESCAPE)==GLFW_PRESS){captured=false;glfwSetInputMode(window,GLFW_CURSOR,GLFW_CURSOR_NORMAL);}
         if(glfwGetKey(window,GLFW_KEY_1)==GLFW_PRESS&&sceneName!="pastel_room")loadScene("pastel_room");
         if(glfwGetKey(window,GLFW_KEY_2)==GLFW_PRESS&&sceneName!="atrium")loadScene("atrium");
+        bool tab=glfwGetKey(window,GLFW_KEY_TAB)==GLFW_PRESS,previousScene=glfwGetKey(window,GLFW_KEY_PAGE_UP)==GLFW_PRESS,nextScene=glfwGetKey(window,GLFW_KEY_PAGE_DOWN)==GLFW_PRESS;
+        bool reverse=glfwGetKey(window,GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS||glfwGetKey(window,GLFW_KEY_RIGHT_SHIFT)==GLFW_PRESS;
+        if(tab&&!tabHeld)loadScene(catalog.adjacent(sceneName,reverse?-1:1).alias);
+        else if(previousScene&&!pageUpHeld)loadScene(catalog.adjacent(sceneName,-1).alias);
+        else if(nextScene&&!pageDownHeld)loadScene(catalog.adjacent(sceneName,1).alias);
+        tabHeld=tab;pageUpHeld=previousScene;pageDownHeld=nextScene;
         if(glfwGetKey(window,GLFW_KEY_R)==GLFW_PRESS)resetCamera();
         if(cycle&&frames==240)loadScene(initialScene=="atrium"?"pastel_room":"atrium");
         if(cycle&&frames==480)loadScene(initialScene);
@@ -141,12 +177,17 @@ int main(int argc,char** argv) {
             draw(pos,dir,true,0,floorReflect.width,floorReflect.height);
             draw(pos,dir,true,2,floorReflect.width,floorReflect.height);
         }
-        glDisable(GL_FRAMEBUFFER_SRGB);glBindFramebuffer(GL_FRAMEBUFFER,reflect.fbo);
-        glUseProgram(sceneProgram);scalar(sceneProgram,"reflectionHeight",settings->reflectionHeight);integer(sceneProgram,"reflectionSurface",mesh->water?4:1);
-        Vec3 reflectedEye=eye,reflectedDir=forward();
-        reflectedEye.z=2*settings->reflectionHeight-eye.z;reflectedDir.z=-reflectedDir.z;
-        draw(reflectedEye,reflectedDir,true,0,reflect.width,reflect.height);
-        if(!mesh->glass.empty())draw(reflectedEye,reflectedDir,true,2,reflect.width,reflect.height);
+        glDisable(GL_FRAMEBUFFER_SRGB);
+        // Dry scenes have no material sampling this planar reflection. Avoid
+        // drawing all their grass and fibers a second time for an unused image.
+        if(mesh->water||mesh->floor) {
+            glBindFramebuffer(GL_FRAMEBUFFER,reflect.fbo);
+            glUseProgram(sceneProgram);scalar(sceneProgram,"reflectionHeight",settings->reflectionHeight);integer(sceneProgram,"reflectionSurface",mesh->water?4:1);
+            Vec3 reflectedEye=eye,reflectedDir=forward();
+            reflectedEye.z=2*settings->reflectionHeight-eye.z;reflectedDir.z=-reflectedDir.z;
+            draw(reflectedEye,reflectedDir,true,0,reflect.width,reflect.height);
+            if(!mesh->glass.empty())draw(reflectedEye,reflectedDir,true,2,reflect.width,reflect.height);
+        }
         glBindFramebuffer(GL_FRAMEBUFFER,coverage.samples?coverage.fbo:opaque.fbo);draw(eye,forward(),false,0,w,h);
         if(coverage.samples)copyTarget(coverage.fbo,opaque.fbo,w,h);
 
@@ -162,11 +203,12 @@ int main(int argc,char** argv) {
         if(frameLimit&&frames>=frameLimit){if(!shot.empty())screenshot(shot,w,h);break;}
         glfwSwapBuffers(window);
         if(now-lastTitle>1) {
-            std::ostringstream title;title<<"DREAM - "<<sceneName<<" | "<<int(frames/(now-begin))<<" FPS | 1 habitacion - 2 atrio | WASD - clic mirar - Esc liberar";
+            std::ostringstream title;title<<"DREAM - "<<sceneName<<" | "<<int(frames/(now-begin))<<" FPS | Tab/PgDn siguiente - ShiftTab/PgUp anterior | 1 habitacion - 2 atrio | WASD - clic mirar - Esc liberar";
             glfwSetWindowTitle(window,title.str().c_str());lastTitle=now;
         }
     }
-    std::cout<<"frames="<<frames<<" elapsed="<<glfwGetTime()-begin<<" vertices="<<mesh->count<<" gl_error="<<firstError<<" camera="<<eye.x<<","<<eye.y<<","<<eye.z<<" yaw="<<yaw<<"\n";
-    mesh.reset();glfwDestroyWindow(window);glfwTerminate();return firstError?2:0;
- }catch(const std::exception& e){std::cerr<<"DREAM: "<<e.what()<<"\n";glfwTerminate();return 1;}
+    int finalWidth=0,finalHeight=0;glfwGetFramebufferSize(window,&finalWidth,&finalHeight);
+    std::cout<<"frames="<<frames<<" elapsed="<<glfwGetTime()-begin<<" vertices="<<mesh->count<<" gl_error="<<firstError<<" framebuffer="<<finalWidth<<"x"<<finalHeight<<" camera="<<eye.x<<","<<eye.y<<","<<eye.z<<" yaw="<<yaw<<"\n";
+    sceneTextures.reset();mesh.reset();glfwDestroyWindow(window);glfwTerminate();return firstError?2:0;
+ }catch(const std::exception& e){std::cerr<<"DREAM: "<<e.what()<<"\n";if(glfwStarted)glfwTerminate();return 1;}
 }

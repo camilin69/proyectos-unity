@@ -1,0 +1,379 @@
+{
+  "schema": "dream.wave_terminal_review.v1",
+  "recorded_at_utc": "2026-10-09T13:25:28.653862+00:00",
+  "strict_fidelity_accepted": false,
+  "runtime_promoted": false,
+  "goal_complete": false,
+  "native": "blender/wave_corridor_terminal_candidate.blend",
+  "comparison": "validation/wave-terminal/comparison.png",
+  "reverse_view": "validation/wave-terminal/gray-reverse.png",
+  "scene_objects": 66,
+  "closed_meshes": 53,
+  "cameras": 8,
+  "changes": [
+    "Added two tall terminal guard frames with rounded bends, explicit tube and cap UVs.",
+    "Separated the end of the corridor walls from the end of the continuous stair floor.",
+    "Moved the final flight into the hall entrance and added closed side landing strips.",
+    "Adjusted the middle and final descents against continuously tracked terminal frame corners."
+  ],
+  "reference_fit": {
+    "sampled_views": 7,
+    "point_distance_rms_px": 6.43282202133204,
+    "max_point_distance_px": 12.680565324526762,
+    "scope": "Fitted approximate terminal corner tracks only; not full-scene fidelity or independent validation."
+  },
+  "existing_landmark_diagnostics": [
+    {
+      "id": "aperture_top_left",
+      "time_s": 14,
+      "source_px": [
+        171,
+        183
+      ],
+      "before_error_px": 8.093264721076585,
+      "after_error_px": 3.2414718217768606,
+      "after_projected_px": [
+        171.79171839222022,
+        179.85670212057565
+      ]
+    },
+    {
+      "id": "aperture_top_right",
+      "time_s": 14,
+      "source_px": [
+        295,
+        182
+      ],
+      "before_error_px": 10.566323505867151,
+      "after_error_px": 4.371460533540532,
+      "after_projected_px": [
+        297.5899343920952,
+        185.52163414353976
+      ]
+    },
+    {
+      "id": "first_near_rail_corner_left",
+      "time_s": 14,
+      "source_px": [
+        95,
+        405
+      ],
+      "before_error_px": 15.004705088181039,
+      "after_error_px": 16.878745969008126,
+      "after_projected_px": [
+        111.876833258529,
+        405.25409574990005
+      ]
+    },
+    {
+      "id": "first_near_rail_corner_right",
+      "time_s": 14,
+      "source_px": [
+        357,
+        398
+      ],
+      "before_error_px": 14.03900701345305,
+      "after_error_px": 15.712525044655337,
+      "after_projected_px": [
+        351.63625150648613,
+        412.768671076886
+      ]
+    },
+    {
+      "id": "middle_trim_end_left",
+      "time_s": 14,
+      "source_px": [
+        146,
+        417
+      ],
+      "before_error_px": 13.32789645860404,
+      "after_error_px": 20.53203381833609,
+      "after_projected_px": [
+        149.40684491544258,
+        396.75258484548164
+      ]
+    },
+    {
+      "id": "middle_trim_end_right",
+      "time_s": 14,
+      "source_px": [
+        309,
+        416
+      ],
+      "before_error_px": 6.839597116059172,
+      "after_error_px": 14.149921062588525,
+      "after_projected_px": [
+        309.81239309398876,
+        401.8734192552364
+      ]
+    },
+    {
+      "id": "near_flight_end_right",
+      "time_s": 14,
+      "source_px": [
+        445,
+        533
+      ],
+      "before_error_px": 4.834865834108879,
+      "after_error_px": 10.039469728673025,
+      "after_projected_px": [
+        440.16841627501594,
+        541.8003835792204
+      ]
+    },
+    {
+      "id": "aperture_top_left",
+      "time_s": 15.5,
+      "source_px": [
+        269,
+        240
+      ],
+      "before_error_px": 13.572689543419473,
+      "after_error_px": 15.85004896101871,
+      "after_projected_px": [
+        272.61245447411676,
+        224.5671057562386
+      ]
+    },
+    {
+      "id": "aperture_top_left",
+      "time_s": 17,
+      "source_px": [
+        148,
+        189
+      ],
+      "before_error_px": 38.11701440242428,
+      "after_error_px": 58.76498008392718,
+      "after_projected_px": [
+        149.73988356078192,
+        130.26078235574397
+      ]
+    },
+    {
+      "id": "aperture_top_right",
+      "time_s": 17,
+      "source_px": [
+        334,
+        182
+      ],
+      "before_error_px": 17.258897480877415,
+      "after_error_px": 43.712346425100264,
+      "after_projected_px": [
+        349.3560028784469,
+        141.07369543209273
+      ]
+    },
+    {
+      "id": "middle_trim_end_left",
+      "time_s": 17,
+      "source_px": [
+        74,
+        497
+      ],
+      "before_error_px": 25.770467358568588,
+      "after_error_px": 35.64068193493671,
+      "after_projected_px": [
+        40.65027152634957,
+        509.5719457333029
+      ]
+    },
+    {
+      "id": "middle_trim_end_right",
+      "time_s": 17,
+      "source_px": [
+        405,
+        554
+      ],
+      "before_error_px": 27.001883189035343,
+      "after_error_px": 24.277194272617198,
+      "after_projected_px": [
+        403.27915267980325,
+        529.7838721870946
+      ]
+    }
+  ],
+  "actual_mesh_checks": {
+    "scene": "DREAM_WaveTerminalCandidate",
+    "saved_scenes": [
+      "DREAM_WaveTerminalCandidate"
+    ],
+    "checked_rays": 8,
+    "checks": [
+      {
+        "kind": "post_attachment",
+        "xy": [
+          -1.0549999999999997,
+          9.589994167603399
+        ],
+        "actual_mesh_z": -0.9128565788269043,
+        "expected_z": -0.912857062153331,
+        "normal_z": 1.0
+      },
+      {
+        "kind": "post_attachment",
+        "xy": [
+          -1.0549999999999997,
+          10.3220315923016
+        ],
+        "actual_mesh_z": -1.1944141387939453,
+        "expected_z": -1.1944140720266445,
+        "normal_z": 1.0
+      },
+      {
+        "kind": "post_attachment",
+        "xy": [
+          0.9660167702823153,
+          9.589994167603399
+        ],
+        "actual_mesh_z": -0.9128565788269043,
+        "expected_z": -0.912857062153331,
+        "normal_z": 1.0
+      },
+      {
+        "kind": "post_attachment",
+        "xy": [
+          0.9660167702823153,
+          10.3220315923016
+        ],
+        "actual_mesh_z": -1.1944141387939453,
+        "expected_z": -1.1944140720266445,
+        "normal_z": 1.0
+      },
+      {
+        "kind": "hall_floor_seam",
+        "object": "hall_floor",
+        "xy": [
+          0,
+          10.4730315923016
+        ],
+        "actual_mesh_z": -1.194414496421814,
+        "expected_z": -1.1944140720266445
+      },
+      {
+        "kind": "hall_floor_seam",
+        "object": "continuous_stepped_floor",
+        "xy": [
+          0,
+          10.471031592301602
+        ],
+        "actual_mesh_z": -1.1944141387939453,
+        "expected_z": -1.1944140720266445
+      },
+      {
+        "kind": "hall_floor_seam",
+        "object": "hall_entrance_wing_-1",
+        "xy": [
+          -1.101,
+          10.3220315923016
+        ],
+        "actual_mesh_z": -1.1944135427474976,
+        "expected_z": -1.1944140720266445
+      },
+      {
+        "kind": "hall_floor_seam",
+        "object": "hall_entrance_wing_1",
+        "xy": [
+          1.101,
+          10.3220315923016
+        ],
+        "actual_mesh_z": -1.1944135427474976,
+        "expected_z": -1.1944140720266445
+      }
+    ],
+    "passed": true,
+    "scope": "Actual mesh attachment heights and adjoining landing strips only; not a complete runtime collision test."
+  },
+  "guard_uv_checks": [
+    {
+      "object": "GEO-DREAM-waveterminal-terminal_guard_left",
+      "min_uv_face_area_m2": 8.803125709744286e-05,
+      "all_faces_explicit_uv": true
+    },
+    {
+      "object": "GEO-DREAM-waveterminal-terminal_guard_right",
+      "min_uv_face_area_m2": 8.803125709745674e-05,
+      "all_faces_explicit_uv": true
+    }
+  ],
+  "default_builder_pure_outputs_unchanged": {
+    "floor": "6990df5e0a1b8e16785e54ed78bde2bc29d6bbef763829740650045988a5cf96",
+    "left_rail": "27320aba2a16ef49cb210bda743cb1ad634e7890ccf3b31f8ccbf816e103d991",
+    "right_rail": "7ff7f3977d73da3da896579065811af2c45066018d5ec63a3f85d3733b2b12ef",
+    "doors": "8470e7cac99f91aa805d19cbd7d1f1e0a678da8232235d6146f7dd7427d144f2",
+    "navigation": "703ff2717c78564f9cc4658a23dafb57a582dbd024744ad2b589d74dc3ca15f1"
+  },
+  "canonical_runtime_files_unchanged": {
+    "blender/wave_corridor.blend": "abb81fd3ac461d1202fe4a1df6af890d72aced953a4eaa53b9421611869c520b",
+    "assets/wave_corridor.dreammesh": "7c558f098c63c2f06af3b359820976fe1ba63e9c958b2ce497754ec8aba6a53b",
+    "assets/wave_corridor.glb": "ea96cc78e05296bf98091ca8e3eab4d09bebe04114c25e995931702558a9a78d",
+    "assets/wave_corridor.json": "a38e78f7d62ca8ea36a7c38e011873e333071742b0eb530e8fa2d1ae055e2b68",
+    "assets/wave_corridor.scene": "140a87463ec2ef6fb03445e295e96c383a8593b1606fd61e7ccbd364d812e945",
+    "assets/wave_corridor.draws": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "assets/scene_catalog.cat": "3f9abc22edab725bc879a4a869d616196c5375fb00d797a934df7306d1c4547f",
+    "runtime/src/main.cpp": "2b6a4a3fdffba6def5b01d4792538642de8f2e7db281755ad132b7385cc71808",
+    "runtime/src/scene.hpp": "ff584d62573c929b54bcde764cf0bd12834d1ff671cde065bd47f57c88c7dc24",
+    "runtime/src/scene_catalog.hpp": "26ece2ccbdd2ddf15e31266bb1be4f0e78762fe8c80ee0e0b67cd69d6d7331b7",
+    "runtime/src/render_support.hpp": "d4d15b1ca34cd7b53644afcc1128ca7090dcf974c9bf3ef4953e0abe6a75817e",
+    "runtime/shaders/scene.frag": "489e1f053c383187601cbe3e3fa5093b2575b51cb0bd5720929ce8341fe753c2",
+    "assets/textures/wave_neutral_environment.bmp": "f4a079251e841bbd166edefd1e0b4ec3a5e95bacac774270f195e2b45149068e",
+    "assets/textures/wave_surface_data.bmp": "bf5b0f0c3347ca5e5346a8d5a2fe56807390a7930cf6b5d926b96ed2fbc734d5",
+    "assets/textures/wave_candidate/wave_ceiling_albedo.bmp": "e541e9123ecbf15230fd76c889c4b02f92e3a28bf6a15a30242b8a4730999cc8",
+    "assets/textures/wave_candidate/wave_ceiling_albedo.png": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5",
+    "assets/textures/wave_candidate/wave_ceiling_roughness.bmp": "0582adcee26ff6a430ea0c2505cc01fdeb3f47a443e83a54d205ccf185644b23",
+    "assets/textures/wave_candidate/wave_ceiling_roughness.png": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec",
+    "assets/textures/wave_candidate/wave_exit_albedo_candidate.bmp": "8dab54661c484d97f464c646435190e2c8d09f9347bb2e661fea9bac684e27b8",
+    "assets/textures/wave_candidate/wave_exit_albedo_candidate.png": "d39e49d26d952322c6daa3b1bbab4bf5320c0b1c71672523b9a8e301e89aba92",
+    "assets/textures/wave_candidate/wave_exit_albedo_dark.bmp": "d98872d6aa182f9dff3505848ebbc7f09c67a3123a46d20fd38740e2f9d77b8a",
+    "assets/textures/wave_candidate/wave_exit_albedo_dark.png": "642985cedf580384aa9486308bfd2b704a9e69b577304055b5fcdfacd2361e2c",
+    "assets/textures/wave_candidate/wave_exit_emission_candidate.bmp": "821806dcedfae2af4218c94dababb837dff977ab0cd82e191c459ae81ecb6b1e",
+    "assets/textures/wave_candidate/wave_exit_emission_candidate.png": "8706116636d3c28f5c6c776e124bb96428977fa4fb99685fd9388ee086ac0f34",
+    "assets/textures/wave_candidate/wave_exit_emission_dark.bmp": "747114c68958a556d0643fcf8ca291181535f8cc752e19dad686bb9609424c21",
+    "assets/textures/wave_candidate/wave_exit_emission_dark.png": "096c1b9e0b13430281815cee5fb8fb36ab8d76ef76d10411dab8249f2841af57",
+    "assets/textures/wave_candidate/wave_floor_albedo.bmp": "e35503ac06c77b8d6aef11dc58b7955f31ef27c9439f755fb0235ad4bb22b962",
+    "assets/textures/wave_candidate/wave_floor_albedo.png": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af",
+    "assets/textures/wave_candidate/wave_floor_normal.bmp": "f54be2d14af93f5c55a178f08b801161969ebaf2882d3b4f870a49c8e349c1da",
+    "assets/textures/wave_candidate/wave_floor_normal.png": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea",
+    "assets/textures/wave_candidate/wave_floor_roughness.bmp": "ebbf9afe9ed62d31a3b054ca3b2887d804b3208bf41620d724ea516b44e8d224",
+    "assets/textures/wave_candidate/wave_floor_roughness.png": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1",
+    "assets/textures/wave_candidate/wave_paint_normal.bmp": "d6e096d35eedc5fe2fd41f76e214d94c9201e3d5a5f00db48829d96c54437fb8",
+    "assets/textures/wave_candidate/wave_paint_normal.png": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa",
+    "assets/textures/wave_candidate/wave_wall_albedo.bmp": "a2336c6d078f98942a1c7efb47e7301519d1269a76fe1da552ae7c1f010aa93e",
+    "assets/textures/wave_candidate/wave_wall_albedo.png": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb",
+    "assets/textures/wave_candidate/wave_wall_roughness.bmp": "933ebbbc0d9cdbced48ba1db88eb1b4837d92b00a503a43a08f3720f4f802263",
+    "assets/textures/wave_candidate/wave_wall_roughness.png": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f"
+  },
+  "binary_unchanged_sha256": "88ec7e406a7a9463c153156c9f4fd3a8c7154071718a2133e48f1b30554069a3",
+  "original_reference_files_verified": 56,
+  "previous_motion_blend_unchanged_sha256": "373cdcada85befe0dec3b186c5b8745599066cdb8b5ddf05d10d54e633ced699",
+  "history_policy": "wave-motion/review.json describes the previous snapshot. Its builder hash predates the optional open-terminal support; its saved .blend and renders remain unchanged.",
+  "limitations": [
+    "The source foot locations are partially occluded, and the two guards still differ by up to 13 pixels in the sampled views.",
+    "The 17s opening-top observations regress: left error increases from 38 to 59 px and right from 17 to 44 px. Do not promote this geometry as an overall fidelity improvement.",
+    "Opening height, low trim cross-section, background supports and the dark rear grid are unresolved.",
+    "Panel infill, final guard metal finish, texture alignment and lighting have not been accepted.",
+    "This is a separate Blender reconstruction; there is no new OpenGL export or tested runtime navigation for this variant."
+  ],
+  "next_action": "Resolve the conflicting 17s ceiling/opening-top observations against the continuous source before changing ceiling geometry or promoting the new floor. Then refine hall supports using full surfaces, separating pale paint, turquoise cladding and floor contact.",
+  "sha256": {
+    "blender/build_wave_corridor.py": "49baa97af998cab59f35412a5ea57b22efbb5f8011c7abd0816ebfe728044ddf",
+    "blender/build_wave_terminal_candidate.py": "7e765fd529128e1adb13998aceb02ebefade34502adf650a2e3262fccac53f25",
+    "blender/wave_corridor_terminal_candidate.blend": "2c4a5a3c07eab85832036f32aea58b46ea04e80ef884789b0a336b61271316e3",
+    "validation/fit_wave_terminal.py": "66fda5b2a96a1e0171bd7fc743362a683e6f7ad0da739f107cbbdcbfd6ae3ca3",
+    "validation/fit_wave_terminal_geometry.py": "1cdb1efcf1979ca55326effb890272d6e4592c34ad069b40d54258dbba10ff56",
+    "validation/record_wave_terminal_review.py": "ad5bb5b6f3ec5374551e57ff178d6d4417722b0c2be7a1a010d8a8af775a07fd",
+    "validation/track_wave_terminal.py": "8d2c89db00ba0efbbd61ebe0165cecde1fa41e6e0acbdfc88d84eaaa3c060070",
+    "validation/wave-terminal/comparison.png": "461d14dc0a2a576dd747547ea78988367ffba85b8aa0f0f35fa91ff5b3729daf",
+    "validation/wave-terminal/default-builder-before.json": "c4c20319e839acf79e02b2ee0d209fd78d1a0ff10bb70a106973a54da3aa3cf4",
+    "validation/wave-terminal/fit.json": "bad890fa9e5c8fd21b8d68bbd21ee3917bf4eea65d7f13c053da05bcd7dda8f6",
+    "validation/wave-terminal/geometry-candidate.json": "3e0a68c06ea166ac69c5017150cb9102fd02543526a5cb926e28aa210bc9a921",
+    "validation/wave-terminal/gray-14s.png": "d1689f256774f82ec9693224b44f0ebb4ff11eb5596a17991db0361b8e5e0cb5",
+    "validation/wave-terminal/gray-15.5s.png": "84d61944c460b99e036c915944394b335e0a402dd2719ed3c5761d1696e26503",
+    "validation/wave-terminal/gray-17s.png": "859c3a826d9807dc4260449fce2ed72e38acbeafc68e24cf10931803bd11722b",
+    "validation/wave-terminal/gray-reverse.png": "9d01a25b0f77f840f79c6a1a97ed49d4c924dda51d948a18fc4553261a420eae",
+    "validation/wave-terminal/mesh-attachments.json": "25b78f573480298a8966ad4a3b0bbbfab30d05d03427a2e56e9d5600d4152761",
+    "validation/wave-terminal/native-audit.json": "e3c4c1f24b59d0d6d6fd9f6b2e2098471bdd3579d27b805db6a30be0a7c8c142",
+    "validation/wave-terminal/rail-tracks.json": "c1d8ab0fbeea4aca555dbe831d908ee416a5e93435962b6cecb0d507fd4f816b",
+    "validation/wave-terminal/rail-tracks.png": "c53b905796f537832af87a751a06487d6d60672c93e31b588d12a0bd02563dd5",
+    "validation/wave-terminal/source-rails.png": "2af82b1f31d3fa4e36378ae33aad92487799309b4d56759ef436924e3e663d8c"
+  }
+}

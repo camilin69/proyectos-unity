@@ -1,0 +1,66 @@
+{
+  "schema": "dream.ocean_exit_camera_fit.v1",
+  "secondary_camera": {
+    "position_m": [
+      -0.20335495928623457,
+      1.5268754106069296,
+      0.7869887146452662
+    ],
+    "yaw_rad": 1.5205443883792096,
+    "pitch_rad": 0.09758835262240971,
+    "roll_rad": -0.011267025921524567,
+    "tan_half_vertical_fov": 0.85,
+    "render_px": [
+      478,
+      850
+    ],
+    "time_s": 11.5,
+    "principal_y_px": 224.10021449508235,
+    "shift_y": -0.4202924382948068
+  },
+  "observed_door_px": [
+    [
+      125,
+      64
+    ],
+    [
+      350,
+      66
+    ],
+    [
+      350,
+      380
+    ],
+    [
+      133,
+      383
+    ]
+  ],
+  "projected_door_px": [
+    [
+      129.42189935020906,
+      65.16325216367622
+    ],
+    [
+      346.13349386508594,
+      67.20921260447093
+    ],
+    [
+      356.4672855029594,
+      377.83703031721416
+    ],
+    [
+      126.08035712266884,
+      382.90932655450104
+    ]
+  ],
+  "door_corner_rms_px": 5.738299249838185,
+  "horizon_reference_y_px": 280,
+  "horizon_projected_y_px": 273.3711224780744,
+  "fixed_intrinsics": [
+    "tan_half_vertical_fov",
+    "principal_y_px",
+    "shift_y"
+  ],
+  "limitation": "Four manual door corners and approximate horizon fit only. Other scene landmarks and rendered appearance remain validation evidence, not this training residual."
+}

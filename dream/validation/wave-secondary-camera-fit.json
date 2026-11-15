@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "status": "secondary_gray_and_material_views_rendered_unaccepted",
+  "accepted": false,
+  "source": "dream/validation/wave-reference-15p5s.png",
+  "source_sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960",
+  "time_s": 15.5,
+  "camera": {
+    "position_m": [
+      0.036399550452858545,
+      1.3312043060552419,
+      1.1618480513875529
+    ],
+    "yaw_rad": 1.7571172504362311,
+    "pitch_rad": -0.22038475101004887,
+    "roll_rad": 0.030895012768772944,
+    "tan_half_vertical_fov": 0.803860936419869,
+    "render_px": [
+      478,
+      850
+    ],
+    "status": "Approximate fixed-geometry/FOV 15.5 s pose; residuals reported, not accepted.",
+    "reference_time_s": 15.5
+  },
+  "fixed_geometry_and_primary_camera_hash": "652a23312d19d45553743e1ef175012cdf077906c460c243641e08fa5d15894b",
+  "fov_fixed_to_primary": true,
+  "geometry_modified": false,
+  "landmarks": [
+    {
+      "id": "second_door_outer_top_near",
+      "pixel_xy": [
+        111,
+        145
+      ],
+      "uncertainty_px": 6,
+      "projected_px": [
+        121.65908388603835,
+        149.23287821495165
+      ],
+      "delta_px": [
+        10.659083886038346,
+        4.232878214951654
+      ],
+      "distance_px": 11.468797987244113,
+      "use": "fit"
+    },
+    {
+      "id": "second_door_outer_top_far",
+      "pixel_xy": [
+        200,
+        195
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        193.27799537132333,
+        200.7717798439135
+      ],
+      "delta_px": [
+        -6.722004628676672,
+        5.771779843913492
+      ],
+      "distance_px": 8.859954220793504,
+      "use": "fit"
+    },
+    {
+      "id": "aperture_top_left",
+      "pixel_xy": [
+        269,
+        240
+      ],
+      "uncertainty_px": 9,
+      "projected_px": [
+        276.7885364741196,
+        230.20935536031382
+      ],
+      "delta_px": [
+        7.78853647411961,
+        -9.790644639686178
+      ],
+      "distance_px": 12.510716321190694,
+      "use": "fit"
+    },
+    {
+      "id": "nearest_full_lamp_center",
+      "pixel_xy": [
+        358,
+        54
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        355.43048691316744,
+        44.464272210716445
+      ],
+      "delta_px": [
+        -2.5695130868325577,
+        -9.535727789283555
+      ],
+      "distance_px": 9.875854493395416,
+      "use": "fit"
+    },
+    {
+      "id": "next_lamp_center",
+      "pixel_xy": [
+        350,
+        160
+      ],
+      "uncertainty_px": 6,
+      "projected_px": [
+        350.67993065936867,
+        162.40011463838232
+      ],
+      "delta_px": [
+        0.6799306593686651,
+        2.4001146383823198
+      ],
+      "distance_px": 2.4945652885676495,
+      "use": "fit"
+    },
+    {
+      "id": "far_lamp_center",
+      "pixel_xy": [
+        345,
+        215
+      ],
+      "uncertainty_px": 7,
+      "projected_px": [
+        348.48657928332597,
+        216.85157852045475
+      ],
+      "delta_px": [
+        3.486579283325966,
+        1.8515785204547512
+      ],
+      "distance_px": 3.9477307552981893,
+      "use": "fit"
+    },
+    {
+      "id": "aperture_top_right",
+      "pixel_xy": [
+        419,
+        241
+      ],
+      "uncertainty_px": 16,
+      "reason": "Right hall edge is partly occluded/ambiguous; observation only.",
+      "projected_px": [
+        422.8890213388052,
+        230.8314233963051
+      ],
+      "use": "excluded"
+    },
+    {
+      "id": "second_door_bottom_far",
+      "pixel_xy": [
+        212,
+        495
+      ],
+      "uncertainty_px": 18,
+      "reason": "Dark edge masks the lower jamb; not a measured threshold.",
+      "projected_px": [
+        188.79905491975825,
+        501.480804188385
+      ],
+      "use": "excluded"
+    }
+  ],
+  "visible_jamb_checks": [
+    {
+      "side": "near",
+      "pixel_xy": [
+        122,
+        325
+      ],
+      "uncertainty_px": 8,
+      "perpendicular_error_px": 2.6234508649047608,
+      "note": "Point-to-line constraint on a visible jamb segment; its height is not assigned to a 3D sill."
+    },
+    {
+      "side": "far",
+      "pixel_xy": [
+        206,
+        325
+      ],
+      "uncertainty_px": 6,
+      "perpendicular_error_px": -14.028333767699175,
+      "note": "Point-to-line constraint on a visible jamb segment; its height is not assigned to a 3D sill."
+    }
+  ],
+  "weighted_rms": 1.0434644544332414,
+  "solver_success": true,
+  "eye_height_diagnostic": {
+    "primary_eye_height_m": 1.460126912250797,
+    "candidate_floor_z_m": -0.08966755778365512,
+    "candidate_eye_height_m": 1.251515609171208,
+    "difference_m": -0.20861130307958886,
+    "constant_eye_height_fit": {
+      "camera": {
+        "position_m": [
+          0.0032989674538404217,
+          1.4238471009613611,
+          1.3405701685392568
+        ],
+        "yaw_rad": 1.7466907241749183,
+        "pitch_rad": -0.2597931570275965,
+        "roll_rad": 0.046878956668414004,
+        "tan_half_vertical_fov": 0.803860936419869,
+        "render_px": [
+          478,
+          850
+        ]
+      },
+      "support_z_m": -0.11955674371154015,
+      "weighted_rms": 1.3228857799822529
+    },
+    "interpretation": "A lower fitted eye height may indicate a too-shallow first flight, handheld camera motion, or remaining shape/intrinsic mismatch. It does not recover physical step heights."
+  },
+  "primary_render_review": {
+    "path": "dream/validation/wave-gray-v2.png",
+    "sha256": "f50061d454e84a1a720f67862d86ce3ca5c4edb4adc2eee80748e079ec4df3b4",
+    "root_reported_objects": 56,
+    "observed_improvements": [
+      "Both left doors now occupy the correct depth order and rough upper silhouettes.",
+      "The spurious near ceiling fixtures are gone; the first full lamp is near the measured height.",
+      "Gray surfaces no longer clip strongly, making the step/trim geometry inspectable."
+    ],
+    "remaining": [
+      "The far hall still reads as a shallow gridded recess rather than the more open source.",
+      "The first flight is very shallow; its five ~3 cm risers remain unvalidated.",
+      "Dark edge shape/height and door-bottom occlusion remain approximate.",
+      "Door lower proportions and lamp apparent sizes need real multi-view review."
+    ]
+  },
+  "limitations": [
+    "Six camera degrees of freedom only; v2 scene dimensions, door openings, floor, trim and FOV were held fixed.",
+    "Manual source pixels have stated uncertainty; diffuser glow and reveal thickness make exact corners/centroids ambiguous.",
+    "Aperture right edge and lower door are excluded from pose constraints.",
+    "Visible jamb directions are included without assigning a hidden floor/sill height.",
+    "Residuals are not a fidelity percentage and do not constitute a geometry pass.",
+    "No new Blender render or scene mutation occurred in this script."
+  ],
+  "script_sha256": "2127559a5f55ef4c43dc84d483ca156ffad43e5ebb77af1d1bf91e1b5d4cdf7a",
+  "projection_proof": "dream/validation/wave-secondary-projection.png",
+  "plan_sha256_after": "83887cf0ce552bbb5861b81b73f24e11895e62588e7711dd36a6351c02bb9756",
+  "verification": {
+    "syntax": "PASS ast.parse",
+    "protected_constructor_hash": "PASS geometry, primary camera and lighting settings unchanged",
+    "fov": "PASS identical to primary camera",
+    "diagnostic_exposure": -1.2,
+    "diagnostic_light_energy_w": 70,
+    "blender_executed_by_this_task": false
+  },
+  "independent_visual_review": {
+    "reviewer": "fidelity_audit",
+    "mode": "read-only",
+    "finding": "Confirmed approximate head/lamp/left aperture anchors. Second visible left door is almost complete; first door is clipped. No reliable right hall corner or sill anchor. Fine riser count is obscured by paint/gloss; far gridded panel is provisional, not proof of mirror/window."
+  },
+  "render_evidence": {
+    "gray": "dream/validation/wave-gray-v2-secondary.png",
+    "material": "dream/validation/wave-material-v5-secondary.png",
+    "review": "dream/validation/wave-material-review.json",
+    "limitations": [
+      "Door bases and step layout differ from the source.",
+      "Far hall interpretation remains unresolved."
+    ]
+  }
+}

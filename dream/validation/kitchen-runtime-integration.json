@@ -1,0 +1,127 @@
+{
+  "schema": "dream.kitchen_runtime_integration.v1",
+  "created_at_utc": "2026-10-09T04:42:07.559469+00:00",
+  "scene": "video-42/cocina_pradera",
+  "status": "functional_material_prototype",
+  "visual_accepted": false,
+  "goal_complete": false,
+  "gpu": "Intel HD Graphics 630",
+  "driver_opengl": "3.3.0 - Build 31.0.101.2141",
+  "checks": [
+    {
+      "command": "dream.exe --hidden --scene kitchen_meadow --capture dream/validation/kitchen-opengl-initial.ppm --frames 8 --time 0 --samples 4 --width 478 --height 850",
+      "exit_code": 0,
+      "frames": 8,
+      "elapsed_s": 0.368854,
+      "gl_error": 0,
+      "vertices": 145935
+    },
+    {
+      "command": "dream.exe --hidden --scene kitchen_meadow --cycle --smoke --width 64 --height 64 --frames 481 --samples 4",
+      "exit_code": 0,
+      "frames": 481,
+      "elapsed_s": 0.962366,
+      "gl_error": 0,
+      "mouse_orientation": "PASS",
+      "scene_sequence": [
+        "kitchen_meadow",
+        "atrium",
+        "kitchen_meadow"
+      ],
+      "resize_exercised": [
+        [
+          640,
+          480
+        ],
+        [
+          64,
+          64
+        ]
+      ]
+    },
+    {
+      "command": "dream.exe --validate-scenes",
+      "exit_code": 0,
+      "validated": [
+        "pastel_room",
+        "kitchen_meadow",
+        "atrium"
+      ],
+      "backend": "CPU without GLFW"
+    }
+  ],
+  "navigation_report": "kitchen-navigation-validation.json",
+  "visual_inspection": {
+    "blender": "kitchen-blender.png",
+    "opengl": "kitchen-opengl-initial.png",
+    "findings": [
+      "Geometry and grass/sky map placement remain consistent between renderers at reference camera.",
+      "OpenGL interior is muted warm pink; Blender interior is cold cyan/lavender. Neither look is finally calibrated.",
+      "Grass is visibly sparse and distant ground remains a flat surface; denser natural clumping is needed.",
+      "Ceiling diffuser bars are too sharp; source has softer light.",
+      "Horizon and cloud bank are visible, but cloud shapes and grass texture differ from source."
+    ],
+    "reference": "../referencias/estetica/evidencias/video-42/02s.png",
+    "fidelity_accepted": false
+  },
+  "limitations": [
+    "Hidden-context checks are not a fullscreen FPS guarantee or manual playtest.",
+    "The cycle command verifies kitchen/atrium transitions only; catalogue/room regression has separate historical evidence.",
+    "No fresh animation-fidelity test for all 13 environments.",
+    "The first OpenGL material profile is a draft and does not reproduce Blender lighting exactly."
+  ],
+  "artifacts": {
+    "runtime/build/dream.exe": {
+      "bytes": 3345304,
+      "sha256": "3ef1c997128bed192a2474fd238c7e5d6fc43ab4a4b8bda1b4b203a5c6ceb484"
+    },
+    "runtime/src/main.cpp": {
+      "bytes": 14316,
+      "sha256": "47c27e9c2887d6107c2929ddae68dd24adf54d8fd5de7199228468902f5edc03"
+    },
+    "runtime/src/scene.hpp": {
+      "bytes": 11538,
+      "sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e"
+    },
+    "runtime/src/scene_catalog.hpp": {
+      "bytes": 10038,
+      "sha256": "1708fb408ef609c4dfe8ce407fb4ada3be927ad4968a1eb9dfd0c9f4c70c902f"
+    },
+    "runtime/shaders/scene.frag": {
+      "bytes": 11402,
+      "sha256": "97c1f9f2edf80641a8d8b303f3aabd395b29539bf3a6aeb28c63d87d45b1e1ae"
+    },
+    "assets/scene_catalog.cat": {
+      "bytes": 4053,
+      "sha256": "e5e5252f50068372a368df093be3a3740fefc545f20c0ff0fd1f10042a193ea5"
+    },
+    "assets/kitchen_meadow.dreammesh": {
+      "bytes": 5837864,
+      "sha256": "c16bc63d1fa167f2cd43d04bc5eac4dc27e664333d301a68fa197ef34a4f4cac"
+    },
+    "assets/kitchen_meadow.scene": {
+      "bytes": 1117,
+      "sha256": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7"
+    },
+    "assets/kitchen_meadow.glb": {
+      "bytes": 7424704,
+      "sha256": "b806677da67d78138d69b104d25e2130b3e76803c17dd097f26df97ac69a1dc8"
+    },
+    "blender/kitchen_meadow.blend": {
+      "bytes": 9116967,
+      "sha256": "fb741f734879a540e91ffeefee537981ad89faa1cef97cfec0756f7c0b303577"
+    },
+    "validation/kitchen-opengl-initial.png": {
+      "bytes": 198633,
+      "sha256": "da2e0a7e78c4ca45ced6c69c07ba811d69cbed1e77c052b3bb1ad01046454986"
+    },
+    "validation/kitchen-blender.png": {
+      "bytes": 518289,
+      "sha256": "3041377641ca643ee2cc5ad15df7ee9ce089916e929bb01bfd9e6449e652a149"
+    },
+    "validation/kitchen-navigation-validation.json": {
+      "bytes": 27525,
+      "sha256": "045f363bac72428ab764ffb1476955a30bc2d951b000982f90eeff2a2a925b67"
+    }
+  }
+}

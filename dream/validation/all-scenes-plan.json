@@ -9,13 +9,15 @@
   "inventory": {
     "unique_scenes": 13,
     "temporal_entries": 20,
-    "implemented_prototypes": 2,
-    "not_implemented": 11,
+    "implemented_prototypes": 7,
+    "not_implemented": 6,
     "strictly_accepted_scenes": 0,
     "reference_texture_crops": 25,
     "native_reference_frames": 19,
     "editorial_entries": 3,
-    "return_entries": 4
+    "return_entries": 4,
+    "counting_rule": "Seven available runtime prototypes, six without runtime. No strict visual acceptance is implied.",
+    "blender_only_prototypes": 0
   },
   "inventory_rules": {
     "scene_identity": "Retornos video35 son cuatro vistas adicionales de los mismos cuatro escenarios.",
@@ -28,22 +30,44 @@
   "cross_scene_dependencies": [
     {
       "id": "runtime_scene_catalog",
-      "status": "required_not_completed",
-      "observed_constraint": "Root confirma runtime actual de dos perfiles: habitacion0 y atrio para el resto.",
-      "required_change": "Catalogo explicito de 13 escenas/IDs y conmutacion sin aliasar todas al atrio; camaras de referencia y recorrido por escena."
+      "status": "implemented_13_ids_7_available",
+      "observed_constraint": "Catálogo explícito de 13 IDs, disponibilidad separada de aceptación; Tab/Shift+Tab y selección por alias.",
+      "required_change": "Catalogo explicito de 13 escenas/IDs y conmutacion sin aliasar todas al atrio; camaras de referencia y recorrido por escena.",
+      "initial_status": "required_not_completed",
+      "initial_observed_constraint": "Root confirma runtime actual de dos perfiles: habitacion0 y atrio para el resto.",
+      "remaining_requirement": "Recursos y geometría de los seis IDs planned todavía pendientes.",
+      "evidence": [
+        "dream/assets/scene_catalog.cat",
+        "dream/validation/scene-catalog.json"
+      ]
     },
     {
       "id": "scene_resource_profiles",
-      "status": "required_not_completed",
-      "observed_constraint": "Cielo, probe y mapas globales no sirven como perfil unico de los cuatro videos.",
-      "required_change": "Recursos, luces, materiales y parametros por escena; no contaminar arbol/cocina/paseo con la paleta del cuarto."
+      "status": "implemented_7_explicit_profiles",
+      "observed_constraint": "Perfiles independientes pastel_room=0, atrium=1, kitchen_meadow=2, stair_sky=3, wave_corridor=4, ocean_exit=5 y monumental_tree=6; nueve roles de textura por perfil.",
+      "required_change": "Recursos, luces, materiales y parametros por escena; no contaminar arbol/cocina/paseo con la paleta del cuarto.",
+      "initial_status": "required_not_completed",
+      "initial_observed_constraint": "Cielo, probe y mapas globales no sirven como perfil unico de los cuatro videos.",
+      "remaining_requirement": "Añadir recursos de escena y calibrar luz/materiales para los seis escenarios pendientes.",
+      "evidence": [
+        "dream/assets/scene_catalog.cat",
+        "dream/validation/scene-catalog.json"
+      ]
     },
     {
       "id": "navigation_height_surfaces",
-      "status": "required_not_completed",
-      "observed_constraint": "Root confirma navegacion actual 2D y camara a altura fija.",
+      "status": "implemented_supports_steps_and_ramps",
+      "observed_constraint": "Controlador con apoyos rectangulares, altura de ojos, límites de subida/bajada y rampas analíticas; cocina, escalera y ladera del árbol tienen soporte validado.",
       "required_change": "Superficies caminables con cotas, rampas/escalones/terreno y plataformas si necesarias; obstaculos, agua y puertas.",
-      "must_not_claim": "Exportar escalera/ladera/ascensor no demuestra recorrido si la altura sigue fija."
+      "must_not_claim": "Exportar escalera/ladera/ascensor no demuestra recorrido si la altura sigue fija.",
+      "initial_status": "required_not_completed",
+      "initial_observed_constraint": "Root confirma navegacion actual 2D y camara a altura fija.",
+      "remaining_requirement": "Pendientes plataformas móviles y ascensor cuando lo requiera cada escena; las rampas se validan por separado por escena.",
+      "evidence": [
+        "dream/validation/navigation-height-validation.json",
+        "dream/validation/kitchen-navigation-validation.json",
+        "dream/validation/stair-navigation-validation.json"
+      ]
     },
     {
       "id": "material_feature_support",
@@ -74,7 +98,7 @@
     "video-52/ascensor_acuario",
     "video-52/sala_planetaria"
   ],
-  "order_note": "Orden propuesto a root, no ejecucion completada. Agrupa recursos relacionados y usa los dos prototipos sin omitir intervalos.",
+  "order_note": "Orden de construcción propuesto; siete prototipos disponibles no equivalen a ejecución de todas las escenas.",
   "videos": [
     {
       "video_id": "video-35",
@@ -839,7 +863,9 @@
         "navigation": "height_aware_as_required_by_geometry",
         "comparison_and_animation_evidence": "pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [],
+      "runtime_implemented": false,
+      "runtime_alias": "v35_flooded_atrium"
     },
     {
       "scene_id": "video-35/paseo_palmeras",
@@ -996,7 +1022,9 @@
         "navigation": "height_aware_as_required_by_geometry",
         "comparison_and_animation_evidence": "pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [],
+      "runtime_implemented": false,
+      "runtime_alias": "v35_palm_walk"
     },
     {
       "scene_id": "video-35/escalera_cielo",
@@ -1015,7 +1043,7 @@
           23
         ]
       ],
-      "status": "not_implemented",
+      "status": "implemented_material_prototype_reference_fidelity_pending",
       "strict_acceptance": false,
       "observed": {
         "descriptions_from_source": [
@@ -1156,17 +1184,56 @@
         "Priorizar masas de color y escala antes de aumentar detalle."
       ],
       "target_deliverables": {
-        "asset_stem": "v35_sky_stairs",
-        "blender": "dream/blender/v35_sky_stairs.blend",
-        "runtime_mesh": "dream/assets/v35_sky_stairs.dreammesh",
-        "runtime_metadata": "dream/assets/v35_sky_stairs.scene",
-        "interchange": "dream/assets/v35_sky_stairs.glb",
-        "reference_camera_set": "planned",
-        "scene_resource_profile": "planned",
-        "navigation": "height_aware_as_required_by_geometry",
-        "comparison_and_animation_evidence": "pending"
+        "asset_stem": "stair_sky",
+        "blender": "dream/blender/stair_sky.blend",
+        "runtime_mesh": "dream/assets/stair_sky.dreammesh",
+        "runtime_metadata": "dream/assets/stair_sky.scene",
+        "interchange": "dream/assets/stair_sky.glb",
+        "reference_camera_set": "primary_and_auxiliary_views_authored",
+        "scene_resource_profile": "stair_sky / environment 3",
+        "navigation": "rectangular_support_height_and_capsule_obstacles",
+        "comparison_and_animation_evidence": "selected_view_comparisons_present_full_interval_motion_fidelity_pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [
+        "dream/blender/stair_sky.blend",
+        "dream/assets/stair_sky.dreammesh",
+        "dream/assets/stair_sky.scene",
+        "dream/assets/stair_sky.glb",
+        "dream/validation/stair-sky-geometry-review.json",
+        "dream/validation/stair-navigation-validation.json",
+        "dream/validation/stair-look-initial.json"
+      ],
+      "runtime_implemented": true,
+      "runtime_alias": "stair_sky",
+      "previous_implementation_snapshot": {
+        "status": "not_implemented",
+        "existing_artifacts_verified": [],
+        "target_deliverables": {
+          "asset_stem": "v35_sky_stairs",
+          "blender": "dream/blender/v35_sky_stairs.blend",
+          "runtime_mesh": "dream/assets/v35_sky_stairs.dreammesh",
+          "runtime_metadata": "dream/assets/v35_sky_stairs.scene",
+          "interchange": "dream/assets/v35_sky_stairs.glb",
+          "reference_camera_set": "planned",
+          "scene_resource_profile": "planned",
+          "navigation": "height_aware_as_required_by_geometry",
+          "comparison_and_animation_evidence": "pending"
+        }
+      },
+      "stage": "material_and_lighting_calibration_with_runtime_export",
+      "progress_note": "Materiales y geometría exportados; recorrido disponible con apoyos y colisiones. La semejanza visual permanece pendiente; no se ha aceptado esta escena ni todos los intervalos del vídeo.",
+      "implementation_progress": {
+        "profile": "stair_sky",
+        "environment": 3,
+        "runtime_available": true,
+        "geometry_acceptance": false,
+        "material_acceptance": false,
+        "full_video_motion_acceptance": false,
+        "asset_evidence": "dream/validation/stair-sky-geometry-review.json",
+        "navigation_evidence": "dream/validation/stair-navigation-validation.json",
+        "look_evidence": "dream/validation/stair-look-initial.json",
+        "limits": "Césped próximo oscuro, hojas/fibras rígidas, caras verdes verticales expuestas, huellas poco luminosas y nubes de forma distinta."
+      }
     },
     {
       "scene_id": "video-35/habitacion_nubes",
@@ -1355,7 +1422,9 @@
         "dream/assets/pastel_room.dreammesh",
         "dream/assets/pastel_room.scene",
         "dream/assets/pastel_room.glb"
-      ]
+      ],
+      "runtime_implemented": true,
+      "runtime_alias": "pastel_room"
     },
     {
       "scene_id": "video-42/cocina_pradera",
@@ -1369,7 +1438,7 @@
           6.17
         ]
       ],
-      "status": "gray_blockout_rendered_no_runtime",
+      "status": "implemented_material_prototype_reference_fidelity_pending",
       "strict_acceptance": false,
       "observed": {
         "descriptions_from_source": [
@@ -1499,10 +1568,10 @@
         "runtime_mesh": "dream/assets/kitchen_meadow.dreammesh",
         "runtime_metadata": "dream/assets/kitchen_meadow.scene",
         "interchange": "dream/assets/kitchen_meadow.glb",
-        "reference_camera_set": "planned",
-        "scene_resource_profile": "planned",
-        "navigation": "height_aware_as_required_by_geometry",
-        "comparison_and_animation_evidence": "pending"
+        "reference_camera_set": "primary_and_auxiliary_views_authored",
+        "scene_resource_profile": "kitchen_meadow / environment 2",
+        "navigation": "rectangular_support_height_and_capsule_obstacles",
+        "comparison_and_animation_evidence": "selected_view_comparisons_present_full_interval_motion_fidelity_pending"
       },
       "existing_artifacts_verified": [
         "dream/blender/build_kitchen.py",
@@ -1512,10 +1581,55 @@
         "dream/validation/kitchen-blockout-initial.png",
         "dream/validation/kitchen-blockout-comparison.png",
         "dream/validation/kitchen-blockout-scene.json",
-        "dream/validation/kitchen-blockout.json"
+        "dream/validation/kitchen-blockout.json",
+        "dream/assets/kitchen_meadow.dreammesh",
+        "dream/assets/kitchen_meadow.scene",
+        "dream/assets/kitchen_meadow.glb",
+        "dream/validation/kitchen-runtime-integration.json",
+        "dream/validation/kitchen-navigation-validation.json",
+        "dream/validation/kitchen-look-initial.json"
       ],
-      "runtime_implemented": false,
-      "progress_note": "53 meshes, 56 objects. Gray geometry inspected; not accepted. No change to 2 runtime prototypes / 11 without runtime / 0 strictly accepted."
+      "runtime_implemented": true,
+      "progress_note": "Materiales y geometría exportados; recorrido disponible con apoyos y colisiones. La semejanza visual permanece pendiente; no se ha aceptado esta escena ni todos los intervalos del vídeo.",
+      "runtime_alias": "kitchen_meadow",
+      "previous_implementation_snapshot": {
+        "status": "gray_blockout_rendered_no_runtime",
+        "progress_note": "53 meshes, 56 objects. Gray geometry inspected; not accepted. No change to 2 runtime prototypes / 11 without runtime / 0 strictly accepted.",
+        "existing_artifacts_verified": [
+          "dream/blender/build_kitchen.py",
+          "dream/blender/kitchen_plan.json",
+          "dream/blender/kitchen_meadow.blend",
+          "dream/validation/kitchen-blockout.png",
+          "dream/validation/kitchen-blockout-initial.png",
+          "dream/validation/kitchen-blockout-comparison.png",
+          "dream/validation/kitchen-blockout-scene.json",
+          "dream/validation/kitchen-blockout.json"
+        ],
+        "target_deliverables": {
+          "asset_stem": "kitchen_meadow",
+          "blender": "dream/blender/kitchen_meadow.blend",
+          "runtime_mesh": "dream/assets/kitchen_meadow.dreammesh",
+          "runtime_metadata": "dream/assets/kitchen_meadow.scene",
+          "interchange": "dream/assets/kitchen_meadow.glb",
+          "reference_camera_set": "planned",
+          "scene_resource_profile": "planned",
+          "navigation": "height_aware_as_required_by_geometry",
+          "comparison_and_animation_evidence": "pending"
+        }
+      },
+      "stage": "material_and_lighting_calibration_with_runtime_export",
+      "implementation_progress": {
+        "profile": "kitchen_meadow",
+        "environment": 2,
+        "runtime_available": true,
+        "geometry_acceptance": false,
+        "material_acceptance": false,
+        "full_video_motion_acceptance": false,
+        "asset_evidence": "dream/validation/kitchen-runtime-integration.json",
+        "navigation_evidence": "dream/validation/kitchen-navigation-validation.json",
+        "look_evidence": "dream/validation/kitchen-look-initial.json",
+        "limits": "Césped disperso/facetado, interior frío en Blender y difusores duros; candidatos posteriores requieren comparación propia."
+      }
     },
     {
       "scene_id": "video-42/salida_oceano",
@@ -1529,7 +1643,7 @@
           12.33
         ]
       ],
-      "status": "not_implemented",
+      "status": "implemented_prototype_reference_fidelity_pending",
       "strict_acceptance": false,
       "observed": {
         "descriptions_from_source": [
@@ -1672,12 +1786,50 @@
         "runtime_mesh": "dream/assets/v42_ocean_exit.dreammesh",
         "runtime_metadata": "dream/assets/v42_ocean_exit.scene",
         "interchange": "dream/assets/v42_ocean_exit.glb",
-        "reference_camera_set": "planned",
-        "scene_resource_profile": "planned",
+        "reference_camera_set": "OpenGL 7 s primary; additional Blender camera reviews at 9 s and 11.5 s",
+        "scene_resource_profile": "ocean_exit (environment 5)",
         "navigation": "height_aware_as_required_by_geometry",
-        "comparison_and_animation_evidence": "pending"
+        "comparison_and_animation_evidence": "runtime-prototype.json plus OpenGL captures at shader times 0 and 2.5 s; more source views pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [
+        "dream/blender/ocean_exit_water.blend",
+        "dream/assets/v42_ocean_exit.dreammesh",
+        "dream/assets/v42_ocean_exit.scene",
+        "dream/assets/v42_ocean_exit.glb",
+        "dream/validation/ocean-exit/runtime-prototype.json"
+      ],
+      "runtime_implemented": true,
+      "runtime_alias": "v42_ocean_exit",
+      "native_prototype": {
+        "file": "dream/blender/ocean_exit_water.blend",
+        "report": "dream/validation/ocean-exit-motion/review.json",
+        "comparison": "dream/validation/ocean-exit-motion/comparison.png",
+        "preview": "dream/validation/ocean-exit-motion/water-preview.mp4",
+        "initial_native_preserved": "dream/blender/ocean_exit.blend",
+        "initial_report": "dream/validation/ocean-exit/review.json",
+        "runtime_available": true,
+        "remaining": [
+          "Post is visible at 11.5s, but the visible submerged length, bent head and width still differ from the source. Refraction was not included in the geometric fit.",
+          "Foam is too smooth and uniform; it does not yet reproduce turbulent fronts, breakup around borders, or the source motion.",
+          "Exterior ocean waves repeat in regular bands; the source has irregular multi-scale waves.",
+          "Magenta reflection distribution, surface detail, tile gloss, sky streaks, horizon silhouette, service door and small wall fixtures remain unmatched.",
+          "Fixed-lens door fits still have 3.58px RMS at 9s and 5.74px at 11.5s; source labels and camera model need further refinement.",
+          "The C++/OpenGL profile, shifted camera, analytic wave motion, water shading and initial navigation/collision smoke test are implemented; optical fidelity and a longer manual traversal still need review."
+        ]
+      },
+      "open_gl_prototype": {
+        "report": "dream/validation/ocean-exit/runtime-prototype.json",
+        "captures": [
+          "dream/validation/ocean-exit/runtime-final-7s.png",
+          "dream/validation/ocean-exit/runtime-final-9.5s.png",
+          "dream/validation/ocean-exit/runtime-comparison.png"
+        ],
+        "build": "dream/runtime/build.ps1",
+        "profile": "ocean_exit",
+        "shader_environment": 5,
+        "navigation_test": "dream/runtime/tests/ocean_exit_navigation.cpp",
+        "visual_acceptance": false
+      }
     },
     {
       "scene_id": "video-42/pasillo_ondulado",
@@ -1691,7 +1843,7 @@
           17.37
         ]
       ],
-      "status": "not_implemented",
+      "status": "implemented_prototype_reference_fidelity_pending",
       "strict_acceptance": false,
       "observed": {
         "descriptions_from_source": [
@@ -1829,17 +1981,159 @@
         "La cocina requiere transición continua entre césped interior y exterior."
       ],
       "target_deliverables": {
-        "asset_stem": "v42_wavy_corridor",
-        "blender": "dream/blender/v42_wavy_corridor.blend",
-        "runtime_mesh": "dream/assets/v42_wavy_corridor.dreammesh",
-        "runtime_metadata": "dream/assets/v42_wavy_corridor.scene",
-        "interchange": "dream/assets/v42_wavy_corridor.glb",
-        "reference_camera_set": "planned",
-        "scene_resource_profile": "planned",
-        "navigation": "height_aware_as_required_by_geometry",
-        "comparison_and_animation_evidence": "pending"
+        "asset_stem": "wave_corridor",
+        "blender": "dream/blender/wave_corridor.blend",
+        "runtime_mesh": "dream/assets/wave_corridor.dreammesh",
+        "runtime_metadata": "dream/assets/wave_corridor.scene",
+        "interchange": "dream/assets/wave_corridor.glb",
+        "reference_camera_set": "Two provisional cameras rendered at 14s and 15.5s; not accepted.",
+        "scene_resource_profile": "wave_corridor / environment 4",
+        "navigation": "17 rectangular supports, 12 risers and 2 column capsules; production controller tests passed",
+        "comparison_and_animation_evidence": "Two still comparisons available; motion/camera trajectory pending."
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [
+        "dream/blender/wave_corridor.blend",
+        "dream/blender/build_wave_corridor.py",
+        "dream/blender/finish_wave_corridor.py",
+        "dream/validation/wave-material-review.json",
+        "dream/validation/wave-material-v5.png",
+        "dream/validation/wave-material-v5-secondary.png",
+        "dream/blender/wave_corridor_details.py",
+        "dream/validation/wave-details-review.json",
+        "dream/validation/wave-details-v7.png",
+        "dream/validation/wave-details-v7-secondary.png",
+        "dream/blender/prepare_wave_runtime.py",
+        "dream/blender/export_runtime.py",
+        "dream/blender/pack_wave_runtime_maps.py",
+        "dream/assets/wave_corridor.dreammesh",
+        "dream/assets/wave_corridor.glb",
+        "dream/assets/wave_corridor.json",
+        "dream/assets/wave_corridor.scene",
+        "dream/assets/wave_corridor.draws",
+        "dream/assets/scene_catalog.cat",
+        "dream/runtime/src/main.cpp",
+        "dream/runtime/src/scene.hpp",
+        "dream/runtime/src/scene_catalog.hpp",
+        "dream/runtime/src/render_support.hpp",
+        "dream/runtime/shaders/scene.frag",
+        "dream/validation/wave-export-validation.json",
+        "dream/validation/wave-navigation-result.json",
+        "dream/validation/wave-native-runtime-audit.json",
+        "dream/validation/wave-runtime-textures.json",
+        "dream/validation/wave-runtime-regression.json",
+        "dream/validation/wave-cycle-smoke.log",
+        "dream/validation/wave-navigation.cpp",
+        "dream/validation/verify_wave_runtime.py",
+        "dream/validation/wave-runtime-comparison.png",
+        "dream/validation/wave-reference-14s.png",
+        "dream/validation/wave-blender-runtime-v8.png",
+        "dream/validation/wave-opengl-v9.png",
+        "dream/assets/textures/wave_neutral_environment.bmp",
+        "dream/assets/textures/wave_surface_data.bmp",
+        "dream/assets/textures/wave_candidate/wave_ceiling_albedo.bmp",
+        "dream/assets/textures/wave_candidate/wave_ceiling_albedo.png",
+        "dream/assets/textures/wave_candidate/wave_ceiling_roughness.bmp",
+        "dream/assets/textures/wave_candidate/wave_ceiling_roughness.png",
+        "dream/assets/textures/wave_candidate/wave_exit_albedo_candidate.bmp",
+        "dream/assets/textures/wave_candidate/wave_exit_albedo_candidate.png",
+        "dream/assets/textures/wave_candidate/wave_exit_albedo_dark.bmp",
+        "dream/assets/textures/wave_candidate/wave_exit_albedo_dark.png",
+        "dream/assets/textures/wave_candidate/wave_exit_emission_candidate.bmp",
+        "dream/assets/textures/wave_candidate/wave_exit_emission_candidate.png",
+        "dream/assets/textures/wave_candidate/wave_exit_emission_dark.bmp",
+        "dream/assets/textures/wave_candidate/wave_exit_emission_dark.png",
+        "dream/assets/textures/wave_candidate/wave_floor_albedo.bmp",
+        "dream/assets/textures/wave_candidate/wave_floor_albedo.png",
+        "dream/assets/textures/wave_candidate/wave_floor_normal.bmp",
+        "dream/assets/textures/wave_candidate/wave_floor_normal.png",
+        "dream/assets/textures/wave_candidate/wave_floor_roughness.bmp",
+        "dream/assets/textures/wave_candidate/wave_floor_roughness.png",
+        "dream/assets/textures/wave_candidate/wave_paint_normal.bmp",
+        "dream/assets/textures/wave_candidate/wave_paint_normal.png",
+        "dream/assets/textures/wave_candidate/wave_wall_albedo.bmp",
+        "dream/assets/textures/wave_candidate/wave_wall_albedo.png",
+        "dream/assets/textures/wave_candidate/wave_wall_roughness.bmp",
+        "dream/assets/textures/wave_candidate/wave_wall_roughness.png"
+      ],
+      "runtime_implemented": true,
+      "runtime_alias": "wave_corridor",
+      "native_progress": {
+        "scene_objects": 76,
+        "mesh_objects": 62,
+        "packed_images": 10,
+        "uv_checker_inspected": true,
+        "review": "dream/validation/wave-runtime-integration.json",
+        "runtime_mapping": "Explicit material kinds 13-16, metric floor UV and front-only sign UV; seven local lights.",
+        "detail_meshes": 13
+      },
+      "runtime_validation": "dream/validation/wave-runtime-integration.json",
+      "remaining": [
+        "The source hall is bright and open; the current dark grid is unresolved geometry.",
+        "Nonuniform stair heights and door thresholds still disagree across source views.",
+        "Far-floor ribbon placement, widths and optical softness remain approximate.",
+        "OpenGL has emitter reflections, but no architectural reflections or equivalent local shadows yet.",
+        "OpenGL floor brightness and wall shading still differ from the current Blender render and the source.",
+        "Sign proportions/glow, fittings and trim cross section remain approximate.",
+        "Animated source-camera trajectory is not reconstructed; free walking is functional only."
+      ],
+      "separate_hall_candidate": {
+        "native": "blender/wave_corridor_hall_candidate.blend",
+        "report": "validation/wave-hall-review.json",
+        "runtime_promoted": false,
+        "accepted": false,
+        "next_action": "Jointly fit corridor floor, camera poses and hall supports from additional views. Do not adjust lights to hide this geometric residual."
+      },
+      "separate_motion_candidate": {
+        "native": "blender/wave_corridor_motion_candidate.blend",
+        "comparison": "validation/wave-motion/comparison.png",
+        "runtime_promoted": false,
+        "next_action": "Reconstruct the terminal upright handrails and hall entrance from continuous tracks; separate those supports from the low wall trim before refining the floor profile.",
+        "report": "validation/wave-motion/review.json",
+        "accepted": false,
+        "camera_count": 7
+      },
+      "separate_joint_candidate": {
+        "native": "blender/wave_corridor_joint_candidate.blend",
+        "third_view_report": "validation/wave-joint-third-view.json",
+        "runtime_promoted": false,
+        "accepted": false,
+        "finding": "Two-view fit failed the independent 17s view: both lamp hypotheses left the second doorway in the frame."
+      },
+      "separate_terminal_candidate": {
+        "native": "blender/wave_corridor_terminal_candidate.blend",
+        "comparison": "validation/wave-terminal/comparison.png",
+        "runtime_promoted": false,
+        "next_action": "Resolve the conflicting 17s ceiling/opening-top observations against the continuous source before changing ceiling geometry or promoting the new floor. Then refine hall supports using full surfaces, separating pale paint, turquoise cladding and floor contact.",
+        "report": "validation/wave-terminal/review.json",
+        "accepted": false
+      },
+      "separate_aperture_candidate": {
+        "native": "blender/wave_corridor_aperture_candidate.blend",
+        "comparison": "validation/wave-aperture/comparison.png",
+        "runtime_promoted": false,
+        "next_action": "Replace the provisional hall supports and rear grid using complete source silhouettes, separating pale paint from turquoise cladding and floor contact.",
+        "report": "validation/wave-aperture/review.json",
+        "accepted": false
+      },
+      "separate_hall_structure_candidate": {
+        "native": "blender/wave_corridor_hall_structure_candidate.blend",
+        "material_native": "blender/wave_corridor_hall_look_candidate.blend",
+        "comparison": "validation/wave-hall-structure/comparison.png",
+        "material_comparison": "validation/wave-hall-structure/look-comparison-17s.png",
+        "runtime_promoted": false,
+        "next_action": "Revisit source floor-contact evidence and camera/floor constraints together before exporting the hall; then refit floor pattern coordinates and architectural reflections.",
+        "report": "validation/wave-hall-structure/review.json",
+        "accepted": false
+      },
+      "separate_wall_detail_candidate": {
+        "native": "blender/wave_corridor_wall_detail_candidate.blend",
+        "comparison": "validation/wave-perspective/wall-comparison.png",
+        "detail": "validation/wave-perspective/wall-panel-detail.png",
+        "runtime_promoted": false,
+        "next_action": "Check directional constraints from ceiling edges and panel edges to distinguish camera error from panel shape; use painted-boundary correspondences across short source intervals for floor depth, excluding highlights.",
+        "report": "validation/wave-perspective/review.json",
+        "accepted": false
+      }
     },
     {
       "scene_id": "video-42/pasarela_poolroom",
@@ -2006,7 +2300,9 @@
         "navigation": "height_aware_as_required_by_geometry",
         "comparison_and_animation_evidence": "pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [],
+      "runtime_implemented": false,
+      "runtime_alias": "v42_poolroom_walkway"
     },
     {
       "scene_id": "video-51/arbol_monumental",
@@ -2025,7 +2321,7 @@
           14.239479
         ]
       ],
-      "status": "not_implemented",
+      "status": "implemented_prototype_reference_fidelity_pending",
       "strict_acceptance": false,
       "observed": {
         "descriptions_from_source": [
@@ -2195,12 +2491,53 @@
         "runtime_mesh": "dream/assets/v51_monumental_tree.dreammesh",
         "runtime_metadata": "dream/assets/v51_monumental_tree.scene",
         "interchange": "dream/assets/v51_monumental_tree.glb",
-        "reference_camera_set": "planned",
-        "scene_resource_profile": "planned",
-        "navigation": "height_aware_as_required_by_geometry",
-        "comparison_and_animation_evidence": "pending"
+        "reference_camera_set": "One provisional camera composition; source camera motion remains pending.",
+        "scene_resource_profile": "monumental_tree / environment 6",
+        "navigation": "Single analytic ramp z=-0.30*x with bounded terrain and a trunk obstacle disc; 160 movement steps validated.",
+        "comparison_and_animation_evidence": "Blender and OpenGL opening-frame stills available; source camera motion remains pending."
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [
+        "dream/blender/build_monumental_tree.py",
+        "dream/blender/generate_tree_textures.py",
+        "dream/blender/v51_monumental_tree.blend",
+        "dream/assets/v51_monumental_tree.dreammesh",
+        "dream/assets/v51_monumental_tree.glb",
+        "dream/assets/v51_monumental_tree.json",
+        "dream/assets/v51_monumental_tree.scene",
+        "dream/assets/v51_monumental_tree.draws",
+        "dream/assets/scene_catalog.cat",
+        "dream/assets/textures/monumental_tree/bark_albedo.bmp",
+        "dream/assets/textures/monumental_tree/bark_normal.bmp",
+        "dream/assets/textures/monumental_tree/foliage_albedo.bmp",
+        "dream/assets/textures/monumental_tree/grass_albedo.bmp",
+        "dream/assets/textures/monumental_tree/grass_normal.bmp",
+        "dream/assets/textures/monumental_tree/clear_blue_sky.bmp",
+        "dream/validation/tree-runtime-integration.json",
+        "dream/validation/tree-preview.png",
+        "dream/validation/tree-opengl-preview.png"
+      ],
+      "runtime_implemented": true,
+      "runtime_alias": "v51_monumental_tree",
+      "runtime_validation": "dream/validation/tree-runtime-integration.json",
+      "progress_note": "Escena editable y recorrible exportada a Blender/OpenGL; la ladera y colision con altura variable estan validadas. La fidelidad visual y el movimiento de camara del video siguen pendientes.",
+      "stage": "runtime_prototype_reference_fidelity_pending",
+      "implementation_progress": {
+        "profile": "monumental_tree",
+        "environment": 6,
+        "runtime_available": true,
+        "geometry_acceptance": false,
+        "material_acceptance": false,
+        "full_video_motion_acceptance": false,
+        "asset_evidence": "dream/validation/tree-runtime-integration.json",
+        "navigation_evidence": "dream/validation/tree-runtime-integration.json",
+        "limits": "Copa procedural low-poly mas uniforme que la referencia; cielo y respuesta de hierba aproximados; no se reconstruyo el recorrido de camara ni el fundido editorial."
+      },
+      "remaining": [
+        "Ajustar la densidad y variacion organica de hojas contra el fotograma original.",
+        "Calibrar cielo, hierba, luz y sombras con comparaciones lado a lado desde el encuadre de referencia.",
+        "Revisar el clip completo para decidir si hace falta movimiento de camara o solo una escena navegable.",
+        "Mantener pendiente la fidelidad visual estricta hasta aceptar esa comparacion."
+      ]
     },
     {
       "scene_id": "video-52/transporte_cristal",
@@ -2404,7 +2741,9 @@
         "navigation": "height_aware_as_required_by_geometry",
         "comparison_and_animation_evidence": "pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [],
+      "runtime_implemented": false,
+      "runtime_alias": "v52_glass_transit"
     },
     {
       "scene_id": "video-52/atrio_acuatico",
@@ -2613,7 +2952,9 @@
         "dream/assets/atrium.dreammesh",
         "dream/assets/atrium.scene",
         "dream/assets/atrium.glb"
-      ]
+      ],
+      "runtime_implemented": true,
+      "runtime_alias": "atrium"
     },
     {
       "scene_id": "video-52/ascensor_acuario",
@@ -2789,7 +3130,9 @@
         "navigation": "height_aware_as_required_by_geometry",
         "comparison_and_animation_evidence": "pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [],
+      "runtime_implemented": false,
+      "runtime_alias": "v52_aquarium_lift"
     },
     {
       "scene_id": "video-52/sala_planetaria",
@@ -2998,7 +3341,9 @@
         "navigation": "height_aware_as_required_by_geometry",
         "comparison_and_animation_evidence": "pending"
       },
-      "existing_artifacts_verified": []
+      "existing_artifacts_verified": [],
+      "runtime_implemented": false,
+      "runtime_alias": "v52_planetarium"
     }
   ],
   "texture_catalog": [
@@ -4159,6 +4504,66 @@
     "dream/assets/atrium.glb": {
       "bytes": 6982972,
       "sha256": "3540946238a6a92b191f928e0930b9a0b8c9efb58195a2a6aa2346e9f77c5418"
+    },
+    "dream/assets/scene_catalog.cat": {
+      "bytes": 6563,
+      "sha256": "5117f14b3a6d8ee414a5c36d3c00838767581735e7a8298e66b0d7bd1e625721"
+    },
+    "dream/assets/v42_ocean_exit.scene": {
+      "bytes": 510,
+      "sha256": "3bd3b1a06dae64a02176a1a947a49139d17d48d16fdbc09637d147bcca8ca92c"
+    },
+    "dream/assets/v42_ocean_exit.dreammesh": {
+      "bytes": 10713904,
+      "sha256": "c32c72f3700b77d5fd81166111b634680f04cf998ed04ab6feb33df32af6d0c6"
+    },
+    "dream/assets/v42_ocean_exit.glb": {
+      "bytes": 6895424,
+      "sha256": "7a25b7552268007847e6f3724a4302bd9f9e9fb433debe31322af12ba7206484"
+    },
+    "dream/blender/v42_ocean_exit.blend": {
+      "bytes": 3213316,
+      "sha256": "931bb501a73bc812cc428ad450e3071d3cc3731eff9a01f4a8415311ce88b4a6"
+    },
+    "dream/runtime/src/scene.hpp": {
+      "bytes": 12408,
+      "sha256": "83bb82d21dc7a982d1c854b39dedbce6fb8c325fc3e3a7b8f6e12a21a441536b"
+    },
+    "dream/runtime/src/scene_catalog.hpp": {
+      "bytes": 10082,
+      "sha256": "bdd8b0aee322c45c1d0595363339d9d3288e83f0df193b681dae4ff5f28d81bd"
+    },
+    "dream/runtime/src/render_support.hpp": {
+      "bytes": 10604,
+      "sha256": "712e2b779043c68bdac035b7384d56db33b66b500d82a09c383370c4c7367871"
+    },
+    "dream/runtime/src/main.cpp": {
+      "bytes": 15750,
+      "sha256": "b9b1dd974198dc73f6da45e54ce0c2938e73c165f1b6cafc097d5a81663c729f"
+    },
+    "dream/runtime/shaders/scene.vert": {
+      "bytes": 1744,
+      "sha256": "893e7f14c8b0aa2f42601effe8aae85c5916d5b6a324ff982edfdacc15444126"
+    },
+    "dream/runtime/shaders/scene.frag": {
+      "bytes": 20696,
+      "sha256": "d94f29c62c6676be7833040397152b75304ddadb6a5734228299a08cd89f63d3"
+    },
+    "dream/runtime/shaders/sky.frag": {
+      "bytes": 408,
+      "sha256": "0e29968d0fecb4e81cbff9bc6a7f28a476945919ab13436762e35ba60b503b3a"
+    },
+    "dream/runtime/tests/ocean_exit_navigation.cpp": {
+      "bytes": 1093,
+      "sha256": "47c06ad0cdf221c4fdfed4805300fafffe1b9bb3fbac4ed05e9d04dd6fb97bd4"
+    },
+    "dream/blender/prepare_ocean_exit_runtime.py": {
+      "bytes": 3273,
+      "sha256": "b4b2f800498aef63eda1b2a39791c4424dca1193f2b48b64842573dfb96e507c"
+    },
+    "dream/blender/prepare_ocean_runtime_maps.py": {
+      "bytes": 2264,
+      "sha256": "e8f724d0f2aec41e0f7e8c2acf14c068dccaf3311f4f9d3d6813b5c4ff4103b9"
     }
   },
   "completion_gate": {
@@ -4166,6 +4571,75 @@
     "all_intervals": "Cubrir 20 entradas con retornos y cierres editoriales registrados separadamente.",
     "textures": "25 recortes y originales preservados; mapas recreados con procedencia y separacion de observacion/propuesta.",
     "fidelity": "Comparar cada escenario con su video, incluida geometria, patrones, luz, respuesta optica y movimiento visibles. Resolver dudas revisando el original.",
-    "global_completion": "false hasta aprobar todos; dos prototipos no equivalen a los cuatro videos."
-  }
+    "global_completion": "false until all 13 environments have strict reference acceptance; seven working prototypes do not complete the four videos."
+  },
+  "historical_inventory_snapshots": [
+    {
+      "recorded_at_utc": "2026-10-09T03:59:40.759397+00:00",
+      "inventory": {
+        "unique_scenes": 13,
+        "temporal_entries": 20,
+        "implemented_prototypes": 2,
+        "not_implemented": 11,
+        "strictly_accepted_scenes": 0,
+        "reference_texture_crops": 25,
+        "native_reference_frames": 19,
+        "editorial_entries": 3,
+        "return_entries": 4
+      },
+      "note": "Inventario previo a integración de cocina/escalera; conservado como historial, no estado actual."
+    },
+    {
+      "recorded_before_runtime_integration": "2026-10-09T12:23:20.481010+00:00",
+      "inventory": {
+        "unique_scenes": 13,
+        "temporal_entries": 20,
+        "implemented_prototypes": 4,
+        "not_implemented": 9,
+        "strictly_accepted_scenes": 0,
+        "reference_texture_crops": 25,
+        "native_reference_frames": 19,
+        "editorial_entries": 3,
+        "return_entries": 4,
+        "counting_rule": "implemented_prototypes counts available runtime scenes; not_implemented counts nine without runtime, including one Blender-only material prototype. No strict visual acceptance is implied.",
+        "blender_only_prototypes": 1
+      }
+    }
+  ],
+  "updated_at_utc": "2026-10-09T19:32:36Z",
+  "current_runtime_snapshot": {
+    "recorded_at_utc": "2026-10-09T19:32:36Z",
+    "catalog": "dream/assets/scene_catalog.cat",
+    "catalog_sha256": "4b17a9e5e3d8c40752bcd8559c31b0a31cd181462b72807002b9760cfe44b1d5",
+    "profiles": {
+      "pastel_room": 0,
+      "atrium": 1,
+      "kitchen_meadow": 2,
+      "stair_sky": 3,
+      "wave_corridor": 4,
+      "ocean_exit": 5,
+      "monumental_tree": 6
+    },
+    "available": [
+      "stair_sky",
+      "pastel_room",
+      "kitchen_meadow",
+      "v42_ocean_exit",
+      "wave_corridor",
+      "v51_monumental_tree",
+      "atrium"
+    ],
+    "cpu_validation": "--validate-scenes PASS for all seven available profiles.",
+    "visual_acceptance": false,
+    "gpu_validation": "One-frame OpenGL captures passed with gl_error=0 for all seven scenes; ocean animation at two times, shifted-camera render, tree-lawn movement and mouse/navigation smoke tests passed.",
+    "report": "dream/validation/ocean-exit/runtime-prototype.json",
+    "latest_candidate_report": "dream/validation/ocean-exit/runtime-candidate-v6.json",
+    "latest_visual_comparison": "dream/validation/ocean-exit/runtime-comparison-v6.png",
+    "latest_tree_report": "dream/validation/tree-runtime-integration.json",
+    "latest_tree_visuals": [
+      "dream/validation/tree-preview.png",
+      "dream/validation/tree-opengl-preview.png"
+    ]
+  },
+  "implementation_history_policy": "Los hashes en artifact_registry y los informes v7 son instantáneas históricas. El catálogo y current_runtime_snapshot describen disponibilidad actual; las referencias originales permanecen sin cambios."
 }

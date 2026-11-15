@@ -1,0 +1,256 @@
+{
+  "scene": "DREAM_WaveMotionCandidate",
+  "objects": 61,
+  "cameras": 7,
+  "meshes": [
+    {
+      "name": "GEO-DREAM-wavemotion-continuous_stepped_floor",
+      "closed": true,
+      "volume_m3": 29.05932692099002
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-right_wall",
+      "closed": true,
+      "volume_m3": 9.576440295494407
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_before_door_0",
+      "closed": true,
+      "volume_m3": 2.536600077743589
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_below_door_0",
+      "closed": true,
+      "volume_m3": 0.3584085803716649
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_above_door_0",
+      "closed": true,
+      "volume_m3": 0.11474665035807818
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_0_leaf",
+      "closed": true,
+      "volume_m3": 0.13174623133652302
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_0_near_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_0_far_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_0_head_reveal",
+      "closed": true,
+      "volume_m3": 0.016630992725146402
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_0_round_fitting",
+      "closed": true,
+      "volume_m3": 8.862775636367009e-05
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_before_door_1",
+      "closed": true,
+      "volume_m3": 0.7213306243312334
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_below_door_1",
+      "closed": true,
+      "volume_m3": 0.3584085803716649
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_above_door_1",
+      "closed": true,
+      "volume_m3": 0.11474665035807818
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_1_leaf",
+      "closed": true,
+      "volume_m3": 0.13174623133652302
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_1_near_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_1_far_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_1_head_reveal",
+      "closed": true,
+      "volume_m3": 0.016630992725146402
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-door_1_round_fitting",
+      "closed": true,
+      "volume_m3": 8.862775636367006e-05
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-left_wall_after_doors",
+      "closed": true,
+      "volume_m3": 4.298131780184777
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling",
+      "closed": true,
+      "volume_m3": 5.228202500656127
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-handrail_-1",
+      "closed": true,
+      "volume_m3": 0.041811080471363914
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-handrail_1",
+      "closed": true,
+      "volume_m3": 0.04181108047132501
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_floor",
+      "closed": true,
+      "volume_m3": 16.80000038146971
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_side_-1",
+      "closed": true,
+      "volume_m3": 7.502597248657423
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_side_1",
+      "closed": true,
+      "volume_m3": 7.502597248657423
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_ceiling",
+      "closed": true,
+      "volume_m3": 9.535999847888945
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_back_wall",
+      "closed": true,
+      "volume_m3": 4.471547988819961
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_column_0",
+      "closed": true,
+      "volume_m3": 0.1872164960599325
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_column_1",
+      "closed": true,
+      "volume_m3": 0.1872164960599325
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_unresolved_rear_panel",
+      "closed": true,
+      "volume_m3": 0.4455298850013597
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_0",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_1",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_2",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_3",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_4",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_5",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_mullion_6",
+      "closed": true,
+      "volume_m3": 0.0017540546524967644
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_transom_1",
+      "closed": true,
+      "volume_m3": 0.0025399999429285515
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-hall_rear_transom_2",
+      "closed": true,
+      "volume_m3": 0.0025399999429285515
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_0",
+      "closed": true,
+      "volume_m3": 0.010804145376520923
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_base_0",
+      "closed": true,
+      "volume_m3": 0.002129598373151748
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_1",
+      "closed": true,
+      "volume_m3": 0.010804145376520923
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_base_1",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_2",
+      "closed": true,
+      "volume_m3": 0.010804145376520923
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_base_2",
+      "closed": true,
+      "volume_m3": 0.002129598373151749
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_3",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_base_3",
+      "closed": true,
+      "volume_m3": 0.002129598373151748
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_4",
+      "closed": true,
+      "volume_m3": 0.01080414537652092
+    },
+    {
+      "name": "GEO-DREAM-wavemotion-ceiling_fixture_base_4",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    }
+  ],
+  "saved": "blender\\wave_corridor_motion_candidate.blend",
+  "materials": "Neutral geometry-study materials only; source maps and textured exports are preserved separately.",
+  "accepted": false,
+  "runtime_promoted": false
+}

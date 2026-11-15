@@ -1,0 +1,132 @@
+{
+  "schema": "dream.wave_hall_review.v1",
+  "recorded_at_utc": "2026-10-09T12:39:53.952462+00:00",
+  "stage": "editable_hall_candidate_geometry_rejected_for_runtime_promotion",
+  "strict_fidelity_accepted": false,
+  "runtime_promoted": false,
+  "goal_complete": false,
+  "native": "blender/wave_corridor_hall_candidate.blend",
+  "scene_objects": 122,
+  "mesh_objects": 92,
+  "closed_hall_meshes": 47,
+  "packed_images": 10,
+  "changes": [
+    "Replaced the short, full-width dark grid with a deeper hall enclosure.",
+    "Added broad pale supports, a turquoise accent and horizontal members.",
+    "Added two side rows of four ceiling fixtures and their real light contribution.",
+    "Added entrance return walls and metric UVs on all new closed surfaces."
+  ],
+  "uv_checker": "Secondary checker render inspected; all closed faces have explicit UVs, with no degenerate faces and a continuous floor/hall boundary.",
+  "floor_hall_uv_error_m": 4.440892098500626e-16,
+  "comparison": "validation/wave-hall-comparison.png",
+  "geometry_findings": [
+    {
+      "time_s": 14,
+      "projected_full_column_bounds_px": [
+        236.7134816646576,
+        205.82380890846252,
+        261.0065494775772,
+        317.7673727273941
+      ],
+      "source_pale_support_bounds_approx_px": [
+        232,
+        189,
+        260,
+        256
+      ],
+      "manual_uncertainty_px": 8,
+      "bottom_edge_difference_px": 61.767372727394104,
+      "interpretation": "Diagnostic only. Source head can be occluded by the corridor; no physical dimension or fit acceptance is inferred."
+    },
+    {
+      "time_s": 15.5,
+      "projected_full_column_bounds_px": [
+        348.71493005752563,
+        268.82154047489166,
+        380.2397595643997,
+        388.1505399942398
+      ],
+      "source_pale_support_bounds_approx_px": [
+        340,
+        238,
+        374,
+        318
+      ],
+      "manual_uncertainty_px": 8,
+      "bottom_edge_difference_px": 70.15053999423981,
+      "interpretation": "Diagnostic only. Source head can be occluded by the corridor; no physical dimension or fit acceptance is inferred."
+    }
+  ],
+  "constraint_comparison": {
+    "fixed_floor_weighted_rms": 3.1880625956233977,
+    "free_vertical_span_weighted_rms": 0.24466831463428218,
+    "interpretation": "Allowing a different vertical span tests a raised/reconfigured rear area versus errors in the existing cameras and floor. It does not prove a raised platform. Source occlusion and ambiguous support identification must be resolved before modelling steps."
+  },
+  "limitations": [
+    "The main support extends too far down in both source views; do not accept this candidate as a matched hall.",
+    "Rear horizontal members are represented as rails provisionally; stairs or reflected structures have not been ruled out.",
+    "New hall depth, width, columns and rails do not yet have matching runtime collisions.",
+    "No new runtime export, GLB, animation or source-camera trajectory was produced."
+  ],
+  "next_action": "Jointly fit corridor floor, camera poses and hall supports from additional views. Do not adjust lights to hide this geometric residual.",
+  "verified_runtime_files_unchanged": {
+    "blender/wave_corridor.blend": "abb81fd3ac461d1202fe4a1df6af890d72aced953a4eaa53b9421611869c520b",
+    "assets/wave_corridor.dreammesh": "7c558f098c63c2f06af3b359820976fe1ba63e9c958b2ce497754ec8aba6a53b",
+    "assets/wave_corridor.glb": "ea96cc78e05296bf98091ca8e3eab4d09bebe04114c25e995931702558a9a78d",
+    "assets/wave_corridor.json": "a38e78f7d62ca8ea36a7c38e011873e333071742b0eb530e8fa2d1ae055e2b68",
+    "assets/wave_corridor.scene": "140a87463ec2ef6fb03445e295e96c383a8593b1606fd61e7ccbd364d812e945",
+    "assets/wave_corridor.draws": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "assets/scene_catalog.cat": "3f9abc22edab725bc879a4a869d616196c5375fb00d797a934df7306d1c4547f",
+    "runtime/shaders/scene.frag": "489e1f053c383187601cbe3e3fa5093b2575b51cb0bd5720929ce8341fe753c2",
+    "assets/textures/wave_neutral_environment.bmp": "f4a079251e841bbd166edefd1e0b4ec3a5e95bacac774270f195e2b45149068e",
+    "assets/textures/wave_surface_data.bmp": "bf5b0f0c3347ca5e5346a8d5a2fe56807390a7930cf6b5d926b96ed2fbc734d5",
+    "assets/textures/wave_candidate/wave_ceiling_albedo.bmp": "e541e9123ecbf15230fd76c889c4b02f92e3a28bf6a15a30242b8a4730999cc8",
+    "assets/textures/wave_candidate/wave_ceiling_albedo.png": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5",
+    "assets/textures/wave_candidate/wave_ceiling_roughness.bmp": "0582adcee26ff6a430ea0c2505cc01fdeb3f47a443e83a54d205ccf185644b23",
+    "assets/textures/wave_candidate/wave_ceiling_roughness.png": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec",
+    "assets/textures/wave_candidate/wave_exit_albedo_candidate.bmp": "8dab54661c484d97f464c646435190e2c8d09f9347bb2e661fea9bac684e27b8",
+    "assets/textures/wave_candidate/wave_exit_albedo_candidate.png": "d39e49d26d952322c6daa3b1bbab4bf5320c0b1c71672523b9a8e301e89aba92",
+    "assets/textures/wave_candidate/wave_exit_albedo_dark.bmp": "d98872d6aa182f9dff3505848ebbc7f09c67a3123a46d20fd38740e2f9d77b8a",
+    "assets/textures/wave_candidate/wave_exit_albedo_dark.png": "642985cedf580384aa9486308bfd2b704a9e69b577304055b5fcdfacd2361e2c",
+    "assets/textures/wave_candidate/wave_exit_emission_candidate.bmp": "821806dcedfae2af4218c94dababb837dff977ab0cd82e191c459ae81ecb6b1e",
+    "assets/textures/wave_candidate/wave_exit_emission_candidate.png": "8706116636d3c28f5c6c776e124bb96428977fa4fb99685fd9388ee086ac0f34",
+    "assets/textures/wave_candidate/wave_exit_emission_dark.bmp": "747114c68958a556d0643fcf8ca291181535f8cc752e19dad686bb9609424c21",
+    "assets/textures/wave_candidate/wave_exit_emission_dark.png": "096c1b9e0b13430281815cee5fb8fb36ab8d76ef76d10411dab8249f2841af57",
+    "assets/textures/wave_candidate/wave_floor_albedo.bmp": "e35503ac06c77b8d6aef11dc58b7955f31ef27c9439f755fb0235ad4bb22b962",
+    "assets/textures/wave_candidate/wave_floor_albedo.png": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af",
+    "assets/textures/wave_candidate/wave_floor_normal.bmp": "f54be2d14af93f5c55a178f08b801161969ebaf2882d3b4f870a49c8e349c1da",
+    "assets/textures/wave_candidate/wave_floor_normal.png": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea",
+    "assets/textures/wave_candidate/wave_floor_roughness.bmp": "ebbf9afe9ed62d31a3b054ca3b2887d804b3208bf41620d724ea516b44e8d224",
+    "assets/textures/wave_candidate/wave_floor_roughness.png": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1",
+    "assets/textures/wave_candidate/wave_paint_normal.bmp": "d6e096d35eedc5fe2fd41f76e214d94c9201e3d5a5f00db48829d96c54437fb8",
+    "assets/textures/wave_candidate/wave_paint_normal.png": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa",
+    "assets/textures/wave_candidate/wave_wall_albedo.bmp": "a2336c6d078f98942a1c7efb47e7301519d1269a76fe1da552ae7c1f010aa93e",
+    "assets/textures/wave_candidate/wave_wall_albedo.png": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb",
+    "assets/textures/wave_candidate/wave_wall_roughness.bmp": "933ebbbc0d9cdbced48ba1db88eb1b4837d92b00a503a43a08f3720f4f802263",
+    "assets/textures/wave_candidate/wave_wall_roughness.png": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f"
+  },
+  "original_reference_files_unchanged": 56,
+  "source_guard": "prepare_wave_runtime.py now refuses the live hall candidate before mutation. The verified canonical .blend is unchanged.",
+  "history_policy": "wave-runtime-integration.json remains the preceding export snapshot; its prepare_wave_runtime.py hash predates the new guard.",
+  "sha256": {
+    "blender/wave_corridor_hall_candidate.blend": "d9b8e771979dc6251131195a22e68c1c19f9481d3ac18f3fd79b63a548e2fb7f",
+    "blender/wave_hall_plan.json": "c2f261986eaeea5d1197bccd4aa4cc0f972c335c7b5e6a5bf7c75af7d226a28f",
+    "blender/refine_wave_hall.py": "1e10cca79c2f96145b9b8cf170b70c71128d4d404703173b9dbe4a7a23cb11a9",
+    "blender/audit_wave_hall.py": "edb7281fa0ad73b807578f63765cf7f461ae2209b5368c587a86a3aac4f36371",
+    "blender/finish_wave_corridor.py": "c41f40e15a39170b5574c11618215e45db2ea10a46b0f1def61f6b095e3d4727",
+    "blender/wave_material_plan.json": "cafa86cdd0db87bd5f61dd39cdb7fe2636f592665b8d087106f0f79f454199e8",
+    "blender/prepare_wave_runtime.py": "8ce139ba2ba76288b1bb90114bf0b33aa1fa84480e6dac185fb2095adea6c80c",
+    "validation/wave-hall-audit.json": "0a7e74c9201caaa8f789bfbc877463566bcc4520859e8bcf0ba3dc65bb451f20",
+    "validation/wave-hall-uv-coverage.json": "21809bf52dec812b5cf6d190f0d5e7399656e74573e7b6927b4b36351331c03a",
+    "validation/wave-hall-checker-audit.json": "4cf69b7ce07253f58db6911910ab80e7f3102a8dfc960e39e18fa2c6b27b2cf3",
+    "validation/wave-hall-checker-secondary.png": "917c1276121e00ade11459a7c3646913ff5661ca9fe9db5c0178995a163f8a6d",
+    "validation/wave-hall-constraint-diagnostic.json": "b6ec06b122a2a81bf82678f2737e09c7463e7cc373542d9769374497449b2e24",
+    "validation/fit_wave_hall_constraints.py": "d44e913c6d7d8949d962a0f4462d6eb9cb3e6a2922956e716bb76ee5900f98d9",
+    "validation/wave-hall-candidate-v10.png": "f7f19f32f01da4a6c8d428a7538e041c93decd98422019618aaa849a3a7f32aa",
+    "validation/wave-hall-candidate-v11.png": "2a765432666345b23bf3fb75569233754c18e3772880288bfadeb09e18908c6d",
+    "validation/wave-hall-candidate-v11-secondary.png": "a89c7c553301edf65384437f2665931b29885edc549fee79090e16ed925c3bfd",
+    "validation/wave-hall-comparison.png": "0e9706ffc41fb97daa7bff1612d3fcf6b5ddd18d7c362410fa571e7b0846bdab",
+    "validation/wave-hall-reference-17s.png": "572ad82a7d2ec4ceee99bc5392f713100fd02cd853dcd7abb5bb7ee1657a6365",
+    "validation/wave-hall-reference-pair.png": "7c1fa625b23c41d2ff7f7f98a0ec1b81a50937c195179f0d9918875a9690cfc0"
+  }
+}

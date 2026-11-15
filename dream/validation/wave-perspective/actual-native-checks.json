@@ -1,0 +1,103 @@
+{
+  "packed_original_maps": {
+    "wave_floor_albedo.png": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af",
+    "wave_floor_roughness.png": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1",
+    "wave_floor_normal.png": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea",
+    "wave_wall_albedo.png": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb",
+    "wave_wall_roughness.png": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f",
+    "wave_paint_normal.png": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa",
+    "wave_ceiling_albedo.png": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5",
+    "wave_ceiling_roughness.png": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec"
+  },
+  "panels": [
+    {
+      "name": "GEO-DREAM-wavewall-panel_near_back",
+      "x_range_m": [
+        -1.1019999980926514,
+        -1.0779999494552612
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_near_insert",
+      "x_range_m": [
+        -1.0809999704360962,
+        -1.0709999799728394
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_near_rim_near",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_near_rim_far",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_near_rim_top",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_near_rim_bottom",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_far_back",
+      "x_range_m": [
+        -1.1019999980926514,
+        -1.0779999494552612
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_far_insert",
+      "x_range_m": [
+        -1.0809999704360962,
+        -1.0709999799728394
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_far_rim_near",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_far_rim_far",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_far_rim_top",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavewall-panel_far_rim_bottom",
+      "x_range_m": [
+        -1.0829999446868896,
+        -1.065000057220459
+      ]
+    }
+  ],
+  "wall_backplates_overlap_m": 0.002,
+  "paint_experiment_applied": false,
+  "objects": 121,
+  "cameras": 8,
+  "lights": 18
+}

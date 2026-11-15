@@ -1,0 +1,48 @@
+{
+  "source_object": "GEO-DREAM-wavecorridor-detail_exit_-1",
+  "views": [
+    [
+      "front",
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    [
+      "oblique",
+      [
+        0.75,
+        0.65,
+        0.12
+      ]
+    ],
+    [
+      "edge",
+      [
+        0,
+        1,
+        0.05
+      ]
+    ],
+    [
+      "back",
+      [
+        -1,
+        0,
+        0.05
+      ]
+    ],
+    [
+      "opposite",
+      [
+        0.75,
+        -0.65,
+        0.12
+      ]
+    ]
+  ],
+  "source_mesh_shared_without_edits": true,
+  "reference_fidelity_evaluation": false,
+  "expected": "Lettering on front only; back and all sides have plain coating."
+}

@@ -1,0 +1,142 @@
+{
+  "source": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+  "source_sha256": "3147a71d5ce0b7e964fb424810d27fbeb70a87c26a501c26b7a94446ba7f75ce",
+  "fps": 30.0,
+  "declared_frame_count": 887,
+  "decoded_frame_count": 887,
+  "native_dimensions_px": [
+    720,
+    1280
+  ],
+  "method": "OpenCV sequential decode of every frame; overview images every 1s and native saved images at selected room timestamps. Human review is of these sampled images, not every decoded frame.",
+  "room_frames": [
+    {
+      "time_requested_s": 10.9,
+      "frame_index_zero_based": 327,
+      "actual_time_s": 10.9,
+      "path": "dream/validation/room-multiview-v9/reference-10p9s.png",
+      "sha256": "978fc24a1fb3838a1f30894181e20932701e222dc1bd2d95efc7279ec607e781"
+    },
+    {
+      "time_requested_s": 11,
+      "frame_index_zero_based": 330,
+      "actual_time_s": 11.0,
+      "path": "dream/validation/room-multiview-v9/reference-11s.png",
+      "sha256": "f7d4c1ebd16962737bccfc5dff4ed93d0809d0fd57694bb5520f30cdaf0f4117"
+    },
+    {
+      "time_requested_s": 11.5,
+      "frame_index_zero_based": 345,
+      "actual_time_s": 11.5,
+      "path": "dream/validation/room-multiview-v9/reference-11p5s.png",
+      "sha256": "39a01dd74d8994ce7299dbe920bd5435ba80ce16ecd8ecbf4d553dea745eb2c2"
+    },
+    {
+      "time_requested_s": 12,
+      "frame_index_zero_based": 360,
+      "actual_time_s": 12.0,
+      "path": "dream/validation/room-multiview-v9/reference-12s.png",
+      "sha256": "a959b21d150ef04c12f50f453b743895b6a420a189803fa88973a0a50618adcc"
+    },
+    {
+      "time_requested_s": 12.5,
+      "frame_index_zero_based": 375,
+      "actual_time_s": 12.5,
+      "path": "dream/validation/room-multiview-v9/reference-12p5s.png",
+      "sha256": "eabab90a87e07ffcc3a1c1d08e97165b09e56d9bb0630e9c28cd024e51feb5e7"
+    },
+    {
+      "time_requested_s": 13,
+      "frame_index_zero_based": 390,
+      "actual_time_s": 13.0,
+      "path": "dream/validation/room-multiview-v9/reference-13s.png",
+      "sha256": "000fe3257d6f82e888bd0681a8423959580ce13af5b49ede4a959e365fe044bd"
+    },
+    {
+      "time_requested_s": 13.5,
+      "frame_index_zero_based": 405,
+      "actual_time_s": 13.5,
+      "path": "dream/validation/room-multiview-v9/reference-13p5s.png",
+      "sha256": "438d8f3ff1990ad854a30bb5130e5024957504e30a2453e593d5776bc36f47f4"
+    },
+    {
+      "time_requested_s": 23.1,
+      "frame_index_zero_based": 693,
+      "actual_time_s": 23.1,
+      "path": "dream/validation/room-multiview-v9/reference-23p1s.png",
+      "sha256": "0f6f8e7707dbef4306684a5d3ec642b5b8a43c275007175b4b975488740b1b74"
+    },
+    {
+      "time_requested_s": 23.5,
+      "frame_index_zero_based": 705,
+      "actual_time_s": 23.5,
+      "path": "dream/validation/room-multiview-v9/reference-23p5s.png",
+      "sha256": "4ba8721ce188442146c0e4c75933b16305b9920d820a9b432819099461b09076"
+    },
+    {
+      "time_requested_s": 24,
+      "frame_index_zero_based": 720,
+      "actual_time_s": 24.0,
+      "path": "dream/validation/room-multiview-v9/reference-24s.png",
+      "sha256": "702718d4e178716252982b0e2fc72aaa230c459d4842d4cdb11d18fe7b610068"
+    },
+    {
+      "time_requested_s": 24.5,
+      "frame_index_zero_based": 735,
+      "actual_time_s": 24.5,
+      "path": "dream/validation/room-multiview-v9/reference-24p5s.png",
+      "sha256": "d88ebd49fbaf653603ba52988ee3e822f9110a924e28e37a691ed40fd51be6bb"
+    },
+    {
+      "time_requested_s": 25,
+      "frame_index_zero_based": 750,
+      "actual_time_s": 25.0,
+      "path": "dream/validation/room-multiview-v9/reference-25s.png",
+      "sha256": "c3f3dac757e0f295e74c2167f83fdb6ae874b4c18001c8b552687330dd0eb253"
+    },
+    {
+      "time_requested_s": 25.5,
+      "frame_index_zero_based": 765,
+      "actual_time_s": 25.5,
+      "path": "dream/validation/room-multiview-v9/reference-25p5s.png",
+      "sha256": "b807c91c319817efc7afe2678699e26607322ce3338a4c2af010b16ad05a27c1"
+    },
+    {
+      "time_requested_s": 26,
+      "frame_index_zero_based": 780,
+      "actual_time_s": 26.0,
+      "path": "dream/validation/room-multiview-v9/reference-26s.png",
+      "sha256": "524242e26e1175daaa9218aebc1eb016d144439c4135ecbc50c13e1f370c29af"
+    },
+    {
+      "time_requested_s": 26.5,
+      "frame_index_zero_based": 795,
+      "actual_time_s": 26.5,
+      "path": "dream/validation/room-multiview-v9/reference-26p5s.png",
+      "sha256": "fa84953ed80c3d88fd214333b3e928cf72a6df33fc7fd28d5a5a3f822395e8a2"
+    },
+    {
+      "time_requested_s": 27,
+      "frame_index_zero_based": 810,
+      "actual_time_s": 27.0,
+      "path": "dream/validation/room-multiview-v9/reference-27s.png",
+      "sha256": "bd6085d92c5d158434930b097f68b67be81146bf3893cdb3421461c9258c72ad"
+    },
+    {
+      "time_requested_s": 28,
+      "frame_index_zero_based": 840,
+      "actual_time_s": 28.0,
+      "path": "dream/validation/room-multiview-v9/reference-28s.png",
+      "sha256": "a67215fa47da37e6bcceda433deb01937fa10c034224ec3253b687749899c8a4"
+    },
+    {
+      "time_requested_s": 29,
+      "frame_index_zero_based": 870,
+      "actual_time_s": 29.0,
+      "path": "dream/validation/room-multiview-v9/reference-29s.png",
+      "sha256": "13d9631245fa56c340ba3700a6530711ee362302449b5547a31a5a21cba95d74"
+    }
+  ],
+  "overview": "dream/validation/room-multiview-v9/video35-full-timeline.png",
+  "room_contact_sheet": "dream/validation/room-multiview-v9/room-reference-intervals.png"
+}

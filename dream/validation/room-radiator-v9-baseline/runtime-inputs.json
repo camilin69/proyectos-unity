@@ -1,0 +1,98 @@
+{
+  "created_utc": "2026-10-09T05:37:44.054825+00:00",
+  "scope": "Runtime source/binary and room texture hashes before requested radiator export/capture.",
+  "files": {
+    "dream/assets/scene_catalog.cat": {
+      "sha256": "d41b6ad5b8ab41fa8da04343379ba1b807876bc211c7b0a3797843b0ab8755d6",
+      "bytes": 4823
+    },
+    "dream/assets/textures/biosphere.bmp": {
+      "sha256": "ea7b5419b0f4121d841f80cc087bce76dc6b296fec059425b2db24f180966a56",
+      "bytes": 1572918
+    },
+    "dream/assets/textures/ceramic_normal.bmp": {
+      "sha256": "0162a54a7a19232d2436e41954c008edb6bb734f34c0ac374f77ef9c30d46758",
+      "bytes": 786486
+    },
+    "dream/assets/textures/ceramic_roughness.bmp": {
+      "sha256": "45327104b6f6ba63adb5325d7131c5be2263f2d1a352a80e7d678a2692728117",
+      "bytes": 786486
+    },
+    "dream/assets/textures/cloud_sky.bmp": {
+      "sha256": "becd61cbea45caf92a03fc9e49160fca5ce27852c62cb9e9f2710a5fab00633c",
+      "bytes": 6291510
+    },
+    "dream/assets/textures/curtain_plaid.bmp": {
+      "sha256": "b2beebdc00b454ed42f35f3646e3ee20c96505966a64a2ca7ebe731aa63defc8",
+      "bytes": 786486
+    },
+    "dream/assets/textures/floor_flow.bmp": {
+      "sha256": "685a488d04515a3c80b36dfa18235b3f0fb5a648b23cb56dc9afa9adb38d6098",
+      "bytes": 4718646
+    },
+    "dream/assets/textures/floor_surface_albedo.bmp": {
+      "sha256": "e53e3adaa20d9488fe7fad8de5ea54ff24c6b8382181af0be27aed679c7308f4",
+      "bytes": 4718646
+    },
+    "dream/assets/textures/leaf_detail.bmp": {
+      "sha256": "b3db23a0e53372e59b47808d951a7d42c9fdfc7499ea2fb8d9556a9e8f56cc83",
+      "bytes": 393270
+    },
+    "dream/assets/textures/room_probe.bmp": {
+      "sha256": "6fefba61794ab2a2b2c3957dd7272e28357f024c8d4de531335f492b31b00410",
+      "bytes": 1572918
+    },
+    "dream/runtime/build/dream.exe": {
+      "sha256": "6376657fd0f400a3ea7169b9507dfdf66c240ecba408481f1f9b1904afe25ed2",
+      "bytes": 3345304
+    },
+    "dream/runtime/shaders/present.frag": {
+      "sha256": "2dc791ee5653f98df3a0684fd1362a0b33b2ce7ae08c4072c471a7445c238bbf",
+      "bytes": 1225
+    },
+    "dream/runtime/shaders/present.vert": {
+      "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+      "bytes": 126
+    },
+    "dream/runtime/shaders/scene.frag": {
+      "sha256": "3b23dcdc1feaa40c4220b3bca5ada60ef32eee7766afc867ccaa7f2b15b0afdf",
+      "bytes": 14866
+    },
+    "dream/runtime/shaders/scene.vert": {
+      "sha256": "a8c31fb3422f0dcbee4d34a4ba87dabeb6b2a12b292b173e62c3b63211553c7e",
+      "bytes": 1082
+    },
+    "dream/runtime/shaders/sky.frag": {
+      "sha256": "c32f78643b2104f9f9426e06fd7eb857b322e7d8fa7e1f118c814d910db81cfb",
+      "bytes": 361
+    },
+    "dream/runtime/shaders/sky.vert": {
+      "sha256": "beed6704cdd3edfbd373e9391e4e94fe755fb7502f38a539101b461b1320c6d7",
+      "bytes": 126
+    },
+    "dream/runtime/src/gl_api.hpp": {
+      "sha256": "99cc642a9c08fb12da0fdbacf8e6f4baedcfbb375bdbabecee9137bbacca1dc5",
+      "bytes": 2289
+    },
+    "dream/runtime/src/main.cpp": {
+      "sha256": "9aed414db9186426ec9095ebc25ede6cfed6e028683cd709f70d90ba084eedc9",
+      "bytes": 14696
+    },
+    "dream/runtime/src/math.hpp": {
+      "sha256": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+      "bytes": 1177
+    },
+    "dream/runtime/src/render_support.hpp": {
+      "sha256": "7f41452681974af89830881f366d13014fe07bbe866ac683a737f59021b2829e",
+      "bytes": 9744
+    },
+    "dream/runtime/src/scene.hpp": {
+      "sha256": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+      "bytes": 11538
+    },
+    "dream/runtime/src/scene_catalog.hpp": {
+      "sha256": "79eb7e6fb00c22b2b48b9a37d6fa2ba6e295935ffb08c87d6057179b0d48e353",
+      "bytes": 10051
+    }
+  }
+}

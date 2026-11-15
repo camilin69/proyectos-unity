@@ -1,0 +1,311 @@
+{
+  "method": "Manual surface rectangles at native resolution, reviewed with visible ROI overlays; linear sRGB Rec709 Y per pixel then median. Door cream sample retains strong pink light. Roughness/normal cannot be measured from these samples.",
+  "regions": [
+    {
+      "time_s": 14.0,
+      "frame_sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+      "surface": "wall_pink",
+      "box_xyxy": [
+        356,
+        220,
+        399,
+        298
+      ],
+      "median_srgb_255": [
+        177.0,
+        127.0,
+        123.0
+      ],
+      "median_linear_luminance": 0.259559,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 14.0,
+      "frame_sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+      "surface": "ceiling_teal",
+      "box_xyxy": [
+        280,
+        26,
+        340,
+        62
+      ],
+      "median_srgb_255": [
+        89.0,
+        98.0,
+        99.0
+      ],
+      "median_linear_luminance": 0.117601,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 14.0,
+      "frame_sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+      "surface": "floor_teal",
+      "box_xyxy": [
+        30,
+        685,
+        105,
+        735
+      ],
+      "median_srgb_255": [
+        102.0,
+        136.0,
+        134.0
+      ],
+      "median_linear_luminance": 0.222131,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 14.0,
+      "frame_sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+      "surface": "floor_coral",
+      "box_xyxy": [
+        119,
+        517,
+        143,
+        573
+      ],
+      "median_srgb_255": [
+        174.0,
+        104.0,
+        92.0
+      ],
+      "median_linear_luminance": 0.195176,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 14.0,
+      "frame_sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+      "surface": "floor_yellow",
+      "box_xyxy": [
+        185,
+        505,
+        210,
+        524
+      ],
+      "median_srgb_255": [
+        161.0,
+        124.0,
+        89.0
+      ],
+      "median_linear_luminance": 0.227848,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 14.0,
+      "frame_sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+      "surface": "rail_dark",
+      "box_xyxy": [
+        448,
+        531,
+        465,
+        537
+      ],
+      "median_srgb_255": [
+        56.0,
+        59.0,
+        61.0
+      ],
+      "median_linear_luminance": 0.043662,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 15.5,
+      "frame_sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960",
+      "surface": "door_leaf_cream_under_pink_bounce",
+      "box_xyxy": [
+        130,
+        233,
+        155,
+        280
+      ],
+      "median_srgb_255": [
+        183.0,
+        153.0,
+        145.0
+      ],
+      "median_linear_luminance": 0.347412,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 15.5,
+      "frame_sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960",
+      "surface": "floor_lavender",
+      "box_xyxy": [
+        334,
+        773,
+        355,
+        812
+      ],
+      "median_srgb_255": [
+        120.0,
+        128.0,
+        149.0
+      ],
+      "median_linear_luminance": 0.217053,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 15.5,
+      "frame_sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960",
+      "surface": "floor_pink",
+      "box_xyxy": [
+        64,
+        739,
+        80,
+        777
+      ],
+      "median_srgb_255": [
+        187.0,
+        124.0,
+        129.0
+      ],
+      "median_linear_luminance": 0.265918,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 15.5,
+      "frame_sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960",
+      "surface": "floor_coral",
+      "box_xyxy": [
+        142,
+        774,
+        158,
+        809
+      ],
+      "median_srgb_255": [
+        197.0,
+        124.0,
+        105.0
+      ],
+      "median_linear_luminance": 0.27171,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 15.5,
+      "frame_sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960",
+      "surface": "floor_yellow",
+      "box_xyxy": [
+        218,
+        762,
+        248,
+        810
+      ],
+      "median_srgb_255": [
+        182.0,
+        139.0,
+        100.0
+      ],
+      "median_linear_luminance": 0.292286,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 17.0,
+      "frame_sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7",
+      "surface": "wall_pink",
+      "box_xyxy": [
+        388,
+        275,
+        424,
+        320
+      ],
+      "median_srgb_255": [
+        194.0,
+        148.0,
+        147.0
+      ],
+      "median_linear_luminance": 0.349909,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 17.0,
+      "frame_sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7",
+      "surface": "ceiling_teal",
+      "box_xyxy": [
+        170,
+        39,
+        198,
+        59
+      ],
+      "median_srgb_255": [
+        110.0,
+        128.0,
+        128.0
+      ],
+      "median_linear_luminance": 0.203383,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 17.0,
+      "frame_sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7",
+      "surface": "floor_teal",
+      "box_xyxy": [
+        195,
+        468,
+        220,
+        482
+      ],
+      "median_srgb_255": [
+        110.5,
+        136.0,
+        137.0
+      ],
+      "median_linear_luminance": 0.226088,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 17.0,
+      "frame_sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7",
+      "surface": "floor_lavender",
+      "box_xyxy": [
+        240,
+        492,
+        260,
+        509
+      ],
+      "median_srgb_255": [
+        127.0,
+        121.0,
+        150.0
+      ],
+      "median_linear_luminance": 0.203774,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 17.0,
+      "frame_sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7",
+      "surface": "floor_coral",
+      "box_xyxy": [
+        329,
+        531,
+        352,
+        555
+      ],
+      "median_srgb_255": [
+        182.0,
+        94.0,
+        94.0
+      ],
+      "median_linear_luminance": 0.188136,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    },
+    {
+      "time_s": 17.0,
+      "frame_sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7",
+      "surface": "floor_yellow",
+      "box_xyxy": [
+        272,
+        654,
+        299,
+        664
+      ],
+      "median_srgb_255": [
+        170.0,
+        128.0,
+        94.0
+      ],
+      "median_linear_luminance": 0.248884,
+      "note": "Observed lit/compressed frame RGB, not recovered physical albedo."
+    }
+  ]
+}

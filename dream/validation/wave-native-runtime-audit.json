@@ -1,0 +1,117 @@
+{
+  "scene": "DREAM_WaveCorridor",
+  "scene_objects": 76,
+  "mesh_objects": 62,
+  "native_inventory": {
+    "scenes": [
+      "DREAM_WaveCorridor"
+    ],
+    "objects": 76,
+    "images": [
+      "wave_wall_roughness.png",
+      "wave_wall_albedo.png",
+      "wave_paint_normal.png",
+      "wave_floor_roughness.png",
+      "wave_floor_normal.png",
+      "wave_floor_albedo.png",
+      "wave_exit_emission_dark.png",
+      "wave_exit_albedo_dark.png",
+      "wave_ceiling_roughness.png",
+      "wave_ceiling_albedo.png"
+    ]
+  },
+  "images": [
+    {
+      "name": "wave_floor_albedo.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "sRGB"
+    },
+    {
+      "name": "wave_floor_roughness.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "name": "wave_floor_normal.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "name": "wave_wall_albedo.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "sRGB"
+    },
+    {
+      "name": "wave_wall_roughness.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "name": "wave_paint_normal.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "name": "wave_ceiling_albedo.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "sRGB"
+    },
+    {
+      "name": "wave_ceiling_roughness.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "Non-Color"
+    },
+    {
+      "name": "wave_exit_albedo_dark.png",
+      "packed": true,
+      "size": [
+        256,
+        128
+      ],
+      "colorspace": "sRGB"
+    },
+    {
+      "name": "wave_exit_emission_dark.png",
+      "packed": true,
+      "size": [
+        256,
+        128
+      ],
+      "colorspace": "Non-Color"
+    }
+  ],
+  "sha256": "abb81fd3ac461d1202fe4a1df6af890d72aced953a4eaa53b9421611869c520b",
+  "strict_fidelity_accepted": false
+}

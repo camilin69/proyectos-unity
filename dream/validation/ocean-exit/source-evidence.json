@@ -1,0 +1,32 @@
+{
+  "source": "referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+  "source_sha256": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657",
+  "fps": 30.0,
+  "frames": [
+    {
+      "time_s": 6.5,
+      "frame_index": 195,
+      "path": "validation/ocean-exit/source-6.5s.png",
+      "sha256": "932215e0225d02c1ba043b7dc5397bf7d1053ef292df6599cdeb6ff9e5acf0aa"
+    },
+    {
+      "time_s": 7,
+      "frame_index": 210,
+      "path": "validation/ocean-exit/source-7s.png",
+      "sha256": "4456f54638531dfd30147788e9a0d0f926c11ebb798e67d1031876bdc07e0c85"
+    },
+    {
+      "time_s": 9,
+      "frame_index": 270,
+      "path": "validation/ocean-exit/source-9s.png",
+      "sha256": "1aaff944d2126262b02b1f31f3a777638facc4689846f10594cf883528dbf463"
+    },
+    {
+      "time_s": 11.5,
+      "frame_index": 345,
+      "path": "validation/ocean-exit/source-11.5s.png",
+      "sha256": "213a8ac916a7a281d1aa512b6183995504152334c0691f5cd9720594c7d6e728"
+    }
+  ],
+  "audio_analyzed": false
+}

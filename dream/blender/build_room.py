@@ -208,6 +208,13 @@ for obj in list(scene.objects):
     if obj.name.startswith('GEO-DREAM-front_grout'):obj.location.y-=.06
     if obj.name.startswith('GEO-DREAM-right_grout'):obj.location.x-=.06
 
+# The return view (video-35, 24s) exposes two lower connections to the floor.
+# Share this specification with the incremental MCP update; keep the calibrated
+# body, wall/window dimensions and camera untouched.
+radiator_details={}
+exec((ROOT/'blender/room_radiator_details.py').read_text(encoding='utf-8'),radiator_details)
+radiator_details['apply_radiator_returns'](scene,chrome)
+
 world=bpy.data.worlds.new('DREAM_Sky');world.use_nodes=True;scene.world=world
 nodes=world.node_tree.nodes;bg=next(n for n in nodes if n.type=='BACKGROUND')
 env=nodes.new('ShaderNodeTexEnvironment');env.image=image_asset('cloud_sky')

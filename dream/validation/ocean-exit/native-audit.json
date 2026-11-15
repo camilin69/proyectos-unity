@@ -1,0 +1,261 @@
+{
+  "schema": "dream.ocean_exit_native_audit.v1",
+  "scene": "DREAM_OceanExit",
+  "objects": 34,
+  "meshes": [
+    {
+      "object": "GEO-DREAM-ocean-bed",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 18.09375
+    },
+    {
+      "object": "GEO-DREAM-ocean-ceiling",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 22.6171875
+    },
+    {
+      "object": "GEO-DREAM-ocean-wall_-1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 28.4765625
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_side_-1_0",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.3371262923479321
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_side_-1_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.5256270432473684
+    },
+    {
+      "object": "GEO-DREAM-ocean-exit_pier_-1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 7.59375
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_pier_-1_0",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.37926306004817434
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_pier_-1_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.5913241577145527
+    },
+    {
+      "object": "GEO-DREAM-ocean-jamb_-1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.41625049352660426
+    },
+    {
+      "object": "GEO-DREAM-ocean-low_border_-1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 6.40625
+    },
+    {
+      "object": "GEO-DREAM-ocean-pink_cap_-1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.15224993848801205
+    },
+    {
+      "object": "GEO-DREAM-ocean-wall_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 28.4765625
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_side_1_0",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.3371262923479321
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_side_1_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.5256270432473684
+    },
+    {
+      "object": "GEO-DREAM-ocean-exit_pier_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 7.59375
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_pier_1_0",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.37926306004817434
+    },
+    {
+      "object": "GEO-DREAM-ocean-tile_pier_1_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.5913241577145527
+    },
+    {
+      "object": "GEO-DREAM-ocean-jamb_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.41625049352660426
+    },
+    {
+      "object": "GEO-DREAM-ocean-low_border_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 6.40625
+    },
+    {
+      "object": "GEO-DREAM-ocean-pink_cap_1",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.15224993848801205
+    },
+    {
+      "object": "GEO-DREAM-ocean-header",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 5.976561427116394
+    },
+    {
+      "object": "GEO-DREAM-ocean-head_frame",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.39749795436728164
+    },
+    {
+      "object": "GEO-DREAM-ocean-service_door",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 1.5000057220458984
+    },
+    {
+      "object": "GEO-DREAM-ocean-service_pushbar",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.177734375
+    },
+    {
+      "object": "GEO-DREAM-ocean-bent_access_post",
+      "vertices": 120,
+      "polygons": 98,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.021238670808997995
+    },
+    {
+      "object": "GEO-DREAM-ocean-exit_here",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.66796875
+    },
+    {
+      "object": "GEO-DREAM-ocean-exit_lamp",
+      "vertices": 8,
+      "polygons": 6,
+      "boundary_edges": 0,
+      "intentional_water_surface": false,
+      "uv_min_face_area": 0.28125
+    },
+    {
+      "object": "GEO-DREAM-ocean-interior_water",
+      "vertices": 15561,
+      "polygons": 15300,
+      "boundary_edges": 520,
+      "intentional_water_surface": true,
+      "uv_min_face_area": 0.00011008889914876363
+    },
+    {
+      "object": "GEO-DREAM-ocean-ocean",
+      "vertices": 17271,
+      "polygons": 17000,
+      "boundary_edges": 540,
+      "intentional_water_surface": true,
+      "uv_min_face_area": 0.38017845153808594
+    }
+  ],
+  "closed_meshes": 27,
+  "intentional_open_water_surfaces": 2,
+  "packed_images": {
+    "DREAM-ocean-exit_here.png": "9e84fceaaa5480f2b7dd30e0ebfe45a07fa2557d038dd5d522e7897c798a15d6",
+    "DREAM-ocean-exit_lamp.png": "0a6b2d3f584da295dac63604f5f60eb40145745b357185b107b34bd9cabc66dd",
+    "DREAM-ocean-pink_tile_height.png": "4083224500871b23e4a80614258de0395d2088c73f7cb9a14519572fe43e1d7d",
+    "DREAM-ocean-pink_tile_roughness.png": "ed68e77d18c49da896a97810e56b3d3d0e993142dd6964b1b12bc345e11ea602",
+    "DREAM-ocean-pink_tile_albedo.png": "847ca246278fc61eee90e441ee81f939d3978110767d8bd61a759e0b81954c90",
+    "DREAM-ocean-ripple_height.png": "46a59d8722698201388a68feded466cde35aae2e5143a55686a075db2d2d2a98",
+    "DREAM-ocean-foam_mask.png": "0d11268552608bcf611015f4c11c6f078d03c6b794e1f0eaf52bd75b431a2990",
+    "DREAM-ocean-sunset_stars_v2.png": "3a2a0f544e9570e66f8a91edc813277a0b3ad5e0f4af99d1a39844a7cd1fcdd6"
+  },
+  "accepted": false,
+  "runtime_promoted": false,
+  "rebuild_order": [
+    "blender/make_ocean_exit_maps.py (standalone)",
+    "validation/fit_ocean_exit_camera.py (standalone)",
+    "blender/build_ocean_exit.py (MCP)",
+    "blender/refine_ocean_exit.py (MCP)",
+    "blender/make_ocean_sky_refinement.py (standalone)",
+    "blender/finish_ocean_exit_study.py (MCP)"
+  ]
+}

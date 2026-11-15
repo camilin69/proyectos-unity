@@ -1,0 +1,36 @@
+{
+  "scene": "DREAM_WaveCorridor",
+  "scene_count": 1,
+  "objects": 75,
+  "meshes": 61,
+  "images": [
+    "wave_wall_roughness.png",
+    "wave_wall_albedo.png",
+    "wave_paint_normal.png",
+    "wave_floor_roughness.png",
+    "wave_floor_normal.png",
+    "wave_floor_albedo.png",
+    "wave_exit_emission_dark.png",
+    "wave_exit_albedo_dark.png",
+    "wave_ceiling_roughness.png",
+    "wave_ceiling_albedo.png"
+  ],
+  "material_names": [
+    "DREAM_WAVE_LOOK_wall",
+    "DREAM_WAVE_LOOK_rear_panel",
+    "DREAM_WAVE_LOOK_rail",
+    "DREAM_WAVE_LOOK_floor_caps",
+    "DREAM_WAVE_LOOK_floor",
+    "DREAM_WAVE_LOOK_exit",
+    "DREAM_WAVE_LOOK_door_trim",
+    "DREAM_WAVE_LOOK_diffuser",
+    "DREAM_WAVE_LOOK_ceiling",
+    "DREAM_WAVE_LOOK_button_red"
+  ],
+  "native_bytes": 1929515,
+  "native_sha256": "3a0c346310b222c2a67fd005c938046ce5da2cc48109205ed6c2d8c105df6dcd",
+  "repeat_apply_no_changes": true,
+  "geometry_uv_fingerprint": "6bc806eedfe399b483569efb3dec3e8940082326977442548ab728767fc8b213",
+  "inspection_scene_excluded": true,
+  "strict_acceptance": false
+}

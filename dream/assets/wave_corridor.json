@@ -1,0 +1,937 @@
+{
+  "format": "DREAMM02",
+  "axes": "Z-up, right handed, metres",
+  "materials": [
+    "DREAM_WAVE_LOOK_button_red",
+    "DREAM_WAVE_LOOK_ceiling",
+    "DREAM_WAVE_LOOK_diffuser",
+    "DREAM_WAVE_LOOK_door_trim",
+    "DREAM_WAVE_LOOK_exit",
+    "DREAM_WAVE_LOOK_floor",
+    "DREAM_WAVE_LOOK_floor_caps",
+    "DREAM_WAVE_LOOK_rail",
+    "DREAM_WAVE_LOOK_rear_panel",
+    "DREAM_WAVE_LOOK_wall"
+  ],
+  "vertices": 74880,
+  "triangles": 24960,
+  "objects": [
+    {
+      "name": "GEO-DREAM-wavecorridor-continuous_stepped_floor",
+      "first_vertex": 0,
+      "vertex_count": 324,
+      "kind": 13,
+      "material_kinds": [
+        0,
+        13
+      ],
+      "center": [
+        4.257474817137563e-09,
+        3.8281307220458984,
+        -0.5329052209854126
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-right_wall",
+      "first_vertex": 324,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        1.190000057220459,
+        4.026973724365234,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_before_door_0",
+      "first_vertex": 360,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        -0.15759634971618652,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_below_door_0",
+      "first_vertex": 396,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        2.270369291305542,
+        -0.905648410320282
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_above_door_0",
+      "first_vertex": 432,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        2.270369291305542,
+        2.0950229167938232
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_0_leaf",
+      "first_vertex": 468,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.220000147819519,
+        2.270369052886963,
+        0.7506778240203857
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_0_near_reveal",
+      "first_vertex": 792,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1419999599456787,
+        1.6848078966140747,
+        0.7446778416633606
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_0_far_reveal",
+      "first_vertex": 1116,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1419999599456787,
+        2.855931520462036,
+        0.7446778416633606
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_0_head_reveal",
+      "first_vertex": 1440,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1419999599456787,
+        2.270369291305542,
+        1.8406517505645752
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_0_round_fitting",
+      "first_vertex": 1764,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1899999380111694,
+        2.510368585586548,
+        0.6487028002738953
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_before_door_1",
+      "first_vertex": 2844,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        3.4079525470733643,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_below_door_1",
+      "first_vertex": 2880,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        4.545536041259766,
+        -0.905648410320282
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_above_door_1",
+      "first_vertex": 2916,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        4.545536041259766,
+        2.0950229167938232
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_1_leaf",
+      "first_vertex": 2952,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.220000147819519,
+        4.545536041259766,
+        0.7506778240203857
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_1_near_reveal",
+      "first_vertex": 3276,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1419999599456787,
+        3.959974765777588,
+        0.7446778416633606
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_1_far_reveal",
+      "first_vertex": 3600,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1419999599456787,
+        5.131097316741943,
+        0.7446778416633606
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_1_head_reveal",
+      "first_vertex": 3924,
+      "vertex_count": 324,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1419999599456787,
+        4.545536041259766,
+        1.8406517505645752
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-door_1_round_fitting",
+      "first_vertex": 4248,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.1899999380111694,
+        4.78553581237793,
+        0.6487028002738953
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-left_wall_after_doors",
+      "first_vertex": 5328,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -1.190000057220459,
+        7.592522621154785,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling",
+      "first_vertex": 5364,
+      "vertex_count": 36,
+      "kind": 15,
+      "material_kinds": [
+        15
+      ],
+      "center": [
+        0.0,
+        4.026973724365234,
+        2.4293935298919678
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-handrail_-1",
+      "first_vertex": 5400,
+      "vertex_count": 11952,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0100067853927612,
+        4.043698310852051,
+        -0.1441834270954132
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-handrail_1",
+      "first_vertex": 17352,
+      "vertex_count": 11952,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.0100067853927612,
+        4.043698310852051,
+        -0.1441834270954132
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_floor",
+      "first_vertex": 29304,
+      "vertex_count": 36,
+      "kind": 13,
+      "material_kinds": [
+        0,
+        13
+      ],
+      "center": [
+        5.960464477539063e-08,
+        13.426973342895508,
+        -1.309833288192749
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_side_-1",
+      "first_vertex": 29340,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -2.8899998664855957,
+        13.426973342895508,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_side_1",
+      "first_vertex": 29376,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        2.8899998664855957,
+        13.426973342895508,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_ceiling",
+      "first_vertex": 29412,
+      "vertex_count": 36,
+      "kind": 15,
+      "material_kinds": [
+        15
+      ],
+      "center": [
+        -5.960464477539063e-08,
+        13.426973342895508,
+        2.4293935298919678
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_back_wall",
+      "first_vertex": 29448,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        -5.960464477539063e-08,
+        16.889999389648438,
+        0.44469666481018066
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_column_0",
+      "first_vertex": 29484,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.3499999046325684,
+        13.09999942779541,
+        0.5948634147644043
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_column_1",
+      "first_vertex": 29520,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.350000023841858,
+        13.09999942779541,
+        0.5948634147644043
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_unresolved_rear_panel",
+      "first_vertex": 29556,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        0.0,
+        16.780000686645508,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_0",
+      "first_vertex": 29592,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -2.5399999618530273,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_1",
+      "first_vertex": 29628,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.693333625793457,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_2",
+      "first_vertex": 29664,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -0.8466666340827942,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_3",
+      "first_vertex": 29700,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -2.3283064365386963e-10,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_4",
+      "first_vertex": 29736,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        0.846666693687439,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_5",
+      "first_vertex": 29772,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.693333387374878,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_mullion_6",
+      "first_vertex": 29808,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        2.5399999618530273,
+        16.761999130249023,
+        0.5948635339736938
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_transom_1",
+      "first_vertex": 29844,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        0.0,
+        16.761999130249023,
+        0.0700201466679573
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-hall_rear_transom_2",
+      "first_vertex": 29880,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        0.0,
+        16.761999130249023,
+        1.1197067499160767
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_0",
+      "first_vertex": 29916,
+      "vertex_count": 1080,
+      "kind": 7,
+      "material_kinds": [
+        7
+      ],
+      "center": [
+        -5.881865217105542e-09,
+        3.998499631881714,
+        2.2968926429748535
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_base_0",
+      "first_vertex": 30996,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0087021884430669e-08,
+        3.9984986782073975,
+        2.331892967224121
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_1",
+      "first_vertex": 32076,
+      "vertex_count": 1080,
+      "kind": 7,
+      "material_kinds": [
+        7
+      ],
+      "center": [
+        -5.881865217105542e-09,
+        5.931468963623047,
+        2.2968926429748535
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_base_1",
+      "first_vertex": 33156,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0087021884430669e-08,
+        5.931468486785889,
+        2.331892967224121
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_2",
+      "first_vertex": 34236,
+      "vertex_count": 1080,
+      "kind": 7,
+      "material_kinds": [
+        7
+      ],
+      "center": [
+        -5.881865217105542e-09,
+        8.479656219482422,
+        2.2968926429748535
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_base_2",
+      "first_vertex": 35316,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0087021884430669e-08,
+        8.479650497436523,
+        2.331892967224121
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_3",
+      "first_vertex": 36396,
+      "vertex_count": 1080,
+      "kind": 7,
+      "material_kinds": [
+        7
+      ],
+      "center": [
+        -5.881865217105542e-09,
+        12.400004386901855,
+        2.2968926429748535
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_base_3",
+      "first_vertex": 37476,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0087021884430669e-08,
+        12.400006294250488,
+        2.331892967224121
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_4",
+      "first_vertex": 38556,
+      "vertex_count": 1080,
+      "kind": 7,
+      "material_kinds": [
+        7
+      ],
+      "center": [
+        -5.881865217105542e-09,
+        15.100004196166992,
+        2.2968926429748535
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-ceiling_fixture_base_4",
+      "first_vertex": 39636,
+      "vertex_count": 1080,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0087021884430669e-08,
+        15.100001335144043,
+        2.331892967224121
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_backing_-1",
+      "first_vertex": 40716,
+      "vertex_count": 6960,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.062564492225647,
+        4.043713092803955,
+        -0.1582377701997757
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_lower_bead_-1",
+      "first_vertex": 47676,
+      "vertex_count": 9960,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.034988284111023,
+        4.043694496154785,
+        -0.20920142531394958
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_backing_1",
+      "first_vertex": 57636,
+      "vertex_count": 6960,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.062564492225647,
+        4.043713092803955,
+        -0.1582377701997757
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_lower_bead_1",
+      "first_vertex": 64596,
+      "vertex_count": 9960,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.034988284111023,
+        4.043694496154785,
+        -0.20920142531394958
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_exit_-1",
+      "first_vertex": 74556,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0,
+        16
+      ],
+      "center": [
+        -1.0920000076293945,
+        3.046781063079834,
+        2.1874494552612305
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_exit_1",
+      "first_vertex": 74592,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0,
+        16
+      ],
+      "center": [
+        1.0920000076293945,
+        3.0212082862854004,
+        2.2431390285491943
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_button_plate",
+      "first_vertex": 74628,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0880000591278076,
+        3.869999885559082,
+        1.159999966621399
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_button_lens",
+      "first_vertex": 74664,
+      "vertex_count": 36,
+      "kind": 7,
+      "material_kinds": [
+        7
+      ],
+      "center": [
+        -1.063999891281128,
+        3.8700003623962402,
+        1.1700000762939453
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_frame_0",
+      "first_vertex": 74700,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0870000123977661,
+        6.730000019073486,
+        0.12000000476837158
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_inset_0",
+      "first_vertex": 74736,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.065000057220459,
+        6.730000019073486,
+        0.12000000476837158
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_frame_1",
+      "first_vertex": 74772,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.0870000123977661,
+        7.070000171661377,
+        0.12000000476837158
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_inset_1",
+      "first_vertex": 74808,
+      "vertex_count": 36,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -1.065000057220459,
+        7.070000171661377,
+        0.12000000476837158
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_entry_closure_inferred",
+      "first_vertex": 74844,
+      "vertex_count": 36,
+      "kind": 14,
+      "material_kinds": [
+        14
+      ],
+      "center": [
+        0.0,
+        -2.0799999237060547,
+        0.44469666481018066
+      ]
+    }
+  ],
+  "camera": {
+    "position": [
+      -0.06928924471139908,
+      -0.30000001192092896,
+      1.4601268768310547
+    ],
+    "vertical_fov_degrees": 77.5888855278806,
+    "forward": [
+      0.03162383660674095,
+      0.9408808350563049,
+      -0.3372584581375122
+    ],
+    "up": [
+      -0.0279008150100708,
+      0.33812668919563293,
+      0.9406870007514954
+    ]
+  },
+  "source": "blender/wave_corridor.blend",
+  "ao": {
+    "method": "8 cosine hemisphere rays, 0.65 m radius",
+    "minimum": 0.35,
+    "corners": 16848,
+    "excluded_occluder_kinds": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "unoccluded_receiver_kinds": [
+      11
+    ],
+    "detail_objects_excluded": []
+  },
+  "navigation": {
+    "kind": "rectangular_stepped_supports",
+    "surfaces": 17,
+    "riser_count": 12,
+    "total_descent_m": 1.1596664988460463,
+    "eye_height_m": 1.460126912250797,
+    "doors": "closed reference objects",
+    "hall_columns": "capsule obstacles",
+    "runtime_validation": "pending",
+    "strict_fidelity_accepted": false
+  }
+}

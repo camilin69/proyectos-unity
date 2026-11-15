@@ -1,0 +1,829 @@
+{
+  "schema_version": 1,
+  "asset_id": "stair_sky",
+  "scene_name": "DREAM_StairSky",
+  "status": "material_prototype_exported_runtime_navigation_verified_visual_pending",
+  "language": "es",
+  "path_base": "repository_root",
+  "scope": "Escalera afelpada hacia un hueco enmarcado con cielo, video-35. Escenario independiente: no modifica habitación, atrio ni cocina.",
+  "sources": [
+    {
+      "path": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4",
+      "sha256": "3147a71d5ce0b7e964fb424810d27fbeb70a87c26a501c26b7a94446ba7f75ce",
+      "role": "original íntegro"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/09s.png",
+      "sha256": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde",
+      "role": "fotograma de forma"
+    },
+    {
+      "path": "dream/referencias/estetica/evidencias/video-35/21s.png",
+      "sha256": "600a100bd9c343bf52eb52328461d72f02f06391845175189d4f107fe626f2c2",
+      "role": "fotograma de forma"
+    },
+    {
+      "path": "dream/referencias/estetica/texturas/video-35/peluche_rosa.png",
+      "sha256": "023d535cb7c0ed7f337062b320021faf87a5df42f8a33a66c0e4c1ed53255519",
+      "role": "recorte de textura conservado; no mapa PBR"
+    },
+    {
+      "path": "dream/referencias/estetica/texturas/video-35/cesped.png",
+      "sha256": "b29aa67c155cc79454bea6485c67e1957f52d95b1057a391df0aa09404ccc02b",
+      "role": "recorte de textura conservado; no mapa PBR"
+    }
+  ],
+  "reviewed_original_frames": [
+    {
+      "time_s": 7.7,
+      "observation": "Todavía corresponde al paseo de palmeras, no a la escalera; excluido del encaje."
+    },
+    {
+      "time_s": 9.4,
+      "observation": "Vista lateral derecha confirma talud volumétrico, banda vegetal sobre peldaños, pasamanos con codo inferior y soporte vertical."
+    },
+    {
+      "time_s": 20.6,
+      "observation": "Vista cercana izquierda confirma franja rosa en huellas y contrahuellas, bandas verdes escalonadas y montantes."
+    },
+    {
+      "time_s": 22.0,
+      "observation": "Talud izquierdo ocupa primer plano, con pasamanos y escalones parcialmente recortados; no es un mural lateral."
+    }
+  ],
+  "original_frame_review_method": "FFmpeg -ss <segundo> -frames:v 1; PNG decodificados en directorio temporal, inspeccionados. Los originales íntegros y los fotogramas persistentes 09s/21s se preservan.",
+  "evidence_policy": {
+    "observed_vs_inferred": "Presencia, orden y siluetas descritos por inspección. Metros, focal, conteo provisional, profundidad detrás del marco y trayectoria son semillas inferidas, no datos originales recuperados.",
+    "measurement": "Lectura manual de hitos en09s nativo720x1280, con incertidumbre explícita. Proyección analítica para iniciar cámara; no equivale a render Blender.",
+    "secondary_view": "21s y las vistas laterales comprueban volumen y construcción; no tienen todavía cámara registrada ni métricas de encaje.",
+    "clouds": "Se observa cielo con nubes a través del hueco. No hay evidencia suficiente para clasificar cada nube como volumen cercano. El bloque gris utiliza un world uniforme, sin tarjetas 2D delante de la cámara. Nubes cercanas/paralaje, si se confirman, requerirán volumen/geometría real."
+  },
+  "landmarks_primary_09s": [
+    {
+      "id": "first_riser_ground_left",
+      "pixel_xy": [
+        4,
+        1125
+      ],
+      "normalized_xy": [
+        0.00556,
+        0.87891
+      ],
+      "uncertainty_px": 12,
+      "note": "Borde fibroso parcialmente cortado por imagen."
+    },
+    {
+      "id": "first_riser_ground_right",
+      "pixel_xy": [
+        588,
+        1127
+      ],
+      "normalized_xy": [
+        0.81667,
+        0.88047
+      ],
+      "uncertainty_px": 12,
+      "note": "Base visible de franja rosa."
+    },
+    {
+      "id": "top_tread_front_left",
+      "pixel_xy": [
+        153,
+        583
+      ],
+      "normalized_xy": [
+        0.2125,
+        0.45547
+      ],
+      "uncertainty_px": 8,
+      "note": "Inicio visible del último peldaño rosa; no esquina posterior del descansillo."
+    },
+    {
+      "id": "top_tread_front_right",
+      "pixel_xy": [
+        445,
+        583
+      ],
+      "normalized_xy": [
+        0.61806,
+        0.45547
+      ],
+      "uncertainty_px": 8,
+      "note": "Fin visible del último peldaño rosa."
+    },
+    {
+      "id": "opening_inner_top_left",
+      "pixel_xy": [
+        55,
+        183
+      ],
+      "normalized_xy": [
+        0.07639,
+        0.14297
+      ],
+      "uncertainty_px": 7,
+      "note": "Jamba/dintel interior."
+    },
+    {
+      "id": "opening_inner_top_right",
+      "pixel_xy": [
+        542,
+        183
+      ],
+      "normalized_xy": [
+        0.75278,
+        0.14297
+      ],
+      "uncertainty_px": 7,
+      "note": "Jamba/dintel interior, borde ligeramente oblicuo."
+    },
+    {
+      "id": "frame_outer_top_left",
+      "pixel_xy": [
+        25,
+        145
+      ],
+      "normalized_xy": [
+        0.03472,
+        0.11328
+      ],
+      "uncertainty_px": 7,
+      "note": "Moldura exterior."
+    },
+    {
+      "id": "frame_outer_top_right",
+      "pixel_xy": [
+        572,
+        150
+      ],
+      "normalized_xy": [
+        0.79444,
+        0.11719
+      ],
+      "uncertainty_px": 7,
+      "note": "Moldura exterior."
+    },
+    {
+      "id": "left_rail_upper_bend",
+      "pixel_xy": [
+        145,
+        455
+      ],
+      "normalized_xy": [
+        0.20139,
+        0.35547
+      ],
+      "uncertainty_px": 7,
+      "note": "Extremo superior del tramo diagonal; retorno corto visible."
+    },
+    {
+      "id": "right_rail_upper_bend",
+      "pixel_xy": [
+        458,
+        456
+      ],
+      "normalized_xy": [
+        0.63611,
+        0.35625
+      ],
+      "uncertainty_px": 7,
+      "note": "Extremo superior del tramo diagonal."
+    },
+    {
+      "id": "right_rail_lower_bend",
+      "pixel_xy": [
+        638,
+        849
+      ],
+      "normalized_xy": [
+        0.88611,
+        0.66328
+      ],
+      "uncertainty_px": 10,
+      "note": "Codo hacia extensión cercana."
+    },
+    {
+      "id": "bank_right_at_image_edge",
+      "pixel_xy": [
+        719,
+        456
+      ],
+      "normalized_xy": [
+        0.99861,
+        0.35625
+      ],
+      "uncertainty_px": 12,
+      "note": "Silueta del talud en el borde; no esquina 3D recuperable."
+    }
+  ],
+  "observed_elements": [
+    {
+      "id": "central_stair",
+      "observation": "Tramo recto rosa de unos12 niveles visibles; textura fibrosa y bordes suaves. No baldosas.",
+      "count_status": "12 como semilla; revisar el borde superior y primero antes de declarar conteo exacto."
+    },
+    {
+      "id": "green_step_bands",
+      "observation": "Bandas vegetales siguen las huellas y contrahuellas por ambos lados del tramo rosa."
+    },
+    {
+      "id": "side_banks",
+      "observation": "Dos masas vegetales elevadas continuas fuera de las bandas. Vistas laterales confirman volumen y fuerte oclusión/paralaje."
+    },
+    {
+      "id": "handrails",
+      "observation": "Dos pasamanos de apariencia metálica clara, montantes verticales, tramo inclinado y retornos cortos. Número total de soportes ocultos no confirmado."
+    },
+    {
+      "id": "sky_frame",
+      "observation": "Marco rosa con varias líneas de moldura, más ancho que la escalera rosa; área circundante menta lisa. Hueco central con cielo."
+    },
+    {
+      "id": "approach",
+      "observation": "Primer plano vegetal casi horizontal antes del primer peldaño; sin agua visible."
+    }
+  ],
+  "not_observed_do_not_add": [
+    "puerta opaca cerrando el hueco",
+    "personajes",
+    "árboles en primer plano",
+    "agua o reflejo de piscina",
+    "jardineras rígidas",
+    "barrotes densos de barandilla",
+    "reutilización de retícula cerámica de la habitación"
+  ],
+  "constructor": {
+    "path": "dream/blender/build_stair_sky.py",
+    "ownership": "Solo objetos de DREAM_StairSky con token -DREAM-stair-; datos, world y materiales propios. Rerunnable.",
+    "axes": "Z arriba, +Y sube hacia el marco, +X derecha. Metros.",
+    "stage": "gray_shape_only",
+    "primary_reference": "referencias/estetica/evidencias/video-35/09s.png",
+    "camera_seed": {
+      "position_m": [
+        0.02206,
+        -3.43887,
+        1.55
+      ],
+      "yaw_rad": 1.51996,
+      "pitch_rad": 0.001732,
+      "tan_half_vertical_fov": 0.597352,
+      "render_px": [
+        720,
+        1280
+      ],
+      "status": "Reference seed rendered in gray and material iterations. Shape fit permits prototype; exact multi-view registration remains incomplete."
+    },
+    "secondary_camera_seed": {
+      "position_m": [
+        -0.32,
+        -0.35,
+        1.55
+      ],
+      "yaw_rad": 1.98,
+      "pitch_rad": -0.05,
+      "tan_half_vertical_fov": 0.597352,
+      "status": "Inspección de volumen izquierdo; no registrada al21s."
+    },
+    "stair": {
+      "count": 12,
+      "riser_m": 0.16,
+      "tread_m": 0.3,
+      "pink_width_m": 1.86,
+      "front_y_m": 0.0,
+      "base_z_m": 0.0,
+      "side_band_width_m": 0.3,
+      "nosing_m": 0.008,
+      "edge_bevel_m": 0.009,
+      "construction": "Peldaños sólidos cerrados desde una base común, con bandas laterales independientes a la misma cota; no planos flotantes.",
+      "count_and_scale_inferred": true
+    },
+    "landing": {
+      "start_y_m": 3.6,
+      "end_y_m": 5.2,
+      "width_m": 3.6,
+      "top_z_m": 1.92,
+      "note": "Descansillo continuo para evitar un vacío al llegar arriba. La profundidad oculta más allá del marco es inferida y acotada, no espacio original confirmado."
+    },
+    "frame": {
+      "wall_y_m": 3.92,
+      "opening_width_m": 3.33608,
+      "opening_bottom_z_m": 1.92,
+      "opening_top_z_m": 4.69858,
+      "wall_width_m": 14.0,
+      "wall_height_m": 9.0,
+      "wall_thickness_m": 0.22,
+      "jamb_width_m": 0.18,
+      "jamb_depth_m": 0.17,
+      "header_height_m": 0.22,
+      "moulding_layers": 3,
+      "moulding_projection_m": 0.014,
+      "note": "Hueco estructural, cámaras y navegación conservados. Frente nuevo sobresale0.035–0.047m del plano menta; reverso0.018m detrás del muro. Solape interior físico2mm para que la jamba menta no tape el retorno rosa. No hay travesaño inferior cruzando el paso.",
+      "back_projection_m": 0.018,
+      "solid_profile_fraction_projection_m": [
+        [
+          0,
+          0.035
+        ],
+        [
+          0.1,
+          0.035
+        ],
+        [
+          0.14,
+          0.045
+        ],
+        [
+          0.22,
+          0.045
+        ],
+        [
+          0.26,
+          0.035
+        ],
+        [
+          0.43,
+          0.035
+        ],
+        [
+          0.47,
+          0.046
+        ],
+        [
+          0.55,
+          0.046
+        ],
+        [
+          0.59,
+          0.035
+        ],
+        [
+          0.76,
+          0.035
+        ],
+        [
+          0.8,
+          0.047
+        ],
+        [
+          0.88,
+          0.047
+        ],
+        [
+          0.92,
+          0.035
+        ],
+        [
+          1,
+          0.035
+        ]
+      ],
+      "geometry_version": 2,
+      "helper": "dream/blender/stair_frame.py",
+      "profile_policy": "One closed U solid. Integral shallow moulding ridges sit on a complete painted front, with mitred corners, inner reveal, outer sidewalls, rear face and capped feet. A physical2mm inner lip covers the otherwise coplanar mint reveal; structural wall opening is unchanged, clear width is4mm narrower and clear top2mm lower.",
+      "legacy_fields_note": "jamb_depth_m and moulding_projection_m retain prior values as historical dimensions; geometry v2 derives depth from wall planes, back_projection_m and solid_profile_fraction_projection_m.",
+      "reveal_lip_m": 0.002
+    },
+    "banks": {
+      "start_y_m": -1.35,
+      "end_y_m": 4.3,
+      "outer_x_m": 5.2,
+      "outer_rise_m": 1.65,
+      "y_segments": 32,
+      "x_segments": 10,
+      "bottom_z_m": -0.16,
+      "note": "Dos mallas cerradas suavemente elevadas. Perfil y extensión fuera de imagen son inferidos; sin briznas hasta pasar forma."
+    },
+    "rails": {
+      "x_offset_m": 1.04,
+      "radius_m": 0.024,
+      "post_radius_m": 0.022,
+      "main_start_y_m": 0.0,
+      "main_start_z_m": 0.9,
+      "main_end_y_m": 3.45,
+      "main_end_z_m": 2.8,
+      "lower_extension_m": 0.8,
+      "upper_return_m": 0.24,
+      "post_y_m": [
+        -0.22,
+        1.4,
+        3.36
+      ],
+      "note": "Tres montantes por lado como soporte plausible; no conteo original confirmado. Tubos redondos con tapas planas y laterales suaves; codos unidos por piezas volumétricas."
+    },
+    "approach": {
+      "x_min_m": -6.0,
+      "x_max_m": 6.0,
+      "y_min_m": -5.5,
+      "y_max_m": 0.0,
+      "top_z_m": 0.0
+    },
+    "diagnostic_render": {
+      "engine": "EEVEE",
+      "samples": 64,
+      "view_transform": "Standard",
+      "format": "PNG",
+      "final_lighting": false,
+      "world": "Gris uniforme propio; sin textura prestada ni imagen de referencia pegada."
+    },
+    "future_material_intent": {
+      "central_stair": "Rosa afelpado, rugosidad alta y fibras cercanas; no acabado plástico brillante.",
+      "vegetation": "Verde irregular y detalle de césped, con silueta volumétrica.",
+      "handrails": "Metal claro; calibrar reflejos contra09s y vistas laterales.",
+      "frame": "Rosa con capas de moldura.",
+      "surround": "Menta lisa; extensión arquitectónica inferida.",
+      "textures_preserved": [
+        "dream/referencias/estetica/texturas/video-35/peluche_rosa.png",
+        "dream/referencias/estetica/texturas/video-35/cesped.png"
+      ],
+      "texture_policy": "Recortes conservados como evidencia; generar mapas propios después, sin presentarlos como albedo o normal recuperados."
+    },
+    "finisher": "dream/blender/finish_stair_sky.py"
+  },
+  "navigation_contract": {
+    "status": "Implemented and CPU verified against exported stair_sky.scene",
+    "mode": "grounded_stair_support_height",
+    "eye_height_m": 1.55,
+    "agent_radius_m": 0.18,
+    "max_step_up_m": 0.18,
+    "max_step_down_m": 0.18,
+    "tread_query": "Doce rectángulos de apoyo con z constante por huella, más aproximación y descansillo. Nunca mantener Z global fija.",
+    "camera_motion": "Resolver soporte real del pie, aceptar salto de altura de0.16m y suavizar visualmente la cámara si se desea. La suavización no cambia geometría ni permite cruzar bordes.",
+    "corridor": "Centro transitable x∈[-0.72,0.72], más estrecho que franja rosa y libre de postes. Se conserva continuo desde y=-5.2 hasta5.0.",
+    "top_end": "Límite de navegación antes del final del descansillo; paso a otro entorno queda pendiente. No entregar salida caminable al vacío.",
+    "runtime_gap": "Resolved for rectilinear step support surfaces; continuous ramps and onward scene transitions remain separate work.",
+    "export_policy": "dream_runtime_config and dream_navigation are written by the finisher and consumed by export_runtime.py.",
+    "evidence": "dream/validation/stair-navigation-validation.json"
+  },
+  "validation": {
+    "accepted": false,
+    "geometry_gate": "Gray review permits the first material prototype; see stair-sky-geometry-review.json. This does not establish final fidelity.",
+    "primary_target": "Comparar hitos con tolerancia inicial0.015 de ancho/alto y su incertidumbre, sin forzar precisión en fibras/bordes difusos.",
+    "required": [
+      "Render principal real con cámara documentada",
+      "Dos vistas oblicuas para verificar taludes, cara posterior del marco y uniones de tubos",
+      "Contar peldaños y comprobar continuidad sin grietas entre bandas y huellas",
+      "Caminar desde aproximación hasta descansillo y volver al implementar soporte vertical",
+      "Materiales sólo después de aceptar forma",
+      "Exportación real OpenGL con perfil propio y prueba de subida/bajada"
+    ],
+    "performance_claim": false,
+    "current_views": [
+      "dream/validation/stair-blender.png",
+      "dream/validation/stair-side-blender.png",
+      "dream/validation/stair-opengl.png"
+    ]
+  },
+  "implementation_evidence": {
+    "builder_executed_in_blender": false,
+    "save_render_export_performed": false,
+    "mcp_calls_performed_by_author": false,
+    "source_syntax": "PASS - ast.parse; Blender bpy not imported or executed.",
+    "geometry_invariants": {
+      "result": "PASS",
+      "scope": "Pure helper geometry and navigation values only, independent of Blender. No render or actual exported mesh was generated.",
+      "banks": [
+        {
+          "side": -1,
+          "vertices": 726,
+          "quads": 724,
+          "closed_edge_incidence_two": true,
+          "opposite_winding": true,
+          "euler_characteristic": 2,
+          "positive_signed_volume_m3": 40.76224848205558,
+          "minimum_triangle_area_m2": 0.014124999999999995,
+          "all_coordinates_finite": true,
+          "deterministic": true
+        },
+        {
+          "side": 1,
+          "vertices": 726,
+          "quads": 724,
+          "closed_edge_incidence_two": true,
+          "opposite_winding": true,
+          "euler_characteristic": 2,
+          "positive_signed_volume_m3": 40.78009439221875,
+          "minimum_triangle_area_m2": 0.014124999999999997,
+          "all_coordinates_finite": true,
+          "deterministic": true
+        }
+      ],
+      "navigation_surface_count": 14,
+      "sampled_center_path_points": 1021,
+      "sampled_step_height_max_m": 0.16000000000000014,
+      "total_rise_m": 1.92,
+      "rail_clearance_for_authored_center_corridor": true
+    },
+    "projection_seed": {
+      "method": "Pinhole projection using the exact declared primary camera and selected ideal geometric vertices; no occlusion, modifiers or render pixels.",
+      "landmarks": [
+        {
+          "landmark": "first_riser_ground_left",
+          "world_xyz_m": [
+            -0.93,
+            0,
+            0
+          ],
+          "projected_xy_px": [
+            3.569,
+            1132.689
+          ],
+          "manual_reference_xy_px": [
+            4,
+            1125
+          ],
+          "delta_xy_px": [
+            -0.431,
+            7.689
+          ]
+        },
+        {
+          "landmark": "first_riser_ground_right",
+          "world_xyz_m": [
+            0.93,
+            0,
+            0
+          ],
+          "projected_xy_px": [
+            585.507,
+            1119.35
+          ],
+          "manual_reference_xy_px": [
+            588,
+            1127
+          ],
+          "delta_xy_px": [
+            -2.493,
+            -7.65
+          ]
+        },
+        {
+          "landmark": "top_tread_front_left",
+          "world_xyz_m": [
+            -0.93,
+            3.3,
+            1.92
+          ],
+          "projected_xy_px": [
+            152.651,
+            582.533
+          ],
+          "manual_reference_xy_px": [
+            153,
+            583
+          ],
+          "delta_xy_px": [
+            -0.349,
+            -0.467
+          ]
+        },
+        {
+          "landmark": "top_tread_front_right",
+          "world_xyz_m": [
+            0.93,
+            3.3,
+            1.92
+          ],
+          "projected_xy_px": [
+            449.218,
+            583.361
+          ],
+          "manual_reference_xy_px": [
+            445,
+            583
+          ],
+          "delta_xy_px": [
+            4.218,
+            0.361
+          ]
+        },
+        {
+          "landmark": "opening_inner_top_left",
+          "world_xyz_m": [
+            -1.66804,
+            3.92,
+            4.69858
+          ],
+          "projected_xy_px": [
+            56.095,
+            177.773
+          ],
+          "manual_reference_xy_px": [
+            55,
+            183
+          ],
+          "delta_xy_px": [
+            1.095,
+            -5.227
+          ]
+        },
+        {
+          "landmark": "opening_inner_top_right",
+          "world_xyz_m": [
+            1.66804,
+            3.92,
+            4.69858
+          ],
+          "projected_xy_px": [
+            542.912,
+            188.35
+          ],
+          "manual_reference_xy_px": [
+            542,
+            183
+          ],
+          "delta_xy_px": [
+            0.912,
+            5.35
+          ]
+        }
+      ],
+      "limitation": "Only a camera seed. Main trim protrudes slightly toward the camera and bevels soften edges; actual rendered landmarks need checking."
+    },
+    "source_sha256": "b012665f1366a2c20728bd15a7900d99c3a5845b1f8700241d62235ab9e3926a",
+    "api_review": {
+      "target": "Blender5.2.1",
+      "basis": "Primitive/Bevel/cylinder/sphere patterns from blender-modeling; EEVEE, Standard, PNG, DISK area, camera and Principled socket patterns already used by current project builders.",
+      "extra_vs_kitchen": "Custom closed bank mesh via Mesh.from_pydata with deterministic winding and per-loop world UV; cylinder orientation via to_track_quat and per-polygon side smoothing; two cameras; navigation JSON scene property.",
+      "unverified_in_this_task": "No bpy execution or MCP calls; root must execute and inspect output before accepting the scene."
+    }
+  },
+  "frame_revision": {
+    "state": "applied_multiview_rendered_exported_local_frame_fix_verified",
+    "source_views": [
+      "dream/referencias/estetica/evidencias/video-35/09s.png",
+      "dream/referencias/estetica/evidencias/video-35/21s.png"
+    ],
+    "original_times_decoded_reviewed_s": [
+      9,
+      9.4,
+      20.6,
+      21
+    ],
+    "observed": "09s muestra jambas rosas de ancho continuo y dintel con tres resaltes;09.4s confirma cuerpo macizo lateral.21s recorta casi todo el marco y no permite recuperar el reverso;20.6s sólo confirma una franja de jamba.",
+    "inferred": "Profundidad posterior, amplitud exacta de molduras y su prolongación por jambas son una construcción coherente, no cotas recuperadas.",
+    "before": {
+      "render": "dream/validation/stair-opengl.png",
+      "body_front_y_m": 3.81,
+      "mint_wall_front_y_m": 3.81,
+      "issue": "Cuerpo coplanar con la pared menta: el render muestra sobre todo las molduras finas separadas. No faltaban cajas, faltaba separación visible de superficies."
+    },
+    "expected_after": "Franja rosa continua bajo tres resaltes bajos, esquinas unidas a inglete, grosor visible al borde y pintura sobre frente/reverso/laterales. El labio interior2mm evita coplanaridad con la cara lateral de la pared. Esta expectativa todavía no está verificada en render.",
+    "preserved": [
+      "constructor.camera_seed",
+      "constructor.secondary_camera_seed",
+      "constructor.stair",
+      "constructor.landing",
+      "constructor.banks",
+      "constructor.rails",
+      "navigation_contract",
+      "references"
+    ],
+    "validation": {
+      "bpy_executed": true,
+      "live_patch_applied": true,
+      "rendered": true,
+      "exported": true,
+      "local_frame_fill_and_ao_fix_verified": true,
+      "visual_accepted": false,
+      "scope": "Local filled-frame correction verified. Whole scene/reference fidelity remains pending.",
+      "report": "dream/validation/stair-frame-v5.json",
+      "original_frame_pure_geometry": {
+        "vertices": 112,
+        "quads": 110,
+        "triangles": 220,
+        "closed_edges_incidence_two": true,
+        "opposite_edge_winding": true,
+        "euler_characteristic": 2,
+        "positive_signed_volume_m3": 0.507189703545612,
+        "minimum_triangle_area_m2": 0.0009937199999999942,
+        "maximum_quad_nonplanarity_m": 1.0855961591415179e-18,
+        "finite_uv_loop_coverage": true,
+        "surface_face_counts": {
+          "front_cap": 39,
+          "back_cap": 39,
+          "bottom_cap": 26,
+          "inner_reveal": 3,
+          "outer_sidewall": 3
+        },
+        "front_projected_fill_area_m2": 1.8312048799999976,
+        "front_y_range_m": [
+          3.763,
+          3.775
+        ],
+        "wall_front_y_m": 3.81,
+        "minimum_front_clearance_m": 0.03500000000000014,
+        "rear_y_m": 4.048,
+        "rear_clearance_m": 0.017999999999999794,
+        "structural_opening_xyz": [
+          3.33608,
+          1.92,
+          4.69858
+        ],
+        "clear_opening_xyz": [
+          3.33208,
+          1.92,
+          4.69658
+        ],
+        "physical_reveal_lip_m": 0.002,
+        "navigation_corridor_clear": true,
+        "narrow_ownership_filter_cases": 13,
+        "source_syntax": "PASS"
+      },
+      "upper_surround_grid_report": "dream/validation/stair-frame-grid-v5.json",
+      "upper_surround_live_idempotence": "Parent MCP confirmed changed=true then changed=false.",
+      "blender_render_timing": "Front/oblique/rear v5 renders precede upper-box retessellation; same shape/material but no new Blender render after subdivision. Final GL capture uses the retessellated export."
+    },
+    "live_apply": "Read stair_frame.py through MCP into a namespace with __file__ set to its absolute path, then call apply_stair_frame(). It selects DREAM_StairSky data directly, reuses DREAM_STAIR_MAT_frame and never switches the active scene or touches grass/detail/cameras/navigation.",
+    "next_visual_checks": [
+      "Continue whole-scene grass, plush, tread light and sky fidelity calibration; current report accepts only continuous frame fill and removal of the large AO rectangle."
+    ],
+    "source_sha256": {
+      "dream/blender/stair_frame.py": "ab74cfe401a4379381dbcece1ef05dfad3cee457e15e008dacda9791dc7e3682",
+      "dream/blender/build_stair_sky.py": "bc123eed9d85d8cad84ef59cb8d590575f0e43ef36a8de365214843c6b7c756d",
+      "dream/validation/stair-opengl.png": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5"
+    },
+    "protected_configuration_sha256": {
+      "camera_seed": "04b32d1c12081c2f9e0008fa3c231a0483f832fd0902adcea66254143d26f84a",
+      "secondary_camera_seed": "1cf501ce8c948e237b2e6368333bac9be4ec67b82a00b428dca510e67f80f180",
+      "stair": "65da9d8a862af20787e2bac892d1fea938bd0d2f984b0ec0eb78483940a834c7",
+      "landing": "a6653c4fcbe6fdc74689d45cb30c19abd45454f4d095ecf0fb8f94d38b1fd285",
+      "banks": "f79e89178fbbb6bfc5dc721f3bac061c6f8426539d09d5d953ee8b8a496874ef",
+      "rails": "2080057788417c54193ac8886cfd59f48cec5dafaf22eed4c7004f5516302c4f",
+      "navigation_contract": "cbedd8e0cae3a4024e2ba028f87268198814ce0ae59ddc1d097b6e7a5fab7e6a"
+    },
+    "reviewed_original_frame_sha256": {
+      "9": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde",
+      "9.4": "6ea6eba2bbdda53585c4ab55a462ee623205b51da05f1a33912318aa942c34f1",
+      "20.6": "3589870f22711e75f06647538e841cb0d5b93b9a0317ee860d9d2212da7af8e2",
+      "21": "600a100bd9c343bf52eb52328461d72f02f06391845175189d4f107fe626f2c2"
+    },
+    "surface_material_policy": {
+      "front_cap": "existing intentionally plain pink PBR paint + metric UVs",
+      "back_cap": "same existing PBR paint + metric UVs",
+      "inner_reveal": "same existing paint + 2 mm physical reveal lip",
+      "outer_sidewall": "same existing paint + metric UVs",
+      "bottom_cap": "same existing paint + metric UVs",
+      "image_overlay_or_separate_decorative_rods": false
+    },
+    "preparation_evidence": {
+      "state": "prepared_not_applied_or_rendered",
+      "validation": {
+        "bpy_executed": false,
+        "live_patch_applied": false,
+        "rendered": false,
+        "exported": false,
+        "visual_accepted": false,
+        "pure_geometry": "PASS",
+        "geometry_metrics": {
+          "vertices": 112,
+          "quads": 110,
+          "triangles": 220,
+          "closed_edges_incidence_two": true,
+          "opposite_edge_winding": true,
+          "euler_characteristic": 2,
+          "positive_signed_volume_m3": 0.507189703545612,
+          "minimum_triangle_area_m2": 0.0009937199999999942,
+          "maximum_quad_nonplanarity_m": 1.0855961591415179e-18,
+          "finite_uv_loop_coverage": true,
+          "surface_face_counts": {
+            "front_cap": 39,
+            "back_cap": 39,
+            "bottom_cap": 26,
+            "inner_reveal": 3,
+            "outer_sidewall": 3
+          },
+          "front_projected_fill_area_m2": 1.8312048799999976,
+          "front_y_range_m": [
+            3.763,
+            3.775
+          ],
+          "wall_front_y_m": 3.81,
+          "minimum_front_clearance_m": 0.03500000000000014,
+          "rear_y_m": 4.048,
+          "rear_clearance_m": 0.017999999999999794,
+          "structural_opening_xyz": [
+            3.33608,
+            1.92,
+            4.69858
+          ],
+          "clear_opening_xyz": [
+            3.33208,
+            1.92,
+            4.69658
+          ],
+          "physical_reveal_lip_m": 0.002,
+          "navigation_corridor_clear": true,
+          "narrow_ownership_filter_cases": 13,
+          "source_syntax": "PASS"
+        }
+      },
+      "source_sha256": {
+        "dream/blender/stair_frame.py": "b0acd78a85417cd0bc9347d3a964f37a2a1bd68a04dff4e98620fa0527d40bc6",
+        "dream/blender/build_stair_sky.py": "bc123eed9d85d8cad84ef59cb8d590575f0e43ef36a8de365214843c6b7c756d",
+        "dream/validation/stair-opengl.png": "a4bd3f3b7083200b2444861c46ad0aea37e34143cb264fecef606199df955db5"
+      },
+      "expected_after": "Franja rosa continua bajo tres resaltes bajos, esquinas unidas a inglete, grosor visible al borde y pintura sobre frente/reverso/laterales. El labio interior2mm evita coplanaridad con la cara lateral de la pared. Esta expectativa todavía no está verificada en render."
+    },
+    "observed_after": "Three Blender views show a filled front, inner reveal, side thickness and rear surface. OpenGL shows continuous pink frame body; a first-export broad AO rectangle was corrected by retessellating only the unchanged upper mint box."
+  }
+}

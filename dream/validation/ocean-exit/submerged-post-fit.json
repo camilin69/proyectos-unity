@@ -1,0 +1,124 @@
+{
+  "schema": "dream.ocean_submerged_post.v1",
+  "post_x_y_bottom_top_m": [
+    1.019563832366403,
+    4.0321853933532985,
+    -0.5214183135701707,
+    0.5737994167869304
+  ],
+  "cameras": [
+    {
+      "position_m": [
+        -0.044162097468043435,
+        0.31876689128832436,
+        0.783188054203392
+      ],
+      "yaw_rad": 1.5244165092731197,
+      "pitch_rad": 0.04924262581272142,
+      "roll_rad": -0.007268776932282015,
+      "tan_half_vertical_fov": 0.85,
+      "render_px": [
+        478,
+        850
+      ],
+      "time_s": 7,
+      "principal_y_px": 224.10021449508235,
+      "shift_y": -0.4202924382948068
+    },
+    {
+      "position_m": [
+        -0.040346532831546565,
+        0.7561979614587163,
+        0.8246882335279774
+      ],
+      "yaw_rad": 1.5350324661021544,
+      "pitch_rad": 0.08371357423298308,
+      "roll_rad": -0.00866576746264992,
+      "tan_half_vertical_fov": 0.85,
+      "render_px": [
+        478,
+        850
+      ],
+      "time_s": 9,
+      "principal_y_px": 224.10021449508235,
+      "shift_y": -0.4202924382948068
+    },
+    {
+      "position_m": [
+        -0.20335495928623457,
+        1.5268754106069296,
+        0.7869887146452662
+      ],
+      "yaw_rad": 1.5205443883792096,
+      "pitch_rad": 0.09758835262240971,
+      "roll_rad": -0.011267025921524567,
+      "tan_half_vertical_fov": 0.85,
+      "render_px": [
+        478,
+        850
+      ],
+      "time_s": 11.5,
+      "principal_y_px": 224.10021449508235,
+      "shift_y": -0.4202924382948068
+    }
+  ],
+  "views": [
+    {
+      "time_s": 7,
+      "visible_end_px": [
+        359,
+        425
+      ],
+      "projected_end_px": [
+        361.11598194781635,
+        424.85101491442447
+      ],
+      "end_error_px": 2.121220440974636,
+      "projected_head_px": [
+        348.7882098933794,
+        275.9678150316992
+      ]
+    },
+    {
+      "time_s": 9,
+      "visible_end_px": [
+        397,
+        489
+      ],
+      "projected_end_px": [
+        388.96748739522536,
+        476.65184421951835
+      ],
+      "end_error_px": 14.730859103423185,
+      "projected_head_px": [
+        372.470680023193,
+        303.3203096366495
+      ]
+    },
+    {
+      "time_s": 11.5,
+      "visible_end_px": [
+        472,
+        532
+      ],
+      "projected_end_px": [
+        468.5782592861587,
+        541.671311277255
+      ],
+      "end_error_px": 10.258780206940706,
+      "projected_head_px": [
+        442.55266479301685,
+        313.1459829684551
+      ]
+    }
+  ],
+  "fixed_effective_fov": true,
+  "previous_endpoint_interpretation_rejected": "Visible post endpoint was assumed at water z=0. Video water can obscure a submerged endpoint; that assumption was not observed evidence.",
+  "limitations": [
+    "Visible end is approximate and partially occluded by water.",
+    "All three post views used for fit; no held-out claim.",
+    "Refraction not modeled in this straight-ray fit."
+  ],
+  "accepted": false,
+  "decision": "applied_to_separate_motion_candidate: post geometry now stays in final view, but submerged visible length still differs. All three endpoint observations used for fit; no held-out claim."
+}

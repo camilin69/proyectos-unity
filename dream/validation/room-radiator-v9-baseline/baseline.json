@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-10-09T05:36:34.904656+00:00",
+  "purpose": "Baseline before incremental radiator helper render/export; immutable copies and SHA256.",
+  "path_base": "repository_root",
+  "materials": 9,
+  "vertices": 31056,
+  "triangles": 10352,
+  "object_count": 716,
+  "camera": {
+    "position": [
+      -1.5,
+      -2.0,
+      1.399999976158142
+    ],
+    "vertical_fov_degrees": 69.98404210848467,
+    "forward": [
+      0.27103281021118164,
+      0.9397264122962952,
+      -0.2084597796201706
+    ]
+  },
+  "artifacts": [
+    {
+      "source": "dream/assets/pastel_room.scene",
+      "baseline": "dream/validation/room-radiator-v9-baseline/pastel_room.scene",
+      "bytes": 207,
+      "sha256": "b5edfd7c28f6d1794c76689ba84fb184129d1f5aa83086b5bf404a62752b891b",
+      "source_mtime_ns": 1791517407431108600
+    },
+    {
+      "source": "dream/assets/pastel_room.json",
+      "baseline": "dream/validation/room-radiator-v9-baseline/pastel_room.json",
+      "bytes": 174596,
+      "sha256": "ae9e211c9283bcbdaba456b5c47a7d71cd6e94615018d65520165958ac25893c",
+      "source_mtime_ns": 1791516909826275600
+    },
+    {
+      "source": "dream/assets/pastel_room.dreammesh",
+      "baseline": "dream/validation/room-radiator-v9-baseline/pastel_room.dreammesh",
+      "bytes": 1242544,
+      "sha256": "6ec26e330df6fad8c577b2827b89fc863e608e1332555331da547967ad579e79",
+      "source_mtime_ns": 1791516909819233100
+    },
+    {
+      "source": "dream/assets/pastel_room.draws",
+      "baseline": "dream/validation/room-radiator-v9-baseline/pastel_room.draws",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "source_mtime_ns": 1791516909826275600
+    },
+    {
+      "source": "dream/assets/pastel_room.glb",
+      "baseline": "dream/validation/room-radiator-v9-baseline/pastel_room.glb",
+      "bytes": 1862948,
+      "sha256": "307b3511a273b6219ef4ffa93fa2bf6d5282d9ec96c8c38ec943022da1f9a167",
+      "source_mtime_ns": 1791516912081972100
+    },
+    {
+      "source": "dream/validation/room-blender.png",
+      "baseline": "dream/validation/room-radiator-v9-baseline/room-blender.png",
+      "bytes": 1175253,
+      "sha256": "67f945b430f1c96fb3341950e741feaf1ad96988f15f8347b3526095da26560a",
+      "source_mtime_ns": 1791517564374116700,
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "source": "dream/validation/room-opengl.png",
+      "baseline": "dream/validation/room-radiator-v9-baseline/room-opengl.png",
+      "bytes": 355698,
+      "sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+      "source_mtime_ns": 1791517403944285300,
+      "dimensions_px": [
+        540,
+        960
+      ]
+    }
+  ]
+}

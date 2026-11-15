@@ -1,0 +1,45 @@
+{
+  "flat": {
+    "hypothesis": "continuous flat hall",
+    "accepted": false,
+    "solver_converged": true,
+    "evaluations": 14,
+    "weighted_observation_rms": 0.7468312466653638,
+    "weighted_observation_max": 2.5270262593419783,
+    "baseline_weighted_observation_rms": 1.9274816868035545,
+    "bounds_reached": [
+      "ceiling",
+      "door_w",
+      "near_end",
+      "mid_drop",
+      "lamp_b",
+      "column_width",
+      "rear_elevation"
+    ],
+    "eye_height_difference_m": -0.06418325564869476,
+    "rear_support_bottom_z_m": -1.2735832637822873,
+    "source_bound_limitation": "The hall support bounds are approximate, with uncertain head occlusion and possible mistaken correspondence. A raised rear fit does not prove a raised platform."
+  },
+  "raised": {
+    "hypothesis": "free rear elevation",
+    "accepted": false,
+    "solver_converged": true,
+    "evaluations": 13,
+    "weighted_observation_rms": 0.4573812967105556,
+    "weighted_observation_max": 1.4485102847867535,
+    "baseline_weighted_observation_rms": 1.9274816868035545,
+    "bounds_reached": [
+      "door_w",
+      "mid_drop"
+    ],
+    "eye_height_difference_m": -0.007133872626980287,
+    "rear_support_bottom_z_m": 0.8891660655507923,
+    "source_bound_limitation": "The hall support bounds are approximate, with uncertain head occlusion and possible mistaken correspondence. A raised rear fit does not prove a raised platform."
+  },
+  "input_sha256": {
+    "blender/wave_corridor_plan.json": "f39bbdefb72a02e4ad7bc099ff0f4b1ed68b78d5eef3fab14d11c27b8ba6d140",
+    "validation/wave-geometry-fit-candidate.json": "cdf76478ee347e40db61f4e1a1d127d7894b35533793e652022d3e3e81722204",
+    "validation/wave-secondary-camera-fit.json": "c38612b6d7328c85850f02b590fa90ead5869e58fbc4aedfdaa0dbe4794bb1a0",
+    "validation/wave-hall-audit.json": "0a7e74c9201caaa8f789bfbc877463566bcc4520859e8bcf0ba3dc65bb451f20"
+  }
+}

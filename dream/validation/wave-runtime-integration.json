@@ -1,0 +1,249 @@
+{
+  "schema": "dream.wave_runtime_integration.v1",
+  "recorded_at_utc": "2026-10-09T12:23:20.481010+00:00",
+  "status": "functional_prototype_verified_fidelity_pending",
+  "runtime_available": true,
+  "strict_fidelity_accepted": false,
+  "goal_complete": false,
+  "native": {
+    "scene_objects": 76,
+    "mesh_objects": 62,
+    "packed_images": 10,
+    "scenes_in_saved_file": [
+      "DREAM_WaveCorridor"
+    ]
+  },
+  "export": {
+    "triangles": 24960,
+    "vertices": 74880,
+    "materials": 10,
+    "embedded_glb_images": 9,
+    "single_scene_native": true,
+    "different_material_uv_sets_verified": true
+  },
+  "navigation": {
+    "status": "PASS",
+    "checks": 4287,
+    "position_samples": 1396,
+    "surfaces": 17,
+    "risers_each_way": 12,
+    "round_trip_strides_m": [
+      0.035,
+      0.075
+    ],
+    "total_descent_m": 1.1596665,
+    "column_obstacles": 2,
+    "large_request_m": 40
+  },
+  "camera": {
+    "position_forward_up_and_fov_match_export": true,
+    "basis_max_error": 1.9245747656659873e-07,
+    "trajectory_reconstructed": false
+  },
+  "render": {
+    "capture": "validation/wave-opengl-v9.png",
+    "framebuffer_px": [
+      478,
+      850
+    ],
+    "frames": 8,
+    "time": 0,
+    "samples": 4,
+    "gl_error": 0,
+    "gpu": "Intel HD Graphics 630",
+    "shader_sha256": "489e1f053c383187601cbe3e3fa5093b2575b51cb0bd5720929ce8341fe753c2",
+    "binary_sha256": "88ec7e406a7a9463c153156c9f4fd3a8c7154071718a2133e48f1b30554069a3",
+    "floor_specular": "Finite emitter disk approximation filtered by roughness and pixel footprint at each tread height. No architectural reflections or local visibility/shadow solution.",
+    "visual_review": "Source, current native render and OpenGL capture inspected; differences remain."
+  },
+  "regression": [
+    {
+      "scene": "pastel_room",
+      "baseline": "room-radiator-opengl-v9.png",
+      "framebuffer": [
+        540,
+        960
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-pastel_room.png",
+      "gl_error": 0
+    },
+    {
+      "scene": "stair_sky",
+      "baseline": "stair-frame-opengl-v5.png",
+      "framebuffer": [
+        540,
+        960
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-stair_sky.png",
+      "gl_error": 0
+    },
+    {
+      "scene": "kitchen_meadow",
+      "baseline": "kitchen-opengl.png",
+      "framebuffer": [
+        478,
+        850
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-kitchen_meadow.png",
+      "gl_error": 0
+    },
+    {
+      "scene": "atrium",
+      "baseline": "atrium-v8-current.png",
+      "framebuffer": [
+        960,
+        720
+      ],
+      "maximum_channel_difference": 0,
+      "mean_channel_difference": 0.0,
+      "changed_pixels": 0,
+      "capture": "wave-regression-atrium.png",
+      "gl_error": 0
+    }
+  ],
+  "cycle_smoke": {
+    "frames": 481,
+    "sequence": [
+      "wave_corridor",
+      "atrium",
+      "wave_corridor"
+    ],
+    "gl_error": 0,
+    "mouse_and_resize_exercised": true
+  },
+  "inferred_geometry": [
+    "Unseen entrance back wall closes the area behind spawn; not claimed as a source detail."
+  ],
+  "references_verified_unchanged": {
+    "dream/referencias/estetica/texturas/video-35/agua_espuma.png": "1468070abd39080b488fae4b32ee560c86c933f2f6b0589339cd419ddf07f539",
+    "dream/referencias/estetica/evidencias/video-35/01s.png": "794dd388a85385eb6e7fe5413c3610e1d07f9409cf31e9e12044457f69fc2757",
+    "dream/referencias/estetica/texturas/video-35/peluche_rosa.png": "023d535cb7c0ed7f337062b320021faf87a5df42f8a33a66c0e4c1ed53255519",
+    "dream/referencias/estetica/evidencias/video-35/09s.png": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde",
+    "dream/referencias/estetica/texturas/video-35/cesped.png": "b29aa67c155cc79454bea6485c67e1957f52d95b1057a391df0aa09404ccc02b",
+    "dream/referencias/estetica/texturas/video-35/azulejos_pastel.png": "f1159899ce22553c8e5549c38bb9e9d4ebee3d61a8da3107f750e555b12ac9bf",
+    "dream/referencias/estetica/evidencias/video-35/11s.png": "b3382a594224fb4d6d28cf5c95f95f4d210a11af81685179ff102622a49788b3",
+    "dream/referencias/estetica/texturas/video-35/tela_cuadros.png": "1f2a8bbe3c6b564668c03e6464a5d715c958809287b29516a30729868b9334dc",
+    "dream/referencias/estetica/texturas/video-35/pavimento_mojado.png": "3a3db1474a45583626dea55bbe5d185f362a3b71691c73e151b86f4f27a99f73",
+    "dream/referencias/estetica/evidencias/video-35/05s.png": "20f6ed6db773f2e349dca5feba20526cf2cf5ac7129acd876b80c63342802495",
+    "dream/referencias/estetica/texturas/video-35/suelo_iridiscente.png": "e69f52e5ce5e0920355423848b5e6d03d808921ef803a15ca8bedcdbbec46c2b",
+    "dream/referencias/estetica/texturas/video-42/cesped_interior.png": "421e666b26f8290b5316d21d013ee9489563fb58741e4e81055d5f818d84c81f",
+    "dream/referencias/estetica/evidencias/video-42/02s.png": "51c351a6eed595922775a6ccb94aacf5ae9fb0bf0b666c0d3986b21aa085a04d",
+    "dream/referencias/estetica/texturas/video-42/azulejo_rosa.png": "7c4a9cefce23a16bda53391ea38c8b8a2c9b9184509c636cfb903261ee47be21",
+    "dream/referencias/estetica/evidencias/video-42/07s.png": "f1722cfca9bc787845038e2939f86e1604238df4743999b60ece24c3b7211801",
+    "dream/referencias/estetica/texturas/video-42/agua_turquesa.png": "5422addd8852ab3c6e7162eea3bbfc5d2985763d343b26df486de805dc9022b7",
+    "dream/referencias/estetica/texturas/video-42/suelo_ondas_pintadas.png": "398a9d3774b5f0188a782090af56b1c6ae9b12c1c019e48389ebaeedeb0ea12b",
+    "dream/referencias/estetica/evidencias/video-42/13s.png": "63d422800733f320af7a95dacff0f04d67aa7440ae5799b6cc822c6887c908aa",
+    "dream/referencias/estetica/texturas/video-42/techo_texturado.png": "8df5f4b461ec8886c6ad760154c2a11a6a361f8b7952359c8aec347d2001fd30",
+    "dream/referencias/estetica/texturas/video-42/pasarela_ceramica.png": "00667d32e16a3b468d5e99c900c5862989b80da4d33cecd893345217fc86578a",
+    "dream/referencias/estetica/evidencias/video-42/20s.png": "308db98280bb7becad975eecfd24ae3912588b42ed7fd15f287114d0b91c5c8f",
+    "dream/referencias/estetica/texturas/video-42/agua_oscura.png": "f8b8d6fbbaa9382f853a2bb4ebfc024517b5eb0448eecabe5b1fe2006126a00c",
+    "dream/referencias/estetica/texturas/video-51/corteza.png": "356c9bb612b3452f74f42fa37f5531b718964788f408e719cf29b3b88bc10b2a",
+    "dream/referencias/estetica/evidencias/video-51/01s.png": "f3c9036fb061030a21c1349ab6ca5e85d965ed771a9dc73413d08d8192a19f52",
+    "dream/referencias/estetica/texturas/video-51/follaje.png": "fb7e4b2347b2feec15a3adc6c67727eda3f734e62fb5c496c1f6dfab4fc32dd1",
+    "dream/referencias/estetica/texturas/video-51/hierba.png": "af9b0a83ae2b91075eee82827bb15605038ac2a53d372fcd98527df5cd456fdc",
+    "dream/referencias/estetica/texturas/video-51/cielo.png": "4c0868f9c1ebc5429d6658870b81445ceb3efa0868e7bfaf6f0dfe329588700a",
+    "dream/referencias/estetica/texturas/video-52/asiento_azul.png": "cba93c862a3af7dc1ed489fe73498732b2d0c07b92b202903afa5b864796688d",
+    "dream/referencias/estetica/evidencias/video-52/01s.png": "c939a226d62a585873a4c513a3aa2aa6d355af487fb1263b1f1aa53d045dffa5",
+    "dream/referencias/estetica/texturas/video-52/cojin_lima.png": "43d0f872f408e0a56f28554b0957676b973ec8b90f30c85303d555962492b77f",
+    "dream/referencias/estetica/texturas/video-52/suelo_pulido.png": "1a88243d06e41b938156372d61f913c6944c5d8cb590c3dac9e8fe642b29aeb2",
+    "dream/referencias/estetica/texturas/video-52/plantas_colgantes.png": "141d20774bbd8ea370bfde82e1a73d76507df90d7012214dce81531894964695",
+    "dream/referencias/estetica/texturas/video-52/agua_causticas.png": "6ca10927bef010711266ac8571aad13c6ca57e26b94f5655e3c5656e844c5f19",
+    "dream/referencias/estetica/evidencias/video-52/05s.png": "934d13424a032275ad9202895dca751c77c2efd5534520e071a111d473e4bb70",
+    "dream/referencias/estetica/texturas/video-52/vidrio_metal.png": "a88f54f0ed57fab0da18dbe91cd1aa642c8d35b15b1bf3d04bacf78993f10570",
+    "dream/referencias/estetica/evidencias/video-52/09s.png": "963db3570686e708b72c3015cf54597928c5970e2bf680886e64d4fe3d814184",
+    "dream/referencias/estetica/texturas/video-52/mapa_globo.png": "378173285d806be478e9ee45d2c553ff6f4d20fe2b3158abb7cc1b56b0ac57ca",
+    "dream/referencias/estetica/evidencias/video-52/13s.png": "a5d2eedf14f03bda15f7bf4437cdda97ddb9ba164d8a000f7eb99817d2858906",
+    "dream/referencias/estetica/video-35.json": "b7f9295403a21fe6801af157d6ef8df561f820327670d7a55fa09ee0621d394d",
+    "dream/referencias/estetica/evidencias/video-35.jpg": "34176d22e0fd1728291144b4ed7df4510409e42e4416aae448cec741a5d20cf8",
+    "dream/referencias/estetica/evidencias/video-35/15s.png": "61f39f7dbd689f5293b84c57f0feb7268c2e140d550a3421e57a176428d469e7",
+    "dream/referencias/estetica/evidencias/video-35/19s.png": "ae95b95ee2d73187998183986db5329bff076cf1861a652203b6b563b931809d",
+    "dream/referencias/estetica/evidencias/video-35/21s.png": "600a100bd9c343bf52eb52328461d72f02f06391845175189d4f107fe626f2c2",
+    "dream/referencias/estetica/evidencias/video-35/27s.png": "be5ccecc5d0abec7b8e94d1953387ece5d138ae6703892819470a195071c9009",
+    "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.35 PM.mp4": "3147a71d5ce0b7e964fb424810d27fbeb70a87c26a501c26b7a94446ba7f75ce",
+    "dream/referencias/estetica/video-42.json": "90008b76d2616527383d10bd3e16e2aa67a84eacf4d375dfbb1efb359bf26abd",
+    "dream/referencias/estetica/evidencias/video-42.jpg": "cc9ef4c42a0b608d53a4584d7636121233763a29aead2035a8ca64460f26e142",
+    "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657",
+    "dream/referencias/estetica/video-51.json": "91e9be2464db18198131c4a0e7a6b269d4cf472bd04cef47a7957cb9c83d8ffa",
+    "dream/referencias/estetica/evidencias/video-51.jpg": "3171b334ab20cdaad0c883d243f12a4c444ebb52beb1a0877a3d5834ca7f6dd5",
+    "dream/referencias/estetica/evidencias/video-51/09s.png": "47f67ee81e761d5d339c3487352887f18f5743724f6aa6a6fc0dd9c655e8bf0f",
+    "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.51 PM.mp4": "9470bb79a36e5ed4e23ec57d535d0b10b6d503230b41fb7e1c68752d2f46863d",
+    "dream/referencias/estetica/evidencias/video-51/05s.png": "829351aa722de4d140a2da088378ed604b957b505bdacc25c9d32e2f771d496f",
+    "dream/referencias/estetica/video-52.json": "ea120bc7f144738df73719a2fbfc6a0c200cccfa365b8331fc615c65e216a1e1",
+    "dream/referencias/estetica/evidencias/video-52.jpg": "3ed0e1abf0df525969928144e0009a98710386818d00a6eeff9df16e6cc97a8d",
+    "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.52 PM.mp4": "800744568de8b323dc0729fcb061e0d01bfeaa1e5da255b4b15aea445392e870"
+  },
+  "remaining": [
+    "The source hall is bright and open; the current dark grid is unresolved geometry.",
+    "Nonuniform stair heights and door thresholds still disagree across source views.",
+    "Far-floor ribbon placement, widths and optical softness remain approximate.",
+    "OpenGL has emitter reflections, but no architectural reflections or equivalent local shadows yet.",
+    "OpenGL floor brightness and wall shading still differ from the current Blender render and the source.",
+    "Sign proportions/glow, fittings and trim cross section remain approximate.",
+    "Animated source-camera trajectory is not reconstructed; free walking is functional only."
+  ],
+  "sha256": {
+    "blender/wave_corridor.blend": "abb81fd3ac461d1202fe4a1df6af890d72aced953a4eaa53b9421611869c520b",
+    "blender/prepare_wave_runtime.py": "767eefa48bc535ce8e6bee8e9803893ab4c9e83502e4c28b7f37031a6ba63456",
+    "blender/export_runtime.py": "b958ba930783c1d0436478ac01e34631501fd9a9393b6a732529c6cdd96110f6",
+    "blender/wave_corridor_details.py": "11044fc6182a40c072444ec4e051490a8ebf1f31ac30761a3476e6c3f7b3202f",
+    "blender/pack_wave_runtime_maps.py": "9f08f397709f07b02b46ceb99579ab5b9d5270f0685246bf21c9aa2c4128c4b4",
+    "assets/wave_corridor.dreammesh": "7c558f098c63c2f06af3b359820976fe1ba63e9c958b2ce497754ec8aba6a53b",
+    "assets/wave_corridor.glb": "ea96cc78e05296bf98091ca8e3eab4d09bebe04114c25e995931702558a9a78d",
+    "assets/wave_corridor.json": "a38e78f7d62ca8ea36a7c38e011873e333071742b0eb530e8fa2d1ae055e2b68",
+    "assets/wave_corridor.scene": "140a87463ec2ef6fb03445e295e96c383a8593b1606fd61e7ccbd364d812e945",
+    "assets/wave_corridor.draws": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "assets/scene_catalog.cat": "3f9abc22edab725bc879a4a869d616196c5375fb00d797a934df7306d1c4547f",
+    "runtime/src/main.cpp": "2b6a4a3fdffba6def5b01d4792538642de8f2e7db281755ad132b7385cc71808",
+    "runtime/src/scene.hpp": "ff584d62573c929b54bcde764cf0bd12834d1ff671cde065bd47f57c88c7dc24",
+    "runtime/src/scene_catalog.hpp": "26ece2ccbdd2ddf15e31266bb1be4f0e78762fe8c80ee0e0b67cd69d6d7331b7",
+    "runtime/src/render_support.hpp": "d4d15b1ca34cd7b53644afcc1128ca7090dcf974c9bf3ef4953e0abe6a75817e",
+    "runtime/shaders/scene.frag": "489e1f053c383187601cbe3e3fa5093b2575b51cb0bd5720929ce8341fe753c2",
+    "validation/wave-export-validation.json": "0c6e1e3a98f1c867d4fd7bd727444e8b115bee5c9e275696b9afe341e1a4e9ff",
+    "validation/wave-navigation-result.json": "4adb230111ccf508b2293111bec5189aa3340f6c829138eb2c2c488cd14a728d",
+    "validation/wave-native-runtime-audit.json": "259e9249e8bcf01cb5fe2a3a8ef7357857916701929648017500e996cf0db03f",
+    "validation/wave-runtime-textures.json": "417bce0bcb30d76c784c06588c1ba99b43763dee569c22cdd332ef7d65c04874",
+    "validation/wave-runtime-regression.json": "144eab4bd6a17b6e95fb0d0c12a81579ecbd020e0cfe801b0e6a4520a7940711",
+    "validation/wave-cycle-smoke.log": "96bf3f96feb39e8e87e56c13e7db516bdb51372c0fd74c5a6bdff4fd9c35d172",
+    "validation/wave-navigation.cpp": "4445a4a1c6b7369b30c6d9f5340292725468630c50b6f863e21a40b31f4619cc",
+    "validation/verify_wave_runtime.py": "fa9c56b22fdb0818cde47df8e0ea616a4a17438434cce0c2228c0da9646e2dc7",
+    "validation/wave-runtime-comparison.png": "e597570c19dee2df52be2e1e85c29e998afebc0de97ea4aa5fb9c55271087bdd",
+    "validation/wave-reference-14s.png": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48",
+    "validation/wave-blender-runtime-v8.png": "af5eb5b1e92638323c97d3b5ac5cd2006cb60e03d555ef6d3e71f4a02add8617",
+    "validation/wave-opengl-v9.png": "dace3c822860b5529a34ce66da8fb97e765bba787ed7a60ed83202b486e7d90c",
+    "assets/textures/wave_neutral_environment.bmp": "f4a079251e841bbd166edefd1e0b4ec3a5e95bacac774270f195e2b45149068e",
+    "assets/textures/wave_surface_data.bmp": "bf5b0f0c3347ca5e5346a8d5a2fe56807390a7930cf6b5d926b96ed2fbc734d5",
+    "assets/textures/wave_candidate/wave_ceiling_albedo.bmp": "e541e9123ecbf15230fd76c889c4b02f92e3a28bf6a15a30242b8a4730999cc8",
+    "assets/textures/wave_candidate/wave_ceiling_albedo.png": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5",
+    "assets/textures/wave_candidate/wave_ceiling_roughness.bmp": "0582adcee26ff6a430ea0c2505cc01fdeb3f47a443e83a54d205ccf185644b23",
+    "assets/textures/wave_candidate/wave_ceiling_roughness.png": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec",
+    "assets/textures/wave_candidate/wave_exit_albedo_candidate.bmp": "8dab54661c484d97f464c646435190e2c8d09f9347bb2e661fea9bac684e27b8",
+    "assets/textures/wave_candidate/wave_exit_albedo_candidate.png": "d39e49d26d952322c6daa3b1bbab4bf5320c0b1c71672523b9a8e301e89aba92",
+    "assets/textures/wave_candidate/wave_exit_albedo_dark.bmp": "d98872d6aa182f9dff3505848ebbc7f09c67a3123a46d20fd38740e2f9d77b8a",
+    "assets/textures/wave_candidate/wave_exit_albedo_dark.png": "642985cedf580384aa9486308bfd2b704a9e69b577304055b5fcdfacd2361e2c",
+    "assets/textures/wave_candidate/wave_exit_emission_candidate.bmp": "821806dcedfae2af4218c94dababb837dff977ab0cd82e191c459ae81ecb6b1e",
+    "assets/textures/wave_candidate/wave_exit_emission_candidate.png": "8706116636d3c28f5c6c776e124bb96428977fa4fb99685fd9388ee086ac0f34",
+    "assets/textures/wave_candidate/wave_exit_emission_dark.bmp": "747114c68958a556d0643fcf8ca291181535f8cc752e19dad686bb9609424c21",
+    "assets/textures/wave_candidate/wave_exit_emission_dark.png": "096c1b9e0b13430281815cee5fb8fb36ab8d76ef76d10411dab8249f2841af57",
+    "assets/textures/wave_candidate/wave_floor_albedo.bmp": "e35503ac06c77b8d6aef11dc58b7955f31ef27c9439f755fb0235ad4bb22b962",
+    "assets/textures/wave_candidate/wave_floor_albedo.png": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af",
+    "assets/textures/wave_candidate/wave_floor_normal.bmp": "f54be2d14af93f5c55a178f08b801161969ebaf2882d3b4f870a49c8e349c1da",
+    "assets/textures/wave_candidate/wave_floor_normal.png": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea",
+    "assets/textures/wave_candidate/wave_floor_roughness.bmp": "ebbf9afe9ed62d31a3b054ca3b2887d804b3208bf41620d724ea516b44e8d224",
+    "assets/textures/wave_candidate/wave_floor_roughness.png": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1",
+    "assets/textures/wave_candidate/wave_paint_normal.bmp": "d6e096d35eedc5fe2fd41f76e214d94c9201e3d5a5f00db48829d96c54437fb8",
+    "assets/textures/wave_candidate/wave_paint_normal.png": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa",
+    "assets/textures/wave_candidate/wave_wall_albedo.bmp": "a2336c6d078f98942a1c7efb47e7301519d1269a76fe1da552ae7c1f010aa93e",
+    "assets/textures/wave_candidate/wave_wall_albedo.png": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb",
+    "assets/textures/wave_candidate/wave_wall_roughness.bmp": "933ebbbc0d9cdbced48ba1db88eb1b4837d92b00a503a43a08f3720f4f802263",
+    "assets/textures/wave_candidate/wave_wall_roughness.png": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f"
+  }
+}

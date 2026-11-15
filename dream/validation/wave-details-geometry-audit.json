@@ -1,0 +1,146 @@
+{
+  "detail_objects": [
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_backing_-1",
+      "vertices": 1162,
+      "faces": 1157,
+      "closed_manifold": true,
+      "signed_volume": 0.08976992672527302,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_rail"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_lower_bead_-1",
+      "vertices": 1662,
+      "faces": 1670,
+      "closed_manifold": true,
+      "signed_volume": 0.0050986387555275806,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_rail"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_backing_1",
+      "vertices": 1162,
+      "faces": 1157,
+      "closed_manifold": true,
+      "signed_volume": 0.08976992672527304,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_rail"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_trim_lower_bead_1",
+      "vertices": 1662,
+      "faces": 1670,
+      "closed_manifold": true,
+      "signed_volume": 0.005098638755527534,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_rail"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_exit_-1",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.0017920012054444077,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim",
+        "DREAM_WAVE_LOOK_exit"
+      ],
+      "textured_front_faces": 1,
+      "coated_side_and_back_faces": 5
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_exit_1",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.0017919985351560362,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim",
+        "DREAM_WAVE_LOOK_exit"
+      ],
+      "textured_front_faces": 1,
+      "coated_side_and_back_faces": 5
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_button_plate",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.00025875096738395796,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_button_lens",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 3.128021163018241e-05,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_button_red"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_frame_0",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.0044544085490217395,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_inset_0",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.0015050062787534215,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_frame_1",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.004454408549021615,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim"
+      ]
+    },
+    {
+      "name": "GEO-DREAM-wavecorridor-detail_utility_panel_inset_1",
+      "vertices": 8,
+      "faces": 6,
+      "closed_manifold": true,
+      "signed_volume": 0.0015050062787532736,
+      "material_slots": [
+        "DREAM_WAVE_LOOK_door_trim"
+      ]
+    }
+  ],
+  "image_names": [
+    "wave_floor_albedo.png",
+    "wave_floor_roughness.png",
+    "wave_floor_normal.png",
+    "wave_wall_albedo.png",
+    "wave_wall_roughness.png",
+    "wave_paint_normal.png",
+    "wave_ceiling_albedo.png",
+    "wave_ceiling_roughness.png",
+    "wave_exit_albedo_dark.png",
+    "wave_exit_emission_dark.png"
+  ],
+  "all_images_packed": true,
+  "scene_objects": 75,
+  "mesh_objects": 61,
+  "strict_fidelity_accepted": false
+}

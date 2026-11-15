@@ -1,0 +1,76 @@
+{
+  "schema": "dream.stair_textures.v1",
+  "source": "referencias/estetica/evidencias/video-35/09s.png",
+  "maps_are_recreations": true,
+  "source_crops_modified": false,
+  "period_m": {
+    "grass": 4,
+    "plush": 0.28
+  },
+  "maps": [
+    {
+      "path": "assets\\textures\\stair_grass_albedo.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "7a72343633666fc2eb202259180d172e1cef64817be296d994c772bb2f83d8d9"
+    },
+    {
+      "path": "assets\\textures\\stair_grass_normal.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "cb04aea6183140b8c1c9f3bd6b28ab5ec5273e3fbccee82ec5933a39679f05d1"
+    },
+    {
+      "path": "assets\\textures\\stair_neutral_normal.png",
+      "dimensions": [
+        4,
+        4
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "3d41646de11179347cba387d740809ba54bfe4bd35bc65fd6c1bbc606eb05aff"
+    },
+    {
+      "path": "assets\\textures\\stair_neutral_white.png",
+      "dimensions": [
+        4,
+        4
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "7d001f8fab18d1119fc5976ea2f716929d139013e9b4fcec48c9531b7ca4212c"
+    },
+    {
+      "path": "assets\\textures\\stair_plush_albedo.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "5e1e57e9f899d6b8a53e7a850e5490b3d77a39c180acf64395cb9fd55bf7c909"
+    },
+    {
+      "path": "assets\\textures\\stair_plush_normal.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "cec341a5104e78440aaf0f3d5bcf094be1d1890e534fc4853ef6548a70c45dc8"
+    },
+    {
+      "path": "assets\\textures\\stair_sky.png",
+      "dimensions": [
+        2048,
+        1024
+      ],
+      "png_bmp_pixels_equal": true,
+      "sha256": "9c1445886518fb33d16d20c9d117a565c9b395f366a69969d8e5b6a9046c0670"
+    }
+  ],
+  "validation_note": "Exclude diagnostic checker PNGs, which are not runtime maps."
+}

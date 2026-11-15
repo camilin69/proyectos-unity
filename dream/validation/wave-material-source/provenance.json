@@ -1,0 +1,43 @@
+{
+  "source": "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4",
+  "source_sha256": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657",
+  "method": "ffmpeg accurate seek before input, one decoded frame, no crop/rescale/color correction; source evidence only, never runtime maps",
+  "frames": [
+    {
+      "time_s": 12.5,
+      "path": "dream/validation/wave-material-source/12.5s.png",
+      "size_px": [
+        478,
+        850
+      ],
+      "sha256": "b29de20ebdae93e95507a7af0aca95da8bc27f49f79404c2e8e08baf052984b6"
+    },
+    {
+      "time_s": 14,
+      "path": "dream/validation/wave-material-source/14s.png",
+      "size_px": [
+        478,
+        850
+      ],
+      "sha256": "76d02ead7a0c23a7174380e4f346cddc34211390e7540ae2a38c4890ad52de48"
+    },
+    {
+      "time_s": 15.5,
+      "path": "dream/validation/wave-material-source/15.5s.png",
+      "size_px": [
+        478,
+        850
+      ],
+      "sha256": "793f298956d94f88902b16577347af6898776d63c66ff4be3ef543f5b02f7960"
+    },
+    {
+      "time_s": 17,
+      "path": "dream/validation/wave-material-source/17s.png",
+      "size_px": [
+        478,
+        850
+      ],
+      "sha256": "a0845b2d1f28d6bfa9de8f0f61cc41933563ade0e067b9de7b20ec1f3e7db7d7"
+    }
+  ]
+}

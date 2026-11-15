@@ -131,8 +131,8 @@ leaf_direction = Vector((math.sin(leaf_angle), math.cos(leaf_angle), 0))
 leaf_center = Vector((ex1, ey, ez1/2)) + leaf_direction*0.39
 leaf = box('entry_leaf', leaf_center, (0.04, 0.78, ez1), light, 0.006)
 leaf.rotation_euler.z = -leaf_angle
-knob_center = Vector((ex1, ey, 1.04)) + leaf_direction*0.69
-cylinder('entry_knob', knob_center, 0.021, 0.08, light, (0, math.pi/2, -leaf_angle))
+knob_center = Vector((ex1, ey, entry.get('knob_z_m', 1.04))) + leaf_direction*entry.get('knob_along_leaf_m', 0.69)
+cylinder('entry_knob', knob_center, 0.013, 0.04, light, (0, math.pi/2, -leaf_angle))
 
 counter = SEED['left_counter_run']
 wall_x, front_x = counter['wall_x_m'], counter['front_x_m']
@@ -159,11 +159,15 @@ for ix, x in enumerate([wall_x+0.16, front_x-0.16]):
         cylinder(f'hob_{ix}_{iy}', (x, y, range_z+0.005), 0.09, 0.012)
 box('range_back_controls', (wall_x+0.036, ry, range_z+0.1), (0.065, rw, 0.21), light, 0.006)
 box('oven_door', (front_x+0.008, ry, range_z*0.478), (0.025, rw-0.04, range_z*0.722), light, 0.008)
-box('oven_window', (front_x+0.023, ry, range_z*0.533), (0.008, rw*0.62, range_z*0.289), dark, 0.005)
+box('oven_window', (front_x+0.023, ry, range_z*0.70), (0.008, rw*0.54, range_z*0.22), dark, 0.005)
 box('oven_handle', (front_x+0.048, ry, range_z-0.12), (0.025, rw*0.8, 0.024), light, 0.005)
+box('oven_lower_panel', (front_x+0.025, ry, 0.095), (0.03, rw-0.025, 0.15), light, 0.005)
+for i in range(4):
+    cylinder(f'oven_control_{i}', (front_x+0.03, ry+(i-1.5)*rw*0.18, range_z-0.055),
+             0.018, 0.018, light, (0, math.pi/2, 0))
 
 mw = SEED['microwave']
-mw_front = front_x-0.015
+mw_front = front_x-0.015+mw.get('front_offset_x_m', 0)
 mw_z = mw['base_z_m']+mw['height_m']/2
 box('microwave', (mw_front-mw['depth_along_x_m']/2, mw['center_y_m'], mw_z),
     (mw['depth_along_x_m'], mw['width_along_y_m'], mw['height_m']), light, 0.009)
@@ -172,10 +176,15 @@ box('microwave_window', (mw_front+0.003, mw['center_y_m']-0.04, mw_z),
 box('microwave_controls', (mw_front+0.004, mw['center_y_m']+mw['width_along_y_m']*0.39, mw_z),
     (0.009, 0.044, mw['height_m']*0.77), gray)
 upper = SEED['upper_units']
-box('upper_cabinet', (wall_x+upper['depth_m']/2, ry+0.12, (upper['bottom_z_m']+upper['top_z_m'])/2),
-    (upper['depth_m'], 1.3, upper['top_z_m']-upper['bottom_z_m']), light, 0.006)
-box('hood', (wall_x+0.225, ry, upper['bottom_z_m']-0.035), (0.45, rw+0.13, 0.08), light, 0.006)
-box('hood_lower_lip', (wall_x+0.435, ry, upper['bottom_z_m']-0.06), (0.055, rw+0.13, 0.035), gray)
+upper_y = ry+upper.get('center_y_offset_m', 0.12)
+box('upper_cabinet', (wall_x+upper['depth_m']/2, upper_y, (upper['bottom_z_m']+upper['top_z_m'])/2),
+    (upper['depth_m'], upper.get('width_m', 1.3), upper['top_z_m']-upper['bottom_z_m']), light, 0.006)
+hood_depth = upper.get('hood_depth_m', 0.45)
+hood_width = upper.get('hood_width_m', rw+0.13)
+box('hood', (wall_x+hood_depth/2, ry, upper['bottom_z_m']-0.035), (hood_depth, hood_width, 0.08), light, 0.006)
+box('hood_lower_lip', (wall_x+hood_depth-0.015, ry, upper['bottom_z_m']-0.06), (0.055, hood_width, 0.035), gray)
+box('hood_back_cover', (wall_x+0.08, ry, upper['bottom_z_m']-0.17),
+    (0.16, hood_width-.05, 0.26), gray, 0.006)
 
 # This oblique fitted run is inferred from the visible appliance fronts.
 # Keep it a single coherent group, including its architectural backing.
@@ -194,24 +203,44 @@ for part in list(scene.objects):
         part.rotation_euler.z += angle
 
 # Top-side panel grid: geometric framing only, grayscale radiance for blockout.
-panel_x0, panel_x1, panel_y0, panel_y1 = -1.35, 1.25, -1.35, 0.65
+panel_x0, panel_x1, panel_y0, panel_y1 = SEED.get('ceiling_panel_bounds_xy_m', [-1.35, 1.25, -1.35, 0.65])
 box('ceiling_panel_frame', ((panel_x0+panel_x1)/2, (panel_y0+panel_y1)/2, height-0.035),
     (panel_x1-panel_x0, panel_y1-panel_y0, 0.07), gray)
 for i in range(2):
     for j in range(2):
         x = panel_x0+(i+0.5)*(panel_x1-panel_x0)/2
         y = panel_y0+(j+0.5)*(panel_y1-panel_y0)/2
-        box(f'ceiling_diffuser_{i}_{j}', (x, y, height-0.078), (1.22, 0.92, 0.015), diffuser)
-        for k, offset in enumerate([-0.29, 0.29]):
-            box(f'ceiling_bar_{i}_{j}_{k}', (x+offset, y, height-0.087), (0.06, 0.65, 0.008), diffuser)
+        box(f'ceiling_diffuser_{i}_{j}', (x, y, height-0.078),
+            ((panel_x1-panel_x0)/2-0.045, (panel_y1-panel_y0)/2-0.045, 0.015), diffuser)
+        bar_offset = (panel_x1-panel_x0)*0.12
+        for k, offset in enumerate([-bar_offset, bar_offset]):
+            box(f'ceiling_bar_{i}_{j}_{k}', (x+offset, y, height-0.087),
+                (0.04, (panel_y1-panel_y0)*0.30, 0.008), diffuser)
+grid = SEED.get('ceiling_grid_transform', {})
+angle = math.radians(grid.get('rotation_z_deg', 0))
+cx,cy=grid.get('pivot_xy_m', [(panel_x0+panel_x1)/2,(panel_y0+panel_y1)/2])
+for part in list(scene.objects):
+    label=part.name.removeprefix('GEO-DREAM-kitchen-')
+    if label.startswith(('ceiling_panel_', 'ceiling_diffuser_', 'ceiling_bar_')):
+        dx,dy=part.location.x-cx,part.location.y-cy
+        part.location.x=cx+math.cos(angle)*dx-math.sin(angle)*dy
+        part.location.y=cy+math.sin(angle)*dx+math.cos(angle)*dy
+        part.rotation_euler.z+=angle
 
 # One continuous footprint through the real opening; detail/grass blades wait
 # for the geometry gate. All coordinates are world-space, not camera painted.
 left_edge = []
+boundary = SEED['grass'].get('boundary_xy_m')
 for i in range(25):
     y = -3.4+(y1+3.4)*i/24
-    x = front_x+0.31+0.065*math.sin(y*3.7)+0.032*math.sin(y*7.4+0.6)
+    if boundary:
+        a,b=next(((a,b) for a,b in zip(boundary,boundary[1:]) if a[1] <= y <= b[1]), (boundary[-2],boundary[-1]))
+        t=max(0,min(1,(y-a[1])/(b[1]-a[1])))
+        x=a[0]+t*(b[0]-a[0])+0.013*math.sin(y*9)
+    else:
+        x = front_x+0.31+0.065*math.sin(y*3.7)+0.032*math.sin(y*7.4+0.6)
     left_edge.append((x, y, 0.006))
+scene['dream_grass_boundary']=json.dumps(left_edge)
 polygon('grass_interior_blockout', [left_edge[0], (x1, -3.4, 0.006),
         (x1, y1, 0.006), *reversed(left_edge[1:])], ground)
 extent = SEED['grass']['exterior_extent_initial_m']
@@ -251,7 +280,7 @@ camera.sensor_fit = 'VERTICAL'
 camera.sensor_height = 24
 camera.lens = camera.sensor_height/(2*CAMERA['tan_half_vertical_fov'])
 camera.clip_start = 0.05
-camera.clip_end = 350
+camera.clip_end = 1000
 bpy.context.view_layer.update()
 print(json.dumps({'scene': scene.name, 'stage': scene['dream_stage'],
                   'mesh_objects': sum(o.type == 'MESH' for o in scene.objects),

@@ -1,0 +1,83 @@
+{
+  "style": "dark_red_lit_candidate",
+  "maps": [
+    {
+      "name": "wave_exit_albedo_dark",
+      "role": "albedo",
+      "colour_space": "sRGB",
+      "period_m": null,
+      "size_px": [
+        256,
+        128
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_albedo_dark.png",
+        "sha256": "642985cedf580384aa9486308bfd2b704a9e69b577304055b5fcdfacd2361e2c"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_albedo_dark.bmp",
+        "sha256": "d98872d6aa182f9dff3505848ebbc7f09c67a3123a46d20fd38740e2f9d77b8a"
+      },
+      "pixel_ranges": [
+        [
+          57,
+          197
+        ],
+        [
+          38,
+          48
+        ],
+        [
+          33,
+          43
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": null
+    },
+    {
+      "name": "wave_exit_emission_dark",
+      "role": "emission_mask",
+      "colour_space": "Non-Color",
+      "period_m": null,
+      "size_px": [
+        256,
+        128
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_emission_dark.png",
+        "sha256": "096c1b9e0b13430281815cee5fb8fb36ab8d76ef76d10411dab8249f2841af57"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_emission_dark.bmp",
+        "sha256": "747114c68958a556d0643fcf8ca291181535f8cc752e19dad686bb9609424c21"
+      },
+      "pixel_ranges": [
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          255
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": null
+    }
+  ],
+  "lettering": {
+    "font": "C:\\Windows\\Fonts\\arialbd.ttf",
+    "font_sha256": "766f06ac8761f82f25d032a220e89438f6064591af9915061f20b949efdedf69",
+    "text": "EXIT",
+    "text_confidence": "medium; red plaque visible, native letters blurred",
+    "active": false,
+    "geometry_placement": "Pending source/geometry gate; never place on whole wall UV."
+  },
+  "accepted": false,
+  "note": "Original light-background candidate maps are preserved; these are newly drawn from the same font."
+}

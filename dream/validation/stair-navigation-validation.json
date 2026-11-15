@@ -1,0 +1,1931 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T05:03:41.895284+00:00",
+  "scope": "CPU movement integration using the real exported assets/stair_sky.scene. Uses the current production SceneSettings directly, without synthetic fixtures, scene/config edits, GPU navigation or catalog activation.",
+  "status": "cpu_validation_passed",
+  "source_sha256": {
+    "dream/runtime/src/scene.hpp": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+    "dream/runtime/src/math.hpp": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+    "dream/validation/stair-navigation.cpp": "31a82ac3840fe993e8af7b12bd8efabb59d63eb62c3dc7d1c89da347b726cd87",
+    "dream/assets/stair_sky.scene": "f25cd78b2142aa56226c078ba2ca41b98645f3bcde510d73fd09ef69b05b7e10",
+    "dream/assets/stair_sky.json": "6b79e47913443a7d187cb1cf838bc4011467b9a26dcefc8f30c10ffc7c07ded0",
+    "dream/assets/stair_sky.dreammesh": "d52c956509e738d759a12f1352b15a946df180cb26935cd07e9cacbcd429f77b",
+    "dream/blender/build_stair_sky.py": "b012665f1366a2c20728bd15a7900d99c3a5845b1f8700241d62235ab9e3926a"
+  },
+  "inputs_unchanged_during_run": true,
+  "build": {
+    "compiler": "MinGW-w64 g++",
+    "flags": [
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-pedantic"
+    ],
+    "exit_code": 0,
+    "warnings": 0
+  },
+  "commands": [
+    "g++ -std=c++17 -O2 -Wall -Wextra -pedantic dream/validation/stair-navigation.cpp -o dream/runtime/build/stair-navigation.exe",
+    "dream/runtime/build/stair-navigation.exe dream/assets"
+  ],
+  "run_exit_code": 0,
+  "result": {
+    "status": "PASS",
+    "checks": 2232,
+    "position_samples": 705,
+    "actual_exported_surfaces": 14,
+    "height_gain_m": 1.92,
+    "routes": [
+      {
+        "name": "35mm",
+        "upward_risers": 12,
+        "downward_risers": 12,
+        "maximum_recorded_step_m": 0.16000009,
+        "passed": true
+      },
+      {
+        "name": "75mm",
+        "upward_risers": 12,
+        "downward_risers": 12,
+        "maximum_recorded_step_m": 0.16000009,
+        "passed": true
+      },
+      {
+        "name": "single_request_per_tread",
+        "upward_risers": 12,
+        "downward_risers": 12,
+        "maximum_recorded_step_m": 0.16000009,
+        "passed": true
+      }
+    ],
+    "events": [
+      {
+        "name": "35mm_up_1",
+        "passed": true,
+        "start": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "requested_target": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "end": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "move_calls": 103
+      },
+      {
+        "name": "35mm_up_2",
+        "passed": true,
+        "start": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "requested_target": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "end": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_3",
+        "passed": true,
+        "start": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "requested_target": [
+          0,
+          0.75,
+          2.03
+        ],
+        "end": [
+          0,
+          0.75,
+          2.03
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_4",
+        "passed": true,
+        "start": [
+          0,
+          0.75,
+          2.03
+        ],
+        "requested_target": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "end": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_5",
+        "passed": true,
+        "start": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "requested_target": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "end": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_6",
+        "passed": true,
+        "start": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "requested_target": [
+          0,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0,
+          1.65,
+          2.51
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_7",
+        "passed": true,
+        "start": [
+          0,
+          1.65,
+          2.51
+        ],
+        "requested_target": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "end": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_8",
+        "passed": true,
+        "start": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "requested_target": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "end": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_9",
+        "passed": true,
+        "start": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "requested_target": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "end": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_10",
+        "passed": true,
+        "start": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "requested_target": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "end": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_11",
+        "passed": true,
+        "start": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "requested_target": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "end": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_12",
+        "passed": true,
+        "start": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "requested_target": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "end": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_up_13",
+        "passed": true,
+        "start": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "end": [
+          0,
+          4.3949995,
+          3.4699998
+        ],
+        "move_calls": 27
+      },
+      {
+        "name": "35mm_down_12",
+        "passed": true,
+        "start": [
+          0,
+          4.3949995,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "end": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "move_calls": 27
+      },
+      {
+        "name": "35mm_down_11",
+        "passed": true,
+        "start": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "end": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_10",
+        "passed": true,
+        "start": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "requested_target": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "end": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_9",
+        "passed": true,
+        "start": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "requested_target": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "end": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_8",
+        "passed": true,
+        "start": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "requested_target": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "end": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_7",
+        "passed": true,
+        "start": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "requested_target": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "end": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_6",
+        "passed": true,
+        "start": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "requested_target": [
+          0,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0,
+          1.65,
+          2.51
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_5",
+        "passed": true,
+        "start": [
+          0,
+          1.65,
+          2.51
+        ],
+        "requested_target": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "end": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_4",
+        "passed": true,
+        "start": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "requested_target": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "end": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_3",
+        "passed": true,
+        "start": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "requested_target": [
+          0,
+          0.75,
+          2.03
+        ],
+        "end": [
+          0,
+          0.75,
+          2.03
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_2",
+        "passed": true,
+        "start": [
+          0,
+          0.75,
+          2.03
+        ],
+        "requested_target": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "end": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_down_1",
+        "passed": true,
+        "start": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "requested_target": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "end": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "move_calls": 9
+      },
+      {
+        "name": "35mm_return_spawn",
+        "passed": true,
+        "start": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "requested_target": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "end": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "move_calls": 103
+      },
+      {
+        "name": "75mm_up_1",
+        "passed": true,
+        "start": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "requested_target": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "end": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "move_calls": 48
+      },
+      {
+        "name": "75mm_up_2",
+        "passed": true,
+        "start": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "requested_target": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "end": [
+          0,
+          0.44999999,
+          1.8699999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_3",
+        "passed": true,
+        "start": [
+          0,
+          0.44999999,
+          1.8699999
+        ],
+        "requested_target": [
+          0,
+          0.75,
+          2.03
+        ],
+        "end": [
+          0,
+          0.74999994,
+          2.03
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_4",
+        "passed": true,
+        "start": [
+          0,
+          0.74999994,
+          2.03
+        ],
+        "requested_target": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "end": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_5",
+        "passed": true,
+        "start": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "requested_target": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "end": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_6",
+        "passed": true,
+        "start": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "requested_target": [
+          0,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0,
+          1.65,
+          2.51
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_7",
+        "passed": true,
+        "start": [
+          0,
+          1.65,
+          2.51
+        ],
+        "requested_target": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "end": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_8",
+        "passed": true,
+        "start": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "requested_target": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "end": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_9",
+        "passed": true,
+        "start": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "requested_target": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "end": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_10",
+        "passed": true,
+        "start": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "requested_target": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "end": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_11",
+        "passed": true,
+        "start": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "requested_target": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "end": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_12",
+        "passed": true,
+        "start": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "requested_target": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "end": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_up_13",
+        "passed": true,
+        "start": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "end": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "move_calls": 13
+      },
+      {
+        "name": "75mm_down_12",
+        "passed": true,
+        "start": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "end": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "move_calls": 13
+      },
+      {
+        "name": "75mm_down_11",
+        "passed": true,
+        "start": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "end": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_10",
+        "passed": true,
+        "start": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "requested_target": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "end": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_9",
+        "passed": true,
+        "start": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "requested_target": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "end": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_8",
+        "passed": true,
+        "start": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "requested_target": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "end": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_7",
+        "passed": true,
+        "start": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "requested_target": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "end": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_6",
+        "passed": true,
+        "start": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "requested_target": [
+          0,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0,
+          1.65,
+          2.51
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_5",
+        "passed": true,
+        "start": [
+          0,
+          1.65,
+          2.51
+        ],
+        "requested_target": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "end": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_4",
+        "passed": true,
+        "start": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "requested_target": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "end": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_3",
+        "passed": true,
+        "start": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "requested_target": [
+          0,
+          0.75,
+          2.03
+        ],
+        "end": [
+          0,
+          0.75,
+          2.03
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_2",
+        "passed": true,
+        "start": [
+          0,
+          0.75,
+          2.03
+        ],
+        "requested_target": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "end": [
+          0,
+          0.45000005,
+          1.8699999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_down_1",
+        "passed": true,
+        "start": [
+          0,
+          0.45000005,
+          1.8699999
+        ],
+        "requested_target": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "end": [
+          0,
+          0.15000007,
+          1.7099999
+        ],
+        "move_calls": 4
+      },
+      {
+        "name": "75mm_return_spawn",
+        "passed": true,
+        "start": [
+          0,
+          0.15000007,
+          1.7099999
+        ],
+        "requested_target": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "end": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "move_calls": 48
+      },
+      {
+        "name": "single_request_per_tread_up_1",
+        "passed": true,
+        "start": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "requested_target": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "end": [
+          3.259629e-09,
+          0.15000072,
+          1.7099999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_2",
+        "passed": true,
+        "start": [
+          3.259629e-09,
+          0.15000072,
+          1.7099999
+        ],
+        "requested_target": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "end": [
+          0,
+          0.44999999,
+          1.8699999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_3",
+        "passed": true,
+        "start": [
+          0,
+          0.44999999,
+          1.8699999
+        ],
+        "requested_target": [
+          0,
+          0.75,
+          2.03
+        ],
+        "end": [
+          0,
+          0.74999994,
+          2.03
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_4",
+        "passed": true,
+        "start": [
+          0,
+          0.74999994,
+          2.03
+        ],
+        "requested_target": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "end": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_5",
+        "passed": true,
+        "start": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "requested_target": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "end": [
+          0,
+          1.3500001,
+          2.3499999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_6",
+        "passed": true,
+        "start": [
+          0,
+          1.3500001,
+          2.3499999
+        ],
+        "requested_target": [
+          0,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0,
+          1.6499999,
+          2.51
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_7",
+        "passed": true,
+        "start": [
+          0,
+          1.6499999,
+          2.51
+        ],
+        "requested_target": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "end": [
+          0,
+          1.95,
+          2.6700001
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_8",
+        "passed": true,
+        "start": [
+          0,
+          1.95,
+          2.6700001
+        ],
+        "requested_target": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "end": [
+          0,
+          2.2500002,
+          2.8299999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_9",
+        "passed": true,
+        "start": [
+          0,
+          2.2500002,
+          2.8299999
+        ],
+        "requested_target": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "end": [
+          0,
+          2.5500004,
+          2.99
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_10",
+        "passed": true,
+        "start": [
+          0,
+          2.5500004,
+          2.99
+        ],
+        "requested_target": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "end": [
+          0,
+          2.8499997,
+          3.1500001
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_11",
+        "passed": true,
+        "start": [
+          0,
+          2.8499997,
+          3.1500001
+        ],
+        "requested_target": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "end": [
+          0,
+          3.1499999,
+          3.3099999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_12",
+        "passed": true,
+        "start": [
+          0,
+          3.1499999,
+          3.3099999
+        ],
+        "requested_target": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "end": [
+          0,
+          3.45,
+          3.4699998
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_up_13",
+        "passed": true,
+        "start": [
+          0,
+          3.45,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "end": [
+          0,
+          4.3999987,
+          3.4699998
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_12",
+        "passed": true,
+        "start": [
+          0,
+          4.3999987,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          3.4499998,
+          3.4699998
+        ],
+        "end": [
+          0,
+          3.45,
+          3.4699998
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_11",
+        "passed": true,
+        "start": [
+          0,
+          3.45,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          3.1500001,
+          3.3099999
+        ],
+        "end": [
+          0,
+          3.1499999,
+          3.3099999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_10",
+        "passed": true,
+        "start": [
+          0,
+          3.1499999,
+          3.3099999
+        ],
+        "requested_target": [
+          0,
+          2.8499999,
+          3.1500001
+        ],
+        "end": [
+          0,
+          2.8499997,
+          3.1500001
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_9",
+        "passed": true,
+        "start": [
+          0,
+          2.8499997,
+          3.1500001
+        ],
+        "requested_target": [
+          0,
+          2.5500002,
+          2.99
+        ],
+        "end": [
+          0,
+          2.5500004,
+          2.99
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_8",
+        "passed": true,
+        "start": [
+          0,
+          2.5500004,
+          2.99
+        ],
+        "requested_target": [
+          0,
+          2.25,
+          2.8299999
+        ],
+        "end": [
+          0,
+          2.2500002,
+          2.8299999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_7",
+        "passed": true,
+        "start": [
+          0,
+          2.2500002,
+          2.8299999
+        ],
+        "requested_target": [
+          0,
+          1.9499999,
+          2.6700001
+        ],
+        "end": [
+          0,
+          1.95,
+          2.6700001
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_6",
+        "passed": true,
+        "start": [
+          0,
+          1.95,
+          2.6700001
+        ],
+        "requested_target": [
+          0,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0,
+          1.6499999,
+          2.51
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_5",
+        "passed": true,
+        "start": [
+          0,
+          1.6499999,
+          2.51
+        ],
+        "requested_target": [
+          0,
+          1.35,
+          2.3499999
+        ],
+        "end": [
+          0,
+          1.3500001,
+          2.3499999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_4",
+        "passed": true,
+        "start": [
+          0,
+          1.3500001,
+          2.3499999
+        ],
+        "requested_target": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "end": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_3",
+        "passed": true,
+        "start": [
+          0,
+          1.05,
+          2.1900001
+        ],
+        "requested_target": [
+          0,
+          0.75,
+          2.03
+        ],
+        "end": [
+          0,
+          0.75,
+          2.03
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_2",
+        "passed": true,
+        "start": [
+          0,
+          0.75,
+          2.03
+        ],
+        "requested_target": [
+          0,
+          0.45000002,
+          1.8699999
+        ],
+        "end": [
+          0,
+          0.45000005,
+          1.8699999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_down_1",
+        "passed": true,
+        "start": [
+          0,
+          0.45000005,
+          1.8699999
+        ],
+        "requested_target": [
+          0,
+          0.15000001,
+          1.7099999
+        ],
+        "end": [
+          0,
+          0.14999998,
+          1.7099999
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "single_request_per_tread_return_spawn",
+        "passed": true,
+        "start": [
+          0,
+          0.14999998,
+          1.7099999
+        ],
+        "requested_target": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "end": [
+          0.022059998,
+          -3.4388707,
+          1.55
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "left_limit_surface_0",
+        "passed": true,
+        "start": [
+          0,
+          -2.5999999,
+          1.55
+        ],
+        "requested_target": [
+          -20,
+          -2.5999999,
+          1.55
+        ],
+        "end": [
+          -0.72000003,
+          -2.5999999,
+          1.55
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "right_limit_surface_0",
+        "passed": true,
+        "start": [
+          0,
+          -2.5999999,
+          1.55
+        ],
+        "requested_target": [
+          20,
+          -2.5999999,
+          1.55
+        ],
+        "end": [
+          0.72000003,
+          -2.5999999,
+          1.55
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "left_limit_surface_6",
+        "passed": true,
+        "start": [
+          0,
+          1.65,
+          2.51
+        ],
+        "requested_target": [
+          -20,
+          1.65,
+          2.51
+        ],
+        "end": [
+          -0.72000003,
+          1.65,
+          2.51
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "right_limit_surface_6",
+        "passed": true,
+        "start": [
+          0,
+          1.65,
+          2.51
+        ],
+        "requested_target": [
+          20,
+          1.65,
+          2.51
+        ],
+        "end": [
+          0.72000003,
+          1.65,
+          2.51
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "left_limit_surface_13",
+        "passed": true,
+        "start": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "requested_target": [
+          -20,
+          4.3999996,
+          3.4699998
+        ],
+        "end": [
+          -0.72000003,
+          4.3999996,
+          3.4699998
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "right_limit_surface_13",
+        "passed": true,
+        "start": [
+          0,
+          4.3999996,
+          3.4699998
+        ],
+        "requested_target": [
+          20,
+          4.3999996,
+          3.4699998
+        ],
+        "end": [
+          0.72000003,
+          4.3999996,
+          3.4699998
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "long_ascent_stops_before_landing_void",
+        "passed": true,
+        "start": [
+          0.022059999,
+          -3.43887,
+          1.55
+        ],
+        "requested_target": [
+          0.022059999,
+          36.561131,
+          1.55
+        ],
+        "end": [
+          0.022059999,
+          5,
+          3.4699998
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "long_descent_stops_at_approach_bound",
+        "passed": true,
+        "start": [
+          0,
+          4.8000002,
+          3.4699998
+        ],
+        "requested_target": [
+          0,
+          -35.200001,
+          3.4699998
+        ],
+        "end": [
+          0,
+          -5.1999998,
+          1.55
+        ],
+        "move_calls": 1
+      }
+    ],
+    "failures": []
+  },
+  "exported_navigation": {
+    "spawn": [
+      0.02206,
+      -3.43887,
+      1.55,
+      1.51996,
+      0.001732
+    ],
+    "environment": 3.0,
+    "bounds_xmin_xmax_ymin_ymax": [
+      -0.72,
+      0.72,
+      -5.2,
+      5.0
+    ],
+    "eye_height_m": 1.55,
+    "step_limits_up_down_m": [
+      0.18,
+      0.18
+    ],
+    "surface_xmin_ymin_xmax_ymax_z": [
+      [
+        -0.93,
+        -5.2,
+        0.93,
+        0.0,
+        0.0
+      ],
+      [
+        -0.93,
+        0.0,
+        0.93,
+        0.3,
+        0.16
+      ],
+      [
+        -0.93,
+        0.3,
+        0.93,
+        0.6,
+        0.32
+      ],
+      [
+        -0.93,
+        0.6,
+        0.93,
+        0.8999999999999999,
+        0.48
+      ],
+      [
+        -0.93,
+        0.8999999999999999,
+        0.93,
+        1.2,
+        0.64
+      ],
+      [
+        -0.93,
+        1.2,
+        0.93,
+        1.5,
+        0.8
+      ],
+      [
+        -0.93,
+        1.5,
+        0.93,
+        1.8,
+        0.96
+      ],
+      [
+        -0.93,
+        1.7999999999999998,
+        0.93,
+        2.0999999999999996,
+        1.12
+      ],
+      [
+        -0.93,
+        2.1,
+        0.93,
+        2.4,
+        1.28
+      ],
+      [
+        -0.93,
+        2.4,
+        0.93,
+        2.6999999999999997,
+        1.44
+      ],
+      [
+        -0.93,
+        2.6999999999999997,
+        0.93,
+        2.9999999999999996,
+        1.6
+      ],
+      [
+        -0.93,
+        3.0,
+        0.93,
+        3.3,
+        1.76
+      ],
+      [
+        -0.93,
+        3.3,
+        0.93,
+        3.5999999999999996,
+        1.92
+      ],
+      [
+        -0.93,
+        3.6,
+        0.93,
+        5.2,
+        1.92
+      ]
+    ],
+    "collider_capsules": 0,
+    "mesh_triangles": 353874
+  },
+  "tolerances": {
+    "waypoint_xy_m": 0.008,
+    "eye_height_m": 0.00015,
+    "bound_m": 0.001,
+    "surface_join_m": 1e-06
+  },
+  "verified_behavior": [
+    "The exported 14 supports are read from disk; approach is z=0, all 12 risers are 0.16 m, landing is z=1.92.",
+    "Three full round trips, with 35 mm, 75 mm and single requests to each tread centre, reach every tread, the upper landing and the original spawn.",
+    "Each route records exactly twelve upward and twelve downward transitions; maximum sampled height change is 0.16000009 m, below the configured 0.18 m limit.",
+    "All 705 inspected positions remain supported and inside authored movement bounds.",
+    "Lateral 20 m requests clamp to x=-0.72/+0.72 at the approach, sixth tread and upper landing.",
+    "A single 40 m forward request reaches the top and stops at y=5, eye z=3.47; a -40 m request descends and stops at y=-5.2, eye z=1.55.",
+    "Pure vertical input does not change the supported pose."
+  ],
+  "limitations": [
+    "No rendered or interactive climb was performed here; this checks the same production move() code with deterministic CPU inputs.",
+    "The narrow authored movement corridor supplies side/end blocking; this export has zero capsules and this test does not validate collider alignment with the full rendered banks/rails.",
+    "The test covers the explicitly allowed corridor, not navigation across off-corridor grass, arbitrary slopes, jumping, gravity or a transition beyond the top landing.",
+    "Visual fidelity and stair material/render acceptance remain separate from traversal correctness.",
+    "This report does not mark the catalog available; enabling an exported scene remains part of integration."
+  ]
+}

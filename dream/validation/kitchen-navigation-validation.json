@@ -1,0 +1,1207 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T04:41:04.729610+00:00",
+  "scope": "CPU integration against the real exported kitchen SceneSettings; no GPU, Blender, scene/configuration edits or catalog activation.",
+  "status": "cpu_validation_passed",
+  "source_sha256": {
+    "dream/runtime/src/scene.hpp": "6a6da234d82c8d9cad149b4334517d2fef7d62d08d15327977f4274283fd2c0e",
+    "dream/runtime/src/math.hpp": "805954d6a9b945a9723582f302b1c0ff1193b5710149342f1e6aa276ad09d0f3",
+    "dream/validation/kitchen-navigation.cpp": "357bf3d7216a1e73e430e35651c946c64180ddc3919c8edb63308e02ebd4affe",
+    "dream/assets/kitchen_meadow.scene": "891d8d00aaa8c40bd7a828f292592d84738807cbbbe20151d06ac155a7be4fb7",
+    "dream/assets/kitchen_meadow.json": "9bdc2299c401314bd3bad8f60bd581c06a465ef4e58654732ca5216d653746b9",
+    "dream/assets/kitchen_meadow.dreammesh": "c16bc63d1fa167f2cd43d04bc5eac4dc27e664333d301a68fa197ef34a4f4cac",
+    "dream/validation/navigation-height-validation.json": "62a2f065e49facd88f8e41678fbfe32b8b38695f431555847832b2cc82b3a1be",
+    "dream/validation/stair-sky-scene.json": "f59ab6a03bf2ff07a3ce5c7b1e390907937be47122777cffe8bc66f3cf58049e"
+  },
+  "inputs_unchanged_during_run": true,
+  "commands": [
+    "g++ -std=c++17 -O2 -Wall -Wextra -pedantic dream/validation/kitchen-navigation.cpp -o dream/runtime/build/kitchen-navigation.exe",
+    "dream/runtime/build/kitchen-navigation.exe dream/assets"
+  ],
+  "build": {
+    "compiler": "MinGW-w64 g++",
+    "warnings": 0,
+    "exit_code": 0
+  },
+  "run_exit_code": 0,
+  "result": {
+    "status": "PASS",
+    "checks": 1971,
+    "position_samples": 947,
+    "surface_count": 2,
+    "capsule_count": 10,
+    "max_eye_height_error_m": 0,
+    "minimum_capsule_clearance_m": -8.9406967e-08,
+    "waypoint_tolerance_m": 0.012,
+    "height_tolerance_m": 9.9999997e-05,
+    "contact_tolerance_m": 0.00019999999,
+    "events": [
+      {
+        "name": "out_before_entry_35mm",
+        "passed": true,
+        "start": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "end": [
+          -0.27070168,
+          -1.8583322,
+          1.48
+        ],
+        "move_calls": 27
+      },
+      {
+        "name": "out_inside_entry_35mm",
+        "passed": true,
+        "start": [
+          -0.27070168,
+          -1.8583322,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "end": [
+          -0.27000827,
+          -1.1583328,
+          1.48
+        ],
+        "move_calls": 20
+      },
+      {
+        "name": "out_clear_open_leaf_35mm",
+        "passed": true,
+        "start": [
+          -0.27000827,
+          -1.1583328,
+          1.48
+        ],
+        "requested_target": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "end": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "move_calls": 15
+      },
+      {
+        "name": "out_kitchen_centre_35mm",
+        "passed": true,
+        "start": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "end": [
+          0.39349502,
+          -0.0070470516,
+          1.48
+        ],
+        "move_calls": 25
+      },
+      {
+        "name": "out_before_exterior_aperture_35mm",
+        "passed": true,
+        "start": [
+          0.39349502,
+          -0.0070470516,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "end": [
+          0.39999112,
+          1.4979396,
+          1.48
+        ],
+        "move_calls": 43
+      },
+      {
+        "name": "out_across_support_seam_35mm",
+        "passed": true,
+        "start": [
+          0.39999112,
+          1.4979396,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "move_calls": 12
+      },
+      {
+        "name": "out_meadow_35mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "return_across_support_seam_35mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "return_before_exterior_aperture_35mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "move_calls": 12
+      },
+      {
+        "name": "return_kitchen_centre_35mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "move_calls": 43
+      },
+      {
+        "name": "return_clear_open_leaf_35mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "requested_target": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "end": [
+          -0.19349511,
+          -0.64295304,
+          1.48
+        ],
+        "move_calls": 25
+      },
+      {
+        "name": "return_inside_entry_35mm",
+        "passed": true,
+        "start": [
+          -0.19349511,
+          -0.64295304,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "move_calls": 15
+      },
+      {
+        "name": "return_before_entry_35mm",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.8499993,
+          1.48
+        ],
+        "move_calls": 20
+      },
+      {
+        "name": "return_spawn_35mm",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.8499993,
+          1.48
+        ],
+        "requested_target": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "end": [
+          -0.34929827,
+          -2.791667,
+          1.48
+        ],
+        "move_calls": 27
+      },
+      {
+        "name": "out_before_entry_75mm",
+        "passed": true,
+        "start": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "move_calls": 13
+      },
+      {
+        "name": "out_inside_entry_75mm",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "move_calls": 10
+      },
+      {
+        "name": "out_clear_open_leaf_75mm",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "requested_target": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "end": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "move_calls": 7
+      },
+      {
+        "name": "out_kitchen_centre_75mm",
+        "passed": true,
+        "start": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "move_calls": 12
+      },
+      {
+        "name": "out_before_exterior_aperture_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "move_calls": 20
+      },
+      {
+        "name": "out_across_support_seam_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "move_calls": 6
+      },
+      {
+        "name": "out_meadow_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "move_calls": 22
+      },
+      {
+        "name": "return_across_support_seam_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "move_calls": 22
+      },
+      {
+        "name": "return_before_exterior_aperture_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "move_calls": 6
+      },
+      {
+        "name": "return_kitchen_centre_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "move_calls": 20
+      },
+      {
+        "name": "return_clear_open_leaf_75mm",
+        "passed": true,
+        "start": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "requested_target": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "end": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "move_calls": 12
+      },
+      {
+        "name": "return_inside_entry_75mm",
+        "passed": true,
+        "start": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "move_calls": 7
+      },
+      {
+        "name": "return_before_entry_75mm",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "move_calls": 10
+      },
+      {
+        "name": "return_spawn_75mm",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "requested_target": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "end": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "move_calls": 13
+      },
+      {
+        "name": "out_before_entry_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "end": [
+          -0.27000007,
+          -1.8500001,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "out_inside_entry_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.27000007,
+          -1.8500001,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "end": [
+          -0.27000007,
+          -1.1500005,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "out_clear_open_leaf_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.27000007,
+          -1.1500005,
+          1.48
+        ],
+        "requested_target": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "end": [
+          -0.2,
+          -0.64999986,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "out_kitchen_centre_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.2,
+          -0.64999986,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          7.4505806e-09,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "out_before_exterior_aperture_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          7.4505806e-09,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          1.4999995,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "out_across_support_seam_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          1.4999995,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          1.8999999,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "out_meadow_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          1.8999999,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          3.4999998,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_across_support_seam_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          3.4999998,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.9,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          1.900001,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_before_exterior_aperture_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          1.900001,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          1.5,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          1.5,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_kitchen_centre_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          1.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          0,
+          1.48
+        ],
+        "end": [
+          0.40000007,
+          4.1723251e-07,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_clear_open_leaf_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          0.40000007,
+          4.1723251e-07,
+          1.48
+        ],
+        "requested_target": [
+          -0.2,
+          -0.64999998,
+          1.48
+        ],
+        "end": [
+          -0.20000006,
+          -0.64999992,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_inside_entry_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.20000006,
+          -0.64999992,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_before_entry_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.15,
+          1.48
+        ],
+        "requested_target": [
+          -0.27000001,
+          -1.85,
+          1.48
+        ],
+        "end": [
+          -0.27000001,
+          -1.8499997,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "return_spawn_single_long_request_per_leg",
+        "passed": true,
+        "start": [
+          -0.27000001,
+          -1.8499997,
+          1.48
+        ],
+        "requested_target": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "end": [
+          -0.34999993,
+          -2.7999995,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "left_wall",
+        "passed": true,
+        "start": [
+          -1.0600001,
+          -1.005,
+          1.48
+        ],
+        "requested_target": [
+          -2.9100001,
+          -1.005,
+          1.48
+        ],
+        "end": [
+          -1.49,
+          -1.005,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "right_wall",
+        "passed": true,
+        "start": [
+          1.26,
+          0.14999998,
+          1.48
+        ],
+        "requested_target": [
+          3.1100001,
+          0.14999998,
+          1.48
+        ],
+        "end": [
+          1.6899999,
+          0.14999998,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "exterior_wall_from_meadow",
+        "passed": true,
+        "start": [
+          -0.95249999,
+          2.4499998,
+          1.48
+        ],
+        "requested_target": [
+          -0.95249999,
+          0.5999999,
+          1.48
+        ],
+        "end": [
+          -0.95249999,
+          2.02,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "right_exterior_post",
+        "passed": true,
+        "start": [
+          2.4400001,
+          1.8,
+          1.48
+        ],
+        "requested_target": [
+          0.5999999,
+          1.8,
+          1.48
+        ],
+        "end": [
+          2.1299999,
+          1.8,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "entry_wall_left",
+        "passed": true,
+        "start": [
+          -1.16,
+          -2.1500001,
+          1.48
+        ],
+        "requested_target": [
+          -1.16,
+          -0.29999995,
+          1.48
+        ],
+        "end": [
+          -1.16,
+          -1.72,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "entry_wall_right",
+        "passed": true,
+        "start": [
+          0.99000001,
+          -2.1500001,
+          1.48
+        ],
+        "requested_target": [
+          0.99000001,
+          -0.29999995,
+          1.48
+        ],
+        "end": [
+          0.99000001,
+          -1.72,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "open_door_leaf",
+        "passed": true,
+        "start": [
+          -0.062357455,
+          -0.8020038,
+          1.48
+        ],
+        "requested_target": [
+          1.2827349,
+          -2.0131302,
+          1.48
+        ],
+        "end": [
+          0.25719482,
+          -1.08973,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "cabinet_front",
+        "passed": true,
+        "start": [
+          -0.44082865,
+          0.16085351,
+          1.48
+        ],
+        "requested_target": [
+          -1.8350296,
+          1.3307271,
+          1.48
+        ],
+        "end": [
+          -0.77022779,
+          0.43725219,
+          1.48
+        ],
+        "move_calls": 46
+      },
+      {
+        "name": "approach_floor_left",
+        "passed": true,
+        "start": [
+          -1,
+          -2.45,
+          1.48
+        ],
+        "requested_target": [
+          -11,
+          -2.45,
+          1.48
+        ],
+        "end": [
+          -1.6400003,
+          -2.45,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "approach_floor_right",
+        "passed": true,
+        "start": [
+          1,
+          -2.45,
+          1.48
+        ],
+        "requested_target": [
+          11,
+          -2.45,
+          1.48
+        ],
+        "end": [
+          1.8000004,
+          -2.45,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "approach_back_limit",
+        "passed": true,
+        "start": [
+          -0.34999999,
+          -2.8,
+          1.48
+        ],
+        "requested_target": [
+          -0.34999999,
+          -12.8,
+          1.48
+        ],
+        "end": [
+          -0.34999999,
+          -3.2,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "meadow_left_limit",
+        "passed": true,
+        "start": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "requested_target": [
+          -39.599998,
+          3.5,
+          1.48
+        ],
+        "end": [
+          -16,
+          3.5,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "meadow_right_limit",
+        "passed": true,
+        "start": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "requested_target": [
+          40.400002,
+          3.5,
+          1.48
+        ],
+        "end": [
+          16,
+          3.5,
+          1.48
+        ],
+        "move_calls": 1
+      },
+      {
+        "name": "meadow_far_limit",
+        "passed": true,
+        "start": [
+          0.40000001,
+          3.5,
+          1.48
+        ],
+        "requested_target": [
+          0.40000001,
+          43.5,
+          1.48
+        ],
+        "end": [
+          0.40000001,
+          20,
+          1.48
+        ],
+        "move_calls": 1
+      }
+    ],
+    "failures": []
+  },
+  "metadata_consistency": {
+    "surface_count_matches_scene": true,
+    "all_capsules_match_scene": true,
+    "capsule_count": 10
+  },
+  "verified_behavior": [
+    "From spawn (-0.35,-2.8,1.48), enter at x=-0.27, clear the open leaf, cross the external aperture at x=0.4, reach meadow y=3.5 and return to spawn.",
+    "The complete outward/return route reaches every waypoint with 0.035 m, 0.075 m and one long movement request per leg.",
+    "All 947 sampled poses stay supported, inside bounds and outside all ten exported capsules; maximum eye-height error is zero at float precision.",
+    "Long requests followed by repeated short pushes stay on the starting side of eight selected exposed contacts: both side walls, exterior wall/post, both entry walls, the open door leaf and the cabinet front.",
+    "The approach floor lateral edges, approach back bound and three meadow bounds prevent leaving traversable space.",
+    "A purely vertical request leaves the supported pose unchanged."
+  ],
+  "historical_stair_evidence": {
+    "rerun_this_task": false,
+    "report": "dream/validation/navigation-height-validation.json",
+    "fixture_source": "dream/validation/navigation-height.cpp",
+    "same_controller_sha256_as_historical_run": true,
+    "height_test": {
+      "status": "PASS",
+      "checks": 1580,
+      "support_rectangles": 14,
+      "upward_risers": 12,
+      "downward_risers": 12,
+      "height_gain_m": 1.92,
+      "invalid_input_cases": 16,
+      "legacy_regression_scenes": 3,
+      "legacy_movement_sequences": 480,
+      "legacy_bit_exact": true,
+      "kitchen_source": "explicit_no_surface_fixture; kitchen_meadow.scene did not yet exist at test time"
+    },
+    "real_authored_metadata": "dream/validation/stair-sky-scene.json",
+    "metadata_support_count": 14,
+    "metadata_matches_tested_plan_surfaces": true,
+    "maximum_metadata_coordinate_difference_m": 4.440892098500626e-16,
+    "interpretation": "Historical CPU fixture traversed twelve 0.16 m risers up and down (1.92 m total) using the same controller. Its fourteen supports agree with authored Blender navigation metadata. This does not assert an actual exported stair runtime scene or GPU/gameplay traversal.",
+    "stair_metadata_status_note": "The authored metadata still has an older controller-pending status; this report does not mutate it or mark the stair scene playable."
+  },
+  "limitations": [
+    "CPU navigation verifies exported support rectangles and capsules, not visual mesh/collider parity, input handling or rendered gameplay.",
+    "Eight selected exposed capsule faces were directly pushed; the two cabinet side capsules were checked for nonpenetration on every sampled pose, but not individually attacked from an inaccessible furniture interior.",
+    "Long-request tests inspect the result of the production controller, whose internal substeps are not instrumented; the short-stride routes independently verify intermediate poses.",
+    "No arbitrary free-form route or every possible collision angle is claimed; the waypoint and contact tests are explicit in the event list.",
+    "Existing navigation-height.cpp historical kitchen regression predates kitchen supports and used a no-surface fixture. It was not rerun as though that fixture represented this real kitchen export."
+  ]
+}

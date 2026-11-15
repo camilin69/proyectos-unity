@@ -1,0 +1,140 @@
+{
+  "schema": "dream.ocean_exit_animation_native.v1",
+  "scene": "DREAM_OceanExitWater",
+  "objects": 35,
+  "source_native_sha256": "0420592793304d0333b1f6715fbbdb9e5cd1c219d81747f13ab93a929c4bd439",
+  "post_fit": [
+    1.019563832366403,
+    4.0321853933532985,
+    -0.5214183135701707,
+    0.5737994167869304
+  ],
+  "post_actual_bottom_m": -0.8,
+  "waves": "Two analytic travelling harmonics, four shape keys per water mesh; 6-second displacement loop.",
+  "foam": "UV advection .1333 m/s toward room; not a fluid simulation or seamless six-second texture loop.",
+  "samples": {
+    "1": {
+      "interior_water": {
+        "min_z": -0.040996138006448746,
+        "max_z": 0.04099823534488678,
+        "sample_z": [
+          -0.011094470508396626,
+          0.023741465061903,
+          -0.03687824308872223,
+          -0.007738705724477768
+        ],
+        "drivers_valid": true
+      },
+      "ocean": {
+        "min_z": -0.040989313274621964,
+        "max_z": 0.04098914936184883,
+        "sample_z": [
+          -0.0015994887799024582,
+          -0.000666958512738347,
+          0.023206844925880432,
+          -0.00033473834628239274
+        ],
+        "drivers_valid": true
+      }
+    },
+    "16": {
+      "interior_water": {
+        "min_z": -0.040995676070451736,
+        "max_z": 0.04099839925765991,
+        "sample_z": [
+          -0.030558643862605095,
+          0.016540300101041794,
+          -0.029457077383995056,
+          0.019465269520878792
+        ],
+        "drivers_valid": true
+      },
+      "ocean": {
+        "min_z": -0.04099233075976372,
+        "max_z": 0.04099598154425621,
+        "sample_z": [
+          0.001662245485931635,
+          0.023292675614356995,
+          0.02075398713350296,
+          -0.00042644230416044593
+        ],
+        "drivers_valid": true
+      }
+    },
+    "31": {
+      "interior_water": {
+        "min_z": -0.04099162667989731,
+        "max_z": 0.04099956154823303,
+        "sample_z": [
+          -0.03939525783061981,
+          -0.004606402479112148,
+          -0.005543962121009827,
+          0.03587517887353897
+        ],
+        "drivers_valid": true
+      },
+      "ocean": {
+        "min_z": -0.04099596291780472,
+        "max_z": 0.04098626598715782,
+        "sample_z": [
+          0.003910056781023741,
+          0.03194117546081543,
+          0.005560023244470358,
+          -0.0003731169272214174
+        ],
+        "drivers_valid": true
+      }
+    },
+    "91": {
+      "interior_water": {
+        "min_z": -0.040993206202983856,
+        "max_z": 0.040984056890010834,
+        "sample_z": [
+          0.029526568949222565,
+          -0.010172557085752487,
+          0.015484705567359924,
+          -0.0028838766738772392
+        ],
+        "drivers_valid": true
+      },
+      "ocean": {
+        "min_z": -0.04096246138215065,
+        "max_z": 0.04096115753054619,
+        "sample_z": [
+          0.024852555245161057,
+          0.006238534115254879,
+          -0.013828177005052567,
+          -0.0002904779394157231
+        ],
+        "drivers_valid": true
+      }
+    },
+    "181": {
+      "interior_water": {
+        "min_z": -0.040996138006448746,
+        "max_z": 0.04099823534488678,
+        "sample_z": [
+          -0.011094470508396626,
+          0.023741465061903,
+          -0.03687824308872223,
+          -0.007738705724477768
+        ],
+        "drivers_valid": true
+      },
+      "ocean": {
+        "min_z": -0.040989313274621964,
+        "max_z": 0.04098914936184883,
+        "sample_z": [
+          -0.0015994887799024582,
+          -0.000666958512738347,
+          0.023206844925880432,
+          -0.00033473834628239274
+        ],
+        "drivers_valid": true
+      }
+    }
+  },
+  "accepted": false,
+  "runtime_promoted": false,
+  "export_limitations": "Shape-key drivers and shader mapping animation require explicit C++ implementation; no GLB/runtime motion equivalence claimed."
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "dream.ocean_exit_runtime_candidate.v1",
+  "scene_id": "video-42/salida_oceano",
+  "runtime_alias": "v42_ocean_exit",
+  "revision": 6,
+  "status": "candidate_not_accepted",
+  "renderer": {
+    "language": "C++17",
+    "api": "OpenGL 3.3",
+    "gpu": "Intel(R) HD Graphics 630"
+  },
+  "build": {
+    "binary": "runtime/build/dream.exe",
+    "candidate_binary": "runtime/build/dream-ocean-candidate-v6.exe",
+    "source_shader": "runtime/shaders/scene.frag",
+    "canonical_game_binary_updated": true
+  },
+  "capture": {
+    "reference": "validation/ocean-exit/source-7s.png",
+    "render": "validation/ocean-exit/runtime-v6-7s.png",
+    "comparison": "validation/ocean-exit/runtime-comparison-v6.png",
+    "second_time_render": "validation/ocean-exit/runtime-v6-9.5s.png",
+    "metric_capture": "validation/ocean-exit/runtime-v6-metric-7s.ppm",
+    "resolution_px": [478, 850],
+    "opaque_msaa_samples": 4,
+    "shader_times_s": [0.0, 2.5],
+    "gl_error": 0
+  },
+  "comparison_metrics": {
+    "metric_capture_opaque_msaa_samples": 0,
+    "whole_frame_rgb_mae_0_to_255": 18.427,
+    "pool_region_rgb_mae_0_to_255": 15.390,
+    "foreground_region_rgb_mae_0_to_255": 13.306,
+    "door_ocean_region_rgb_mae_0_to_255": 22.400,
+    "measurement_note": "RGB mean absolute difference against the same 478x850 source frame. Regions are rectangular diagnostics only; camera registration and the source watermark remain included. These values are not a fidelity score."
+  },
+  "visual_observations": {
+    "improved": [
+      "The pink ceramic is less magenta and closer to the pastel reference palette.",
+      "The cream wall brightness and warmth are closer to the video.",
+      "The ocean reflection appears beyond the doorway, while a separate soft reflection returns into the indoor pool.",
+      "The pool and foreground pixel comparisons improved over the v5 candidate."
+    ],
+    "remaining": [
+      "Interior foam patches are still too coarse and water movement lacks the video's fine turbulent detail.",
+      "The visual result still needs review at additional camera positions and aspect ratios.",
+      "Some architectural proportions, the submerged post, and soft photographic bloom remain unmatched."
+    ]
+  },
+  "validation": {
+    "catalog_validation": "PASS · six available scenes",
+    "ocean_runtime_frames": "PASS · 478x850 at 0.0 s and 2.5 s; gl_error=0",
+    "opaque_msaa_samples": 4,
+    "six_scene_opengl_smokes": "PASS · one frame for each available scene on this candidate build",
+    "strict_visual_acceptance": false
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema": "dream.wave_hall_constraint_diagnostic.v1",
+  "geometry_modified": false,
+  "accepted": false,
+  "fixed_flat_hall": {
+    "solver_converged": true,
+    "parameters": {
+      "x_m": 0.9827452767442036,
+      "y_m": 38.992841104569926,
+      "width_m": 1.1999999999999904,
+      "bottom_z_m": -1.1596664988460461,
+      "top_z_m": 2.3493934334525717
+    },
+    "bottom_above_current_hall_floor_m": 0.0,
+    "weighted_rms": 3.1880625956233977,
+    "projected_bounds_px": [
+      [
+        232.75681773873782,
+        221.53958778656016,
+        251.92445089511938,
+        275.0144816369715
+      ],
+      [
+        347.3371971793786,
+        291.83765702960034,
+        369.62956104649004,
+        345.3174927282969
+      ]
+    ]
+  },
+  "free_vertical_span": {
+    "solver_converged": true,
+    "parameters": {
+      "x_m": 0.23837523406260264,
+      "y_m": 11.40473786275695,
+      "width_m": 0.4915689880849694,
+      "bottom_z_m": 1.0507025111218433,
+      "top_z_m": 2.349393433452572
+    },
+    "bottom_above_current_hall_floor_m": 2.2103690099678897,
+    "weighted_rms": 0.24466831463428218,
+    "projected_bounds_px": [
+      [
+        229.86871932353216,
+        187.22510662408035,
+        256.93245161253736,
+        257.1897071603736
+      ],
+      [
+        341.77408552084535,
+        239.19316792608095,
+        376.5729133549952,
+        317.03001506136934
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "time_s": 14,
+      "projected_full_column_bounds_px": [
+        236.7134816646576,
+        205.82380890846252,
+        261.0065494775772,
+        317.7673727273941
+      ],
+      "source_pale_support_bounds_approx_px": [
+        232,
+        189,
+        260,
+        256
+      ],
+      "manual_uncertainty_px": 8,
+      "bottom_edge_difference_px": 61.767372727394104,
+      "interpretation": "Diagnostic only. Source head can be occluded by the corridor; no physical dimension or fit acceptance is inferred."
+    },
+    {
+      "time_s": 15.5,
+      "projected_full_column_bounds_px": [
+        348.71493005752563,
+        268.82154047489166,
+        380.2397595643997,
+        388.1505399942398
+      ],
+      "source_pale_support_bounds_approx_px": [
+        340,
+        238,
+        374,
+        318
+      ],
+      "manual_uncertainty_px": 8,
+      "bottom_edge_difference_px": 70.15053999423981,
+      "interpretation": "Diagnostic only. Source head can be occluded by the corridor; no physical dimension or fit acceptance is inferred."
+    }
+  ],
+  "interpretation": "Allowing a different vertical span tests a raised/reconfigured rear area versus errors in the existing cameras and floor. It does not prove a raised platform. Source occlusion and ambiguous support identification must be resolved before modelling steps.",
+  "next_action": "Jointly fit corridor floor, camera poses and hall supports from additional views. Do not adjust lights to hide this geometric residual.",
+  "input_sha256": {
+    "blender/wave_corridor_plan.json": "f39bbdefb72a02e4ad7bc099ff0f4b1ed68b78d5eef3fab14d11c27b8ba6d140",
+    "validation/wave-hall-audit.json": "0a7e74c9201caaa8f789bfbc877463566bcc4520859e8bcf0ba3dc65bb451f20"
+  }
+}

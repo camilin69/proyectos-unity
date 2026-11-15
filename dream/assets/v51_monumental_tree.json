@@ -1,0 +1,878 @@
+{
+  "format": "DREAMM02",
+  "axes": "Z-up, right handed, metres",
+  "materials": [
+    "DREAM_TREE_Bark_Limestone",
+    "DREAM_TREE_Bark_DeepFissure",
+    "DREAM_TREE_Canopy_DeepPine",
+    "DREAM_TREE_Canopy_Olive",
+    "DREAM_TREE_Canopy_Shadow",
+    "DREAM_TREE_Hill_Grass",
+    "DREAM_TREE_ScaleFigure_OffWhite",
+    "DREAM_TREE_ScaleFigure_ShadowCloth",
+    "DREAM_TREE_RuntimeCanopyShadow"
+  ],
+  "vertices": 530688,
+  "triangles": 176896,
+  "objects": [
+    {
+      "name": "GEO-DREAM-tree-sloped-grass-hill",
+      "first_vertex": 0,
+      "vertex_count": 15660,
+      "kind": 11,
+      "material_kinds": [
+        11
+      ],
+      "center": [
+        -4.216688331837304e-09,
+        -22.499977111816406,
+        -1.4055627772791013e-09
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-main-trunk",
+      "first_vertex": 15660,
+      "vertex_count": 2400,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -5.8334150314331055,
+        0.3690243661403656,
+        17.738056182861328
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-primary-right-low",
+      "first_vertex": 18060,
+      "vertex_count": 1500,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        5.544614791870117,
+        0.517692506313324,
+        17.536924362182617
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-primary-left-low",
+      "first_vertex": 19560,
+      "vertex_count": 1200,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -15.999995231628418,
+        0.2761904001235962,
+        17.641910552978516
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-primary-right-high",
+      "first_vertex": 20760,
+      "vertex_count": 1200,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        3.420952081680298,
+        0.7272380590438843,
+        24.05809783935547
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-primary-left-high",
+      "first_vertex": 21960,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -11.830000877380371,
+        0.6337499022483826,
+        26.84000587463379
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-crown-center",
+      "first_vertex": 22860,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.0049998760223389,
+        0.9087499976158142,
+        31.22499656677246
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-outer-right-droop",
+      "first_vertex": 23760,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        12.5,
+        1.1674998998641968,
+        20.902503967285156
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-outer-left-fork",
+      "first_vertex": 24660,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -19.325002670288086,
+        0.8500003218650818,
+        30.725000381469727
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-crossing-limb",
+      "first_vertex": 25560,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -2.2725002765655518,
+        -1.3212498426437378,
+        20.197507858276367
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-00",
+      "first_vertex": 26460,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -3.760590076446533,
+        0.10661086440086365,
+        17.292272567749023
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-01",
+      "first_vertex": 27060,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        9.860977172851562,
+        0.6997770667076111,
+        23.55775260925293
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-02",
+      "first_vertex": 27660,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -21.655349731445312,
+        0.5898744463920593,
+        33.56023406982422
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-03",
+      "first_vertex": 28260,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -0.7902715802192688,
+        1.0330910682678223,
+        31.653057098388672
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-04",
+      "first_vertex": 28860,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        18.895132064819336,
+        1.3934835195541382,
+        18.292787551879883
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-05",
+      "first_vertex": 29460,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -18.928186416625977,
+        0.8796432018280029,
+        20.391103744506836
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-06",
+      "first_vertex": 30060,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        5.67090368270874,
+        0.9539225697517395,
+        33.513885498046875
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-07",
+      "first_vertex": 30660,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        5.237556457519531,
+        1.073853850364685,
+        19.473854064941406
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-08",
+      "first_vertex": 31260,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        17.214967727661133,
+        0.9798822999000549,
+        21.074047088623047
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-09",
+      "first_vertex": 31860,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -24.84529685974121,
+        0.984540581703186,
+        32.35968780517578
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-10",
+      "first_vertex": 32460,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -15.915081024169922,
+        0.2581784427165985,
+        31.195131301879883
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-11",
+      "first_vertex": 33060,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -24.360246658325195,
+        1.495713472366333,
+        33.71236801147461
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-12",
+      "first_vertex": 33660,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        13.244677543640137,
+        0.2386232614517212,
+        25.166893005371094
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-13",
+      "first_vertex": 34260,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -5.601587772369385,
+        0.09002567082643509,
+        23.992521286010742
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-14",
+      "first_vertex": 34860,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -20.245532989501953,
+        1.2315149307250977,
+        33.59505081176758
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-15",
+      "first_vertex": 35460,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -8.701627731323242,
+        0.9662081599235535,
+        26.01527214050293
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-16",
+      "first_vertex": 36060,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -13.266168594360352,
+        0.19713015854358673,
+        17.28887176513672
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-17",
+      "first_vertex": 36660,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        12.698373794555664,
+        0.8809769153594971,
+        26.004182815551758
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-18",
+      "first_vertex": 37260,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -9.643860816955566,
+        0.16536791622638702,
+        16.78711700439453
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-19",
+      "first_vertex": 37860,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -15.893204689025879,
+        0.3367309868335724,
+        31.308807373046875
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-20",
+      "first_vertex": 38460,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -3.001504898071289,
+        -0.04040629416704178,
+        23.98691177368164
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-21",
+      "first_vertex": 39060,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -3.5841243267059326,
+        0.0028844643384218216,
+        18.286962509155273
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-22",
+      "first_vertex": 39660,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        11.85595703125,
+        1.0808571577072144,
+        26.351531982421875
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-23",
+      "first_vertex": 40260,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -11.319058418273926,
+        -0.0786517933011055,
+        28.913711547851562
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-24",
+      "first_vertex": 40860,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        13.964946746826172,
+        0.32709914445877075,
+        25.577381134033203
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-secondary-twig-25",
+      "first_vertex": 41460,
+      "vertex_count": 600,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        1.4442081451416016,
+        0.5040439367294312,
+        32.999698638916016
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-00",
+      "first_vertex": 42060,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -5.467456340789795,
+        0.1699063628911972,
+        2.2426555156707764
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-01",
+      "first_vertex": 42960,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -5.941420078277588,
+        0.9235361218452454,
+        2.3670337200164795
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-02",
+      "first_vertex": 43860,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -6.913360595703125,
+        1.461218237876892,
+        2.6266753673553467
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-03",
+      "first_vertex": 44760,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -7.938724517822266,
+        0.9912182688713074,
+        2.908855438232422
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-04",
+      "first_vertex": 45660,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -8.417567253112793,
+        0.2730150520801544,
+        2.9785478115081787
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-05",
+      "first_vertex": 46560,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -8.383326530456543,
+        -0.628911018371582,
+        3.023844003677368
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-06",
+      "first_vertex": 47460,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -7.654869079589844,
+        -1.2659825086593628,
+        2.854565143585205
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-07",
+      "first_vertex": 48360,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -6.564187526702881,
+        -1.2409722805023193,
+        2.54231858253479
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-buttress-root-08",
+      "first_vertex": 49260,
+      "vertex_count": 900,
+      "kind": 0,
+      "material_kinds": [
+        0
+      ],
+      "center": [
+        -5.689733028411865,
+        -0.7706849575042725,
+        2.2915923595428467
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-canopy-leaf-masses",
+      "first_vertex": 50160,
+      "vertex_count": 478458,
+      "kind": 5,
+      "material_kinds": [
+        5
+      ],
+      "center": [
+        -2.2128231525421143,
+        -0.11719988286495209,
+        18.851144790649414
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-grass-blades",
+      "first_vertex": 528618,
+      "vertex_count": 540,
+      "kind": 11,
+      "material_kinds": [
+        11
+      ],
+      "center": [
+        -0.4035188853740692,
+        -0.9186216592788696,
+        0.1657348871231079
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-distant-person-head",
+      "first_vertex": 529158,
+      "vertex_count": 576,
+      "kind": 18,
+      "material_kinds": [
+        18
+      ],
+      "center": [
+        3.299999237060547,
+        20.0,
+        0.19559994339942932
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-distant-person-body",
+      "first_vertex": 529734,
+      "vertex_count": 576,
+      "kind": 18,
+      "material_kinds": [
+        18
+      ],
+      "center": [
+        3.299997091293335,
+        20.0,
+        -0.13120003044605255
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-distant-person-left-leg",
+      "first_vertex": 530310,
+      "vertex_count": 84,
+      "kind": 18,
+      "material_kinds": [
+        18
+      ],
+      "center": [
+        3.227800130844116,
+        20.0,
+        -0.5834000706672668
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-distant-person-right-leg",
+      "first_vertex": 530394,
+      "vertex_count": 84,
+      "kind": 18,
+      "material_kinds": [
+        18
+      ],
+      "center": [
+        3.375999927520752,
+        19.999998092651367,
+        -0.5834000110626221
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-distant-person-left-arm",
+      "first_vertex": 530478,
+      "vertex_count": 84,
+      "kind": 18,
+      "material_kinds": [
+        18
+      ],
+      "center": [
+        3.129000186920166,
+        20.007598876953125,
+        -0.19580000638961792
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-distant-person-right-arm",
+      "first_vertex": 530562,
+      "vertex_count": 84,
+      "kind": 18,
+      "material_kinds": [
+        18
+      ],
+      "center": [
+        3.4595999717712402,
+        19.988601684570312,
+        -0.19200000166893005
+      ]
+    },
+    {
+      "name": "GEO-DREAM-tree-runtime-canopy-shadow",
+      "first_vertex": 530646,
+      "vertex_count": 42,
+      "kind": 17,
+      "material_kinds": [
+        17
+      ],
+      "center": [
+        3.3571431636810303,
+        2.7142858505249023,
+        -0.9721428155899048
+      ]
+    }
+  ],
+  "camera": {
+    "position": [
+      0.0,
+      -32.0,
+      1.649999976158142
+    ],
+    "vertical_fov_degrees": 50.998412002315966,
+    "forward": [
+      0.12132790684700012,
+      0.9706233739852905,
+      0.20777398347854614
+    ],
+    "up": [
+      -0.025771163403987885,
+      -0.20616953074932098,
+      0.9781769514083862
+    ]
+  },
+  "source": "blender/v51_monumental_tree.blend",
+  "ao": {
+    "method": "8 cosine hemisphere rays, 0.65 m radius",
+    "minimum": 0.3509606563127958,
+    "corners": 195934,
+    "excluded_occluder_kinds": [
+      4,
+      6,
+      9,
+      11
+    ],
+    "unoccluded_receiver_kinds": [
+      11
+    ],
+    "detail_objects_excluded": [
+      "GEO-DREAM-tree-main-trunk",
+      "GEO-DREAM-tree-primary-right-low",
+      "GEO-DREAM-tree-primary-left-low",
+      "GEO-DREAM-tree-primary-right-high",
+      "GEO-DREAM-tree-primary-left-high",
+      "GEO-DREAM-tree-crown-center",
+      "GEO-DREAM-tree-outer-right-droop",
+      "GEO-DREAM-tree-outer-left-fork",
+      "GEO-DREAM-tree-crossing-limb",
+      "GEO-DREAM-tree-secondary-twig-00",
+      "GEO-DREAM-tree-secondary-twig-01",
+      "GEO-DREAM-tree-secondary-twig-02",
+      "GEO-DREAM-tree-secondary-twig-03",
+      "GEO-DREAM-tree-secondary-twig-04",
+      "GEO-DREAM-tree-secondary-twig-05",
+      "GEO-DREAM-tree-secondary-twig-06",
+      "GEO-DREAM-tree-secondary-twig-07",
+      "GEO-DREAM-tree-secondary-twig-08",
+      "GEO-DREAM-tree-secondary-twig-09",
+      "GEO-DREAM-tree-secondary-twig-10",
+      "GEO-DREAM-tree-secondary-twig-11",
+      "GEO-DREAM-tree-secondary-twig-12",
+      "GEO-DREAM-tree-secondary-twig-13",
+      "GEO-DREAM-tree-secondary-twig-14",
+      "GEO-DREAM-tree-secondary-twig-15",
+      "GEO-DREAM-tree-secondary-twig-16",
+      "GEO-DREAM-tree-secondary-twig-17",
+      "GEO-DREAM-tree-secondary-twig-18",
+      "GEO-DREAM-tree-secondary-twig-19",
+      "GEO-DREAM-tree-secondary-twig-20",
+      "GEO-DREAM-tree-secondary-twig-21",
+      "GEO-DREAM-tree-secondary-twig-22",
+      "GEO-DREAM-tree-secondary-twig-23",
+      "GEO-DREAM-tree-secondary-twig-24",
+      "GEO-DREAM-tree-secondary-twig-25",
+      "GEO-DREAM-tree-buttress-root-00",
+      "GEO-DREAM-tree-buttress-root-01",
+      "GEO-DREAM-tree-buttress-root-02",
+      "GEO-DREAM-tree-buttress-root-03",
+      "GEO-DREAM-tree-buttress-root-04",
+      "GEO-DREAM-tree-buttress-root-05",
+      "GEO-DREAM-tree-buttress-root-06",
+      "GEO-DREAM-tree-buttress-root-07",
+      "GEO-DREAM-tree-buttress-root-08",
+      "GEO-DREAM-tree-canopy-leaf-masses",
+      "GEO-DREAM-tree-grass-blades",
+      "GEO-DREAM-tree-distant-person-left-leg",
+      "GEO-DREAM-tree-distant-person-right-leg",
+      "GEO-DREAM-tree-distant-person-left-arm",
+      "GEO-DREAM-tree-distant-person-right-arm",
+      "GEO-DREAM-tree-runtime-canopy-shadow"
+    ]
+  },
+  "navigation": {
+    "support": "single analytic plane",
+    "height_at_xy": "z=-0.30*x",
+    "support_bounds": [
+      -42,
+      -70,
+      42,
+      36
+    ],
+    "eye_height_m": 1.65,
+    "tree_obstacle_disc": [
+      -7,
+      0,
+      2.8
+    ],
+    "collision_note": "Player follows the same slope as the Blender lawn."
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "revision": "kitchen-gray-v5-stage-review",
+  "recorded_at": "2026-10-08T23:32:12.332029-05:00",
+  "status": "first_material_iteration_allowed_with_documented_geometry_residuals",
+  "scope": "Independent visual review of current gray kitchen shape and the two ground-surface UVs. No Blender MCP calls, implementation edits, new renders, material assignments, exports or navigation tests by this reviewer.",
+  "scene": "DREAM_MeadowKitchen",
+  "asset": "kitchen_meadow",
+  "decision": {
+    "accepted_for_first_material_iteration": true,
+    "full_geometry_reference_match_accepted": false,
+    "final_visual_acceptance": false,
+    "goal_complete": false,
+    "basis": "The two large discrepancies identified in the previous gray pass were corrected in v5: hood height and ceiling-grid orientation. Appliances, counter run and exterior aperture are stable enough to test original material candidates without relying on textures to hide their silhouettes. Applied world-coordinate UV evidence and the checker render support ground/field continuity.",
+    "meaning": "Permission to begin an exploratory material/lighting iteration on this geometry, retaining unresolved differences. This is not an exact reconstruction, final geometry gate, runtime delivery or acceptance of all video environments.",
+    "allowed_next_work": [
+      "Assign and calibrate candidate kitchen materials and its own sky under the documented cameras.",
+      "Add restrained grass detail while preserving the authored boundary and world-coordinate continuity.",
+      "Continue to compare gray silhouettes alongside look development so lighting does not conceal the remaining shape differences."
+    ],
+    "still_required": [
+      "Revisit entry-right occlusion and auxiliary-view differences before final fidelity acceptance.",
+      "Render the updated v5 geometry from the0s camera if claiming a complete current three-view set.",
+      "Verify final Blender/OpenGL geometry, UV and material parity after actual export.",
+      "Verify navigation and actual target-GPU performance separately."
+    ]
+  },
+  "evidence_reviewed": [
+    {
+      "view": "primary_02s",
+      "current": "validation/kitchen-gray-v5-primary.png",
+      "reference": "referencias/estetica/evidencias/video-42/02s.png",
+      "earlier": "validation/kitchen-gray-primary.png",
+      "assessment": "Oven and microwave remain readable behind the entry. Aperture position and ground contact are close at this scale. Hood is raised and the ceiling divider now has the intended oblique direction. Right foreground frame/leaf still masks more width than the reference."
+    },
+    {
+      "view": "auxiliary_0s",
+      "current_reviewed": "validation/kitchen-gray-0s.png",
+      "reference": "validation/kitchen-reference-0s.png",
+      "revision_note": "This is the earlier v4 capture. No v5 version was supplied for this view; it supports overall appliance layout, not verification of the updated ceiling/hood at0s.",
+      "assessment": "Four hobs, microwave, oven and adjacent cabinets are visible. Body proportions and lower corners retain moderate residuals."
+    },
+    {
+      "view": "auxiliary_4p5s",
+      "current": "validation/kitchen-gray-v5-4p5s.png",
+      "reference": "validation/kitchen-reference-4p5s.png",
+      "earlier": "validation/kitchen-gray-4p5s.png",
+      "assessment": "The raised hood and lower backing align more closely with the reference arrangement. The oven/counter/microwave assembly remains coherent from the closer view. Appliance front slopes, control/detail proportions and ceiling visibility are not a final match."
+    },
+    {
+      "view": "ground_checker",
+      "current": "validation/kitchen-uv-check.png",
+      "data": "validation/kitchen-uv-check.json",
+      "assessment": "Checks continue through the actual aperture with no obvious phase or scale discontinuity at the interior/exterior join. Distance compression is visible as expected; this is not a final mipmapping or aliasing-performance test."
+    }
+  ],
+  "previous_two_priority_corrections": [
+    {
+      "id": "hood_height",
+      "previous_problem": "Hood lip was visually about45–60px below its reference position across the supplied views; larger than the auxiliary camera residual. These are manual estimates, not an image-segmentation measurement.",
+      "change_observed": "Upper-unit bottom changed from1.65 to1.90m; hood follows it upward. An additional lower backing restores the visible mass below without keeping the hood too low.",
+      "current_assessment": "Sufficiently improved in primary and4.5s for first material iteration. Fine hood profile, ventilation/control strip and cabinet divisions remain pending.",
+      "stage_blocker_resolved": true
+    },
+    {
+      "id": "ceiling_grid_orientation",
+      "previous_problem": "Primary central divider ended aroundx210,y90, while the reference is approximatelyx266,y75; the near-vertical gray divider could not be fixed by color or illumination.",
+      "change_observed": "Panel bounds and pivot were resized/repositioned and rotated approximately-15.69degrees; current divider ends near the target oblique junction.",
+      "current_assessment": "Primary orientation is now suitable for look development. Outer frame extent and auxiliary visibility remain imperfect; no exact six-corner fit is asserted from the render.",
+      "stage_blocker_resolved": true
+    }
+  ],
+  "stable_layout_evidence": {
+    "observed": [
+      "Single oven and microwave with exposed front faces rather than edge-on windows.",
+      "Four discs visible in the unobstructed auxiliary views.",
+      "Neighboring cabinet/counter assembly has consistent volume rather than a camera-facing facade.",
+      "Exterior opening remains free of the large foreground cabinet that initially obscured appliances.",
+      "Ground footprint passes continuously through the exterior opening."
+    ],
+    "primary_projected_bounds_v4_retained_for_unchanged_appliances": {
+      "source": "validation/kitchen-geometry-v4-bounds.json",
+      "scope": "Unoccluded projected boxes; oven left side is hidden by the entry and cannot be compared as a full visible box. Hood and ceiling changed after these data.",
+      "microwave_projected_xyxy": [
+        79.36200031638145,
+        347.49525487422943,
+        179.071717441082,
+        404.99883592128754
+      ],
+      "microwave_reference_manual_xyxy": [
+        80,
+        346,
+        177,
+        403
+      ],
+      "range_body_projected_xyxy": [
+        -5.947429684922099,
+        407.2377771139145,
+        167.63925397396088,
+        632.6299786567688
+      ],
+      "range_reference_visible_xyxy": [
+        81,
+        411,
+        173,
+        633
+      ]
+    },
+    "layout_inference": "The oblique cabinet alcove is an authored interpretation. Absolute dimensions and the hidden room plan are not recovered from the source."
+  },
+  "camera_limitations": {
+    "auxiliary_cameras": "validation/kitchen-auxiliary-cameras.json",
+    "reported_pixel_rmse": {
+      "0s": 11.362500218264753,
+      "4p5s": 9.83869606706172
+    },
+    "source": "Metrics supplied by the existing camera-fit report, read and retained here; not recomputed by this reviewer.",
+    "meaning": "Residual of selected manually measured landmarks after fitting position, orientation and field of view. Not whole-image similarity, shape accuracy percentage or recovery of the original path.",
+    "trajectory_recovered": false,
+    "fov_differs_by_auxiliary_fit": true,
+    "consequence": "Keep multi-view residuals visible. A camera fit may absorb some layout errors; it is not evidence that all silhouettes and depths are correct."
+  },
+  "uv_review": {
+    "status": "limited_ground_uv_stage_pass",
+    "objects": [
+      "GEO-DREAM-kitchen-grass_interior_blockout",
+      "GEO-DREAM-kitchen-meadow_blockout"
+    ],
+    "coordinate_contract": "worldX/4, worldY/4",
+    "reported_max_coordinate_error": 0.0,
+    "reported_continuous_at_door": true,
+    "numeric_provenance": "Root applied and measured the two ground UV layers through Blender and saved kitchen-uv-check.json. Reviewer read the result and inspected the checker image; no independent MCP coordinate query was made.",
+    "source_review": "build_kitchen.py polygon helper initially creates the two ground meshes without UV layers. kitchen_materials.py _world_uv installs a shared worldXY/4 contract per loop using object.matrix_world, independent of the camera.",
+    "visual_checker": "No obvious seam, abrupt rotation or scale jump at the doorway in the inspected primary checker render.",
+    "scope_excludes": [
+      "Final grass blade UVs in the Blender scene",
+      "Applied final grass normal/material appearance",
+      "All other object UVs",
+      "Exported OpenGL UV parity",
+      "Final distant filtering or runtime LOD"
+    ],
+    "rebuild_note": "A gray-builder rerun recreates those meshes; the UV application/material helper must run again before a UV-dependent render.",
+    "grayscale_restore": "Root owns material restoration after its checker render; this read-only review does not independently query live Blender material state."
+  },
+  "remaining_differences": [
+    {
+      "priority": 1,
+      "id": "right_entry_occlusion",
+      "observation": "The right foreground frame/leaf occupies more image width than reference02s. Its apparent edge and hardware still need refinement.",
+      "next_check": "Compare the same primary camera and a nearby view; adjust actual jamb/leaf geometry rather than painting over the occlusion.",
+      "blocks_first_material_iteration": false,
+      "blocks_final_fidelity": true
+    },
+    {
+      "priority": 1,
+      "id": "auxiliary_shape_and_camera_residuals",
+      "observation": "Oven front/bottom corners, cabinet front slope and the amount of ceiling visible differ in the auxiliary views. The v5 0s view has not yet been rendered.",
+      "next_check": "Retain measured camera residuals and compare updated silhouettes from both auxiliary cameras before final acceptance.",
+      "blocks_first_material_iteration": false,
+      "blocks_final_fidelity": true
+    },
+    {
+      "priority": 2,
+      "id": "appliance_and_upper_unit_details",
+      "observation": "The simplified oven window/handle/control strip, microwave controls and upper-unit/hood divisions are not identical to the reference.",
+      "next_check": "Refine modeled details after broader color/lighting assessment; do not simulate missing relief by a reference-image decal.",
+      "blocks_first_material_iteration": false,
+      "blocks_final_fidelity": true
+    },
+    {
+      "priority": 2,
+      "id": "ground_appearance",
+      "observation": "Current geometry is a flat ground footprint with a deliberately simple boundary; blades, organic edge transitions, distant variation and sky appearance are absent from the gray pass.",
+      "next_check": "Add physically placed grass detail and its own sky without changing the fitted footprint merely to match a single camera.",
+      "blocks_first_material_iteration": false,
+      "blocks_final_fidelity": true
+    }
+  ],
+  "not_verified": [
+    "Final material fidelity",
+    "Runtime implementation or export",
+    "Walking/collision behavior",
+    "Fullscreen performance",
+    "Exact source camera path",
+    "Exact original room construction"
+  ],
+  "artifacts": [
+    {
+      "path": "referencias/estetica/evidencias/video-42/02s.png",
+      "sha256": "51c351a6eed595922775a6ccb94aacf5ae9fb0bf0b666c0d3986b21aa085a04d",
+      "bytes": 285517,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-reference-0s.png",
+      "sha256": "b8206949ba06ba3a5ae7ab84703161fc94fd240bf4fa4580139b8212f51c2dfb",
+      "bytes": 382443,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-reference-4p5s.png",
+      "sha256": "1f3cd76f734a0e363ab18bc8303e61878a7c61394fd523ec64370b93f8367fac",
+      "bytes": 350678,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-gray-primary.png",
+      "sha256": "ec0a816e67412c106b6183dfb38e12ffc69361898701b39726ccc0b14ae3ea5b",
+      "bytes": 456177,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-gray-0s.png",
+      "sha256": "16f525b9adc79ccee5de870b597e1e86cfcfdf5a6ec0f29530285ec7c893566e",
+      "bytes": 457194,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-gray-4p5s.png",
+      "sha256": "1e57cf285172acd395ae29ea891d2c93bbb51540b76975f4b36b3a19fb928102",
+      "bytes": 432139,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-gray-v5-primary.png",
+      "sha256": "b35783febe0b6ca851f4442d7dd7cfd50efc86f6f6bcd52f31abee79a8787e47",
+      "bytes": 465478,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-gray-v5-4p5s.png",
+      "sha256": "991bb3b4f0e214c0d90a8323707e0e71a345ed23ed3c127ebadb854d808d953c",
+      "bytes": 448080,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-uv-check.png",
+      "sha256": "f75ef4b98aba7c0d477e020d1245345969f5440635eab5ff5af393d9013ca95e",
+      "bytes": 474688,
+      "dimensions_px": [
+        478,
+        850
+      ]
+    },
+    {
+      "path": "validation/kitchen-geometry-v4-bounds.json",
+      "sha256": "a27e410b34067ae22f355acbcf3b356e3c1e80096eac620e3e1883d3bdf25bf9",
+      "bytes": 622
+    },
+    {
+      "path": "validation/kitchen-auxiliary-cameras.json",
+      "sha256": "cd230e22edcf7304967456a0feedc9a0870bf0193a56583a60d8cd075c72da93",
+      "bytes": 1653
+    },
+    {
+      "path": "validation/kitchen-uv-check.json",
+      "sha256": "1570cf82c60d7578ef385fc53f29d28bd26b4f9ecb00732176f98ade2e029a2b",
+      "bytes": 312
+    },
+    {
+      "path": "blender/kitchen_plan.json",
+      "sha256": "60b17774754f044cd11518355856742b1bfac63d8440722f54f34bbed9972c64",
+      "bytes": 25764
+    },
+    {
+      "path": "blender/build_kitchen.py",
+      "sha256": "e3b5d86761626ee808975ea89248be2e77ac61cf9381b736ce7564692a76322b",
+      "bytes": 14769
+    },
+    {
+      "path": "blender/kitchen_materials.py",
+      "sha256": "63cae114dc04796ef8cae81ce6fbad434c24051885dc106030729fe62e3679f8",
+      "bytes": 14661
+    }
+  ]
+}

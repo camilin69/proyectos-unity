@@ -1,0 +1,360 @@
+{
+  "scene": "DREAM_WaveApertureCandidate",
+  "objects": 71,
+  "cameras": 8,
+  "meshes": [
+    {
+      "name": "GEO-DREAM-waveaperture-continuous_stepped_floor",
+      "closed": true,
+      "volume_m3": 26.08226628012783
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-right_wall",
+      "closed": true,
+      "volume_m3": 8.569882460453593
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_before_door_0",
+      "closed": true,
+      "volume_m3": 2.434354116081954
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_below_door_0",
+      "closed": true,
+      "volume_m3": 0.29118320629477107
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_above_door_0",
+      "closed": true,
+      "volume_m3": 0.14125309030999886
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_0_leaf",
+      "closed": true,
+      "volume_m3": 0.13174623133652302
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_0_near_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_0_far_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_0_head_reveal",
+      "closed": true,
+      "volume_m3": 0.016630992725146402
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_0_round_fitting",
+      "closed": true,
+      "volume_m3": 8.862775636367009e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_before_door_1",
+      "closed": true,
+      "volume_m3": 0.6922550345258663
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_below_door_1",
+      "closed": true,
+      "volume_m3": 0.29118320629477107
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_above_door_1",
+      "closed": true,
+      "volume_m3": 0.14125309030999886
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_1_leaf",
+      "closed": true,
+      "volume_m3": 0.13174623133652302
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_1_near_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_1_far_reveal",
+      "closed": true,
+      "volume_m3": 0.026802809044506166
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_1_head_reveal",
+      "closed": true,
+      "volume_m3": 0.016630992725146402
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-door_1_round_fitting",
+      "closed": true,
+      "volume_m3": 8.86277563636701e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-left_wall_after_doors",
+      "closed": true,
+      "volume_m3": 2.4844066787310615
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling",
+      "closed": true,
+      "volume_m3": 4.294977932999518
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-handrail_-1",
+      "closed": true,
+      "volume_m3": 0.034170810479008384
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-handrail_1",
+      "closed": true,
+      "volume_m3": 0.038863022321875634
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_floor",
+      "closed": true,
+      "volume_m3": 17.29078759354152
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_entrance_wing_-1",
+      "closed": true,
+      "volume_m3": 1.0129849154962303
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_entrance_wing_1",
+      "closed": true,
+      "volume_m3": 1.0129849154962303
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_side_-1",
+      "closed": true,
+      "volume_m3": 8.840655545950012
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_side_1",
+      "closed": true,
+      "volume_m3": 8.840655545950012
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_ceiling",
+      "closed": true,
+      "volume_m3": 11.708663356933432
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_back_wall",
+      "closed": true,
+      "volume_m3": 4.291307623677443
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_column_0",
+      "closed": true,
+      "volume_m3": 0.17908484693998802
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_column_1",
+      "closed": true,
+      "volume_m3": 0.17908484693998802
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_unresolved_rear_panel",
+      "closed": true,
+      "volume_m3": 0.42419270629674044
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_0",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_1",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_2",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_3",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_4",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_5",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_mullion_6",
+      "closed": true,
+      "volume_m3": 0.0016700500125434242
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_transom_1",
+      "closed": true,
+      "volume_m3": 0.0025399999429285515
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-hall_rear_transom_2",
+      "closed": true,
+      "volume_m3": 0.0025399999429285515
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_0",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_base_0",
+      "closed": true,
+      "volume_m3": 0.002129598373151748
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_stem_0",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_1",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_base_1",
+      "closed": true,
+      "volume_m3": 0.002129598373151748
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_stem_1",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_2",
+      "closed": true,
+      "volume_m3": 0.010804145376520923
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_base_2",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_stem_2",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_3",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_base_3",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_stem_3",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_4",
+      "closed": true,
+      "volume_m3": 0.010804145376520921
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_base_4",
+      "closed": true,
+      "volume_m3": 0.0021295983731517486
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-ceiling_fixture_stem_4",
+      "closed": true,
+      "volume_m3": 3.437696484033697e-05
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-terminal_guard_left",
+      "closed": true,
+      "volume_m3": 0.004656493102397318
+    },
+    {
+      "name": "GEO-DREAM-waveaperture-terminal_guard_right",
+      "closed": true,
+      "volume_m3": 0.00465649715332136
+    }
+  ],
+  "guard_uv": [
+    {
+      "object": "GEO-DREAM-waveaperture-terminal_guard_left",
+      "min_uv_face_area_m2": 8.803125709744286e-05,
+      "all_faces_explicit_uv": true
+    },
+    {
+      "object": "GEO-DREAM-waveaperture-terminal_guard_right",
+      "min_uv_face_area_m2": 8.803125709745674e-05,
+      "all_faces_explicit_uv": true
+    }
+  ],
+  "guard_attachments": [
+    {
+      "side": "left",
+      "xy_m": [
+        -1.0549999999999997,
+        9.589994167603399
+      ],
+      "floor_z_m": -0.912857062153331,
+      "post_cap_z_m": -0.920857062153331,
+      "embed_m": 0.008,
+      "inside_tread_width": true
+    },
+    {
+      "side": "left",
+      "xy_m": [
+        -1.0549999999999997,
+        10.3220315923016
+      ],
+      "floor_z_m": -1.1944140720266445,
+      "post_cap_z_m": -1.2024140720266445,
+      "embed_m": 0.008,
+      "inside_tread_width": true
+    },
+    {
+      "side": "right",
+      "xy_m": [
+        0.9660167702823153,
+        9.589994167603399
+      ],
+      "floor_z_m": -0.912857062153331,
+      "post_cap_z_m": -0.920857062153331,
+      "embed_m": 0.008,
+      "inside_tread_width": true
+    },
+    {
+      "side": "right",
+      "xy_m": [
+        0.9660167702823153,
+        10.3220315923016
+      ],
+      "floor_z_m": -1.1944140720266445,
+      "post_cap_z_m": -1.2024140720266445,
+      "embed_m": 0.008,
+      "inside_tread_width": true
+    }
+  ],
+  "wall_end_y_m": 8.485786747247756,
+  "floor_end_y_m": 10.472031592301601,
+  "saved": "blender/wave_corridor_aperture_candidate.blend",
+  "accepted": false,
+  "runtime_promoted": false
+}

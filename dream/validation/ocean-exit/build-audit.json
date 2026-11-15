@@ -1,0 +1,42 @@
+{
+  "scene": "DREAM_OceanExit",
+  "accepted": false,
+  "runtime_promoted": false,
+  "door_projection_px": [
+    [
+      134.66668176651,
+      88.00996541976929
+    ],
+    [
+      303.0655918121338,
+      89.28315043449402
+    ],
+    [
+      306.3394949436188,
+      327.09901332855225
+    ],
+    [
+      133.92829424142838,
+      329.62055802345276
+    ]
+  ],
+  "door_corner_rms_px": 0.34272992067126656,
+  "objects": 33,
+  "mesh_objects": 29,
+  "packed_images": [
+    "pink_tile_albedo.png",
+    "pink_tile_roughness.png",
+    "pink_tile_height.png",
+    "exit_here.png",
+    "exit_lamp.png",
+    "ripple_height.png",
+    "foam_mask.png",
+    "sunset_stars.png"
+  ],
+  "water_meshes_are_open_surfaces": true,
+  "limitations": [
+    "Metric scale and unseen geometry inferred.",
+    "Water field is static proposal; no animation or runtime export.",
+    "Camera shift is a hypothesis fitted to door corners and horizon, not recovered lens metadata."
+  ]
+}

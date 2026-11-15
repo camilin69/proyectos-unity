@@ -1,6 +1,7 @@
 #include "gl_api.hpp"
 #include "math.hpp"
 #include "scene.hpp"
+#include "scene_catalog.hpp"
 #include <algorithm>
 #include <array>
 #include <cstdint>
@@ -36,6 +37,35 @@ static GLuint bitmap(const fs::path& file,bool srgb=true){
  GLuint t;glGenTextures(1,&t);glBindTexture(GL_TEXTURE_2D,t);glTexImage2D(GL_TEXTURE_2D,0,srgb?GL_SRGB8:GL_RGB8,w,height,0,GL_BGR,GL_UNSIGNED_BYTE,data.data());glGenerateMipmap(GL_TEXTURE_2D);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_LINEAR);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);return t;
 }
 static void texture(int unit,GLuint tex){glActiveTexture(GL_TEXTURE0+unit);glBindTexture(GL_TEXTURE_2D,tex);}
+struct SceneTextures {
+ std::array<GLuint,9> ids{};
+ SceneTextures(const fs::path& root,const SceneProfile& profile) {
+  try {
+  for(size_t i=0;i<ids.size();i++)ids[i]=bitmap(root/profile.textures[i],i!=2&&i!=3&&i!=7&&!(profile.environment==4&&i==8)&&!(profile.environment==5&&i==4)&&!(profile.environment==6&&i==5));
+   // Probe longitude repeats; latitude must not blend ceiling and floor.
+   glBindTexture(GL_TEXTURE_2D,ids[8]);glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
+   if(profile.environment==4){
+    // Wave auxiliary RGB stores linear roughness/roughness/emission data.
+    // It tiles for walls; the sign shader clamps only its decal lookup.
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
+    glBindTexture(GL_TEXTURE_2D,ids[5]);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
+   }
+   if(profile.environment==5){
+    // Ocean exit poster and ceiling sign are decal textures, not tiled maps.
+    for(size_t i:{size_t(5),size_t(6)}){
+     glBindTexture(GL_TEXTURE_2D,ids[i]);
+     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
+    }
+   }
+  } catch(...) {glDeleteTextures(GLsizei(ids.size()),ids.data());throw;}
+ }
+ SceneTextures(const SceneTextures&)=delete;
+ SceneTextures& operator=(const SceneTextures&)=delete;
+ ~SceneTextures(){glDeleteTextures(GLsizei(ids.size()),ids.data());}
+};
 struct Mesh{
  struct GlassRange { GLint first;GLsizei count;Vec3 center; };
  std::vector<GlassRange> glass;

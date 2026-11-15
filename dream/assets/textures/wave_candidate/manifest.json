@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "stage": "isolated_procedural_material_candidates_not_applied",
+  "accepted": false,
+  "material_plan": {
+    "path": "dream/blender/wave_material_plan.json",
+    "sha256": "edd34e4960c32bc397450858c094e49e0ddc1a53badf2962b3f7cc576adb9703"
+  },
+  "maps": [
+    {
+      "name": "wave_floor_albedo",
+      "role": "albedo",
+      "colour_space": "sRGB",
+      "period_m": [
+        6.6,
+        5.5
+      ],
+      "size_px": [
+        1024,
+        1024
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_floor_albedo.png",
+        "sha256": "ff9390589beceeb5dfac05db8581503edc5ba069c71fe1b1262ebae45aa377af"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_floor_albedo.bmp",
+        "sha256": "e35503ac06c77b8d6aef11dc58b7955f31ef27c9439f755fb0235ad4bb22b962"
+      },
+      "pixel_ranges": [
+        [
+          108,
+          219
+        ],
+        [
+          132,
+          183
+        ],
+        [
+          118,
+          186
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true
+    },
+    {
+      "name": "wave_floor_roughness",
+      "role": "roughness",
+      "colour_space": "Non-Color",
+      "period_m": [
+        6.6,
+        5.5
+      ],
+      "size_px": [
+        1024,
+        1024
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_floor_roughness.png",
+        "sha256": "2fe132dfe168bd9075c555b90b71b2401fbf5425f3444d09e2cc33a44b0650d1"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_floor_roughness.bmp",
+        "sha256": "ebbf9afe9ed62d31a3b054ca3b2887d804b3208bf41620d724ea516b44e8d224"
+      },
+      "pixel_ranges": [
+        [
+          40,
+          58
+        ],
+        [
+          40,
+          58
+        ],
+        [
+          40,
+          58
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true
+    },
+    {
+      "name": "wave_floor_normal",
+      "role": "normal",
+      "colour_space": "Non-Color",
+      "period_m": [
+        0.5,
+        0.5
+      ],
+      "size_px": [
+        512,
+        512
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_floor_normal.png",
+        "sha256": "ebef2a425186ae4b851be8e2aafbabcd2874f949292694d1932f46fdd18216ea"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_floor_normal.bmp",
+        "sha256": "f54be2d14af93f5c55a178f08b801161969ebaf2882d3b4f870a49c8e349c1da"
+      },
+      "pixel_ranges": [
+        [
+          117,
+          139
+        ],
+        [
+          116,
+          139
+        ],
+        [
+          254,
+          255
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true,
+      "decoded_vector_length_range": [
+        0.9958854220908662,
+        1.0042508651113493
+      ],
+      "rms_tangent_slope": 0.02915964896572319
+    },
+    {
+      "name": "wave_paint_normal",
+      "role": "normal",
+      "colour_space": "Non-Color",
+      "period_m": [
+        0.5,
+        0.5
+      ],
+      "size_px": [
+        512,
+        512
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_paint_normal.png",
+        "sha256": "221bc27f39ef187702ca52662c4c22d889f07ed0aaf9128d5e8af090877dd8aa"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_paint_normal.bmp",
+        "sha256": "d6e096d35eedc5fe2fd41f76e214d94c9201e3d5a5f00db48829d96c54437fb8"
+      },
+      "pixel_ranges": [
+        [
+          110,
+          144
+        ],
+        [
+          110,
+          144
+        ],
+        [
+          254,
+          255
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true,
+      "decoded_vector_length_range": [
+        0.9957000979818709,
+        1.0043121176610845
+      ],
+      "rms_tangent_slope": 0.04390097991154651
+    },
+    {
+      "name": "wave_wall_albedo",
+      "role": "albedo",
+      "colour_space": "sRGB",
+      "period_m": [
+        0.5,
+        0.5
+      ],
+      "size_px": [
+        512,
+        512
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_wall_albedo.png",
+        "sha256": "4a368f025d5848388e4f85f53598c5f5fba42539181b92debb77aaa27d2a0cfb"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_wall_albedo.bmp",
+        "sha256": "a2336c6d078f98942a1c7efb47e7301519d1269a76fe1da552ae7c1f010aa93e"
+      },
+      "pixel_ranges": [
+        [
+          212,
+          218
+        ],
+        [
+          160,
+          166
+        ],
+        [
+          157,
+          163
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true
+    },
+    {
+      "name": "wave_wall_roughness",
+      "role": "roughness",
+      "colour_space": "Non-Color",
+      "period_m": [
+        0.5,
+        0.5
+      ],
+      "size_px": [
+        512,
+        512
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_wall_roughness.png",
+        "sha256": "5ef87850313e1d77b36379be3a97c6f69ca76bb6e6fbbcd0905c69dccdd05b6f"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_wall_roughness.bmp",
+        "sha256": "933ebbbc0d9cdbced48ba1db88eb1b4837d92b00a503a43a08f3720f4f802263"
+      },
+      "pixel_ranges": [
+        [
+          128,
+          163
+        ],
+        [
+          128,
+          163
+        ],
+        [
+          128,
+          163
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true
+    },
+    {
+      "name": "wave_ceiling_albedo",
+      "role": "albedo",
+      "colour_space": "sRGB",
+      "period_m": [
+        0.5,
+        0.5
+      ],
+      "size_px": [
+        512,
+        512
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_ceiling_albedo.png",
+        "sha256": "ae0bfb5cb0bc0adef4525b6d98f6f19e014c0c8a88d22fa4df6dc9af9ba43fe5"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_ceiling_albedo.bmp",
+        "sha256": "e541e9123ecbf15230fd76c889c4b02f92e3a28bf6a15a30242b8a4730999cc8"
+      },
+      "pixel_ranges": [
+        [
+          106,
+          112
+        ],
+        [
+          156,
+          162
+        ],
+        [
+          160,
+          166
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true
+    },
+    {
+      "name": "wave_ceiling_roughness",
+      "role": "roughness",
+      "colour_space": "Non-Color",
+      "period_m": [
+        0.5,
+        0.5
+      ],
+      "size_px": [
+        512,
+        512
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_ceiling_roughness.png",
+        "sha256": "4dcb4a96d5a7755f1b35f0d820c0e8a8ec124ff8df519b0b5f0cb704c142e4ec"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_ceiling_roughness.bmp",
+        "sha256": "0582adcee26ff6a430ea0c2505cc01fdeb3f47a443e83a54d205ccf185644b23"
+      },
+      "pixel_ranges": [
+        [
+          181,
+          222
+        ],
+        [
+          181,
+          222
+        ],
+        [
+          181,
+          222
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": true
+    },
+    {
+      "name": "wave_exit_albedo_candidate",
+      "role": "albedo",
+      "colour_space": "sRGB",
+      "period_m": null,
+      "size_px": [
+        256,
+        128
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_albedo_candidate.png",
+        "sha256": "d39e49d26d952322c6daa3b1bbab4bf5320c0b1c71672523b9a8e301e89aba92"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_albedo_candidate.bmp",
+        "sha256": "8dab54661c484d97f464c646435190e2c8d09f9347bb2e661fea9bac684e27b8"
+      },
+      "pixel_ranges": [
+        [
+          186,
+          232
+        ],
+        [
+          38,
+          221
+        ],
+        [
+          33,
+          205
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": null
+    },
+    {
+      "name": "wave_exit_emission_candidate",
+      "role": "emission_mask",
+      "colour_space": "Non-Color",
+      "period_m": null,
+      "size_px": [
+        256,
+        128
+      ],
+      "png": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_emission_candidate.png",
+        "sha256": "8706116636d3c28f5c6c776e124bb96428977fa4fb99685fd9388ee086ac0f34"
+      },
+      "bmp": {
+        "path": "dream/assets/textures/wave_candidate/wave_exit_emission_candidate.bmp",
+        "sha256": "821806dcedfae2af4218c94dababb837dff977ab0cd82e191c459ae81ecb6b1e"
+      },
+      "pixel_ranges": [
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          0,
+          255
+        ]
+      ],
+      "png_bmp_pixels_identical": true,
+      "edge_texels_identical": null
+    }
+  ]
+}

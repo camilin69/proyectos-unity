@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "status": "catalog_implemented_regression_verified",
+  "scope": "Extensible scene catalog and texture profiles; no visual acceptance of planned scenes.",
+  "temp_directory": "C:\\Users\\HP\\AppData\\Local\\Temp\\dream-scene-catalog-j98vq_80",
+  "compile": {
+    "result": "PASS",
+    "command": "dream/runtime/build.ps1",
+    "diagnostics": 0
+  },
+  "cpu_cli": [
+    {
+      "args": [
+        "--list-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "DREAM scenes: 13 total, 2 available; visual acceptance is independent.\nvideo-35/atrio_inundado | alias=v35_flooded_atrium | planned | visual=pending | profile=- | atrio inundado\nvideo-35/paseo_palmeras | alias=v35_palm_walk | planned | visual=pending | profile=- | paseo palmeras\nvideo-35/escalera_cielo | alias=v35_sky_stairs | planned | visual=pending | profile=- | escalera cielo\nvideo-35/habitacion_nubes | alias=pastel_room | available | visual=pending | profile=pastel_room | habitacion nubes\nvideo-42/cocina_pradera | alias=kitchen_meadow | planned | visual=pending | profile=kitchen_meadow | cocina pradera\nvideo-42/salida_oceano | alias=v42_ocean_exit | planned | visual=pending | profile=- | salida oceano\nvideo-42/pasillo_ondulado | alias=v42_wavy_corridor | planned | visual=pending | profile=- | pasillo ondulado\nvideo-42/pasarela_poolroom | alias=v42_poolroom_walkway | planned | visual=pending | profile=- | pasarela poolroom\nvideo-51/arbol_monumental | alias=v51_monumental_tree | planned | visual=pending | profile=- | arbol monumental\nvideo-52/transporte_cristal | alias=v52_glass_transit | planned | visual=pending | profile=- | transporte cristal\nvideo-52/atrio_acuatico | alias=atrium | available | visual=pending | profile=atrium | atrio acuatico\nvideo-52/ascensor_acuario | alias=v52_aquarium_lift | planned | visual=pending | profile=- | ascensor acuario\nvideo-52/sala_planetaria | alias=v52_planetarium | planned | visual=pending | profile=- | sala planetaria\n",
+      "stderr": "",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--validate-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "scene_validation=PASS id=video-35/habitacion_nubes alias=pastel_room profile=pastel_room visual=pending\nscene_validation=PASS id=video-52/atrio_acuatico alias=atrium profile=atrium visual=pending\nvalidation_backend=CPU glfw_initialized=false\n",
+      "stderr": "",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--scene",
+        "video-35/habitacion_nubes",
+        "--validate-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "scene_validation=PASS id=video-35/habitacion_nubes alias=pastel_room profile=pastel_room visual=pending\nscene_validation=PASS id=video-52/atrio_acuatico alias=atrium profile=atrium visual=pending\nvalidation_backend=CPU glfw_initialized=false\n",
+      "stderr": "",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--scene",
+        "atrium",
+        "--validate-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "scene_validation=PASS id=video-35/habitacion_nubes alias=pastel_room profile=pastel_room visual=pending\nscene_validation=PASS id=video-52/atrio_acuatico alias=atrium profile=atrium visual=pending\nvalidation_backend=CPU glfw_initialized=false\n",
+      "stderr": "",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--scene",
+        "unknown_scene"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Unknown scene: unknown_scene. Use --list-scenes.\n",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--scene",
+        "video-42/cocina_pradera"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Scene is planned, not available: video-42/cocina_pradera. Use --list-scenes.\n",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--scene"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Unknown/incomplete argument: --scene\n",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--width",
+        "10",
+        "--list-scenes"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Invalid dimensions/frame count\n",
+      "no_gpu_context_output": true
+    },
+    {
+      "args": [
+        "--bad-option"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Unknown/incomplete argument: --bad-option\n",
+      "no_gpu_context_output": true
+    }
+  ],
+  "gpu_regression": {
+    "status": "PASS",
+    "captures": [
+      {
+        "scene": "video-35/habitacion_nubes",
+        "dimensions": [
+          540,
+          960
+        ],
+        "frames": 8,
+        "samples": 4,
+        "fixed_time": 0,
+        "exit_code": 0,
+        "stdout": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=31056 glass_groups=0 water=0 id=video-35/habitacion_nubes profile=pastel_room visual=pending\nframes=8 elapsed=0.342633 vertices=31056 gl_error=0 camera=-1.5,-2,1.4 yaw=1.29\n",
+        "stderr": "",
+        "baseline": "validation/room-opengl.png",
+        "baseline_sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+        "temporary_capture": "C:\\Users\\HP\\AppData\\Local\\Temp\\dream-scene-catalog-j98vq_80\\integrated-room-opengl.png.ppm",
+        "pixel_identical": true,
+        "max_absolute_channel_delta": 0,
+        "changed_pixels": 0,
+        "mean_absolute_channel_delta": 0.0
+      },
+      {
+        "scene": "video-52/atrio_acuatico",
+        "dimensions": [
+          960,
+          720
+        ],
+        "frames": 8,
+        "samples": 4,
+        "fixed_time": 0,
+        "exit_code": 0,
+        "stdout": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=atrium vertices=537522 glass_groups=45 water=1 id=video-52/atrio_acuatico profile=atrium visual=pending\nframes=8 elapsed=0.72742 vertices=537522 gl_error=0 camera=3.5,-3.7,1.85 yaw=2.06\n",
+        "stderr": "",
+        "baseline": "validation/atrium-opengl.png",
+        "baseline_sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+        "temporary_capture": "C:\\Users\\HP\\AppData\\Local\\Temp\\dream-scene-catalog-j98vq_80\\integrated-atrium-opengl.png.ppm",
+        "pixel_identical": true,
+        "max_absolute_channel_delta": 0,
+        "changed_pixels": 0,
+        "mean_absolute_channel_delta": 0.0
+      }
+    ],
+    "shader_sha256_before": "97c1f9f2edf80641a8d8b303f3aabd395b29539bf3a6aeb28c63d87d45b1e1ae",
+    "shader_sha256_after": "97c1f9f2edf80641a8d8b303f3aabd395b29539bf3a6aeb28c63d87d45b1e1ae",
+    "shader_stable_during_pair": true,
+    "binary_sha256": "0d2cd3de5e1ee89ce6b6eda334fbb36d58a84ad09d184c2d6ccf78bda07acdf0",
+    "scope": "Deterministic room/atrium time0 regression after root added environment2/kind11; no appearance or availability claim for planned kitchen."
+  },
+  "limitations": [
+    "No new scenes are enabled; availability is distinct from visual acceptance.",
+    "Height-aware navigation is outside this task.",
+    "build.ps1 -Scene retains its two-name ValidateSet; direct executable supports all catalog names."
+  ],
+  "cpu_catalog_unit": {
+    "result": "PASS",
+    "stdout": "catalog_navigation=PASS planned_profile=PASS parser_rejections=9 no_GL_dependency=true\n",
+    "parser_rejections": 9,
+    "scope": "Available-only bidirectional wrap, aliases/canonical IDs, planned kitchen env2, invalid manifest rejection, actual available mesh/BMP payload validation. Pure standard-library executable; no GLFW/OpenGL link."
+  },
+  "catalog": {
+    "path": "assets/scene_catalog.cat",
+    "scenes": 13,
+    "available": 2,
+    "planned": 11,
+    "visual_accepted": 0,
+    "kitchen_profile": {
+      "environment": 2,
+      "state": "planned",
+      "scene_state": "planned"
+    }
+  },
+  "recorded_at_utc": "2026-10-09T04:28:01.747508+00:00",
+  "changed_sources": [
+    {
+      "path": "runtime/src/main.cpp",
+      "sha256": "47c27e9c2887d6107c2929ddae68dd24adf54d8fd5de7199228468902f5edc03"
+    },
+    {
+      "path": "runtime/src/render_support.hpp",
+      "sha256": "7f41452681974af89830881f366d13014fe07bbe866ac683a737f59021b2829e"
+    },
+    {
+      "path": "runtime/src/scene_catalog.hpp",
+      "sha256": "1708fb408ef609c4dfe8ce407fb4ada3be927ad4968a1eb9dfd0c9f4c70c902f"
+    },
+    {
+      "path": "assets/scene_catalog.cat",
+      "sha256": "6a3ce67bb780f8b537147e6e27d358c2b309f1da778b12bd93f562f805a39419"
+    }
+  ],
+  "binary": {
+    "path": "runtime/build/dream.exe",
+    "sha256": "0d2cd3de5e1ee89ce6b6eda334fbb36d58a84ad09d184c2d6ccf78bda07acdf0"
+  },
+  "shader_snapshots": [
+    {
+      "phase": "immediately_after_first_gpu_regression",
+      "path": "runtime/shaders/scene.frag",
+      "sha256": "43772c3ca4af8b92dff193b2463a97ae696d692bcd07f01403ac554684e69ec6",
+      "captured_at_utc": "2026-10-09T04:23:49.608486+00:00",
+      "note": "Recorded after the first captures, not before them. Root announced subsequent environment2/kind11 integration; rerun will bracket shader hashes before and after."
+    },
+    {
+      "phase": "integrated_gpu_pair",
+      "sha256_before": "97c1f9f2edf80641a8d8b303f3aabd395b29539bf3a6aeb28c63d87d45b1e1ae",
+      "sha256_after": "97c1f9f2edf80641a8d8b303f3aabd395b29539bf3a6aeb28c63d87d45b1e1ae",
+      "stable": true,
+      "recorded_at_utc": "2026-10-09T04:27:58.129766+00:00"
+    }
+  ],
+  "prior_gpu_regression": {
+    "status": "PASS",
+    "captures": [
+      {
+        "scene": "video-35/habitacion_nubes",
+        "dimensions": [
+          540,
+          960
+        ],
+        "frames": 8,
+        "samples": 4,
+        "fixed_time": 0,
+        "exit_code": 0,
+        "stdout": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=31056 glass_groups=0 water=0 id=video-35/habitacion_nubes profile=pastel_room visual=pending\nframes=8 elapsed=0.344468 vertices=31056 gl_error=0 camera=-1.5,-2,1.4 yaw=1.29\n",
+        "stderr": "",
+        "baseline": "validation/room-opengl.png",
+        "baseline_sha256": "46455132118fd80889402184fa018b2e8029520ea4a81ccc658d115c8f70578c",
+        "temporary_capture": "C:\\Users\\HP\\AppData\\Local\\Temp\\dream-scene-catalog-j98vq_80\\room-opengl.png.ppm",
+        "pixel_identical": true,
+        "max_absolute_channel_delta": 0,
+        "changed_pixels": 0,
+        "mean_absolute_channel_delta": 0.0
+      },
+      {
+        "scene": "video-52/atrio_acuatico",
+        "dimensions": [
+          960,
+          720
+        ],
+        "frames": 8,
+        "samples": 4,
+        "fixed_time": 0,
+        "exit_code": 0,
+        "stdout": "GPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=atrium vertices=537522 glass_groups=45 water=1 id=video-52/atrio_acuatico profile=atrium visual=pending\nframes=8 elapsed=0.671837 vertices=537522 gl_error=0 camera=3.5,-3.7,1.85 yaw=2.06\n",
+        "stderr": "",
+        "baseline": "validation/atrium-opengl.png",
+        "baseline_sha256": "80e54d8df0f167404131ba603ae2edace4f815eedbb54ff2260fc826053d18e6",
+        "temporary_capture": "C:\\Users\\HP\\AppData\\Local\\Temp\\dream-scene-catalog-j98vq_80\\atrium-opengl.png.ppm",
+        "pixel_identical": true,
+        "max_absolute_channel_delta": 0,
+        "changed_pixels": 0,
+        "mean_absolute_channel_delta": 0.0
+      }
+    ],
+    "scope": "Two deterministic time0 still captures against saved current room/atrium baselines. This verifies profile/texture refactor preserves these images, not full interactive testing or new-scene fidelity."
+  },
+  "final_cpu_cli": [
+    {
+      "args": [
+        "--list-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "DREAM scenes: 13 total, 2 available; visual acceptance is independent.\nvideo-35/atrio_inundado | alias=v35_flooded_atrium | planned | visual=pending | profile=- | atrio inundado\nvideo-35/paseo_palmeras | alias=v35_palm_walk | planned | visual=pending | profile=- | paseo palmeras\nvideo-35/escalera_cielo | alias=v35_sky_stairs | planned | visual=pending | profile=- | escalera cielo\nvideo-35/habitacion_nubes | alias=pastel_room | available | visual=pending | profile=pastel_room | habitacion nubes\nvideo-42/cocina_pradera | alias=kitchen_meadow | planned | visual=pending | profile=kitchen_meadow | cocina pradera\nvideo-42/salida_oceano | alias=v42_ocean_exit | planned | visual=pending | profile=- | salida oceano\nvideo-42/pasillo_ondulado | alias=v42_wavy_corridor | planned | visual=pending | profile=- | pasillo ondulado\nvideo-42/pasarela_poolroom | alias=v42_poolroom_walkway | planned | visual=pending | profile=- | pasarela poolroom\nvideo-51/arbol_monumental | alias=v51_monumental_tree | planned | visual=pending | profile=- | arbol monumental\nvideo-52/transporte_cristal | alias=v52_glass_transit | planned | visual=pending | profile=- | transporte cristal\nvideo-52/atrio_acuatico | alias=atrium | available | visual=pending | profile=atrium | atrio acuatico\nvideo-52/ascensor_acuario | alias=v52_aquarium_lift | planned | visual=pending | profile=- | ascensor acuario\nvideo-52/sala_planetaria | alias=v52_planetarium | planned | visual=pending | profile=- | sala planetaria\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--validate-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "scene_validation=PASS id=video-35/habitacion_nubes alias=pastel_room profile=pastel_room visual=pending\nscene_validation=PASS id=video-52/atrio_acuatico alias=atrium profile=atrium visual=pending\nvalidation_backend=CPU glfw_initialized=false\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--scene",
+        "unknown_scene",
+        "--list-scenes"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Unknown scene: unknown_scene. Use --list-scenes.\n"
+    },
+    {
+      "args": [
+        "--scene",
+        "kitchen_meadow"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "DREAM: Scene is planned, not available: video-42/cocina_pradera. Use --list-scenes.\n"
+    },
+    {
+      "args": [
+        "--scene",
+        "video-35/habitacion_nubes",
+        "--validate-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "scene_validation=PASS id=video-35/habitacion_nubes alias=pastel_room profile=pastel_room visual=pending\nscene_validation=PASS id=video-52/atrio_acuatico alias=atrium profile=atrium visual=pending\nvalidation_backend=CPU glfw_initialized=false\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--scene",
+        "atrium",
+        "--validate-scenes"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "scene_validation=PASS id=video-35/habitacion_nubes alias=pastel_room profile=pastel_room visual=pending\nscene_validation=PASS id=video-52/atrio_acuatico alias=atrium profile=atrium visual=pending\nvalidation_backend=CPU glfw_initialized=false\n",
+      "stderr": ""
+    }
+  ],
+  "far_clip": {
+    "default": 200,
+    "explicit_test": 1000,
+    "invalid_cases": 3,
+    "result": "PASS",
+    "stdout": "far_clip_default=200 explicit=1000 invalid_values_rejected=3\n",
+    "scene_header_snapshot_sha256": "dd1134acebc0fa650c61d1f63c1f4bb1d9761b0d1dfb3428698200b4acbdc38a",
+    "uniform": "farClip",
+    "projection": "SceneSettings::farClip",
+    "ownership_note": "Root authorized this small scene.hpp addition; navigation owner may subsequently extend the file. This parser check applies to the frozen source snapshot, not untested later edits."
+  },
+  "controls": {
+    "preserved": [
+      "1 pastel_room",
+      "2 atrium",
+      "WASD",
+      "mouse look",
+      "R reset",
+      "Shift speed",
+      "--cycle room/atrium/initial",
+      "--smoke"
+    ],
+    "added": [
+      "Tab next available",
+      "Shift+Tab previous available",
+      "PageDown next available",
+      "PageUp previous available"
+    ],
+    "debounce": "Scene switching occurs on press edge; holding a navigation key does not repeatedly reload.",
+    "test_limit": "Catalog traversal logic checked on CPU; key callbacks were inspected but not synthesized with desktop automation."
+  },
+  "profile_format": {
+    "file": "assets/scene_catalog.cat",
+    "header": "DREAM_SCENE_CATALOG 1",
+    "profile": "profile <id> <environment:0|1|2> <planned|available>",
+    "texture": "texture <profile> <role> <relative-path>",
+    "scene": "scene <canonical-id> <alias> <planned|available> <pending|accepted> <profile|-> <settings.scene> <mesh.dreammesh> \"Label\"",
+    "required_roles_when_available": [
+      "sky",
+      "plaid",
+      "ceramic_normal",
+      "ceramic_roughness",
+      "leaf",
+      "globe",
+      "floor_surface",
+      "floor_flow",
+      "probe"
+    ],
+    "kitchen_activation": "Explicitly complete nine texture roles and promote both profile and scene only after valid environment2 export and shader validation; file existence alone never promotes a planned scene."
+  },
+  "scene_cycle": {
+    "result": "PASS",
+    "frames": 481,
+    "target_dimensions": [
+      64,
+      64
+    ],
+    "smoke_resize_exercised": [
+      [
+        640,
+        480
+      ],
+      [
+        64,
+        64
+      ]
+    ],
+    "scene_loads": [
+      "pastel_room",
+      "atrium",
+      "pastel_room"
+    ],
+    "exit_code": 0,
+    "stdout": "mouse_orientation=PASS\nGPU: Intel(R) HD Graphics 630\nOpenGL: 3.3.0 - Build 31.0.101.2141\nopaque_msaa_samples=4 reflection_samples=1\nscene=pastel_room vertices=31056 glass_groups=0 water=0 id=video-35/habitacion_nubes profile=pastel_room visual=pending\nscene=atrium vertices=537522 glass_groups=45 water=1 id=video-52/atrio_acuatico profile=atrium visual=pending\nscene=pastel_room vertices=31056 glass_groups=0 water=0 id=video-35/habitacion_nubes profile=pastel_room visual=pending\nframes=481 elapsed=0.825282 vertices=31056 gl_error=0 camera=-1.49261,-1.97438,1.4 yaw=1.30333\n",
+    "stderr": "",
+    "input_hashes_before_and_after": {
+      "shader": "97c1f9f2edf80641a8d8b303f3aabd395b29539bf3a6aeb28c63d87d45b1e1ae",
+      "catalog": "6a3ce67bb780f8b537147e6e27d358c2b309f1da778b12bd93f562f805a39419",
+      "binary": "0d2cd3de5e1ee89ce6b6eda334fbb36d58a84ad09d184c2d6ccf78bda07acdf0"
+    },
+    "inputs_stable": true,
+    "scope": "Hidden minimal integration run to trigger both legacy cycle transitions, scene texture destruction/reload, mouse orientation and smoke resizing. Not manual keyboard automation or a performance measurement."
+  },
+  "diff_whitespace": {
+    "result": "PASS",
+    "scope": "Owned source/catalog/report files and root-authorized far_clip edit; CRLF notices only."
+  },
+  "completed_at_utc": "2026-10-09T04:29:53.194969+00:00"
+}

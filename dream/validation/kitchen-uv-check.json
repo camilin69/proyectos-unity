@@ -1,0 +1,11 @@
+{
+  "coordinate_contract": "worldX/4, worldY/4",
+  "objects": [
+    "GEO-DREAM-kitchen-grass_interior_blockout",
+    "GEO-DREAM-kitchen-meadow_blockout"
+  ],
+  "max_coordinate_error": 0.0,
+  "continuous_at_door": true,
+  "render": "validation/kitchen-uv-check.png",
+  "final_materials_applied": false
+}

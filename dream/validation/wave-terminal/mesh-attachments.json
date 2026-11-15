@@ -1,0 +1,91 @@
+{
+  "scene": "DREAM_WaveTerminalCandidate",
+  "saved_scenes": [
+    "DREAM_WaveTerminalCandidate"
+  ],
+  "checked_rays": 8,
+  "checks": [
+    {
+      "kind": "post_attachment",
+      "xy": [
+        -1.0549999999999997,
+        9.589994167603399
+      ],
+      "actual_mesh_z": -0.9128565788269043,
+      "expected_z": -0.912857062153331,
+      "normal_z": 1.0
+    },
+    {
+      "kind": "post_attachment",
+      "xy": [
+        -1.0549999999999997,
+        10.3220315923016
+      ],
+      "actual_mesh_z": -1.1944141387939453,
+      "expected_z": -1.1944140720266445,
+      "normal_z": 1.0
+    },
+    {
+      "kind": "post_attachment",
+      "xy": [
+        0.9660167702823153,
+        9.589994167603399
+      ],
+      "actual_mesh_z": -0.9128565788269043,
+      "expected_z": -0.912857062153331,
+      "normal_z": 1.0
+    },
+    {
+      "kind": "post_attachment",
+      "xy": [
+        0.9660167702823153,
+        10.3220315923016
+      ],
+      "actual_mesh_z": -1.1944141387939453,
+      "expected_z": -1.1944140720266445,
+      "normal_z": 1.0
+    },
+    {
+      "kind": "hall_floor_seam",
+      "object": "hall_floor",
+      "xy": [
+        0,
+        10.4730315923016
+      ],
+      "actual_mesh_z": -1.194414496421814,
+      "expected_z": -1.1944140720266445
+    },
+    {
+      "kind": "hall_floor_seam",
+      "object": "continuous_stepped_floor",
+      "xy": [
+        0,
+        10.471031592301602
+      ],
+      "actual_mesh_z": -1.1944141387939453,
+      "expected_z": -1.1944140720266445
+    },
+    {
+      "kind": "hall_floor_seam",
+      "object": "hall_entrance_wing_-1",
+      "xy": [
+        -1.101,
+        10.3220315923016
+      ],
+      "actual_mesh_z": -1.1944135427474976,
+      "expected_z": -1.1944140720266445
+    },
+    {
+      "kind": "hall_floor_seam",
+      "object": "hall_entrance_wing_1",
+      "xy": [
+        1.101,
+        10.3220315923016
+      ],
+      "actual_mesh_z": -1.1944135427474976,
+      "expected_z": -1.1944140720266445
+    }
+  ],
+  "passed": true,
+  "scope": "Actual mesh attachment heights and adjoining landing strips only; not a complete runtime collision test."
+}

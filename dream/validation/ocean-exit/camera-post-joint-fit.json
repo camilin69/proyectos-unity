@@ -1,0 +1,108 @@
+{
+  "schema": "dream.ocean_camera_post_joint.v1",
+  "views": [
+    {
+      "camera": {
+        "position_m": [
+          -0.044162097468043435,
+          0.31876689128832436,
+          0.783188054203392
+        ],
+        "yaw_rad": 1.5244165092731197,
+        "pitch_rad": 0.04924262581272142,
+        "roll_rad": -0.007268776932282015,
+        "tan_half_vertical_fov": 0.85,
+        "render_px": [
+          478,
+          850
+        ],
+        "time_s": 7,
+        "principal_y_px": 224.10021449508235,
+        "shift_y": -0.4202924382948068
+      },
+      "door_rms_px": 0.3427273179965867,
+      "post_base_observed_px": [
+        359,
+        425
+      ],
+      "post_base_projected_px": [
+        365.5053734967809,
+        432.6401262092037
+      ],
+      "post_base_error_px": 10.034511090490692,
+      "horizon_error_px": -0.051035200014723614
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.07439017959367265,
+          0.4051759481160088,
+          0.8186113455537771
+        ],
+        "yaw_rad": 1.5307342686210759,
+        "pitch_rad": 0.07972515521750552,
+        "roll_rad": -0.0083772550194595,
+        "tan_half_vertical_fov": 0.7885548019321683,
+        "render_px": [
+          478,
+          850
+        ],
+        "time_s": 9,
+        "principal_y_px": 224.10021449508235,
+        "shift_y": -0.4202924382948068
+      },
+      "door_rms_px": 3.3402968710955587,
+      "post_base_observed_px": [
+        397,
+        489
+      ],
+      "post_base_projected_px": [
+        396.68445239286586,
+        486.89597945484223
+      ],
+      "post_base_error_px": 2.1275508799589407,
+      "horizon_error_px": -1.6153487625589378
+    },
+    {
+      "camera": {
+        "position_m": [
+          -0.19577916954853944,
+          0.4593303937989445,
+          0.7695649988847958
+        ],
+        "yaw_rad": 1.5323180066393565,
+        "pitch_rad": 0.08256751356772166,
+        "roll_rad": -0.010025495082003913,
+        "tan_half_vertical_fov": 0.6637804562866896,
+        "render_px": [
+          478,
+          850
+        ],
+        "time_s": 11.5,
+        "principal_y_px": 224.10021449508235,
+        "shift_y": -0.4202924382948068
+      },
+      "door_rms_px": 4.609875065641633,
+      "post_base_observed_px": [
+        472,
+        532
+      ],
+      "post_base_projected_px": [
+        472.90688938874973,
+        527.866041296206
+      ],
+      "post_base_error_px": 4.232264515374792,
+      "horizon_error_px": -2.618843223453382
+    }
+  ],
+  "post_xyz_height": [
+    0.5858351165882355,
+    2.454468180662162,
+    0.6626647143180908
+  ],
+  "effective_fov_is_fit": true,
+  "principal_shift_shared": true,
+  "accepted": false,
+  "limitation": "Effective FOV may represent crop/zoom or reconstruction error. This is not recovered lens metadata. All three views are training observations, not held-out validation.",
+  "decision": "not_applied: variable effective FOV can fit endpoints but does not independently verify lens/zoom and conflicts with the foreground-border progression."
+}

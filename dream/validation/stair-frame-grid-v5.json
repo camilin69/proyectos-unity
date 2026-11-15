@@ -1,0 +1,39 @@
+{
+  "helper_sha256": "ab74cfe401a4379381dbcece1ef05dfad3cee457e15e008dacda9791dc7e3682",
+  "pure_math": "PASS",
+  "bpy_applied": true,
+  "bounds_min": [
+    -1.66804,
+    -0.11,
+    -2.15071
+  ],
+  "bounds_max": [
+    1.66804,
+    0.11,
+    2.15071
+  ],
+  "grid_counts_xyz": [
+    14,
+    1,
+    18
+  ],
+  "vertices": 570,
+  "quads": 568,
+  "triangles": 1136,
+  "closed_edge_incidence_two": true,
+  "opposite_edge_winding": true,
+  "euler": 2,
+  "signed_volume_m3": 3.156973871391943,
+  "original_box_volume_m3": 3.156973871392,
+  "min_triangle_area_m2": 0.026212057142857074,
+  "all_vertices_on_original_six_planes": true,
+  "deterministic_pure_output": true,
+  "max_cell_edge_m": 0.23896777777777778,
+  "live_idempotence": {
+    "result": "PASS",
+    "first_changed": true,
+    "second_changed": false,
+    "evidence": "Parent/root MCP application confirmation in this task; audit agent did not call Blender."
+  },
+  "application_note": "Only upper mint box mesh replaced; same dimensions/transform/material; all six planes preserved and AO remains enabled."
+}

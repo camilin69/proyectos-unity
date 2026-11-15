@@ -1,0 +1,55 @@
+{
+  "schema": "dream.ocean_exit_runtime_candidate.v1",
+  "scene_id": "video-42/salida_oceano",
+  "runtime_alias": "v42_ocean_exit",
+  "revision": 5,
+  "status": "candidate_not_accepted",
+  "renderer": {
+    "language": "C++17",
+    "api": "OpenGL 3.3",
+    "gpu": "Intel(R) HD Graphics 630"
+  },
+  "build": {
+    "binary": "runtime/build/dream-ocean-candidate-v5.exe",
+    "source_shader": "runtime/shaders/scene.frag",
+    "existing_game_binary_replaced": false
+  },
+  "capture": {
+    "reference": "validation/ocean-exit/source-7s.png",
+    "render": "validation/ocean-exit/runtime-v5-7s.png",
+    "comparison": "validation/ocean-exit/runtime-comparison-v5.png",
+    "second_time_render": "validation/ocean-exit/runtime-v5-9.5s.png",
+    "resolution_px": [478, 850],
+    "opaque_msaa_samples": 4,
+    "shader_times_s": [0.0, 2.5],
+    "gl_error": 0
+  },
+  "comparison_metrics": {
+    "render_for_metrics": "validation/ocean-exit/runtime-v5-metric-7s.ppm",
+    "reference_and_render_resolution_match": true,
+    "whole_frame_rgb_mae_0_to_255": 19.419,
+    "pool_region_rgb_mae_0_to_255": 17.487,
+    "foreground_region_rgb_mae_0_to_255": 19.415,
+    "door_ocean_region_rgb_mae_0_to_255": 21.624,
+    "measurement_note": "The comparison includes camera-registration differences and the social-media watermark in the source. MAE is only a diagnostic, not a fidelity score."
+  },
+  "visual_observations": {
+    "improved": [
+      "The pink ceramic is less magenta and better matches the pastel reference palette.",
+      "The cream wall brightness and warmth are closer to the video.",
+      "A broken pink reflection now reaches the ocean beyond the doorway."
+    ],
+    "remaining": [
+      "Interior water is too uniform and its foam patches are too coarse.",
+      "The foreground water is still darker and less blue than the source.",
+      "Some architectural proportions, the submerged post, and soft photographic bloom remain unmatched."
+    ]
+  },
+  "validation": {
+    "catalog_validation": "PASS · six available scenes",
+    "ocean_runtime_frame": "PASS · 478x850, four-sample opaque pass, gl_error=0",
+    "ocean_animation": "Rendered at 0.0 s and 2.5 s",
+    "six_scene_opengl_smokes": "PASS on revision 4; revision 5 changes only environment 5 water/color shading",
+    "strict_visual_acceptance": false
+  }
+}

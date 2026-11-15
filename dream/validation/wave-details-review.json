@@ -1,0 +1,230 @@
+{
+  "schema": "dream.wave_details_review.v1",
+  "stage": "blender_detail_prototype_two_views",
+  "accepted": false,
+  "runtime_available": false,
+  "native_audit": {
+    "scene": "DREAM_WaveCorridor",
+    "scene_count": 1,
+    "objects": 75,
+    "meshes": 61,
+    "images": [
+      "wave_wall_roughness.png",
+      "wave_wall_albedo.png",
+      "wave_paint_normal.png",
+      "wave_floor_roughness.png",
+      "wave_floor_normal.png",
+      "wave_floor_albedo.png",
+      "wave_exit_emission_dark.png",
+      "wave_exit_albedo_dark.png",
+      "wave_ceiling_roughness.png",
+      "wave_ceiling_albedo.png"
+    ],
+    "material_names": [
+      "DREAM_WAVE_LOOK_wall",
+      "DREAM_WAVE_LOOK_rear_panel",
+      "DREAM_WAVE_LOOK_rail",
+      "DREAM_WAVE_LOOK_floor_caps",
+      "DREAM_WAVE_LOOK_floor",
+      "DREAM_WAVE_LOOK_exit",
+      "DREAM_WAVE_LOOK_door_trim",
+      "DREAM_WAVE_LOOK_diffuser",
+      "DREAM_WAVE_LOOK_ceiling",
+      "DREAM_WAVE_LOOK_button_red"
+    ],
+    "native_bytes": 1929515,
+    "native_sha256": "3a0c346310b222c2a67fd005c938046ce5da2cc48109205ed6c2d8c105df6dcd",
+    "repeat_apply_no_changes": true,
+    "geometry_uv_fingerprint": "6bc806eedfe399b483569efb3dec3e8940082326977442548ab728767fc8b213",
+    "inspection_scene_excluded": true,
+    "strict_acceptance": false
+  },
+  "geometry_audit": "validation/wave-details-geometry-audit.json",
+  "source_times_s": [
+    12.5,
+    14,
+    15.5,
+    17
+  ],
+  "source_files_unchanged": {
+    "dream/referencias/estetica/video-42.json": "90008b76d2616527383d10bd3e16e2aa67a84eacf4d375dfbb1efb359bf26abd",
+    "dream/referencias/estetica/evidencias/video-42/13s.png": "63d422800733f320af7a95dacff0f04d67aa7440ae5799b6cc822c6887c908aa",
+    "dream/referencias/estetica/texturas/video-42/suelo_ondas_pintadas.png": "398a9d3774b5f0188a782090af56b1c6ae9b12c1c019e48389ebaeedeb0ea12b",
+    "dream/referencias/estetica/texturas/video-42/techo_texturado.png": "8df5f4b461ec8886c6ad760154c2a11a6a361f8b7952359c8aec347d2001fd30",
+    "dream/referencias/estetica/originales/WhatsApp Video 2026-10-08 at 6.27.42 PM.mp4": "ec992fafea900f158c4c182169999c9d6289a35da7db3afea5471331b0593657"
+  },
+  "changes": [
+    "Two continuous closed backing strips and two lower beads join the old rounded edge to each wall.",
+    "Two EXIT sign boxes with separate front artwork and five coated faces each.",
+    "One red button with a backing plate and two framed utility panels.",
+    "Ten images packed inside the standalone native scene."
+  ],
+  "technical_validation": {
+    "closed_detail_meshes": 12,
+    "degenerate_uv_faces": 0,
+    "checker_render_inspected": true,
+    "sign_front_oblique_edge_back_opposite_views_inspected": true,
+    "sign_fronts_textured_and_other_faces_coated": true,
+    "repeat_apply_no_extra_objects_or_geometry_uv_changes": true,
+    "inspection_scene_excluded_from_native_file": true,
+    "native_scene_count": 1
+  },
+  "observations": [
+    "Backing strips remove the visible gap between round trim and the wall.",
+    "Initial white sign candidate was too bright; smaller dark red-letter signs are closer to the source blocks.",
+    "Two current reference-camera renders inspected; floor, hall and door-base mismatches remain."
+  ],
+  "inference_limits": [
+    "EXIT lettering and sign dimensions remain inferred from compressed red plaques.",
+    "World positions are projected from source pixels onto the provisional wall planes; camera fit is not final.",
+    "Wall detailing does not validate the floor layout or door thresholds."
+  ],
+  "remaining": [
+    "Source hall is a brighter open space; current dark grid is unresolved geometry.",
+    "Step distribution and door thresholds still disagree between the views.",
+    "Far-floor ribbon pattern and width do not yet match the source.",
+    "Floor reflection spread, roughness scale and compression/optical softness differ.",
+    "No C++/OpenGL profile, export, navigation verification or animated camera match yet.",
+    "Sign dimensions, glow and the door fittings remain approximate.",
+    "Dark edge-trim section is inferred; door thresholds still need a shared multi-view solution."
+  ],
+  "prior_material_report": "validation/wave-material-review.json",
+  "prior_native_snapshot": "validation/wave-material-v5.blend",
+  "artifacts": [
+    {
+      "path": "dream/blender/wave_corridor.blend",
+      "bytes": 1929515,
+      "sha256": "3a0c346310b222c2a67fd005c938046ce5da2cc48109205ed6c2d8c105df6dcd"
+    },
+    {
+      "path": "dream/blender/wave_corridor_details.py",
+      "bytes": 7759,
+      "sha256": "7dfce49b80fc2c6d98189792921b9da30b258a8c332eea2d7633d0805b731cd5"
+    },
+    {
+      "path": "dream/blender/finish_wave_corridor.py",
+      "bytes": 14841,
+      "sha256": "e0e63e965ca463b47e81178390d890227af59218fe3105ac11ef0cdcee0eeab3"
+    },
+    {
+      "path": "dream/blender/inspect_wave_sign.py",
+      "bytes": 2788,
+      "sha256": "2a558a3324ceebe547fb204fe4596cb3fdc3c3a8f759fc2baac62607bf8492eb"
+    },
+    {
+      "path": "dream/blender/make_wave_textures.py",
+      "bytes": 18984,
+      "sha256": "6f2623d5f35f00260b1e3e731823e441e4e56a09bd747d73907786db3e883a46"
+    },
+    {
+      "path": "dream/validation/wave-material-v5.blend",
+      "bytes": 1654772,
+      "sha256": "f594de81639afcf1048535beef22a9c03a6c1763404886f87234f3650cf74aca"
+    },
+    {
+      "path": "dream/validation/wave-details-v6.png",
+      "bytes": 541210,
+      "sha256": "d053bc432b17838f83e6660dde17afe57195adbb618e617b9e6999dc1aaa6878"
+    },
+    {
+      "path": "dream/validation/wave-details-v7.png",
+      "bytes": 541238,
+      "sha256": "fedfec6f9b43ac483dda7b8a0e2081e4d862a32d2d21440e28197b3d432154cb"
+    },
+    {
+      "path": "dream/validation/wave-details-v7-secondary.png",
+      "bytes": 540637,
+      "sha256": "b0ca327b3fe2b822c5b275c83311ccaa9b69be86017246cffac1f66f1240d105"
+    },
+    {
+      "path": "dream/validation/wave-details-comparison.png",
+      "bytes": 970014,
+      "sha256": "89da8e4db17383ae374d0e3ae66a1f845c14cc9d1026ad891837b6de1abdcafa"
+    },
+    {
+      "path": "dream/validation/wave-detail-checker.png",
+      "bytes": 547516,
+      "sha256": "3bad6f9fb5a47ae669bfcff4eeb90b9dfcd17c92137a7bb2c0584cf0906fc378"
+    },
+    {
+      "path": "dream/validation/wave-detail-uv-coverage.json",
+      "bytes": 11934,
+      "sha256": "4940833f9383a7ce92e2b1c7f7f97dd64aa95b543563e31e74ce66542da3c193"
+    },
+    {
+      "path": "dream/validation/wave-detail-material-coverage.json",
+      "bytes": 12110,
+      "sha256": "8ff2a0479c1323e70cfde16ced74d26bb51474727c24263e04292dfe1fec9879"
+    },
+    {
+      "path": "dream/validation/wave-details-geometry-audit.json",
+      "bytes": 3974,
+      "sha256": "13656fe16530670a0f3eb8dc63d5a7613242050b38c0fd9d5e09442e6c456490"
+    },
+    {
+      "path": "dream/validation/wave-native-audit-v7.json",
+      "bytes": 1102,
+      "sha256": "c5e7caf23ab2bc515a913baf63be89e77966812a948cb85488e3f784078055b8"
+    },
+    {
+      "path": "dream/validation/wave-sign-textures.json",
+      "bytes": 2284,
+      "sha256": "e4e8d3186162f18b21eec7831da70d839b7fc8807484f3df8c53888eb4adf11d"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/contact.png",
+      "bytes": 116903,
+      "sha256": "2bca9a2d848d110cc1f75d04bd6a3e9c8e20409cbda6a01a3c64b915e4b8273a"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/views.json",
+      "bytes": 702,
+      "sha256": "4b29c4282a3bddb4c0e7d501ee333e9f79de403125c669227adddb3ef70354b6"
+    },
+    {
+      "path": "dream/assets/textures/wave_candidate/wave_exit_albedo_dark.png",
+      "bytes": 1805,
+      "sha256": "642985cedf580384aa9486308bfd2b704a9e69b577304055b5fcdfacd2361e2c"
+    },
+    {
+      "path": "dream/assets/textures/wave_candidate/wave_exit_albedo_dark.bmp",
+      "bytes": 98358,
+      "sha256": "d98872d6aa182f9dff3505848ebbc7f09c67a3123a46d20fd38740e2f9d77b8a"
+    },
+    {
+      "path": "dream/assets/textures/wave_candidate/wave_exit_emission_dark.png",
+      "bytes": 580,
+      "sha256": "096c1b9e0b13430281815cee5fb8fb36ab8d76ef76d10411dab8249f2841af57"
+    },
+    {
+      "path": "dream/assets/textures/wave_candidate/wave_exit_emission_dark.bmp",
+      "bytes": 98358,
+      "sha256": "747114c68958a556d0643fcf8ca291181535f8cc752e19dad686bb9609424c21"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/front.png",
+      "bytes": 53135,
+      "sha256": "275929d078335b51c7ced633d2a7579a5ee397ff2b886ea1f06ed0341cd6053e"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/oblique.png",
+      "bytes": 53892,
+      "sha256": "4c09294aabfa8a85510e6ec004c99b1a812821caede7a330d7fe8eeec839a778"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/edge.png",
+      "bytes": 43128,
+      "sha256": "7602fd659fa32f4ced222da16819d43e64cff6aca0e828e2225465cf4cc7f369"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/back.png",
+      "bytes": 51474,
+      "sha256": "e73518190198c45b51c4a7439fbaa4056a91602ceee160b66e2fb5bb2e061583"
+    },
+    {
+      "path": "dream/validation/wave-sign-qa/opposite.png",
+      "bytes": 53851,
+      "sha256": "d5c479a61bf3bbf0fe5b786390de14ff155ec6707b29d11ed8af914ebce99b7e"
+    }
+  ]
+}

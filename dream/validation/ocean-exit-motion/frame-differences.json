@@ -1,0 +1,147 @@
+{
+  "schema": "animation_contact_sheet_report.v1",
+  "frames": [
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0001.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0002.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0003.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0004.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0005.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0006.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0007.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0008.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0009.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0010.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0011.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0012.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0013.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0014.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0015.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0016.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0017.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0018.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0019.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0020.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0021.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0022.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0023.png",
+    "C:\\Users\\HP\\Documents\\GitHub\\proyectos-unity\\dream\\validation\\ocean-exit-motion\\preview\\frame-0024.png"
+  ],
+  "frame_diff": [
+    {
+      "from": "frame-0001.png",
+      "to": "frame-0002.png",
+      "mean_rgb_diff": 1.363038805480351
+    },
+    {
+      "from": "frame-0002.png",
+      "to": "frame-0003.png",
+      "mean_rgb_diff": 1.404259578308311
+    },
+    {
+      "from": "frame-0003.png",
+      "to": "frame-0004.png",
+      "mean_rgb_diff": 1.440502092050209
+    },
+    {
+      "from": "frame-0004.png",
+      "to": "frame-0005.png",
+      "mean_rgb_diff": 1.4641758962999425
+    },
+    {
+      "from": "frame-0005.png",
+      "to": "frame-0006.png",
+      "mean_rgb_diff": 1.5593863319386332
+    },
+    {
+      "from": "frame-0006.png",
+      "to": "frame-0007.png",
+      "mean_rgb_diff": 1.7344556567396834
+    },
+    {
+      "from": "frame-0007.png",
+      "to": "frame-0008.png",
+      "mean_rgb_diff": 1.9713184018377226
+    },
+    {
+      "from": "frame-0008.png",
+      "to": "frame-0009.png",
+      "mean_rgb_diff": 1.8232110919681679
+    },
+    {
+      "from": "frame-0009.png",
+      "to": "frame-0010.png",
+      "mean_rgb_diff": 1.9201870539010581
+    },
+    {
+      "from": "frame-0010.png",
+      "to": "frame-0011.png",
+      "mean_rgb_diff": 1.8378931823775535
+    },
+    {
+      "from": "frame-0011.png",
+      "to": "frame-0012.png",
+      "mean_rgb_diff": 1.7472179834276806
+    },
+    {
+      "from": "frame-0012.png",
+      "to": "frame-0013.png",
+      "mean_rgb_diff": 1.6223348921158423
+    },
+    {
+      "from": "frame-0013.png",
+      "to": "frame-0014.png",
+      "mean_rgb_diff": 1.5736680613668061
+    },
+    {
+      "from": "frame-0014.png",
+      "to": "frame-0015.png",
+      "mean_rgb_diff": 1.6842497333661497
+    },
+    {
+      "from": "frame-0015.png",
+      "to": "frame-0016.png",
+      "mean_rgb_diff": 1.4812765608335383
+    },
+    {
+      "from": "frame-0016.png",
+      "to": "frame-0017.png",
+      "mean_rgb_diff": 1.583732873902699
+    },
+    {
+      "from": "frame-0017.png",
+      "to": "frame-0018.png",
+      "mean_rgb_diff": 1.794680449585692
+    },
+    {
+      "from": "frame-0018.png",
+      "to": "frame-0019.png",
+      "mean_rgb_diff": 1.7151365985724834
+    },
+    {
+      "from": "frame-0019.png",
+      "to": "frame-0020.png",
+      "mean_rgb_diff": 1.6009877758634836
+    },
+    {
+      "from": "frame-0020.png",
+      "to": "frame-0021.png",
+      "mean_rgb_diff": 1.53231274099598
+    },
+    {
+      "from": "frame-0021.png",
+      "to": "frame-0022.png",
+      "mean_rgb_diff": 1.4127262285667406
+    },
+    {
+      "from": "frame-0022.png",
+      "to": "frame-0023.png",
+      "mean_rgb_diff": 1.38210845844614
+    },
+    {
+      "from": "frame-0023.png",
+      "to": "frame-0024.png",
+      "mean_rgb_diff": 1.4177208958897367
+    }
+  ],
+  "warnings": []
+}

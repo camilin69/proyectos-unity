@@ -1,0 +1,1478 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T05:02:54.992317+00:00",
+  "scene": "video35_escalera_cielo",
+  "stage": "initial_v2_v3_v4_comparison_visual_fidelity_pending",
+  "accepted": false,
+  "final_acceptance_evaluated": false,
+  "scope": "Auditoría de capturas Blender frente a 09s; 21s confirma materiales desde una vista lateral. No valida OpenGL, navegación ni fidelidad final.",
+  "artifacts": {
+    "reference_09s": {
+      "path": "dream/referencias/estetica/evidencias/video-35/09s.png",
+      "sha256": "62e47a223758c853e258c8f7116e85e946227187ec758e79c272ed966bce7fde",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "modified_utc": "2026-10-08T23:35:49.443153+00:00"
+    },
+    "reference_21s": {
+      "path": "dream/referencias/estetica/evidencias/video-35/21s.png",
+      "sha256": "600a100bd9c343bf52eb52328461d72f02f06391845175189d4f107fe626f2c2",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "modified_utc": "2026-10-08T23:35:50.726025+00:00"
+    },
+    "initial": {
+      "path": "dream/validation/stair-blender-initial.png",
+      "sha256": "b6ab9e12377594c379fb8e481b19ab7540767b16b907c292d6bc65fb576a06eb",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "modified_utc": "2026-10-09T04:52:52.689835+00:00"
+    },
+    "v2": {
+      "path": "dream/validation/stair-blender-v2.png",
+      "sha256": "4d09e1303e1543bc7881b862f587f57e49cd462c5bea62d97fd019e6daf31b0a",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "modified_utc": "2026-10-09T04:54:54.075179+00:00"
+    },
+    "v3": {
+      "path": "dream/validation/stair-blender-v3.png",
+      "sha256": "24a588a9b35d3032f5566c58e256e2d01e0fb739223e67dcc186b65a35e67fff",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "modified_utc": "2026-10-09T04:57:19.528595+00:00"
+    },
+    "v4": {
+      "path": "dream/validation/stair-blender.png",
+      "sha256": "a2fc9828db6c74c87e90e680dcdcf85ca995eef402f4f0ec10f0166df88360a0",
+      "dimensions_px": [
+        720,
+        1280
+      ],
+      "modified_utc": "2026-10-09T04:59:58.351986+00:00"
+    },
+    "v4_side": {
+      "path": "dream/validation/stair-side-blender.png",
+      "sha256": "323526c3bd4ce6961983ec3351242c4dc9eb4753294e0eeabd5d1c48db8d1ec7",
+      "dimensions_px": [
+        480,
+        854
+      ],
+      "modified_utc": "2026-10-09T05:00:15.649093+00:00",
+      "role": "qualitative_oblique_view_no_pixel_registration_to_21s"
+    }
+  },
+  "excluded_view": {
+    "path": "dream/referencias/estetica/evidencias/video-35/19s.png",
+    "reason": "Inspeccionada: pertenece al paseo de palmeras, no a la escalera."
+  },
+  "method": {
+    "images_unmodified": true,
+    "selection": "ROI manuales de superficies correspondientes a 720x1280; el polígono de barandilla se adapta a su pequeña diferencia de proyección.",
+    "coordinates": "Origen superior izquierdo. Cajas [x0,y0,x1,y1], último extremo exclusivo. Polígonos rasterizados sin ajuste del color.",
+    "luminance": "Mediana por píxel de 0.2126 Rlinear + 0.7152 Glinear + 0.0722 Blinear tras decodificar sRGB. Relativa a la imagen, no lux ni porcentaje de fidelidad.",
+    "display_luma": "Mediana de la misma suma sobre canales codificados 0..255.",
+    "limits": [
+      "Compresión y desenfoque del vídeo impiden deducir exactamente longitud de fibras, albedo o metalurgia.",
+      "Las nubes difieren de silueta; se comparan interiores nubosos/despejados, no contornos registrados.",
+      "Los helpers pueden cambiar después de cada captura. Estas mediciones se vinculan únicamente a sus archivos congelados y hashes."
+    ]
+  },
+  "regions": [
+    {
+      "id": "mint_wall",
+      "description": "Pared mint sobre el marco.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.42,
+            0.035,
+            0.7,
+            0.085
+          ],
+          "box_pixels": [
+            302,
+            45,
+            504,
+            109
+          ],
+          "pixels": 12928,
+          "median_srgb_8bit": [
+            137.0,
+            168.0,
+            158.0
+          ],
+          "median_display_luma_8bit": 160.2622,
+          "median_linear_luminance_Y": 0.35595,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.42,
+            0.035,
+            0.7,
+            0.085
+          ],
+          "box_pixels": [
+            302,
+            45,
+            504,
+            109
+          ],
+          "pixels": 12928,
+          "median_srgb_8bit": [
+            163.0,
+            204.0,
+            189.0
+          ],
+          "median_display_luma_8bit": 194.2004,
+          "median_linear_luminance_Y": 0.546464,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "box_normalized": [
+            0.42,
+            0.035,
+            0.7,
+            0.085
+          ],
+          "box_pixels": [
+            302,
+            45,
+            504,
+            109
+          ],
+          "pixels": 12928,
+          "median_srgb_8bit": [
+            192.0,
+            244.0,
+            231.0
+          ],
+          "median_display_luma_8bit": 232.0062,
+          "median_linear_luminance_Y": 0.816774,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v3": {
+          "box_normalized": [
+            0.42,
+            0.035,
+            0.7,
+            0.085
+          ],
+          "box_pixels": [
+            302,
+            45,
+            504,
+            109
+          ],
+          "pixels": 12928,
+          "median_srgb_8bit": [
+            142.0,
+            193.0,
+            186.0
+          ],
+          "median_display_luma_8bit": 181.652,
+          "median_linear_luminance_Y": 0.474359,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.42,
+            0.035,
+            0.7,
+            0.085
+          ],
+          "box_pixels": [
+            302,
+            45,
+            504,
+            109
+          ],
+          "pixels": 12928,
+          "median_srgb_8bit": [
+            138.0,
+            182.0,
+            177.0
+          ],
+          "median_display_luma_8bit": 172.2846,
+          "median_linear_luminance_Y": 0.420335,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "frame_top",
+      "description": "Franja horizontal central de la moldura superior rosa.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.3,
+            0.119,
+            0.7,
+            0.124
+          ],
+          "box_pixels": [
+            216,
+            152,
+            504,
+            159
+          ],
+          "pixels": 2016,
+          "median_srgb_8bit": [
+            201.0,
+            149.0,
+            138.0
+          ],
+          "median_display_luma_8bit": 158.551,
+          "median_linear_luminance_Y": 0.353068,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.3,
+            0.119,
+            0.7,
+            0.124
+          ],
+          "box_pixels": [
+            216,
+            152,
+            504,
+            159
+          ],
+          "pixels": 2016,
+          "median_srgb_8bit": [
+            240.0,
+            183.0,
+            171.0
+          ],
+          "median_display_luma_8bit": 194.2518,
+          "median_linear_luminance_Y": 0.553325,
+          "fraction_any_channel_ge_254": 0.112103
+        },
+        "v2": {
+          "box_normalized": [
+            0.3,
+            0.119,
+            0.7,
+            0.124
+          ],
+          "box_pixels": [
+            216,
+            152,
+            504,
+            159
+          ],
+          "pixels": 2016,
+          "median_srgb_8bit": [
+            255.0,
+            223.0,
+            211.0
+          ],
+          "median_display_luma_8bit": 228.9368,
+          "median_linear_luminance_Y": 0.787385,
+          "fraction_any_channel_ge_254": 0.862599
+        },
+        "v3": {
+          "box_normalized": [
+            0.3,
+            0.119,
+            0.7,
+            0.124
+          ],
+          "box_pixels": [
+            216,
+            152,
+            504,
+            159
+          ],
+          "pixels": 2016,
+          "median_srgb_8bit": [
+            211.0,
+            175.0,
+            170.0
+          ],
+          "median_display_luma_8bit": 182.2926,
+          "median_linear_luminance_Y": 0.474111,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.3,
+            0.119,
+            0.7,
+            0.124
+          ],
+          "box_pixels": [
+            216,
+            152,
+            504,
+            159
+          ],
+          "pixels": 2016,
+          "median_srgb_8bit": [
+            206.0,
+            165.0,
+            161.0
+          ],
+          "median_display_luma_8bit": 173.3917,
+          "median_linear_luminance_Y": 0.425877,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "sky_clear",
+      "description": "Azul despejado superior del hueco.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.45,
+            0.175,
+            0.65,
+            0.205
+          ],
+          "box_pixels": [
+            324,
+            224,
+            468,
+            262
+          ],
+          "pixels": 5472,
+          "median_srgb_8bit": [
+            57.0,
+            130.0,
+            168.0
+          ],
+          "median_display_luma_8bit": 117.2238,
+          "median_linear_luminance_Y": 0.196623,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.45,
+            0.175,
+            0.65,
+            0.205
+          ],
+          "box_pixels": [
+            324,
+            224,
+            468,
+            262
+          ],
+          "pixels": 5472,
+          "median_srgb_8bit": [
+            57.0,
+            111.0,
+            130.0
+          ],
+          "median_display_luma_8bit": 100.6788,
+          "median_linear_luminance_Y": 0.138213,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "box_normalized": [
+            0.45,
+            0.175,
+            0.65,
+            0.205
+          ],
+          "box_pixels": [
+            324,
+            224,
+            468,
+            262
+          ],
+          "pixels": 5472,
+          "median_srgb_8bit": [
+            84.0,
+            160.0,
+            187.0
+          ],
+          "median_display_luma_8bit": 145.7918,
+          "median_linear_luminance_Y": 0.306143,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v3": {
+          "box_normalized": [
+            0.45,
+            0.175,
+            0.65,
+            0.205
+          ],
+          "box_pixels": [
+            324,
+            224,
+            468,
+            262
+          ],
+          "pixels": 5472,
+          "median_srgb_8bit": [
+            84.0,
+            160.0,
+            187.0
+          ],
+          "median_display_luma_8bit": 145.7918,
+          "median_linear_luminance_Y": 0.306143,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.45,
+            0.175,
+            0.65,
+            0.205
+          ],
+          "box_pixels": [
+            324,
+            224,
+            468,
+            262
+          ],
+          "pixels": 5472,
+          "median_srgb_8bit": [
+            61.0,
+            132.0,
+            162.0
+          ],
+          "median_display_luma_8bit": 119.284,
+          "median_linear_luminance_Y": 0.201353,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "cloud_body",
+      "description": "Interior de la nube principal; correspondencia semántica, no contorno idéntico.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.29,
+            0.27,
+            0.39,
+            0.29
+          ],
+          "box_pixels": [
+            209,
+            346,
+            281,
+            371
+          ],
+          "pixels": 1800,
+          "median_srgb_8bit": [
+            215.0,
+            181.0,
+            177.0
+          ],
+          "median_display_luma_8bit": 187.727,
+          "median_linear_luminance_Y": 0.505182,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.29,
+            0.27,
+            0.39,
+            0.29
+          ],
+          "box_pixels": [
+            209,
+            346,
+            281,
+            371
+          ],
+          "pixels": 1800,
+          "median_srgb_8bit": [
+            145.0,
+            128.0,
+            134.0
+          ],
+          "median_display_luma_8bit": 132.0474,
+          "median_linear_luminance_Y": 0.231793,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "box_normalized": [
+            0.29,
+            0.27,
+            0.39,
+            0.29
+          ],
+          "box_pixels": [
+            209,
+            346,
+            281,
+            371
+          ],
+          "pixels": 1800,
+          "median_srgb_8bit": [
+            208.0,
+            185.0,
+            192.0
+          ],
+          "median_display_luma_8bit": 190.1826,
+          "median_linear_luminance_Y": 0.517691,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v3": {
+          "box_normalized": [
+            0.29,
+            0.27,
+            0.39,
+            0.29
+          ],
+          "box_pixels": [
+            209,
+            346,
+            281,
+            371
+          ],
+          "pixels": 1800,
+          "median_srgb_8bit": [
+            208.0,
+            185.0,
+            192.0
+          ],
+          "median_display_luma_8bit": 190.1826,
+          "median_linear_luminance_Y": 0.517691,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.29,
+            0.27,
+            0.39,
+            0.29
+          ],
+          "box_pixels": [
+            209,
+            346,
+            281,
+            371
+          ],
+          "pixels": 1800,
+          "median_srgb_8bit": [
+            207.0,
+            184.0,
+            192.0
+          ],
+          "median_display_luma_8bit": 189.5396,
+          "median_linear_luminance_Y": 0.513966,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "grass_bank_right",
+      "description": "Banco derecho de césped, fuera de la barandilla.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.87,
+            0.43,
+            0.96,
+            0.55
+          ],
+          "box_pixels": [
+            626,
+            550,
+            691,
+            704
+          ],
+          "pixels": 10010,
+          "median_srgb_8bit": [
+            65.0,
+            98.0,
+            48.0
+          ],
+          "median_display_luma_8bit": 87.5146,
+          "median_linear_luminance_Y": 0.10153,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.87,
+            0.43,
+            0.96,
+            0.55
+          ],
+          "box_pixels": [
+            626,
+            550,
+            691,
+            704
+          ],
+          "pixels": 10010,
+          "median_srgb_8bit": [
+            99.0,
+            131.0,
+            72.0
+          ],
+          "median_display_luma_8bit": 120.1496,
+          "median_linear_luminance_Y": 0.194098,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "box_normalized": [
+            0.87,
+            0.43,
+            0.96,
+            0.55
+          ],
+          "box_pixels": [
+            626,
+            550,
+            691,
+            704
+          ],
+          "pixels": 10010,
+          "median_srgb_8bit": [
+            114.0,
+            153.0,
+            87.0
+          ],
+          "median_display_luma_8bit": 140.3004,
+          "median_linear_luminance_Y": 0.272001,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v3": {
+          "box_normalized": [
+            0.87,
+            0.43,
+            0.96,
+            0.55
+          ],
+          "box_pixels": [
+            626,
+            550,
+            691,
+            704
+          ],
+          "pixels": 10010,
+          "median_srgb_8bit": [
+            83.0,
+            121.0,
+            70.0
+          ],
+          "median_display_luma_8bit": 108.9542,
+          "median_linear_luminance_Y": 0.158983,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.87,
+            0.43,
+            0.96,
+            0.55
+          ],
+          "box_pixels": [
+            626,
+            550,
+            691,
+            704
+          ],
+          "pixels": 10010,
+          "median_srgb_8bit": [
+            65.0,
+            99.0,
+            53.0
+          ],
+          "median_display_luma_8bit": 88.2326,
+          "median_linear_luminance_Y": 0.10195,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "grass_foreground",
+      "description": "Césped central del primer plano.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.35,
+            0.925,
+            0.6,
+            0.975
+          ],
+          "box_pixels": [
+            252,
+            1184,
+            432,
+            1248
+          ],
+          "pixels": 11520,
+          "median_srgb_8bit": [
+            122.0,
+            156.0,
+            88.0
+          ],
+          "median_display_luma_8bit": 143.7938,
+          "median_linear_luminance_Y": 0.286146,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.35,
+            0.925,
+            0.6,
+            0.975
+          ],
+          "box_pixels": [
+            252,
+            1184,
+            432,
+            1248
+          ],
+          "pixels": 11520,
+          "median_srgb_8bit": [
+            105.0,
+            138.0,
+            76.0
+          ],
+          "median_display_luma_8bit": 126.5078,
+          "median_linear_luminance_Y": 0.21702,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "box_normalized": [
+            0.35,
+            0.925,
+            0.6,
+            0.975
+          ],
+          "box_pixels": [
+            252,
+            1184,
+            432,
+            1248
+          ],
+          "pixels": 11520,
+          "median_srgb_8bit": [
+            132.0,
+            174.0,
+            98.0
+          ],
+          "median_display_luma_8bit": 159.5114,
+          "median_linear_luminance_Y": 0.360595,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v3": {
+          "box_normalized": [
+            0.35,
+            0.925,
+            0.6,
+            0.975
+          ],
+          "box_pixels": [
+            252,
+            1184,
+            432,
+            1248
+          ],
+          "pixels": 11520,
+          "median_srgb_8bit": [
+            95.0,
+            134.0,
+            77.0
+          ],
+          "median_display_luma_8bit": 121.3754,
+          "median_linear_luminance_Y": 0.199657,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.35,
+            0.925,
+            0.6,
+            0.975
+          ],
+          "box_pixels": [
+            252,
+            1184,
+            432,
+            1248
+          ],
+          "pixels": 11520,
+          "median_srgb_8bit": [
+            75.0,
+            110.0,
+            59.0
+          ],
+          "median_display_luma_8bit": 99.0894,
+          "median_linear_luminance_Y": 0.130146,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "pink_riser_low",
+      "description": "Contrahuella rosa inferior, por debajo del borde luminoso.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.2,
+            0.856,
+            0.65,
+            0.872
+          ],
+          "box_pixels": [
+            144,
+            1096,
+            468,
+            1116
+          ],
+          "pixels": 6480,
+          "median_srgb_8bit": [
+            205.0,
+            149.0,
+            130.0
+          ],
+          "median_display_luma_8bit": 159.7504,
+          "median_linear_luminance_Y": 0.363096,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "initial": {
+          "box_normalized": [
+            0.2,
+            0.856,
+            0.65,
+            0.872
+          ],
+          "box_pixels": [
+            144,
+            1096,
+            468,
+            1116
+          ],
+          "pixels": 6480,
+          "median_srgb_8bit": [
+            173.0,
+            127.0,
+            140.0
+          ],
+          "median_display_luma_8bit": 137.8586,
+          "median_linear_luminance_Y": 0.260415,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "box_normalized": [
+            0.2,
+            0.856,
+            0.65,
+            0.872
+          ],
+          "box_pixels": [
+            144,
+            1096,
+            468,
+            1116
+          ],
+          "pixels": 6480,
+          "median_srgb_8bit": [
+            255.0,
+            202.0,
+            217.0
+          ],
+          "median_display_luma_8bit": 214.3508,
+          "median_linear_luminance_Y": 0.685108,
+          "fraction_any_channel_ge_254": 0.968673
+        },
+        "v3": {
+          "box_normalized": [
+            0.2,
+            0.856,
+            0.65,
+            0.872
+          ],
+          "box_pixels": [
+            144,
+            1096,
+            468,
+            1116
+          ],
+          "pixels": 6480,
+          "median_srgb_8bit": [
+            202.0,
+            155.0,
+            173.0
+          ],
+          "median_display_luma_8bit": 166.2918,
+          "median_linear_luminance_Y": 0.390164,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.2,
+            0.856,
+            0.65,
+            0.872
+          ],
+          "box_pixels": [
+            144,
+            1096,
+            468,
+            1116
+          ],
+          "pixels": 6480,
+          "median_srgb_8bit": [
+            195.0,
+            142.0,
+            144.0
+          ],
+          "median_display_luma_8bit": 153.1996,
+          "median_linear_luminance_Y": 0.32829,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "pink_tread_low",
+      "description": "Huella baja horizontal, fibras y variación de luz incluidas.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.24,
+            0.82,
+            0.68,
+            0.835
+          ],
+          "box_pixels": [
+            173,
+            1050,
+            490,
+            1069
+          ],
+          "pixels": 6023,
+          "median_srgb_8bit": [
+            247.0,
+            201.0,
+            208.0
+          ],
+          "median_display_luma_8bit": 211.9228,
+          "median_linear_luminance_Y": 0.665693,
+          "fraction_any_channel_ge_254": 0.047153
+        },
+        "initial": {
+          "box_normalized": [
+            0.24,
+            0.82,
+            0.68,
+            0.835
+          ],
+          "box_pixels": [
+            173,
+            1050,
+            490,
+            1069
+          ],
+          "pixels": 6023,
+          "median_srgb_8bit": [
+            253.0,
+            185.0,
+            192.0
+          ],
+          "median_display_luma_8bit": 199.89,
+          "median_linear_luminance_Y": 0.593422,
+          "fraction_any_channel_ge_254": 0.490287
+        },
+        "v2": {
+          "box_normalized": [
+            0.24,
+            0.82,
+            0.68,
+            0.835
+          ],
+          "box_pixels": [
+            173,
+            1050,
+            490,
+            1069
+          ],
+          "pixels": 6023,
+          "median_srgb_8bit": [
+            255.0,
+            224.0,
+            237.0
+          ],
+          "median_display_luma_8bit": 231.5292,
+          "median_linear_luminance_Y": 0.806857,
+          "fraction_any_channel_ge_254": 0.993359
+        },
+        "v3": {
+          "box_normalized": [
+            0.24,
+            0.82,
+            0.68,
+            0.835
+          ],
+          "box_pixels": [
+            173,
+            1050,
+            490,
+            1069
+          ],
+          "pixels": 6023,
+          "median_srgb_8bit": [
+            225.0,
+            176.0,
+            191.0
+          ],
+          "median_display_luma_8bit": 187.36,
+          "median_linear_luminance_Y": 0.507759,
+          "fraction_any_channel_ge_254": 0.000166
+        },
+        "v4": {
+          "box_normalized": [
+            0.24,
+            0.82,
+            0.68,
+            0.835
+          ],
+          "box_pixels": [
+            173,
+            1050,
+            490,
+            1069
+          ],
+          "pixels": 6023,
+          "median_srgb_8bit": [
+            221.0,
+            163.0,
+            163.0
+          ],
+          "median_display_luma_8bit": 175.3216,
+          "median_linear_luminance_Y": 0.442109,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "pink_riser_mid",
+      "description": "Contrahuella rosa de la zona media.",
+      "images": {
+        "reference_09s": {
+          "box_normalized": [
+            0.28,
+            0.635,
+            0.62,
+            0.65
+          ],
+          "box_pixels": [
+            202,
+            813,
+            446,
+            832
+          ],
+          "pixels": 4636,
+          "median_srgb_8bit": [
+            241.0,
+            177.0,
+            179.5
+          ],
+          "median_display_luma_8bit": 190.9646,
+          "median_linear_luminance_Y": 0.53423,
+          "fraction_any_channel_ge_254": 0.02912
+        },
+        "initial": {
+          "box_normalized": [
+            0.28,
+            0.635,
+            0.62,
+            0.65
+          ],
+          "box_pixels": [
+            202,
+            813,
+            446,
+            832
+          ],
+          "pixels": 4636,
+          "median_srgb_8bit": [
+            205.0,
+            146.0,
+            158.0
+          ],
+          "median_display_luma_8bit": 159.478,
+          "median_linear_luminance_Y": 0.360326,
+          "fraction_any_channel_ge_254": 0.092968
+        },
+        "v2": {
+          "box_normalized": [
+            0.28,
+            0.635,
+            0.62,
+            0.65
+          ],
+          "box_pixels": [
+            202,
+            813,
+            446,
+            832
+          ],
+          "pixels": 4636,
+          "median_srgb_8bit": [
+            255.0,
+            212.0,
+            227.0
+          ],
+          "median_display_luma_8bit": 222.2248,
+          "median_linear_luminance_Y": 0.73893,
+          "fraction_any_channel_ge_254": 0.995686
+        },
+        "v3": {
+          "box_normalized": [
+            0.28,
+            0.635,
+            0.62,
+            0.65
+          ],
+          "box_pixels": [
+            202,
+            813,
+            446,
+            832
+          ],
+          "pixels": 4636,
+          "median_srgb_8bit": [
+            214.0,
+            163.0,
+            180.0
+          ],
+          "median_display_luma_8bit": 175.2826,
+          "median_linear_luminance_Y": 0.439367,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "box_normalized": [
+            0.28,
+            0.635,
+            0.62,
+            0.65
+          ],
+          "box_pixels": [
+            202,
+            813,
+            446,
+            832
+          ],
+          "pixels": 4636,
+          "median_srgb_8bit": [
+            208.0,
+            150.0,
+            151.0
+          ],
+          "median_display_luma_8bit": 162.2265,
+          "median_linear_luminance_Y": 0.373451,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    },
+    {
+      "id": "right_rail",
+      "description": "Franja interior de la cara visible de la barandilla derecha; polígonos propios para evitar el fondo.",
+      "images": {
+        "reference_09s": {
+          "polygon_pixels": [
+            [
+              506,
+              560
+            ],
+            [
+              510,
+              560
+            ],
+            [
+              529,
+              600
+            ],
+            [
+              525,
+              600
+            ]
+          ],
+          "polygon_normalized": [
+            [
+              0.70277778,
+              0.4375
+            ],
+            [
+              0.70833333,
+              0.4375
+            ],
+            [
+              0.73472222,
+              0.46875
+            ],
+            [
+              0.72916667,
+              0.46875
+            ]
+          ],
+          "pixels": 204,
+          "median_srgb_8bit": [
+            255.0,
+            241.0,
+            236.5
+          ],
+          "median_display_luma_8bit": 243.9696,
+          "median_linear_luminance_Y": 0.905338,
+          "fraction_any_channel_ge_254": 0.818627
+        },
+        "initial": {
+          "polygon_pixels": [
+            [
+              505,
+              560
+            ],
+            [
+              509,
+              560
+            ],
+            [
+              525,
+              600
+            ],
+            [
+              521,
+              600
+            ]
+          ],
+          "polygon_normalized": [
+            [
+              0.70138889,
+              0.4375
+            ],
+            [
+              0.70694444,
+              0.4375
+            ],
+            [
+              0.72916667,
+              0.46875
+            ],
+            [
+              0.72361111,
+              0.46875
+            ]
+          ],
+          "pixels": 205,
+          "median_srgb_8bit": [
+            64.0,
+            96.0,
+            105.0
+          ],
+          "median_display_luma_8bit": 90.2088,
+          "median_linear_luminance_Y": 0.105439,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v2": {
+          "polygon_pixels": [
+            [
+              505,
+              560
+            ],
+            [
+              509,
+              560
+            ],
+            [
+              525,
+              600
+            ],
+            [
+              521,
+              600
+            ]
+          ],
+          "polygon_normalized": [
+            [
+              0.70138889,
+              0.4375
+            ],
+            [
+              0.70694444,
+              0.4375
+            ],
+            [
+              0.72916667,
+              0.46875
+            ],
+            [
+              0.72361111,
+              0.46875
+            ]
+          ],
+          "pixels": 205,
+          "median_srgb_8bit": [
+            80.0,
+            133.0,
+            148.0
+          ],
+          "median_display_luma_8bit": 122.8152,
+          "median_linear_luminance_Y": 0.206186,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v3": {
+          "polygon_pixels": [
+            [
+              505,
+              560
+            ],
+            [
+              509,
+              560
+            ],
+            [
+              525,
+              600
+            ],
+            [
+              521,
+              600
+            ]
+          ],
+          "polygon_normalized": [
+            [
+              0.70138889,
+              0.4375
+            ],
+            [
+              0.70694444,
+              0.4375
+            ],
+            [
+              0.72916667,
+              0.46875
+            ],
+            [
+              0.72361111,
+              0.46875
+            ]
+          ],
+          "pixels": 205,
+          "median_srgb_8bit": [
+            239.0,
+            230.0,
+            226.0
+          ],
+          "median_display_luma_8bit": 231.5524,
+          "median_linear_luminance_Y": 0.803806,
+          "fraction_any_channel_ge_254": 0.0
+        },
+        "v4": {
+          "polygon_pixels": [
+            [
+              505,
+              560
+            ],
+            [
+              509,
+              560
+            ],
+            [
+              525,
+              600
+            ],
+            [
+              521,
+              600
+            ]
+          ],
+          "polygon_normalized": [
+            [
+              0.70138889,
+              0.4375
+            ],
+            [
+              0.70694444,
+              0.4375
+            ],
+            [
+              0.72916667,
+              0.46875
+            ],
+            [
+              0.72361111,
+              0.46875
+            ]
+          ],
+          "pixels": 205,
+          "median_srgb_8bit": [
+            235.0,
+            218.0,
+            212.0
+          ],
+          "median_display_luma_8bit": 221.1088,
+          "median_linear_luminance_Y": 0.725081,
+          "fraction_any_channel_ge_254": 0.0
+        }
+      }
+    }
+  ],
+  "progress": [
+    "V2 acerca las nubes a la luminosidad de referencia y añade cobertura, pero sobreilumina la pared, los bancos y la alfombra.",
+    "V3 reduce luz general y cambia la barandilla a un acabado claro recubierto. La línea clara ya se parece más a la referencia; su metalurgia sigue siendo una inferencia.",
+    "Las hojas triangulares y las fibras rosas rígidas continúan visibles. Densidad por sí sola no garantiza la lectura de césped/alfombra suaves.",
+    "V4 aproxima el azul del cielo: Y .201353 vs .196623 de referencia; nube .513966 vs .505182.",
+    "El banco derecho V4 alcanza Y .101950 frente a .101530; el césped próximo empeora: .130146 frente a .286146 (V3 .199657).",
+    "La contrahuella rosa pierde el exceso violeta: V4 RGB [195,142,144] frente a [205,149,130]. La huella sigue demasiado oscura: Y .442109 frente a .665693."
+  ],
+  "priority_findings": [
+    {
+      "priority": 1,
+      "issue": "Separar la calibración de la barandilla de las superficies difusas.",
+      "evidence": "Initial y v2 muestran un larguero azul oscuro donde la referencia tiene una franja crema rosada brillante. V3 corrige esa lectura; comprobar sus ROI sin volver a elevar toda la iluminación.",
+      "action": "Mantener una banda luminosa cálida con gradiente de brillo y revisar el acabado en vista oblicua. No inferir metal desnudo a partir del vídeo."
+    },
+    {
+      "priority": 2,
+      "issue": "Distribución de luz y contraste del cielo distintos.",
+      "evidence": "En v2 la pared Y=.816774 supera ampliamente la referencia .35595; el azul del cielo .306143 supera .19662 mientras la nube .517691 ya se acerca a .50518.",
+      "action": "Bajar áreas sobre pared/bancos y conservar diferencia entre huella y contrahuella. El mapa necesita más contraste nube/azul; una única fuerza de world no puede igualar ambas regiones. Comparar cada nueva captura con los mismos controles."
+    },
+    {
+      "priority": 3,
+      "issue": "Césped y tejido rosa todavía revelan hojas/fibras rígidas sobre superficies planas.",
+      "evidence": "09s y 21s muestran grupos compactos y bordes suaves. Los renders muestran triángulos separados, bandas verdes verticales expuestas y ruido moteado en el rosa.",
+      "action": "Hojas bajas curvadas y solapadas, orientación variada y cobertura de caras verticales; fibras rosas cortas alrededor de aristas. Reducir la lectura de polvo/triángulos, no ocultarla subiendo brillo."
+    }
+  ],
+  "geometry_distinction": "La disposición de escalera, hueco y barandillas ya es reconocible. Esta auditoría no propone rehacer su trazado. Cobertura de caras verdes y siluetas de fibras son geometría de superficie, no sólo color.",
+  "conclusion": "V4 consigue avances de tono en cielo, bancos y rosa, y conserva la mejora de barandilla respecto al inicial. El césped próximo y las huellas quedan oscuros; las superficies siguen rígidas. Prototipo material pendiente de calibración, no aceptación visual final.",
+  "latest_visual_findings": {
+    "version": "v4",
+    "accepted": false,
+    "required_remaining": [
+      {
+        "priority": 1,
+        "issue": "Recuperar luz del primer plano y huellas sin aclarar los bancos ya ajustados.",
+        "evidence": "Césped próximo Y .130 vs .286; huella .442 vs .666; banco .102 vs .102. Pared .420 vs .356 y marco .426 vs .353 siguen algo claros.",
+        "action": "Reequilibrar el aporte direccional/local y la respuesta según orientación; no aplicar otra corrección global de verde/exposición."
+      },
+      {
+        "priority": 2,
+        "issue": "Silueta rígida del césped y tejido; caras verticales verdes expuestas.",
+        "evidence": "La vista lateral actual muestra claramente triángulos independientes, escalones verdes planos y fibras rosas verticales. La referencia 21s muestra masas compactas con aristas suaves.",
+        "action": "Hojas cortas curvadas/solapadas y cobertura de todas las caras visibles; fibras rosas menos rectas y distribución menos uniforme."
+      },
+      {
+        "priority": 3,
+        "issue": "Las nubes y el acabado de la barandilla conservan diferencias de detalle.",
+        "evidence": "Los valores del cielo se aproximan, pero las nubes se ven más borrosas y compactas; la barandilla clara ya mejora mucho aunque su Y .725 queda por debajo de .905 y su brillo es más uniforme.",
+        "action": "Conservar el equilibrio nube/azul obtenido y afinar contornos/gradientes; revisar brillo de barandilla en ambas vistas sin aumentar la luz de toda la escena."
+      }
+    ],
+    "side_view_limit": "La cámara lateral no está registrada píxel a píxel con 21s; sólo se comparan la lectura material y cobertura visible."
+  }
+}
