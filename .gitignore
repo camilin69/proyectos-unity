@@ -3,6 +3,8 @@
 **/[Tt]emp/
 **/[Oo]bj/
 **/[Bb]uild/
+# los constructores de escenas del Taller Final viven en Editor/Build: son codigo fuente, no salida de build
+!TallerFinal/Assets/_Project/Editor/Build/
 **/[Bb]uilds/
 **/[Ll]ogs/
 **/[Uu]ser[Ss]ettings/
