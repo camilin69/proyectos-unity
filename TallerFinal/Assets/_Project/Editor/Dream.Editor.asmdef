@@ -1,0 +1,16 @@
+{
+    "name": "Dream.Editor",
+    "rootNamespace": "Dream.EditorTools",
+    "references": [
+        "Dream.Runtime",
+        "Unity.InputSystem",
+        "Unity.Cinemachine",
+        "Unity.Timeline",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.HighDefinition.Runtime",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": ["Editor"],
+    "autoReferenced": true
+}

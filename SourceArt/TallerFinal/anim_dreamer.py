@@ -289,6 +289,8 @@ CLIPS = [
 
 
 def build_all():
+    bpy.context.scene.render.fps = 30
+    bpy.context.scene.render.fps_base = 1.0
     arm = bpy.data.objects[ARM]
     ad = arm.animation_data or arm.animation_data_create()
     for tr in list(ad.nla_tracks):

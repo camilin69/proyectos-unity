@@ -132,7 +132,7 @@ def draw(spec, out_base, title):
     d.text((lx, MARGIN_Y), "Parametros", fill=TINTA, font=font(20, True))
     yy = MARGIN_Y + 36
     for p in spec["parameters"]:
-        dv = "" if p["type"] == "Trigger" else " = %s" % str(p["default"]).lower()
+        dv = "" if p["type"] == "Trigger" else " = %s" % p["default"]
         d.text((lx, yy), "%s : %s%s" % (p["name"], p["type"], dv), fill=TINTA, font=font(15))
         yy += 26
     yy += 20

@@ -5,35 +5,37 @@
     {
       "name": "Speed",
       "type": "Float",
-      "default": 0.0
+      "default": "0"
     },
     {
       "name": "Grounded",
       "type": "Bool",
-      "default": true
+      "default": "true"
     },
     {
       "name": "VerticalSpeed",
       "type": "Float",
-      "default": 0.0
+      "default": "0"
     },
     {
       "name": "Flying",
       "type": "Bool",
-      "default": false
+      "default": "false"
     },
     {
       "name": "Swimming",
       "type": "Bool",
-      "default": false
+      "default": "false"
     },
     {
       "name": "Jump",
-      "type": "Trigger"
+      "type": "Trigger",
+      "default": ""
     },
     {
       "name": "Pickup",
-      "type": "Trigger"
+      "type": "Trigger",
+      "default": ""
     }
   ],
   "defaultState": "Idle",
