@@ -71,7 +71,9 @@ namespace Dream
 
         static float GroundY(Vector3 at, float fallback)
         {
-            if (Physics.Raycast(at + Vector3.up * 40f, Vector3.down, out var hit, 120f, ~0, QueryTriggerInteraction.Ignore)) return hit.point.y;
+            // desde poco mas arriba de la cabeza: bajo techo, un rayo desde muy alto chocaba con el techo
+            var from = new Vector3(at.x, Mathf.Max(at.y, fallback) + 2.4f, at.z);
+            if (Physics.Raycast(from, Vector3.down, out var hit, 60f, ~0, QueryTriggerInteraction.Ignore)) return hit.point.y;
             return fallback;
         }
 
