@@ -99,11 +99,11 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 60000.035, g: 57600.03, b: 52800.03, a: 60000}
+    - _Color: {r: 30.000006, g: 28.800005, b: 26.400005, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
-    - _UnlitColor: {r: 60000, g: 57600, b: 52800, a: 60000}
+    - _UnlitColor: {r: 30, g: 28.8, b: 26.4, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7892635478749695548

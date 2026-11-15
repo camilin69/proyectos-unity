@@ -20,7 +20,7 @@ namespace Dream
             if (!up) return;
             var dir = -tod.sun.transform.forward;
             disc.transform.position = cam.transform.position + dir * distance;
-            disc.transform.rotation = Quaternion.LookRotation(-dir, Vector3.up);
+            disc.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);   // la cara visible del quad (-Z) mira a la camara
             float s = 2f * distance * Mathf.Tan(angularSizeDeg * 0.5f * Mathf.Deg2Rad);
             disc.transform.localScale = new Vector3(s, s, 1f);
         }
