@@ -1,0 +1,335 @@
+{
+ "source": "v42_ocean_exit.blend",
+ "materials": {
+  "MAT-DREAM-oceanwater-cream_enamel": {
+   "base_color": [
+    0.5199999809265137,
+    0.49000000953674316,
+    0.3199999928474426,
+    1.0
+   ],
+   "roughness": 0.3199999928474426,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-exit_here": {
+   "base_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.550000011920929,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/DREAM-ocean-exit_here_png.png",
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-exit_lamp": {
+   "base_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.550000011920929,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 1.2999999523162842,
+   "alpha": 1.0,
+   "albedo": "tex/DREAM-ocean-exit_lamp_png.png",
+   "emission": "tex/DREAM-ocean-exit_lamp_png.png",
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-frame": {
+   "base_color": [
+    0.41999998688697815,
+    0.3799999952316284,
+    0.20000000298023224,
+    1.0
+   ],
+   "roughness": 0.4000000059604645,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-interior_water": {
+   "base_color": [
+    0.07000000029802322,
+    0.41999998688697815,
+    0.3799999952316284,
+    1.0
+   ],
+   "roughness": 0.14000000059604645,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/DREAM-ocean-foam_mask_png.png",
+   "normal": "tex/DREAM-ocean-ripple_height_png.png",
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-ocean": {
+   "base_color": [
+    0.012000000104308128,
+    0.03500000014901161,
+    0.04500000178813934,
+    1.0
+   ],
+   "roughness": 0.23000000417232513,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "normal": "tex/DREAM-ocean-ripple_height_png.png",
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-pink_ceramic": {
+   "base_color": [
+    0.6000000238418579,
+    0.30000001192092896,
+    0.44999998807907104,
+    1.0
+   ],
+   "roughness": 0.20000000298023224,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/DREAM-ocean-pink_tile_albedo_png.png",
+   "normal": "tex/DREAM-ocean-pink_tile_height_png.png",
+   "roughness_map": "tex/DREAM-ocean-pink_tile_roughness_png.png",
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-pushbar": {
+   "base_color": [
+    0.47999998927116394,
+    0.5,
+    0.4699999988079071,
+    1.0
+   ],
+   "roughness": 0.23999999463558197,
+   "metallic": 1.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  },
+  "MAT-DREAM-oceanwater-submerged_bed": {
+   "base_color": [
+    0.10000000149011612,
+    0.550000011920929,
+    0.44999998807907104,
+    1.0
+   ],
+   "roughness": 0.800000011920929,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  }
+ },
+ "lights": {
+  "LUZ_00": {
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.8799999952316284,
+    0.7400000095367432
+   ],
+   "energy": 180.0,
+   "size": 2.5999999046325684,
+   "size_y": 0.25,
+   "shape": "DISK",
+   "spot_deg": 0.0,
+   "blender_name": "LIGHT-DREAM-oceanwater-ceiling"
+  },
+  "LUZ_01": {
+   "type": "AREA",
+   "color": [
+    0.7599999904632568,
+    0.8600000143051147,
+    1.0
+   ],
+   "energy": 90.0,
+   "size": 2.5,
+   "size_y": 0.25,
+   "shape": "DISK",
+   "spot_deg": 0.0,
+   "blender_name": "LIGHT-DREAM-oceanwater-front_fill"
+  },
+  "LUZ_02": {
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.02500000037252903,
+    0.4399999976158142
+   ],
+   "energy": 30.0,
+   "size": 1.7999999523162842,
+   "size_y": 0.25,
+   "shape": "DISK",
+   "spot_deg": 0.0,
+   "blender_name": "LIGHT-DREAM-oceanwater-magenta_exit"
+  }
+ },
+ "cameras": {
+  "CAM_00": {
+   "lens_mm": 37.65690231323242,
+   "sensor_mm": 24.0,
+   "blender_name": "CAM-DREAM-oceanwater-7s"
+  },
+  "CAM_01": {
+   "lens_mm": 37.65690231323242,
+   "sensor_mm": 24.0,
+   "blender_name": "CAM-DREAM-oceanwater-11.5s"
+  },
+  "CAM_02": {
+   "lens_mm": 37.65690231323242,
+   "sensor_mm": 24.0,
+   "blender_name": "CAM-DREAM-oceanwater-9s"
+  }
+ },
+ "objects": {
+  "GEO-DREAM-oceanwater-bed": [
+   "MAT-DREAM-oceanwater-submerged_bed"
+  ],
+  "GEO-DREAM-oceanwater-ceiling": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-wall_-1": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-tile_side_-1_0": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-tile_side_-1_1": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-exit_pier_-1": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-tile_pier_-1_0": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-tile_pier_-1_1": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-jamb_-1": [
+   "MAT-DREAM-oceanwater-frame"
+  ],
+  "GEO-DREAM-oceanwater-low_border_-1": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-pink_cap_-1": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-wall_1": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-tile_side_1_0": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-tile_side_1_1": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-exit_pier_1": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-tile_pier_1_0": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-tile_pier_1_1": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-jamb_1": [
+   "MAT-DREAM-oceanwater-frame"
+  ],
+  "GEO-DREAM-oceanwater-low_border_1": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-pink_cap_1": [
+   "MAT-DREAM-oceanwater-pink_ceramic"
+  ],
+  "GEO-DREAM-oceanwater-header": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-head_frame": [
+   "MAT-DREAM-oceanwater-frame"
+  ],
+  "GEO-DREAM-oceanwater-service_door": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-service_pushbar": [
+   "MAT-DREAM-oceanwater-pushbar"
+  ],
+  "GEO-DREAM-oceanwater-bent_access_post": [
+   "MAT-DREAM-oceanwater-cream_enamel"
+  ],
+  "GEO-DREAM-oceanwater-exit_here": [
+   "MAT-DREAM-oceanwater-exit_here"
+  ],
+  "GEO-DREAM-oceanwater-exit_lamp": [
+   "MAT-DREAM-oceanwater-exit_lamp"
+  ],
+  "GEO-DREAM-oceanwater-interior_water": [
+   "MAT-DREAM-oceanwater-interior_water"
+  ],
+  "GEO-DREAM-oceanwater-ocean": [
+   "MAT-DREAM-oceanwater-ocean"
+  ]
+ }
+}

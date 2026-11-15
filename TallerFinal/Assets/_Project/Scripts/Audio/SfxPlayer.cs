@@ -21,7 +21,7 @@ namespace Dream.Audio
 
         public void Chime(Vector3 at)
         {
-            if (source && chime) source.PlayOneShot(chime, 0.9f);
+            if (source && chime) source.PlayOneShot(chime, 0.4f);
             MusicPlayer.Instance?.Duck(0.45f, 2.5f);
         }
 

@@ -1,0 +1,434 @@
+{
+ "materials": [
+  {
+   "name": "DREAM_WAVE_LOOK_button_red",
+   "base_color": [
+    0.4200332760810852,
+    0.021980946883559227,
+    0.010022825561463833,
+    1.0
+   ],
+   "emission_color": [
+    0.4200332760810852,
+    0.021980946883559227,
+    0.010022825561463833,
+    1.0
+   ],
+   "roughness": 0.3499999940395355,
+   "metallic": 0.0,
+   "emission_strength": 1.2000000476837158,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_ceiling",
+   "base_color": [
+    0.2158605009317398,
+    0.2158605009317398,
+    0.2158605009317398,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.6000000238418579,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/wave_ceiling_albedo.png",
+   "normal": "tex/wave_paint_normal.png",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "tex/wave_ceiling_roughness_mask.png",
+   "has_alpha": false,
+   "uv_index": 3
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_diffuser",
+   "base_color": [
+    1.0,
+    0.9130986332893372,
+    0.8069522380828857,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    0.9130986332893372,
+    0.8069522380828857,
+    1.0
+   ],
+   "roughness": 0.30000001192092896,
+   "metallic": 0.0,
+   "emission_strength": 5.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_door_trim",
+   "base_color": [
+    0.715693473815918,
+    0.672443151473999,
+    0.5271151065826416,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.3499999940395355,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_exit",
+   "base_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.3499999940395355,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/wave_exit_albedo_dark.png",
+   "normal": "",
+   "emission": "tex/wave_exit_albedo_dark.png",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 3
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_floor",
+   "base_color": [
+    0.2158605009317398,
+    0.2158605009317398,
+    0.2158605009317398,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.6000000238418579,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/wave_floor_albedo.png",
+   "normal": "tex/wave_floor_normal.png",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "tex/wave_floor_roughness_mask.png",
+   "has_alpha": false,
+   "uv_index": 2
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_floor_caps",
+   "base_color": [
+    0.15592646598815918,
+    0.35640013217926025,
+    0.34191441535949707,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.5,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_rail",
+   "base_color": [
+    0.011612244881689548,
+    0.016807375475764275,
+    0.016807375475764275,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.27000001072883606,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_rear_panel",
+   "base_color": [
+    0.061246052384376526,
+    0.07036009430885315,
+    0.0666259378194809,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.699999988079071,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_WAVE_LOOK_wall",
+   "base_color": [
+    0.2158605009317398,
+    0.2158605009317398,
+    0.2158605009317398,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.6000000238418579,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/wave_wall_albedo.png",
+   "normal": "tex/wave_paint_normal.png",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "tex/wave_wall_roughness_mask.png",
+   "has_alpha": false,
+   "uv_index": 3
+  }
+ ],
+ "lights": [
+  {
+   "name": "LUZ_00",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 40.0,
+   "size": 0.550000011920929,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_01",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 40.0,
+   "size": 0.550000011920929,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_02",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 40.0,
+   "size": 0.550000011920929,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_03",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 40.0,
+   "size": 0.550000011920929,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_04",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 40.0,
+   "size": 0.550000011920929,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_05",
+   "type": "POINT",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 30.0,
+   "size": 0.0,
+   "size_y": 0.0,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_06",
+   "type": "POINT",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 30.0,
+   "size": 0.0,
+   "size_y": 0.0,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_07",
+   "type": "POINT",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 30.0,
+   "size": 0.0,
+   "size_y": 0.0,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_08",
+   "type": "POINT",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 30.0,
+   "size": 0.0,
+   "size_y": 0.0,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_09",
+   "type": "POINT",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 30.0,
+   "size": 0.0,
+   "size_y": 0.0,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_10",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9300000071525574,
+    0.8399999737739563
+   ],
+   "energy": 280.0,
+   "size": 1.399999976158142,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  },
+  {
+   "name": "LUZ_11",
+   "type": "AREA",
+   "color": [
+    1.0,
+    0.9599999785423279,
+    0.949999988079071
+   ],
+   "energy": 30.0,
+   "size": 3.5,
+   "size_y": 0.25,
+   "spot_deg": 0.0
+  }
+ ],
+ "cameras": [
+  {
+   "name": "CAM_00",
+   "lens_mm": 39.81829071044922,
+   "sensor_mm": 24.0
+  },
+  {
+   "name": "CAM_01",
+   "lens_mm": 39.81829071044922,
+   "sensor_mm": 24.0
+  }
+ ]
+}

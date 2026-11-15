@@ -1,0 +1,260 @@
+{
+ "materials": [
+  {
+   "name": "DREAM_TREE_Bark_DeepFissure",
+   "base_color": [
+    0.46000000834465027,
+    0.4699999988079071,
+    0.44999998807907104,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9599999785423279,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/bark_albedo.png",
+   "normal": "tex/bark_normal.png",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "tex/bark_roughness_mask.png",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_Bark_Limestone",
+   "base_color": [
+    0.7599999904632568,
+    0.7400000095367432,
+    0.6899999976158142,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9399999976158142,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/bark_albedo.png",
+   "normal": "tex/bark_normal.png",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "tex/bark_roughness_mask.png",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_Canopy_DeepPine",
+   "base_color": [
+    0.699999988079071,
+    0.7799999713897705,
+    0.6600000262260437,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9200000166893005,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/foliage_albedo.png",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_Canopy_Olive",
+   "base_color": [
+    0.7799999713897705,
+    0.8299999833106995,
+    0.6700000166893005,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9300000071525574,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/foliage_albedo.png",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_Canopy_Shadow",
+   "base_color": [
+    0.550000011920929,
+    0.6600000262260437,
+    0.5199999809265137,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9599999785423279,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/foliage_albedo.png",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_Hill_Grass",
+   "base_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9399999976158142,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/grass_albedo.png",
+   "normal": "tex/grass_normal.png",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "tex/grass_roughness_mask.png",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_RuntimeCanopyShadow",
+   "base_color": [
+    0.054999999701976776,
+    0.0949999988079071,
+    0.03500000014901161,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 1.0,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_ScaleFigure_OffWhite",
+   "base_color": [
+    0.7799999713897705,
+    0.800000011920929,
+    0.75,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.7200000286102295,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  },
+  {
+   "name": "DREAM_TREE_ScaleFigure_ShadowCloth",
+   "base_color": [
+    0.30000001192092896,
+    0.3400000035762787,
+    0.3100000023841858,
+    1.0
+   ],
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.8799999952316284,
+   "metallic": 0.0,
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "",
+   "normal": "",
+   "emission": "",
+   "alpha_map": "",
+   "mask": "",
+   "has_alpha": false,
+   "uv_index": 0
+  }
+ ],
+ "lights": [
+  {
+   "name": "LUZ_00",
+   "type": "SUN",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "energy": 3.5,
+   "size": 0.0,
+   "size_y": 0.0,
+   "spot_deg": 0.0
+  }
+ ],
+ "cameras": [
+  {
+   "name": "CAM_00",
+   "lens_mm": 28.0,
+   "sensor_mm": 24.0
+  }
+ ]
+}

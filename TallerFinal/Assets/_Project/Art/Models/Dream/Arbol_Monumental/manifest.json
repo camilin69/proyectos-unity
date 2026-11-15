@@ -1,0 +1,377 @@
+{
+ "source": "v51_monumental_tree.blend",
+ "materials": {
+  "DREAM_TREE_Bark_DeepFissure": {
+   "base_color": [
+    0.46000000834465027,
+    0.4699999988079071,
+    0.44999998807907104,
+    1.0
+   ],
+   "roughness": 0.9599999785423279,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/bark_albedo.png",
+   "normal": "tex/bark_normal.png",
+   "roughness_map": "tex/bark_roughness.png",
+   "uv_index": 0
+  },
+  "DREAM_TREE_Bark_Limestone": {
+   "base_color": [
+    0.7599999904632568,
+    0.7400000095367432,
+    0.6899999976158142,
+    1.0
+   ],
+   "roughness": 0.9399999976158142,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/bark_albedo.png",
+   "normal": "tex/bark_normal.png",
+   "roughness_map": "tex/bark_roughness.png",
+   "uv_index": 0
+  },
+  "DREAM_TREE_Canopy_DeepPine": {
+   "base_color": [
+    0.699999988079071,
+    0.7799999713897705,
+    0.6600000262260437,
+    1.0
+   ],
+   "roughness": 0.9200000166893005,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/foliage_albedo.png",
+   "uv_index": 0
+  },
+  "DREAM_TREE_Canopy_Olive": {
+   "base_color": [
+    0.7799999713897705,
+    0.8299999833106995,
+    0.6700000166893005,
+    1.0
+   ],
+   "roughness": 0.9300000071525574,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/foliage_albedo.png",
+   "uv_index": 0
+  },
+  "DREAM_TREE_Canopy_Shadow": {
+   "base_color": [
+    0.550000011920929,
+    0.6600000262260437,
+    0.5199999809265137,
+    1.0
+   ],
+   "roughness": 0.9599999785423279,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/foliage_albedo.png",
+   "uv_index": 0
+  },
+  "DREAM_TREE_Hill_Grass": {
+   "base_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.9399999976158142,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "albedo": "tex/grass_albedo.png",
+   "normal": "tex/grass_normal.png",
+   "roughness_map": "tex/grass_roughness.png",
+   "uv_index": 0
+  },
+  "DREAM_TREE_RuntimeCanopyShadow": {
+   "base_color": [
+    0.054999999701976776,
+    0.0949999988079071,
+    0.03500000014901161,
+    1.0
+   ],
+   "roughness": 1.0,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  },
+  "DREAM_TREE_ScaleFigure_OffWhite": {
+   "base_color": [
+    0.7799999713897705,
+    0.800000011920929,
+    0.75,
+    1.0
+   ],
+   "roughness": 0.7200000286102295,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  },
+  "DREAM_TREE_ScaleFigure_ShadowCloth": {
+   "base_color": [
+    0.30000001192092896,
+    0.3400000035762787,
+    0.3100000023841858,
+    1.0
+   ],
+   "roughness": 0.8799999952316284,
+   "metallic": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_strength": 0.0,
+   "alpha": 1.0,
+   "uv_index": 0
+  }
+ },
+ "lights": {
+  "LUZ_00": {
+   "type": "SUN",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "energy": 3.5,
+   "size": 0.0,
+   "size_y": 0.0,
+   "shape": "",
+   "spot_deg": 0.0,
+   "blender_name": "DREAM_Tree_Sun"
+  }
+ },
+ "cameras": {
+  "CAM_00": {
+   "lens_mm": 28.0,
+   "sensor_mm": 24.0,
+   "blender_name": "DREAM_Tree_ReferenceCamera"
+  }
+ },
+ "objects": {
+  "GEO-DREAM-tree-sloped-grass-hill": [
+   "DREAM_TREE_Hill_Grass"
+  ],
+  "GEO-DREAM-tree-main-trunk": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-primary-right-low": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-primary-left-low": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-primary-right-high": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-primary-left-high": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-crown-center": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-outer-right-droop": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-outer-left-fork": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-crossing-limb": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-00": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-01": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-02": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-03": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-04": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-05": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-06": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-07": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-08": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-09": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-10": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-11": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-12": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-13": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-14": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-15": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-16": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-17": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-18": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-19": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-20": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-21": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-22": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-23": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-24": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-secondary-twig-25": [
+   "DREAM_TREE_Bark_DeepFissure"
+  ],
+  "GEO-DREAM-tree-buttress-root-00": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-01": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-02": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-03": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-04": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-05": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-06": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-07": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-buttress-root-08": [
+   "DREAM_TREE_Bark_Limestone"
+  ],
+  "GEO-DREAM-tree-canopy-leaf-masses": [
+   "DREAM_TREE_Canopy_DeepPine",
+   "DREAM_TREE_Canopy_Olive",
+   "DREAM_TREE_Canopy_Shadow"
+  ],
+  "GEO-DREAM-tree-grass-blades": [
+   "DREAM_TREE_Hill_Grass"
+  ],
+  "GEO-DREAM-tree-distant-person-head": [
+   "DREAM_TREE_ScaleFigure_OffWhite"
+  ],
+  "GEO-DREAM-tree-distant-person-body": [
+   "DREAM_TREE_ScaleFigure_OffWhite"
+  ],
+  "GEO-DREAM-tree-distant-person-left-leg": [
+   "DREAM_TREE_ScaleFigure_ShadowCloth"
+  ],
+  "GEO-DREAM-tree-distant-person-right-leg": [
+   "DREAM_TREE_ScaleFigure_ShadowCloth"
+  ],
+  "GEO-DREAM-tree-distant-person-left-arm": [
+   "DREAM_TREE_ScaleFigure_OffWhite"
+  ],
+  "GEO-DREAM-tree-distant-person-right-arm": [
+   "DREAM_TREE_ScaleFigure_OffWhite"
+  ],
+  "GEO-DREAM-tree-runtime-canopy-shadow": [
+   "DREAM_TREE_RuntimeCanopyShadow"
+  ]
+ }
+}

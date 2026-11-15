@@ -8,25 +8,27 @@ namespace Dream.Audio
     {
         const int Rate = 48000;
 
+        // Campanilla del recuerdo: suave y tranquila. Una nota grave de campana de vidrio (pocos parciales, caida lenta),
+        // un ataque que entra sin golpe y una segunda nota una quinta arriba, mas baja. La reverb y el eco los pone la
+        // fuente de efectos.
         public static AudioClip Chime()
         {
-            float len = 3.2f;
+            float len = 5f;
             int n = (int)(Rate * len);
             var data = new float[n];
-            float[] partials = { 1f, 2.76f, 5.40f, 8.93f, 13.34f };
-            float[] amps = { 0.55f, 0.28f, 0.16f, 0.09f, 0.05f };
-            float[] decay = { 1.2f, 1.9f, 2.8f, 3.9f, 5.2f };
-            float f0 = 880f;
+            float[] partials = { 1f, 2.0f, 3.0f };
+            float[] amps = { 0.6f, 0.18f, 0.06f };
+            float[] decay = { 0.7f, 1.1f, 1.8f };
+            float f0 = 523.25f;                              // do5: mas grave y dulce que antes
             for (int i = 0; i < n; i++)
             {
                 float t = i / (float)Rate, s = 0f;
                 for (int p = 0; p < partials.Length; p++)
                     s += amps[p] * Mathf.Sin(2f * Mathf.PI * f0 * partials[p] * t) * Mathf.Exp(-decay[p] * t);
-                // segunda campana una quinta arriba, un poco despues: suena a recuerdo, no a alarma
-                float t2 = t - 0.18f;
-                if (t2 > 0f) s += 0.35f * Mathf.Sin(2f * Mathf.PI * f0 * 1.5f * t2) * Mathf.Exp(-1.6f * t2);
-                float attack = Mathf.Clamp01(t / 0.004f);
-                data[i] = s * attack * 0.45f;
+                float t2 = t - 0.35f;
+                if (t2 > 0f) s += 0.22f * Mathf.Sin(2f * Mathf.PI * f0 * 1.5f * t2) * Mathf.Exp(-0.8f * t2) * Mathf.Clamp01(t2 / 0.05f);
+                float attack = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(t / 0.035f));
+                data[i] = s * attack * 0.3f;
             }
             var clip = AudioClip.Create("Chime", n, 1, Rate, false);
             clip.SetData(data, 0);
