@@ -1,0 +1,335 @@
+{
+  "generated_utc": "2026-09-19T12:22:18.691326+00:00",
+  "criterion": "Metallic > 242/255 and max(BaseColor RGB) < 8/255; flag >10% of at least 100 metallic texels. Not an acceptance test.",
+  "assets": [
+    {
+      "asset": "BOT-01_Vigia",
+      "metal_texels": 217900,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "BOT-02_Custodio",
+      "metal_texels": 125212,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "BOT-03_Archivista",
+      "metal_texels": 94403,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "CHR-01_Arms",
+      "metal_texels": 0,
+      "black_metal_texels": 0,
+      "black_fraction": null,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-001_Criocamara",
+      "metal_texels": 110471,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-004_UnidadTermica",
+      "metal_texels": 106386,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-005_DepositoCriogenico",
+      "metal_texels": 168125,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-006_CarroSanitario",
+      "metal_texels": 116923,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-007_ArmarioPreparacion",
+      "metal_texels": 81704,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-008_BancoIndustrial",
+      "metal_texels": 1670,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-011_NucleoSellado",
+      "metal_texels": 87876,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-012_EscombrosConcreto",
+      "metal_texels": 0,
+      "black_metal_texels": 0,
+      "black_fraction": null,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-013_VigaDeformada",
+      "metal_texels": 91827,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-014_CortinaSanitaria",
+      "metal_texels": 45587,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-017_BancoTrabajo",
+      "metal_texels": 28475,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-018_Mordaza",
+      "metal_texels": 175395,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-019_TaladroFijo",
+      "metal_texels": 100760,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-023_BandejaPiezas",
+      "metal_texels": 227057,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-024_LockerSeguridad",
+      "metal_texels": 93295,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-025_ArmarioEscopeta",
+      "metal_texels": 92764,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-026_GabineteSuministros",
+      "metal_texels": 75660,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-028_EstanteriaIndustrial",
+      "metal_texels": 10461,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-029_Carro",
+      "metal_texels": 96878,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-030_ContenedorTecnico",
+      "metal_texels": 74042,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-031_BombaIndustrial",
+      "metal_texels": 52989,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-032_GeneradorLocal",
+      "metal_texels": 89692,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-034_ValvulaBridada",
+      "metal_texels": 160481,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-035_Extintor",
+      "metal_texels": 29794,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-036_SoldadorCarrito",
+      "metal_texels": 31821,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-037_Herramientas",
+      "metal_texels": 366341,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-038_MesaOficina",
+      "metal_texels": 19973,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-039_SillaUsada",
+      "metal_texels": 13932,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-041_Jaula",
+      "metal_texels": 25623,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-043_Camilla",
+      "metal_texels": 10839,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-047_SoporteFluidos",
+      "metal_texels": 99231,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-049_BandejaInstrumental",
+      "metal_texels": 475685,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-051_LavamanosIndustrial",
+      "metal_texels": 136896,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-052_RejillaDrenaje",
+      "metal_texels": 351991,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-059_Terminal",
+      "metal_texels": 36609,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-070_PuertaCorrediza",
+      "metal_texels": 26254,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "OBJ-072_RackControl",
+      "metal_texels": 12114,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "PRP-Ration",
+      "metal_texels": 0,
+      "black_metal_texels": 0,
+      "black_fraction": null,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "PRP-Syringe",
+      "metal_texels": 1648,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "WPN-01_Crowbar",
+      "metal_texels": 162198,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "WPN-02_Pistol",
+      "metal_texels": 350396,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "WPN-03_Shotgun",
+      "metal_texels": 251172,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    },
+    {
+      "asset": "WPN-04_Flashlight",
+      "metal_texels": 322094,
+      "black_metal_texels": 0,
+      "black_fraction": 0.0,
+      "status": "no broad black-metal issue detected"
+    }
+  ]
+}

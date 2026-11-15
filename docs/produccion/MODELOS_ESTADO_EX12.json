@@ -1,0 +1,1745 @@
+{
+  "OBJ-017": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-017_BancoTrabajo",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-017_BancoTrabajo.prefab",
+    "instances": [
+      "REG-S2/M023"
+    ],
+    "triangles": 4296,
+    "texture_sets": 1
+  },
+  "OBJ-018": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-018_Mordaza",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-018_Mordaza.prefab",
+    "instances": [],
+    "triangles": 2300,
+    "texture_sets": 1
+  },
+  "OBJ-028": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-028_EstanteriaIndustrial",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-028_EstanteriaIndustrial.prefab",
+    "instances": [
+      "REG-S2/M025",
+      "REG-S2/M030",
+      "REG-S2/M031"
+    ],
+    "triangles": 4104,
+    "texture_sets": 1
+  },
+  "OBJ-030": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-030_ContenedorTecnico",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-030_ContenedorTecnico.prefab",
+    "instances": [
+      "REG-S2/M022",
+      "REG-S2/M039"
+    ],
+    "triangles": 1732,
+    "texture_sets": 1
+  },
+  "OBJ-038": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-038_MesaOficina",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-038_MesaOficina.prefab",
+    "instances": [
+      "REG-S2/M027"
+    ],
+    "triangles": 1600,
+    "texture_sets": 1
+  },
+  "OBJ-039": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-039_SillaUsada",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-039_SillaUsada.prefab",
+    "instances": [
+      "REG-S2/M029"
+    ],
+    "triangles": 3856,
+    "texture_sets": 1
+  },
+  "OBJ-072": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-13/OBJ-072_RackControl",
+    "remaining": [
+      "desgaste localizado segun ficha",
+      "revision artistica con iluminacion final",
+      "LEDs y ventilacion vinculados a estados EVA",
+      "LOD y perfilado de filas de racks"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-072_RackControl.prefab",
+    "instances": [
+      "REG-S4/M063",
+      "REG-S4/M064"
+    ],
+    "triangles": 11280,
+    "texture_sets": 1
+  },
+  "OBJ-008": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-008_BancoIndustrial.prefab",
+    "evidence": "SourceArt/_evidence/EX-12/bench",
+    "instances": [
+      "REG-S1/M005",
+      "REG-S4/M068"
+    ],
+    "remaining": [
+      "aceptacion artistica en contexto de la direccion visual completa"
+    ],
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-008_BancoIndustrial/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-019": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-019_TaladroFijo",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-019_TaladroFijo.prefab",
+    "instances": [
+      "REG-S2/EX14_Drill"
+    ],
+    "triangles": 3056,
+    "texture_sets": 1
+  },
+  "OBJ-023": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-023_BandejaPiezas",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-023_BandejaPiezas.prefab",
+    "instances": [
+      "REG-S2/EX14_PartsTray"
+    ],
+    "triangles": 2668,
+    "texture_sets": 1
+  },
+  "OBJ-031": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-031_BombaIndustrial",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final",
+      "estado operativo, vibracion y audio segun ficha; conexiones exteriores de servicio"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-031_BombaIndustrial.prefab",
+    "instances": [
+      "REG-S2/EX14_ServicePump"
+    ],
+    "triangles": 5824,
+    "texture_sets": 1
+  },
+  "OBJ-032": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-032_GeneradorLocal",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final",
+      "estado operativo, vibracion y audio segun ficha; conexiones exteriores de servicio"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-032_GeneradorLocal.prefab",
+    "instances": [
+      "REG-S2/EX14_Generator"
+    ],
+    "triangles": 7300,
+    "texture_sets": 1
+  },
+  "OBJ-034": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-034_ValvulaBridada",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-034_ValvulaBridada.prefab",
+    "instances": [
+      "REG-S2/EX14_SpareValve"
+    ],
+    "triangles": 3096,
+    "texture_sets": 1
+  },
+  "OBJ-035": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-035_Extintor",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-035_Extintor.prefab",
+    "instances": [
+      "REG-S2/EX14_WallExtinguisher"
+    ],
+    "triangles": 3036,
+    "texture_sets": 1
+  },
+  "OBJ-036": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-036_SoldadorCarrito",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-036_SoldadorCarrito.prefab",
+    "instances": [
+      "REG-S2/EX14_Welder"
+    ],
+    "triangles": 4656,
+    "texture_sets": 1
+  },
+  "OBJ-037": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-14/OBJ-037_Herramientas",
+    "remaining": [
+      "desgaste localizado y variantes segun ficha",
+      "revision artistica con iluminacion final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-037_Herramientas.prefab",
+    "instances": [
+      "REG-S2/EX14_ToolSet"
+    ],
+    "triangles": 972,
+    "texture_sets": 1
+  },
+  "OBJ-005": {
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-005_DepositoCriogenico.prefab",
+    "instances": [
+      "REG-S1/M003_EX15"
+    ],
+    "triangles": 3388,
+    "remaining": [
+      "conexiones a la instalacion; acabado localizado",
+      "aceptacion artistica con iluminacion final"
+    ],
+    "texture_sets": 1,
+    "acceptance_proven": false,
+    "state": "Integrado",
+    "evidence": "SourceArt/_evidence/EX-15/OBJ-005_DepositoCriogenico"
+  },
+  "OBJ-006": {
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-006_CarroSanitario.prefab",
+    "instances": [
+      "REG-S1/Support_PICK-F01_EX15"
+    ],
+    "triangles": 5768,
+    "remaining": [
+      "dibujo del sol; desgaste y tolerancia dimensional",
+      "aceptacion artistica con iluminacion final"
+    ],
+    "texture_sets": 1,
+    "acceptance_proven": false,
+    "state": "Integrado",
+    "evidence": "SourceArt/_evidence/EX-15/OBJ-006_CarroSanitario"
+  },
+  "OBJ-014": {
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-014_CortinaSanitaria.prefab",
+    "instances": [],
+    "triangles": 15800,
+    "remaining": [
+      "montaje regional; costura superior; refinamiento de pliegues y LOD",
+      "aceptacion artistica con iluminacion final"
+    ],
+    "texture_sets": 1,
+    "acceptance_proven": false,
+    "state": "Prefab validado",
+    "evidence": "SourceArt/_evidence/EX-15/OBJ-014_CortinaSanitaria"
+  },
+  "BOT-01_Vigia": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/BOT-01_Vigia/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "BOT-02_Custodio": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/BOT-02_Custodio/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "BOT-03_Archivista": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/BOT-03_Archivista/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-001": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-001_Criocamara/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-029": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-029_Carro/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-041": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-041_Jaula/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-043": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-043_Camilla/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-059": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-059_Terminal/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-070": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/OBJ-070_PuertaCorrediza/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-002": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "series": "EX-49",
+    "source": "SourceArt/Blender/OBJ-002_CamaraVaciaDanada.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-002_CamaraVaciaDanada.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-002_CamaraVaciaDanada.prefab",
+    "triangles": 10676,
+    "texture_sets": 1,
+    "dimensions_m": [
+      2.7844,
+      1.15915,
+      1.08461
+    ],
+    "animation_clips": [
+      "Cryo_Damaged_Jam",
+      "Cryo_Damaged_Rest"
+    ],
+    "evidence": "SourceArt/_evidence/EX-49/OBJ-002_CamaraVaciaDanada",
+    "instances": [
+      "REG-S1/M011"
+    ],
+    "remaining": [
+      "validación visual dentro de REG-S1 con iluminación final",
+      "revisión de contacto físico de fragmentos grandes"
+    ]
+  },
+  "PRP-Syringe": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/PRP-Syringe/repair.json",
+      "fbx_unchanged": true
+    },
+    "model_sheet_id": "OBJ-056",
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "series": "EX-48",
+    "source": "SourceArt/Blender/PRP-Syringe.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/PRP-Syringe.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Weapons/PRP-Syringe.prefab",
+    "triangles": 988,
+    "texture_sets": 1,
+    "dimensions_m": [
+      0.032,
+      0.15,
+      0.026
+    ],
+    "evidence": "SourceArt/_evidence/EX-48/PRP-Syringe",
+    "remaining": [
+      "validación visual final de mano y brazo",
+      "montaje clínico definitivo para parte de H01-H12"
+    ]
+  },
+  "WPN-01_Crowbar": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/WPN-01_Crowbar/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "WPN-02_Pistol": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/WPN-02_Pistol/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "WPN-03_Shotgun": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/WPN-03_Shotgun/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "WPN-04_Flashlight": {
+    "albedo_repair": {
+      "series": "EX-16",
+      "evidence": "SourceArt/_evidence/EX-16/WPN-04_Flashlight/repair.json",
+      "fbx_unchanged": true
+    }
+  },
+  "OBJ-007": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-17/OBJ-007_ArmarioPreparacion",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-007_ArmarioPreparacion.prefab",
+    "triangles": 5368,
+    "texture_sets": 1,
+    "instances": [
+      "REG-S1/CAB-M006-0",
+      "REG-S1/CAB-M006-1",
+      "REG-S1/CAB-M006-2"
+    ],
+    "remaining": [
+      "sonidos de bisagra y cierre",
+      "desgaste y rotulacion final",
+      "aceptacion artistica con iluminacion final"
+    ]
+  },
+  "OBJ-024": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-17/OBJ-024_LockerSeguridad",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-024_LockerSeguridad.prefab",
+    "triangles": 5128,
+    "texture_sets": 1,
+    "instances": [
+      "REG-S2/CAB-PICK-W02"
+    ],
+    "remaining": [
+      "sonidos de bisagra y cierre",
+      "desgaste y rotulacion final",
+      "aceptacion artistica con iluminacion final"
+    ]
+  },
+  "OBJ-025": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-17/OBJ-025_ArmarioEscopeta",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-025_ArmarioEscopeta.prefab",
+    "triangles": 6028,
+    "texture_sets": 1,
+    "instances": [
+      "REG-S3/CAB-PICK-W03"
+    ],
+    "remaining": [
+      "sonidos de bisagra y cierre",
+      "desgaste y rotulacion final",
+      "aceptacion artistica con iluminacion final"
+    ]
+  },
+  "OBJ-026": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-17/OBJ-026_GabineteSuministros",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-026_GabineteSuministros.prefab",
+    "triangles": 6596,
+    "texture_sets": 1,
+    "instances": [
+      "REG-S4/CAB-CP06"
+    ],
+    "remaining": [
+      "sonidos de bisagra y cierre",
+      "desgaste y rotulacion final",
+      "aceptacion artistica con iluminacion final",
+      "stock visual segun estado del refugio CP-06"
+    ]
+  },
+  "OBJ-004": {
+    "remaining": [
+      "desgaste localizado y etiquetas legibles",
+      "revision artistica con iluminacion final",
+      "colocacion regional y conexiones externas",
+      "audio localizado"
+    ],
+    "acceptance_proven": false,
+    "triangles": 6136,
+    "instances": [],
+    "evidence": "SourceArt/_evidence/EX-19/OBJ-004_UnidadTermica",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-004_UnidadTermica.prefab",
+    "state": "Prefab validado",
+    "texture_sets": 1
+  },
+  "OBJ-011": {
+    "remaining": [
+      "desgaste localizado y etiquetas legibles",
+      "revision artistica con iluminacion final",
+      "colocacion regional y conexiones externas",
+      "audio localizado"
+    ],
+    "acceptance_proven": false,
+    "triangles": 3004,
+    "instances": [],
+    "evidence": "SourceArt/_evidence/EX-19/OBJ-011_NucleoSellado",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-011_NucleoSellado.prefab",
+    "state": "Prefab validado",
+    "texture_sets": 1
+  },
+  "OBJ-013": {
+    "remaining": [
+      "desgaste localizado y etiquetas legibles",
+      "revision artistica con iluminacion final",
+      "montaje con derrumbe OBJ-012"
+    ],
+    "acceptance_proven": false,
+    "triangles": 2121,
+    "instances": [
+      "REG-S1/M014"
+    ],
+    "evidence": "SourceArt/_evidence/EX-19/OBJ-013_VigaDeformada",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-013_VigaDeformada.prefab",
+    "state": "Integrado",
+    "texture_sets": 1
+  },
+  "OBJ-012": {
+    "triangles": 6252,
+    "acceptance_proven": false,
+    "texture_sets": 1,
+    "evidence": "SourceArt/_evidence/EX-20/OBJ-012_EscombrosConcreto",
+    "remaining": [
+      "polvo breve al caer",
+      "contactos y variedad fina de fractura",
+      "causa visible en muro o techo y relacion con M014",
+      "revision artistica y recorrido completo de la varilla"
+    ],
+    "state": "Integrado",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-012_EscombrosConcreto.prefab",
+    "instances": [
+      "REG-S1/M013"
+    ]
+  },
+  "OBJ-047": {
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-21/OBJ-047_SoporteFluidos",
+    "triangles": 4684,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-047_SoporteFluidos.prefab",
+    "remaining": [
+      "desgaste localizado y revision artistica final",
+      "optimizar geometria a presupuesto y LOD",
+      "ajustar atlas a objetivo 512",
+      "conectar bomba OBJ-046"
+    ],
+    "texture_sets": 1,
+    "state": "Integrado",
+    "instances": [
+      "REG-S3/Clinic_FluidStand_EX21"
+    ]
+  },
+  "OBJ-049": {
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-21/OBJ-049_BandejaInstrumental",
+    "triangles": 1588,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-049_BandejaInstrumental.prefab",
+    "remaining": [
+      "desgaste localizado y revision artistica final",
+      "ajustar atlas a objetivo 512"
+    ],
+    "texture_sets": 1,
+    "state": "Integrado",
+    "instances": [
+      "REG-S3/M059_Tray_0",
+      "REG-S3/M059_Tray_1"
+    ]
+  },
+  "OBJ-051": {
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-21/OBJ-051_LavamanosIndustrial",
+    "triangles": 3232,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-051_LavamanosIndustrial.prefab",
+    "remaining": [
+      "desgaste localizado y revision artistica final",
+      "optimizar geometria a presupuesto y LOD",
+      "humedad y audio si se activa suministro"
+    ],
+    "texture_sets": 1,
+    "state": "Integrado",
+    "instances": [
+      "REG-S3/Clinic_Sink_EX21"
+    ]
+  },
+  "OBJ-052": {
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-21/OBJ-052_RejillaDrenaje",
+    "triangles": 772,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-052_RejillaDrenaje.prefab",
+    "remaining": [
+      "desgaste localizado y revision artistica final",
+      "ajustar atlas a objetivo 512",
+      "abrir hueco visual en suelo conservando colision caminable"
+    ],
+    "texture_sets": 1,
+    "state": "Integrado",
+    "instances": [
+      "REG-S3/Clinic_Drain_EX21"
+    ]
+  },
+  "OBJ-045": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-22/OBJ-045_MonitorBiometrico",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-045_MonitorBiometrico.prefab",
+    "instances": [
+      "REG-S3/M044_MonitorCart"
+    ],
+    "triangles": 1840,
+    "texture_sets": 1,
+    "remaining": [
+      "desgaste localizado y revision artistica con iluminacion final",
+      "integracion con sujetos clinicos cuando existan"
+    ]
+  },
+  "OBJ-046": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-22/OBJ-046_BombaPerfusion",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-046_BombaPerfusion.prefab",
+    "instances": [
+      "REG-S3/Clinic_FluidStand_EX21/Clinic_Perfusion_EX22"
+    ],
+    "triangles": 1820,
+    "texture_sets": 1,
+    "remaining": [
+      "desgaste localizado y revision artistica con iluminacion final",
+      "integracion con sujetos clinicos cuando existan",
+      "profundidad total con abrazadera 0.207 m frente a referencia nominal 0.15 m; validar montaje y sonido en recorrido"
+    ]
+  },
+  "OBJ-048": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-23/OBJ-048_LamparaClinica",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-048_LamparaClinica.prefab",
+    "instances": [
+      "REG-S3/M056_ClinicalLamp",
+      "REG-S3/M057_ClinicalLamp"
+    ],
+    "triangles": 1912,
+    "texture_sets": 1,
+    "remaining": [
+      "desgaste localizado de grips y revision artistica final",
+      "calibrar iluminacion final con sujetos y brazo clinico"
+    ],
+    "mount_evidence": "SourceArt/_evidence/EX-25"
+  },
+  "OBJ-053": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-23/OBJ-053_Biombo",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-053_Biombo.prefab",
+    "instances": [],
+    "triangles": 1480,
+    "texture_sets": 1,
+    "remaining": [
+      "componer mampara M058 de cinco metros sin estirar ruedas ni tela",
+      "revision de cobertura y navegacion en escena",
+      "desgaste localizado de borde y tela"
+    ]
+  },
+  "OBJ-044": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-24/OBJ-044_MesaProcedimientos",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-044_MesaProcedimientos.prefab",
+    "instances": [
+      "REG-S3/M056_OBJ-044",
+      "REG-S3/M057_OBJ-044"
+    ],
+    "triangles": 3468,
+    "texture_sets": 1,
+    "remaining": [
+      "prueba de alcance de brazo clinico con sujetos finales",
+      "sujetos y manta con contactos correctos",
+      "ajuste autorado y audio cuando se implemente la escena",
+      "desgaste localizado y revision artistica final",
+      "recorrido y navegacion de enemigos en entorno final"
+    ]
+  },
+  "OBJ-076": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-25/OBJ-076_ColumnaServicios",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-076_ColumnaServicios.prefab",
+    "instances": [
+      "REG-S3/M056_Services_EX25",
+      "REG-S3/M057_Services_EX25"
+    ],
+    "triangles": 2124,
+    "texture_sets": 1,
+    "remaining": [
+      "variante de 9 m cuando el montaje lo requiera",
+      "sustituir atlas por tiling/trim si densidad cercana no alcanza",
+      "desgaste humedo localizado en base",
+      "prueba de jefe/proyectiles y recorrido jugable final"
+    ]
+  },
+  "OBJ-050": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-26/OBJ-050_BrazoClinico",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-050_BrazoClinico.prefab",
+    "instances": [
+      "REG-S3/M056_ClinicalArm",
+      "REG-S3/M057_ClinicalArm"
+    ],
+    "triangles": 1380,
+    "texture_sets": 1,
+    "remaining": [
+      "validar recorrido con sujetos y mantas finales",
+      "desgaste localizado de herramienta y revision artistica",
+      "escucha del servo en mezcla final",
+      "clip FBX no incluido: movimiento autorado en componente Unity"
+    ]
+  },
+  "OBJ-040": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-27/OBJ-040_TazaTermo",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-040_TazaTermo.prefab",
+    "instances": [
+      "REG-S2/M027_CupThermos"
+    ],
+    "triangles": 1208,
+    "texture_sets": 1,
+    "remaining": [
+      "revision artistica de mancha y materiales con iluminacion final"
+    ],
+    "variants": [
+      {
+        "asset": "OBJ-040B_TazaTermoRota",
+        "state": "Prefab validado",
+        "triangles": 1208,
+        "texture_size": 512,
+        "evidence": "SourceArt/_evidence/EX-27/OBJ-040B_TazaTermoRota"
+      }
+    ],
+    "source_files": [
+      "SourceArt/Blender/OBJ-040_TazaTermo.blend",
+      "SourceArt/Blender/OBJ-040B_TazaTermoRota.blend"
+    ]
+  },
+  "OBJ-058": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-27/OBJ-058_AtrilAdmision",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-058_AtrilAdmision.prefab",
+    "instances": [
+      "REG-S3/DOC06_AdmissionLectern"
+    ],
+    "triangles": 540,
+    "texture_sets": 1,
+    "remaining": [
+      "click contextual y lectura con pausa segun ficha",
+      "revision de desgaste localizado en zona de manos"
+    ]
+  },
+  "OBJ-063": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-27/OBJ-063_PizarraTurnos",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-063_PizarraTurnos.prefab",
+    "instances": [
+      "REG-S3/Admission_ShiftBoard"
+    ],
+    "triangles": 476,
+    "texture_sets": 1,
+    "remaining": [
+      "borrado parcial y polvo protegido bajo nota",
+      "revision con iluminacion final"
+    ]
+  },
+  "OBJ-064": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-27/OBJ-064_ContenedorClinico",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-064_ContenedorClinico.prefab",
+    "instances": [
+      "REG-S3/Clinic_WasteContainer"
+    ],
+    "triangles": 1168,
+    "texture_sets": 1,
+    "remaining": [
+      "desgaste localizado de uso reciente",
+      "revisar recorrido final junto a drenaje"
+    ]
+  },
+  "OBJ-010": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-28/OBJ-010_FusibleModulo",
+    "remaining": [
+      "lectura final del serial con linterna a distancia de juego",
+      "revision artistica final del desgaste"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-010_FusibleModulo.prefab",
+    "instances": [
+      "REG-S1/ServicePanel_EX29/2 modules"
+    ],
+    "triangles": 360,
+    "texture_sets": 1,
+    "texture_resolution": 512
+  },
+  "OBJ-009": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-29/OBJ-009_TableroAntiguo",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-009_TableroAntiguo.prefab",
+    "instances": [
+      "REG-S1/ServicePanel_EX29"
+    ],
+    "triangles": 1452,
+    "composition_triangles": 2204,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "ruta fisica de cable hasta contacto D06",
+      "polvo y dedos localizados; reparar manchado difuso interior",
+      "mezcla rele/contacto y lectura con linterna",
+      "recorrido completo en primera persona"
+    ]
+  },
+  "OBJ-033": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-30/OBJ-033_CuadroDistribucion",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-033_CuadroDistribucion.prefab",
+    "instances": [
+      "REG-S2/DistributionPanel_EX30"
+    ],
+    "triangles": 2948,
+    "composition_triangles": 2980,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "conexion visible hacia equipos y luminaria",
+      "desgaste localizado de manija",
+      "mezcla sonora contactor/compuerta",
+      "recorrido completo en primera persona"
+    ]
+  },
+  "OBJ-065": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-31/OBJ-065_AltavozMegafonia",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-065_AltavozMegafonia.prefab",
+    "source_files": [
+      "SourceArt/Blender/OBJ-065_AltavozMegafonia.blend"
+    ],
+    "instances": [
+      "REG-C1/OBJ-065_Altavoz"
+    ],
+    "triangles": 648,
+    "texture_sets": 1,
+    "texture_resolution": 512,
+    "remaining": [
+      "audicion completa con D06 cerrada/abierta, filtro y reverberacion",
+      "revision de subtitulos en recorrido con jugador",
+      "desgaste localizado"
+    ]
+  },
+  "OBJ-066": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-31/OBJ-066_LuminariaTecnica",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-066_LuminariaTecnica.prefab",
+    "source_files": [
+      "SourceArt/Blender/OBJ-066_LuminariaTecnica.blend"
+    ],
+    "instances": [
+      "REG-S1/Fixture_EX31_Circ_P01-ESPINA",
+      "REG-S1/Fixture_EX31_Lum_S1-R03_0",
+      "REG-S1/Fixture_EX31_Lum_S1-R03_1",
+      "REG-S1/Fixture_EX31_Lum_S1-R04_0",
+      "REG-S1/Fixture_EX31_Circ_P02-ESPINA",
+      "REG-S1/Fixture_EX31_Circ_P02-GAL",
+      "REG-S2/Fixture_EX31_Lum_S2-R01_0",
+      "REG-S2/Fixture_EX31_Lum_S2-R01_1",
+      "REG-S2/Fixture_EX31_Lum_S2-R01_2",
+      "REG-S2/Fixture_EX31_Lum_S2-R06_0",
+      "REG-S2/Fixture_EX31_Lum_S2-R06_1",
+      "REG-S2/Fixture_EX31_Lum_S2-R06_2",
+      "REG-S2/Fixture_EX31_Lum_S2-R03_0",
+      "REG-S2/Fixture_EX31_Circ_P03-ESPINA",
+      "REG-S2/Fixture_EX31_Circ_P03-ENT",
+      "REG-S2/Fixture_EX31_Circ_P03-ESC",
+      "REG-S2/Fixture_EX31_Lum_S2-R02_0",
+      "REG-S2/Fixture_EX31_Lum_S2-R02_1",
+      "REG-S2/Fixture_EX31_Lum_S2-R02_2",
+      "REG-S2/Fixture_EX31_Lum_S2-R04_0",
+      "REG-S2/Fixture_EX31_Lum_S2-R04_1",
+      "REG-S2/Fixture_EX31_Lum_S2-R04_2",
+      "REG-S2/Fixture_EX31_Lum_S2-R05_0",
+      "REG-S2/Fixture_EX31_Circ_P04-GAL",
+      "REG-S2/Fixture_EX31_Circ_P04-SUR",
+      "REG-S3/Fixture_EX31_Lum_S3-R02A_0",
+      "REG-S3/Fixture_EX31_Lum_S3-R02A_1",
+      "REG-S3/Fixture_EX31_Lum_S3-R02A_2",
+      "REG-S3/Fixture_EX31_Lum_S3-R02B_0",
+      "REG-S3/Fixture_EX31_Lum_S3-R02B_1",
+      "REG-S3/Fixture_EX31_Lum_S3-R02B_2",
+      "REG-S3/Fixture_EX31_Lum_S3-R05_0",
+      "REG-S3/Fixture_EX31_Lum_S3-R05_1",
+      "REG-S3/Fixture_EX31_Lum_S3-R01_0",
+      "REG-S3/Fixture_EX31_Lum_S3-R01_1",
+      "REG-S3/Fixture_EX31_Lum_S3-R01_2",
+      "REG-S3/Fixture_EX31_Lum_S3-R03_0",
+      "REG-S3/Fixture_EX31_Lum_S3-R03_1",
+      "REG-S3/Fixture_EX31_Lum_S3-R03_2",
+      "REG-S3/Fixture_EX31_Lum_S3-R04_0",
+      "REG-S3/Fixture_EX31_Lum_S3-R04_1",
+      "REG-S3/Fixture_EX31_Circ_P05-GAL",
+      "REG-S3/Fixture_EX31_Circ_P05-JAU",
+      "REG-S3/Fixture_EX31_Circ_P05-SO",
+      "REG-S3/Fixture_EX31_Circ_P05-SE",
+      "REG-S4/Fixture_EX31_Lum_S4-R05_0",
+      "REG-S4/Fixture_EX31_Lum_S4-R05_1",
+      "REG-S4/Fixture_EX31_Lum_S4-R05_2",
+      "REG-S4/Fixture_EX31_Lum_S4-R03_0",
+      "REG-S4/Fixture_EX31_Lum_S4-R03_1",
+      "REG-S4/Fixture_EX31_Lum_S4-R03_2",
+      "REG-S4/Fixture_EX31_Lum_S4-R04_0",
+      "REG-S4/Fixture_EX31_Lum_S4-R04_1",
+      "REG-S4/Fixture_EX31_Lum_S4-R02_0",
+      "REG-S4/Fixture_EX31_Lum_S4-R01_0",
+      "REG-S4/Fixture_EX31_Lum_S4-R01_1",
+      "REG-S4/Fixture_EX31_Circ_P06-GAL"
+    ],
+    "triangles": 532,
+    "texture_sets": 1,
+    "texture_resolution": 512,
+    "remaining": [
+      "resolver coherencia de sombras y punto brillante del techo",
+      "montaje Circ_P01-ESC sin techo detectado",
+      "revision artistica regional con jugador"
+    ]
+  },
+  "OBJ-067": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-31/OBJ-067_LamparaEmergencia",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-067_LamparaEmergencia.prefab",
+    "source_files": [
+      "SourceArt/Blender/OBJ-067_LamparaEmergencia.blend"
+    ],
+    "instances": [],
+    "triangles": 241,
+    "texture_sets": 1,
+    "texture_resolution": 512,
+    "remaining": [
+      "colocacion y orientacion regional",
+      "rotulo de servicio y desgaste localizado",
+      "validar comportamiento de emergencia segun ficha"
+    ]
+  },
+  "OBJ-068": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-31/OBJ-068_BandejaCables2m",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-068_BandejaCables2m.prefab",
+    "source_files": [
+      "SourceArt/Blender/OBJ-068_BandejaCables2m.blend",
+      "SourceArt/Blender/OBJ-068B_BandejaCables4m.blend"
+    ],
+    "instances": [],
+    "triangles": 452,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "material tiling compartido: actualmente atlas por asset",
+      "rutas regionales, uniones y terminaciones",
+      "polvo localizado"
+    ],
+    "variants": [
+      {
+        "asset": "OBJ-068B_BandejaCables4m",
+        "triangles": 572,
+        "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-068B_BandejaCables4m.prefab"
+      }
+    ]
+  },
+  "OBJ-069": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-31/OBJ-069_Conducto2m",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-069_Conducto2m.prefab",
+    "source_files": [
+      "SourceArt/Blender/OBJ-069_Conducto2m.blend",
+      "SourceArt/Blender/OBJ-069B_Conducto4m.blend",
+      "SourceArt/Blender/OBJ-069C_RejillaTerminal.blend"
+    ],
+    "instances": [],
+    "triangles": 800,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "material tiling compartido: actualmente atlas por asset",
+      "rutas regionales y remates",
+      "audio, particulas o vibracion donde lo exija la ficha"
+    ],
+    "variants": [
+      {
+        "asset": "OBJ-069B_Conducto4m",
+        "triangles": 848,
+        "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-069B_Conducto4m.prefab"
+      },
+      {
+        "asset": "OBJ-069C_RejillaTerminal",
+        "triangles": 584,
+        "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-069C_RejillaTerminal.prefab"
+      }
+    ]
+  },
+  "OBJ-061": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-32/OBJ-061_CamaraVigilancia",
+    "source_files": [
+      "SourceArt/Blender/OBJ-061_CamaraVigilancia.blend",
+      "SourceArt/Blender/OBJ-061B_CamaraVigilanciaDanada.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-061_CamaraVigilancia.prefab",
+    "instances": [],
+    "triangles": 1540,
+    "mesh_count": 2,
+    "texture_sets": 1,
+    "texture_resolution": 512,
+    "variants": [
+      {
+        "asset": "OBJ-061B_CamaraVigilanciaDanada",
+        "triangles": 1382,
+        "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-061B_CamaraVigilanciaDanada.prefab"
+      }
+    ],
+    "remaining": [
+      "posiciones y orientaciones regionales compatibles con puntos ciegos",
+      "validar lore: no observar sotano antes de deteccion",
+      "giro lento y servo solo en unidades activas definidas; revisar cable durante movimiento",
+      "desgaste localizado y recorrido con jugador"
+    ]
+  },
+  "OBJ-027": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-33",
+    "source_files": [
+      "SourceArt/Blender/OBJ-027_CajaMunicionPistola.blend",
+      "SourceArt/Blender/OBJ-027B_CajaMunicionEscopeta.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-027_CajaMunicionPistola.prefab",
+    "instances": [
+      "REG-S2/A01_AmmoCase_EX33",
+      "REG-S2/A02_AmmoCase_EX33",
+      "REG-S2/A03_AmmoCase_EX33",
+      "REG-S2/A04_AmmoCase_EX33",
+      "REG-S2/A05_AmmoCase_EX33",
+      "REG-S3/A06_AmmoCase_EX33",
+      "REG-S3/A07_AmmoCase_EX33",
+      "REG-S3/A08_AmmoCase_EX33",
+      "REG-S3/A09_AmmoCase_EX33",
+      "REG-S3/A10_AmmoCase_EX33",
+      "REG-S3/S01_AmmoCase_EX33",
+      "REG-S3/S02_AmmoCase_EX33",
+      "REG-S3/S03_AmmoCase_EX33",
+      "REG-S3/S04_AmmoCase_EX33",
+      "REG-S3/S05_AmmoCase_EX33",
+      "REG-S3/S06_AmmoCase_EX33",
+      "REG-S4/A11_AmmoCase_EX33",
+      "REG-S4/A12_AmmoCase_EX33",
+      "REG-S4/S07_AmmoCase_EX33",
+      "REG-S4/S08_AmmoCase_EX33",
+      "REG-S4/S09_AmmoCase_EX33",
+      "REG-S4/S10_AmmoCase_EX33"
+    ],
+    "triangles": 988,
+    "mesh_count": 2,
+    "texture_sets": 1,
+    "texture_resolution": 512,
+    "variants": [
+      {
+        "asset": "OBJ-027B_CajaMunicionEscopeta",
+        "triangles": 812,
+        "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-027B_CajaMunicionEscopeta.prefab"
+      }
+    ],
+    "remaining": [
+      "sustituir soportes placeholder por muebles definitivos",
+      "desgaste localizado en cierre y asa",
+      "firma sonora breve de recogida",
+      "recorrido completo con jugador e iluminacion final"
+    ]
+  },
+  "NAV-01": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-01_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-01_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-01_Orientacion",
+    "instances": [
+      "REG-S1/Wayfinding_EX34/NAV-01"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "NAV-02": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-02_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-02_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-02_Orientacion",
+    "instances": [
+      "REG-S1/Wayfinding_EX34/NAV-02"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "NAV-03": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-03_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-03_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-03_Orientacion",
+    "instances": [
+      "REG-S2/Wayfinding_EX34/NAV-03"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "NAV-04": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-04_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-04_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-04_Orientacion",
+    "instances": [
+      "REG-S2/Wayfinding_EX34/NAV-04"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "NAV-05": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-05_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-05_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-05_Orientacion",
+    "instances": [
+      "REG-S3/Wayfinding_EX34/NAV-05"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "NAV-06": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-06_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-06_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-06_Orientacion",
+    "instances": [
+      "REG-S3/Wayfinding_EX34/NAV-06"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "NAV-07": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/NAV-07_Orientacion.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-07_Orientacion.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/NAV-07_Orientacion",
+    "instances": [
+      "REG-S4/Wayfinding_EX34/NAV-07"
+    ],
+    "triangles": 380,
+    "composition_triangles": 428,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "senales de confirmacion 3-5 m despues de cada eleccion",
+      "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+      "desgaste localizado por fijaciones",
+      "completar placas de conectores y autorizaciones A/B segun seccion 87"
+    ]
+  },
+  "OBJ-016": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/OBJ-016_PlacaEmergencia.blend"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-016_PlacaEmergencia.prefab",
+    "evidence": "SourceArt/_evidence/EX-34/OBJ-016_PlacaEmergencia",
+    "instances": [
+      "REG-S1/Wayfinding_EX34/D06_IsolationPlate"
+    ],
+    "triangles": 204,
+    "texture_sets": 1,
+    "texture_resolution": 1024,
+    "remaining": [
+      "desgaste localizado y lectura con iluminacion final",
+      "restantes placas de emergencia/autorizaciones segun sala; esta variante cubre D06"
+    ]
+  },
+  "OBJ-057": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-35/OBJ-057_RacionSellada",
+    "triangles": 788,
+    "texture_sets": 1,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-057_RacionSellada.prefab",
+    "instances": [
+      "REG-S1/R01",
+      "REG-S2/R02",
+      "REG-S2/R03",
+      "REG-S3/R04",
+      "REG-S3/R05",
+      "REG-S4/R06"
+    ],
+    "remaining": [
+      "clip propio de apertura y uso; ViewmodelController usa Arms_Syringe tambien para racion",
+      "sonido de envoltura",
+      "soportes definitivos de mobiliario",
+      "recorrido de jugador e iluminacion final"
+    ]
+  },
+  "OBJ-062": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/OBJ-062_PlacaSujeto.blend",
+      "SourceArt/Blender/OBJ-062B_PlacaSujeto.blend",
+      "SourceArt/Blender/OBJ-062C_PlacaSujeto.blend",
+      "SourceArt/Blender/OBJ-062D_PlacaSujeto.blend",
+      "SourceArt/Blender/OBJ-062E_PlacaSujeto.blend"
+    ],
+    "evidence": "SourceArt/_evidence/EX-36",
+    "triangles": 316,
+    "texture_sets": 1,
+    "instances": [
+      "REG-S3/M041",
+      "REG-S3/M042",
+      "REG-S3/M046",
+      "REG-S3/M047",
+      "REG-S3/M048"
+    ],
+    "remaining": [
+      "humanos definitivos y vinculo de identidad",
+      "recorrido de lectura con iluminacion final",
+      "revisar montaje cuando se actualicen las jaulas"
+    ]
+  },
+  "OBJ-079": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-37/OBJ-079_VentiladorIndustrial",
+    "triangles": 3624,
+    "texture_sets": 1,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-079_VentiladorIndustrial.prefab",
+    "remaining": [
+      "montaje regional con ducto y anclajes",
+      "audio de aire y motor",
+      "LOD geometrico y perfil de rendimiento",
+      "aliasing temporal en recorrido e iluminacion final",
+      "polvo y desgaste localizado"
+    ]
+  },
+  "OBJ-021": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-38/OBJ-021_PlataformaRobot",
+    "triangles": 2916,
+    "texture_sets": 1,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-021_PlataformaRobot.prefab",
+    "assembly_prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/RobotMaintenance_EX38.prefab",
+    "remaining": [
+      "montaje M024: reconciliar huella 2x2 con plataforma 2.6m",
+      "contacto individual de apoyos y ajuste de mordazas",
+      "acoplar conexiones al robot",
+      "brazo OBJ-020 y audio de reparacion",
+      "desgaste e iluminacion finales"
+    ]
+  },
+  "OBJ-022": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-39/OBJ-022_CabezaCustodioAntigua",
+    "triangles": 2048,
+    "texture_sets": 1,
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-022_CabezaCustodioAntigua.prefab",
+    "instances": [
+      "REG-S2/M023_EX13/LegacyHead_EX39"
+    ],
+    "remaining": [
+      "poster de modelo anterior",
+      "desgaste localizado y recorrido con iluminacion final",
+      "consolidar atlas compartido con taller"
+    ]
+  },
+  "OBJ-020": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-40/OBJ-020_BrazoReparacion",
+    "remaining": [
+      "composicion y montaje M024 con plataforma EX38",
+      "contacto pinza robot y apoyos",
+      "ciclo de reparacion y audio",
+      "desgaste localizado y revision artistica final",
+      "interferencias de cables y colision movil en rango final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-020_BrazoReparacion.prefab",
+    "instances": [],
+    "triangles": 2356,
+    "texture_sets": 1
+  },
+  "OBJ-060": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-41/OBJ-060_VidrioObservacion",
+    "remaining": [
+      "composicion de sujetos y remates arquitectonicos de observacion",
+      "ventana narrativa C02 y sujetos ambientales",
+      "atenuacion acustica e impactos autorados",
+      "atlas compartido del marco",
+      "revision de transparencia en movimiento y luz final"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-060_VidrioObservacion.prefab",
+    "instances": [
+      "REG-S3/M060: dos modulos a escala 1"
+    ],
+    "triangles": 924,
+    "texture_sets": 2
+  },
+  "OBJ-003": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-42/OBJ-003_ConsolaPreservacion",
+    "remaining": [
+      "desgaste localizado y movimiento mecanico de tecla",
+      "indicadores con estado visual",
+      "ventilador localizado y click especifico",
+      "conexion exterior con destino",
+      "LOD y recorrido completo de apertura"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-003_ConsolaPreservacion.prefab",
+    "instances": [
+      "REG-S1/M002"
+    ],
+    "triangles": 1568,
+    "texture_sets": 1
+  },
+  "OBJ-074": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "evidence": "SourceArt/_evidence/EX-43/OBJ-074_MonitorMural",
+    "remaining": [
+      "montaje en muro y cable con destino",
+      "pantalla vinculada a estados guardados de jaulas",
+      "variante decorativa",
+      "LOD y desgaste localizado"
+    ],
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-074_MonitorMural.prefab",
+    "instances": [],
+    "triangles": 1288,
+    "texture_sets": 1
+  },
+  "OBJ-054": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/OBJ-054_VendajesManta.blend",
+      "SourceArt/Blender/HUM-03_AdultoDeteriorado.blend"
+    ],
+    "evidence": "SourceArt/_evidence/EX-47/OBJ-054_VendajesManta",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-054_VendajesManta.prefab",
+    "instances": [
+      "REG-S3/M041",
+      "REG-S3/M046 vendajes"
+    ],
+    "triangles": 1696,
+    "texture_sets": 1,
+    "remaining": [
+      "refinar pliegues secundarios y costura perimetral",
+      "audio de roce sincronizado",
+      "revisión final bajo linterna"
+    ]
+  },
+  "OBJ-055": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/HUM-02_AdultoInjertos.blend"
+    ],
+    "evidence": "SourceArt/_evidence/EX-45/HUM-02_AdultoInjertos",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-02_AdultoInjertos.prefab",
+    "instances": [
+      "REG-S3/M042"
+    ],
+    "triangles": 18378,
+    "texture_sets": 3,
+    "remaining": [
+      "prefab modular independiente si otro sujeto reutiliza la prótesis",
+      "audio de joint y evento autorado de ajuste",
+      "refinamiento artístico cercano"
+    ]
+  },
+  "HUM-01": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/HUM-01_AdultoDormido.blend"
+    ],
+    "evidence": "SourceArt/_evidence/EX-44/HUM-01_AdultoDormido",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-01_AdultoDormido.prefab",
+    "instances": [
+      "REG-S3/M041"
+    ],
+    "triangles": 17484,
+    "texture_sets": 2,
+    "remaining": [
+      "refinamiento artistico de cara, parpados y manos",
+      "LOD",
+      "validacion con iluminacion final y recorrido de jugador",
+      "variantes HUM-02/HUM-03 y manta OBJ-054 son entregas separadas pendientes"
+    ]
+  },
+  "HUM-02": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/HUM-02_AdultoInjertos.blend",
+      "SourceArt/Blender/HUM-02_SoporteInclinado.blend"
+    ],
+    "evidence": "SourceArt/_evidence/EX-45/HUM-02_AdultoInjertos",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-02_SujetoRestringido.prefab",
+    "instances": [
+      "REG-S3/M042"
+    ],
+    "triangles": 19606,
+    "texture_sets": 4,
+    "remaining": [
+      "refinamiento artístico de rostro y manos",
+      "LOD",
+      "audio de exhalación y joint",
+      "evento narrativo autorado de ajuste único",
+      "revisión final bajo linterna del jugador"
+    ]
+  },
+  "HUM-03": {
+    "state": "Integrado",
+    "acceptance_proven": false,
+    "source_files": [
+      "SourceArt/Blender/HUM-03_AdultoDeteriorado.blend",
+      "SourceArt/Blender/HUM-03_SoporteLateral.blend"
+    ],
+    "evidence": "SourceArt/_evidence/EX-46/HUM-03_AdultoDeteriorado",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-03_SujetoLateral.prefab",
+    "instances": [
+      "REG-S3/M046"
+    ],
+    "triangles": 18568,
+    "texture_sets": 3,
+    "remaining": [
+      "refinamiento artístico del rostro y manos",
+      "acentuar atrofia localizada sin perder anatomía",
+      "LOD",
+      "audio ambiental y revisión final bajo linterna"
+    ]
+  },
+  "OBJ-015": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-015_PulseraLazaro.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-015_PulseraLazaro.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-015_PulseraLazaro.prefab",
+    "triangles": 1040,
+    "texture_sets": 1,
+    "dimensions_m": [
+      0.092,
+      0.093,
+      0.022
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-015_PulseraLazaro",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-042": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-042_CierreContencion.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-042_CierreContencion.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-042_CierreContencion.prefab",
+    "triangles": 888,
+    "texture_sets": 1,
+    "dimensions_m": [
+      0.43,
+      0.165,
+      0.45
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-042_CierreContencion",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-071": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-071_EsclusaPresion.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-071_EsclusaPresion.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-071_EsclusaPresion.prefab",
+    "triangles": 1372,
+    "texture_sets": 1,
+    "dimensions_m": [
+      3.42,
+      3.9,
+      3.35
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-071_EsclusaPresion",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-073": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-073_ConsolaPrincipal.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-073_ConsolaPrincipal.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-073_ConsolaPrincipal.prefab",
+    "triangles": 1380,
+    "texture_sets": 1,
+    "dimensions_m": [
+      2.4,
+      1.095,
+      1.275
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-073_ConsolaPrincipal",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-075": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-075_BarandaPasarela.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-075_BarandaPasarela.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-075_BarandaPasarela.prefab",
+    "triangles": 5216,
+    "texture_sets": 1,
+    "dimensions_m": [
+      7.5,
+      2.75,
+      3.625
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-075_BarandaPasarela",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-077": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-077_PanelEscape.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-077_PanelEscape.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-077_PanelEscape.prefab",
+    "triangles": 652,
+    "texture_sets": 1,
+    "dimensions_m": [
+      0.35,
+      0.228,
+      0.5
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-077_PanelEscape",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-078": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-078_CompuertaMonumental.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-078_CompuertaMonumental.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-078_CompuertaMonumental.prefab",
+    "triangles": 1072,
+    "texture_sets": 1,
+    "dimensions_m": [
+      5.88,
+      1.055,
+      5.9
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-078_CompuertaMonumental",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "OBJ-080": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/OBJ-080_ArchivoFisico.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/OBJ-080_ArchivoFisico.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-080_ArchivoFisico.prefab",
+    "triangles": 1800,
+    "texture_sets": 1,
+    "dimensions_m": [
+      0.72,
+      0.48,
+      0.169
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/OBJ-080_ArchivoFisico",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  },
+  "ENV-EXIT": {
+    "state": "Prefab validado",
+    "acceptance_proven": false,
+    "series": "EX-50",
+    "source": "SourceArt/Blender/ENV-EXIT_ExteriorEscape.blend",
+    "fbx": "EsneiderProtocoloLazaro/Assets/_Game/Art/Models/ENV-EXIT_ExteriorEscape.fbx",
+    "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/ENV-EXIT_ExteriorEscape.prefab",
+    "triangles": 2812,
+    "texture_sets": 1,
+    "dimensions_m": [
+      30.0,
+      25.0,
+      8.55
+    ],
+    "evidence": "SourceArt/_evidence/EX-50/ENV-EXIT_ExteriorEscape",
+    "remaining": [
+      "montaje definitivo en escena y conexión de interacción",
+      "validación artística con iluminación final"
+    ]
+  }
+}
