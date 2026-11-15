@@ -1,0 +1,35 @@
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Walk : Speed > 0.1
+    Walk --> Idle : Speed < 0.05
+    Walk --> Jog : Speed > 1.6
+    Jog --> Walk : Speed < 1.5
+    Idle --> JumpStart : Jump
+    Walk --> JumpStart : Jump
+    Jog --> JumpStart : Jump
+    JumpStart --> Fall : exit 90%
+    Idle --> Fall : !Grounded && VerticalSpeed < -1
+    Walk --> Fall : !Grounded && VerticalSpeed < -1
+    Jog --> Fall : !Grounded && VerticalSpeed < -1
+    Fall --> Land : Grounded
+    Land --> Idle : Speed < 0.1 && exit 70%
+    Land --> Walk : Speed > 0.1 && exit 50%
+    Idle --> Fly : Flying
+    Walk --> Fly : Flying
+    Jog --> Fly : Flying
+    Fall --> Fly : Flying
+    Fly --> Fall : !Flying
+    Idle --> Swim : Swimming
+    Walk --> Swim : Swimming
+    Fall --> Swim : Swimming
+    Swim --> Idle : !Swimming
+    Idle --> Pickup : Pickup
+    Walk --> Pickup : Pickup
+    Pickup --> Idle : exit 90%
+    Idle --> Peek : Peek
+    Walk --> Peek : Peek
+    Peek --> Stumble : Stumble
+    Peek --> Idle : exit 97%
+    Stumble --> Fall : exit 90%
+    Swim --> Emerge : Emerge
+    Emerge --> Swim : exit 95%

@@ -272,6 +272,50 @@ def pickup_pose(P, t):
     P.arm_chain("Left", upL, bend(upL, 25 * c + 8))
 
 
+
+def peek_pose(P, t):
+    # se acerca al hueco y asoma la cabeza: el torso se inclina, las manos se apoyan en el borde imaginario
+    c = smooth(t / 0.55)
+    sway = 0.03 * math.sin(2 * math.pi * t) * c
+    P.reset()
+    P.set_hips(offset=Vector((0, -0.04 * c, -0.06 * c)), aim_dir=spine_dir(12 * c))
+    P.aim("Spine", spine_dir(22 * c)); P.aim("Chest", spine_dir(30 * c + 2 * sway)); P.aim("UpperChest", spine_dir(34 * c))
+    P.aim("Neck", spine_dir(38 * c)); P.aim("Head", spine_dir(46 * c), twist=6 * math.sin(math.pi * t))
+    for side in ("Left", "Right"):
+        sx = 1 if side == "Left" else -1
+        P.leg(side, Vector((sx * 0.11, (0.06 if side == "Left" else -0.08) * c, P.head_rest[side + "Foot"].z)))
+        up = hang(side, 16 * c + 7, 48 * c)
+        P.arm_chain(side, up, bend(up, 30 * c + 9))
+
+
+def stumble_pose(P, t):
+    # tropieza: el pie derecho se queda atras, el cuerpo se va hacia delante y los brazos buscan donde agarrarse
+    c = smooth(t / 0.7)
+    flail = math.sin(2 * math.pi * t * 2.2) * (1 - t)
+    P.reset()
+    P.set_hips(offset=Vector((0, 0.10 * c, -0.10 * c)), aim_dir=spine_dir(28 * c))
+    P.aim("Spine", spine_dir(38 * c)); P.aim("Chest", spine_dir(48 * c), twist=8 * flail); P.aim("UpperChest", spine_dir(50 * c))
+    P.aim("Neck", spine_dir(30 * c)); P.aim("Head", spine_dir(20 * c - 10 * flail))
+    P.leg("Left", Vector((0.11, 0.18 * c, P.head_rest["LeftFoot"].z + 0.03 * bump(t, 0.3))))
+    P.leg("Right", Vector((-0.11, -0.30 * c, P.head_rest["RightFoot"].z + 0.16 * c)), foot_pitch=-30 * c)
+    for side, ph in (("Left", 0.0), ("Right", 0.5)):
+        up = hang(side, 30 * c + 8, 70 * c + 25 * flail * (1 if side == "Left" else -1))
+        P.arm_chain(side, up, bend(up, 15))
+
+
+def emerge_pose(P, t):
+    # sale del agua tomando aire: la cabeza se echa atras, el pecho sube y los brazos abren el agua
+    gasp = bump(t, 0.3)
+    settle = smooth((t - 0.45) / 0.55)
+    P.reset()
+    torso(P, Vector((0, 0, 0.10 * gasp)), -14 * gasp + 5 * settle, head_pitch=-30 * gasp - 8 * settle)
+    for side in ("Left", "Right"):
+        sx = 1 if side == "Left" else -1
+        P.leg(side, Vector((sx * 0.12, 0.05, P.head_rest[side + "Foot"].z + 0.15)), foot_pitch=-25)
+        up = (rot_about((0, 0, 1), sx * (35 * gasp + 15 * settle)) @ hang(side, 50 + 20 * gasp, 10)).normalized()
+        P.arm_chain(side, up, bend(up, 25 + 15 * gasp))
+
+
 CLIPS = [
     ("Idle", 121, idle_pose),
     # cadencia calibrada a la velocidad del juego: velocidad = paso / (fraccion de apoyo * ciclo)
@@ -285,6 +329,9 @@ CLIPS = [
     ("Fly", 61, fly_pose),
     ("Swim", 49, swim_pose),
     ("Pickup", 37, pickup_pose),
+    ("Peek", 76, peek_pose),
+    ("Stumble", 37, stumble_pose),
+    ("Emerge", 61, emerge_pose),
 ]
 
 

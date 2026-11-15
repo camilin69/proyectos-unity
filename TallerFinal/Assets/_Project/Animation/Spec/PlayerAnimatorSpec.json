@@ -36,6 +36,21 @@
       "name": "Pickup",
       "type": "Trigger",
       "default": ""
+    },
+    {
+      "name": "Peek",
+      "type": "Trigger",
+      "default": ""
+    },
+    {
+      "name": "Stumble",
+      "type": "Trigger",
+      "default": ""
+    },
+    {
+      "name": "Emerge",
+      "type": "Trigger",
+      "default": ""
     }
   ],
   "defaultState": "Idle",
@@ -127,6 +142,36 @@
       "speed": 1.0,
       "layout": [
         1,
+        0
+      ]
+    },
+    {
+      "name": "Peek",
+      "clip": "Peek",
+      "loop": false,
+      "speed": 1.0,
+      "layout": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "Stumble",
+      "clip": "Stumble",
+      "loop": false,
+      "speed": 1.0,
+      "layout": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "Emerge",
+      "clip": "Emerge",
+      "loop": false,
+      "speed": 1.0,
+      "layout": [
+        5,
         0
       ]
     }
@@ -458,6 +503,86 @@
       "hasExitTime": true,
       "exitTime": 0.9,
       "duration": 0.2
+    },
+    {
+      "from": "Idle",
+      "to": "Peek",
+      "conditions": [
+        {
+          "param": "Peek",
+          "mode": "If",
+          "threshold": 0.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4,
+      "exitTime": 0.0
+    },
+    {
+      "from": "Walk",
+      "to": "Peek",
+      "conditions": [
+        {
+          "param": "Peek",
+          "mode": "If",
+          "threshold": 0.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.4,
+      "exitTime": 0.0
+    },
+    {
+      "from": "Peek",
+      "to": "Stumble",
+      "conditions": [
+        {
+          "param": "Stumble",
+          "mode": "If",
+          "threshold": 0.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.15,
+      "exitTime": 0.0
+    },
+    {
+      "from": "Peek",
+      "to": "Idle",
+      "conditions": [],
+      "hasExitTime": true,
+      "duration": 0.4,
+      "exitTime": 0.97
+    },
+    {
+      "from": "Stumble",
+      "to": "Fall",
+      "conditions": [],
+      "hasExitTime": true,
+      "duration": 0.2,
+      "exitTime": 0.9
+    },
+    {
+      "from": "Swim",
+      "to": "Emerge",
+      "conditions": [
+        {
+          "param": "Emerge",
+          "mode": "If",
+          "threshold": 0.0
+        }
+      ],
+      "hasExitTime": false,
+      "duration": 0.2,
+      "exitTime": 0.0
+    },
+    {
+      "from": "Emerge",
+      "to": "Swim",
+      "conditions": [],
+      "hasExitTime": true,
+      "duration": 0.35,
+      "exitTime": 0.95
     }
   ]
 }

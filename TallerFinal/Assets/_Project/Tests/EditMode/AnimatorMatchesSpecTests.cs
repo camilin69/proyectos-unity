@@ -72,7 +72,7 @@ namespace Dream.Tests
         {
             var names = AssetDatabase.LoadAllAssetsAtPath(SonadorImportPostprocessor.ModelPath).OfType<AnimationClip>()
                 .Where(c => !c.name.StartsWith("__")).Select(c => c.name).ToList();
-            foreach (var n in new[] { "Idle", "Walk", "Jog", "JumpStart", "Fall", "Land", "Fly", "Swim", "Pickup" })
+            foreach (var n in new[] { "Idle", "Walk", "Jog", "JumpStart", "Fall", "Land", "Fly", "Swim", "Pickup", "Peek", "Stumble", "Emerge" })
                 Assert.Contains(n, names);
             foreach (var c in AssetDatabase.LoadAllAssetsAtPath(SonadorImportPostprocessor.ModelPath).OfType<AnimationClip>())
                 if (!c.name.StartsWith("__")) Assert.AreEqual(30f, c.frameRate, 0.01f, $"{c.name} no esta a 30 fps");

@@ -68,7 +68,7 @@ def draw(spec, out_base, title):
     min_x, min_y = min(xs), min(ys)
     cols, rows = max(xs) - min_x + 1, max(ys) - min_y + 1
     W = MARGIN_X * 2 + cols * CELL_W + 560
-    H = max(MARGIN_Y + rows * CELL_H + 120, MARGIN_Y + 300 + 25 * len(spec['transitions']) + 120)
+    H = max(MARGIN_Y + rows * CELL_H + 120, MARGIN_Y + 380 + 25 * (len(spec['transitions']) + len(spec['parameters'])) + 120)
     img = Image.new("RGB", (W, H), FONDO)
     d = ImageDraw.Draw(img)
 
