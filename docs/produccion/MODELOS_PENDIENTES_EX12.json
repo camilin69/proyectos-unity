@@ -1,0 +1,2229 @@
+{
+  "scope": "80 fichas OBJ + actores/armas/consumibles existentes + HUM-01/02/03 + NAV-01..07 + ENV-EXIT; las variantes indicadas en cada ficha forman parte del alcance",
+  "objects_in_sheets": 80,
+  "entries": [
+    {
+      "id": "OBJ-001",
+      "name": "Criocámara Lázaro",
+      "requirements_markdown": "**Función:** Apertura animada y origen de Esneider.\n\n**Construcción exigida:** Base estructural, tapa, vidrio curvo, bisagras, juntas, tubos y panel.\n\n- **Medidas objetivo:** 2.4 × 1.1 × 1 m.\n- **Materiales y respuesta visual:** Acero pintado, goma, vidrio y polímero interior.\n- **Desgaste con causa:** Pintura levantada en marco; junta aún mantenida; condensación bajo tapa.\n- **Movimiento y estados:** Seguro libera, junta despega, tapa abre; mano deja huella.\n- **Colisión e interacción:** Base y marco sólidos; espacio libre al levantarse; tapa no aplasta.\n- **Firma sonora:** Válvula, seguro, motor, roce y cierre final.\n- **Montaje y relaciones:** Tubos al manifold y energía al núcleo; holgura de tapa con pared.\n- **Prueba específica de acabado:** Ver huella, interior y marco de cerca; salir sin quedar atrapado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-001_Criocamara.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-001_Criocamara/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-002",
+      "name": "Cámara vacía dañada",
+      "requirements_markdown": "**Función:** Historia de otros sujetos, variante no nuevo modelo académico.\n\n**Construcción exigida:** Mismo sistema, tapa deformada y lecho visible.\n\n- **Medidas objetivo:** Misma escala que OBJ-001.\n- **Materiales y respuesta visual:** Materiales compartidos, vidrio roto solo en variante concreta.\n- **Desgaste con causa:** Daño focal y lecho hundido; marca del sujeto anterior.\n- **Movimiento y estados:** Tapa atascada intenta abrir una vez; después queda estable.\n- **Colisión e interacción:** Fragmentos importantes sólidos; astillas pequeñas decorativas.\n- **Firma sonora:** Motor fallido corto y metal final; sin loop infinito.\n- **Montaje y relaciones:** Una unidad focal entre cámaras intactas y abiertas.\n- **Prueba específica de acabado:** Distinguir daño de simple recolor; no vidrios flotando ni bordes sin espesor.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-002_CamaraVaciaDanada.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-002_CamaraVaciaDanada.prefab",
+      "evidence": "SourceArt/_evidence/EX-49/OBJ-002_CamaraVaciaDanada",
+      "instances": [
+        "REG-S1/M011"
+      ],
+      "triangles": 10676,
+      "texture_sets": 1,
+      "remaining": [
+        "validación visual dentro de REG-S1 con iluminación final",
+        "revisión de contacto físico de fragmentos grandes"
+      ]
+    },
+    {
+      "id": "OBJ-003",
+      "name": "Consola de preservación",
+      "requirements_markdown": "**Función:** Tiempo transcurrido y ficha.\n\n**Construcción exigida:** Pantalla, botones, rejilla, tornillería y panel de servicio.\n\n- **Medidas objetivo:** 0.7 × 0.45 × 1.2 m.\n- **Materiales y respuesta visual:** Polímero sanitario, pantalla y metal de montaje.\n- **Desgaste con causa:** Teclas usadas, polvo en borde y mantenimiento en conector.\n- **Movimiento y estados:** Pantalla cambia diagnóstico a duración; botón responde una vez.\n- **Colisión e interacción:** Housing simple; pantalla no bloquea interacción por trigger extra.\n- **Firma sonora:** Click, relé tenue y ventilador localizado.\n- **Montaje y relaciones:** Pantalla orientada a humano de pie junto a cámara.\n- **Prueba específica de acabado:** Leer nombre y 2000 años desde cámara real sin texto quemado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-003_ConsolaPreservacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-42/OBJ-003_ConsolaPreservacion",
+      "remaining": [
+        "desgaste localizado y movimiento mecanico de tecla",
+        "indicadores con estado visual",
+        "ventilador localizado y click especifico",
+        "conexion exterior con destino",
+        "LOD y recorrido completo de apertura"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-003_ConsolaPreservacion.prefab",
+      "instances": [
+        "REG-S1/M002"
+      ],
+      "triangles": 1568,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-004",
+      "name": "Unidad térmica",
+      "requirements_markdown": "**Función:** Explica energía/mantenimiento de cámara.\n\n**Construcción exigida:** Radiador, compresor ficticio, aislantes y mangueras.\n\n- **Medidas objetivo:** 1.2 × 0.65 × 1 m.\n- **Materiales y respuesta visual:** Metal, aislante, goma y aletas oscuras.\n- **Desgaste con causa:** Condensación en conexión, no óxido sobre aislante.\n- **Movimiento y estados:** Ventilación leve; ninguna pieza atraviesa cubierta.\n- **Colisión e interacción:** Caja principal y salientes grandes; sin collider por aleta.\n- **Firma sonora:** Compresor bajo con punto real de emisión.\n- **Montaje y relaciones:** Mangueras a cámaras; rejillas con salida plausible de aire.\n- **Prueba específica de acabado:** Seguir conexión y reconocer compresor; comprobar normal de aletas con linterna.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-004_UnidadTermica.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "remaining": [
+        "desgaste localizado y etiquetas legibles",
+        "revision artistica con iluminacion final",
+        "colocacion regional y conexiones externas",
+        "audio localizado"
+      ],
+      "triangles": 6136,
+      "instances": [],
+      "evidence": "SourceArt/_evidence/EX-19/OBJ-004_UnidadTermica",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-004_UnidadTermica.prefab",
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-005",
+      "name": "Depósito criogénico",
+      "requirements_markdown": "**Función:** Volumen de fondo; no tubo liso.\n\n**Construcción exigida:** Cilindro con patas, válvula, dial y soporte.\n\n- **Medidas objetivo:** 0.65 m diámetro × 1.6 m alto.\n- **Materiales y respuesta visual:** Acero pintado, metal de válvula y goma.\n- **Desgaste con causa:** Manchas verticales desde unión y etiqueta envejecida.\n- **Movimiento y estados:** Dial fijo; válvula estática salvo interacción explícita.\n- **Colisión e interacción:** Cilindro simplificado y soporte; no estorba único paso.\n- **Firma sonora:** Sin loop propio; sonido de contacto si dinámico.\n- **Montaje y relaciones:** Patas apoyadas, brida y tubo con destino.\n- **Prueba específica de acabado:** Válvula, soporte y grosor distinguen tanque de cilindro de color.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-005_DepositoCriogenico.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-005_DepositoCriogenico.prefab",
+      "instances": [
+        "REG-S1/M003_EX15"
+      ],
+      "triangles": 3388,
+      "remaining": [
+        "conexiones a la instalacion; acabado localizado",
+        "aceptacion artistica con iluminacion final"
+      ],
+      "texture_sets": 1,
+      "evidence": "SourceArt/_evidence/EX-15/OBJ-005_DepositoCriogenico"
+    },
+    {
+      "id": "OBJ-006",
+      "name": "Carro sanitario",
+      "requirements_markdown": "**Función:** Soporte de linterna.\n\n**Construcción exigida:** Chasis, ruedas, bandejas, asa y piezas móviles.\n\n- **Medidas objetivo:** 0.9 × 0.55 × 0.9 m.\n- **Materiales y respuesta visual:** Acero esmaltado, goma y bandejas metálicas.\n- **Desgaste con causa:** Asa pulida, rayas en bandeja, ruedas usadas.\n- **Movimiento y estados:** Ruedas orientadas a apoyo; carro estático en hallazgo.\n- **Colisión e interacción:** Collider de marco/bandeja grande, no tornillería.\n- **Firma sonora:** Roce de pickup y contacto opcional; no vibración permanente.\n- **Montaje y relaciones:** Linterna apoyada con lente/grip visibles; fuente de luz cercana.\n- **Prueba específica de acabado:** Mirar debajo y ver dibujo del sol montado sobre soporte real.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-006_CarroSanitario.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-006_CarroSanitario.prefab",
+      "instances": [
+        "REG-S1/Support_PICK-F01_EX15"
+      ],
+      "triangles": 5768,
+      "remaining": [
+        "dibujo del sol; desgaste y tolerancia dimensional",
+        "aceptacion artistica con iluminacion final"
+      ],
+      "texture_sets": 1,
+      "evidence": "SourceArt/_evidence/EX-15/OBJ-006_CarroSanitario"
+    },
+    {
+      "id": "OBJ-007",
+      "name": "Armario de preparación",
+      "requirements_markdown": "**Función:** Ropa/archivo/ración.\n\n**Construcción exigida:** Puertas con espesor, bisagra, manija y interior.\n\n- **Medidas objetivo:** 1 × 0.5 × 1.9 m.\n- **Materiales y respuesta visual:** Chapa pintada, goma y metal de bisagra.\n- **Desgaste con causa:** Puño/manija usados, polvo superior, interior protegido.\n- **Movimiento y estados:** Puerta abre con pivot real si contiene pickup.\n- **Colisión e interacción:** Cuerpo y puerta; comprobar obstrucción y acceso interior.\n- **Firma sonora:** Bisagra y latch cortos con fin de acción.\n- **Montaje y relaciones:** Repisas y prendas apoyadas; ancho interior compatible con puerta.\n- **Prueba específica de acabado:** Abrir y mirar interior sin hueco negro ni pickup atravesando repisa.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-007_ArmarioPreparacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-17/OBJ-007_ArmarioPreparacion",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-007_ArmarioPreparacion.prefab",
+      "triangles": 5368,
+      "texture_sets": 1,
+      "instances": [
+        "REG-S1/CAB-M006-0",
+        "REG-S1/CAB-M006-1",
+        "REG-S1/CAB-M006-2"
+      ],
+      "remaining": [
+        "sonidos de bisagra y cierre",
+        "desgaste y rotulacion final",
+        "aceptacion artistica con iluminacion final"
+      ]
+    },
+    {
+      "id": "OBJ-008",
+      "name": "Banco industrial",
+      "requirements_markdown": "**Función:** Descanso visual y composición.\n\n**Construcción exigida:** Patas, asiento con desgaste y fijación.\n\n- **Medidas objetivo:** 1.4 × 0.45 × 0.45 m.\n- **Materiales y respuesta visual:** Metal pintado y asiento de goma/madera elegida.\n- **Desgaste con causa:** Borde de asiento usado, patas húmedas cerca del suelo.\n- **Movimiento y estados:** Sin animación; Esneider no necesita sistema de sentarse.\n- **Colisión e interacción:** Banco sólido, piernas simplificadas.\n- **Firma sonora:** Contacto de metal solo si se mueve por evento.\n- **Montaje y relaciones:** Junto a muro/refugio, con espacio humano para piernas.\n- **Prueba específica de acabado:** Patas apoyadas y altura humana al comparar manos y cámara.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-008_BancoIndustrial.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-008_BancoIndustrial.prefab",
+      "evidence": "SourceArt/_evidence/EX-12/bench",
+      "instances": [
+        "REG-S1/M005",
+        "REG-S4/M068"
+      ],
+      "remaining": [
+        "aceptacion artistica en contexto de la direccion visual completa"
+      ],
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-008_BancoIndustrial/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-009",
+      "name": "Tablero eléctrico antiguo",
+      "requirements_markdown": "**Función:** Palanca tutorial y nota escondida.\n\n**Construcción exigida:** Gabinete, bisagra, módulos, cableado y etiquetas.\n\n- **Medidas objetivo:** 0.8 × 0.25 × 1.1 m.\n- **Materiales y respuesta visual:** Chapa, aislantes, cobre protegido y plástico.\n- **Desgaste con causa:** Polvo dentro, dedos sobre palanca, reparación de Mara.\n- **Movimiento y estados:** Puerta de gabinete y palanca separadas; indicadores tras acción.\n- **Colisión e interacción:** Collider housing; Interactable no tapa raycast al control.\n- **Firma sonora:** Palanca, relé y contacto; ruido no depende del volumen de UI.\n- **Montaje y relaciones:** Cable de red hacia contacto del marco de salida.\n- **Prueba específica de acabado:** Distinguir red y alimentación; activar anuncia una vez y guarda estado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-009_TableroAntiguo.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-29/OBJ-009_TableroAntiguo",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-009_TableroAntiguo.prefab",
+      "instances": [
+        "REG-S1/ServicePanel_EX29"
+      ],
+      "triangles": 1452,
+      "composition_triangles": 2204,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "ruta fisica de cable hasta contacto D06",
+        "polvo y dedos localizados; reparar manchado difuso interior",
+        "mezcla rele/contacto y lectura con linterna",
+        "recorrido completo en primera persona"
+      ]
+    },
+    {
+      "id": "OBJ-010",
+      "name": "Fusible/módulo",
+      "requirements_markdown": "**Función:** Detalle focal del tablero.\n\n**Construcción exigida:** Cuerpo, terminales y texto serial.\n\n- **Medidas objetivo:** 0.08 × 0.04 × 0.12 m.\n- **Materiales y respuesta visual:** Cerámica/plástico y terminal metálico.\n- **Desgaste con causa:** Etiqueta antigua, contacto usado, sin grunge gigante.\n- **Movimiento y estados:** Estático dentro de cuadro; no minijuego inventado.\n- **Colisión e interacción:** Sin collider individual salvo pickup definido.\n- **Firma sonora:** Click solo si hay interacción; no loop.\n- **Montaje y relaciones:** Módulo encaja en soporte con serial legible cercano.\n- **Prueba específica de acabado:** No parece ladrillo de color; medidas y terminales tienen función.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-010_FusibleModulo.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-28/OBJ-010_FusibleModulo",
+      "remaining": [
+        "lectura final del serial con linterna a distancia de juego",
+        "revision artistica final del desgaste"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-010_FusibleModulo.prefab",
+      "instances": [
+        "REG-S1/ServicePanel_EX29/2 modules"
+      ],
+      "triangles": 360,
+      "texture_sets": 1,
+      "texture_resolution": 512
+    },
+    {
+      "id": "OBJ-011",
+      "name": "Núcleo sellado ficticio",
+      "requirements_markdown": "**Función:** Explicación de reserva energética.\n\n**Construcción exigida:** Carcasa robusta, aislantes y conexión.\n\n- **Medidas objetivo:** 1 × 0.6 × 0.8 m.\n- **Materiales y respuesta visual:** Carcasa metálica robusta y aislantes.\n- **Desgaste con causa:** Sello íntegro, servicio reciente y marca antigua de empresa.\n- **Movimiento y estados:** Indicador estable; no pulso exagerado continuo.\n- **Colisión e interacción:** Bloque estático con conexiones decorativas pequeñas.\n- **Firma sonora:** Zumbido muy bajo si audible desde cercanía.\n- **Montaje y relaciones:** Conexión al sistema local, fuera de línea de combate.\n- **Prueba específica de acabado:** Se entiende reserva sellada sin reactor luminoso genérico.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-011_NucleoSellado.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "remaining": [
+        "desgaste localizado y etiquetas legibles",
+        "revision artistica con iluminacion final",
+        "colocacion regional y conexiones externas",
+        "audio localizado"
+      ],
+      "triangles": 3004,
+      "instances": [],
+      "evidence": "SourceArt/_evidence/EX-19/OBJ-011_NucleoSellado",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-011_NucleoSellado.prefab",
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-012",
+      "name": "Escombros de concreto",
+      "requirements_markdown": "**Función:** Varilla y obstáculo de física.\n\n**Construcción exigida:** Fragmentos grandes, caras de fractura y armadura.\n\n- **Medidas objetivo:** Grupo de 3–5 m; fragmentos 0.1–0.8 m.\n- **Materiales y respuesta visual:** Concreto fracturado y armadura metálica.\n- **Desgaste con causa:** Fractura fresca frente a cara exterior envejecida.\n- **Movimiento y estados:** Dos piedras leves caen al sacar varilla; resto estático.\n- **Colisión e interacción:** Bloques relevantes sólidos; piezas pequeñas ignoran cápsula.\n- **Firma sonora:** Dos impactos variados y polvo corto.\n- **Montaje y relaciones:** Masa nace de rotura visible; no alfombra aleatoria por toda sala.\n- **Prueba específica de acabado:** Fracturas tienen volumen; varilla se puede sacar y ruta no engancha.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-012_EscombrosConcreto.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "triangles": 6252,
+      "texture_sets": 1,
+      "evidence": "SourceArt/_evidence/EX-20/OBJ-012_EscombrosConcreto",
+      "remaining": [
+        "polvo breve al caer",
+        "contactos y variedad fina de fractura",
+        "causa visible en muro o techo y relacion con M014",
+        "revision artistica y recorrido completo de la varilla"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-012_EscombrosConcreto.prefab",
+      "instances": [
+        "REG-S1/M013"
+      ]
+    },
+    {
+      "id": "OBJ-013",
+      "name": "Viga deformada",
+      "requirements_markdown": "**Función:** Narrativa estructural.\n\n**Construcción exigida:** Perfil con espesor, doblez y unión rota.\n\n- **Medidas objetivo:** 3–5 m largo, perfil 0.2–0.35 m.\n- **Materiales y respuesta visual:** Acero con pintura y metal expuesto.\n- **Desgaste con causa:** Doblez, unión rota y óxido localizado.\n- **Movimiento y estados:** Estática; no simulación estructural completa.\n- **Colisión e interacción:** Collider simple según perfil y camino.\n- **Firma sonora:** Sin loop; golpe de varilla da contacto metálico.\n- **Montaje y relaciones:** Apoyo coherente entre derrumbe y estructura original.\n- **Prueba específica de acabado:** Sección con espesor y causa del daño, sin doblado como goma.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-013_VigaDeformada.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "remaining": [
+        "desgaste localizado y etiquetas legibles",
+        "revision artistica con iluminacion final",
+        "montaje con derrumbe OBJ-012"
+      ],
+      "triangles": 2121,
+      "instances": [
+        "REG-S1/M014"
+      ],
+      "evidence": "SourceArt/_evidence/EX-19/OBJ-013_VigaDeformada",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-013_VigaDeformada.prefab",
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-014",
+      "name": "Cortina sanitaria",
+      "requirements_markdown": "**Función:** Oculta parcialmente un volumen.\n\n**Construcción exigida:** Riel, tela, pliegues y borde.\n\n- **Medidas objetivo:** 2 × 2.2 m, pliegues variables.\n- **Materiales y respuesta visual:** Tela envejecida y riel de metal.\n- **Desgaste con causa:** Borde húmedo bajo, parte superior protegida.\n- **Movimiento y estados:** Leve movimiento solo con flujo de aire visible.\n- **Colisión e interacción:** Tela no engancha player; riel estático.\n- **Firma sonora:** Roce breve muy bajo cuando corresponde.\n- **Montaje y relaciones:** Ganchos/riel y caída por gravedad aparente.\n- **Prueba específica de acabado:** Pliegues cambian con sujeción y no parecen plano con textura.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-014_CortinaSanitaria.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-014_CortinaSanitaria.prefab",
+      "instances": [],
+      "triangles": 15800,
+      "remaining": [
+        "montaje regional; costura superior; refinamiento de pliegues y LOD",
+        "aceptacion artistica con iluminacion final"
+      ],
+      "texture_sets": 1,
+      "evidence": "SourceArt/_evidence/EX-15/OBJ-014_CortinaSanitaria"
+    },
+    {
+      "id": "OBJ-015",
+      "name": "Pulsera Lázaro",
+      "requirements_markdown": "**Función:** Identidad y pista.\n\n**Construcción exigida:** Banda, cierre y datos legibles.\n\n- **Medidas objetivo:** Banda 0.02 m de ancho, escala de muñeca.\n- **Materiales y respuesta visual:** Polímero flexible y tinta.\n- **Desgaste con causa:** Nombre protegido, borde usado, cierre real.\n- **Movimiento y estados:** Sigue rig de muñeca; no flota durante recarga.\n- **Colisión e interacción:** Sin collider propio en viewmodel.\n- **Firma sonora:** Roce de tela integrado, no audio dedicado.\n- **Montaje y relaciones:** Mano de Esneider y fichas del programa.\n- **Prueba específica de acabado:** Nombre/fecha visibles en gesto concreto sin escalar pulsera artificialmente.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-015_PulseraLazaro.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-015_PulseraLazaro.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-015_PulseraLazaro",
+      "triangles": 1040,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-016",
+      "name": "Placa de emergencia",
+      "requirements_markdown": "**Función:** Orientación y nombre de sector.\n\n**Construcción exigida:** Soporte, tornillos y señal original.\n\n- **Medidas objetivo:** 0.45 × 0.3 m, espesor visible.\n- **Materiales y respuesta visual:** Chapa pintada y fijación.\n- **Desgaste con causa:** Pintura antigua con placa EVA añadida.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Sin collider separado si sobre muro.\n- **Firma sonora:** Ninguno; no sonido artificial de señalización.\n- **Montaje y relaciones:** Altura humana cerca de acceso, tornillos con tamaño plausible.\n- **Prueba específica de acabado:** Texto orienta y logo pertenece al mismo mundo que equipo.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-016_PlacaEmergencia.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-016_PlacaEmergencia.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/OBJ-016_PlacaEmergencia",
+      "instances": [
+        "REG-S1/Wayfinding_EX34/D06_IsolationPlate"
+      ],
+      "triangles": 204,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "desgaste localizado y lectura con iluminacion final",
+        "restantes placas de emergencia/autorizaciones segun sala; esta variante cubre D06"
+      ]
+    },
+    {
+      "id": "OBJ-017",
+      "name": "Banco de trabajo",
+      "requirements_markdown": "**Función:** Origen de herramientas.\n\n**Construcción exigida:** Estructura, superficie, mordaza y cajones.\n\n- **Medidas objetivo:** 2 × 0.75 × 0.9 m.\n- **Materiales y respuesta visual:** Acero, tablero y mordaza metálica.\n- **Desgaste con causa:** Zona de trabajo pulida, quemaduras pequeñas cerca de soldar.\n- **Movimiento y estados:** Cajón solo si se usa; resto estático.\n- **Colisión e interacción:** Volumen principal deja pasar piernas/player.\n- **Firma sonora:** Contacto y cajón, sin loops superpuestos.\n- **Montaje y relaciones:** Herramientas apoyadas, acceso a mordaza y espacio frontal.\n- **Prueba específica de acabado:** No mesa cúbica; patas, uniones y almacenamiento funcionan visualmente.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-017_BancoTrabajo.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-017_BancoTrabajo",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-017_BancoTrabajo.prefab",
+      "instances": [
+        "REG-S2/M023"
+      ],
+      "triangles": 4296,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-018",
+      "name": "Mordaza de banco",
+      "requirements_markdown": "**Función:** Silueta de función, prop secundario.\n\n**Construcción exigida:** Base, mandíbula, tornillo y palanca.\n\n- **Medidas objetivo:** 0.35 × 0.18 × 0.2 m.\n- **Materiales y respuesta visual:** Metal usado y agarre.\n- **Desgaste con causa:** Jaw rayada, tornillo engrasado, base fijada.\n- **Movimiento y estados:** Mandíbula opcional por evento autorado.\n- **Colisión e interacción:** Sin collider específico si decorativa.\n- **Firma sonora:** Clink corto solo si una pieza la usa.\n- **Montaje y relaciones:** Atornillada al banco, no sobre el borde sin soporte.\n- **Prueba específica de acabado:** Tornillo y palanca explican cómo aprieta; no piezas intersectadas.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-018_Mordaza.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-018_Mordaza",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-018_Mordaza.prefab",
+      "instances": [],
+      "triangles": 2300,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-019",
+      "name": "Taladro industrial fijo",
+      "requirements_markdown": "**Función:** Fondo de taller.\n\n**Construcción exigida:** Base, columna, cabezal y control.\n\n- **Medidas objetivo:** 0.6 × 0.5 × 1.6 m.\n- **Materiales y respuesta visual:** Metal pintado, goma y superficies de herramienta.\n- **Desgaste con causa:** Trabajo localizado y etiqueta técnica.\n- **Movimiento y estados:** Cabezal quieto o ciclo lento, herramienta no atraviesa mesa.\n- **Colisión e interacción:** Bloque simplificado estático.\n- **Firma sonora:** Motor localizado solo si está operando.\n- **Montaje y relaciones:** Base apoyada y área de trabajo libre.\n- **Prueba específica de acabado:** Altura y piezas hacen reconocible máquina industrial.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-019_TaladroFijo.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-019_TaladroFijo",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-019_TaladroFijo.prefab",
+      "instances": [
+        "REG-S2/EX14_Drill"
+      ],
+      "triangles": 3056,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-020",
+      "name": "Brazo de reparación",
+      "requirements_markdown": "**Función:** Animación ambiental lenta.\n\n**Construcción exigida:** Base, joints, actuadores y pinza.\n\n- **Medidas objetivo:** Radio operativo 1.5–2 m.\n- **Materiales y respuesta visual:** Acero pintado, actuadores y goma.\n- **Desgaste con causa:** Pintura de época humana y joint reciente.\n- **Movimiento y estados:** Clip de reparación con pinza/pieza alineadas.\n- **Colisión e interacción:** Base sólida; brazo no atrapa cápsula ni ocupa única ruta.\n- **Firma sonora:** Servo por joint con eventos limitados.\n- **Montaje y relaciones:** Pivot real y herramienta llega al robot en plataforma.\n- **Prueba específica de acabado:** Recorrido no atraviesa pieza ni cable; detener clip sigue siendo plausible.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-020_BrazoReparacion.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-40/OBJ-020_BrazoReparacion",
+      "remaining": [
+        "composicion y montaje M024 con plataforma EX38",
+        "contacto pinza robot y apoyos",
+        "ciclo de reparacion y audio",
+        "desgaste localizado y revision artistica final",
+        "interferencias de cables y colision movil en rango final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-020_BrazoReparacion.prefab",
+      "instances": [],
+      "triangles": 2356,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-021",
+      "name": "Plataforma para robot",
+      "requirements_markdown": "**Función:** Robot fuera de combate, decoración.\n\n**Construcción exigida:** Raíles, abrazaderas y conexiones.\n\n- **Medidas objetivo:** 2.6 × 1.4 × 0.35 m.\n- **Materiales y respuesta visual:** Metal, apoyos de goma y abrazaderas.\n- **Desgaste con causa:** Desgaste por cuerpo y ruedas de servicio.\n- **Movimiento y estados:** Abrazadera solo si clip lo necesita.\n- **Colisión e interacción:** Base sólida; rig decorativo no recibe IA de combate.\n- **Firma sonora:** Contacto de soporte durante reparación.\n- **Montaje y relaciones:** Conectores llegan a robot; cuerpo cabe sin escalarlo irregularmente.\n- **Prueba específica de acabado:** Leer sujeción y mantenimiento, no pedestal vacío.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-021_PlataformaRobot.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-38/OBJ-021_PlataformaRobot",
+      "triangles": 2916,
+      "texture_sets": 1,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-021_PlataformaRobot.prefab",
+      "assembly_prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/RobotMaintenance_EX38.prefab",
+      "remaining": [
+        "montaje M024: reconciliar huella 2x2 con plataforma 2.6m",
+        "contacto individual de apoyos y ajuste de mordazas",
+        "acoplar conexiones al robot",
+        "brazo OBJ-020 y audio de reparacion",
+        "desgaste e iluminacion finales"
+      ]
+    },
+    {
+      "id": "OBJ-022",
+      "name": "Cabeza de Custodio antigua",
+      "requirements_markdown": "**Función:** Evolución del diseño corporativo.\n\n**Construcción exigida:** Carcasa, montaje, lente/placa anterior.\n\n- **Medidas objetivo:** 0.3 × 0.25 × 0.35 m.\n- **Materiales y respuesta visual:** Polímero, metal y lentes según versión antigua.\n- **Desgaste con causa:** Parte protegida limpia, placa sustituida.\n- **Movimiento y estados:** Estática sobre soporte; no mirada automática en todas.\n- **Colisión e interacción:** Sin collider separado si sobre banco.\n- **Firma sonora:** Ninguno fuera de contacto.\n- **Montaje y relaciones:** Cable/neck mount visible, póster de modelo anterior cerca.\n- **Prueba específica de acabado:** Comparar cara original y actual conserva continuidad de fabricación.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-022_CabezaCustodioAntigua.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-39/OBJ-022_CabezaCustodioAntigua",
+      "triangles": 2048,
+      "texture_sets": 1,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-022_CabezaCustodioAntigua.prefab",
+      "instances": [
+        "REG-S2/M023_EX13/LegacyHead_EX39"
+      ],
+      "remaining": [
+        "poster de modelo anterior",
+        "desgaste localizado y recorrido con iluminacion final",
+        "consolidar atlas compartido con taller"
+      ]
+    },
+    {
+      "id": "OBJ-023",
+      "name": "Bandeja de piezas",
+      "requirements_markdown": "**Función:** Historia de mantenimiento.\n\n**Construcción exigida:** Contenedor y tres grupos de piezas plausibles.\n\n- **Medidas objetivo:** 0.45 × 0.3 × 0.07 m.\n- **Materiales y respuesta visual:** Bandeja metálica y piezas de juntas.\n- **Desgaste con causa:** Aceite en fondo y bordes usados.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** No collider por tornillo; bandeja parte del banco.\n- **Firma sonora:** Clink solo por interacción explícita.\n- **Montaje y relaciones:** Tres grupos organizados por función, no nube aleatoria.\n- **Prueba específica de acabado:** Piezas tienen espesor y escala que coinciden con robots.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-023_BandejaPiezas.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-023_BandejaPiezas",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-023_BandejaPiezas.prefab",
+      "instances": [
+        "REG-S2/EX14_PartsTray"
+      ],
+      "triangles": 2668,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-024",
+      "name": "Locker de seguridad",
+      "requirements_markdown": "**Función:** Hallazgo de pistola.\n\n**Construcción exigida:** Puerta, bisagras, cerradura, repisas.\n\n- **Medidas objetivo:** 1 × 0.55 × 1.9 m.\n- **Materiales y respuesta visual:** Chapa, bisagras, plástico de soporte.\n- **Desgaste con causa:** Apertura/agarre gastados, interior menos oxidado.\n- **Movimiento y estados:** Puerta abre y queda; arma pickup independiente.\n- **Colisión e interacción:** Cuerpo, puerta y triggers de pickup separados.\n- **Firma sonora:** Latch, puerta y equipar.\n- **Montaje y relaciones:** Pistola sobre soporte dimensionado; cargadores apoyados.\n- **Prueba específica de acabado:** Recoger una vez y ver interior, sin pistola pegada al plano.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-024_LockerSeguridad.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-17/OBJ-024_LockerSeguridad",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-024_LockerSeguridad.prefab",
+      "triangles": 5128,
+      "texture_sets": 1,
+      "instances": [
+        "REG-S2/CAB-PICK-W02"
+      ],
+      "remaining": [
+        "sonidos de bisagra y cierre",
+        "desgaste y rotulacion final",
+        "aceptacion artistica con iluminacion final"
+      ]
+    },
+    {
+      "id": "OBJ-025",
+      "name": "Armario de escopeta",
+      "requirements_markdown": "**Función:** Hallazgo de escopeta.\n\n**Construcción exigida:** Soportes y interior dimensionado.\n\n- **Medidas objetivo:** 1.2 × 0.55 × 1.9 m.\n- **Materiales y respuesta visual:** Metal pintado y soporte de goma.\n- **Desgaste con causa:** Manija usada, marcas de seguridad antigua.\n- **Movimiento y estados:** Apertura separada de obtención de escopeta.\n- **Colisión e interacción:** Igual a locker, revisar arma larga/puerta.\n- **Firma sonora:** Puerta pesada y equipar.\n- **Montaje y relaciones:** Soportes dejan ver grip y cartuchos, armas ficticias sin planos.\n- **Prueba específica de acabado:** Arma cabe y salida no corta cañón visualmente en pared.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-025_ArmarioEscopeta.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-17/OBJ-025_ArmarioEscopeta",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-025_ArmarioEscopeta.prefab",
+      "triangles": 6028,
+      "texture_sets": 1,
+      "instances": [
+        "REG-S3/CAB-PICK-W03"
+      ],
+      "remaining": [
+        "sonidos de bisagra y cierre",
+        "desgaste y rotulacion final",
+        "aceptacion artistica con iluminacion final"
+      ]
+    },
+    {
+      "id": "OBJ-026",
+      "name": "Gabinete final",
+      "requirements_markdown": "**Función:** Suministro CP-06.\n\n**Construcción exigida:** Cuerpo, apertura y reservas separadas.\n\n- **Medidas objetivo:** 1 × 0.5 × 1.8 m.\n- **Materiales y respuesta visual:** Chapa, repisas y contenedores.\n- **Desgaste con causa:** Mantenimiento relativamente reciente.\n- **Movimiento y estados:** Apertura, transacción de recursos y guardado; no rellenar durante intento.\n- **Colisión e interacción:** Interactable con collider claro, no bloquea refugio.\n- **Firma sonora:** Latch y aviso de checkpoint discreto.\n- **Montaje y relaciones:** En CP-06 con stock visible y luz estable.\n- **Prueba específica de acabado:** Minimos de munición aplican una vez; snapshot coincide con stock/estado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-026_GabineteSuministros.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-17/OBJ-026_GabineteSuministros",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-026_GabineteSuministros.prefab",
+      "triangles": 6596,
+      "texture_sets": 1,
+      "instances": [
+        "REG-S4/CAB-CP06"
+      ],
+      "remaining": [
+        "sonidos de bisagra y cierre",
+        "desgaste y rotulacion final",
+        "aceptacion artistica con iluminacion final",
+        "stock visual segun estado del refugio CP-06"
+      ]
+    },
+    {
+      "id": "OBJ-027",
+      "name": "Caja de munición",
+      "requirements_markdown": "**Función:** Pickup parcial persistente.\n\n**Construcción exigida:** Tapa, cierre, asa, junta y cartuchos/paquetes.\n\n- **Medidas objetivo:** 0.3 × 0.2 × 0.15 m.\n- **Materiales y respuesta visual:** Metal o polímero elegido, etiqueta y junta.\n- **Desgaste con causa:** Transporte y apertura en cierre, no óxido en todos los cartuchos.\n- **Movimiento y estados:** Tapa estática abierta; estado visual cambia al agotarse.\n- **Colisión e interacción:** Pickup parcial, collider no tapa interaction ray.\n- **Firma sonora:** Roce/munición breve, sin fanfarria.\n- **Montaje y relaciones:** Tipo de munición visible en envase y paquete.\n- **Prueba específica de acabado:** Recoger parcialmente conserva resto y no destruye caja injustamente.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-027_CajaMunicionPistola.blend",
+        "SourceArt/Blender/OBJ-027B_CajaMunicionEscopeta.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-33",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-027_CajaMunicionPistola.prefab",
+      "instances": [
+        "REG-S2/A01_AmmoCase_EX33",
+        "REG-S2/A02_AmmoCase_EX33",
+        "REG-S2/A03_AmmoCase_EX33",
+        "REG-S2/A04_AmmoCase_EX33",
+        "REG-S2/A05_AmmoCase_EX33",
+        "REG-S3/A06_AmmoCase_EX33",
+        "REG-S3/A07_AmmoCase_EX33",
+        "REG-S3/A08_AmmoCase_EX33",
+        "REG-S3/A09_AmmoCase_EX33",
+        "REG-S3/A10_AmmoCase_EX33",
+        "REG-S3/S01_AmmoCase_EX33",
+        "REG-S3/S02_AmmoCase_EX33",
+        "REG-S3/S03_AmmoCase_EX33",
+        "REG-S3/S04_AmmoCase_EX33",
+        "REG-S3/S05_AmmoCase_EX33",
+        "REG-S3/S06_AmmoCase_EX33",
+        "REG-S4/A11_AmmoCase_EX33",
+        "REG-S4/A12_AmmoCase_EX33",
+        "REG-S4/S07_AmmoCase_EX33",
+        "REG-S4/S08_AmmoCase_EX33",
+        "REG-S4/S09_AmmoCase_EX33",
+        "REG-S4/S10_AmmoCase_EX33"
+      ],
+      "triangles": 988,
+      "mesh_count": 2,
+      "texture_sets": 1,
+      "texture_resolution": 512,
+      "variants": [
+        {
+          "asset": "OBJ-027B_CajaMunicionEscopeta",
+          "triangles": 812,
+          "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-027B_CajaMunicionEscopeta.prefab"
+        }
+      ],
+      "remaining": [
+        "sustituir soportes placeholder por muebles definitivos",
+        "desgaste localizado en cierre y asa",
+        "firma sonora breve de recogida",
+        "recorrido completo con jugador e iluminacion final"
+      ]
+    },
+    {
+      "id": "OBJ-028",
+      "name": "Estantería industrial",
+      "requirements_markdown": "**Función:** Ruta de sigilo y cobertura.\n\n**Construcción exigida:** Perfiles, anclajes, repisas y carga.\n\n- **Medidas objetivo:** 2.5 × 0.6 × 2.8 m por módulo.\n- **Materiales y respuesta visual:** Perfiles de acero, repisas y cargas.\n- **Desgaste con causa:** Roce por carga, polvo arriba, fijaciones.\n- **Movimiento y estados:** Estática; caída narrativa de carga solo si definida.\n- **Colisión e interacción:** Marcos/cargas principales sólidos; preservar rutas.\n- **Firma sonora:** Crujido aislado contextual, no cada segundo.\n- **Montaje y relaciones:** Anclajes y carga coherente, separar vista y cobertura física.\n- **Prueba específica de acabado:** No rayos a través de caja sólida; no moiré de barras desde cámara.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-028_EstanteriaIndustrial.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-028_EstanteriaIndustrial",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-028_EstanteriaIndustrial.prefab",
+      "instances": [
+        "REG-S2/M025",
+        "REG-S2/M030",
+        "REG-S2/M031"
+      ],
+      "triangles": 4104,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-029",
+      "name": "Carro de carga",
+      "requirements_markdown": "**Función:** Rigidbody empujable.\n\n**Construcción exigida:** Chasis, ruedas, asa y plataforma.\n\n- **Medidas objetivo:** 1 × 0.6 × 0.9 m.\n- **Materiales y respuesta visual:** Chasis, pintura, metal y ruedas de goma.\n- **Desgaste con causa:** Asa pulida, borde rayado y neumáticos usados.\n- **Movimiento y estados:** Rigidbody con fuerza limitada, ruedas visuales simples.\n- **Colisión e interacción:** Collider de cuerpo, centro de masa bajo, capa DynamicProp.\n- **Firma sonora:** Contacto por fuerza, cooldown de ruido.\n- **Montaje y relaciones:** Carga útil estable y dos carriles con fricción distinta.\n- **Prueba específica de acabado:** Empujar, chocar, guardar y cargar sin velocidad residual.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-029_Carro.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-029_Carro/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-030",
+      "name": "Contenedor técnico",
+      "requirements_markdown": "**Función:** Cobertura, no caja de color.\n\n**Construcción exigida:** Paneles, esquinas, fijación y etiqueta.\n\n- **Medidas objetivo:** 1.2 × 0.8 × 0.9 m.\n- **Materiales y respuesta visual:** Paneles de chapa, esquinas y goma.\n- **Desgaste con causa:** Golpes de transporte y cierres usados.\n- **Movimiento y estados:** Estático o una variante dinámica explícita.\n- **Colisión e interacción:** Collider de masa principal, cobertura real.\n- **Firma sonora:** Metal al impacto, ruido según dinámica.\n- **Montaje y relaciones:** Etiquetas seriales y carga compatible con taller.\n- **Prueba específica de acabado:** Reconocer cierres, paneles y espesor; no cubo marrón final.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-030_ContenedorTecnico.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-030_ContenedorTecnico",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-030_ContenedorTecnico.prefab",
+      "instances": [
+        "REG-S2/M022",
+        "REG-S2/M039"
+      ],
+      "triangles": 1732,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-031",
+      "name": "Motor/bomba",
+      "requirements_markdown": "**Función:** Explica vibración de nave.\n\n**Construcción exigida:** Carcasa, brida, eje protegido y tuberías.\n\n- **Medidas objetivo:** 1.5 × 0.8 × 1 m.\n- **Materiales y respuesta visual:** Metal, goma y conexiones de tubería.\n- **Desgaste con causa:** Aceite cerca de unión, calor cerca de núcleo.\n- **Movimiento y estados:** Vibración sutil y ventilación, no todo mesh temblando.\n- **Colisión e interacción:** Bloque fijo.\n- **Firma sonora:** Motor grave localizado y pulso mecánico.\n- **Montaje y relaciones:** Base atornillada; bridas llevan a pipes existentes.\n- **Prueba específica de acabado:** Tubos tienen destino; audio sale de máquina y se filtra por puertas.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-031_BombaIndustrial.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-031_BombaIndustrial",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final",
+        "estado operativo, vibracion y audio segun ficha; conexiones exteriores de servicio"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-031_BombaIndustrial.prefab",
+      "instances": [
+        "REG-S2/EX14_ServicePump"
+      ],
+      "triangles": 5824,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-032",
+      "name": "Generador local",
+      "requirements_markdown": "**Función:** Fuente activa de infraestructura.\n\n**Construcción exigida:** Bloque, escape, radiador, base y conexiones.\n\n- **Medidas objetivo:** 3 × 1.5 × 1.8 m.\n- **Materiales y respuesta visual:** Metal, aislantes, radiador y montaje.\n- **Desgaste con causa:** Mantenido en puntos funcionales, reparaciones de épocas distintas.\n- **Movimiento y estados:** Loop leve; aspas/partes móviles protegidas.\n- **Colisión e interacción:** Bloques de base, espacio de servicio libre.\n- **Firma sonora:** Fuente grave, ventilación y rele ocasional.\n- **Montaje y relaciones:** Alimentación y salida conectadas, no reactor decorativo.\n- **Prueba específica de acabado:** Leer varias piezas funcionales sin miles de triángulos invisibles.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-032_GeneradorLocal.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-032_GeneradorLocal",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final",
+        "estado operativo, vibracion y audio segun ficha; conexiones exteriores de servicio"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-032_GeneradorLocal.prefab",
+      "instances": [
+        "REG-S2/EX14_Generator"
+      ],
+      "triangles": 7300,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-033",
+      "name": "Cuadro de distribución",
+      "requirements_markdown": "**Función:** Autorización A.\n\n**Construcción exigida:** Módulos, indicadores, cableado y manijas.\n\n- **Medidas objetivo:** 1.4 × 0.3 × 1.8 m.\n- **Materiales y respuesta visual:** Chapa, indicadores, plástico y cable protegido.\n- **Desgaste con causa:** Uso en manija, módulos recientes dentro.\n- **Movimiento y estados:** Panel A cambia indicador y abre permiso.\n- **Colisión e interacción:** Collider simple y control a distancia humana.\n- **Firma sonora:** Contactor y liberación de compuerta real.\n- **Montaje y relaciones:** Distribución eléctrica llega a equipos/luminaria.\n- **Prueba específica de acabado:** Autorización modifica componentes y persiste en guardado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-033_CuadroDistribucion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-30/OBJ-033_CuadroDistribucion",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-033_CuadroDistribucion.prefab",
+      "instances": [
+        "REG-S2/DistributionPanel_EX30"
+      ],
+      "triangles": 2948,
+      "composition_triangles": 2980,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "conexion visible hacia equipos y luminaria",
+        "desgaste localizado de manija",
+        "mezcla sonora contactor/compuerta",
+        "recorrido completo en primera persona"
+      ]
+    },
+    {
+      "id": "OBJ-034",
+      "name": "Válvula grande",
+      "requirements_markdown": "**Función:** Ruta técnica creíble.\n\n**Construcción exigida:** Cuerpo, volante, bridas y tubo.\n\n- **Medidas objetivo:** 0.45 m de volante; tubo 0.2–0.4 m.\n- **Materiales y respuesta visual:** Metal pintado y bridas.\n- **Desgaste con causa:** Agua y óxido en junta, contacto sobre volante.\n- **Movimiento y estados:** Fija si decorativa; no inventar puzzle.\n- **Colisión e interacción:** Collider de tubería principal, volante no engancha.\n- **Firma sonora:** Ninguno salvo acción definida.\n- **Montaje y relaciones:** Volante accesible, bridas alineadas con circuito.\n- **Prueba específica de acabado:** No válvula flotante ni tubo terminado sin remate.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-034_ValvulaBridada.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-034_ValvulaBridada",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-034_ValvulaBridada.prefab",
+      "instances": [
+        "REG-S2/EX14_SpareValve"
+      ],
+      "triangles": 3096,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-035",
+      "name": "Extintor envejecido",
+      "requirements_markdown": "**Función:** Referencia humana de escala.\n\n**Construcción exigida:** Cilindro, manija, manguera y soporte.\n\n- **Medidas objetivo:** 0.18 m diámetro × 0.55 m alto.\n- **Materiales y respuesta visual:** Pintura, metal y manguera de goma.\n- **Desgaste con causa:** Polvo localizado, etiqueta envejecida.\n- **Movimiento y estados:** Estático.\n- **Colisión e interacción:** Sin collider propio si sobre muro fuera de ruta.\n- **Firma sonora:** Ninguno.\n- **Montaje y relaciones:** Soporte y altura humana, no sobre piso sin causa.\n- **Prueba específica de acabado:** Manija, boquilla y etiqueta distinguen del cilindro simple.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-035_Extintor.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-035_Extintor",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-035_Extintor.prefab",
+      "instances": [
+        "REG-S2/EX14_WallExtinguisher"
+      ],
+      "triangles": 3036,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-036",
+      "name": "Soldador/carrito",
+      "requirements_markdown": "**Función:** Reparación posterior EVA.\n\n**Construcción exigida:** Equipo, ruedas, bobina y cables.\n\n- **Medidas objetivo:** 0.9 × 0.5 × 0.8 m.\n- **Materiales y respuesta visual:** Chapa, ruedas, cable y aislante.\n- **Desgaste con causa:** Quemadura local, cable usado, carcasa reparada.\n- **Movimiento y estados:** Estático; arco solo en ciclo de trabajo definido.\n- **Colisión e interacción:** Bloque principal sin colisión por cable fino.\n- **Firma sonora:** Loop de soldar solo cuando herramienta trabaja.\n- **Montaje y relaciones:** Cable a brazo/herramienta y conexión de alimentación.\n- **Prueba específica de acabado:** El arco tiene causa, no chispas emitidas desde nada.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-036_SoldadorCarrito.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-036_SoldadorCarrito",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-036_SoldadorCarrito.prefab",
+      "instances": [
+        "REG-S2/EX14_Welder"
+      ],
+      "triangles": 4656,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-037",
+      "name": "Juego de herramientas",
+      "requirements_markdown": "**Función:** Grupos sobre banco, atlas.\n\n**Construcción exigida:** Llave, alicate, destornillador con agarres reales.\n\n- **Medidas objetivo:** 0.12–0.3 m según herramienta.\n- **Materiales y respuesta visual:** Metal expuesto y mangos dieléctricos.\n- **Desgaste con causa:** Agarres pulidos y filos usados, medidas diferenciadas.\n- **Movimiento y estados:** Estáticas agrupadas; no rig por herramienta.\n- **Colisión e interacción:** Sin collider individual en set dressing.\n- **Firma sonora:** Clink si cae una por evento, no ruido constante.\n- **Montaje y relaciones:** Orden parcial de banco con función de cada herramienta.\n- **Prueba específica de acabado:** Alicate, llave y destornillador reconocibles en silhouette.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-037_Herramientas.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-14/OBJ-037_Herramientas",
+      "remaining": [
+        "desgaste localizado y variantes segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-037_Herramientas.prefab",
+      "instances": [
+        "REG-S2/EX14_ToolSet"
+      ],
+      "triangles": 972,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-038",
+      "name": "Mesa de oficina",
+      "requirements_markdown": "**Función:** Documentos y foto.\n\n**Construcción exigida:** Tablero, cajones, patas y pasacables.\n\n- **Medidas objetivo:** 1.6 × 0.75 × 0.75 m.\n- **Materiales y respuesta visual:** Tablero, metal, plástico de borde.\n- **Desgaste con causa:** Contactos de manos, círculo de taza, polvo protegido bajo papeles.\n- **Movimiento y estados:** Cajón solo si documento lo usa.\n- **Colisión e interacción:** Bloque principal con espacio frontal de silla.\n- **Firma sonora:** Madera/metal de contacto y cajón opcional.\n- **Montaje y relaciones:** Documentos/foto físicamente apoyados y cable con pasacables.\n- **Prueba específica de acabado:** No texto flotante y no piernas atravesando drawer en pose.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-038_MesaOficina.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-038_MesaOficina",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-038_MesaOficina.prefab",
+      "instances": [
+        "REG-S2/M027"
+      ],
+      "triangles": 1600,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-039",
+      "name": "Silla usada",
+      "requirements_markdown": "**Función:** Historia de operarios.\n\n**Construcción exigida:** Base, respaldo, asiento y ruedas.\n\n- **Medidas objetivo:** 0.65 × 0.65 × 1 m.\n- **Materiales y respuesta visual:** Metal, plástico y tela/goma elegida.\n- **Desgaste con causa:** Asiento comprimido y apoyabrazos usados.\n- **Movimiento y estados:** Estática; ruedas con apoyo real.\n- **Colisión e interacción:** Collider simplificado no engancha rutas.\n- **Firma sonora:** Chirrido solo si se mueve por escena.\n- **Montaje y relaciones:** Ligeramente retirada del escritorio con causa humana.\n- **Prueba específica de acabado:** Base completa y asiento de escala coherente.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-039_SillaUsada.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-039_SillaUsada",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-039_SillaUsada.prefab",
+      "instances": [
+        "REG-S2/M029"
+      ],
+      "triangles": 3856,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-040",
+      "name": "Taza y termo",
+      "requirements_markdown": "**Función:** Contraste de vida cotidiana.\n\n**Construcción exigida:** Espesor, asa/tapa y desgaste.\n\n- **Medidas objetivo:** Taza 0.09 m alto, termo 0.25 m.\n- **Materiales y respuesta visual:** Cerámica o metal y tapa plástica.\n- **Desgaste con causa:** Taza relativamente protegida, mancha localizada de uso.\n- **Movimiento y estados:** Estáticos.\n- **Colisión e interacción:** Sin collider propio en mesa.\n- **Firma sonora:** Ninguno salvo recoger específico.\n- **Montaje y relaciones:** Asa visible y apoyos sin penetración.\n- **Prueba específica de acabado:** Pared interior con espesor y asa conectada, no cilindro sólido.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-040_TazaTermo.blend",
+        "SourceArt/Blender/OBJ-040B_TazaTermoRota.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-27/OBJ-040_TazaTermo",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-040_TazaTermo.prefab",
+      "instances": [
+        "REG-S2/M027_CupThermos"
+      ],
+      "triangles": 1208,
+      "texture_sets": 1,
+      "remaining": [
+        "revision artistica de mancha y materiales con iluminacion final"
+      ],
+      "variants": [
+        {
+          "asset": "OBJ-040B_TazaTermoRota",
+          "state": "Prefab validado",
+          "triangles": 1208,
+          "texture_size": 512,
+          "evidence": "SourceArt/_evidence/EX-27/OBJ-040B_TazaTermoRota"
+        }
+      ]
+    },
+    {
+      "id": "OBJ-041",
+      "name": "Jaula modular",
+      "requirements_markdown": "**Función:** Humanos archivados, collider consistente.\n\n**Construcción exigida:** Marco, barras, puerta, bisagras, cierre y piso.\n\n- **Medidas objetivo:** 2.2 × 1.5 × 2.4 m módulo.\n- **Materiales y respuesta visual:** Marco metálico, barras, cierre y piso.\n- **Desgaste con causa:** Uso humano y mantenimiento reciente; sangre hacia drenaje.\n- **Movimiento y estados:** Puerta estática o animada explícitamente; humano independiente.\n- **Colisión e interacción:** Definir barras vs paneles sólidos; no cobertura falsa.\n- **Firma sonora:** Metal y cierre; respiración pertenece al sujeto.\n- **Montaje y relaciones:** Tubos por pasacables, placa fija y base apoyada.\n- **Prueba específica de acabado:** Humanos caben; LOD no cambia injustamente cobertura.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-041_Jaula.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-041_Jaula/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-042",
+      "name": "Cierre de contención",
+      "requirements_markdown": "**Función:** Explica sistema de jaulas.\n\n**Construcción exigida:** Caja, pasador, actuador y luz de estado.\n\n- **Medidas objetivo:** 0.3 × 0.15 × 0.2 m.\n- **Materiales y respuesta visual:** Metal, actuador y luz de estado.\n- **Desgaste con causa:** Uso en pasador, carcasa revisada recientemente.\n- **Movimiento y estados:** Actuador se libera solo si historia lo autoriza.\n- **Colisión e interacción:** Integrado a puerta, sin duplicar trigger.\n- **Firma sonora:** Latch y servo acotados.\n- **Montaje y relaciones:** Alineado al pasador y marco, cable a control.\n- **Prueba específica de acabado:** Cerrar realmente sujeta; no cerrojo que flota lejos de puerta.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-042_CierreContencion.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-042_CierreContencion.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-042_CierreContencion",
+      "triangles": 888,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-043",
+      "name": "Camilla clínica",
+      "requirements_markdown": "**Función:** Soporte humano.\n\n**Construcción exigida:** Bastidor, colchón, ruedas, freno y baranda.\n\n- **Medidas objetivo:** 2 × 0.75 × 0.8 m.\n- **Materiales y respuesta visual:** Metal sanitario, colchón, goma y tela.\n- **Desgaste con causa:** Uso y compresión donde cuerpo toca, ruedas gastadas.\n- **Movimiento y estados:** Humano respira; camilla quieta salvo variante dinámica.\n- **Colisión e interacción:** Collider cama separado del sujeto.\n- **Firma sonora:** Freno/metal por evento; pump es fuente separada.\n- **Montaje y relaciones:** Tubos y equipo con soporte, humano correctamente apoyado.\n- **Prueba específica de acabado:** Ruedas, barandas y frenos reales; piel no atraviesa manta.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-043_Camilla.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-043_Camilla/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-044",
+      "name": "Mesa de procedimientos",
+      "requirements_markdown": "**Función:** Escena focal clínica.\n\n**Construcción exigida:** Base, juntas, apoyo y mecanismos.\n\n- **Medidas objetivo:** 2.1 × 0.8 × 0.9 m.\n- **Materiales y respuesta visual:** Metal, tapizado y juntas mecánicas.\n- **Desgaste con causa:** Limpieza parcial y marcas de procedimiento.\n- **Movimiento y estados:** Soporte ajusta solo en escena autorada.\n- **Colisión e interacción:** Base/cuerpo, joints visuales no dañan por callback extra.\n- **Firma sonora:** Motor corto y click de soporte.\n- **Montaje y relaciones:** Lámpara/equipo llega a sujeto con alcance plausible.\n- **Prueba específica de acabado:** No mesa plana gris ni restricción que atraviesa cuerpo.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-044_MesaProcedimientos.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-24/OBJ-044_MesaProcedimientos",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-044_MesaProcedimientos.prefab",
+      "instances": [
+        "REG-S3/M056_OBJ-044",
+        "REG-S3/M057_OBJ-044"
+      ],
+      "triangles": 3468,
+      "texture_sets": 1,
+      "remaining": [
+        "prueba de alcance de brazo clinico con sujetos finales",
+        "sujetos y manta con contactos correctos",
+        "ajuste autorado y audio cuando se implemente la escena",
+        "desgaste localizado y revision artistica final",
+        "recorrido y navegacion de enemigos en entorno final"
+      ]
+    },
+    {
+      "id": "OBJ-045",
+      "name": "Monitor biométrico",
+      "requirements_markdown": "**Función:** Mantenimiento de sujetos.\n\n**Construcción exigida:** Pantalla, soporte, conectores y botones.\n\n- **Medidas objetivo:** 0.45 × 0.15 × 0.35 m.\n- **Materiales y respuesta visual:** Housing de polímero, pantalla y mount metálico.\n- **Desgaste con causa:** Botones usados, pantalla mantenida.\n- **Movimiento y estados:** Dato relevante actualiza lentamente.\n- **Colisión e interacción:** Sin collider extra sobre soporte salvo interacción.\n- **Firma sonora:** Beep bajo opcional, no en toda sala.\n- **Montaje y relaciones:** Cable a equipo/paciente ficticio, soporte estable.\n- **Prueba específica de acabado:** Monitor legible y no número random frenético.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-045_MonitorBiometrico.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-22/OBJ-045_MonitorBiometrico",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-045_MonitorBiometrico.prefab",
+      "instances": [
+        "REG-S3/M044_MonitorCart"
+      ],
+      "triangles": 1840,
+      "texture_sets": 1,
+      "remaining": [
+        "desgaste localizado y revision artistica con iluminacion final",
+        "integracion con sujetos clinicos cuando existan"
+      ]
+    },
+    {
+      "id": "OBJ-046",
+      "name": "Bomba de perfusión ficticia",
+      "requirements_markdown": "**Función:** Animación mínima / sonido bajo.\n\n**Construcción exigida:** Housing, tubos, montaje y datos.\n\n- **Medidas objetivo:** 0.2 × 0.15 × 0.25 m.\n- **Materiales y respuesta visual:** Plástico, metal y tubos de goma.\n- **Desgaste con causa:** Equipo reciente con etiqueta de unidad.\n- **Movimiento y estados:** Ciclo lento, flujo sugerido sin simulación médica.\n- **Colisión e interacción:** Integrada al stand, no obstáculo pequeño aislado.\n- **Firma sonora:** Click lento localizado.\n- **Montaje y relaciones:** Tubos con punto de conexión claro y slack para respiración.\n- **Prueba específica de acabado:** No tubos flotantes ni atraviesan mano durante loop.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-046_BombaPerfusion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-22/OBJ-046_BombaPerfusion",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-046_BombaPerfusion.prefab",
+      "instances": [
+        "REG-S3/Clinic_FluidStand_EX21/Clinic_Perfusion_EX22"
+      ],
+      "triangles": 1820,
+      "texture_sets": 1,
+      "remaining": [
+        "desgaste localizado y revision artistica con iluminacion final",
+        "integracion con sujetos clinicos cuando existan",
+        "profundidad total con abrazadera 0.207 m frente a referencia nominal 0.15 m; validar montaje y sonido en recorrido"
+      ]
+    },
+    {
+      "id": "OBJ-047",
+      "name": "Soporte de fluidos",
+      "requirements_markdown": "**Función:** Tubos con destino.\n\n**Construcción exigida:** Base estable, eje y ganchos.\n\n- **Medidas objetivo:** 0.6 m base × 1.7 m alto.\n- **Materiales y respuesta visual:** Metal, ruedas/goma y bolsas ficticias.\n- **Desgaste con causa:** Apoyos usados, frame limpio funcional.\n- **Movimiento y estados:** Estático.\n- **Colisión e interacción:** Base simplificada si en camino; no enganche por patas finas.\n- **Firma sonora:** Ninguno fuera de contacto.\n- **Montaje y relaciones:** Centro estable, fluidos y bomba sujetos.\n- **Prueba específica de acabado:** Altura humana y tubos no se estiran imposible.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-047_SoporteFluidos.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-21/OBJ-047_SoporteFluidos",
+      "triangles": 4684,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-047_SoporteFluidos.prefab",
+      "remaining": [
+        "desgaste localizado y revision artistica final",
+        "optimizar geometria a presupuesto y LOD",
+        "ajustar atlas a objetivo 512",
+        "conectar bomba OBJ-046"
+      ],
+      "texture_sets": 1,
+      "instances": [
+        "REG-S3/Clinic_FluidStand_EX21"
+      ]
+    },
+    {
+      "id": "OBJ-048",
+      "name": "Lámpara clínica",
+      "requirements_markdown": "**Función:** Luz focal, no todas dinámicas.\n\n**Construcción exigida:** Cabezal, lentes, joints y brazo.\n\n- **Medidas objetivo:** 0.6 m cabezal; brazo 1–1.5 m.\n- **Materiales y respuesta visual:** Metal, polímero, lentes y joint.\n- **Desgaste con causa:** Grips usados, vidrio/lente distinto del marco.\n- **Movimiento y estados:** Brazo quieto o clip lento probado.\n- **Colisión e interacción:** Mount estático fuera de circulación.\n- **Firma sonora:** Joint solo al moverse.\n- **Montaje y relaciones:** Anclaje soporta peso y cono cae sobre procedimiento.\n- **Prueba específica de acabado:** Luz sale de cabezal; no spot invisible separado un metro.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-048_LamparaClinica.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-23/OBJ-048_LamparaClinica",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-048_LamparaClinica.prefab",
+      "instances": [
+        "REG-S3/M056_ClinicalLamp",
+        "REG-S3/M057_ClinicalLamp"
+      ],
+      "triangles": 1912,
+      "texture_sets": 1,
+      "remaining": [
+        "desgaste localizado de grips y revision artistica final",
+        "calibrar iluminacion final con sujetos y brazo clinico"
+      ],
+      "mount_evidence": "SourceArt/_evidence/EX-25"
+    },
+    {
+      "id": "OBJ-049",
+      "name": "Bandeja instrumental",
+      "requirements_markdown": "**Función:** Horror sugerido y función.\n\n**Construcción exigida:** Bandeja con espesor, pinzas/herramientas.\n\n- **Medidas objetivo:** 0.5 × 0.35 × 0.06 m.\n- **Materiales y respuesta visual:** Acero y herramientas ficticias.\n- **Desgaste con causa:** Uso localizado, sangre mínima con causa.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Sin collider por pinza individual.\n- **Firma sonora:** Clink contextual.\n- **Montaje y relaciones:** Bandeja en carro/mesa, no levitando cerca de paciente.\n- **Prueba específica de acabado:** Espesor y escala de instrumentos, no prismas idénticos.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-049_BandejaInstrumental.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-21/OBJ-049_BandejaInstrumental",
+      "triangles": 1588,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-049_BandejaInstrumental.prefab",
+      "remaining": [
+        "desgaste localizado y revision artistica final",
+        "ajustar atlas a objetivo 512"
+      ],
+      "texture_sets": 1,
+      "instances": [
+        "REG-S3/M059_Tray_0",
+        "REG-S3/M059_Tray_1"
+      ]
+    },
+    {
+      "id": "OBJ-050",
+      "name": "Brazo clínico",
+      "requirements_markdown": "**Función:** Movimiento ambiental aislado.\n\n**Construcción exigida:** Joints, herramienta ficticia, cableado.\n\n- **Medidas objetivo:** Radio de trabajo 1.2–1.8 m.\n- **Materiales y respuesta visual:** Metal sanitario, actuadores y cables.\n- **Desgaste con causa:** Mantenido y marcas cerca de herramienta.\n- **Movimiento y estados:** Un ciclo autorado con pausa larga; herramienta ficticia.\n- **Colisión e interacción:** Base principal, no daño ambiental implícito.\n- **Firma sonora:** Servo bajo distinto del Vigía.\n- **Montaje y relaciones:** Montaje al equipo y recorrido sin contacto imposible.\n- **Prueba específica de acabado:** No atraviesa sujeto ni tubo; no parece ataque con mismo telegraph de bot.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-050_BrazoClinico.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-26/OBJ-050_BrazoClinico",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-050_BrazoClinico.prefab",
+      "instances": [
+        "REG-S3/M056_ClinicalArm",
+        "REG-S3/M057_ClinicalArm"
+      ],
+      "triangles": 1380,
+      "texture_sets": 1,
+      "remaining": [
+        "validar recorrido con sujetos y mantas finales",
+        "desgaste localizado de herramienta y revision artistica",
+        "escucha del servo en mezcla final",
+        "clip FBX no incluido: movimiento autorado en componente Unity"
+      ]
+    },
+    {
+      "id": "OBJ-051",
+      "name": "Lavamanos industrial",
+      "requirements_markdown": "**Función:** Causa de humedad.\n\n**Construcción exigida:** Cubeta, grifo, soporte y drenaje.\n\n- **Medidas objetivo:** 0.8 × 0.6 × 0.9 m.\n- **Materiales y respuesta visual:** Cerámica/metal y tubería.\n- **Desgaste con causa:** Cal y humedad desde grifo/drenaje.\n- **Movimiento y estados:** Goteo limitado si source activo.\n- **Colisión e interacción:** Bloque estático.\n- **Firma sonora:** Gota real en punto coherente.\n- **Montaje y relaciones:** Grifo, desagüe, sifón y conexión, soporte visible.\n- **Prueba específica de acabado:** Se entiende dónde va el agua y la mancha corresponde.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-051_LavamanosIndustrial.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-21/OBJ-051_LavamanosIndustrial",
+      "triangles": 3232,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-051_LavamanosIndustrial.prefab",
+      "remaining": [
+        "desgaste localizado y revision artistica final",
+        "optimizar geometria a presupuesto y LOD",
+        "humedad y audio si se activa suministro"
+      ],
+      "texture_sets": 1,
+      "instances": [
+        "REG-S3/Clinic_Sink_EX21"
+      ]
+    },
+    {
+      "id": "OBJ-052",
+      "name": "Rejilla de drenaje",
+      "requirements_markdown": "**Función:** Conecta sangre/agua.\n\n**Construcción exigida:** Marco y láminas con espesor cercano.\n\n- **Medidas objetivo:** 0.6 × 0.2 m, o panel 1 × 1 m.\n- **Materiales y respuesta visual:** Metal con marco.\n- **Desgaste con causa:** Agua/sangre hacia punto bajo, desgaste en borde.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Superficie caminable sin hueco que engancha cápsula.\n- **Firma sonora:** Paso metálico húmedo según zona.\n- **Montaje y relaciones:** Pendiente visual y canal conectados.\n- **Prueba específica de acabado:** Láminas tienen espesor cercano, sin moiré dominante.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-052_RejillaDrenaje.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-21/OBJ-052_RejillaDrenaje",
+      "triangles": 772,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-052_RejillaDrenaje.prefab",
+      "remaining": [
+        "desgaste localizado y revision artistica final",
+        "ajustar atlas a objetivo 512",
+        "abrir hueco visual en suelo conservando colision caminable"
+      ],
+      "texture_sets": 1,
+      "instances": [
+        "REG-S3/Clinic_Drain_EX21"
+      ]
+    },
+    {
+      "id": "OBJ-053",
+      "name": "Biombo",
+      "requirements_markdown": "**Función:** Revelación por silueta.\n\n**Construcción exigida:** Marco, patas, ruedas y panel/tela.\n\n- **Medidas objetivo:** 1.5 × 0.5 × 1.8 m.\n- **Materiales y respuesta visual:** Metal y tela/panel elegido.\n- **Desgaste con causa:** Borde/tela usados, ruedas apoyadas.\n- **Movimiento y estados:** Estático o apartarse por acción guionada.\n- **Colisión e interacción:** Bloque coherente con visibilidad y uso de cobertura.\n- **Firma sonora:** Tela/rueda si acción lo exige.\n- **Montaje y relaciones:** Soportes permiten mantenerlo vertical.\n- **Prueba específica de acabado:** No plano flotante que funciona como muro invisible sólido.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-053_Biombo.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-23/OBJ-053_Biombo",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-053_Biombo.prefab",
+      "instances": [],
+      "triangles": 1480,
+      "texture_sets": 1,
+      "remaining": [
+        "componer mampara M058 de cinco metros sin estirar ruedas ni tela",
+        "revision de cobertura y navegacion en escena",
+        "desgaste localizado de borde y tela"
+      ]
+    },
+    {
+      "id": "OBJ-054",
+      "name": "Vendajes y manta",
+      "requirements_markdown": "**Función:** Cuerpos parcialmente cubiertos.\n\n**Construcción exigida:** Volumen/pliegues de tela, zonas de presión.\n\n- **Medidas objetivo:** Manta 1.6 × 1 m; vendas escala anatómica.\n- **Materiales y respuesta visual:** Tela y fibras en normal moderado.\n- **Desgaste con causa:** Presión, humedad y desgaste local.\n- **Movimiento y estados:** Sigue respiración leve si skinned, sin cloth caro necesario.\n- **Colisión e interacción:** Sin collider propio que atrape humano/player.\n- **Firma sonora:** Roce integrado al sujeto.\n- **Montaje y relaciones:** Caída y pliegues por soporte/peso del cuerpo.\n- **Prueba específica de acabado:** Tela con grosor/borde, no tapa rígida sobre torso que se mueve.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-054_VendajesManta.blend",
+        "SourceArt/Blender/HUM-03_AdultoDeteriorado.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-47/OBJ-054_VendajesManta",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-054_VendajesManta.prefab",
+      "instances": [
+        "REG-S3/M041",
+        "REG-S3/M046 vendajes"
+      ],
+      "triangles": 1696,
+      "texture_sets": 1,
+      "remaining": [
+        "refinar pliegues secundarios y costura perimetral",
+        "audio de roce sincronizado",
+        "revisión final bajo linterna"
+      ]
+    },
+    {
+      "id": "OBJ-055",
+      "name": "Prótesis experimental",
+      "requirements_markdown": "**Función:** Distorsión narrativa específica.\n\n**Construcción exigida:** Fijaciones y transición al cuerpo.\n\n- **Medidas objetivo:** 0.25–0.7 m según sujeto.\n- **Materiales y respuesta visual:** Metal, polímero y transición a piel.\n- **Desgaste con causa:** Uso reciente en apoyo, cicatriz localizada.\n- **Movimiento y estados:** Articula según rig humano si se mueve.\n- **Colisión e interacción:** Collider solo si cambia bloque del conjunto.\n- **Firma sonora:** Joint tenue si se acciona.\n- **Montaje y relaciones:** Fijación específica y anatomía coherente del injerto.\n- **Prueba específica de acabado:** No pieza mecánica pegada sin transición ni peso.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/HUM-02_AdultoInjertos.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-45/HUM-02_AdultoInjertos",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-02_AdultoInjertos.prefab",
+      "instances": [
+        "REG-S3/M042"
+      ],
+      "triangles": 18378,
+      "texture_sets": 3,
+      "remaining": [
+        "prefab modular independiente si otro sujeto reutiliza la prótesis",
+        "audio de joint y evento autorado de ajuste",
+        "refinamiento artístico cercano"
+      ]
+    },
+    {
+      "id": "OBJ-056",
+      "name": "Jeringa ficticia",
+      "requirements_markdown": "**Función:** Curación con animación.\n\n**Construcción exigida:** Cuerpo, émbolo, tapa y líquido.\n\n- **Medidas objetivo:** 0.15 m largo.\n- **Materiales y respuesta visual:** Cuerpo transparente controlado, plástico y líquido ficticio.\n- **Desgaste con causa:** Envase actual, no instrumento oxidado abandonado.\n- **Movimiento y estados:** Émbolo y gesto de uso coinciden con consumo.\n- **Colisión e interacción:** Pickup y viewmodel separados.\n- **Firma sonora:** Tapa/roce y exhalación leves.\n- **Montaje y relaciones:** En stock clínico o gabinete, no siempre sobre suelo.\n- **Prueba específica de acabado:** Mano agarre correcto; cura al finalizar sin atravesar brazo.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/PRP-Syringe.blend",
+        "SourceArt/Scripts/build_arms_weapons.py"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-48/PRP-Syringe",
+      "triangles": 988,
+      "texture_sets": 1,
+      "dimensions_m": [
+        0.032,
+        0.15,
+        0.026
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Weapons/PRP-Syringe.prefab",
+      "instances": [
+        "12 pickups H01-H12 en P02-P06",
+        "viewmodel Player_Esneider durante ActionKind.Heal"
+      ],
+      "tests": [
+        "SyringeModelTests.Obj056HasRequiredPartsExactLengthAndPlayerWiring",
+        "SyringeViewmodelPlayTests.HealingShowsPropMovesPlungerAtCommitAndRestoresWeapon",
+        "SandboxPlayTests.QA08_HealAtFullDoesNotConsume_AndCancelBeforeCommitKeepsUnit"
+      ],
+      "remaining": [
+        "validación visual final del contacto exacto con ambas manos en cámara real",
+        "sustituir algunos soportes genéricos H01-H12 por stock clínico o gabinete",
+        "separar tapa y roce si dirección de audio exige dos eventos distintos"
+      ]
+    },
+    {
+      "id": "OBJ-057",
+      "name": "Ración sellada",
+      "requirements_markdown": "**Función:** Curación, lote EVA.\n\n**Construcción exigida:** Envoltura, costura y etiqueta reciente.\n\n- **Medidas objetivo:** 0.2 × 0.12 × 0.04 m.\n- **Materiales y respuesta visual:** Envase flexible, impresión y sello.\n- **Desgaste con causa:** Pliegues de transporte, lote actual.\n- **Movimiento y estados:** Abrir/usar clip compacto sin gameplay adicional.\n- **Colisión e interacción:** Pickup parcial no aplica: unidad discreta.\n- **Firma sonora:** Envoltura breve.\n- **Montaje y relaciones:** Caja/repisas de mantenimiento reciente.\n- **Prueba específica de acabado:** Fecha explica alimento conservado; no ladrillo amarillo de color.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-057_RacionSellada.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-35/OBJ-057_RacionSellada",
+      "triangles": 788,
+      "texture_sets": 1,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-057_RacionSellada.prefab",
+      "instances": [
+        "REG-S1/R01",
+        "REG-S2/R02",
+        "REG-S2/R03",
+        "REG-S3/R04",
+        "REG-S3/R05",
+        "REG-S4/R06"
+      ],
+      "remaining": [
+        "clip propio de apertura y uso; ViewmodelController usa Arms_Syringe tambien para racion",
+        "sonido de envoltura",
+        "soportes definitivos de mobiliario",
+        "recorrido de jugador e iluminacion final"
+      ]
+    },
+    {
+      "id": "OBJ-058",
+      "name": "Atril de admisión",
+      "requirements_markdown": "**Función:** Clasificación corporativa.\n\n**Construcción exigida:** Pedestal, soporte, carpeta y cierre.\n\n- **Medidas objetivo:** 0.6 × 0.5 × 1.2 m.\n- **Materiales y respuesta visual:** Metal/polímero, carpeta y control.\n- **Desgaste con causa:** Zona de manos usada, registro añadido de EVA.\n- **Movimiento y estados:** Pantalla o ficha responde a interacción.\n- **Colisión e interacción:** Housing y Interactable simple.\n- **Firma sonora:** Click bajo, lectura pausa.\n- **Montaje y relaciones:** Altura de recepción y zona de fila.\n- **Prueba específica de acabado:** Carpeta montada y texto legible sin plano flotante.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-058_AtrilAdmision.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-27/OBJ-058_AtrilAdmision",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-058_AtrilAdmision.prefab",
+      "instances": [
+        "REG-S3/DOC06_AdmissionLectern"
+      ],
+      "triangles": 540,
+      "texture_sets": 1,
+      "remaining": [
+        "click contextual y lectura con pausa segun ficha",
+        "revision de desgaste localizado en zona de manos"
+      ]
+    },
+    {
+      "id": "OBJ-059",
+      "name": "Terminal de expediente",
+      "requirements_markdown": "**Función:** Archivo opcional.\n\n**Construcción exigida:** Pantalla, teclado/control y base.\n\n- **Medidas objetivo:** 0.6 × 0.45 × 1.2 m.\n- **Materiales y respuesta visual:** Carcasa, pantalla, vidrio discreto y control.\n- **Desgaste con causa:** Teclas usadas, carcasa mantenida.\n- **Movimiento y estados:** Documento seleccionado, sin animación random.\n- **Colisión e interacción:** Collider de cuerpo y punto de interacción claro.\n- **Firma sonora:** UI sobria, ventilación cercana.\n- **Montaje y relaciones:** Cable a rack y apoyo/stand reales.\n- **Prueba específica de acabado:** Leer texto bajo luz neutra y sector sin reflejo que lo oculte.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-059_Terminal.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-059_Terminal/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-060",
+      "name": "Vidrio de observación",
+      "requirements_markdown": "**Función:** Transparencia/reflejo controlado.\n\n**Construcción exigida:** Marco, grosor y sellos.\n\n- **Medidas objetivo:** Paño 3–6 × 2–3 m.\n- **Materiales y respuesta visual:** Vidrio, metal y sellos.\n- **Desgaste con causa:** Condensación localizada y contacto humano.\n- **Movimiento y estados:** Estático; huellas de escena por decal.\n- **Colisión e interacción:** Muro de vidrio real bloquea ataque si es irrompible.\n- **Firma sonora:** Atenuación de sala tras vidrio, golpe solo autorado.\n- **Montaje y relaciones:** Marco con espesor y sala real del otro lado.\n- **Prueba específica de acabado:** Transparency sin sorting grave y vista coherente a sujetos.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-060_VidrioObservacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-41/OBJ-060_VidrioObservacion",
+      "remaining": [
+        "composicion de sujetos y remates arquitectonicos de observacion",
+        "ventana narrativa C02 y sujetos ambientales",
+        "atenuacion acustica e impactos autorados",
+        "atlas compartido del marco",
+        "revision de transparencia en movimiento y luz final"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-060_VidrioObservacion.prefab",
+      "instances": [
+        "REG-S3/M060: dos modulos a escala 1"
+      ],
+      "triangles": 924,
+      "texture_sets": 2
+    },
+    {
+      "id": "OBJ-061",
+      "name": "Cámara de vigilancia",
+      "requirements_markdown": "**Función:** Algunas dañadas, explica puntos ciegos.\n\n**Construcción exigida:** Soporte, housing, lente y cable.\n\n- **Medidas objetivo:** 0.3 × 0.2 × 0.2 m.\n- **Materiales y respuesta visual:** Housing, lente, soporte y cable.\n- **Desgaste con causa:** Algunas rotas y otras mantenidas.\n- **Movimiento y estados:** Giro lento solo en cámaras activas definidas.\n- **Colisión e interacción:** Sin collider fino separado en techo.\n- **Firma sonora:** Servo solo al girar, no enemigo falso continuo.\n- **Montaje y relaciones:** Mount y cable, ángulo coincide con punto ciego.\n- **Prueba específica de acabado:** No cámara mira a sótano antes de detección; lore y percepción consistentes.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-061_CamaraVigilancia.blend",
+        "SourceArt/Blender/OBJ-061B_CamaraVigilanciaDanada.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-32/OBJ-061_CamaraVigilancia",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-061_CamaraVigilancia.prefab",
+      "instances": [],
+      "triangles": 1540,
+      "mesh_count": 2,
+      "texture_sets": 1,
+      "texture_resolution": 512,
+      "variants": [
+        {
+          "asset": "OBJ-061B_CamaraVigilanciaDanada",
+          "triangles": 1382,
+          "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-061B_CamaraVigilanciaDanada.prefab"
+        }
+      ],
+      "remaining": [
+        "posiciones y orientaciones regionales compatibles con puntos ciegos",
+        "validar lore: no observar sotano antes de deteccion",
+        "giro lento y servo solo en unidades activas definidas; revisar cable durante movimiento",
+        "desgaste localizado y recorrido con jugador"
+      ]
+    },
+    {
+      "id": "OBJ-062",
+      "name": "Placa de sujeto",
+      "requirements_markdown": "**Función:** Historia de personas.\n\n**Construcción exigida:** Numeración, soporte y registro.\n\n- **Medidas objetivo:** 0.2 × 0.1 m.\n- **Materiales y respuesta visual:** Metal/plástico y impresión.\n- **Desgaste con causa:** Nombre anterior parcialmente cubierto por serial.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Sin collider dedicado.\n- **Firma sonora:** Ninguno.\n- **Montaje y relaciones:** En módulo de jaula, no flota frente al humano.\n- **Prueba específica de acabado:** Nombre/número legibles cerca y compatibles con expediente.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-062_PlacaSujeto.blend",
+        "SourceArt/Blender/OBJ-062B_PlacaSujeto.blend",
+        "SourceArt/Blender/OBJ-062C_PlacaSujeto.blend",
+        "SourceArt/Blender/OBJ-062D_PlacaSujeto.blend",
+        "SourceArt/Blender/OBJ-062E_PlacaSujeto.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-36",
+      "triangles": 316,
+      "texture_sets": 1,
+      "instances": [
+        "REG-S3/M041",
+        "REG-S3/M042",
+        "REG-S3/M046",
+        "REG-S3/M047",
+        "REG-S3/M048"
+      ],
+      "remaining": [
+        "humanos definitivos y vinculo de identidad",
+        "recorrido de lectura con iluminacion final",
+        "revisar montaje cuando se actualicen las jaulas"
+      ]
+    },
+    {
+      "id": "OBJ-063",
+      "name": "Pizarra de turnos",
+      "requirements_markdown": "**Función:** Contraste entre humanos y régimen.\n\n**Construcción exigida:** Marco, anotaciones y marcas viejas.\n\n- **Medidas objetivo:** 1.2 × 0.8 m.\n- **Materiales y respuesta visual:** Marco, tablero y anotaciones originales.\n- **Desgaste con causa:** Borrado parcial, polvo protegido bajo ficha.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Parte de muro.\n- **Firma sonora:** Ninguno.\n- **Montaje y relaciones:** Oficina clínica, turnos anteriores al régimen.\n- **Prueba específica de acabado:** Texto tiene significado y no decorado ilegible repetido.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-063_PizarraTurnos.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-27/OBJ-063_PizarraTurnos",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-063_PizarraTurnos.prefab",
+      "instances": [
+        "REG-S3/Admission_ShiftBoard"
+      ],
+      "triangles": 476,
+      "texture_sets": 1,
+      "remaining": [
+        "borrado parcial y polvo protegido bajo nota",
+        "revision con iluminacion final"
+      ]
+    },
+    {
+      "id": "OBJ-064",
+      "name": "Bolsas/contenedor clínico",
+      "requirements_markdown": "**Función:** Set dressing localizado.\n\n**Construcción exigida:** Cierre, volumen y señalización.\n\n- **Medidas objetivo:** 0.4 × 0.3 × 0.6 m.\n- **Materiales y respuesta visual:** Polímero, bolsa opaca y tapa.\n- **Desgaste con causa:** Uso reciente localizado, señalización sanitaria.\n- **Movimiento y estados:** Estático.\n- **Colisión e interacción:** Bloque simple si en suelo, no accesorio que engancha.\n- **Firma sonora:** Ninguno fuera de acción.\n- **Montaje y relaciones:** Junto a procedimiento/drenaje, no por todo pasillo.\n- **Prueba específica de acabado:** Volumen y cierre, bolsa no parece cubo pintado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-064_ContenedorClinico.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-27/OBJ-064_ContenedorClinico",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-064_ContenedorClinico.prefab",
+      "instances": [
+        "REG-S3/Clinic_WasteContainer"
+      ],
+      "triangles": 1168,
+      "texture_sets": 1,
+      "remaining": [
+        "desgaste localizado de uso reciente",
+        "revisar recorrido final junto a drenaje"
+      ]
+    },
+    {
+      "id": "OBJ-065",
+      "name": "Altavoz de megafonía",
+      "requirements_markdown": "**Función:** Anuncio reverberante exterior.\n\n**Construcción exigida:** Rejilla, carcasa, soporte y cable.\n\n- **Medidas objetivo:** 0.4 × 0.3 × 0.25 m.\n- **Materiales y respuesta visual:** Metal/plástico y rejilla.\n- **Desgaste con causa:** Carcasa antigua, cable recientemente reparado.\n- **Movimiento y estados:** Estático, emisión de anuncio una vez.\n- **Colisión e interacción:** Collider de mount si necesario, no trigger de detección en speaker.\n- **Firma sonora:** Voz filtrada, alerta y reverb real del corredor.\n- **Montaje y relaciones:** Fuera de sótano, altura plausible con soporte y cable.\n- **Prueba específica de acabado:** Escuchar ubicación exterior con puerta cerrada/abierta y subtítulos.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-065_AltavozMegafonia.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-31/OBJ-065_AltavozMegafonia",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-065_AltavozMegafonia.prefab",
+      "instances": [
+        "REG-C1/OBJ-065_Altavoz"
+      ],
+      "triangles": 648,
+      "texture_sets": 1,
+      "texture_resolution": 512,
+      "remaining": [
+        "audicion completa con D06 cerrada/abierta, filtro y reverberacion",
+        "revision de subtitulos en recorrido con jugador",
+        "desgaste localizado"
+      ]
+    },
+    {
+      "id": "OBJ-066",
+      "name": "Luminaria técnica",
+      "requirements_markdown": "**Función:** Fuentes plausibles de luz.\n\n**Construcción exigida:** Housing, difusor, anclajes y cable.\n\n- **Medidas objetivo:** 0.8 × 0.2 × 0.15 m.\n- **Materiales y respuesta visual:** Metal, difusor y cable.\n- **Desgaste con causa:** Polvo arriba y difusión irregular, no grunge sobre todo.\n- **Movimiento y estados:** Flicker solo autorado y desactivable.\n- **Colisión e interacción:** Sin collider fuera del paso.\n- **Firma sonora:** Hum bajo puntual, nunca en todas las fuentes.\n- **Montaje y relaciones:** Anclajes al techo, luz nace de housing.\n- **Prueba específica de acabado:** Sombra y emisión coherentes, no plafón sin instalación.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-066_LuminariaTecnica.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-31/OBJ-066_LuminariaTecnica",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-066_LuminariaTecnica.prefab",
+      "instances": [
+        "REG-S1/Fixture_EX31_Circ_P01-ESPINA",
+        "REG-S1/Fixture_EX31_Lum_S1-R03_0",
+        "REG-S1/Fixture_EX31_Lum_S1-R03_1",
+        "REG-S1/Fixture_EX31_Lum_S1-R04_0",
+        "REG-S1/Fixture_EX31_Circ_P02-ESPINA",
+        "REG-S1/Fixture_EX31_Circ_P02-GAL",
+        "REG-S2/Fixture_EX31_Lum_S2-R01_0",
+        "REG-S2/Fixture_EX31_Lum_S2-R01_1",
+        "REG-S2/Fixture_EX31_Lum_S2-R01_2",
+        "REG-S2/Fixture_EX31_Lum_S2-R06_0",
+        "REG-S2/Fixture_EX31_Lum_S2-R06_1",
+        "REG-S2/Fixture_EX31_Lum_S2-R06_2",
+        "REG-S2/Fixture_EX31_Lum_S2-R03_0",
+        "REG-S2/Fixture_EX31_Circ_P03-ESPINA",
+        "REG-S2/Fixture_EX31_Circ_P03-ENT",
+        "REG-S2/Fixture_EX31_Circ_P03-ESC",
+        "REG-S2/Fixture_EX31_Lum_S2-R02_0",
+        "REG-S2/Fixture_EX31_Lum_S2-R02_1",
+        "REG-S2/Fixture_EX31_Lum_S2-R02_2",
+        "REG-S2/Fixture_EX31_Lum_S2-R04_0",
+        "REG-S2/Fixture_EX31_Lum_S2-R04_1",
+        "REG-S2/Fixture_EX31_Lum_S2-R04_2",
+        "REG-S2/Fixture_EX31_Lum_S2-R05_0",
+        "REG-S2/Fixture_EX31_Circ_P04-GAL",
+        "REG-S2/Fixture_EX31_Circ_P04-SUR",
+        "REG-S3/Fixture_EX31_Lum_S3-R02A_0",
+        "REG-S3/Fixture_EX31_Lum_S3-R02A_1",
+        "REG-S3/Fixture_EX31_Lum_S3-R02A_2",
+        "REG-S3/Fixture_EX31_Lum_S3-R02B_0",
+        "REG-S3/Fixture_EX31_Lum_S3-R02B_1",
+        "REG-S3/Fixture_EX31_Lum_S3-R02B_2",
+        "REG-S3/Fixture_EX31_Lum_S3-R05_0",
+        "REG-S3/Fixture_EX31_Lum_S3-R05_1",
+        "REG-S3/Fixture_EX31_Lum_S3-R01_0",
+        "REG-S3/Fixture_EX31_Lum_S3-R01_1",
+        "REG-S3/Fixture_EX31_Lum_S3-R01_2",
+        "REG-S3/Fixture_EX31_Lum_S3-R03_0",
+        "REG-S3/Fixture_EX31_Lum_S3-R03_1",
+        "REG-S3/Fixture_EX31_Lum_S3-R03_2",
+        "REG-S3/Fixture_EX31_Lum_S3-R04_0",
+        "REG-S3/Fixture_EX31_Lum_S3-R04_1",
+        "REG-S3/Fixture_EX31_Circ_P05-GAL",
+        "REG-S3/Fixture_EX31_Circ_P05-JAU",
+        "REG-S3/Fixture_EX31_Circ_P05-SO",
+        "REG-S3/Fixture_EX31_Circ_P05-SE",
+        "REG-S4/Fixture_EX31_Lum_S4-R05_0",
+        "REG-S4/Fixture_EX31_Lum_S4-R05_1",
+        "REG-S4/Fixture_EX31_Lum_S4-R05_2",
+        "REG-S4/Fixture_EX31_Lum_S4-R03_0",
+        "REG-S4/Fixture_EX31_Lum_S4-R03_1",
+        "REG-S4/Fixture_EX31_Lum_S4-R03_2",
+        "REG-S4/Fixture_EX31_Lum_S4-R04_0",
+        "REG-S4/Fixture_EX31_Lum_S4-R04_1",
+        "REG-S4/Fixture_EX31_Lum_S4-R02_0",
+        "REG-S4/Fixture_EX31_Lum_S4-R01_0",
+        "REG-S4/Fixture_EX31_Lum_S4-R01_1",
+        "REG-S4/Fixture_EX31_Circ_P06-GAL"
+      ],
+      "triangles": 532,
+      "texture_sets": 1,
+      "texture_resolution": 512,
+      "remaining": [
+        "resolver coherencia de sombras y punto brillante del techo",
+        "montaje Circ_P01-ESC sin techo detectado",
+        "revision artistica regional con jugador"
+      ]
+    },
+    {
+      "id": "OBJ-067",
+      "name": "Lámpara de emergencia",
+      "requirements_markdown": "**Función:** Orientación ámbar.\n\n**Construcción exigida:** Carcasa, lente, soporte y etiqueta.\n\n- **Medidas objetivo:** 0.3 × 0.15 × 0.12 m.\n- **Materiales y respuesta visual:** Carcasa, lente ámbar y bracket.\n- **Desgaste con causa:** Etiqueta antigua y mantenida.\n- **Movimiento y estados:** Estable o pulso lento sin strobe.\n- **Colisión e interacción:** Parte de muro.\n- **Firma sonora:** Sin loop extra salvo alarma vinculada.\n- **Montaje y relaciones:** En acceso/refugio con función de orientación.\n- **Prueba específica de acabado:** No confundirse con carga de red/rayo; color no es única guía.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-067_LamparaEmergencia.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-31/OBJ-067_LamparaEmergencia",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-067_LamparaEmergencia.prefab",
+      "instances": [],
+      "triangles": 241,
+      "texture_sets": 1,
+      "texture_resolution": 512,
+      "remaining": [
+        "colocacion y orientacion regional",
+        "rotulo de servicio y desgaste localizado",
+        "validar comportamiento de emergencia segun ficha"
+      ]
+    },
+    {
+      "id": "OBJ-068",
+      "name": "Bandeja de cables",
+      "requirements_markdown": "**Función:** Escala y función de galerías.\n\n**Construcción exigida:** Perfiles, ménsulas y haces ordenados.\n\n- **Medidas objetivo:** Módulos 2/4 m largo × 0.3–0.6 m ancho.\n- **Materiales y respuesta visual:** Metal, cable aislado y fijaciones.\n- **Desgaste con causa:** Polvo/agua según ubicación, cinchas recientes.\n- **Movimiento y estados:** Estático, cables no serpentean sin causa.\n- **Colisión e interacción:** No collider por cable alto.\n- **Firma sonora:** Ninguno salvo resonancia ambiental ligada.\n- **Montaje y relaciones:** Ménsulas y rutas hacia cuadro/rack, terminaciones reales.\n- **Prueba específica de acabado:** Seguir haces sin cables que desaparecen a mitad de techo.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-068_BandejaCables2m.blend",
+        "SourceArt/Blender/OBJ-068B_BandejaCables4m.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-31/OBJ-068_BandejaCables2m",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-068_BandejaCables2m.prefab",
+      "instances": [],
+      "triangles": 452,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "material tiling compartido: actualmente atlas por asset",
+        "rutas regionales, uniones y terminaciones",
+        "polvo localizado"
+      ],
+      "variants": [
+        {
+          "asset": "OBJ-068B_BandejaCables4m",
+          "triangles": 572,
+          "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-068B_BandejaCables4m.prefab"
+        }
+      ]
+    },
+    {
+      "id": "OBJ-069",
+      "name": "Conducto/rejilla ventilación",
+      "requirements_markdown": "**Función:** Fuente localizada de aire.\n\n**Construcción exigida:** Juntas, paneles y fijaciones.\n\n- **Medidas objetivo:** Módulos 2/4 m, sección 0.5–1 m.\n- **Materiales y respuesta visual:** Chapa, rejilla y joints.\n- **Desgaste con causa:** Humedad por salida, polvo según flujo.\n- **Movimiento y estados:** Ventilación sugerida por partículas leves.\n- **Colisión e interacción:** Collider principal si obstáculo, no pieza por lámina.\n- **Firma sonora:** Aire localizado y ocluido.\n- **Montaje y relaciones:** Bridas, soportes, entrada/salida conectada.\n- **Prueba específica de acabado:** Ancho/soporte plausible y no conducto cortado sin remate.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-069_Conducto2m.blend",
+        "SourceArt/Blender/OBJ-069B_Conducto4m.blend",
+        "SourceArt/Blender/OBJ-069C_RejillaTerminal.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-31/OBJ-069_Conducto2m",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-069_Conducto2m.prefab",
+      "instances": [],
+      "triangles": 800,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "material tiling compartido: actualmente atlas por asset",
+        "rutas regionales y remates",
+        "audio, particulas o vibracion donde lo exija la ficha"
+      ],
+      "variants": [
+        {
+          "asset": "OBJ-069B_Conducto4m",
+          "triangles": 848,
+          "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-069B_Conducto4m.prefab"
+        },
+        {
+          "asset": "OBJ-069C_RejillaTerminal",
+          "triangles": 584,
+          "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-069C_RejillaTerminal.prefab"
+        }
+      ]
+    },
+    {
+      "id": "OBJ-070",
+      "name": "Puerta corrediza pesada",
+      "requirements_markdown": "**Función:** Apertura real con obstrucción.\n\n**Construcción exigida:** Hojas, rieles, motores, sellos y sensores.\n\n- **Medidas objetivo:** Paso 3 × 3.5 m, marco externo mayor.\n- **Materiales y respuesta visual:** Chapa, riel, goma, sensor y motor.\n- **Desgaste con causa:** Contacto de hoja y guía, pintura usada.\n- **Movimiento y estados:** Abrir 1.5–2.5 s con aceleración/freno; obstrucción comprobada.\n- **Colisión e interacción:** Collider acompaña hoja; snapshot de estado consistente.\n- **Firma sonora:** Motor, guía y fin sonoro.\n- **Montaje y relaciones:** Cavidad lateral/hojas tiene espacio físico donde desplazarse.\n- **Prueba específica de acabado:** No desaparece mesh para abrir ni aplasta jugador sin regla.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-070_PuertaCorrediza.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/OBJ-070_PuertaCorrediza/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "OBJ-071",
+      "name": "Esclusa de presión",
+      "requirements_markdown": "**Función:** Transición y refugio.\n\n**Construcción exigida:** Marcos, actuadores, juntas y controles.\n\n- **Medidas objetivo:** Paso 3 × 3.5 m, cámara entre dos hojas.\n- **Materiales y respuesta visual:** Metal, juntas, actuadores y controles.\n- **Desgaste con causa:** Mantenida en refugio, marcas antiguas de uso.\n- **Movimiento y estados:** Secuencia de puertas segura, nunca ambas dañando simultáneamente.\n- **Colisión e interacción:** Estado sincronizado con permisos y navegación.\n- **Firma sonora:** Presión, motor y fin; aislamiento auditivo perceptible.\n- **Montaje y relaciones:** Volumen entre puertas permite estar sin quedar fuera de mapa.\n- **Prueba específica de acabado:** Entrada da respiro real, enemigo no dispara a través de hoja cerrada.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-071_EsclusaPresion.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-071_EsclusaPresion.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-071_EsclusaPresion",
+      "triangles": 1372,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-072",
+      "name": "Rack de control",
+      "requirements_markdown": "**Función:** Infraestructura activa EVA.\n\n**Construcción exigida:** Bastidor, módulos, ventiladores y cables.\n\n- **Medidas objetivo:** 0.8 × 0.8 × 2.2 m por rack.\n- **Materiales y respuesta visual:** Metal, módulos, ventilación y cables.\n- **Desgaste con causa:** Piezas recientes contrastan con bastidor viejo.\n- **Movimiento y estados:** Fans limitados, LEDs moderados con datos relevantes.\n- **Colisión e interacción:** Bloque estático, espacio de mantenimiento libre.\n- **Firma sonora:** Ventilación grave/baja, no cada LED emite audio.\n- **Montaje y relaciones:** Entrada/salida de cableado y enfriamiento.\n- **Prueba específica de acabado:** Módulos tienen panel, espesor y serial, no pared de prismas coloridos.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-072_RackControl.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-13/OBJ-072_RackControl",
+      "remaining": [
+        "desgaste localizado segun ficha",
+        "revision artistica con iluminacion final",
+        "LEDs y ventilacion vinculados a estados EVA",
+        "LOD y perfilado de filas de racks"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-072_RackControl.prefab",
+      "instances": [
+        "REG-S4/M063",
+        "REG-S4/M064"
+      ],
+      "triangles": 11280,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-073",
+      "name": "Consola principal",
+      "requirements_markdown": "**Función:** Revelación y permiso final.\n\n**Construcción exigida:** Paneles, pantallas, teclas y mantenimiento.\n\n- **Medidas objetivo:** 2.4 × 0.9 × 1.2 m.\n- **Materiales y respuesta visual:** Carcasa, control, pantallas y bisagras.\n- **Desgaste con causa:** Grips/tablero usados, pantallas actuales.\n- **Movimiento y estados:** Interacción final/archivo con UI original.\n- **Colisión e interacción:** Collider de mesa y distancia humana.\n- **Firma sonora:** Click, relé y mensaje opcional sobrio.\n- **Montaje y relaciones:** Orientada a arena/infraestructura, cableado con destino.\n- **Prueba específica de acabado:** Leer responsabilidad de empresa y abrir permiso correcto.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-073_ConsolaPrincipal.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-073_ConsolaPrincipal.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-073_ConsolaPrincipal",
+      "triangles": 1380,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-074",
+      "name": "Monitor mural",
+      "requirements_markdown": "**Función:** Jaulas y estado humano.\n\n**Construcción exigida:** Marco, anclaje y datos originales.\n\n- **Medidas objetivo:** 1.2 × 0.7 × 0.1 m.\n- **Materiales y respuesta visual:** Marco, display y soporte.\n- **Desgaste con causa:** Polvo en borde, mantenimiento de panel.\n- **Movimiento y estados:** Estados de jaulas/detección sin loops contradictorios.\n- **Colisión e interacción:** Parte de muro, no trigger independiente.\n- **Firma sonora:** Ninguno salvo fuente narrativa real.\n- **Montaje y relaciones:** Soporte y cable, datos vinculados a sectores.\n- **Prueba específica de acabado:** No video de sujeto en estado distinto del mundo guardado.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-074_MonitorMural.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-43/OBJ-074_MonitorMural",
+      "remaining": [
+        "montaje en muro y cable con destino",
+        "pantalla vinculada a estados guardados de jaulas",
+        "variante decorativa",
+        "LOD y desgaste localizado"
+      ],
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-074_MonitorMural.prefab",
+      "instances": [],
+      "triangles": 1288,
+      "texture_sets": 1
+    },
+    {
+      "id": "OBJ-075",
+      "name": "Baranda/pasarela",
+      "requirements_markdown": "**Función:** Profundidad/escala de nave.\n\n**Construcción exigida:** Perfiles, uniones, apoyos y piso.\n\n- **Medidas objetivo:** Ancho 2.5–3 m, tramo según nave.\n- **Materiales y respuesta visual:** Acero, rejilla/piso y baranda.\n- **Desgaste con causa:** Pasos usados, humedad donde corresponde.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Suelo continuo y baranda simple; agente solo si ruta validada.\n- **Firma sonora:** Paso metálico con acústica de nave.\n- **Montaje y relaciones:** Apoyos/bases estructurales y acceso real.\n- **Prueba específica de acabado:** No pasarela sin columnas ni baranda a altura inhumana.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-075_BarandaPasarela.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-075_BarandaPasarela.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-075_BarandaPasarela",
+      "triangles": 5216,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-076",
+      "name": "Columna con servicios",
+      "requirements_markdown": "**Función:** Cobertura y composición.\n\n**Construcción exigida:** Estructura, cubierta, registros y base.\n\n- **Medidas objetivo:** 0.8–1.2 m sección, 4–9 m alto.\n- **Materiales y respuesta visual:** Concreto/metal y paneles de servicios.\n- **Desgaste con causa:** Base húmeda, registros usados.\n- **Movimiento y estados:** Estática.\n- **Colisión e interacción:** Cobertura sólida, no ocultar collider por tamaño visual menor.\n- **Firma sonora:** Impacto según superficie.\n- **Montaje y relaciones:** Base y vigas, líneas de servicio con registro.\n- **Prueba específica de acabado:** Jefe/proyectiles bloqueados y jugador puede rodear sin atasco.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-076_ColumnaServicios.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-25/OBJ-076_ColumnaServicios",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-076_ColumnaServicios.prefab",
+      "instances": [
+        "REG-S3/M056_Services_EX25",
+        "REG-S3/M057_Services_EX25"
+      ],
+      "triangles": 2124,
+      "texture_sets": 1,
+      "remaining": [
+        "variante de 9 m cuando el montaje lo requiera",
+        "sustituir atlas por tiling/trim si densidad cercana no alcanza",
+        "desgaste humedo localizado en base",
+        "prueba de jefe/proyectiles y recorrido jugable final"
+      ]
+    },
+    {
+      "id": "OBJ-077",
+      "name": "Panel exterior de escape",
+      "requirements_markdown": "**Función:** Interacción final.\n\n**Construcción exigida:** Botón/manija, luz y placa.\n\n- **Medidas objetivo:** 0.35 × 0.15 × 0.5 m.\n- **Materiales y respuesta visual:** Carcasa, control y indicador.\n- **Desgaste con causa:** Uso de emergencia antiguo y piezas mantenidas.\n- **Movimiento y estados:** Botón/manija libera salida tras permiso.\n- **Colisión e interacción:** Interactable independiente del trigger de victoria.\n- **Firma sonora:** Actuador, relé y aire exterior.\n- **Montaje y relaciones:** Junto a compuerta, altura humana.\n- **Prueba específica de acabado:** No gana al tocar panel; gana cruzando exterior seguro.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-077_PanelEscape.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-077_PanelEscape.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-077_PanelEscape",
+      "triangles": 652,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-078",
+      "name": "Compuerta monumental",
+      "requirements_markdown": "**Función:** Salida del búnker.\n\n**Construcción exigida:** Hojas, cerradura, pistones y junta.\n\n- **Medidas objetivo:** Paso 5–6 m ancho × 5–6 m alto.\n- **Materiales y respuesta visual:** Hojas metálicas, pistones, joints y cierres.\n- **Desgaste con causa:** Daño/uso monumental localizado, sellos mantenidos.\n- **Movimiento y estados:** Apertura progresiva con masa aparente y fin definido.\n- **Colisión e interacción:** Collider de hojas, paso exterior seguro.\n- **Firma sonora:** Pistones, presión, mecanismo y nuevo ambiente.\n- **Montaje y relaciones:** Espacio para mover hojas, bases y guías visibles.\n- **Prueba específica de acabado:** No revela backstage ni usa blanco total para esconder exterior.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-078_CompuertaMonumental.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-078_CompuertaMonumental.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-078_CompuertaMonumental",
+      "triangles": 1072,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "OBJ-079",
+      "name": "Ventilador industrial",
+      "requirements_markdown": "**Función:** Silueta móvil con costo medido.\n\n**Construcción exigida:** Housing, aspas y guardas.\n\n- **Medidas objetivo:** 1–2 m diámetro en housing.\n- **Materiales y respuesta visual:** Metal, aspas, guardas y motor.\n- **Desgaste con causa:** Polvo y mantenimiento según uso.\n- **Movimiento y estados:** Rotación con límites/LOD, evitar aliasing de aspas.\n- **Colisión e interacción:** Housing fijo; no daño por guarda salvo diseño explícito.\n- **Firma sonora:** Aire y motor con punto de fuente.\n- **Montaje y relaciones:** Anclajes y ducto real; luz puede recortar silueta.\n- **Prueba específica de acabado:** Movimiento plausible sin ruido visual ni costo de sombra excesivo.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-079_VentiladorIndustrial.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-37/OBJ-079_VentiladorIndustrial",
+      "triangles": 3624,
+      "texture_sets": 1,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-079_VentiladorIndustrial.prefab",
+      "remaining": [
+        "montaje regional con ducto y anclajes",
+        "audio de aire y motor",
+        "LOD geometrico y perfil de rendimiento",
+        "aliasing temporal en recorrido e iluminacion final",
+        "polvo y desgaste localizado"
+      ]
+    },
+    {
+      "id": "OBJ-080",
+      "name": "Archivo físico/fotos",
+      "requirements_markdown": "**Función:** Pistas y easter eggs por sala.\n\n**Construcción exigida:** Hojas con espesor agrupado, carpetas y soporte.\n\n- **Medidas objetivo:** Hoja A4 aproximada, carpetas/fotos variadas.\n- **Materiales y respuesta visual:** Papel, cartón, vidrio/marco y tinta.\n- **Desgaste con causa:** Bordes, presión, polvo y protección por objetos encima.\n- **Movimiento y estados:** Estáticos; documento abierto mediante UI accesible.\n- **Colisión e interacción:** Sin collider por hoja; interacción agrupada por documento.\n- **Firma sonora:** Papel breve al abrir, lectura pausa.\n- **Montaje y relaciones:** Apoyos reales, DOC-01 a DOC-12 según sala.\n- **Prueba específica de acabado:** Doce textos distintos, legibilidad y autoría, nada de lorem ipsum final.\n\n**Registro de producción:** asignar Tier, fuente/export/prefab, tris y sets reales, pendientes y evidencia ART aplicable. No dar por terminado por tener material de color.\n\n## Revisión de conjunto\n\nRevisar primero los contactos entre objetos: cámara-mano, arma-grip, jaula-sujeto, camilla-manta, puerta-riel, tubería-máquina, lámpara-cono y carro-suelo. Después comprobar pasillos libres, cobertura real, escala compartida, repetición y mezcla sonora. Un objeto correcto aislado puede fallar en su sala.\n\nNo colocar todas las familias en todos los cuartos. Usar las fichas SCN-01 a SCN-22 del maestro para selección y puesta en escena. Conservar población, munición y checkpoint del diseño; un prop adicional no implica nueva recompensa o enemigo.\n\nAceptar el objeto solo con evidencia de la prueba específica y los criterios ART aplicables. Si falla, registrar problema concreto y siguiente corrección; no esconderlo con oscuridad o desenfoque.",
+      "source_files": [
+        "SourceArt/Blender/OBJ-080_ArchivoFisico.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/OBJ-080_ArchivoFisico.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/OBJ-080_ArchivoFisico",
+      "triangles": 1800,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "BOT-01_Vigia",
+      "name": "BOT-01_Vigia",
+      "source_files": [
+        "SourceArt/Blender/BOT-01_Vigia.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/BOT-01_Vigia/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "BOT-02_Custodio",
+      "name": "BOT-02_Custodio",
+      "source_files": [
+        "SourceArt/Blender/BOT-02_Custodio.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/BOT-02_Custodio/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "BOT-03_Archivista",
+      "name": "BOT-03_Archivista",
+      "source_files": [
+        "SourceArt/Blender/BOT-03_Archivista.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/BOT-03_Archivista/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "CHR-01_Arms",
+      "name": "CHR-01_Arms",
+      "source_files": [
+        "SourceArt/Blender/CHR-01_Arms.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false
+    },
+    {
+      "id": "PRP-Ration",
+      "name": "PRP-Ration",
+      "source_files": [
+        "SourceArt/Blender/PRP-Ration.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false
+    },
+    {
+      "id": "PRP-Syringe",
+      "name": "PRP-Syringe",
+      "source_files": [
+        "SourceArt/Blender/PRP-Syringe.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/PRP-Syringe/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "WPN-01_Crowbar",
+      "name": "WPN-01_Crowbar",
+      "source_files": [
+        "SourceArt/Blender/WPN-01_Crowbar.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/WPN-01_Crowbar/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "WPN-02_Pistol",
+      "name": "WPN-02_Pistol",
+      "source_files": [
+        "SourceArt/Blender/WPN-02_Pistol.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/WPN-02_Pistol/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "WPN-03_Shotgun",
+      "name": "WPN-03_Shotgun",
+      "source_files": [
+        "SourceArt/Blender/WPN-03_Shotgun.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/WPN-03_Shotgun/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "WPN-04_Flashlight",
+      "name": "WPN-04_Flashlight",
+      "source_files": [
+        "SourceArt/Blender/WPN-04_Flashlight.blend"
+      ],
+      "state": "Revisar",
+      "acceptance_proven": false,
+      "albedo_repair": {
+        "series": "EX-16",
+        "evidence": "SourceArt/_evidence/EX-16/WPN-04_Flashlight/repair.json",
+        "fbx_unchanged": true
+      }
+    },
+    {
+      "id": "HUM-01",
+      "name": "Adulto dormido",
+      "source_files": [
+        "SourceArt/Blender/HUM-01_AdultoDormido.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-44/HUM-01_AdultoDormido",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-01_AdultoDormido.prefab",
+      "instances": [
+        "REG-S3/M041"
+      ],
+      "triangles": 17484,
+      "texture_sets": 2,
+      "remaining": [
+        "refinamiento artistico de cara, parpados y manos",
+        "LOD",
+        "validacion con iluminacion final y recorrido de jugador",
+        "variantes HUM-02/HUM-03 y manta OBJ-054 son entregas separadas pendientes"
+      ]
+    },
+    {
+      "id": "HUM-02",
+      "name": "Adulto con injertos",
+      "source_files": [
+        "SourceArt/Blender/HUM-02_AdultoInjertos.blend",
+        "SourceArt/Blender/HUM-02_SoporteInclinado.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-45/HUM-02_AdultoInjertos",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-02_SujetoRestringido.prefab",
+      "instances": [
+        "REG-S3/M042"
+      ],
+      "triangles": 19606,
+      "texture_sets": 4,
+      "remaining": [
+        "refinamiento artístico de rostro y manos",
+        "LOD",
+        "audio de exhalación y joint",
+        "evento narrativo autorado de ajuste único",
+        "revisión final bajo linterna del jugador"
+      ]
+    },
+    {
+      "id": "HUM-03",
+      "name": "Adulto deteriorado",
+      "source_files": [
+        "SourceArt/Blender/HUM-03_AdultoDeteriorado.blend",
+        "SourceArt/Blender/HUM-03_SoporteLateral.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "evidence": "SourceArt/_evidence/EX-46/HUM-03_AdultoDeteriorado",
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/HUM-03_SujetoLateral.prefab",
+      "instances": [
+        "REG-S3/M046"
+      ],
+      "triangles": 18568,
+      "texture_sets": 3,
+      "remaining": [
+        "refinamiento artístico del rostro y manos",
+        "acentuar atrofia localizada sin perder anatomía",
+        "LOD",
+        "audio ambiental y revisión final bajo linterna"
+      ]
+    },
+    {
+      "id": "ENV-EXIT",
+      "name": "Exterior de escape",
+      "source_files": [
+        "SourceArt/Blender/ENV-EXIT_ExteriorEscape.blend"
+      ],
+      "state": "Prefab validado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/ENV-EXIT_ExteriorEscape.prefab",
+      "evidence": "SourceArt/_evidence/EX-50/ENV-EXIT_ExteriorEscape",
+      "triangles": 2812,
+      "texture_sets": 1,
+      "remaining": [
+        "montaje definitivo en escena y conexión de interacción",
+        "validación artística con iluminación final"
+      ]
+    },
+    {
+      "id": "NAV-01",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-01_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-01_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-01_Orientacion",
+      "instances": [
+        "REG-S1/Wayfinding_EX34/NAV-01"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    },
+    {
+      "id": "NAV-02",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-02_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-02_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-02_Orientacion",
+      "instances": [
+        "REG-S1/Wayfinding_EX34/NAV-02"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    },
+    {
+      "id": "NAV-03",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-03_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-03_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-03_Orientacion",
+      "instances": [
+        "REG-S2/Wayfinding_EX34/NAV-03"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    },
+    {
+      "id": "NAV-04",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-04_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-04_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-04_Orientacion",
+      "instances": [
+        "REG-S2/Wayfinding_EX34/NAV-04"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    },
+    {
+      "id": "NAV-05",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-05_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-05_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-05_Orientacion",
+      "instances": [
+        "REG-S3/Wayfinding_EX34/NAV-05"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    },
+    {
+      "id": "NAV-06",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-06_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-06_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-06_Orientacion",
+      "instances": [
+        "REG-S3/Wayfinding_EX34/NAV-06"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    },
+    {
+      "id": "NAV-07",
+      "name": "Señalética de sector",
+      "source_files": [
+        "SourceArt/Blender/NAV-07_Orientacion.blend"
+      ],
+      "state": "Integrado",
+      "acceptance_proven": false,
+      "prefab": "EsneiderProtocoloLazaro/Assets/_Game/Prefabs/Environment/NAV-07_Orientacion.prefab",
+      "evidence": "SourceArt/_evidence/EX-34/NAV-07_Orientacion",
+      "instances": [
+        "REG-S4/Wayfinding_EX34/NAV-07"
+      ],
+      "triangles": 380,
+      "composition_triangles": 428,
+      "texture_sets": 1,
+      "texture_resolution": 1024,
+      "remaining": [
+        "senales de confirmacion 3-5 m despues de cada eleccion",
+        "recorrido con jugador por destinos, ambas aproximaciones e iluminacion final",
+        "desgaste localizado por fijaciones",
+        "completar placas de conectores y autorizaciones A/B segun seccion 87"
+      ]
+    }
+  ]
+}
