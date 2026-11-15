@@ -15,9 +15,10 @@ namespace Dream
         public float swayPitchDeg = 0.6f, swayRollDeg = 0.7f, swayHeight = 0.015f;
         public float swayFreqPitch = 0.19f, swayFreqRoll = 0.23f, swayFreqHeight = 0.15f;
         [Header("Paso")] public float bobWalk = 0.009f, bobJog = 0.02f, bobRollDeg = 0.25f;
+        [Header("Quieto: olas")] public float wavePeriod = 7.5f, waveRollDeg = 1.5f, wavePitchDeg = 0.9f, waveHeight = 0.028f;
 
         PlayerMotor _motor;
-        float _yaw, _pitch, _yawT, _pitchT, _bobPhase, _bobAmp;
+        float _yaw, _pitch, _yawT, _pitchT, _bobPhase, _bobAmp, _still, _idle;
 
         public float Pitch => _pitch;
 
@@ -77,8 +78,17 @@ namespace Dream
             float bobRoll = Mathf.Sin(_bobPhase) * bobRollDeg * (_bobAmp / Mathf.Max(bobJog, 1e-4f)) * scale;
 
             float swimDip = _motor && _motor.Swimming ? Mathf.Sin(t * 1.1f) * 0.03f : 0f;
-            pivot.localPosition = new Vector3(0f, eyeHeight + sh + bob + swimDip, 0.08f);
-            pivot.localRotation = Quaternion.Euler(_pitch + sp, 0f, sr + bobRoll);
+
+            // quieto mas de un segundo: la camara se mece como sobre las olas del mar (rolido largo, cabeceo desfasado)
+            _still = speed < 0.08f ? _still + Time.deltaTime : 0f;
+            _idle = Mathf.MoveTowards(_idle, _still > 1f ? 1f : 0f, Time.deltaTime * (_still > 1f ? 0.35f : 1.5f));
+            float w = 2f * Mathf.PI * t / wavePeriod;
+            float wRoll = (Mathf.Sin(w) + 0.35f * Mathf.Sin(w * 2.3f + 1.1f)) * waveRollDeg * _idle * scale;
+            float wPitch = Mathf.Sin(w * 0.8f + 1.7f) * wavePitchDeg * _idle * scale;
+            float wHeight = Mathf.Sin(w + 0.6f) * waveHeight * _idle * scale;
+
+            pivot.localPosition = new Vector3(0f, eyeHeight + sh + bob + swimDip + wHeight, 0.08f);
+            pivot.localRotation = Quaternion.Euler(_pitch + sp + wPitch, 0f, sr + bobRoll + wRoll);
         }
     }
 }

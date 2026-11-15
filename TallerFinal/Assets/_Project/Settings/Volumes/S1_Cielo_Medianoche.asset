@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6939951784996446347
+--- !u!114 &-1507945000416629000
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,9 +156,9 @@ MonoBehaviour:
   m_Name: S1_Cielo_Medianoche
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: -6939951784996446347}
-  - {fileID: 6729058692533857544}
---- !u!114 &6729058692533857544
+  - {fileID: -1507945000416629000}
+  - {fileID: 72741276607999198}
+--- !u!114 &72741276607999198
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
