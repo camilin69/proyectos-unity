@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: S5_Bosque_Cerrado
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 8931250644186631837}
---- !u!114 &8931250644186631837
+  - {fileID: 1591934438790993528}
+--- !u!114 &1591934438790993528
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

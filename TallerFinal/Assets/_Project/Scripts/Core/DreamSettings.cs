@@ -19,15 +19,26 @@ namespace Dream
         const string QualityKey = "sueno.calidad";
         public static int Quality
         {
-            get => PlayerPrefs.GetInt(QualityKey, QualitySettings.GetQualityLevel() == 0 ? 0 : 1);
+            get => PlayerPrefs.GetInt(QualityKey, IntegratedGpu ? 1 : 0);
             set { PlayerPrefs.SetInt(QualityKey, value); PlayerPrefs.Save(); QualitySettings.SetQualityLevel(value, true); }
         }
-        public static string QualityName => Quality == 0 ? "Cine" : "Ligero";
+        public static string QualityName => Quality == 0 ? (IntegratedGpu ? "Cine (necesita GPU dedicada)" : "Cine") : "Ligero";
+
+        // Una GPU integrada (Intel HD / UHD / Iris) no aguanta las nubes volumetricas del perfil Cine: Windows la reinicia
+        // por tiempo de espera (TDR) y el juego se cierra. Ahi el juego empieza en Ligero.
+        public static bool IntegratedGpu
+        {
+            get
+            {
+                var n = SystemInfo.graphicsDeviceName ?? "";
+                return n.Contains("Intel") && (n.Contains("HD") || n.Contains("UHD") || n.Contains("Iris"));
+            }
+        }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void ApplyQuality()
         {
-            if (PlayerPrefs.HasKey(QualityKey)) QualitySettings.SetQualityLevel(PlayerPrefs.GetInt(QualityKey), true);
+            QualitySettings.SetQualityLevel(Quality, true);
         }
 
         public static float MouseSensitivity

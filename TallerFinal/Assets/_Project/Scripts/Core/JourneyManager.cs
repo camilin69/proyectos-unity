@@ -98,6 +98,8 @@ namespace Dream
             Anchor = SceneAnchor.Find(i);
             if (Anchor == null) { Debug.LogError($"La escena {Scenes[i]} no tiene SceneAnchor con index {i}"); yield break; }
             Anchor.memoryCollected = false;
+            if (Anchor.dayOnly) Anchor.dayOnly.SetActive(!finale);
+            if (Anchor.nightOnly) Anchor.nightOnly.SetActive(finale);
 
             var spawn = finale && Anchor.finaleSpawn ? Anchor.finaleSpawn : Anchor.spawn;
             var rig = PlayerRig.Instance;

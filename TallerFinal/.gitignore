@@ -28,3 +28,9 @@ crashlytics-build.properties
 /Assets/_Project/Audio/Music/*.wav
 /Assets/_Project/Audio/Music/*.ogg
 /Assets/_Project/Audio/Music/*.mp3
+
+# canciones comerciales que el usuario deja en la raiz del proyecto: nunca al repo publico
+/*.mp3
+/*.wav
+/*.m4a
+/*.ogg
