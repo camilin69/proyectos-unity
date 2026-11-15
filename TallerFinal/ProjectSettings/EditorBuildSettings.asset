@@ -6,7 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+    path: Assets/_Project/Scenes/Boot.unity
+    guid: 17466e248046c7b47a4d0d08cc5f3954
+  - enabled: 1
+    path: Assets/_Project/Scenes/S1_Cuarto.unity
+    guid: 46978ad06bf601f48999db31f7a36007
+  - enabled: 1
+    path: Assets/_Project/Scenes/S2_Pradera.unity
+    guid: 94e83b36c8747594fba6ef0c6f150ecc
+  - enabled: 1
+    path: Assets/_Project/Scenes/S3_Colina.unity
+    guid: f8fb3879b80272248a052b1ad5d73766
+  - enabled: 1
+    path: Assets/_Project/Scenes/S4_Jardin.unity
+    guid: 7e9dbd3ebd71d4941aaa268ee14d0f09
+  - enabled: 1
+    path: Assets/_Project/Scenes/S5_Playa.unity
+    guid: ea0f613ac01a15649abbc02d4b85f9b0
+  - enabled: 1
+    path: Assets/_Project/Scenes/S6_Piscina.unity
+    guid: 2f9a7cd565cc45e43b4050f6585268d4
+  - enabled: 1
+    path: Assets/_Project/Scenes/S7_Escalera.unity
+    guid: c26511066b5d2464fb22a59da7c77f1a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}

@@ -66,6 +66,10 @@ namespace Dream.EditorTools
                     tr.AddCondition(mode, c.threshold, c.param);
                 }
             }
+            // IK Pass en la capa base: HeadLook gira la cabeza hacia la puerta de luz y el hueco del arbol
+            var layers = ctrl.layers;
+            layers[0].iKPass = true;
+            ctrl.layers = layers;
             EditorUtility.SetDirty(ctrl);
             AssetDatabase.SaveAssets();
             return $"{ControllerPath}: {spec.parameters.Length} parametros, {spec.states.Length} estados, {spec.transitions.Length} transiciones";
