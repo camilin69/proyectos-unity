@@ -7,7 +7,7 @@ namespace Dream.UI
     public class IntroPanel : MonoBehaviour
     {
         CanvasGroup _group;
-        Text _swayLabel;
+        Text _swayLabel, _quality;
 
         public void Build()
         {
@@ -31,7 +31,9 @@ namespace Dream.UI
                 "<b>Tab</b>  saltar cinemática        <b>Esc</b>  pausa",
                 22, TextAnchor.MiddleCenter, new Color(UIKit.Ink.r, UIKit.Ink.g, UIKit.Ink.b, 0.85f), new Vector2(0.06f, 0.36f), new Vector2(0.94f, 0.47f));
 
-            _swayLabel = UIKit.Button(root, "Vaiven", "", new Vector2(0.38f, 0.26f), new Vector2(0.62f, 0.31f), CycleSway, 22)
+            _swayLabel = UIKit.Button(root, "Vaiven", "", new Vector2(0.26f, 0.26f), new Vector2(0.49f, 0.31f), CycleSway, 22)
+                              .GetComponentInChildren<Text>();
+            _quality = UIKit.Button(root, "Calidad", "", new Vector2(0.51f, 0.26f), new Vector2(0.74f, 0.31f), CycleQuality, 22)
                               .GetComponentInChildren<Text>();
             UIKit.Button(root, "Dormir", "D O R M I R", new Vector2(0.40f, 0.14f), new Vector2(0.60f, 0.22f),
                          () => GameFlow.Instance?.StartJourney(), 40);
@@ -43,7 +45,13 @@ namespace Dream.UI
         }
 
         void CycleSway() { DreamSettings.Sway = (SwayMode)(((int)DreamSettings.Sway + 1) % 3); RefreshSway(); }
-        void RefreshSway() { if (_swayLabel) _swayLabel.text = $"Vaivén de cámara:  {DreamSettings.Sway}"; }
+        void RefreshSway()
+        {
+            if (_swayLabel) _swayLabel.text = $"Vaivén de cámara:  {DreamSettings.Sway}";
+            if (_quality) _quality.text = $"Calidad:  {DreamSettings.QualityName}";
+        }
+
+        void CycleQuality() { DreamSettings.Quality = 1 - DreamSettings.Quality; RefreshSway(); }
 
         void Update()
         {

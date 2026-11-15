@@ -7,7 +7,7 @@ namespace Dream.UI
     public class PauseMenu : MonoBehaviour
     {
         CanvasGroup _group;
-        Text _sway, _sens;
+        Text _sway, _sens, _quality;
 
         public void Build()
         {
@@ -22,7 +22,8 @@ namespace Dream.UI
             UIKit.Button(root, "Menos", "−", new Vector2(0.38f, 0.36f), new Vector2(0.42f, 0.43f), () => Sens(-0.01f));
             _sens = UIKit.Label(root, "Sens", "", 24, TextAnchor.MiddleCenter, UIKit.Cream, new Vector2(0.42f, 0.36f), new Vector2(0.58f, 0.43f));
             UIKit.Button(root, "Mas", "+", new Vector2(0.58f, 0.36f), new Vector2(0.62f, 0.43f), () => Sens(0.01f));
-            UIKit.Button(root, "Salir", "Despertar (salir)", new Vector2(0.38f, 0.24f), new Vector2(0.62f, 0.31f), () => GameFlow.Instance?.Quit());
+            _quality = UIKit.Button(root, "Calidad", "", new Vector2(0.38f, 0.27f), new Vector2(0.62f, 0.34f), () => { DreamSettings.Quality = 1 - DreamSettings.Quality; Refresh(); }, 24).GetComponentInChildren<Text>();
+            UIKit.Button(root, "Salir", "Despertar (salir)", new Vector2(0.38f, 0.18f), new Vector2(0.62f, 0.25f), () => GameFlow.Instance?.Quit());
             Refresh();
         }
 
@@ -32,6 +33,7 @@ namespace Dream.UI
         void Refresh()
         {
             if (_sway) _sway.text = $"Vaivén de cámara:  {DreamSettings.Sway}";
+            if (_quality) _quality.text = $"Calidad:  {DreamSettings.QualityName}";
             if (_sens) _sens.text = $"Ratón  {DreamSettings.MouseSensitivity:0.00}";
         }
 
