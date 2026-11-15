@@ -1,97 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8639151005628891564
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0775cbb206825d541bf6c0297ee524ca, type: 3}
-  m_Name: SplitToning
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SplitToning
-  active: 1
-  shadows:
-    m_OverrideState: 1
-    m_Value: {r: 0.72, g: 0.88, b: 0.84, a: 1}
-  highlights:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 0.86, b: 0.9, a: 1}
-  balance:
-    m_OverrideState: 1
-    m_Value: 15
---- !u!114 &-8388605061181810726
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
-  m_Name: FilmGrain
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.FilmGrain
-  active: 1
-  type:
-    m_OverrideState: 1
-    m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.12
-  response:
-    m_OverrideState: 0
-    m_Value: 0.8
-  texture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
---- !u!114 &-8257655930651266831
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
-  m_Name: VisualEnvironment
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.VisualEnvironment
-  active: 1
-  m_Version: 1
-  skyType:
-    m_OverrideState: 1
-    m_Value: 4
-  cloudType:
-    m_OverrideState: 0
-    m_Value: 0
-  skyAmbientMode:
-    m_OverrideState: 1
-    m_Value: 1
-  planetRadius:
-    m_OverrideState: 0
-    m_Value: 6378.1
-  renderingSpace:
-    m_OverrideState: 0
-    m_Value: 1
-  centerMode:
-    m_OverrideState: 0
-    m_Value: 0
-  planetCenter:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: -6378.1, z: 0}
-  windOrientation:
-    m_OverrideState: 0
-    m_Value: 0
-  windSpeed:
-    m_OverrideState: 0
-    m_Value: 0
-  fogType:
-    m_OverrideState: 0
-    m_Value: 0
---- !u!114 &-2019950481241953527
+--- !u!114 &-8133587044749244708
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +94,7 @@ MonoBehaviour:
   volumetricLightingDensityCutoff:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-660390648093855967
+--- !u!114 &-7896943011304479393
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,308 +237,7 @@ MonoBehaviour:
   horizonZenithShift:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-441987783315299960
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 384c4d03a551c44448145f4093304119, type: 3}
-  m_Name: ScreenSpaceReflection
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
-  active: 1
-  quality:
-    m_OverrideState: 0
-    m_Value: 1
-  enabled:
-    m_OverrideState: 1
-    m_Value: 1
-  enabledTransparent:
-    m_OverrideState: 0
-    m_Value: 1
-  tracing:
-    m_OverrideState: 0
-    m_Value: 1
-  m_MinSmoothness:
-    m_OverrideState: 0
-    m_Value: 0.9
-  m_SmoothnessFadeStart:
-    m_OverrideState: 0
-    m_Value: 0.9
-  reflectSky:
-    m_OverrideState: 0
-    m_Value: 1
-  usedAlgorithm:
-    m_OverrideState: 0
-    m_Value: 0
-  depthBufferThickness:
-    m_OverrideState: 0
-    m_Value: 0.01
-  screenFadeDistance:
-    m_OverrideState: 0
-    m_Value: 0.1
-  accumulationFactor:
-    m_OverrideState: 0
-    m_Value: 0.75
-  biasFactor:
-    m_OverrideState: 0
-    m_Value: 0.5
-  speedRejectionParam:
-    m_OverrideState: 0
-    m_Value: 0.5
-  speedRejectionScalerFactor:
-    m_OverrideState: 0
-    m_Value: 0.2
-  speedSmoothReject:
-    m_OverrideState: 0
-    m_Value: 0
-  speedSurfaceOnly:
-    m_OverrideState: 0
-    m_Value: 1
-  speedTargetOnly:
-    m_OverrideState: 0
-    m_Value: 1
-  enableWorldSpeedRejection:
-    m_OverrideState: 0
-    m_Value: 0
-  m_RayMaxIterations:
-    m_OverrideState: 0
-    m_Value: 64
-  rayMiss:
-    m_OverrideState: 0
-    m_Value: 3
-  lastBounceFallbackHierarchy:
-    m_OverrideState: 0
-    m_Value: 3
-  ambientProbeDimmer:
-    m_OverrideState: 0
-    m_Value: 1
-  layerMask:
-    m_OverrideState: 0
-    m_Value:
-      serializedVersion: 2
-      m_Bits: 4294967295
-  textureLodBias:
-    m_OverrideState: 0
-    m_Value: 1
-  m_RayLength:
-    m_OverrideState: 0
-    m_Value: 50
-  m_ClampValue:
-    m_OverrideState: 0
-    m_Value: 100
-  m_Denoise:
-    m_OverrideState: 0
-    m_Value: 1
-  m_DenoiserRadius:
-    m_OverrideState: 0
-    m_Value: 0.75
-  m_DenoiserAntiFlickeringStrength:
-    m_OverrideState: 0
-    m_Value: 1
-  mode:
-    m_OverrideState: 0
-    m_Value: 2
-  m_FullResolution:
-    m_OverrideState: 0
-    m_Value: 0
-  sampleCount:
-    m_OverrideState: 0
-    m_Value: 1
-  bounceCount:
-    m_OverrideState: 0
-    m_Value: 1
-  m_RayMaxIterationsRT:
-    m_OverrideState: 0
-    m_Value: 48
-  adaptiveProbeVolumesLayerMask:
-    m_OverrideState: 0
-    m_Value:
-      serializedVersion: 0
-      m_Bits: 1
---- !u!114 &-86806661851458027
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d08ce26990eb1a4a9177b860541e702, type: 3}
-  m_Name: Exposure
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.Exposure
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 4
-  meteringMode:
-    m_OverrideState: 0
-    m_Value: 2
-  luminanceSource:
-    m_OverrideState: 0
-    m_Value: 1
-  fixedExposure:
-    m_OverrideState: 0
-    m_Value: 0
-  compensation:
-    m_OverrideState: 1
-    m_Value: 0.3
-  limitMin:
-    m_OverrideState: 1
-    m_Value: -1.5
-  limitMax:
-    m_OverrideState: 1
-    m_Value: 15.5
-  curveMap:
-    m_OverrideState: 0
-    m_Value:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: -10
-        value: -10
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 20
-        value: 20
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  limitMinCurveMap:
-    m_OverrideState: 0
-    m_Value:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: -10
-        value: -12
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 20
-        value: 18
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  limitMaxCurveMap:
-    m_OverrideState: 0
-    m_Value:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: -10
-        value: -8
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 20
-        value: 22
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  adaptationMode:
-    m_OverrideState: 0
-    m_Value: 1
-  adaptationSpeedDarkToLight:
-    m_OverrideState: 1
-    m_Value: 1.2
-  adaptationSpeedLightToDark:
-    m_OverrideState: 1
-    m_Value: 1.5
-  weightTextureMask:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  histogramPercentages:
-    m_OverrideState: 0
-    m_Value: {x: 40, y: 90}
-  histogramUseCurveRemapping:
-    m_OverrideState: 0
-    m_Value: 0
-  targetMidGray:
-    m_OverrideState: 0
-    m_Value: 0
-  centerAroundExposureTarget:
-    m_OverrideState: 0
-    m_Value: 0
-  proceduralCenter:
-    m_OverrideState: 0
-    m_Value: {x: 0.5, y: 0.5}
-  proceduralRadii:
-    m_OverrideState: 0
-    m_Value: {x: 0.3, y: 0.3}
-  maskMinIntensity:
-    m_OverrideState: 0
-    m_Value: -30
-  maskMaxIntensity:
-    m_OverrideState: 0
-    m_Value: 30
-  proceduralSoftness:
-    m_OverrideState: 0
-    m_Value: 0.5
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Boot_Cielo
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
-  components:
-  - {fileID: -8257655930651266831}
-  - {fileID: -660390648093855967}
-  - {fileID: -86806661851458027}
-  - {fileID: -2019950481241953527}
-  - {fileID: 2209935844210658319}
-  - {fileID: 5052578025047219995}
-  - {fileID: 4612993604276581608}
-  - {fileID: 2052129090414658566}
-  - {fileID: -8388605061181810726}
-  - {fileID: -8639151005628891564}
-  - {fileID: 2330955350700653267}
-  - {fileID: 2374956106667115541}
-  - {fileID: 3804685340645959013}
-  - {fileID: -441987783315299960}
-  - {fileID: 4056137508274369883}
---- !u!114 &2052129090414658566
+--- !u!114 &-7706121780971415693
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -669,7 +277,110 @@ MonoBehaviour:
   opacity:
     m_OverrideState: 0
     m_Value: 1
---- !u!114 &2209935844210658319
+--- !u!114 &-7037611806872939525
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8bcdf71d7fafa419fca1ed162f5fc9, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ColorAdjustments
+  active: 1
+  postExposure:
+    m_OverrideState: 0
+    m_Value: 0
+  contrast:
+    m_OverrideState: 1
+    m_Value: 4
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 0
+  saturation:
+    m_OverrideState: 1
+    m_Value: -6
+--- !u!114 &-6746035087208587300
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.FilmGrain
+  active: 1
+  type:
+    m_OverrideState: 1
+    m_Value: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.12
+  response:
+    m_OverrideState: 0
+    m_Value: 0.8
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+--- !u!114 &-290043531202489904
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775cbb206825d541bf6c0297ee524ca, type: 3}
+  m_Name: SplitToning
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SplitToning
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {r: 0.72, g: 0.88, b: 0.84, a: 1}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0.86, b: 0.9, a: 1}
+  balance:
+    m_OverrideState: 1
+    m_Value: 15
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Boot_Cielo
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
+  components:
+  - {fileID: 2927410992365087145}
+  - {fileID: -7896943011304479393}
+  - {fileID: 7389087077708396780}
+  - {fileID: -8133587044749244708}
+  - {fileID: 1757340171771015177}
+  - {fileID: 5580630334062631848}
+  - {fileID: 2648464894466596024}
+  - {fileID: -7706121780971415693}
+  - {fileID: -6746035087208587300}
+  - {fileID: -290043531202489904}
+  - {fileID: -7037611806872939525}
+  - {fileID: 4821516283480647946}
+  - {fileID: 6081976296737418736}
+  - {fileID: 9129282173842308670}
+  - {fileID: 5582695232370440396}
+--- !u!114 &1757340171771015177
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -994,7 +705,7 @@ MonoBehaviour:
   shadowOpacityFallback:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &2330955350700653267
+--- !u!114 &2648464894466596024
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1003,26 +714,88 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8bcdf71d7fafa419fca1ed162f5fc9, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ColorAdjustments
+  m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.Bloom
   active: 1
-  postExposure:
+  quality:
+    m_OverrideState: 0
+    m_Value: 1
+  threshold:
     m_OverrideState: 0
     m_Value: 0
-  contrast:
+  intensity:
     m_OverrideState: 1
-    m_Value: 4
-  colorFilter:
+    m_Value: 0.22
+  scatter:
+    m_OverrideState: 1
+    m_Value: 0.72
+  tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  hueShift:
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
-  saturation:
+  anamorphic:
+    m_OverrideState: 0
+    m_Value: 1
+  m_Resolution:
+    m_OverrideState: 0
+    m_Value: 2
+  m_HighQualityPrefiltering:
+    m_OverrideState: 0
+    m_Value: 0
+  m_HighQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &2927410992365087145
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
+  m_Name: VisualEnvironment
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.VisualEnvironment
+  active: 1
+  m_Version: 1
+  skyType:
     m_OverrideState: 1
-    m_Value: -6
---- !u!114 &2374956106667115541
+    m_Value: 4
+  cloudType:
+    m_OverrideState: 0
+    m_Value: 0
+  skyAmbientMode:
+    m_OverrideState: 1
+    m_Value: 1
+  planetRadius:
+    m_OverrideState: 0
+    m_Value: 6378.1
+  renderingSpace:
+    m_OverrideState: 0
+    m_Value: 1
+  centerMode:
+    m_OverrideState: 0
+    m_Value: 0
+  planetCenter:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: -6378.1, z: 0}
+  windOrientation:
+    m_OverrideState: 0
+    m_Value: 0
+  windSpeed:
+    m_OverrideState: 0
+    m_Value: 0
+  fogType:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &4821516283480647946
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1103,175 +876,7 @@ MonoBehaviour:
   m_DenoiserRadius:
     m_OverrideState: 0
     m_Value: 1
---- !u!114 &3804685340645959013
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b145d2b9ee1ac4f846968484e7485a, type: 3}
-  m_Name: ContactShadows
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ContactShadows
-  active: 1
-  quality:
-    m_OverrideState: 0
-    m_Value: 1
-  enable:
-    m_OverrideState: 1
-    m_Value: 1
-  directionalOnly:
-    m_OverrideState: 0
-    m_Value: 0
-  halfResolution:
-    m_OverrideState: 0
-    m_Value: 0
-  length:
-    m_OverrideState: 0
-    m_Value: 0.15
-  opacity:
-    m_OverrideState: 0
-    m_Value: 1
-  distanceScaleFactor:
-    m_OverrideState: 0
-    m_Value: 0.5
-  maxDistance:
-    m_OverrideState: 0
-    m_Value: 50
-  minDistance:
-    m_OverrideState: 0
-    m_Value: 0
-  fadeDistance:
-    m_OverrideState: 0
-    m_Value: 5
-  fadeInDistance:
-    m_OverrideState: 0
-    m_Value: 0
-  rayBias:
-    m_OverrideState: 0
-    m_Value: 0.2
-  thicknessScale:
-    m_OverrideState: 0
-    m_Value: 0.15
-  m_SampleCount:
-    m_OverrideState: 0
-    m_Value: 10
---- !u!114 &4056137508274369883
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa3b8214f75b354e9ba2caadd022259, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DepthOfField
-  active: 1
-  quality:
-    m_OverrideState: 0
-    m_Value: 1
-  focusMode:
-    m_OverrideState: 1
-    m_Value: 1
-  focusDistance:
-    m_OverrideState: 0
-    m_Value: 10
-  focusDistanceMode:
-    m_OverrideState: 0
-    m_Value: 0
-  nearFocusStart:
-    m_OverrideState: 0
-    m_Value: 0
-  nearFocusEnd:
-    m_OverrideState: 0
-    m_Value: 4
-  farFocusStart:
-    m_OverrideState: 0
-    m_Value: 10
-  farFocusEnd:
-    m_OverrideState: 0
-    m_Value: 20
-  m_NearSampleCount:
-    m_OverrideState: 0
-    m_Value: 5
-  m_NearMaxBlur:
-    m_OverrideState: 0
-    m_Value: 4
-  m_FarSampleCount:
-    m_OverrideState: 0
-    m_Value: 7
-  m_FarMaxBlur:
-    m_OverrideState: 0
-    m_Value: 8
-  m_Resolution:
-    m_OverrideState: 0
-    m_Value: 2
-  m_HighQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 1
-  m_PhysicallyBased:
-    m_OverrideState: 0
-    m_Value: 0
-  m_AdaptiveSamplingWeight:
-    m_OverrideState: 0
-    m_Value: 0.75
-  m_LimitManualRangeNearBlur:
-    m_OverrideState: 0
-    m_Value: 0
-  coCStabilization:
-    m_OverrideState: 0
-    m_Value: 1
---- !u!114 &4612993604276581608
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.Bloom
-  active: 1
-  quality:
-    m_OverrideState: 0
-    m_Value: 1
-  threshold:
-    m_OverrideState: 0
-    m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.22
-  scatter:
-    m_OverrideState: 1
-    m_Value: 0.72
-  tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  dirtTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  dirtIntensity:
-    m_OverrideState: 0
-    m_Value: 0
-  anamorphic:
-    m_OverrideState: 0
-    m_Value: 1
-  m_Resolution:
-    m_OverrideState: 0
-    m_Value: 2
-  m_HighQualityPrefiltering:
-    m_OverrideState: 0
-    m_Value: 0
-  m_HighQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 1
---- !u!114 &5052578025047219995
+--- !u!114 &5580630334062631848
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1341,3 +946,398 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 0
     m_Value: 1000
+--- !u!114 &5582695232370440396
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa3b8214f75b354e9ba2caadd022259, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DepthOfField
+  active: 1
+  quality:
+    m_OverrideState: 0
+    m_Value: 1
+  focusMode:
+    m_OverrideState: 1
+    m_Value: 1
+  focusDistance:
+    m_OverrideState: 0
+    m_Value: 10
+  focusDistanceMode:
+    m_OverrideState: 0
+    m_Value: 0
+  nearFocusStart:
+    m_OverrideState: 0
+    m_Value: 0
+  nearFocusEnd:
+    m_OverrideState: 0
+    m_Value: 4
+  farFocusStart:
+    m_OverrideState: 0
+    m_Value: 10
+  farFocusEnd:
+    m_OverrideState: 0
+    m_Value: 20
+  m_NearSampleCount:
+    m_OverrideState: 0
+    m_Value: 5
+  m_NearMaxBlur:
+    m_OverrideState: 0
+    m_Value: 4
+  m_FarSampleCount:
+    m_OverrideState: 0
+    m_Value: 7
+  m_FarMaxBlur:
+    m_OverrideState: 0
+    m_Value: 8
+  m_Resolution:
+    m_OverrideState: 0
+    m_Value: 2
+  m_HighQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 1
+  m_PhysicallyBased:
+    m_OverrideState: 0
+    m_Value: 0
+  m_AdaptiveSamplingWeight:
+    m_OverrideState: 0
+    m_Value: 0.75
+  m_LimitManualRangeNearBlur:
+    m_OverrideState: 0
+    m_Value: 0
+  coCStabilization:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &6081976296737418736
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b145d2b9ee1ac4f846968484e7485a, type: 3}
+  m_Name: ContactShadows
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ContactShadows
+  active: 1
+  quality:
+    m_OverrideState: 0
+    m_Value: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  directionalOnly:
+    m_OverrideState: 0
+    m_Value: 0
+  halfResolution:
+    m_OverrideState: 0
+    m_Value: 0
+  length:
+    m_OverrideState: 0
+    m_Value: 0.15
+  opacity:
+    m_OverrideState: 0
+    m_Value: 1
+  distanceScaleFactor:
+    m_OverrideState: 0
+    m_Value: 0.5
+  maxDistance:
+    m_OverrideState: 0
+    m_Value: 50
+  minDistance:
+    m_OverrideState: 0
+    m_Value: 0
+  fadeDistance:
+    m_OverrideState: 0
+    m_Value: 5
+  fadeInDistance:
+    m_OverrideState: 0
+    m_Value: 0
+  rayBias:
+    m_OverrideState: 0
+    m_Value: 0.2
+  thicknessScale:
+    m_OverrideState: 0
+    m_Value: 0.15
+  m_SampleCount:
+    m_OverrideState: 0
+    m_Value: 10
+--- !u!114 &7389087077708396780
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d08ce26990eb1a4a9177b860541e702, type: 3}
+  m_Name: Exposure
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.Exposure
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 4
+  meteringMode:
+    m_OverrideState: 0
+    m_Value: 2
+  luminanceSource:
+    m_OverrideState: 0
+    m_Value: 1
+  fixedExposure:
+    m_OverrideState: 0
+    m_Value: 0
+  compensation:
+    m_OverrideState: 1
+    m_Value: 0.3
+  limitMin:
+    m_OverrideState: 1
+    m_Value: -1.5
+  limitMax:
+    m_OverrideState: 1
+    m_Value: 15.5
+  curveMap:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -10
+        value: -10
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 20
+        value: 20
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  limitMinCurveMap:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -10
+        value: -12
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 20
+        value: 18
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  limitMaxCurveMap:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -10
+        value: -8
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 20
+        value: 22
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  adaptationMode:
+    m_OverrideState: 0
+    m_Value: 1
+  adaptationSpeedDarkToLight:
+    m_OverrideState: 1
+    m_Value: 1.2
+  adaptationSpeedLightToDark:
+    m_OverrideState: 1
+    m_Value: 1.5
+  weightTextureMask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  histogramPercentages:
+    m_OverrideState: 0
+    m_Value: {x: 40, y: 90}
+  histogramUseCurveRemapping:
+    m_OverrideState: 0
+    m_Value: 0
+  targetMidGray:
+    m_OverrideState: 0
+    m_Value: 0
+  centerAroundExposureTarget:
+    m_OverrideState: 0
+    m_Value: 0
+  proceduralCenter:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  proceduralRadii:
+    m_OverrideState: 0
+    m_Value: {x: 0.3, y: 0.3}
+  maskMinIntensity:
+    m_OverrideState: 0
+    m_Value: -30
+  maskMaxIntensity:
+    m_OverrideState: 0
+    m_Value: 30
+  proceduralSoftness:
+    m_OverrideState: 0
+    m_Value: 0.5
+--- !u!114 &9129282173842308670
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384c4d03a551c44448145f4093304119, type: 3}
+  m_Name: ScreenSpaceReflection
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
+  active: 1
+  quality:
+    m_OverrideState: 0
+    m_Value: 1
+  enabled:
+    m_OverrideState: 1
+    m_Value: 1
+  enabledTransparent:
+    m_OverrideState: 0
+    m_Value: 1
+  tracing:
+    m_OverrideState: 0
+    m_Value: 1
+  m_MinSmoothness:
+    m_OverrideState: 0
+    m_Value: 0.9
+  m_SmoothnessFadeStart:
+    m_OverrideState: 0
+    m_Value: 0.9
+  reflectSky:
+    m_OverrideState: 0
+    m_Value: 1
+  usedAlgorithm:
+    m_OverrideState: 0
+    m_Value: 0
+  depthBufferThickness:
+    m_OverrideState: 0
+    m_Value: 0.01
+  screenFadeDistance:
+    m_OverrideState: 0
+    m_Value: 0.1
+  accumulationFactor:
+    m_OverrideState: 0
+    m_Value: 0.75
+  biasFactor:
+    m_OverrideState: 0
+    m_Value: 0.5
+  speedRejectionParam:
+    m_OverrideState: 0
+    m_Value: 0.5
+  speedRejectionScalerFactor:
+    m_OverrideState: 0
+    m_Value: 0.2
+  speedSmoothReject:
+    m_OverrideState: 0
+    m_Value: 0
+  speedSurfaceOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  speedTargetOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  enableWorldSpeedRejection:
+    m_OverrideState: 0
+    m_Value: 0
+  m_RayMaxIterations:
+    m_OverrideState: 0
+    m_Value: 64
+  rayMiss:
+    m_OverrideState: 0
+    m_Value: 3
+  lastBounceFallbackHierarchy:
+    m_OverrideState: 0
+    m_Value: 3
+  ambientProbeDimmer:
+    m_OverrideState: 0
+    m_Value: 1
+  layerMask:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 2
+      m_Bits: 4294967295
+  textureLodBias:
+    m_OverrideState: 0
+    m_Value: 1
+  m_RayLength:
+    m_OverrideState: 0
+    m_Value: 50
+  m_ClampValue:
+    m_OverrideState: 0
+    m_Value: 100
+  m_Denoise:
+    m_OverrideState: 0
+    m_Value: 1
+  m_DenoiserRadius:
+    m_OverrideState: 0
+    m_Value: 0.75
+  m_DenoiserAntiFlickeringStrength:
+    m_OverrideState: 0
+    m_Value: 1
+  mode:
+    m_OverrideState: 0
+    m_Value: 2
+  m_FullResolution:
+    m_OverrideState: 0
+    m_Value: 0
+  sampleCount:
+    m_OverrideState: 0
+    m_Value: 1
+  bounceCount:
+    m_OverrideState: 0
+    m_Value: 1
+  m_RayMaxIterationsRT:
+    m_OverrideState: 0
+    m_Value: 48
+  adaptiveProbeVolumesLayerMask:
+    m_OverrideState: 0
+    m_Value:
+      serializedVersion: 0
+      m_Bits: 1
