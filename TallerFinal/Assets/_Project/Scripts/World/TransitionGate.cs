@@ -24,6 +24,17 @@ namespace Dream
         void OnTriggerEnter(Collider other) => TryUse(other);
         void OnTriggerStay(Collider other) => TryUse(other);
 
+        // Abre el paso sin cruzarlo (lo usa el recuerdo con autoGate).
+        public void Trigger()
+        {
+            if (_used) return;
+            if (GameFlow.Instance && GameFlow.Instance.State != GameState.Playing) return;
+            _used = true;
+            if (revokesFlight) PlayerRig.Instance?.Motor.SetFlightAllowed(false);
+            var director = Cinematic.CinematicDirector.Instance;
+            if (director) director.StartCoroutine(director.PlayDeparture(departure, advanceScene, onComplete));
+        }
+
         void TryUse(Collider other)
         {
             if (_used || !other.GetComponent<PlayerMotor>()) return;

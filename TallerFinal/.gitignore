@@ -34,3 +34,4 @@ crashlytics-build.properties
 /*.wav
 /*.m4a
 /*.ogg
+/playlist/

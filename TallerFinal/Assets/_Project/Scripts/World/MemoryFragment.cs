@@ -13,6 +13,8 @@ namespace Dream
         public Transform visual;
         public Light glow;
         public bool unlocksFlight;
+        [Tooltip("Si se asigna, al tomar el recuerdo arranca sola la cinematica de ese paso (el jugador no tiene que buscarlo)")]
+        public TransitionGate autoGate;
         public UnityEvent onCollected;
 
         public bool Collected { get; private set; }
@@ -68,6 +70,11 @@ namespace Dream
             }
             if (visual) visual.gameObject.SetActive(false);
             if (glow) glow.enabled = false;
+            if (autoGate)
+            {
+                yield return new WaitForSeconds(0.8f);              // un momento para leer el recuerdo
+                autoGate.Trigger();
+            }
         }
     }
 }

@@ -89,6 +89,18 @@ MODELS = {
     "ornate_mirror_01": "espejo del cuarto",
     "potted_plant_01": "planta en maceta",
     "modern_ceiling_lamp_01": "lampara de techo",
+    # pradera
+    "grass_medium_01": "pasto 3D de la pradera",
+    "grass_medium_02": "pasto 3D de la pradera",
+    "dandelion_01": "dientes de leon de la pradera",
+    "flower_gazania": "flores de la pradera",
+    "flower_heliophila": "flores de la pradera",
+    "flower_ursinia": "flores de la pradera",
+    "shrub_01": "arbustos de la pradera",
+    "shrub_02": "arbustos de la pradera",
+    "boulder_01": "roca de la pradera",
+    "tree_stump_01": "tocon de la pradera",
+    "painted_wooden_bench": "banca en medio de la pradera",
 }
 
 
@@ -107,8 +119,8 @@ def fetch_model(mid):
         diff = pick(files, "Diffuse", "1k") if not part else pick(files, part + "diff", "1k")
         albedo = Image.open(io.BytesIO(get(diff))).convert("RGB")
         size = albedo.size
-        alpha = pick(files, part + "alpha", "1k") if part else pick(files, "opacity", "1k")
-        if alpha and part:      # hojas recortadas: el alfa va dentro del albedo
+        alpha = pick(files, part + "alpha", "1k") or (pick(files, "opacity", "1k") or pick(files, "alpha", "1k") or pick(files, "Alpha", "1k") if not part else None)
+        if alpha and not mid.startswith("alarm_clock"):      # hojas/pasto recortados: el alfa va dentro del albedo
             a = Image.open(io.BytesIO(get(alpha))).convert("L").resize(size)
             albedo.putalpha(a)
             albedo.save(os.path.join(folder, f"{tag}_albedo.png"))
