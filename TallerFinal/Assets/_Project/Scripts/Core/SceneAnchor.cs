@@ -23,6 +23,7 @@ namespace Dream
         [Range(0f, 1f)] public float musicVolume = 0.8f;
         [Range(0f, 1f)] public float musicReverb = 0f;
         public AudioClip ambience;
+        public AmbienceKind ambienceKind;
         [Range(0f, 1f)] public float ambienceVolume = 0.6f;
         public float respawnBelowY = -60f;
         [Tooltip("Activos solo al llegar de dia / solo en el regreso de medianoche")] public GameObject dayOnly, nightOnly;

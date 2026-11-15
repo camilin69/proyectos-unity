@@ -25,6 +25,7 @@ namespace Dream.Audio
         float _fade = 1f, _fadeSpeed;        // peso del plato activo (0..1); el otro recibe 1 - _fade
         float _vol = 0.8f, _cut = 22000f, _rev, _ambVol;
         float _duck = 1f, _duckUntil;
+        AmbienceKind _ambKind;
         AudioLowPassFilter[] _lp;
         AudioReverbFilter[] _rv;
 
@@ -84,9 +85,11 @@ namespace Dream.Audio
         {
             if (!a) return;
             _vol = a.musicVolume; _cut = a.musicLowPass; _rev = a.musicReverb; _ambVol = a.ambienceVolume;
+            _ambKind = a.ambienceKind;
             if (ambience)
             {
-                if (ambience.clip != a.ambience) { ambience.clip = a.ambience; ambience.volume = 0f; if (a.ambience) ambience.Play(); }
+                var clip = a.ambience ? a.ambience : ProceduralAudio.Ambience(a.ambienceKind);
+                if (ambience.clip != clip) { ambience.clip = clip; ambience.volume = 0f; if (clip) ambience.Play(); }
                 ambience.loop = true;
             }
         }
@@ -125,7 +128,9 @@ namespace Dream.Audio
                     _rv[i].reverbLevel = Mathf.Lerp(-2000f, 200f, rev);
                 }
             }
-            if (ambience) ambience.volume = Mathf.Lerp(ambience.volume, _ambVol, k);
+            // el viento sube con las rafagas que mecen el pasto
+            float windGain = _ambKind is AmbienceKind.Viento or AmbienceKind.VientoAlto or AmbienceKind.NocheSuave ? 0.35f + 0.9f * Wind.Strength : 1f;
+            if (ambience) ambience.volume = Mathf.Lerp(ambience.volume, InMenu ? 0f : _ambVol * windGain, k);
         }
     }
 }

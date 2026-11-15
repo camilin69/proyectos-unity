@@ -81,6 +81,16 @@ namespace Dream.Cinematic
             else if (s.from && s.to) pos = Vector3.Lerp(s.from.position, s.to.position, e);
             else if (s.from) pos = s.from.position;
             else if (s.to) pos = Vector3.Lerp(_startPos, s.to.position, e);   // desde donde quedo la camara
+            // brazo de grua: si algo se interpone entre el sonador y la camara (una escalera, una pared, el suelo),
+            // la camara se acerca a el hasta verlo
+            if (rig && !s.hideActor && (s.lookAtActorHead || (s.lookAt && Vector3.Distance(s.lookAt.position, rig.transform.position) < 5f)))
+            {
+                var head = rig.transform.position + Vector3.up * 1.45f;
+                var dir = pos - head; float len = dir.magnitude;
+                if (len > 0.4f && Physics.SphereCast(head, 0.18f, dir / len, out var hit, len, ~0, QueryTriggerInteraction.Ignore)
+                    && !hit.collider.GetComponentInParent<PlayerRig>())
+                    pos = head + dir / len * Mathf.Max(0.6f, hit.distance - 0.25f);
+            }
             cam.transform.position = pos;
 
             Vector3? look = null;
