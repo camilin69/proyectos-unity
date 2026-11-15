@@ -51,3 +51,6 @@ Gameplay/
 # Evidencias de produccion que no son necesarias para abrir el proyecto
 SourceArt/_evidence/
 docs/produccion/evidencia/
+
+# volcados de cierres de la terminal
+*.stackdump
