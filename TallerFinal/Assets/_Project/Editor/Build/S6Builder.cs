@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 using static Dream.EditorTools.Build.BuildKit;
 
 namespace Dream.EditorTools.Build
 {
-    // 6 · La playa del oceano infinito y el bosque de palmeras que se cierra, 21:20. Cae sobre una hoja de palmera
-    // y queda mirando el mar; tierra adentro, el camino de palmeras se vuelve bosque y la niebla lo traga todo.
+    // 6 · La playa del oceano infinito, 21:20. Cae sobre una hoja de palmera y queda mirando el mar; tierra adentro,
+    // un pasillo corto de palmeras altisimas que tapan el cielo lleva al recuerdo y a un laberinto de setos podados
+    // como murallas de castillo. Al entrar todo se oscurece; del otro lado, un tunel bajito, de la altura del
+    // sonador, con una luz al final.
     public static class S6Builder
     {
         public static void Build()
@@ -38,44 +41,62 @@ namespace Dream.EditorTools.Build
             Water("Oceano_infinito", null, UnityEngine.Rendering.HighDefinition.WaterSurfaceType.OceanSeaLake, Vector3.zero, Vector2.zero);
             ShootingStarsIn(a.transform);
 
-            // palmeras: el camino se vuelve bosque
+            // pasillo corto de palmeras altisimas, inclinadas hacia el camino: sus copas se cierran arriba
             var palms = Group("Palmeras");
             var rng = new System.Random(11);
             Palm(palms, new Vector3(-0.6f, G(-0.6f, -16.5f), -16.5f), 3.6f, -14f, rng, out var leafTop);
             var landingLeaf = Box("Hoja_de_aterrizaje", palms, new Vector3(0.4f, G(0.4f, -19.2f) + 2.3f, -19.2f), new Vector3(1.0f, 0.06f, 3.2f), Palette.Leaf, SurfaceType.Leaves);
             landingLeaf.transform.rotation = Quaternion.Euler(18f, 10f, 0f);
-            for (float z = 6f; z < 136f; z += 5.5f)
-            {
-                int perSide = 1 + Mathf.FloorToInt(z / 22f);
+            for (float z = 4f; z < 42f; z += 3.2f)
                 for (int s = -1; s <= 1; s += 2)
-                    for (int k = 0; k < perSide; k++)
+                    for (int k = 0; k < 2; k++)
                     {
-                        float x = s * (2.6f + k * 2.4f + (float)rng.NextDouble() * 1.4f);
-                        float zz = z + (float)(rng.NextDouble() - 0.5) * 3f;
-                        Palm(palms, new Vector3(x, G(x, zz), zz), 6f + (float)rng.NextDouble() * 5f, (float)(rng.NextDouble() - 0.5) * 16f, rng, out _);
+                        float x = s * (2.3f + k * 3.2f + (float)rng.NextDouble() * 1.2f);
+                        float zz = z + (float)(rng.NextDouble() - 0.5) * 2f;
+                        float yawIn = s < 0 ? 90f : -90f;                       // se inclinan hacia el camino
+                        Palm(palms, new Vector3(x, G(x, zz), zz), 14f + (float)rng.NextDouble() * 8f, 7f + (float)rng.NextDouble() * 8f, rng, out _, yawIn, 14);
                     }
-                int bushes = Mathf.FloorToInt(z / 18f);
-                for (int b = 0; b < bushes; b++)
-                {
-                    float x = (rng.NextDouble() < 0.5 ? -1 : 1) * (1.8f + (float)rng.NextDouble() * 9f);
-                    float sz = 1f + (float)rng.NextDouble() * 1.6f;
-                    Prim(PrimitiveType.Sphere, "Mata", palms, new Vector3(x, G(x, z) + sz * 0.3f, z), new Vector3(sz * 1.4f, sz, sz * 1.4f), Palette.Hedge, null, null, false);
-                }
-            }
-            // al fondo el bosque se cierra del todo
-            for (int i = 0; i < 18; i++)
-            {
-                float x = -14f + i * 1.65f;
-                if (Mathf.Abs(x) < 1.8f) continue;
-                Prim(PrimitiveType.Sphere, "Muro_de_hojas", palms, new Vector3(x, G(x, 143f) + 2f, 143f + (float)rng.NextDouble()), new Vector3(3f, 5f, 3f), Mat("M_Hojas_Oscuras", new Color(0.08f, 0.11f, 0.08f), 0.1f));
-            }
-            Memory(a.transform, new Vector3(1.4f, G(1.4f, 70f) + 1.0f, 70f), "El mar sigue hablando aunque nadie lo escuche.");
+            Memory(a.transform, new Vector3(0.6f, G(0.6f, 30f) + 1.0f, 30f), "El mar sigue hablando aunque nadie lo escuche.");
 
-            float gh = G(0f, 140f);
-            Prim(PrimitiveType.Cylinder, "Hoyo_oscuro", a.transform, new Vector3(0f, gh + 0.02f, 140f), new Vector3(3f, 0.01f, 3f), Palette.Black, null, null, false);
-            var holePoint = Point("Mira_hoyo", a.transform, new Vector3(0f, gh, 140f));
-            var dark = Profile("S6_Bosque_Cerrado", p => Fog(p, 5f, 40f, new Color(0.08f, 0.1f, 0.08f)));
-            LocalVolume("Bosque_que_se_cierra", a.transform, new Vector3(0f, 6f, 112f), new Vector3(70f, 40f, 70f), dark, 2f, 38f);
+            // laberinto de setos podados con almenas (z 46..70); adentro todo se oscurece
+            const float u = 1.7f, mz0 = 46f; const int cells = 7, n = cells * 2 + 1;
+            float mx0 = -n * u * 0.5f;
+            var wall = Maze(cells, 23);
+            var hedge = ScanMat("M_Seto_Podado", "leafy_grass", new Color(0.32f, 0.5f, 0.3f), 1.1f, 0f, 0.25f);
+            var maze = Group("Laberinto");
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    if (!wall[i, j]) continue;
+                    float x = mx0 + (i + 0.5f) * u, z = mz0 + (j + 0.5f) * u, g = G(x, z);
+                    BoxMinMax($"Seto_{i}_{j}", maze, new Vector3(x - u * 0.5f, g - 1f, z - u * 0.5f), new Vector3(x + u * 0.5f, g + 3.1f, z + u * 0.5f), hedge, SurfaceType.Leaves);
+                    if ((i + j) % 2 == 0)                                     // almenas: el seto podado como muralla
+                        Box($"Almena_{i}_{j}", maze, new Vector3(x, g + 3.4f, z), new Vector3(u * 0.55f, 0.6f, u * 0.55f), hedge);
+                }
+            float mazeTop = mz0 + n * u;
+            var dark = Profile("S6_Laberinto_Oscuro", p =>
+            {
+                Fog(p, 9f, 40f, new Color(0.05f, 0.07f, 0.06f));
+                var ca = p.Add<ColorAdjustments>(); ca.postExposure.Override(-1.3f); ca.saturation.Override(-35f);
+            });
+            LocalVolume("Laberinto_que_oscurece", a.transform, new Vector3(0f, G(0f, 62f) + 5f, (mz0 + mazeTop) * 0.5f + 8f), new Vector3(n * u + 4f, 30f, n * u + 18f), dark, 2f, 4f);
+
+            // el tunel bajito: 2 m de alto, 1.2 de ancho, paredes oscuras y la luz al final
+            var tunnel = Group("Tunel");
+            var stone = Mat("M_Tunel_Oscuro", new Color(0.07f, 0.07f, 0.075f), 0.35f);
+            float t0 = mazeTop, t1 = mazeTop + 14f;
+            for (float z = t0 - 0.4f; z < t1; z += 2f)
+            {
+                float g = G(0f, z + 1f);
+                BoxMinMax("Pared_I", tunnel, new Vector3(-0.85f, g - 1f, z), new Vector3(-0.6f, g + 2.25f, z + 2f), stone);
+                BoxMinMax("Pared_D", tunnel, new Vector3(0.6f, g - 1f, z), new Vector3(0.85f, g + 2.25f, z + 2f), stone);
+                BoxMinMax("Techo", tunnel, new Vector3(-0.85f, g + 2.0f, z), new Vector3(0.85f, g + 2.25f, z + 2f), stone);
+            }
+            float ge = G(0f, t1);
+            BoxMinMax("Tapa_final", tunnel, new Vector3(-0.85f, ge - 1f, t1 + 0.1f), new Vector3(0.85f, ge + 2.25f, t1 + 0.3f), stone);
+            Prim(PrimitiveType.Quad, "Luz_al_final", tunnel, new Vector3(0f, ge + 1f, t1 + 0.08f), new Vector3(1.2f, 2f, 1f), Palette.BlindingLight, null, Vector3.zero, false);
+            AddLight("Luz_del_tunel", tunnel, LightType.Rectangle, new Vector3(0f, ge + 1f, t1 + 0.05f), new Vector3(0f, 180f, 0f), new Color(1f, 0.97f, 0.92f), 1400f, 16f, 60f, new Vector2(1.1f, 1.9f), false);
+            var lightPoint = Point("Mira_luz", a.transform, new Vector3(0f, ge + 1f, t1));
 
             // llegada: cae sobre la hoja de palmera, rueda al suelo y queda mirando el mar
             float gs = G(1.6f, -21f);
@@ -97,42 +118,79 @@ namespace Dream.EditorTools.Build
             w3.lookAt = sea; w3.focalLength = 24f; w3.headLookAt = sea;
             a.arrival = Sequence("Cine_La_Hoja", a.transform, w0, w1, w2, w3);
 
-            var d1 = Shot(4.5f, "entra en lo oscuro");
-            d1.from = CamPoint("Cam_Hoyo_A", a.transform, new Vector3(1.2f, gh + 1.7f, 130f), Vector3.zero);
-            d1.lookAt = holePoint; d1.focalLength = 35f;
-            d1.actorWalkTo = Point("En_el_hoyo", a.transform, new Vector3(0f, gh, 140.5f)); d1.actorSpeed = 0.9f;
-            d1.fadeColor = Color.black; d1.fadeOutSeconds = 2.6f;
+            var d1 = Shot(4.5f, "camina hacia la luz del tunel");
+            d1.from = CamPoint("Cam_Tunel_A", a.transform, new Vector3(0.2f, ge + 1.55f, t1 - 9f), Vector3.zero);
+            d1.to = CamPoint("Cam_Tunel_B", a.transform, new Vector3(0.15f, ge + 1.5f, t1 - 6f), Vector3.zero);
+            d1.lookAt = lightPoint; d1.focalLength = 28f;
+            d1.actorWalkTo = Point("En_la_luz", a.transform, new Vector3(0f, ge, t1 - 0.4f)); d1.actorSpeed = 0.9f;
+            d1.fadeColor = Color.white; d1.fadeOutSeconds = 2.2f;
             OnStart(d1, cue.Duck);
-            Gate("El_hoyo", a.transform, new Vector3(0f, gh + 1.1f, 139f), new Vector3(3f, 2.4f, 3f), Sequence("Cine_El_Bosque", a.transform, d1));
+            Gate("La_luz_del_tunel", a.transform, new Vector3(0f, ge + 1f, t1 - 3f), new Vector3(1.2f, 2f, 1f), Sequence("Cine_El_Tunel_de_Luz", a.transform, d1));
 
             GlobalVolume("Ambiente_Playa", a.transform, Profile("S6_Playa", p => { Fog(p, 160f, 60f, new Color(0.55f, 0.62f, 0.82f)); NightSky(p, 1f); ExposureLimits(p, 0.3f, 4f, 0f); }), 1f);
             Save(scene, "S6_Playa");
         }
 
-        static void Palm(Transform parent, Vector3 basePos, float height, float leanDeg, System.Random rng, out Vector3 top)
+        static void Palm(Transform parent, Vector3 basePos, float height, float leanDeg, System.Random rng, out Vector3 top,
+                         float? leanYaw = null, int leaves = 9)
         {
             var root = Group("Palmera", parent);
             root.position = basePos;
-            float yaw = (float)rng.NextDouble() * 360f;
+            float yaw = leanYaw ?? (float)rng.NextDouble() * 360f;
             var lean = Quaternion.Euler(0f, yaw, 0f) * Quaternion.Euler(leanDeg, 0f, 0f);
             var trunkM = ScanMat("M_Tronco_Palmera", "palm_bark", new Color(0.95f, 0.9f, 0.85f), 1.2f);
-            int seg = 4; var p = basePos;
+            int seg = height > 8f ? 7 : 4; var p = basePos;
             for (int i = 0; i < seg; i++)
             {
-                var q = Quaternion.Slerp(Quaternion.identity, lean, (i + 1f) / seg);
+                var q = Quaternion.Slerp(Quaternion.identity, lean, Mathf.Pow((i + 1f) / seg, 1.6f));   // la curva crece hacia arriba
                 var dir = q * Vector3.up;
-                float l = height / seg;
-                Prim(PrimitiveType.Cylinder, $"Tronco_{i}", root, p + dir * l * 0.5f, new Vector3(0.36f - i * 0.04f, l * 0.52f, 0.36f - i * 0.04f), trunkM, SurfaceType.Wood, q.eulerAngles);
+                float l = height / seg, w = Mathf.Lerp(0.42f, 0.24f, i / (float)seg);
+                Prim(PrimitiveType.Cylinder, $"Tronco_{i}", root, p + dir * l * 0.5f, new Vector3(w, l * 0.52f, w), trunkM, SurfaceType.Wood, q.eulerAngles);
                 p += dir * l;
             }
             top = p;
-            for (int i = 0; i < 9; i++)
+            float len = height > 8f ? 4.2f : 3.2f;
+            for (int i = 0; i < leaves; i++)
             {
-                var q = Quaternion.Euler(0f, i * 40f + (float)rng.NextDouble() * 15f, 0f) * Quaternion.Euler(28f + (float)rng.NextDouble() * 18f, 0f, 0f);
-                var dir = q * Vector3.forward;
-                var leaf = Prim(PrimitiveType.Cube, $"Hoja_{i}", root, p + dir * 1.5f, new Vector3(0.7f, 0.03f, 3.2f), Palette.Leaf, null, q.eulerAngles, false);
-                Static(leaf, true);
+                float ang = i * 360f / leaves + (float)rng.NextDouble() * 15f;
+                // cada hoja en dos tramos: sale hacia arriba y cae, como una palmera de verdad
+                var q1 = Quaternion.Euler(0f, ang, 0f) * Quaternion.Euler(-12f + (float)rng.NextDouble() * 10f, 0f, 0f);
+                var d1 = q1 * Vector3.forward;
+                var l1 = Prim(PrimitiveType.Cube, $"Hoja_{i}_a", root, p + d1 * len * 0.5f, new Vector3(0.8f, 0.03f, len), Palette.Leaf, null, q1.eulerAngles, false);
+                var mid = p + d1 * len;
+                var q2 = Quaternion.Euler(0f, ang, 0f) * Quaternion.Euler(35f + (float)rng.NextDouble() * 20f, 0f, 0f);
+                var d2 = q2 * Vector3.forward;
+                var l2 = Prim(PrimitiveType.Cube, $"Hoja_{i}_b", root, mid + d2 * len * 0.45f, new Vector3(0.65f, 0.03f, len * 0.9f), Palette.Leaf, null, q2.eulerAngles, false);
+                Static(l1, true); Static(l2, true);
             }
+        }
+
+        // Laberinto perfecto (backtracker con semilla): bloques de la grilla (2c+1)^2; entrada abajo al centro y
+        // salida arriba al centro.
+        static bool[,] Maze(int c, int seed)
+        {
+            int n = c * 2 + 1; var w = new bool[n, n];
+            for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) w[i, j] = true;
+            var rng = new System.Random(seed); var seen = new bool[c, c];
+            var stack = new System.Collections.Generic.Stack<(int, int)>();
+            stack.Push((c / 2, 0)); seen[c / 2, 0] = true; w[c / 2 * 2 + 1, 1] = false;
+            int[] dx = { 1, -1, 0, 0 }, dz = { 0, 0, 1, -1 };
+            while (stack.Count > 0)
+            {
+                var (x, z) = stack.Peek();
+                var opts = new System.Collections.Generic.List<int>();
+                for (int k = 0; k < 4; k++) { int nx = x + dx[k], nz = z + dz[k]; if (nx >= 0 && nz >= 0 && nx < c && nz < c && !seen[nx, nz]) opts.Add(k); }
+                if (opts.Count == 0) { stack.Pop(); continue; }
+                int d = opts[rng.Next(opts.Count)];
+                int ax = x + dx[d], az = z + dz[d];
+                seen[ax, az] = true;
+                w[x * 2 + 1 + dx[d], z * 2 + 1 + dz[d]] = false;
+                w[ax * 2 + 1, az * 2 + 1] = false;
+                stack.Push((ax, az));
+            }
+            w[c / 2 * 2 + 1, 0] = false;            // entrada
+            w[c / 2 * 2 + 1, n - 1] = false;        // salida al tunel
+            return w;
         }
     }
 }
