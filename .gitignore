@@ -56,3 +56,7 @@ docs/produccion/evidencia/
 
 # volcados de cierres de la terminal
 *.stackdump
+
+# volcados de bash de Windows
+*.stackdump
+*.stackdump.meta
