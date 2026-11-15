@@ -18,8 +18,8 @@ namespace Dream.EditorTools.Build
             a.ambienceKind = AmbienceKind.NocheSuave; a.musicLowPass = 3500f; a.musicVolume = 0.75f; a.musicReverb = 0.55f; a.respawnBelowY = -12f;
             var cue = Cue(a.transform);
             var g = Group("Jardin");
-            var stone = Mat("M_Fondo_Estanque", new Color(0.32f, 0.38f, 0.42f), 0.35f);
-            var bank = Mat("M_Orilla", new Color(0.33f, 0.43f, 0.32f), 0.2f);
+            var stone = ScanMat("M_Fondo_Estanque", "clean_pebbles", new Color(0.75f, 0.82f, 0.88f), 1.4f, 0.2f, 0.7f);
+            var bank = ScanMat("M_Orilla", "leafy_grass", new Color(0.7f, 0.82f, 0.7f), 3f, 0f, 0.3f);
 
             // fondo: poco profundo alrededor, hondo en el centro
             const float shallow = -0.35f;
@@ -63,12 +63,49 @@ namespace Dream.EditorTools.Build
             var tunnel = Point("Mira_tunel", g, new Vector3(24f, top, 6f));
 
             // setos, estatuas y faroles
-            for (int i = 0; i < 10; i++)
+            // setos: matorrales grandes y abultados (las formas de las nubes de algodon, vestidas de hojas) en hilera
+            // continua por el norte, el sur y el oeste; el este queda abierto hacia el tunel
+            var bushMeshes = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/Art/Models/Generados/Nubes_Algodon.fbx")
+                .GetComponentsInChildren<MeshFilter>();
+            var hedgeRng = new System.Random(71);
+            void Bush(Vector3 p, float k)
             {
-                float x = -16f + i * 3.6f;
-                Box($"Seto_N_{i}", g, new Vector3(x, top + 1.1f, 21f), new Vector3(2.8f, 2.2f, 1.2f), Palette.Hedge);
-                Box($"Seto_S_{i}", g, new Vector3(x, top + 1.1f, -21f), new Vector3(2.8f, 2.2f, 1.2f), Palette.Hedge);
+                var b = new GameObject("Matorral");
+                b.transform.SetParent(g, false);
+                b.transform.position = p;
+                b.transform.rotation = Quaternion.Euler(0f, (float)hedgeRng.NextDouble() * 360f, 0f);
+                b.transform.localScale = new Vector3(k, k * (0.7f + 0.3f * (float)hedgeRng.NextDouble()), k);
+                b.AddComponent<MeshFilter>().sharedMesh = bushMeshes[hedgeRng.Next(bushMeshes.Length)].sharedMesh;
+                b.AddComponent<MeshRenderer>().sharedMaterial = Palette.Hedge;
+                b.AddComponent<SurfaceTag>().type = SurfaceType.Leaves;
+                GameObjectUtility.SetStaticEditorFlags(b, StaticEditorFlags.BatchingStatic);
             }
+            for (float t = -24f; t <= 24f; t += 2.6f)
+            {
+                Bush(new Vector3(t, top - 0.2f, 21.2f + (float)hedgeRng.NextDouble()), 0.36f + (float)hedgeRng.NextDouble() * 0.14f);
+                Bush(new Vector3(t, top - 0.2f, -21.2f - (float)hedgeRng.NextDouble()), 0.36f + (float)hedgeRng.NextDouble() * 0.14f);
+                if (Mathf.Abs(t) > 2.8f) Bush(new Vector3(-21.2f - (float)hedgeRng.NextDouble(), top - 0.2f, t), 0.36f + (float)hedgeRng.NextDouble() * 0.14f);
+            }
+            // el muro invisible que no deja pasar (los matorrales no tienen colision)
+            BoxMinMax("Limite_N", g, new Vector3(-26f, top, 20.4f), new Vector3(26f, top + 3f, 22f), null).GetComponent<Renderer>().enabled = false;
+            BoxMinMax("Limite_S", g, new Vector3(-26f, top, -22f), new Vector3(26f, top + 3f, -20.4f), null).GetComponent<Renderer>().enabled = false;
+            // arbustos grandes de verdad delante de los setos y a lo largo de las orillas, que se mecen con el viento
+            var bushes = Group("Arbustos", g);
+            var bf = bushes.gameObject.AddComponent<WindField>();
+            System.Func<System.Random, Vector2?> Rim(float inner) => r =>
+            {
+                float t = (float)r.NextDouble() * 4f, k = Mathf.Lerp(-24f, 24f, (float)(t % 1f)), d = inner + (float)r.NextDouble() * 6f;
+                Vector2 p2 = t < 1f ? new Vector2(k, d) : t < 2f ? new Vector2(k, -d) : t < 3f ? new Vector2(d, k) : new Vector2(-d, k);
+                if (p2.x > 17f && Mathf.Abs(p2.y - 6f) < 4f) return null;                      // el tunel y la escalera
+                if (p2.x < -17f && Mathf.Abs(p2.y) < 3f) return null;                          // la puerta del vestibulo
+                return p2;
+            };
+            float GB(float x, float z) => top;
+            ScatterInstanced(bf, "shrub_01", 90, Rim(18.6f), GB, new Vector2(2.2f, 3.4f), 51, 0.3f, true);
+            ScatterInstanced(bf, "shrub_02", 90, Rim(18.6f), GB, new Vector2(2.2f, 3.4f), 52, 0.3f, true);
+            ScatterInstanced(bf, "shrub_03", 70, Rim(19.5f), GB, new Vector2(2.4f, 3.6f), 53, 0.3f, true);
+            ScatterInstanced(bf, "fern_02", 160, Rim(18.3f), GB, new Vector2(1.6f, 2.4f), 54, 0.6f);
+
             var statue = ScanMat("M_Marmol", "marble_01", new Color(1f, 1f, 1f), 1.5f, 0.3f, 0.9f);
             Vector3[] statues = { new(-21f, top, 10f), new(-21f, top, -10f), new(10f, top, -21.5f), new(-10f, top, 21.5f) };
             foreach (var s in statues)
@@ -79,13 +116,13 @@ namespace Dream.EditorTools.Build
             Vector3[] lamps = { new(-19.5f, top, -6f), new(0f, top, 19.5f), new(0f, top, -19.5f), new(19.5f, top, -8f), new(19.5f, top, 12f), new(-19f, top, 14f) };
             foreach (var l in lamps)
             {
-                Prim(PrimitiveType.Cylinder, "Poste", g, l + Vector3.up * 1.2f, new Vector3(0.1f, 1.2f, 0.1f), Mat("M_Hierro", new Color(0.12f, 0.12f, 0.13f), 0.5f, 1f), SurfaceType.Stone);
+                Prim(PrimitiveType.Cylinder, "Poste", g, l + Vector3.up * 1.2f, new Vector3(0.1f, 1.2f, 0.1f), ScanMat("M_Hierro", "metal_plate", new Color(0.3f, 0.3f, 0.32f), 0.6f, 0.3f, 0.75f), SurfaceType.Stone);
                 Prim(PrimitiveType.Sphere, "Farol", g, l + Vector3.up * 2.5f, Vector3.one * 0.35f, Mat("M_Farol", new Color(1f, 0.9f, 0.75f), 0.2f, 0f, new Color(1f, 0.78f, 0.55f), 3000f), null, null, false);
                 AddLight("Luz_farol", g, LightType.Point, l + Vector3.up * 2.5f, Vector3.zero, new Color(1f, 0.78f, 0.55f), 520f, 10f);
             }
 
             // nenufares: el camino al tunel
-            var pad = Mat("M_Nenufar", new Color(0.36f, 0.56f, 0.38f), 0.6f);
+            var pad = TexMat("M_Nenufar", "T_Nenufar_albedo.png", Color.white, 0.55f, true);
             var flower = Mat("M_Flor_Loto", new Color(1f, 0.82f, 0.9f), 0.3f, 0f, new Color(1f, 0.75f, 0.85f), 120f);
             Vector3 p0 = new(3f, 0f, 1f), p1 = new(16.3f, 0f, 5.3f);
             for (int i = 0; i < 11; i++)
@@ -150,9 +187,9 @@ namespace Dream.EditorTools.Build
             tile.SetTexture("_BaseColorMap", VTex("DREAM-ocean-pink_tile_albedo_png.png"));
             tile.SetFloat("_UVBase", 5f); tile.SetFloat("_TexWorldScale", 1f / 0.15f);
             HDMaterial.ValidateMaterial(tile);
-            var cream = Mat("M_Esmalte_Crema", new Color(0.93f, 0.89f, 0.74f), 0.55f);
-            var frame = Mat("M_Marco_Vestibulo", new Color(0.62f, 0.56f, 0.36f), 0.5f);
-            var bed = Mat("M_Fondo_Turquesa", new Color(0.32f, 0.8f, 0.72f), 0.3f);
+            var cream = ScanMat("M_Esmalte_Crema", "painted_plaster_wall", new Color(0.93f, 0.89f, 0.74f), 1.5f, 0.35f, 0.7f);
+            var frame = ScanMat("M_Marco_Vestibulo", "white_planks_clean", new Color(0.66f, 0.58f, 0.38f), 1f, 0.3f, 0.6f);
+            var bed = ScanMat("M_Fondo_Turquesa", "clean_pebbles", new Color(0.45f, 0.95f, 0.85f), 1.2f, 0.2f, 0.7f);
 
             // fondo: llano a los lados, el pozo donde despierta en el medio
             BoxMinMax("Fondo_V1", v, new Vector3(x0, -3.6f, -hz), new Vector3(-25f, -0.35f, hz), bed, SurfaceType.WetTile);

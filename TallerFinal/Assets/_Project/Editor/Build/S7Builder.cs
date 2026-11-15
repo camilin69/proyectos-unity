@@ -77,7 +77,7 @@ namespace Dream.EditorTools.Build
             BoxMinMax("Cielo_Bajo", hall, new Vector3(doorX0, -0.6f, wz), new Vector3(doorX1, doorY0, wz + wt), skyM);
             BoxMinMax("Cielo_Alto", hall, new Vector3(doorX0, doorY1, wz), new Vector3(doorX1, high, wz + wt), skyM);
             float doorX = (doorX0 + doorX1) * 0.5f;
-            var door = Door("Puerta_Truman", hall, new Vector3(doorX, doorY0, wz - 0.02f), 0f, Palette.Cream, Mat("M_Puerta_Cielo", new Color(0.72f, 0.84f, 0.97f), 0.2f));
+            var door = Door("Puerta_Truman", hall, new Vector3(doorX, doorY0, wz - 0.02f), 0f, Palette.Cream, ScanMat("M_Puerta_Cielo", "painted_plaster_wall", new Color(0.72f, 0.84f, 0.97f), 1f, 0.15f, 0.45f));
             BoxMinMax("Mas_alla", hall, new Vector3(doorX0, doorY0 - 0.3f, wz + wt), new Vector3(doorX1, doorY0, wz + 3f), Palette.Carpet, SurfaceType.Carpet);
             Prim(PrimitiveType.Quad, "Resplandor_rosa", hall, new Vector3(doorX, doorY0 + 1.2f, wz + 2.8f), new Vector3(2f, 3f, 1f),
                  Mat("M_Resplandor_Rosa", new Color(1f, 0.8f, 0.88f), 0f, 0f, new Color(1f, 0.72f, 0.84f), 8000f), null, Vector3.zero, false);

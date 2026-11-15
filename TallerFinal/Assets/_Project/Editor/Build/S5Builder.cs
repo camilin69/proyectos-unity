@@ -42,12 +42,12 @@ namespace Dream.EditorTools.Build
             ceiling.SetTexture("_NormalMap", Tex("wave_paint_normal.png", true)); ceiling.SetFloat("_NormalScale", 0.9f);
             ceiling.SetFloat("_UVBase", 5f); ceiling.SetFloat("_TexWorldScale", 1f / 1.2f);
             HDMaterial.ValidateMaterial(ceiling);
-            var rail = Mat("M_Pasamanos", new Color(0.09f, 0.1f, 0.11f), 0.62f, 0.85f);
-            var door = Mat("M_Puerta_Crema", new Color(0.86f, 0.82f, 0.74f), 0.4f);
-            var trim = Mat("M_Marco_Puerta", new Color(0.72f, 0.67f, 0.53f), 0.45f);
+            var rail = ScanMat("M_Pasamanos", "metal_plate", new Color(0.18f, 0.19f, 0.21f), 0.5f, 0.45f, 0.85f);
+            var door = ScanMat("M_Puerta_Crema", "white_planks_clean", new Color(0.88f, 0.84f, 0.76f), 1.2f, 0.25f, 0.55f);
+            var trim = ScanMat("M_Marco_Puerta", "white_planks_clean", new Color(0.74f, 0.68f, 0.54f), 0.8f, 0.3f, 0.6f);
             var dome = Mat("M_Lampara_Domo", new Color(1f, 0.97f, 0.92f), 0.6f, 0f, new Color(1f, 0.95f, 0.88f), 9000f);
             var exitMat = EmissiveTexMat("M_Cartel_Salida", Tex("wave_exit_albedo_dark.png"), 140f);
-            var box = Mat("M_Caja_Cartel", new Color(0.12f, 0.08f, 0.08f), 0.4f);
+            var box = ScanMat("M_Caja_Cartel", "metal_plate", new Color(0.25f, 0.18f, 0.18f), 0.4f, 0.3f, 0.6f);
 
             // ---------- piso: descanso alto, dos tramos de escalera, descanso medio y el pasillo de abajo ----------
             float y1 = -Steps * Rise, y2 = 2f * y1;            // -1.7 y -3.4

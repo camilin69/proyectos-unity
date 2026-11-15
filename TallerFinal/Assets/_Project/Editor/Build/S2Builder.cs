@@ -185,6 +185,8 @@ namespace Dream.EditorTools.Build
                 var wb = p.Add<WhiteBalance>(); wb.temperature.Override(5f); wb.tint.Override(3f);
             }), 1f);
             Dress(a.transform, G);
+            CottonSky(null, new Vector3(0f, 0f, 18f), 46, 260f, 1300f, 140f, 320f, 9f, 16f,
+                      new[] { new Color(1f, 0.72f, 0.86f), new Color(0.95f, 0.55f, 0.85f), new Color(0.78f, 0.6f, 0.95f), new Color(0.66f, 0.55f, 0.95f), new Color(1f, 0.88f, 0.94f) }, 61);
             Save(scene, "S2_Pradera");
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using Dream.Cinematic;
 using UnityEditor;
 using UnityEditor.Events;
@@ -113,6 +114,65 @@ namespace Dream.EditorTools.Build
             HDMaterial.ValidateMaterial(m);
             EditorUtility.SetDirty(m);
             return m;
+        }
+
+        public const string GenDir = Root + "/Art/Textures/Generadas";
+
+        // Material con una textura generada (tools/taller_final/texturas_hojas.py). cutout: recorte por alfa (hojas).
+        public static Material TexMat(string name, string file, Color tint, float smooth, bool cutout, string normalFile = null,
+                                      float metersPerTile = 0f, bool doubleSided = false)
+        {
+            var m = Mat(name, tint, smooth, 0f, null, 0f, false, doubleSided);
+            Texture2D T(string f, bool normal)
+            {
+                string path = $"{GenDir}/{f}";
+                var imp = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (imp == null) return null;
+                bool ch = false;
+                if (normal && imp.textureType != TextureImporterType.NormalMap) { imp.textureType = TextureImporterType.NormalMap; ch = true; }
+                if (!normal && cutout && !imp.alphaIsTransparency) { imp.alphaIsTransparency = true; ch = true; }
+                if (ch) imp.SaveAndReimport();
+                return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            }
+            var a = T(file, false);
+            if (a) m.SetTexture("_BaseColorMap", a);
+            if (normalFile != null) { var n = T(normalFile, true); if (n) { m.SetTexture("_NormalMap", n); m.SetFloat("_NormalScale", 1.2f); } }
+            if (cutout) { m.SetFloat("_AlphaCutoffEnable", 1f); m.SetFloat("_AlphaCutoff", 0.4f); }
+            if (metersPerTile > 0f) { m.SetFloat("_UVBase", 5f); m.SetFloat("_TexWorldScale", 1f / metersPerTile); }
+            else m.SetFloat("_UVBase", 0f);
+            m.enableInstancing = true;
+            HDMaterial.ValidateMaterial(m);
+            EditorUtility.SetDirty(m);
+            return m;
+        }
+
+        // Cielo de nubes de algodon (Art/Models/Generados/Nubes_Algodon.fbx, modeladas con metaballs en Blender):
+        // count nubes en un anillo alrededor de center, entre dos alturas, de colores de la paleta, viajando con el viento.
+        public static Transform CottonSky(Transform parent, Vector3 center, int count, float rMin, float rMax, float yMin, float yMax,
+                                          float sizeMin, float sizeMax, Color[] colors, int seed)
+        {
+            var src = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/Art/Models/Generados/Nubes_Algodon.fbx");
+            var meshes = src.GetComponentsInChildren<MeshFilter>().Select(f => f.sharedMesh).ToArray();
+            var mats = colors.Select((c, i) => Mat($"M_Algodon_{i}_{ColorUtility.ToHtmlStringRGB(c)}", c, 0.05f, 0f, c, 6f)).ToArray();
+            var root = Group("Nubes_de_algodon", parent);
+            var rng = new System.Random(seed);
+            for (int i = 0; i < count; i++)
+            {
+                float ang = (float)(rng.NextDouble() * Mathf.PI * 2f), r = Mathf.Lerp(rMin, rMax, Mathf.Sqrt((float)rng.NextDouble()));
+                float s = Mathf.Lerp(sizeMin, sizeMax, (float)rng.NextDouble()) * Mathf.Lerp(0.8f, 1.6f, r / rMax);
+                var go = new GameObject($"Nube_{i:00}");
+                go.transform.SetParent(root, false);
+                go.transform.position = center + new Vector3(Mathf.Cos(ang) * r, Mathf.Lerp(yMin, yMax, (float)rng.NextDouble()), Mathf.Sin(ang) * r);
+                go.transform.rotation = Quaternion.Euler(0f, (float)rng.NextDouble() * 360f, 0f);
+                go.transform.localScale = new Vector3(s, s * Mathf.Lerp(0.8f, 1.15f, (float)rng.NextDouble()), s);
+                go.AddComponent<MeshFilter>().sharedMesh = meshes[rng.Next(meshes.Length)];
+                var mr = go.AddComponent<MeshRenderer>();
+                mr.sharedMaterial = mats[rng.Next(mats.Length)];
+                mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
+            var cc = root.gameObject.AddComponent<CottonClouds>();
+            cc.center = center; cc.radius = rMax; cc.speed = 3.5f;
+            return root;
         }
 
         public const string ModelDir = Root + "/Art/Models/PolyHaven";

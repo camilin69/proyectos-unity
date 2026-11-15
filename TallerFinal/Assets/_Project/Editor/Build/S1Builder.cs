@@ -23,8 +23,8 @@ namespace Dream.EditorTools.Build
             var cue = Cue(a.transform);
 
             var room = Group("Cuarto");
-            var pink = DreamWall(); var mint = pink; var cream = Mat("M_Techo_Blanco", new Color(0.97f, 0.96f, 0.94f), 0.4f); var wood = Palette.Wood;
-            var ivory = Mat("M_Marfil", new Color(0.96f, 0.94f, 0.9f), 0.65f);
+            var pink = DreamWall(); var mint = pink; var cream = ScanMat("M_Techo_Blanco", "painted_plaster_wall", new Color(0.97f, 0.96f, 0.94f), 2f, 0.1f, 0.4f); var wood = Palette.Wood;
+            var ivory = ScanMat("M_Marfil", "painted_plaster_wall", new Color(0.96f, 0.94f, 0.9f), 0.8f, 0.45f, 0.75f);
             BoxMinMax("Piso", room, new Vector3(-3f, -0.1f, -2.5f), new Vector3(3f, 0f, 2.5f), DreamFloor(), SurfaceType.WetTile);
             // el suelo inundado es el propio azulejo muy liso: refleja la ventana como una lamina de agua
             BoxMinMax("Umbral", room, new Vector3(3f, -0.1f, -0.62f), new Vector3(5f, 0f, 0.62f), Palette.Stone, SurfaceType.Stone);
@@ -146,7 +146,7 @@ namespace Dream.EditorTools.Build
         static void Details(Transform room)
         {
             var d = Group("Detalles", room);
-            var white = Mat("M_Pintura_Blanca", new Color(0.95f, 0.94f, 0.92f), 0.55f);
+            var white = ScanMat("M_Pintura_Blanca", "painted_plaster_wall", new Color(0.95f, 0.94f, 0.92f), 0.8f, 0.4f, 0.7f);
             var wood = Palette.Wood;
             var brass = Mat("M_Laton", new Color(0.85f, 0.7f, 0.45f), 0.8f, 1f);
 

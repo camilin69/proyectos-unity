@@ -47,7 +47,7 @@ namespace Dream.EditorTools.Build
             Palm(palms, new Vector3(-0.6f, G(-0.6f, -16.5f), -16.5f), 3.6f, -14f, rng, out var leafTop);
             var landingLeaf = Box("Hoja_de_aterrizaje", palms, new Vector3(0.4f, G(0.4f, -19.2f) + 2.3f, -19.2f), new Vector3(1.0f, 0.06f, 3.2f), Palette.Leaf, SurfaceType.Leaves);
             landingLeaf.transform.rotation = Quaternion.Euler(18f, 10f, 0f);
-            for (float z = 4f; z < 42f; z += 3.2f)
+            for (float z = -10f; z < 22f; z += 3.2f)
                 for (int s = -1; s <= 1; s += 2)
                     for (int k = 0; k < 2; k++)
                     {
@@ -56,10 +56,10 @@ namespace Dream.EditorTools.Build
                         float yawIn = s < 0 ? 90f : -90f;                       // se inclinan hacia el camino
                         Palm(palms, new Vector3(x, G(x, zz), zz), 14f + (float)rng.NextDouble() * 8f, 7f + (float)rng.NextDouble() * 8f, rng, out _, yawIn, 14);
                     }
-            Memory(a.transform, new Vector3(0.6f, G(0.6f, 30f) + 1.0f, 30f), "El mar sigue hablando aunque nadie lo escuche.");
+            Memory(a.transform, new Vector3(0.6f, G(0.6f, 4f) + 1.0f, 4f), "El mar sigue hablando aunque nadie lo escuche.");
 
             // laberinto de setos podados con almenas (z 46..70); adentro todo se oscurece
-            const float u = 1.7f, mz0 = 46f; const int cells = 7, n = cells * 2 + 1;
+            const float u = 1.7f, mz0 = 26f; const int cells = 7, n = cells * 2 + 1;
             float mx0 = -n * u * 0.5f;
             var wall = Maze(cells, 23);
             var hedge = ScanMat("M_Seto_Podado", "leafy_grass", new Color(0.32f, 0.5f, 0.3f), 1.1f, 0f, 0.25f);
@@ -79,11 +79,11 @@ namespace Dream.EditorTools.Build
                 Fog(p, 9f, 40f, new Color(0.05f, 0.07f, 0.06f));
                 var ca = p.Add<ColorAdjustments>(); ca.postExposure.Override(-1.3f); ca.saturation.Override(-35f);
             });
-            LocalVolume("Laberinto_que_oscurece", a.transform, new Vector3(0f, G(0f, 62f) + 5f, (mz0 + mazeTop) * 0.5f + 8f), new Vector3(n * u + 4f, 30f, n * u + 18f), dark, 2f, 4f);
+            LocalVolume("Laberinto_que_oscurece", a.transform, new Vector3(0f, G(0f, mz0 + 12f) + 5f, (mz0 + mazeTop) * 0.5f + 8f), new Vector3(n * u + 4f, 30f, n * u + 18f), dark, 2f, 4f);
 
             // el tunel bajito: 2 m de alto, 1.2 de ancho, paredes oscuras y la luz al final
             var tunnel = Group("Tunel");
-            var stone = Mat("M_Tunel_Oscuro", new Color(0.07f, 0.07f, 0.075f), 0.35f);
+            var stone = ScanMat("M_Tunel_Oscuro", "dark_rock", new Color(0.55f, 0.55f, 0.6f), 2f, 0.1f, 0.5f);
             float t0 = mazeTop, t1 = mazeTop + 14f;
             for (float z = t0 - 0.4f; z < t1; z += 2f)
             {
@@ -97,6 +97,38 @@ namespace Dream.EditorTools.Build
             Prim(PrimitiveType.Quad, "Luz_al_final", tunnel, new Vector3(0f, ge + 1f, t1 + 0.08f), new Vector3(1.2f, 2f, 1f), Palette.BlindingLight, null, Vector3.zero, false);
             AddLight("Luz_del_tunel", tunnel, LightType.Rectangle, new Vector3(0f, ge + 1f, t1 + 0.05f), new Vector3(0f, 180f, 0f), new Color(1f, 0.97f, 0.92f), 1400f, 16f, 60f, new Vector2(1.1f, 1.9f), false);
             var lightPoint = Point("Mira_luz", a.transform, new Vector3(0f, ge + 1f, t1));
+
+            // jungla a los lados del camino: helechos, arbustos y plantas que se mecen, mas palmeras y rocas grandes
+            var jungle = Group("Jungla");
+            var field = jungle.gameObject.AddComponent<WindField>();
+            float mazeHalf = n * u * 0.5f + 1.5f;
+            bool Clear(float x, float z) =>
+                (Mathf.Abs(x) < 1.8f && z > -26f && z < t1 + 2f) ||                                   // el camino
+                (Mathf.Abs(x) < mazeHalf && z > mz0 - 1.5f && z < mazeTop + 1f) ||                   // el laberinto
+                (z < -23f);                                                                           // la arena de la orilla
+            System.Func<System.Random, Vector2?> Side(float zMin, float zMax, float xMin, float xMax, float patch) => r =>
+            {
+                float x = (r.NextDouble() < 0.5 ? -1f : 1f) * Mathf.Lerp(xMin, xMax, (float)r.NextDouble());
+                float z = Mathf.Lerp(zMin, zMax, (float)r.NextDouble());
+                if (Clear(x, z)) return null;
+                if (Mathf.PerlinNoise(x * 0.09f + 5f, z * 0.09f) < patch) return null;
+                return new Vector2(x, z);
+            };
+            ScatterInstanced(field, "fern_02", 1300, Side(-22f, t1 + 25f, 1.9f, 24f, 0.2f), G, new Vector2(1.8f, 3.0f), 31, 0.6f);
+            ScatterInstanced(field, "shrub_03", 220, Side(-20f, t1 + 25f, 2.5f, 30f, 0.25f), G, new Vector2(1.6f, 2.6f), 32, 0.35f);
+            ScatterInstanced(field, "shrub_04", 110, Side(-20f, t1 + 25f, 2.5f, 30f, 0.25f), G, new Vector2(1.6f, 2.6f), 33, 0.35f);
+            ScatterInstanced(field, "nettle_plant", 280, Side(-22f, t1 + 25f, 1.9f, 26f, 0.3f), G, new Vector2(1.5f, 2.4f), 34, 0.8f);
+            ScatterInstanced(field, "grass_medium_02", 1000, Side(-24f, t1 + 25f, 1.9f, 30f, 0.25f), G, new Vector2(1.6f, 2.4f), 35, 1f);
+            Scatter("boulder_01", jungle, 16, Side(-24f, t1 + 20f, 3f, 28f, 0.1f), G, new Vector2(1.4f, 2.8f), 36, 0.004f, SurfaceType.Stone, true);
+            Scatter("namaqualand_boulder_02", jungle, 10, Side(-15f, t1 + 20f, 6f, 30f, 0.1f), G, new Vector2(2.5f, 4.5f), 38, 0.004f, SurfaceType.Stone, true);
+            var jr = new System.Random(41);
+            for (int i = 0; i < 36; i++)
+            {
+                float x = (jr.NextDouble() < 0.5 ? -1f : 1f) * Mathf.Lerp(7f, 38f, (float)jr.NextDouble());
+                float z = Mathf.Lerp(-18f, t1 + 25f, (float)jr.NextDouble());
+                if (Clear(x, z)) continue;
+                Palm(palms, new Vector3(x, G(x, z), z), 9f + (float)jr.NextDouble() * 12f, (float)(jr.NextDouble() - 0.5) * 22f, jr, out _, null, 9);
+            }
 
             // llegada: cae sobre la hoja de palmera, rueda al suelo y queda mirando el mar
             float gs = G(1.6f, -21f);

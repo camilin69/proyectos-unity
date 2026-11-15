@@ -16,7 +16,7 @@ namespace Dream.EditorTools.Build
             var st = Group("Escalera");
             const int steps = 70; const float rise = 0.3f, run = 0.45f, half = 2f;
             BoxMinMax("Base", st, new Vector3(-4f, -0.6f, -7f), new Vector3(4f, 0f, 0f), Palette.Stone, SurfaceType.Stone);
-            var trim = Mat("M_Moldura_Crema", new Color(1f, 0.95f, 0.88f), 0.5f);
+            var trim = ScanMat("M_Moldura_Crema", "painted_plaster_wall", new Color(1f, 0.95f, 0.88f), 0.8f, 0.35f, 0.65f);
             for (int i = 0; i < steps; i++)
             {
                 float y = (i + 1) * rise, z0 = i * run;

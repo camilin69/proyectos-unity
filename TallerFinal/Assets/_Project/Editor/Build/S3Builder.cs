@@ -85,7 +85,7 @@ namespace Dream.EditorTools.Build
                 Static(r.gameObject, false);
             }
             var leaf = sway.AddComponent<LeafSway>();
-            leaf.maxDeg = 1.1f; leaf.gustDeg = 2.6f; leaf.pivotLocal = Vector3.zero;
+            leaf.maxDeg = 2.2f; leaf.gustDeg = 5f; leaf.pivotLocal = Vector3.zero;
 
             // el tronco nudoso (tools/taller_final/tronco_nudoso_blender.py): estrias retorcidas, contrafuertes que se
             // hunden en la tierra y un hueco tallado de verdad en la cara que mira a la ladera
@@ -201,6 +201,8 @@ namespace Dream.EditorTools.Build
                 Fog(p, 650f, 260f, new Color(0.86f, 0.9f, 1f));
                 DreamSky(p, 14.1f);
             }), 1f);
+            CottonSky(null, new Vector3(0f, 0f, 40f), 50, 250f, 1300f, 120f, 300f, 9f, 16f,
+                      new[] { Color.white, new Color(1f, 0.9f, 0.95f), new Color(1f, 0.8f, 0.9f), new Color(0.9f, 0.86f, 1f) }, 62);
             Save(scene, "S3_Colina");
         }
     }

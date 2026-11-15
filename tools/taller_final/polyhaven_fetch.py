@@ -35,6 +35,11 @@ TEXTURES = {
     "palm_bark": ("1k", "troncos de palmera"),
     "white_planks_clean": ("1k", "puertas"),
     "marble_01": ("1k", "estatuas y base de piedra"),
+    "painted_plaster_wall": ("1k", "paredes, techos y molduras pintadas"),
+    "clean_pebbles": ("1k", "fondo del estanque y del vestibulo"),
+    "mossy_stone_wall": ("1k", "paredes del pozo del jardin"),
+    "metal_plate": ("1k", "pasamanos, postes y herrajes"),
+    "dark_rock": ("1k", "paredes del tunel de la playa"),
 }
 
 
@@ -101,6 +106,14 @@ MODELS = {
     "boulder_01": "roca de la pradera",
     "tree_stump_01": "tocon de la pradera",
     "painted_wooden_bench": "banca en medio de la pradera",
+    # playa: sotobosque de jungla y rocas grandes
+    "fern_02": "helechos de la playa",
+    "shrub_03": "arbustos de la playa",
+    "shrub_04": "arbustos de la playa",
+    "nettle_plant": "plantas bajas de la playa",
+    "coast_rocks_01": "rocas grandes de la playa",
+    "coast_rocks_02": "rocas grandes de la playa",
+    "namaqualand_boulder_02": "pena grande de la playa",
 }
 
 
@@ -164,6 +177,10 @@ def main():
         name, authors = fetch(tid, res)
         rows.append(f"{tid}\t{name}\t{authors}\tCC0\t{res}\t{use}\thttps://polyhaven.com/a/{tid}")
         print("ok", tid, res, authors)
+    if args.only:                                   # solo algunas: se agregan sin borrar los creditos anteriores
+        with open(CREDITS, "a", encoding="utf-8", newline="\n") as f:
+            f.write("\n".join(rows) + "\n")
+        return
     with open(CREDITS, "w", encoding="utf-8", newline="\n") as f:
         f.write("id\tnombre\tautores\tlicencia\tresolucion\tuso\tfuente\n" + "\n".join(rows) + "\n")
 
