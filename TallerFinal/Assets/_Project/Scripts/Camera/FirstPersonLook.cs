@@ -14,7 +14,7 @@ namespace Dream
         [Header("Vaiven de boya")]
         public float swayPitchDeg = 1.4f, swayRollDeg = 1.7f, swayHeight = 0.035f;
         public float swayFreqPitch = 0.19f, swayFreqRoll = 0.23f, swayFreqHeight = 0.15f;
-        [Header("Paso")] public float bobWalk = 0.009f, bobJog = 0.02f, bobRollDeg = 0.25f;
+        [Header("Paso")] public float bobWalk = 0.026f, bobJog = 0.045f, bobRollDeg = 0.9f, bobPitchDeg = 0.9f, bobSideShift = 0.018f;
         [Header("Quieto: olas")] public float wavePeriod = 6.5f, waveRollDeg = 3.4f, wavePitchDeg = 2.1f, waveHeight = 0.075f;
 
         PlayerMotor _motor;
@@ -75,7 +75,14 @@ namespace Dream
             float stepLen = speed > 1.6f ? 1.0f : 0.62f;
             _bobPhase += speed / stepLen * Mathf.PI * Time.deltaTime;
             float bob = -Mathf.Abs(Mathf.Sin(_bobPhase)) * _bobAmp * (0.4f + 0.6f * scale);
-            float bobRoll = Mathf.Sin(_bobPhase) * bobRollDeg * (_bobAmp / Mathf.Max(bobJog, 1e-4f)) * scale;
+            float k = _bobAmp / Mathf.Max(bobJog, 1e-4f);                                     // 0 quieto .. ~0.6 caminando .. 1 trotando
+            float bobRoll = Mathf.Sin(_bobPhase) * bobRollDeg * k * scale;
+            // cada pisada: la cabeza cabecea un poco al apoyar y el cuerpo pasa de un pie al otro
+            float bobPitch = (Mathf.Abs(Mathf.Sin(_bobPhase)) - 0.5f) * bobPitchDeg * k * scale;
+            float bobSide = Mathf.Sin(_bobPhase) * bobSideShift * k * scale;
+            // al moverse, el vaiven de boya tambien crece un poco (mas al trotar)
+            float moveSway = 1f + 0.6f * k;
+            sp *= moveSway; sr *= moveSway; sh *= moveSway;
 
             float swimDip = _motor && _motor.Swimming ? Mathf.Sin(t * 1.1f) * 0.03f : 0f;
 
@@ -87,8 +94,8 @@ namespace Dream
             float wPitch = Mathf.Sin(w * 0.8f + 1.7f) * wavePitchDeg * _idle * scale;
             float wHeight = Mathf.Sin(w + 0.6f) * waveHeight * _idle * scale;
 
-            pivot.localPosition = new Vector3(0f, eyeHeight + sh + bob + swimDip + wHeight, 0.08f);
-            pivot.localRotation = Quaternion.Euler(_pitch + sp + wPitch, 0f, sr + bobRoll + wRoll);
+            pivot.localPosition = new Vector3(bobSide, eyeHeight + sh + bob + swimDip + wHeight, 0.08f);
+            pivot.localRotation = Quaternion.Euler(_pitch + sp + wPitch + bobPitch, 0f, sr + bobRoll + wRoll);
         }
     }
 }

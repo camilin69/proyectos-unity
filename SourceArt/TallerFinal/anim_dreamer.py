@@ -136,17 +136,19 @@ def spine_dir(lean_fwd=0.0, side_tilt=0.0):
     return (rot_about((0, 1, 0), side_tilt) @ d).normalized()
 
 
-def torso(P, hips_off, lean, pelvis_twist=0.0, chest_twist=0.0, tilt=0.0, head_pitch=0.0, head_twist=0.0):
+def torso(P, hips_off, lean, pelvis_twist=0.0, chest_twist=0.0, tilt=0.0, head_pitch=0.0, head_twist=0.0, side_bend=0.0):
     P.set_hips(offset=hips_off, aim_dir=spine_dir(lean * 0.4), twist=pelvis_twist, tilt_side=tilt)
-    P.aim("Spine", spine_dir(lean * 0.7))
-    P.aim("Chest", spine_dir(lean), twist=chest_twist)
-    P.aim("UpperChest", spine_dir(lean * 0.8))
-    P.aim("Neck", spine_dir(lean * 0.3 - 4))
-    P.aim("Head", spine_dir(head_pitch), twist=head_twist)
+    # la columna compensa la bascula de la cadera en tramos (cada vertebra un poco), como un cuerpo de verdad
+    P.aim("Spine", spine_dir(lean * 0.7, side_bend * 0.4), twist=chest_twist * 0.35)
+    P.aim("Chest", spine_dir(lean, side_bend * 0.8), twist=chest_twist)
+    P.aim("UpperChest", spine_dir(lean * 0.8, side_bend), twist=chest_twist * 0.4)
+    P.aim("Neck", spine_dir(lean * 0.3 - 4, -side_bend * 0.5))
+    P.aim("Head", spine_dir(head_pitch, -side_bend * 0.4), twist=head_twist)
 
 
 def locomotion(P, t, step_len, stance_frac, clear, lean, arm_swing, elbow, pelvis_twist, chest_twist,
-               bob_extra=0.0, hip_drop=0.0, knee_reach=0.985, bob_keep=0.55):
+               bob_extra=0.0, hip_drop=0.0, knee_reach=0.985, bob_keep=0.55, weight_shift=0.022, pelvis_tilt=4.0,
+               arm_out=9.0, shoulder_roll=5.0):
     a = P.len["LeftUpperLeg"]; b = P.len["LeftLowerLeg"]
     R = (a + b) * knee_reach
     half = step_len / 2.0
@@ -174,9 +176,15 @@ def locomotion(P, t, step_len, stance_frac, clear, lean, arm_swing, elbow, pelvi
     h = h_contact + bob_keep * (h - h_contact)
     dz = h + ankle_rest_z - hip_drop - hip_rest_z
     ph = 2 * math.pi * t
+    # el peso se va sobre el pie de apoyo (el izquierdo esta en +X y apoya a mitad de su apoyo)
+    wph = 2 * math.pi * (t - stance_frac / 2.0)
+    shift = weight_shift * math.cos(wph)
     P.reset()
-    torso(P, Vector((0, 0, dz)), lean, pelvis_twist * math.cos(ph), -chest_twist * math.cos(ph),
-          tilt=2.0 * math.cos(2 * ph), head_pitch=-lean * 0.6 + 2)
+    torso(P, Vector((shift, 0, dz)), lean, pelvis_twist * math.cos(ph), -chest_twist * math.cos(ph),
+          tilt=pelvis_tilt * math.cos(wph) + 1.5 * math.cos(2 * ph),
+          head_pitch=-lean * 0.6 + 2 + 1.5 * math.cos(2 * ph),
+          head_twist=chest_twist * 0.55 * math.cos(ph),                  # la cabeza mira al frente: contragira
+          side_bend=-pelvis_tilt * 0.9 * math.cos(wph))
     for side in ("Left", "Right"):
         f = feet[side]
         sx = 1 if side == "Left" else -1
@@ -184,22 +192,32 @@ def locomotion(P, t, step_len, stance_frac, clear, lean, arm_swing, elbow, pelvi
         ankle = Vector((hip_joint.x + sx * 0.004, f["y"], f["z"] + ankle_rest_z))
         P.leg(side, ankle, foot_pitch=f["pitch"], toe_bend=f["toe"])
     for side, phase in (("Left", 0.5), ("Right", 0.0)):
-        sw = arm_swing * math.cos(2 * math.pi * (t + phase))
-        up = hang(side, 8, sw)
-        P.arm_chain(side, up, bend(up, elbow + max(0.0, sw) * 0.6))
+        a = 2 * math.pi * (t + phase)
+        sw = arm_swing * math.cos(a)
+        lag = arm_swing * math.cos(a - 0.6)                               # antebrazo y mano llegan un poco despues
+        sx = 1 if side == "Left" else -1
+        # el brazo que va adelante se cierra hacia el cuerpo; el de atras se abre
+        up = (rot_about((0, 0, 1), sx * shoulder_roll * math.cos(a)) @ hang(side, arm_out - 2.5 * math.cos(a), sw)).normalized()
+        low = bend(up, elbow + max(0.0, lag) * 0.95 + 4 * math.sin(a))
+        hand = bend(low, 6 + 6 * math.sin(a - 0.9))
+        P.arm_chain(side, up, low, hand)
 
 
 def idle_pose(P, t):
-    br = math.sin(2 * math.pi * t)
-    sway = math.sin(math.pi * t)
+    br = math.sin(2 * math.pi * t * 2)                                   # dos respiraciones por ciclo
+    sway = math.sin(2 * math.pi * t)                                     # el peso va y vuelve de una pierna a otra
+    look = math.sin(2 * math.pi * t + 0.8)
     P.reset()
-    torso(P, Vector((0.012 * sway, 0, -0.012 + 0.003 * br)), 1.0 - 1.2 * br, tilt=1.5 * sway,
-          head_pitch=2 + 2 * br, head_twist=14 * math.sin(math.pi * t + 0.8))
+    torso(P, Vector((0.022 * sway, 0, -0.014 + 0.004 * br)), 1.0 - 1.6 * br, tilt=3.0 * sway,
+          chest_twist=3 * look, head_pitch=2 + 2.5 * br - 4 * math.sin(4 * math.pi * t + 1.3),
+          head_twist=22 * look, side_bend=-2.4 * sway)
     for side in ("Left", "Right"):
         sx = 1 if side == "Left" else -1
         P.leg(side, Vector((sx * 0.105, 0.0, P.head_rest[side + "Foot"].z)))
-        up = hang(side, 7 + 0.8 * br, 2 + 1.5 * br)
-        P.arm_chain(side, up, bend(up, 9 + 2 * br))
+        # hombros que suben con la respiracion; manos que se mecen apenas
+        up = hang(side, 7 + 1.5 * br, 2 + 2.5 * br + 2 * sway * sx)
+        low = bend(up, 10 + 3 * br + 3 * math.sin(2 * math.pi * t + sx))
+        P.arm_chain(side, up, low, bend(low, 8 + 4 * math.sin(2 * math.pi * t * 2 + sx)))
 
 
 def static_pose(P, hips_dz=0.0, lean=0.0, arm_out=8, arm_swing=0, elbow=12, legs_tuck=0.0, legs_y=0.0,
@@ -317,12 +335,14 @@ def emerge_pose(P, t):
 
 
 CLIPS = [
-    ("Idle", 121, idle_pose),
+    ("Idle", 181, idle_pose),
     # cadencia calibrada a la velocidad del juego: velocidad = paso / (fraccion de apoyo * ciclo)
-    ("Walk", 27, lambda P, t: locomotion(P, t, 0.66, 0.60, 0.095, 3.0, 17, 12, 5, 7, bob_keep=0.55)),
+    ("Walk", 27, lambda P, t: locomotion(P, t, 0.66, 0.60, 0.10, 4.0, 26, 14, 8, 11, bob_keep=0.62,
+                                         weight_shift=0.024, pelvis_tilt=4.5, arm_out=9, shoulder_roll=6)),
     # trote relajado: cadera alta, rodilla casi recta en el apoyo (antes salia agazapado con hip_drop y 0.965)
-    ("Jog", 30, lambda P, t: locomotion(P, t, 0.80, 0.40, 0.15, 6.0, 26, 78, 7, 10, bob_extra=0.03,
-                                        hip_drop=0.0, knee_reach=0.982, bob_keep=0.75)),
+    ("Jog", 30, lambda P, t: locomotion(P, t, 0.80, 0.40, 0.16, 7.0, 36, 78, 10, 15, bob_extra=0.035,
+                                        hip_drop=0.0, knee_reach=0.982, bob_keep=0.8,
+                                        weight_shift=0.018, pelvis_tilt=5.5, arm_out=11, shoulder_roll=9)),
     ("JumpStart", 9, jump_start),
     ("Fall", 31, fall_pose),
     ("Land", 13, land_pose),

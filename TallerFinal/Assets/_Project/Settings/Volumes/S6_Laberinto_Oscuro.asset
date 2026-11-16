@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4653214780569611712
+--- !u!114 &-3930573114928755516
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,9 @@ MonoBehaviour:
   m_Name: S6_Laberinto_Oscuro
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 3818350881358016690}
-  - {fileID: -4653214780569611712}
---- !u!114 &3818350881358016690
+  - {fileID: 1995321093863604468}
+  - {fileID: -3930573114928755516}
+--- !u!114 &1995321093863604468
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

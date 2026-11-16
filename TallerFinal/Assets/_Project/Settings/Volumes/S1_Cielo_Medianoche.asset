@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: S1_Cielo_Medianoche
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 3302686932767957318}
-  - {fileID: 7579550156462691985}
---- !u!114 &3302686932767957318
+  - {fileID: 8503579002534148621}
+  - {fileID: 9180134395383088770}
+--- !u!114 &8503579002534148621
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   horizonZenithShift:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &7579550156462691985
+--- !u!114 &9180134395383088770
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
