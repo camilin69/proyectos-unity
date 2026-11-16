@@ -7,13 +7,13 @@ namespace Dream.EditorTools.Build
 {
     // 5 · El pasillo de las ondas, 20:40 (video 42 de dream/, 12-17 s). Un pasillo angosto de paredes rosadas que
     // baja por dos tramos de escalera; techo turquesa con lamparas de domo blancas, pasamanos oscuros, puertas
-    // cerradas a la izquierda, carteles EXIT rojos y un piso brillante de ondas pastel. Abajo se bifurca: a la
-    // derecha, una luz al final del pasillo (la salida a la playa); a la izquierda, un pasillo que devuelve,
-    // sin aviso, al principio de la escalera.
+    // cerradas, carteles EXIT rojos y un piso brillante de ondas pastel. Abajo se bifurca: a la derecha, una luz al
+    // final del pasillo (la salida a la playa); a la izquierda el techo se abre en un hueco alto que termina en un
+    // vidrio con la luna llena justo encima, y al fondo una fuente pequena con un angel de marmol.
     public static class S5Builder
     {
         const string DreamDir = DreamScene.Dir + "/Pasillo_Ondas/tex";
-        const float HalfW = 1.2f, Rise = 0.17f, Run = 0.3f;
+        const float HalfW = 1.9f, Rise = 0.17f, Run = 0.3f;
         const int Steps = 10;
 
         public static void Build()
@@ -55,29 +55,46 @@ namespace Dream.EditorTools.Build
             Flight(g, floor, 6f, 0f);
             BoxMinMax("Piso_Descanso", g, new Vector3(-HalfW, y1 - 0.4f, 9f), new Vector3(HalfW, y1, 15f), floor, SurfaceType.WetTile);
             Flight(g, floor, 15f, y1);
-            BoxMinMax("Piso_Abajo", g, new Vector3(-HalfW, y2 - 0.4f, 18f), new Vector3(HalfW, y2, 29.4f), floor, SurfaceType.WetTile);
-            BoxMinMax("Piso_Rama_Der", g, new Vector3(HalfW, y2 - 0.4f, 27f), new Vector3(10f, y2, 29.4f), floor, SurfaceType.WetTile);
-            BoxMinMax("Piso_Rama_Izq", g, new Vector3(-10f, y2 - 0.4f, 27f), new Vector3(-HalfW, y2, 29.4f), floor, SurfaceType.WetTile);
+            // el pasillo de abajo y la bifurcacion (el doble de largos que antes)
+            const float F0 = 36f, F1 = F0 + 2f * HalfW, BL = 18f;
+            float Fm = (F0 + F1) * 0.5f;
+            BoxMinMax("Piso_Abajo", g, new Vector3(-HalfW, y2 - 0.4f, 18f), new Vector3(HalfW, y2, F1), floor, SurfaceType.WetTile);
+            BoxMinMax("Piso_Rama_Der", g, new Vector3(HalfW, y2 - 0.4f, F0), new Vector3(BL, y2, F1), floor, SurfaceType.WetTile);
+            BoxMinMax("Piso_Rama_Izq", g, new Vector3(-BL, y2 - 0.4f, F0), new Vector3(-HalfW, y2, F1), floor, SurfaceType.WetTile);
 
             // ---------- paredes rosadas ----------
             const float wallTop = 3.0f, wallBot = -3.8f;
-            BoxMinMax("Pared_Izq", g, new Vector3(-HalfW - 0.12f, wallBot, -3f), new Vector3(-HalfW, wallTop, 27f), wall);
-            BoxMinMax("Pared_Der", g, new Vector3(HalfW, wallBot, -3f), new Vector3(HalfW + 0.12f, wallTop, 27f), wall);
+            float c1 = 2.8f, c2 = y1 + 2.8f, c3 = y2 + 2.8f, shaftTop = y2 + 16f;
+            BoxMinMax("Pared_Izq", g, new Vector3(-HalfW - 0.12f, wallBot, -3f), new Vector3(-HalfW, wallTop, F0), wall);
+            BoxMinMax("Pared_Der", g, new Vector3(HalfW, wallBot, -3f), new Vector3(HalfW + 0.12f, wallTop, F0), wall);
             BoxMinMax("Pared_Fondo_Arriba", g, new Vector3(-HalfW, -0.4f, -3.12f), new Vector3(HalfW, wallTop, -3f), wall);
-            BoxMinMax("Pared_Frente_Bifurcacion", g, new Vector3(-10f, wallBot, 29.4f), new Vector3(10f, 0f, 29.52f), wall);
-            BoxMinMax("Pared_Rama_Der", g, new Vector3(HalfW, wallBot, 26.88f), new Vector3(10f, 0f, 27f), wall);
-            BoxMinMax("Pared_Rama_Izq", g, new Vector3(-10f, wallBot, 26.88f), new Vector3(-HalfW, 0f, 27f), wall);
-            BoxMinMax("Pared_Final_Izq", g, new Vector3(-10.12f, wallBot, 27f), new Vector3(-10f, 0f, 29.4f), wall);
+            BoxMinMax("Pared_Frente_Bifurcacion", g, new Vector3(-BL, wallBot, F1), new Vector3(BL, shaftTop, F1 + 0.12f), wall);
+            BoxMinMax("Pared_Rama_Der", g, new Vector3(HalfW, wallBot, F0 - 0.12f), new Vector3(BL, c3, F0), wall);
+            BoxMinMax("Pared_Rama_Izq", g, new Vector3(-BL, wallBot, F0 - 0.12f), new Vector3(-HalfW, shaftTop, F0), wall);
+            BoxMinMax("Pared_Final_Izq", g, new Vector3(-BL - 0.12f, wallBot, F0), new Vector3(-BL, shaftTop, F1), wall);
+            BoxMinMax("Pared_Final_Der", g, new Vector3(BL, wallBot, F0), new Vector3(BL + 0.12f, c3 + 0.1f, F1), wall);
+            // el hueco: sobre el cruce y la rama izquierda el techo no esta; las paredes suben hasta el vidrio
+            BoxMinMax("Hueco_Pared_Sur", g, new Vector3(-HalfW, c3, F0 - 0.12f), new Vector3(HalfW, shaftTop, F0), wall);
+            BoxMinMax("Hueco_Pared_Este", g, new Vector3(HalfW, c3, F0), new Vector3(HalfW + 0.12f, shaftTop, F1), wall);
 
             // ---------- techo turquesa, que baja con la escalera ----------
-            float c1 = 2.8f, c2 = y1 + 2.8f, c3 = y2 + 2.8f;
-            // plano sobre los descansos e inclinado sobre cada tramo, como en el video
             BoxMinMax("Techo_1", g, new Vector3(-HalfW, c1, -3f), new Vector3(HalfW, c1 + 0.1f, 6f), ceiling);
             Slab("Techo_Tramo_1", g, ceiling, new Vector3(0f, c1, 6f), new Vector3(0f, c2, 9f));
             BoxMinMax("Techo_2", g, new Vector3(-HalfW, c2, 9f), new Vector3(HalfW, c2 + 0.1f, 15f), ceiling);
             Slab("Techo_Tramo_2", g, ceiling, new Vector3(0f, c2, 15f), new Vector3(0f, c3, 18f));
-            BoxMinMax("Techo_3", g, new Vector3(-HalfW, c3, 18f), new Vector3(HalfW, c3 + 0.1f, 29.4f), ceiling);
-            BoxMinMax("Techo_Ramas", g, new Vector3(-10f, c3, 27f), new Vector3(10f, c3 + 0.1f, 29.4f), ceiling);
+            BoxMinMax("Techo_3", g, new Vector3(-HalfW, c3, 18f), new Vector3(HalfW, c3 + 0.1f, F0), ceiling);
+            BoxMinMax("Techo_Rama_Der", g, new Vector3(HalfW, c3, F0), new Vector3(BL, c3 + 0.1f, F1), ceiling);
+
+            // ---------- el vidrio arriba del hueco, con su marco, y la luna justo encima ----------
+            var glass = Mat("M_Vidrio_Claraboya", new Color(0.82f, 0.9f, 1f, 0.18f), 0.98f, 0f, null, 0f, true);
+            var frameM = ScanMat("M_Marco_Claraboya", "metal_plate", new Color(0.2f, 0.21f, 0.23f), 0.5f, 0.4f, 0.8f);
+            BoxMinMax("Claraboya", g, new Vector3(-BL, shaftTop, F0), new Vector3(HalfW, shaftTop + 0.04f, F1), glass);
+            for (float x = -BL; x <= HalfW + 0.01f; x += 3.6f)
+                BoxMinMax("Marco", g, new Vector3(x - 0.06f, shaftTop - 0.08f, F0), new Vector3(x + 0.06f, shaftTop + 0.06f, F1), frameM);
+            BoxMinMax("Marco_S", g, new Vector3(-BL, shaftTop - 0.08f, F0), new Vector3(HalfW, shaftTop + 0.06f, F0 + 0.12f), frameM);
+            BoxMinMax("Marco_N", g, new Vector3(-BL, shaftTop - 0.08f, F1 - 0.12f), new Vector3(HalfW, shaftTop + 0.06f, F1), frameM);
+            BoxMinMax("Marco_C", g, new Vector3(-BL, shaftTop - 0.08f, Fm - 0.05f), new Vector3(HalfW, shaftTop + 0.06f, Fm + 0.05f), frameM);
+            a.gameObject.AddComponent<MoonOverhead>();
 
             // ---------- pasamanos oscuros a los dos lados, con su soporte a la pared ----------
             foreach (float s in new[] { -1f, 1f })
@@ -87,54 +104,56 @@ namespace Dream.EditorTools.Build
                 Rail(g, rail, new Vector3(x, 0.9f, 6f), new Vector3(x, y1 + 0.9f, 9f));
                 Rail(g, rail, new Vector3(x, y1 + 0.9f, 9f), new Vector3(x, y1 + 0.9f, 15f));
                 Rail(g, rail, new Vector3(x, y1 + 0.9f, 15f), new Vector3(x, y2 + 0.9f, 18f));
-                Rail(g, rail, new Vector3(x, y2 + 0.9f, 18f), new Vector3(x, y2 + 0.9f, 21f));
+                Rail(g, rail, new Vector3(x, y2 + 0.9f, 18f), new Vector3(x, y2 + 0.9f, 24f));
             }
 
-            // ---------- puertas cerradas a la izquierda (y una a la derecha en el descanso) ----------
+            // ---------- puertas cerradas ----------
             DoorPanel(g, door, trim, -1f, 1.2f, 0f);
             DoorPanel(g, door, trim, -1f, 4.0f, 0f);
             DoorPanel(g, door, trim, -1f, 10.6f, y1);
             DoorPanel(g, door, trim, -1f, 13.2f, y1);
             DoorPanel(g, door, trim, 1f, 12.0f, y1);
             DoorPanel(g, door, trim, -1f, 22.5f, y2);
+            DoorPanel(g, door, trim, -1f, 28.5f, y2);
+            DoorPanel(g, door, trim, 1f, 26f, y2);
+            DoorPanel(g, door, trim, 1f, 32.5f, y2);
 
             // ---------- carteles EXIT rojos, cerca del techo ----------
             ExitSign(g, exitMat, box, new Vector3(-HalfW + 0.03f, c1 - 0.35f, 5.4f), 90f);
             ExitSign(g, exitMat, box, new Vector3(HalfW - 0.03f, c1 - 0.35f, 5.9f), -90f);
             ExitSign(g, exitMat, box, new Vector3(-HalfW + 0.03f, c2 - 0.35f, 14.5f), 90f);
-            ExitSign(g, exitMat, box, new Vector3(-9.97f, c3 - 0.45f, 28.2f), 90f);
+            ExitSign(g, exitMat, box, new Vector3(BL - 0.03f, c3 - 0.45f, Fm), -90f);
 
             // ---------- lamparas de domo: luz blanca calida que se repite y brilla en el piso mojado ----------
-            var lamps = new[]
+            var lamps = new System.Collections.Generic.List<Vector3>
             {
                 new Vector3(0f, c1, 0f), new Vector3(0f, c1, 3.2f), new Vector3(0f, c1, 6.6f),
                 new Vector3(0f, c2, 10.6f), new Vector3(0f, c2, 13.8f), new Vector3(0f, c2, 17f),
-                new Vector3(0f, c3, 20.5f), new Vector3(0f, c3, 23.8f), new Vector3(0f, c3, 27.2f),
-                new Vector3(4.2f, c3, 28.2f), new Vector3(7.6f, c3, 28.2f), new Vector3(-4.2f, c3, 28.2f),
             };
-            for (int i = 0; i < lamps.Length; i++)
+            for (float z = 20.5f; z < F0 - 0.5f; z += 3.4f) lamps.Add(new Vector3(0f, c3, z));
+            for (float x = 4.5f; x < BL - 1f; x += 4.2f) lamps.Add(new Vector3(x, c3, Fm));
+            for (int i = 0; i < lamps.Count; i++)
             {
                 var p = lamps[i];
                 Prim(PrimitiveType.Sphere, $"Lampara_{i:00}", g, p - Vector3.up * 0.02f, new Vector3(0.62f, 0.16f, 0.62f), dome, null, null, false);
-                bool shadows = i == 1 || i == 4 || i == 7;
+                bool shadows = i == 1 || i == 4 || i == 8;
                 AddLight($"Luz_lampara_{i:00}", g, LightType.Point, p - Vector3.up * 0.18f, Vector3.zero, new Color(1f, 0.94f, 0.86f), 900f, 7f, 60f, null, shadows);
             }
-            // (el fondo del pasillo izquierdo no tiene lampara: se queda en penumbra)
 
             // ---------- bifurcacion ----------
             // derecha: la luz al final del pasillo
-            Prim(PrimitiveType.Quad, "Luz_al_final", g, new Vector3(9.95f, y2 + 1.4f, 28.2f), new Vector3(2.4f, 2.8f, 1f), Palette.BlindingLight, null, new Vector3(0f, 90f, 0f), false);
-            AddLight("Luz_del_final", g, LightType.Rectangle, new Vector3(9.9f, y2 + 1.4f, 28.2f), new Vector3(0f, -90f, 0f), new Color(1f, 0.97f, 0.92f), 3500f, 14f, 60f, new Vector2(2.3f, 2.7f), false);
-            // izquierda: un pasillo que devuelve al principio de la escalera
-            var top = Point("Otra_vez_arriba", a.transform, new Vector3(0f, 0.02f, 0.4f), 0f);
-            var loop = new GameObject("Pasillo_que_vuelve");
-            loop.transform.SetParent(g, false);
-            loop.transform.position = new Vector3(-8.6f, y2 + 1.2f, 28.2f);
-            var lb = loop.AddComponent<BoxCollider>(); lb.isTrigger = true; lb.size = new Vector3(0.6f, 2.4f, 2.4f);
-            loop.AddComponent<LoopBack>().target = top;
+            Prim(PrimitiveType.Quad, "Luz_al_final", g, new Vector3(BL - 0.05f, y2 + 1.6f, Fm), new Vector3(2f * HalfW, 3.2f, 1f), Palette.BlindingLight, null, new Vector3(0f, 90f, 0f), false);
+            AddLight("Luz_del_final", g, LightType.Rectangle, new Vector3(BL - 0.1f, y2 + 1.6f, Fm), new Vector3(0f, -90f, 0f), new Color(1f, 0.97f, 0.92f), 3500f, 16f, 60f, new Vector2(3.6f, 3f), false);
+            // izquierda: bajo el hueco de la luna, la fuente del angel
+            Fountain(g, new Vector3(-BL + 1.9f, y2, Fm));
+            AddLight("Luz_de_luna", g, LightType.Spot, new Vector3(-BL + 1.9f, shaftTop - 0.5f, Fm), new Vector3(90f, 0f, 0f), new Color(0.78f, 0.84f, 1f), 4200f, 22f, 40f, null, true);
+            // luz de luna que baja por el hueco y llena la rama izquierda, suave y fria
+            for (float x = -4f; x > -BL + 3f; x -= 5f)
+                AddLight("Luna_en_el_hueco", g, LightType.Point, new Vector3(x, y2 + 4.5f, Fm), Vector3.zero, new Color(0.8f, 0.85f, 1f), 1100f, 9f, 60f, null, false);
 
-            Memory(a.transform, new Vector3(0f, y2 + 1.05f, 27.9f), "Todas las puertas daban al mismo pasillo; solo una tenía luz.");
-            CheckpointAt(a.transform, new Vector3(0f, y1 + 0.05f, 12f), 0f, new Vector3(2.4f, 2.4f, 1f));
+            Memory(a.transform, new Vector3(0f, y2 + 1.05f, Fm), "Todas las puertas daban al mismo pasillo; solo una tenía luz.");
+            CheckpointAt(a.transform, new Vector3(0f, y1 + 0.05f, 12f), 0f, new Vector3(2f * HalfW, 2.4f, 1f));
+            CheckpointAt(a.transform, new Vector3(0f, y2 + 0.05f, 30f), 0f, new Vector3(2f * HalfW, 2.4f, 1f));
 
             // ---------- llegada: abre los ojos arriba de la escalera ----------
             var w0 = Shot(2.2f, "negro, despierta arriba");
@@ -151,13 +170,13 @@ namespace Dream.EditorTools.Build
             a.arrival = Sequence("Cine_El_Pasillo", a.transform, w0, w1);
 
             // ---------- salida: camina hacia la luz ----------
-            var d1 = Shot(4.5f, "camina hacia la luz");
-            d1.from = CamPoint("Cam_Luz_A", a.transform, new Vector3(1.6f, y2 + 1.7f, 28.9f), new Vector3(9.9f, y2 + 1.3f, 28.2f));
-            d1.to = CamPoint("Cam_Luz_B", a.transform, new Vector3(2.8f, y2 + 1.6f, 28.7f), new Vector3(9.9f, y2 + 1.3f, 28.2f));
-            d1.lookAt = Point("Mira_luz", a.transform, new Vector3(9.9f, y2 + 1.3f, 28.2f)); d1.focalLength = 28f;
-            d1.actorWalkTo = Point("Dentro_de_la_luz", a.transform, new Vector3(9.4f, y2 + 0.02f, 28.2f)); d1.actorSpeed = 1.1f;
+            var d1 = Shot(5f, "camina hacia la luz");
+            d1.from = CamPoint("Cam_Luz_A", a.transform, new Vector3(BL - 9.5f, y2 + 1.7f, Fm + 1.2f), new Vector3(BL, y2 + 1.4f, Fm));
+            d1.to = CamPoint("Cam_Luz_B", a.transform, new Vector3(BL - 7.5f, y2 + 1.6f, Fm + 1f), new Vector3(BL, y2 + 1.4f, Fm));
+            d1.lookAt = Point("Mira_luz", a.transform, new Vector3(BL - 0.1f, y2 + 1.4f, Fm)); d1.focalLength = 28f;
+            d1.actorWalkTo = Point("Dentro_de_la_luz", a.transform, new Vector3(BL - 0.6f, y2 + 0.02f, Fm)); d1.actorSpeed = 1.1f;
             d1.fadeColor = Color.white; d1.fadeOutSeconds = 2f;
-            Gate("La_luz_del_final", a.transform, new Vector3(8.4f, y2 + 1.2f, 28.2f), new Vector3(0.8f, 2.4f, 2.4f), Sequence("Cine_La_Luz", a.transform, d1));
+            Gate("La_luz_del_final", a.transform, new Vector3(BL - 1.8f, y2 + 1.2f, Fm), new Vector3(0.8f, 2.4f, 2f * HalfW), Sequence("Cine_La_Luz", a.transform, d1));
 
             // ---------- aire: un poco de niebla para que las lamparas tengan halo; el cielo no entra ----------
             GlobalVolume("Ambiente_Pasillo", a.transform, Profile("S5_Pasillo", p =>
@@ -170,6 +189,44 @@ namespace Dream.EditorTools.Build
                 ind.reflectionLightingMultiplier.Override(0.5f);
             }), 1f);
             Save(scene, "S5_Pasillo");
+        }
+
+        // Fuente pequena con un angel de marmol al estilo de una escultura griega: pila redonda con agua, pedestal y
+        // la figura (tunica, cabeza, brazos sosteniendo un cantaro y dos alas), todo en marmol blanco pulido.
+        static void Fountain(Transform g, Vector3 c)
+        {
+            var marble = ScanMat("M_Marmol_Pulido", "marble_01", new Color(1f, 0.99f, 0.97f), 1.2f, 0.82f, 0.98f);
+            var f = Point("Fuente_del_angel", g, c, 0f);
+            Prim(PrimitiveType.Cylinder, "Pila", f, c + Vector3.up * 0.28f, new Vector3(2.4f, 0.28f, 2.4f), marble, SurfaceType.Stone);
+            Prim(PrimitiveType.Cylinder, "Borde", f, c + Vector3.up * 0.58f, new Vector3(2.55f, 0.04f, 2.55f), marble, null, null, false);
+            var water = Mat("M_Agua_Fuente", new Color(0.32f, 0.45f, 0.55f), 0.98f);
+            Prim(PrimitiveType.Cylinder, "Agua", f, c + Vector3.up * 0.55f, new Vector3(2.25f, 0.01f, 2.25f), water, null, null, false);
+            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 1.0f, new Vector3(0.55f, 0.45f, 0.55f), marble, null, null, false);
+            var body = c + Vector3.up * 1.45f;
+            Prim(PrimitiveType.Capsule, "Tunica", f, body + Vector3.up * 0.55f, new Vector3(0.42f, 0.62f, 0.36f), marble, null, null, false);
+            Prim(PrimitiveType.Sphere, "Cabeza", f, body + Vector3.up * 1.32f, Vector3.one * 0.24f, marble, null, null, false);
+            Prim(PrimitiveType.Sphere, "Cabello", f, body + new Vector3(0f, 1.38f, -0.03f), new Vector3(0.26f, 0.2f, 0.26f), marble, null, null, false);
+            foreach (int s in new[] { -1, 1 })
+            {
+                Prim(PrimitiveType.Capsule, "Brazo", f, body + new Vector3(s * 0.2f, 0.85f, 0.14f), new Vector3(0.1f, 0.26f, 0.1f), marble, null, new Vector3(-55f, 0f, s * -20f), false);
+                for (int k = 0; k < 3; k++)
+                    Prim(PrimitiveType.Sphere, "Ala", f, body + new Vector3(s * (0.32f + k * 0.12f), 1.0f + k * 0.12f, -0.22f - k * 0.04f),
+                         new Vector3(0.16f, 0.55f - k * 0.08f, 0.05f), marble, null, new Vector3(-10f, s * 25f, s * (35f + k * 12f)), false);
+            }
+            Prim(PrimitiveType.Sphere, "Cantaro", f, body + new Vector3(0f, 0.82f, 0.32f), new Vector3(0.2f, 0.24f, 0.2f), marble, null, null, false);
+            var jet = new GameObject("Chorro");
+            jet.transform.SetParent(f, false);
+            jet.transform.position = body + new Vector3(0f, 0.82f, 0.42f);
+            var ps = jet.AddComponent<ParticleSystem>();
+            var main = ps.main;
+            main.loop = true; main.prewarm = true; main.maxParticles = 300;
+            main.startLifetime = 0.55f; main.startSpeed = new ParticleSystem.MinMaxCurve(0.5f, 0.7f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.03f, 0.06f); main.gravityModifier = 1f;
+            var em = ps.emission; em.rateOverTime = 220f;
+            var sh = ps.shape; sh.shapeType = ParticleSystemShapeType.Cone; sh.angle = 4f; sh.radius = 0.02f;
+            var pr = jet.GetComponent<ParticleSystemRenderer>();
+            pr.sharedMaterial = Mat("M_Gota", new Color(0.85f, 0.92f, 1f, 0.6f), 0.95f, 0f, new Color(0.7f, 0.85f, 1f), 40f, true);
+            pr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
 
         static Texture2D Tex(string file, bool normal = false)
