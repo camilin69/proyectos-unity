@@ -114,6 +114,7 @@ MODELS = {
     "coast_rocks_01": "rocas grandes de la playa",
     "coast_rocks_02": "rocas grandes de la playa",
     "namaqualand_boulder_02": "pena grande de la playa",
+    "gothic_statue": "angel de marmol de la fuente del pasillo (con alas)",
 }
 
 

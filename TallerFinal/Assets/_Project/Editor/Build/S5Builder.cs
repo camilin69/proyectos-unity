@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
@@ -195,28 +196,48 @@ namespace Dream.EditorTools.Build
         // la figura (tunica, cabeza, brazos sosteniendo un cantaro y dos alas), todo en marmol blanco pulido.
         static void Fountain(Transform g, Vector3 c)
         {
-            var marble = ScanMat("M_Marmol_Pulido", "marble_01", new Color(1f, 0.99f, 0.97f), 1.2f, 0.82f, 0.98f);
+            var marble = Mat("M_Marmol_Blanco", new Color(0.95f, 0.94f, 0.92f), 0.93f);       // pila y pedestal: marmol blanco pulido, como el angel
             var f = Point("Fuente_del_angel", g, c, 0f);
+            // una luz suave de frente para que el marmol blanco brille (la luna lo ilumina desde arriba)
+            AddLight("Luz_del_angel", f, LightType.Point, c + new Vector3(2.2f, 2.6f, 0f), Vector3.zero, new Color(0.95f, 0.95f, 1f), 450f, 6f, 60f, null, false);
             Prim(PrimitiveType.Cylinder, "Pila", f, c + Vector3.up * 0.28f, new Vector3(2.4f, 0.28f, 2.4f), marble, SurfaceType.Stone);
             Prim(PrimitiveType.Cylinder, "Borde", f, c + Vector3.up * 0.58f, new Vector3(2.55f, 0.04f, 2.55f), marble, null, null, false);
             var water = Mat("M_Agua_Fuente", new Color(0.32f, 0.45f, 0.55f), 0.98f);
             Prim(PrimitiveType.Cylinder, "Agua", f, c + Vector3.up * 0.55f, new Vector3(2.25f, 0.01f, 2.25f), water, null, null, false);
-            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 1.0f, new Vector3(0.55f, 0.45f, 0.55f), marble, null, null, false);
+            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 1.0f, new Vector3(1.0f, 0.45f, 1.0f), marble, null, null, false);
             var body = c + Vector3.up * 1.45f;
-            Prim(PrimitiveType.Capsule, "Tunica", f, body + Vector3.up * 0.55f, new Vector3(0.42f, 0.62f, 0.36f), marble, null, null, false);
-            Prim(PrimitiveType.Sphere, "Cabeza", f, body + Vector3.up * 1.32f, Vector3.one * 0.24f, marble, null, null, false);
-            Prim(PrimitiveType.Sphere, "Cabello", f, body + new Vector3(0f, 1.38f, -0.03f), new Vector3(0.26f, 0.2f, 0.26f), marble, null, null, false);
-            foreach (int s in new[] { -1, 1 })
+            // la figura: la estatua gotica de Poly Haven (velada, con corona), en marmol blanco pulido; conserva el
+            // relieve tallado con su mapa de normales
+            var statue = PolyModel("gothic_statue", f, body, 180f, null, false);
+            if (statue)
             {
-                Prim(PrimitiveType.Capsule, "Brazo", f, body + new Vector3(s * 0.2f, 0.85f, 0.14f), new Vector3(0.1f, 0.26f, 0.1f), marble, null, new Vector3(-55f, 0f, s * -20f), false);
-                for (int k = 0; k < 3; k++)
-                    Prim(PrimitiveType.Sphere, "Ala", f, body + new Vector3(s * (0.32f + k * 0.12f), 1.0f + k * 0.12f, -0.22f - k * 0.04f),
-                         new Vector3(0.16f, 0.55f - k * 0.08f, 0.05f), marble, null, new Vector3(-10f, s * 25f, s * (35f + k * 12f)), false);
+                var b0 = Bounds(statue);
+                float k = 1.55f / Mathf.Max(0.01f, b0.size.y);                  // 1.55 m de alto: una fuente pequena
+                statue.transform.localScale *= k;
+                var b1 = Bounds(statue);
+                statue.transform.position += new Vector3(body.x - b1.center.x, body.y - b1.min.y, body.z - b1.center.z);
+                var white = Mat("M_Angel_Marmol", new Color(0.96f, 0.95f, 0.93f), 0.9f);
+                var nrm = AssetDatabase.LoadAssetAtPath<Texture2D>(ModelDir + "/gothic_statue/gothic_statue_normal.jpg");
+                var imp = AssetImporter.GetAtPath(ModelDir + "/gothic_statue/gothic_statue_normal.jpg") as TextureImporter;
+                if (imp && imp.textureType != TextureImporterType.NormalMap) { imp.textureType = TextureImporterType.NormalMap; imp.SaveAndReimport(); }
+                if (nrm) { white.SetTexture("_NormalMap", nrm); white.SetFloat("_NormalScale", 1.3f); }
+                HDMaterial.ValidateMaterial(white);
+                foreach (var r in statue.GetComponentsInChildren<Renderer>())
+                    r.sharedMaterials = System.Linq.Enumerable.Repeat(white, r.sharedMaterials.Length).ToArray();
             }
-            Prim(PrimitiveType.Sphere, "Cantaro", f, body + new Vector3(0f, 0.82f, 0.32f), new Vector3(0.2f, 0.24f, 0.2f), marble, null, null, false);
+            // las alas: plumas largas de marmol que se abren detras de los hombros
+            float shoulder = body.y + 1.15f;
+            var pure = Mat("M_Angel_Marmol", new Color(0.96f, 0.95f, 0.93f), 0.9f);
+            foreach (int s in new[] { -1, 1 })
+                for (int k = 0; k < 4; k++)
+                    Prim(PrimitiveType.Sphere, "Ala", f, new Vector3(c.x - 0.3f, shoulder + k * 0.13f, c.z + s * (0.3f + k * 0.17f)),
+                         new Vector3(0.07f, 0.95f - k * 0.14f, 0.26f), pure, null, new Vector3(s * (28f + k * 14f), 0f, -12f), false);
+            // un cantaro de marmol al borde del pedestal: de ahi cae el agua a la pila
+            Prim(PrimitiveType.Sphere, "Cantaro", f, body + new Vector3(0.62f, -0.05f, 0f), new Vector3(0.22f, 0.26f, 0.22f), pure, null, null, false);
             var jet = new GameObject("Chorro");
             jet.transform.SetParent(f, false);
-            jet.transform.position = body + new Vector3(0f, 0.82f, 0.42f);
+            jet.transform.position = body + new Vector3(0.77f, 0.02f, 0f);
+            jet.transform.rotation = Quaternion.LookRotation(Vector3.right);
             var ps = jet.AddComponent<ParticleSystem>();
             var main = ps.main;
             main.loop = true; main.prewarm = true; main.maxParticles = 300;

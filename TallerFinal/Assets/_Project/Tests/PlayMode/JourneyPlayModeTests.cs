@@ -68,18 +68,25 @@ namespace Dream.Tests
         {
             GameFlow.Instance.StartJourney();
             yield return Until(() => Playing && JourneyManager.Instance.Current == 0, 20f, "el cuarto");
+            // "jugando" puede asomar un instante antes de que arranque la cinematica de llegada: se espera a que termine
+            yield return new WaitForSeconds(1f);
+            yield return Until(() => Playing, 30f, "fin de la llegada");
             var rig = PlayerRig.Instance;
             var steps = rig.GetComponent<FootstepSystem>();
-            rig.Motor.Teleport(new Vector3(-1.5f, 0.05f, -1.8f), 90f);
+            // la diagonal del cuarto: el camino libre mas largo (unos 6 m)
+            var room = GameObject.Find("Cuarto").transform;
+            var from = room.TransformPoint(new Vector3(-2.3f, 0.05f, -1.9f));
+            var dir = (room.TransformPoint(new Vector3(2.3f, 0.05f, 1.6f)) - from); dir.y = 0f; dir.Normalize();
+            rig.Motor.Teleport(from, Quaternion.LookRotation(dir).eulerAngles.y);
             yield return new WaitForSeconds(0.5f);
             int before = steps.StepCount;
-            rig.Motor.scriptedVelocity = new Vector3(1.25f, 0f, 0f);
-            yield return new WaitForSeconds(3f);
+            rig.Motor.scriptedVelocity = dir * 1.25f;
+            yield return new WaitForSeconds(4f);
             rig.Motor.scriptedVelocity = null;
             int n = steps.StepCount - before;
-            // Walk: 0,45 s por paso -> unos 6-7 pasos en 3 s
+            // Walk: 0,45 s por paso -> unos 8 pasos en 4 s (en el editor lento se detectan menos)
             Assert.GreaterOrEqual(n, 4, "pocos pasos: el contacto del pie no se detecta");
-            Assert.LessOrEqual(n, 10, "demasiados pasos: la histeresis no funciona");
+            Assert.LessOrEqual(n, 14, "demasiados pasos: la histeresis no funciona");
             Assert.AreEqual(SurfaceType.WetTile, steps.LastSurface, "el piso del cuarto es azulejo mojado");
         }
 
@@ -133,6 +140,14 @@ namespace Dream.Tests
             int score = ScoreSystem.Instance.Score;
             Assert.AreEqual(0, ScoreSystem.Instance.AddMemory(), "despues del final nada suma");
             Assert.AreEqual(score, ScoreSystem.Instance.Score);
+
+            // seguir soñando: el cuarto a las 3:33 para siempre, sin puertas ni recuerdo
+            GameFlow.Instance.ContinueDreaming();
+            yield return Until(() => Playing && GameFlow.Instance.Lingering, 10f, "seguir soñando");
+            yield return new WaitForSeconds(3f);
+            Assert.AreEqual("03:33", TimeOfDay.Format(TimeOfDay.Instance.hour), "el tiempo se detuvo a las 3:33");
+            Assert.AreEqual(0, Object.FindObjectsByType<TransitionGate>(FindObjectsSortMode.None).Length, "sin paso a otro sueño");
+            Assert.AreEqual(0, Object.FindObjectsByType<MemoryFragment>(FindObjectsSortMode.None).Length, "sin recuerdo");
         }
     }
 }
