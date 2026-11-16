@@ -134,7 +134,7 @@ namespace Dream.EditorTools.Build
             a.nightOnly = GlobalVolume("Cielo_Medianoche", a.transform, Profile("S1_Cielo_Medianoche", pr =>
             {
                 NightSky(pr, 1.6f, "dream_noche_rosa.png");
-                ExposureLimits(pr, -1f, 6f, 0.4f);
+                ExposureLimits(pr, 3f, 8f, 0f);          // de madrugada el cuarto queda oscuro: la exposicion no lo aclara
             }), 2f).gameObject;
             CottonSky(a.nightOnly.transform, Vector3.zero, 26, 160f, 700f, 40f, 160f, 5f, 10f,
                       new[] { new Color(1f, 0.7f, 0.85f), new Color(0.92f, 0.55f, 0.82f), new Color(0.78f, 0.6f, 0.95f) }, 63);

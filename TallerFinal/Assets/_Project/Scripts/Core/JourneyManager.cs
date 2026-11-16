@@ -39,7 +39,7 @@ namespace Dream
 
         void Update()
         {
-            if (Anchor == null || InFinale) return;
+            if (Anchor == null || InFinale || (GameFlow.Instance && GameFlow.Instance.Lingering)) return;   // 3:33: el tiempo no avanza
             SecondsInScene += Time.deltaTime;
             // la hora avanza sola dentro del escenario, de su hora de inicio a la de cierre
             var tod = TimeOfDay.Instance;

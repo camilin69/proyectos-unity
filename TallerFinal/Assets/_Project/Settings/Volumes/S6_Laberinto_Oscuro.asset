@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: S6_Laberinto_Oscuro
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 604551924059891078}
-  - {fileID: 4380160846434525899}
---- !u!114 &604551924059891078
+  - {fileID: 3321331564819085708}
+  - {fileID: 8869565494245837262}
+--- !u!114 &3321331564819085708
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   volumetricLightingDensityCutoff:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &4380160846434525899
+--- !u!114 &8869565494245837262
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

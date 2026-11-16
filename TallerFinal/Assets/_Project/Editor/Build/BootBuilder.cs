@@ -82,6 +82,23 @@ namespace Dream.EditorTools.Build
             disc.GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
             lightRoot.gameObject.AddComponent<SunDisc>().disc = disc.GetComponent<Renderer>();
 
+            // la luna llena grande, como un planeta en el cielo: disco con la textura de luna, tapa las estrellas detras
+            // y brilla poco (tools/taller_final/cielos_noche.py)
+            var moonTexPath = ScanDir + "/HDRI/T_Luna_llena.png";
+            var moonImp = (TextureImporter)AssetImporter.GetAtPath(moonTexPath);
+            if (moonImp.wrapMode != TextureWrapMode.Clamp || !moonImp.alphaIsTransparency) { moonImp.wrapMode = TextureWrapMode.Clamp; moonImp.alphaIsTransparency = true; moonImp.SaveAndReimport(); }
+            var moonMat = Unlit("M_Disco_Luna", new Color(2.2f, 2.2f, 2.35f, 1f));
+            HDMaterial.SetSurfaceType(moonMat, true);
+            moonMat.SetFloat("_BlendMode", 0f);                        // alfa: la luna tapa el cielo que tiene detras
+            moonMat.SetTexture("_UnlitColorMap", AssetDatabase.LoadAssetAtPath<Texture2D>(moonTexPath));
+            moonMat.SetFloat("_EnableFogOnTransparent", 0f);
+            HDMaterial.ValidateMaterial(moonMat);
+            var moonDisc = Prim(PrimitiveType.Quad, "Disco_de_la_luna", lightRoot, Vector3.zero, Vector3.one, moonMat, null, null, false);
+            GameObjectUtility.SetStaticEditorFlags(moonDisc, 0);
+            moonDisc.GetComponent<Renderer>().shadowCastingMode = ShadowCastingMode.Off;
+            var md = lightRoot.gameObject.AddComponent<SunDisc>();
+            md.disc = moonDisc.GetComponent<Renderer>(); md.moon = true; md.angularSizeDeg = 14f; md.distance = 2800f;
+
             // ---- el sonador ----
             var player = BuildPlayer();
 

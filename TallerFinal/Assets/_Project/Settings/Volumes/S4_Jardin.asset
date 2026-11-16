@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7922641356776531828
+--- !u!114 &-8747195047655337137
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   rectLightShadow:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-5678728081594942751
+--- !u!114 &-7768486560838106585
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   volumetricLightingDensityCutoff:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-4218216558733862674
+--- !u!114 &-5587563427150741835
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,11 +385,11 @@ MonoBehaviour:
   m_Name: S4_Jardin
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: -5678728081594942751}
-  - {fileID: 585836572172451031}
-  - {fileID: -7922641356776531828}
-  - {fileID: -4218216558733862674}
---- !u!114 &585836572172451031
+  - {fileID: -7768486560838106585}
+  - {fileID: 3666557312970930058}
+  - {fileID: -8747195047655337137}
+  - {fileID: -5587563427150741835}
+--- !u!114 &3666557312970930058
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

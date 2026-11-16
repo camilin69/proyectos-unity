@@ -123,12 +123,12 @@ namespace Dream.EditorTools.Build
                 imp.wrapMode = TextureWrapMode.Clamp; imp.alphaIsTransparency = true; imp.mipmapEnabled = true; imp.SaveAndReimport();
             }
             var d = moon.GetComponent<HDAdditionalLightData>();
-            d.angularDiameter = 14f;
-            d.surfaceTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
-            d.surfaceTint = new Color(1f, 0.98f, 1f);
-            d.celestialBodyShadingSource = HDAdditionalLightData.CelestialBodyShadingSource.Emission;
-            d.flareSize = 0.35f; d.flareFalloff = 6f; d.flareMultiplier = 0.25f; d.flareTint = new Color(0.8f, 0.82f, 1f);
-            d.interactsWithSky = true;
+            // la luna que se ve es el disco texturizado (SunDisc con moon = true); la luz solo ilumina, sin dibujar su
+            // propio punto brillante en el cielo
+            d.angularDiameter = 0.5f;
+            d.surfaceTexture = null;
+            d.flareSize = 0f; d.flareMultiplier = 0f;
+            d.interactsWithSky = false;
             EditorUtility.SetDirty(d);
         }
 

@@ -9,16 +9,18 @@ namespace Dream
     {
         public Renderer disc;
         public float distance = 3000f, angularSizeDeg = 2.6f;
+        [Tooltip("Sigue a la luna en vez del sol (la luna llena grande, como un planeta)")] public bool moon;
 
         void LateUpdate()
         {
             var tod = TimeOfDay.Instance;
             var cam = Camera.main;
-            if (!tod || !tod.sun || !cam || !disc) return;
-            bool up = tod.sun.enabled && tod.sun.transform.forward.y < 0.02f;
+            var body = tod ? (moon ? tod.moon : tod.sun) : null;
+            if (!body || !cam || !disc) return;
+            bool up = body.enabled && body.transform.forward.y < 0.02f;
             disc.enabled = up;
             if (!up) return;
-            var dir = -tod.sun.transform.forward;
+            var dir = -body.transform.forward;
             disc.transform.position = cam.transform.position + dir * distance;
             disc.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);   // la cara visible del quad (-Z) mira a la camara
             float s = 2f * distance * Mathf.Tan(angularSizeDeg * 0.5f * Mathf.Deg2Rad);

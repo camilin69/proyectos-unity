@@ -87,12 +87,16 @@ namespace Dream
                 if (g.gameObject.scene == scene) g.gameObject.SetActive(false);
             foreach (var m in FindObjectsByType<MemoryFragment>(FindObjectsInactive.Include))
                 if (m.gameObject.scene == scene) m.gameObject.SetActive(false);
+            foreach (var l in FindObjectsByType<Light>(FindObjectsInactive.Exclude))          // todo oscuro: solo la luna
+                if (l.gameObject.scene == scene) l.enabled = false;
+            foreach (var f in FindObjectsByType<UnityEngine.Rendering.HighDefinition.LocalVolumetricFog>(FindObjectsInactive.Exclude))
+                if (f.gameObject.scene == scene && !f.GetComponentInParent<CottonClouds>()) f.gameObject.SetActive(false);   // sin polvo flotando
             var tod = TimeOfDay.Instance;
             if (tod)
             {
                 var room = GameObject.Find("Cuarto");
                 var win = room ? room.transform.TransformDirection(Vector3.forward) : Vector3.forward;
-                tod.moonDirection = (Quaternion.AngleAxis(-24f, Vector3.Cross(Vector3.up, win)) * win).normalized;
+                tod.moonDirection = (Quaternion.AngleAxis(-11f, Vector3.Cross(Vector3.up, win)) * win).normalized;   // baja: se ve por la ventana
                 tod.GoTo(3f + 33f / 60f + 0.001f, 0f);                         // 03:33, y ahi se queda
             }
             SetState(GameState.Playing);

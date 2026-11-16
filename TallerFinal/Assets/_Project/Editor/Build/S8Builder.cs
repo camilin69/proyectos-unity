@@ -57,7 +57,13 @@ namespace Dream.EditorTools.Build
 
             // el cielo morado con estrellas que titilan y el meteorito que se acerca con la subida
             NightKit.TwinklingStars(a.transform, 420, new Color(3f, 2.9f, 3.4f, 1f));
-            var meteor = NightKit.MeteorRig(a.transform, 0f, topZ, new Vector3(0f, 2200f, 6500f), new Vector3(0f, 1400f, 4200f), new Vector3(0f, 1100f, 2900f));
+            // el meteorito baja desde arriba, a 50 grados sobre el horizonte y por delante de la cima: se ve por encima de
+            // la escalera mientras se sube y, al final, cae casi encima (sin ser vertical, para poder mirarlo)
+            var summit = new Vector3(0f, topY, topZ + 4f);
+            var fallDir = new Vector3(0f, Mathf.Sin(50f * Mathf.Deg2Rad), Mathf.Cos(50f * Mathf.Deg2Rad));
+            var meteor = NightKit.MeteorRig(a.transform, 0f, topZ, summit + fallDir * 6500f, summit + fallDir * 4200f, summit + fallDir * 2300f);
+            meteor.farRadius = 220f; meteor.nearRadius = 800f; meteor.impactRadius = 1500f;
+            var meteorLook = Point("Mira_meteorito", a.transform, summit + fallDir * 60f);
 
             // llegada: abajo, mirando la subida
             var stairTop = Point("Mira_arriba", a.transform, new Vector3(0f, topY, topZ + 5f));
@@ -71,14 +77,14 @@ namespace Dream.EditorTools.Build
             // salida: la ultima puerta
             var light = Point("Mira_luz_final", a.transform, new Vector3(0f, topY + 1.2f, topZ + 7f));
             var d1 = Shot(4.5f, "la ultima puerta se abre");
-            d1.from = CamPoint("Cam_Final_A", a.transform, new Vector3(1.3f, topY + 0.9f, topZ - 2.6f), Vector3.zero);
-            d1.to = CamPoint("Cam_Final_B", a.transform, new Vector3(1.0f, topY + 1.2f, topZ - 1.0f), Vector3.zero);
-            d1.lookAtActorHead = true; d1.focalLength = 50f; d1.headLookAt = light;
+            d1.from = CamPoint("Cam_Final_A", a.transform, new Vector3(1.8f, topY + 0.5f, topZ - 3.2f), Vector3.zero);
+            d1.to = CamPoint("Cam_Final_B", a.transform, new Vector3(1.4f, topY + 0.6f, topZ - 2.2f), Vector3.zero);
+            d1.lookAt = meteorLook; d1.focalLength = 18f; d1.headLookAt = meteorLook;   // desde abajo: el sonador y el cielo que cae
             d1.actorWalkTo = Point("Ante_la_ultima", a.transform, new Vector3(0f, topY, topZ + 4.3f), 0f); d1.actorSpeed = 0.8f;
             OnStart(d1, door.Open); OnStart(d1, cue.LightHum); OnStart(d1, meteor.Impact);
             var d2 = Shot(3.5f, "entra en la luz");
             d2.from = CamPoint("Cam_Final_C", a.transform, new Vector3(0.5f, topY + 1.6f, topZ + 1f), Vector3.zero);
-            d2.lookAt = light; d2.focalLength = 35f;
+            d2.lookAt = Point("Mira_luz_y_cielo", a.transform, Vector3.Lerp(new Vector3(0f, topY + 1.2f, topZ + 7f), summit + fallDir * 12f, 0.5f)); d2.focalLength = 22f;
             d2.actorWalkTo = Point("Dentro", a.transform, new Vector3(0f, topY, topZ + 7.6f), 0f); d2.actorSpeed = 1f;
             d2.fadeColor = Color.white; d2.fadeOutSeconds = 2.6f;
             memory.autoGate = Gate("La_ultima_puerta", a.transform, new Vector3(0f, topY + 1.1f, topZ + 4.1f), new Vector3(2f, 2.2f, 1.2f), Sequence("Cine_El_Regreso", a.transform, d1, d2));
