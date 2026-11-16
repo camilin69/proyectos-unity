@@ -209,7 +209,7 @@ namespace Dream.EditorTools.Build
             var pebbles = ScanMat("M_Fondo_Laguito", "ganges_river_pebbles", new Color(1f, 1f, 1f), 0.9f, 0.3f, 0.8f);
             var riverStone = ScanMat("M_Cantos_Rio", "ganges_river_pebbles", new Color(0.95f, 0.95f, 0.93f), 0.7f, 0.35f, 0.85f);
             var stone = ScanMat("M_Piedra_Orilla", "marble_01", new Color(0.82f, 0.82f, 0.8f), 0.6f, 0.4f, 0.8f);
-            Prim(PrimitiveType.Cylinder, "Fondo_laguito", f, pond + Vector3.up * 0.03f, new Vector3(rx * 2f, 0.02f, rz * 2f), pebbles, null, null, false);
+            Prim(PrimitiveType.Cylinder, "Fondo_laguito", f, pond + Vector3.up * 0.03f, new Vector3(rx * 1.86f, 0.02f, rz * 1.86f), pebbles, null, null, false);
             var rng = new System.Random(8);
             var stoneSrc = AssetDatabase.LoadAssetAtPath<GameObject>(ModelDir + "/stone_01/stone_01.fbx");
             var stoneMF = stoneSrc ? stoneSrc.GetComponentsInChildren<MeshFilter>().OrderBy(m => Mathf.Abs(m.sharedMesh.vertexCount - 2000)).First() : null;
@@ -239,9 +239,10 @@ namespace Dream.EditorTools.Build
                 }
                 else Prim(PrimitiveType.Sphere, "Piedra_orilla", f, p, new Vector3(sz * 1.3f, sz * 0.6f, sz), stone, SurfaceType.Stone);
             }
-            var water = Water("Agua_laguito", f, WaterSurfaceType.Pool, pond + Vector3.up * 0.22f, new Vector2(rx * 2f, rz * 2f));
-            water.scatteringColor = new Color(0.55f, 0.85f, 0.85f);
-            water.absorptionDistance = 14f;                            // clara y transparente: se ve el fondo
+            // el agua: una lamina eliptica, clara y brillante, que termina debajo de las piedras (el agua de HDRP es
+            // un rectangulo y se salia de la orilla)
+            var waterMat = Mat("M_Agua_Laguito", new Color(0.55f, 0.82f, 0.86f, 0.22f), 0.97f, 0f, null, 0f, true);
+            Prim(PrimitiveType.Cylinder, "Agua_laguito", f, pond + Vector3.up * 0.22f, new Vector3(rx * 1.86f, 0.004f, rz * 1.86f), waterMat, null, null, false);
             var lake = Group("Vegetacion_del_laguito", f);
             var pad = TexMat("M_Nenufar", "T_Nenufar_albedo.png", Color.white, 0.55f, true);
             var petal = Mat("M_Petalo_Loto", new Color(1f, 0.72f, 0.85f), 0.45f, 0f, new Color(1f, 0.6f, 0.8f), 30f);
