@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 namespace Dream.UI
 {
-    // Pausa: seguir, vaiven de camara, sensibilidad del raton y salir.
+    // Pausa: seguir, vaiven de camara, sensibilidad del raton, volumen, calidad y salir.
     public class PauseMenu : MonoBehaviour
     {
         CanvasGroup _group;
-        Text _sway, _sens, _quality;
+        Text _sway, _sens, _quality, _vol;
 
         public void Build()
         {
@@ -17,13 +17,15 @@ namespace Dream.UI
             var dim = root.gameObject.AddComponent<Image>();
             dim.color = new Color(UIKit.Ink.r, UIKit.Ink.g, UIKit.Ink.b, 0.55f);
             UIKit.Label(root, "Titulo", UIKit.Spaced("PAUSA"), 64, TextAnchor.MiddleCenter, UIKit.Cream, new Vector2(0.3f, 0.66f), new Vector2(0.7f, 0.78f));
-            UIKit.Button(root, "Seguir", "Seguir soñando", new Vector2(0.38f, 0.54f), new Vector2(0.62f, 0.61f), () => GameFlow.Instance?.Resume());
-            _sway = UIKit.Button(root, "Vaiven", "", new Vector2(0.38f, 0.45f), new Vector2(0.62f, 0.52f), CycleSway, 24).GetComponentInChildren<Text>();
-            UIKit.Button(root, "Menos", "−", new Vector2(0.38f, 0.36f), new Vector2(0.42f, 0.43f), () => Sens(-0.01f));
-            _sens = UIKit.Label(root, "Sens", "", 24, TextAnchor.MiddleCenter, UIKit.Cream, new Vector2(0.42f, 0.36f), new Vector2(0.58f, 0.43f));
-            UIKit.Button(root, "Mas", "+", new Vector2(0.58f, 0.36f), new Vector2(0.62f, 0.43f), () => Sens(0.01f));
-            _quality = UIKit.Button(root, "Calidad", "", new Vector2(0.38f, 0.27f), new Vector2(0.62f, 0.34f), () => { DreamSettings.Quality = 1 - DreamSettings.Quality; Refresh(); }, 24).GetComponentInChildren<Text>();
-            UIKit.Button(root, "Salir", "Despertar (salir)", new Vector2(0.38f, 0.18f), new Vector2(0.62f, 0.25f), () => GameFlow.Instance?.Quit());
+            UIKit.Button(root, "Seguir", "Seguir soñando", new Vector2(0.38f, 0.57f), new Vector2(0.62f, 0.63f), () => GameFlow.Instance?.Resume());
+            _sway = UIKit.Button(root, "Vaiven", "", new Vector2(0.38f, 0.49f), new Vector2(0.62f, 0.55f), CycleSway, 24).GetComponentInChildren<Text>();
+            UIKit.Button(root, "Menos", "−", new Vector2(0.38f, 0.41f), new Vector2(0.42f, 0.47f), () => Sens(-0.01f));
+            _sens = UIKit.Label(root, "Sens", "", 24, TextAnchor.MiddleCenter, UIKit.Cream, new Vector2(0.42f, 0.41f), new Vector2(0.58f, 0.47f));
+            UIKit.Button(root, "Mas", "+", new Vector2(0.58f, 0.41f), new Vector2(0.62f, 0.47f), () => Sens(0.01f));
+            _vol = UIKit.Label(root, "Volumen", "", 24, TextAnchor.MiddleLeft, UIKit.Cream, new Vector2(0.38f, 0.33f), new Vector2(0.5f, 0.39f));
+            UIKit.Slider(root, "Barra_volumen", new Vector2(0.5f, 0.33f), new Vector2(0.62f, 0.39f), DreamSettings.Volume, v => { DreamSettings.Volume = v; Refresh(); });
+            _quality = UIKit.Button(root, "Calidad", "", new Vector2(0.38f, 0.25f), new Vector2(0.62f, 0.31f), () => { DreamSettings.Quality = 1 - DreamSettings.Quality; Refresh(); }, 24).GetComponentInChildren<Text>();
+            UIKit.Button(root, "Salir", "Despertar (salir)", new Vector2(0.38f, 0.17f), new Vector2(0.62f, 0.23f), () => GameFlow.Instance?.Quit());
             Refresh();
         }
 
@@ -35,6 +37,7 @@ namespace Dream.UI
             if (_sway) _sway.text = $"Vaivén de cámara:  {DreamSettings.Sway}";
             if (_quality) _quality.text = $"Calidad:  {DreamSettings.QualityName}";
             if (_sens) _sens.text = $"Ratón  {DreamSettings.MouseSensitivity:0.00}";
+            if (_vol) _vol.text = $"Volumen  {Mathf.RoundToInt(DreamSettings.Volume * 100f)} %";
         }
 
         void Update()

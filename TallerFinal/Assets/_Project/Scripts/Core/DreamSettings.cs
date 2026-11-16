@@ -39,6 +39,15 @@ namespace Dream
         static void ApplyQuality()
         {
             QualitySettings.SetQualityLevel(Quality, true);
+            AudioListener.volume = Volume;
+        }
+
+        // Volumen general del juego (0..1): musica, ambiente y efectos.
+        const string VolumeKey = "sueno.volumen";
+        public static float Volume
+        {
+            get => PlayerPrefs.GetFloat(VolumeKey, 1f);
+            set { float v = Mathf.Clamp01(value); PlayerPrefs.SetFloat(VolumeKey, v); PlayerPrefs.Save(); AudioListener.volume = v; }
         }
 
         public static float MouseSensitivity

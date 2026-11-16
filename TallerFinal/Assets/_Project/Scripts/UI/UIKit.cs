@@ -80,6 +80,27 @@ namespace Dream.UI
             return b;
         }
 
+        // Barra deslizable 0..1: riel, parte llena y una perilla redonda.
+        public static Slider Slider(Transform parent, string name, Vector2 min, Vector2 max, float value, UnityAction<float> onChange)
+        {
+            var r = Rect(parent, name, min, max);
+            var bg = Rect(r, "Riel", new Vector2(0f, 0.38f), new Vector2(1f, 0.62f));
+            bg.gameObject.AddComponent<Image>().color = new Color(1f, 1f, 1f, 0.22f);
+            var fillArea = Rect(r, "Area", new Vector2(0f, 0.38f), new Vector2(1f, 0.62f));
+            var fill = Rect(fillArea, "Lleno", Vector2.zero, Vector2.one);
+            fill.gameObject.AddComponent<Image>().color = Pink;
+            var handleArea = Rect(r, "Zona", Vector2.zero, Vector2.one);
+            var handle = Rect(handleArea, "Perilla", Vector2.zero, new Vector2(0f, 1f), new Vector2(-12f, 0f), new Vector2(12f, 0f));
+            var hi = handle.gameObject.AddComponent<Image>();
+            hi.color = Cream;
+            var s = r.gameObject.AddComponent<UnityEngine.UI.Slider>();
+            s.fillRect = fill; s.handleRect = handle; s.targetGraphic = hi;
+            s.direction = UnityEngine.UI.Slider.Direction.LeftToRight;
+            s.minValue = 0f; s.maxValue = 1f; s.value = value;
+            if (onChange != null) s.onValueChanged.AddListener(onChange);
+            return s;
+        }
+
         // Degradado vertical para fondos (abajo -> arriba).
         public static Sprite Gradient(Color bottom, Color top)
         {

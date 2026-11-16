@@ -209,7 +209,7 @@ namespace Dream.EditorTools.Build
             var pebbles = ScanMat("M_Fondo_Laguito", "ganges_river_pebbles", new Color(1f, 1f, 1f), 0.9f, 0.3f, 0.8f);
             var riverStone = ScanMat("M_Cantos_Rio", "ganges_river_pebbles", new Color(0.95f, 0.95f, 0.93f), 0.7f, 0.35f, 0.85f);
             var stone = ScanMat("M_Piedra_Orilla", "marble_01", new Color(0.82f, 0.82f, 0.8f), 0.6f, 0.4f, 0.8f);
-            Prim(PrimitiveType.Cylinder, "Fondo_laguito", f, pond + Vector3.up * 0.03f, new Vector3(rx * 1.86f, 0.02f, rz * 1.86f), pebbles, null, null, false);
+            Box("Fondo_laguito", f, pond + Vector3.up * 0.03f, new Vector3(rx * 2f, 0.04f, rz * 2f), pebbles);
             var rng = new System.Random(8);
             var stoneSrc = AssetDatabase.LoadAssetAtPath<GameObject>(ModelDir + "/stone_01/stone_01.fbx");
             var stoneMF = stoneSrc ? stoneSrc.GetComponentsInChildren<MeshFilter>().OrderBy(m => Mathf.Abs(m.sharedMesh.vertexCount - 2000)).First() : null;
@@ -220,10 +220,13 @@ namespace Dream.EditorTools.Build
             var stoneScale = stoneMF ? stoneMF.transform.lossyScale : Vector3.one;
             var wb = stoneMesh ? GeometryUtility.CalculateBounds(new[] { stoneMesh.bounds.min, stoneMesh.bounds.max }, Matrix4x4.TRS(Vector3.zero, stoneRot, stoneScale)) : new Bounds(Vector3.zero, Vector3.one);
             float stoneUnit = 1f / Mathf.Max(0.01f, Mathf.Max(wb.size.x, wb.size.z));
-            for (int i = 0; i < 40; i++)
+            // la orilla: piedras alineadas a lo largo de los cuatro lados del rectangulo
+            var rim = new System.Collections.Generic.List<Vector3>();
+            for (float x = -rx; x <= rx + 0.01f; x += 0.42f) { rim.Add(new Vector3(x, 0f, -rz)); rim.Add(new Vector3(x, 0f, rz)); }
+            for (float z = -rz + 0.42f; z < rz - 0.2f; z += 0.42f) { rim.Add(new Vector3(-rx, 0f, z)); rim.Add(new Vector3(rx, 0f, z)); }
+            foreach (var off in rim)
             {
-                float t = i / 40f * Mathf.PI * 2f, wob = 1f + 0.08f * Mathf.Sin(t * 3f) + 0.05f * Mathf.Sin(t * 7f);
-                var p = pond + new Vector3(Mathf.Cos(t) * rx * wob, 0.02f, Mathf.Sin(t) * rz * wob);
+                var p = pond + off + new Vector3(((float)rng.NextDouble() - 0.5f) * 0.08f, 0.02f, ((float)rng.NextDouble() - 0.5f) * 0.08f);
                 float sz = 0.42f + (float)rng.NextDouble() * 0.3f;
                 if (stoneMesh)
                 {
@@ -241,8 +244,10 @@ namespace Dream.EditorTools.Build
             }
             // el agua: una lamina eliptica, clara y brillante, que termina debajo de las piedras (el agua de HDRP es
             // un rectangulo y se salia de la orilla)
-            var waterMat = Mat("M_Agua_Laguito", new Color(0.55f, 0.82f, 0.86f, 0.22f), 0.97f, 0f, null, 0f, true);
-            Prim(PrimitiveType.Cylinder, "Agua_laguito", f, pond + Vector3.up * 0.22f, new Vector3(rx * 1.86f, 0.004f, rz * 1.86f), waterMat, null, null, false);
+            // el agua (HDRP, clara) llena el rectangulo y su borde queda debajo de las piedras
+            var water = Water("Agua_laguito", f, WaterSurfaceType.Pool, pond + Vector3.up * 0.22f, new Vector2(rx * 2f, rz * 2f));
+            water.scatteringColor = new Color(0.55f, 0.85f, 0.85f);
+            water.absorptionDistance = 14f;
             var lake = Group("Vegetacion_del_laguito", f);
             var pad = TexMat("M_Nenufar", "T_Nenufar_albedo.png", Color.white, 0.55f, true);
             var petal = Mat("M_Petalo_Loto", new Color(1f, 0.72f, 0.85f), 0.45f, 0f, new Color(1f, 0.6f, 0.8f), 30f);
@@ -306,7 +311,7 @@ namespace Dream.EditorTools.Build
                     d.AddComponent<MeshRenderer>().sharedMaterials = src.sharedMaterials.Select(m => DuckMat(m)).ToArray();
                     var sw = d.AddComponent<DuckSwim>();
                     sw.center = pond + new Vector3(0f, 0.22f, 0f); sw.radius = 0.9f + i * 0.45f; sw.speed = 0.22f + i * 0.04f; sw.phase = i * 1.9f;
-                    sw.bounds = new Vector2(rx * 0.72f, rz * 0.62f);
+                    sw.bounds = new Vector2(rx * 0.78f, rz * 0.6f);
                     d.transform.position = sw.center + Vector3.right * sw.radius;
                 }
             }
