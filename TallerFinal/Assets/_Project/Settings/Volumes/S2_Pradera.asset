@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6963542455616502252
+--- !u!114 &-8240077887127628730
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,54 +94,7 @@ MonoBehaviour:
   volumetricLightingDensityCutoff:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-4929328804239460645
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8bcdf71d7fafa419fca1ed162f5fc9, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ColorAdjustments
-  active: 1
-  postExposure:
-    m_OverrideState: 1
-    m_Value: 0.35
-  contrast:
-    m_OverrideState: 1
-    m_Value: 6
-  colorFilter:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  hueShift:
-    m_OverrideState: 0
-    m_Value: 0
-  saturation:
-    m_OverrideState: 1
-    m_Value: 28
---- !u!114 &-2859135534508047211
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51a78e223a2e504bb88a059b55229ea, type: 3}
-  m_Name: WhiteBalance
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.WhiteBalance
-  active: 1
-  temperature:
-    m_OverrideState: 1
-    m_Value: 5
-  tint:
-    m_OverrideState: 1
-    m_Value: 3
---- !u!114 &-2351241752037421475
+--- !u!114 &-8138174180047986809
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +221,7 @@ MonoBehaviour:
   rectLightShadow:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-920891218080470995
+--- !u!114 &-1903286904313171634
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,6 +267,25 @@ MonoBehaviour:
   m_HighQualityFiltering:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &-510774092792988662
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51a78e223a2e504bb88a059b55229ea, type: 3}
+  m_Name: WhiteBalance
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.WhiteBalance
+  active: 1
+  temperature:
+    m_OverrideState: 1
+    m_Value: 5
+  tint:
+    m_OverrideState: 1
+    m_Value: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,13 +299,13 @@ MonoBehaviour:
   m_Name: S2_Pradera
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 4950596612327031526}
-  - {fileID: -2351241752037421475}
-  - {fileID: -6963542455616502252}
-  - {fileID: -920891218080470995}
-  - {fileID: -4929328804239460645}
-  - {fileID: -2859135534508047211}
---- !u!114 &4950596612327031526
+  - {fileID: 1007077229789973723}
+  - {fileID: -8138174180047986809}
+  - {fileID: -8240077887127628730}
+  - {fileID: -1903286904313171634}
+  - {fileID: 7423610331264794462}
+  - {fileID: -510774092792988662}
+--- !u!114 &1007077229789973723
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,3 +349,31 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &7423610331264794462
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8bcdf71d7fafa419fca1ed162f5fc9, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ColorAdjustments
+  active: 1
+  postExposure:
+    m_OverrideState: 1
+    m_Value: 0.35
+  contrast:
+    m_OverrideState: 1
+    m_Value: 6
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 0
+  saturation:
+    m_OverrideState: 1
+    m_Value: 28

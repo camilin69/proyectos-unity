@@ -85,7 +85,40 @@ def lily(n=1024):
     Image.fromarray(arr.astype(np.uint8)).save(os.path.join(OUT, "T_Nenufar_albedo.png"))
 
 
+def foam(n=1024, cells=150):
+    """Espuma densa para las nubes de algodon: burbujas apretadas de varios tamanos (distancia a la celda mas
+    cercana, repetible sin costura). Blanco con grietas grises suaves y su mapa de normales (domos)."""
+    pts = rng.random((cells, 2)) * n
+    rad = 0.6 + rng.random(cells) * 0.8
+    yy, xx = np.mgrid[0:n, 0:n].astype(np.float32)
+    best = np.full((n, n), 1e9, np.float32)
+    second = np.full((n, n), 1e9, np.float32)
+    for (px, py), r in zip(pts, rad):
+        for ox in (-n, 0, n):
+            for oy in (-n, 0, n):
+                d = np.hypot(xx - px - ox, yy - py - oy) / r
+                m = d < best
+                second = np.where(m, best, np.minimum(second, d))
+                best = np.where(m, d, best)
+    dome = np.clip((second - best) / (second + best + 1e-3), 0, 1) ** 0.45   # domo redondo, 0 en el borde entre burbujas
+    small = np.asarray(Image.fromarray((rng.random((256, 256)) * 255).astype(np.uint8)).resize((n, n), Image.BICUBIC), np.float32) / 255
+    h = dome * 0.85 + small * 0.15
+    alb = 0.84 + 0.16 * dome
+    Image.fromarray((np.dstack((alb, alb, alb)) * 255).astype(np.uint8)).save(os.path.join(OUT, "T_Espuma_albedo.png"))
+    dx = np.roll(h, -1, 1) - np.roll(h, 1, 1)
+    dy = np.roll(h, -1, 0) - np.roll(h, 1, 0)
+    nrm = np.dstack((-dx * 6.0, dy * 6.0, np.ones_like(h)))
+    nrm /= np.linalg.norm(nrm, axis=2, keepdims=True)
+    Image.fromarray(((nrm * 0.5 + 0.5) * 255).astype(np.uint8)).save(os.path.join(OUT, "T_Espuma_normal.png"))
+
+
+import sys
+if "--espuma" in sys.argv:
+    foam(cells=340)
+    print("ok espuma", OUT)
+    sys.exit(0)
 hedge()
 palm()
 lily()
+foam(cells=340)
 print("ok", OUT)

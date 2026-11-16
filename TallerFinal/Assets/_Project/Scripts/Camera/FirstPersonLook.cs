@@ -12,10 +12,10 @@ namespace Dream
         public float eyeHeight = 1.58f;
         public float minPitch = -80f, maxPitch = 82f, smoothing = 22f;
         [Header("Vaiven de boya")]
-        public float swayPitchDeg = 0.6f, swayRollDeg = 0.7f, swayHeight = 0.015f;
+        public float swayPitchDeg = 1.4f, swayRollDeg = 1.7f, swayHeight = 0.035f;
         public float swayFreqPitch = 0.19f, swayFreqRoll = 0.23f, swayFreqHeight = 0.15f;
         [Header("Paso")] public float bobWalk = 0.009f, bobJog = 0.02f, bobRollDeg = 0.25f;
-        [Header("Quieto: olas")] public float wavePeriod = 7.5f, waveRollDeg = 1.5f, wavePitchDeg = 0.9f, waveHeight = 0.028f;
+        [Header("Quieto: olas")] public float wavePeriod = 6.5f, waveRollDeg = 3.4f, wavePitchDeg = 2.1f, waveHeight = 0.075f;
 
         PlayerMotor _motor;
         float _yaw, _pitch, _yawT, _pitchT, _bobPhase, _bobAmp, _still, _idle;
@@ -81,7 +81,7 @@ namespace Dream
 
             // quieto mas de un segundo: la camara se mece como sobre las olas del mar (rolido largo, cabeceo desfasado)
             _still = speed < 0.08f ? _still + Time.deltaTime : 0f;
-            _idle = Mathf.MoveTowards(_idle, _still > 1f ? 1f : 0f, Time.deltaTime * (_still > 1f ? 0.35f : 1.5f));
+            _idle = Mathf.MoveTowards(_idle, _still > 0.6f ? 1f : 0f, Time.deltaTime * (_still > 0.6f ? 0.5f : 1.5f));
             float w = 2f * Mathf.PI * t / wavePeriod;
             float wRoll = (Mathf.Sin(w) + 0.35f * Mathf.Sin(w * 2.3f + 1.1f)) * waveRollDeg * _idle * scale;
             float wPitch = Mathf.Sin(w * 0.8f + 1.7f) * wavePitchDeg * _idle * scale;

@@ -153,7 +153,23 @@ namespace Dream.EditorTools.Build
         {
             var src = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/Art/Models/Generados/Nubes_Algodon.fbx");
             var meshes = src.GetComponentsInChildren<MeshFilter>().Select(f => f.sharedMesh).ToArray();
-            var mats = colors.Select((c, i) => Mat($"M_Algodon_{i}_{ColorUtility.ToHtmlStringRGB(c)}", c, 0.05f, 0f, c, 6f)).ToArray();
+            // espuma densa (tools/taller_final/texturas_hojas.py): burbujas en relieve, proyectadas en el espacio de cada
+            // nube (la textura viaja con ella)
+            var foamA = AssetDatabase.LoadAssetAtPath<Texture2D>(GenDir + "/T_Espuma_albedo.png");
+            var foamNPath = GenDir + "/T_Espuma_normal.png";
+            var foamImp = AssetImporter.GetAtPath(foamNPath) as TextureImporter;
+            if (foamImp && foamImp.textureType != TextureImporterType.NormalMap) { foamImp.textureType = TextureImporterType.NormalMap; foamImp.SaveAndReimport(); }
+            var foamN = AssetDatabase.LoadAssetAtPath<Texture2D>(foamNPath);
+            var mats = colors.Select((c, i) =>
+            {
+                var m = Mat($"M_Algodon_{i}_{ColorUtility.ToHtmlStringRGB(c)}", c, 0f, 0f, c, 6f);
+                if (foamA) m.SetTexture("_BaseColorMap", foamA);
+                if (foamN) { m.SetTexture("_NormalMap", foamN); m.SetFloat("_NormalScale", 1.6f); }
+                m.SetFloat("_UVBase", 5f); m.SetFloat("_ObjectSpaceUVMapping", 1f); m.SetFloat("_TexWorldScale", 1f / 1.1f);
+                HDMaterial.ValidateMaterial(m);
+                EditorUtility.SetDirty(m);
+                return m;
+            }).ToArray();
             var root = Group("Nubes_de_algodon", parent);
             var rng = new System.Random(seed);
             for (int i = 0; i < count; i++)

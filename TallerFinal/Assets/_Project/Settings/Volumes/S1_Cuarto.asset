@@ -1,6 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8972780185593951785
+--- !u!114 &-7407682680060049747
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
+  m_Name: IndirectLightingController
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.IndirectLightingController
+  active: 1
+  indirectDiffuseLightingMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.06
+  indirectDiffuseLightingLayers:
+    m_OverrideState: 0
+    m_Value: 65535
+  reflectionLightingMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.3
+  reflectionLightingLayers:
+    m_OverrideState: 0
+    m_Value: 65535
+  reflectionProbeIntensityMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &-5891857324443371396
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,10 +135,10 @@ MonoBehaviour:
   m_Name: S1_Cuarto
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: -8972780185593951785}
-  - {fileID: 2327045286273184027}
-  - {fileID: 8695699791247959659}
---- !u!114 &2327045286273184027
+  - {fileID: -5891857324443371396}
+  - {fileID: 2471831354441327978}
+  - {fileID: -7407682680060049747}
+--- !u!114 &2471831354441327978
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,31 +289,3 @@ MonoBehaviour:
   proceduralSoftness:
     m_OverrideState: 0
     m_Value: 0.5
---- !u!114 &8695699791247959659
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
-  m_Name: IndirectLightingController
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.IndirectLightingController
-  active: 1
-  indirectDiffuseLightingMultiplier:
-    m_OverrideState: 1
-    m_Value: 0.06
-  indirectDiffuseLightingLayers:
-    m_OverrideState: 0
-    m_Value: 65535
-  reflectionLightingMultiplier:
-    m_OverrideState: 1
-    m_Value: 0.3
-  reflectionLightingLayers:
-    m_OverrideState: 0
-    m_Value: 65535
-  reflectionProbeIntensityMultiplier:
-    m_OverrideState: 0
-    m_Value: 1

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4764011690019949832
+--- !u!114 &-1341563513949832938
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,11 +57,11 @@ MonoBehaviour:
   m_Name: S3_Colina
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: 6525297488087313359}
-  - {fileID: -4764011690019949832}
-  - {fileID: 6876171377528673373}
-  - {fileID: 5129919193773860602}
---- !u!114 &5129919193773860602
+  - {fileID: 4514017399229284831}
+  - {fileID: -1341563513949832938}
+  - {fileID: 3377789164211856011}
+  - {fileID: 1931906617734061094}
+--- !u!114 &1931906617734061094
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,62 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: 18
---- !u!114 &6525297488087313359
+--- !u!114 &3377789164211856011
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
+  m_Name: GradientSky
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.GradientSky
+  active: 1
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 1
+    m_Value: 14.1
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  top:
+    m_OverrideState: 1
+    m_Value: {r: 0.01, g: 0.12, b: 0.62, a: 1}
+  middle:
+    m_OverrideState: 1
+    m_Value: {r: 0.05, g: 0.33, b: 0.95, a: 1}
+  bottom:
+    m_OverrideState: 1
+    m_Value: {r: 0.55, g: 0.78, b: 1, a: 1}
+  gradientDiffusion:
+    m_OverrideState: 1
+    m_Value: 1.2
+--- !u!114 &4514017399229284831
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,58 +238,3 @@ MonoBehaviour:
   volumetricLightingDensityCutoff:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &6876171377528673373
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
-  m_Name: GradientSky
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.GradientSky
-  active: 1
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 1
-    m_Value: 14.1
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  top:
-    m_OverrideState: 1
-    m_Value: {r: 0.01, g: 0.12, b: 0.62, a: 1}
-  middle:
-    m_OverrideState: 1
-    m_Value: {r: 0.05, g: 0.33, b: 0.95, a: 1}
-  bottom:
-    m_OverrideState: 1
-    m_Value: {r: 0.55, g: 0.78, b: 1, a: 1}
-  gradientDiffusion:
-    m_OverrideState: 1
-    m_Value: 1.2

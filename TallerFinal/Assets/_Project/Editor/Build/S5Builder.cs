@@ -32,12 +32,12 @@ namespace Dream.EditorTools.Build
             floor.SetFloat("_UVBase", 4f);                    // proyeccion planar desde arriba: las ondas corren por todo el pasillo
             floor.SetFloat("_TexWorldScale", 1f / 6f);
             HDMaterial.ValidateMaterial(floor);
-            var wall = Mat("M_Pasillo_Pared_Rosa", Color.white, 0.32f);
+            var wall = Mat("M_Pasillo_Pared_Rosa", Color.white, 0.86f);          // pintura laqueada: refleja las lamparas como el piso
             wall.SetTexture("_BaseColorMap", Tex("wave_wall_albedo.png"));
-            wall.SetTexture("_NormalMap", Tex("wave_paint_normal.png", true)); wall.SetFloat("_NormalScale", 0.35f);
+            wall.SetTexture("_NormalMap", Tex("wave_paint_normal.png", true)); wall.SetFloat("_NormalScale", 0.12f);
             wall.SetFloat("_UVBase", 5f); wall.SetFloat("_TexWorldScale", 1f / 2f);
             HDMaterial.ValidateMaterial(wall);
-            var ceiling = Mat("M_Pasillo_Techo_Turquesa", Color.white, 0.12f);
+            var ceiling = Mat("M_Pasillo_Techo_Turquesa", Color.white, 0.55f);
             ceiling.SetTexture("_BaseColorMap", Tex("wave_ceiling_albedo.png"));
             ceiling.SetTexture("_NormalMap", Tex("wave_paint_normal.png", true)); ceiling.SetFloat("_NormalScale", 0.9f);
             ceiling.SetFloat("_UVBase", 5f); ceiling.SetFloat("_TexWorldScale", 1f / 1.2f);
