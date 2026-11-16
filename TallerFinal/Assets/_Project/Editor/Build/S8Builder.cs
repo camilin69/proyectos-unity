@@ -64,6 +64,7 @@ namespace Dream.EditorTools.Build
             var meteor = NightKit.MeteorRig(a.transform, 0f, topZ, summit + fallDir * 6500f, summit + fallDir * 4200f, summit + fallDir * 2300f);
             meteor.farRadius = 220f; meteor.nearRadius = 800f; meteor.impactRadius = 1500f;
             var meteorLook = Point("Mira_meteorito", a.transform, summit + fallDir * 60f);
+            a.gameObject.AddComponent<MoonOverhead>().direction = new Vector3(-0.6f, 0.5f, -0.62f);
 
             // llegada: abajo, mirando la subida
             var stairTop = Point("Mira_arriba", a.transform, new Vector3(0f, topY, topZ + 5f));

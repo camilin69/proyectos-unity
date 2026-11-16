@@ -87,10 +87,9 @@ namespace Dream
                 if (g.gameObject.scene == scene) g.gameObject.SetActive(false);
             foreach (var m in FindObjectsByType<MemoryFragment>(FindObjectsInactive.Include))
                 if (m.gameObject.scene == scene) m.gameObject.SetActive(false);
-            foreach (var l in FindObjectsByType<Light>(FindObjectsInactive.Exclude))          // todo oscuro: solo la luna
-                if (l.gameObject.scene == scene) l.enabled = false;
-            foreach (var f in FindObjectsByType<UnityEngine.Rendering.HighDefinition.LocalVolumetricFog>(FindObjectsInactive.Exclude))
-                if (f.gameObject.scene == scene && !f.GetComponentInParent<CottonClouds>()) f.gameObject.SetActive(false);   // sin polvo flotando
+            // el cuarto queda blanco y luminoso por dentro; si cae al vacio de afuera, vuelve aqui
+            var rig = PlayerRig.Instance;
+            if (rig != null) rig.SetCheckpoint(rig.transform.position, rig.transform.eulerAngles.y);
             var tod = TimeOfDay.Instance;
             if (tod)
             {

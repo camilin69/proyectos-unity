@@ -39,11 +39,13 @@ namespace Dream
 
         void Update()
         {
-            if (Anchor == null || InFinale || (GameFlow.Instance && GameFlow.Instance.Lingering)) return;   // 3:33: el tiempo no avanza
+            if (Anchor == null) return;
+            bool lingering = GameFlow.Instance && GameFlow.Instance.Lingering;
+            if (InFinale && !lingering) return;
             SecondsInScene += Time.deltaTime;
-            // la hora avanza sola dentro del escenario, de su hora de inicio a la de cierre
+            // la hora avanza sola dentro del escenario, de su hora de inicio a la de cierre (a las 3:33 ya no)
             var tod = TimeOfDay.Instance;
-            if (tod != null && GameFlow.Instance != null && GameFlow.Instance.State == GameState.Playing)
+            if (!InFinale && !lingering && tod != null && GameFlow.Instance != null && GameFlow.Instance.State == GameState.Playing)
             {
                 float f = Mathf.Clamp01(SecondsInScene / Mathf.Max(1f, Anchor.minutesToEndHour * 60f));
                 float h = Mathf.Lerp(Anchor.startHour, Anchor.endHour, f);

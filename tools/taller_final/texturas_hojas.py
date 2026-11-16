@@ -112,7 +112,30 @@ def foam(n=1024, cells=150):
     Image.fromarray(((nrm * 0.5 + 0.5) * 255).astype(np.uint8)).save(os.path.join(OUT, "T_Espuma_normal.png"))
 
 
+def carrara(n=1024):
+    """Marmol de Carrara: blanco calido con vetas grises finas y ramificadas (ruido turbulento), repetible."""
+    def noise(scale, seed):
+        r = np.random.default_rng(seed)
+        g = r.random((scale, scale))
+        g = np.tile(g, (2, 2))
+        img = Image.fromarray((g * 255).astype(np.uint8)).resize((n * 2, n * 2), Image.BICUBIC)
+        return np.asarray(img, np.float32)[n // 2:n // 2 + n, n // 2:n // 2 + n] / 255
+    turb = sum(noise(4 * 2 ** o, o) / 2 ** o for o in range(6))
+    u = np.linspace(0, 1, n)[None, :]
+    v = np.linspace(0, 1, n)[:, None]
+    veins = np.abs(np.sin((u * 3 + v * 1.4) * np.pi * 2 + turb * 7.5))
+    fine = np.abs(np.sin((u * 7 - v * 3) * np.pi * 2 + turb * 11))
+    vein = np.clip(1 - veins / 0.06, 0, 1) * 0.55 + np.clip(1 - fine / 0.03, 0, 1) * 0.25
+    base = 0.93 + 0.04 * (noise(16, 9) - 0.5)
+    col = np.dstack((base - vein * 0.42, base - vein * 0.41, base - vein * 0.38)) * np.array([1.0, 0.985, 0.96])
+    Image.fromarray((np.clip(col, 0, 1) * 255).astype(np.uint8)).save(os.path.join(OUT, "T_Marmol_Carrara.png"))
+
+
 import sys
+if "--marmol" in sys.argv:
+    carrara()
+    print("ok marmol", OUT)
+    sys.exit(0)
 if "--espuma" in sys.argv:
     foam(cells=340)
     print("ok espuma", OUT)

@@ -40,6 +40,7 @@ TEXTURES = {
     "mossy_stone_wall": ("1k", "paredes del pozo del jardin"),
     "metal_plate": ("1k", "pasamanos, postes y herrajes"),
     "dark_rock": ("1k", "paredes del tunel de la playa"),
+    "marble_rock_01": ("2k", "marmol blanco con vetas del angel y la fuente"),
 }
 
 

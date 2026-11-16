@@ -134,10 +134,13 @@ namespace Dream.EditorTools.Build
             a.nightOnly = GlobalVolume("Cielo_Medianoche", a.transform, Profile("S1_Cielo_Medianoche", pr =>
             {
                 NightSky(pr, 1.6f, "dream_noche_rosa.png");
-                ExposureLimits(pr, 3f, 8f, 0f);          // de madrugada el cuarto queda oscuro: la exposicion no lo aclara
+                ExposureLimits(pr, -1f, 6f, 0.4f);
             }), 2f).gameObject;
-            CottonSky(a.nightOnly.transform, Vector3.zero, 26, 160f, 700f, 40f, 160f, 5f, 10f,
-                      new[] { new Color(1f, 0.7f, 0.85f), new Color(0.92f, 0.55f, 0.82f), new Color(0.78f, 0.6f, 0.95f) }, 63);
+            var nightColors = new[] { new Color(1f, 0.7f, 0.85f), new Color(0.92f, 0.55f, 0.82f), new Color(0.78f, 0.6f, 0.95f), new Color(1f, 0.85f, 0.92f) };
+            CottonSky(a.nightOnly.transform, Vector3.zero, 26, 160f, 700f, 40f, 160f, 5f, 10f, nightColors, 63, 3.5f);
+            CottonSky(a.nightOnly.transform, Vector3.zero, 22, 40f, 500f, -160f, -60f, 6f, 12f, nightColors, 64, 3.5f);   // debajo de la casa
+            NightKit.TwinklingStars(a.nightOnly.transform, 700, new Color(6f, 5.6f, 7f, 1f), true, 2.2f);
+            a.respawnBelowY = -25f;                                                                // si cae, vuelve al cuarto
             a.nightOnly.SetActive(false);
             room.RotateAround(Vector3.zero, Vector3.up, RoomYaw);
             a.transform.RotateAround(Vector3.zero, Vector3.up, RoomYaw);

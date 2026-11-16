@@ -149,7 +149,7 @@ namespace Dream.EditorTools.Build
         // Cielo de nubes de algodon (Art/Models/Generados/Nubes_Algodon.fbx, modeladas con metaballs en Blender):
         // count nubes en un anillo alrededor de center, entre dos alturas, de colores de la paleta, viajando con el viento.
         public static Transform CottonSky(Transform parent, Vector3 center, int count, float rMin, float rMax, float yMin, float yMax,
-                                          float sizeMin, float sizeMax, Color[] colors, int seed)
+                                          float sizeMin, float sizeMax, Color[] colors, int seed, float emissiveFoam = 0f)
         {
             var src = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/Art/Models/Generados/Nubes_Algodon.fbx");
             var meshes = src.GetComponentsInChildren<MeshFilter>().Select(f => f.sharedMesh).ToArray();
@@ -162,10 +162,11 @@ namespace Dream.EditorTools.Build
             var foamN = AssetDatabase.LoadAssetAtPath<Texture2D>(foamNPath);
             var mats = colors.Select((c, i) =>
             {
-                var m = Mat($"M_Algodon_{i}_{ColorUtility.ToHtmlStringRGB(c)}", c, 0f, 0f, c, 6f);
+                var m = Mat($"M_Algodon_{i}_{ColorUtility.ToHtmlStringRGB(c)}{(emissiveFoam > 0f ? "_Noche" : "")}", c, 0f, 0f, c, emissiveFoam > 0f ? emissiveFoam : 6f);
+                if (emissiveFoam > 0f && foamA) m.SetTexture("_EmissiveColorMap", foamA);
                 if (foamA) m.SetTexture("_BaseColorMap", foamA);
                 if (foamN) { m.SetTexture("_NormalMap", foamN); m.SetFloat("_NormalScale", 1.6f); }
-                m.SetFloat("_UVBase", 5f); m.SetFloat("_ObjectSpaceUVMapping", 1f); m.SetFloat("_TexWorldScale", 1f / 1.1f);
+                m.SetFloat("_UVBase", 5f); m.SetFloat("_ObjectSpaceUVMapping", 1f); m.SetFloat("_TexWorldScale", 1f / 4.5f);   // burbujas grandes: se leen de lejos
                 HDMaterial.ValidateMaterial(m);
                 EditorUtility.SetDirty(m);
                 return m;

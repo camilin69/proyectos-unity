@@ -134,7 +134,7 @@ namespace Dream.EditorTools.Build
 
         // ---------- estrellas que titilan ----------
 
-        public static void TwinklingStars(Transform parent, int rate, Color tint)
+        public static void TwinklingStars(Transform parent, int rate, Color tint, bool fullSphere = false, float sizeScale = 1f)
         {
             var go = new GameObject("Estrellas_que_titilan");
             go.transform.SetParent(parent, false);
@@ -144,10 +144,10 @@ namespace Dream.EditorTools.Build
             main.loop = true; main.prewarm = true; main.maxParticles = rate * 5;
             main.startLifetime = new ParticleSystem.MinMaxCurve(1.5f, 5f);
             main.startSpeed = 0f;
-            main.startSize = new ParticleSystem.MinMaxCurve(1.6f, 4.2f);
+            main.startSize = new ParticleSystem.MinMaxCurve(1.6f * sizeScale, 4.2f * sizeScale);
             main.simulationSpace = ParticleSystemSimulationSpace.Local;
             var em = ps.emission; em.rateOverTime = rate;
-            var sh = ps.shape; sh.shapeType = ParticleSystemShapeType.Hemisphere; sh.radius = 520f; sh.radiusThickness = 0f;
+            var sh = ps.shape; sh.shapeType = fullSphere ? ParticleSystemShapeType.Sphere : ParticleSystemShapeType.Hemisphere; sh.radius = 520f; sh.radiusThickness = 0f;
             sh.rotation = new Vector3(-90f, 0f, 0f);
             var sz = ps.sizeOverLifetime; sz.enabled = true;
             var curve = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(0.2f, 1f), new Keyframe(0.35f, 0.45f), new Keyframe(0.55f, 1f),
