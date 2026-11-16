@@ -74,6 +74,20 @@ namespace Dream.EditorTools.Build
                         Box($"Almena_{i}_{j}", maze, new Vector3(x, g + 3.4f, z), new Vector3(u * 0.55f, 0.6f, u * 0.55f), hedge);
                 }
             float mazeTop = mz0 + n * u;
+            // bombillos redondos colgados sobre los pasillos del laberinto: luz calida y suave, la justa para ver
+            var bulb = Mat("M_Bombillo", new Color(1f, 0.9f, 0.7f), 0.8f, 0f, new Color(1f, 0.82f, 0.55f), 2200f);
+            var wire = ScanMat("M_Hierro", "metal_plate", new Color(0.3f, 0.3f, 0.32f), 0.6f, 0.3f, 0.75f);
+            int lit = 0;
+            for (int i = 1; i < n; i += 2)
+                for (int j = 1; j < n; j += 2)
+                {
+                    if (wall[i, j] || ((i / 2 + j / 2) % 2 != 0)) continue;              // una celda si, una no
+                    float x = mx0 + (i + 0.5f) * u, z = mz0 + (j + 0.5f) * u, gy = G(x, z);
+                    Prim(PrimitiveType.Sphere, "Bombillo", maze, new Vector3(x, gy + 2.55f, z), Vector3.one * 0.14f, bulb, null, null, false);
+                    Prim(PrimitiveType.Cylinder, "Cable", maze, new Vector3(x, gy + 3.0f, z), new Vector3(0.012f, 0.42f, 0.012f), wire, null, null, false);
+                    AddLight("Luz_bombillo", maze, LightType.Point, new Vector3(x, gy + 2.4f, z), Vector3.zero, new Color(1f, 0.8f, 0.55f), 160f, 5f, 60f, null, false);
+                    lit++;
+                }
             var dark = Profile("S6_Laberinto_Oscuro", p =>
             {
                 Fog(p, 9f, 40f, new Color(0.05f, 0.07f, 0.06f));

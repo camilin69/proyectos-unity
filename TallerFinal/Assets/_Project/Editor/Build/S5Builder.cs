@@ -69,7 +69,8 @@ namespace Dream.EditorTools.Build
             BoxMinMax("Pared_Izq", g, new Vector3(-HalfW - 0.12f, wallBot, -3f), new Vector3(-HalfW, wallTop, F0), wall);
             BoxMinMax("Pared_Der", g, new Vector3(HalfW, wallBot, -3f), new Vector3(HalfW + 0.12f, wallTop, F0), wall);
             BoxMinMax("Pared_Fondo_Arriba", g, new Vector3(-HalfW, -0.4f, -3.12f), new Vector3(HalfW, wallTop, -3f), wall);
-            BoxMinMax("Pared_Frente_Bifurcacion", g, new Vector3(-BL, wallBot, F1), new Vector3(BL, shaftTop, F1 + 0.12f), wall);
+            BoxMinMax("Pared_Frente_Bifurcacion", g, new Vector3(-HalfW, wallBot, F1), new Vector3(BL, shaftTop, F1 + 0.12f), wall);
+            DarkMirrorZ(g, -BL, -HalfW, F1, y2, shaftTop, wallBot);
             BoxMinMax("Pared_Rama_Der", g, new Vector3(HalfW, wallBot, F0 - 0.12f), new Vector3(BL, c3, F0), wall);
             BoxMinMax("Pared_Rama_Izq", g, new Vector3(-BL, wallBot, F0 - 0.12f), new Vector3(-HalfW, shaftTop, F0), wall);
             DarkMirror(g, wall, -BL, F0, F1, y2, shaftTop, wallBot);
@@ -146,7 +147,7 @@ namespace Dream.EditorTools.Build
             Prim(PrimitiveType.Quad, "Luz_al_final", g, new Vector3(BL - 0.05f, y2 + 1.6f, Fm), new Vector3(2f * HalfW, 3.2f, 1f), Palette.BlindingLight, null, new Vector3(0f, 90f, 0f), false);
             AddLight("Luz_del_final", g, LightType.Rectangle, new Vector3(BL - 0.1f, y2 + 1.6f, Fm), new Vector3(0f, -90f, 0f), new Color(1f, 0.97f, 0.92f), 3500f, 16f, 60f, new Vector2(3.6f, 3f), false);
             // izquierda: bajo el hueco de la luna, la fuente del angel
-            Fountain(g, new Vector3(-BL + 2.6f, y2, Fm));
+            Fountain(g, new Vector3(-BL + 1.6f, y2, Fm));
             AddLight("Luz_de_luna", g, LightType.Spot, new Vector3(-BL + 2.6f, shaftTop - 0.5f, Fm), new Vector3(90f, 0f, 0f), new Color(0.78f, 0.84f, 1f), 4200f, 22f, 40f, null, true);
             // luz de luna que baja por el hueco y llena la rama izquierda, suave y fria
             for (float x = -4f; x > -BL + 3f; x -= 5f)
@@ -201,21 +202,48 @@ namespace Dream.EditorTools.Build
             var f = Point("Fuente_del_angel", g, c, 0f);
             AddLight("Luz_del_angel", f, LightType.Point, c + new Vector3(2.4f, 2.6f, 0f), Vector3.zero, new Color(0.95f, 0.95f, 1f), 450f, 6f, 60f, null, false);
 
-            // pila de dos escalones con borde moldurado
-            Prim(PrimitiveType.Cylinder, "Pila", f, c + Vector3.up * 0.28f, new Vector3(2.4f, 0.28f, 2.4f), carrara, SurfaceType.Stone);
-            Prim(PrimitiveType.Cylinder, "Zocalo", f, c + Vector3.up * 0.05f, new Vector3(2.7f, 0.05f, 2.7f), carrara, null, null, false);
-            Prim(PrimitiveType.Cylinder, "Borde", f, c + Vector3.up * 0.58f, new Vector3(2.55f, 0.04f, 2.55f), carrara, null, null, false);
-            // agua clara (agua HDRP de piscina): se ve el fondo de marmol
-            var water = Water("Agua_fuente", f, WaterSurfaceType.Pool, c + Vector3.up * 0.5f, new Vector2(2.1f, 2.1f));
-            water.scatteringColor = new Color(0.2f, 0.75f, 0.8f);
-            water.absorptionDistance = 3f;
-            Prim(PrimitiveType.Cylinder, "Fondo_pila", f, c + Vector3.up * 0.3f, new Vector3(2.2f, 0.02f, 2.2f), carrara, null, null, false);
-            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 1.0f, new Vector3(0.9f, 0.45f, 0.9f), carrara, null, null, false);
-            Prim(PrimitiveType.Cylinder, "Capitel", f, c + Vector3.up * 1.47f, new Vector3(1.1f, 0.04f, 1.1f), carrara, null, null, false);
+            // el laguito: una orilla irregular de piedras de rio alrededor de un estanque bajo, agua transparente
+            // (agua HDRP de piscina) sobre un fondo de guijarros; la estatua se alza en la orilla del fondo
+            var pond = c + new Vector3(3.3f, 0f, 0f);
+            const float rx = 3f, rz = 1.45f;
+            var pebbles = ScanMat("M_Fondo_Laguito", "clean_pebbles", new Color(0.95f, 1f, 1f), 0.8f, 0.3f, 0.8f);
+            var stone = ScanMat("M_Piedra_Orilla", "marble_01", new Color(0.82f, 0.82f, 0.8f), 0.6f, 0.4f, 0.8f);
+            Prim(PrimitiveType.Cylinder, "Fondo_laguito", f, pond + Vector3.up * 0.03f, new Vector3(rx * 2f, 0.02f, rz * 2f), pebbles, null, null, false);
+            var rng = new System.Random(8);
+            for (int i = 0; i < 46; i++)
+            {
+                float t = i / 46f * Mathf.PI * 2f, wob = 1f + 0.08f * Mathf.Sin(t * 3f) + 0.05f * Mathf.Sin(t * 7f);
+                var p = pond + new Vector3(Mathf.Cos(t) * rx * wob, 0.1f, Mathf.Sin(t) * rz * wob);
+                float sz = 0.32f + (float)rng.NextDouble() * 0.22f;
+                Prim(PrimitiveType.Sphere, "Piedra_orilla", f, p, new Vector3(sz * 1.3f, sz * 0.6f, sz), stone, SurfaceType.Stone,
+                     new Vector3(0f, (float)rng.NextDouble() * 180f, 0f), true);
+            }
+            var water = Water("Agua_laguito", f, WaterSurfaceType.Pool, pond + Vector3.up * 0.22f, new Vector2(rx * 2f, rz * 2f));
+            water.scatteringColor = new Color(0.55f, 0.85f, 0.85f);
+            water.absorptionDistance = 14f;                            // clara y transparente: se ve el fondo
+            // patitos (modelados en Blender) que nadan en vueltas lentas
+            var ducksSrc = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/Art/Models/Generados/Patos.fbx");
+            if (ducksSrc)
+            {
+                var kinds = ducksSrc.GetComponentsInChildren<MeshRenderer>();
+                for (int i = 0; i < 4; i++)
+                {
+                    var src = kinds[i % kinds.Length];
+                    var d = new GameObject($"Patito_{i}");
+                    d.transform.SetParent(f, false);
+                    d.transform.localScale = src.transform.lossyScale * (i == 3 ? 0.6f : 1.1f);   // uno chiquito
+                    d.AddComponent<MeshFilter>().sharedMesh = src.GetComponent<MeshFilter>().sharedMesh;
+                    d.AddComponent<MeshRenderer>().sharedMaterials = src.sharedMaterials.Select(m => DuckMat(m)).ToArray();
+                    var sw = d.AddComponent<DuckSwim>();
+                    sw.center = pond + new Vector3(0f, 0.22f, 0f); sw.radius = 0.6f + i * 0.45f; sw.speed = 0.12f + i * 0.03f; sw.phase = i * 1.9f;
+                    d.transform.position = sw.center + Vector3.right * sw.radius;
+                }
+            }
+            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 0.75f, new Vector3(0.9f, 0.75f, 0.9f), carrara, SurfaceType.Stone);
             var body = c + Vector3.up * 1.5f;
 
             // la figura tallada
-            var statue = PolyModel("gothic_statue", f, body, 180f, null, false);
+            var statue = PolyModel("gothic_statue", f, body, 90f, null, false);
             if (statue)
             {
                 var b0 = Bounds(statue);
@@ -247,7 +275,7 @@ namespace Dream.EditorTools.Build
             }
 
             // el cantaro y el chorro de manantial: agua clara, continua, que salpica al caer
-            Prim(PrimitiveType.Sphere, "Cantaro", f, body + new Vector3(0.62f, -0.05f, 0f), new Vector3(0.22f, 0.26f, 0.22f), carrara, null, null, false);
+            Prim(PrimitiveType.Sphere, "Cantaro", f, body + new Vector3(0.55f, -0.05f, 0f), new Vector3(0.22f, 0.26f, 0.22f), carrara, null, null, false);
             var jet = new GameObject("Chorro");
             jet.transform.SetParent(f, false);
             jet.transform.position = body + new Vector3(0.75f, 0.02f, 0f);
@@ -255,7 +283,7 @@ namespace Dream.EditorTools.Build
             var ps = jet.AddComponent<ParticleSystem>();
             var main = ps.main;
             main.loop = true; main.prewarm = true; main.maxParticles = 600;
-            main.startLifetime = 0.5f; main.startSpeed = new ParticleSystem.MinMaxCurve(0.45f, 0.55f);
+            main.startLifetime = 0.75f; main.startSpeed = new ParticleSystem.MinMaxCurve(0.9f, 1.0f);
             main.startSize = new ParticleSystem.MinMaxCurve(0.035f, 0.05f); main.gravityModifier = 1f;
             var em = ps.emission; em.rateOverTime = 700f;
             var sh = ps.shape; sh.shapeType = ParticleSystemShapeType.Cone; sh.angle = 1.5f; sh.radius = 0.012f;
@@ -264,6 +292,37 @@ namespace Dream.EditorTools.Build
             pr.renderMode = ParticleSystemRenderMode.Stretch; pr.velocityScale = 0.12f; pr.lengthScale = 1.5f;
             pr.sharedMaterial = Mat("M_Agua_Manantial", new Color(0.82f, 0.94f, 1f, 0.45f), 0.98f, 0f, new Color(0.75f, 0.9f, 1f), 12f, true);
             pr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+
+        static Material DuckMat(Material src)
+        {
+            string n = src ? src.name.Replace(" (Instance)", "") : "Pato";
+            var c = src && src.HasProperty("_Color") ? src.GetColor("_Color") : Color.white;
+            if (src && src.HasProperty("_BaseColor")) c = src.GetColor("_BaseColor");
+            return Mat("M_" + n, c, n.Contains("ojo") ? 0.9f : n.Contains("pico") ? 0.6f : 0.35f);
+        }
+
+        // La pared que da sobre la rama izquierda (z = z1), de piso a techo: el mismo vidrio negro con marco, con su
+        // minisala a oscuras detras.
+        static void DarkMirrorZ(Transform g, float x0, float x1, float z1, float floorY, float top, float bottom)
+        {
+            const float depth = 3.5f;
+            var dark = Mat("M_Sala_Oscura", new Color(0.03f, 0.03f, 0.035f), 0.3f);
+            BoxMinMax("Sala_oscura2_piso", g, new Vector3(x0, floorY - 0.4f, z1), new Vector3(x1, floorY, z1 + depth), dark);
+            BoxMinMax("Sala_oscura2_fondo", g, new Vector3(x0, bottom, z1 + depth), new Vector3(x1, top, z1 + depth + 0.12f), dark);
+            BoxMinMax("Sala_oscura2_O", g, new Vector3(x0 - 0.12f, bottom, z1), new Vector3(x0, top, z1 + depth), dark);
+            BoxMinMax("Sala_oscura2_E", g, new Vector3(x1, bottom, z1), new Vector3(x1 + 0.12f, top, z1 + depth), dark);
+            BoxMinMax("Sala_oscura2_techo", g, new Vector3(x0, top, z1), new Vector3(x1, top + 0.12f, z1 + depth), dark);
+            var glass = Mat("M_Espejo_Oscuro", new Color(0.02f, 0.02f, 0.025f, 0.78f), 1f, 0.6f, null, 0f, true);
+            BoxMinMax("Espejo_oscuro_2", g, new Vector3(x0 + 0.2f, floorY + 0.15f, z1), new Vector3(x1 - 0.2f, top - 0.2f, z1 + 0.03f), glass);
+            var gold = ScanMat("M_Marco_Espejo", "metal_plate", new Color(0.62f, 0.5f, 0.3f), 0.5f, 0.45f, 0.8f);
+            gold.SetFloat("_Metallic", 1f);
+            BoxMinMax("Marco2_abajo", g, new Vector3(x0, floorY, z1 - 0.12f), new Vector3(x1, floorY + 0.15f, z1), gold);
+            BoxMinMax("Marco2_arriba", g, new Vector3(x0, top - 0.2f, z1 - 0.12f), new Vector3(x1, top, z1), gold);
+            BoxMinMax("Marco2_O", g, new Vector3(x0, floorY, z1 - 0.12f), new Vector3(x0 + 0.2f, top, z1), gold);
+            BoxMinMax("Marco2_E", g, new Vector3(x1 - 0.2f, floorY, z1 - 0.12f), new Vector3(x1, top, z1), gold);
+            for (float y = floorY + 3.5f; y < top - 1f; y += 3.5f)              // travesanos: un espejo hecho de paneles
+                BoxMinMax("Marco2_travesano", g, new Vector3(x0, y - 0.06f, z1 - 0.1f), new Vector3(x1, y + 0.06f, z1), gold);
         }
 
         // Toda la pared del fondo es un espejo grande con marco: un vidrio oscuro que apenas devuelve el reflejo.

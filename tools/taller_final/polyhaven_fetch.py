@@ -41,6 +41,7 @@ TEXTURES = {
     "metal_plate": ("1k", "pasamanos, postes y herrajes"),
     "dark_rock": ("1k", "paredes del tunel de la playa"),
     "marble_rock_01": ("2k", "marmol blanco con vetas del angel y la fuente"),
+    "jolcham_oak_bark_01": ("2k", "corteza de roble del arbol monumental"),
 }
 
 

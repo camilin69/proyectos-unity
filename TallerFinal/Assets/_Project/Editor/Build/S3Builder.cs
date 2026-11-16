@@ -85,7 +85,7 @@ namespace Dream.EditorTools.Build
                 Static(r.gameObject, false);
             }
             var leaf = sway.AddComponent<LeafSway>();
-            leaf.maxDeg = 2.2f; leaf.gustDeg = 5f; leaf.pivotLocal = Vector3.zero;
+            leaf.maxDeg = 4f; leaf.gustDeg = 9f; leaf.pivotLocal = Vector3.zero;
 
             // el tronco nudoso (tools/taller_final/tronco_nudoso_blender.py): estrias retorcidas, contrafuertes que se
             // hunden en la tierra y un hueco tallado de verdad en la cara que mira a la ladera
@@ -94,8 +94,12 @@ namespace Dream.EditorTools.Build
             trunk.name = "Tronco_Nudoso";
             trunk.transform.localPosition = new Vector3(5.92f, 1.9f, 0f);
             trunk.transform.localRotation = trunkSrc.transform.localRotation;
-            trunk.transform.localScale = trunkSrc.transform.localScale;
-            var barkMat = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(MatDir + "/M_DREAM_TREE_Bark_Limestone.mat");
+            trunk.transform.localScale = Vector3.Scale(trunkSrc.transform.localScale, new Vector3(1.35f, 1f, 1.35f));   // tronco mas grueso
+            var barkMat = ScanMat("M_Corteza_Roble", "jolcham_oak_bark_01", new Color(0.55f, 0.4f, 0.3f), 1.1f, 0f, 0.35f);
+            barkMat.SetFloat("_ObjectSpaceUVMapping", 1f);                 // la corteza viaja con las ramas que se mecen
+            HDMaterial.ValidateMaterial(barkMat);
+            foreach (var r in tree.root.GetComponentsInChildren<MeshRenderer>(true))
+                r.sharedMaterials = r.sharedMaterials.Select(m => m && m.name.Contains("Bark") ? barkMat : m).ToArray();
             foreach (var r in trunk.GetComponentsInChildren<MeshRenderer>())
             {
                 r.sharedMaterials = new[] { barkMat, Palette.Black };

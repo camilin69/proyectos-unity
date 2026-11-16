@@ -128,9 +128,11 @@ namespace Dream.EditorTools.Build
             var clouds = Hdri("dream_cloud_sky.png");                     // el panorama de nubes del proyecto dream/
             a.dayOnly = GlobalVolume("Cielo_de_Nubes", a.transform, Profile("S1_Cielo_de_Nubes", pr =>
             {
-                HdriSkyOverride(pr, clouds, HdriRotation, 7000f);
+                DreamSky(pr, 13.6f);
                 RoomFog(pr, 30f, 12f, new Color(1f, 0.97f, 0.93f));         // aire leve afuera; el polvo denso esta dentro del cuarto (DustMotes)
             }), 2f).gameObject;
+            CottonSky(a.dayOnly.transform, Vector3.zero, 40, 90f, 700f, -60f, 120f, 6f, 13f,
+                      new[] { Color.white, new Color(1f, 0.86f, 0.92f), new Color(1f, 0.75f, 0.88f), new Color(0.88f, 0.8f, 1f) }, 65, 3000f);   // de dia brillan por dentro: no se ven como siluetas a contraluz
             a.nightOnly = GlobalVolume("Cielo_Medianoche", a.transform, Profile("S1_Cielo_Medianoche", pr =>
             {
                 NightSky(pr, 1.6f, "dream_noche_rosa.png");
