@@ -23,6 +23,8 @@ namespace Dream
 
         public List<Batch> batches = new();
         public float drawDistance = 42f, thinFrom = 18f, maxBendDeg = 14f;
+        [Tooltip("Rafagas que se ven recorrer el campo: separacion (1/m), velocidad (m/s) y fuerza")]
+        public float gustScale = 0.09f, gustSpeed = 6f, gustStrength = 1.3f;
 
         readonly Matrix4x4[] _buffer = new Matrix4x4[1023];
         RenderParams[] _params;
@@ -49,6 +51,11 @@ namespace Dream
                     if (dd > thin2 && (i % (dd > thin2 * 2.5f ? 3 : 2)) != 0) continue;
                     float phase = bp.x * 0.37f + bp.z * 0.23f;
                     float sway = (Mathf.Sin(t * 1.7f + phase) * 0.55f + Mathf.Sin(t * 3.1f + phase * 1.7f) * 0.2f + 0.65f) * wind;
+                    // corrientes de aire: bandas de rafaga que viajan a favor del viento y doblan el pasto al pasar
+                    float along = bp.x * Wind.Direction.x + bp.z * Wind.Direction.z;
+                    float across = bp.x * axis.x + bp.z * axis.z;
+                    float band = Mathf.Sin(along * gustScale - t * gustSpeed * gustScale + Mathf.Sin(across * 0.05f) * 2f);
+                    sway += Mathf.Pow(Mathf.Max(0f, band), 6f) * gustStrength;
                     var rot = Quaternion.AngleAxis(sway * maxBendDeg * b.stiffness, axis);
                     _buffer[n++] = Matrix4x4.Translate(bp) * Matrix4x4.Rotate(rot) * Matrix4x4.Translate(-bp) * b.matrices[i];
                     if (n == _buffer.Length) { Draw(b, n, bounds); n = 0; }

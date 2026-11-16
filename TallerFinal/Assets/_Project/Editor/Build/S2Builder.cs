@@ -89,6 +89,9 @@ namespace Dream.EditorTools.Build
             };
             // pasto alto y silvestre por todas partes, flores en manchas, arbustos que se mecen
             ScatterInstanced(field, "grass_medium_02", 4200, Near(70f, 0f, 0.3f), G, new Vector2(2.2f, 3.0f), 1, 1f);
+            // pastizal de briznas finas, medio alto, que se mece en olas con el viento y brilla de rocio
+            GrassKit.Meadow(field, 26000, Near(62f, 0f, 0.12f), G, new Color(0.16f, 0.32f, 0.08f), new Color(0.68f, 0.82f, 0.32f), 0.45f, 0.85f, 21);
+            GrassKit.DewAndPollen(veg, 60f, new Color(6f, 5.5f, 3.5f, 1f));
             ScatterInstanced(field, "flower_gazania", 2200, Near(50f, 0f, 0.42f), G, new Vector2(2.0f, 2.9f), 3, 0.8f);
             ScatterInstanced(field, "flower_ursinia", 1400, Near(50f, 0f, 0.45f), G, new Vector2(2.0f, 2.9f), 4, 0.8f);
             ScatterInstanced(field, "dandelion_01", 600, Near(45f, 0f, 0.35f), G, new Vector2(2.0f, 2.6f), 5, 0.9f);

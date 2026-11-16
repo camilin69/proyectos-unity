@@ -23,7 +23,7 @@ UA = {"User-Agent": "taller-final-unity/1.0"}
 
 # id -> (resolucion, uso)
 TEXTURES = {
-    "leafy_grass": ("1k", "pasto de la pradera y la colina"),
+    "leafy_grass": ("2k", "pasto de la pradera, la colina y los setos del laberinto"),
     "coast_sand_01": ("1k", "arena de la playa"),
     "forest_leaves_02": ("1k", "suelo del bosque de palmeras"),
     "long_white_tiles": ("2k", "azulejo de la piscina y del cuarto"),
@@ -43,6 +43,7 @@ TEXTURES = {
     "marble_rock_01": ("2k", "marmol blanco con vetas del angel y la fuente"),
     "jolcham_oak_bark_01": ("2k", "corteza de roble del arbol monumental"),
     "ganges_river_pebbles": ("1k", "cantos de rio de la fuente del angel"),
+    "damp_beach_sand": ("2k", "arena humeda de la playa"),
 }
 
 

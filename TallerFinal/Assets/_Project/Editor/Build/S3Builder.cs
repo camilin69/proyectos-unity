@@ -126,6 +126,8 @@ namespace Dream.EditorTools.Build
                 return new Vector2(x, z);
             };
             ScatterInstanced(field, "grass_medium_02", 3600, Near(0f, 20f, 60f, 4f, 0.3f), G, new Vector2(1.8f, 2.6f), 11, 1f);
+            GrassKit.Meadow(field, 22000, Near(0f, 25f, 58f, 3f, 0.12f), G, new Color(0.15f, 0.3f, 0.07f), new Color(0.64f, 0.8f, 0.3f), 0.4f, 0.8f, 22);
+            GrassKit.DewAndPollen(veg, 60f, new Color(6f, 5.5f, 3.5f, 1f));
             ScatterInstanced(field, "flower_gazania", 1200, Near(0f, 30f, 55f, 6f, 0.45f), G, new Vector2(1.8f, 2.6f), 12, 0.8f);
             ScatterInstanced(field, "dandelion_01", 500, Near(0f, 30f, 50f, 6f, 0.4f), G, new Vector2(1.8f, 2.4f), 13, 0.9f);
             ScatterInstanced(field, "shrub_02", 90, Near(0f, 60f, 140f, 30f, 0.3f), G, new Vector2(1f, 1.6f), 14, 0.25f, true);

@@ -25,7 +25,7 @@ namespace Dream.EditorTools.Build
             }
             var terrain = MakeTerrain("T_Playa", null, new Vector3(-400f, y0, oz), new Vector3(800f, height, len), 257,
                 (u, v) => (WorldY(oz + v * len, -400f + u * 800f) - y0) / height,
-                ("Arena", new Color(0.93f, 0.86f, 0.72f), 5f), ("Bosque", new Color(0.3f, 0.36f, 0.26f), 5f));
+                ("Arena", new Color(0.78f, 0.72f, 0.62f), 3f), ("Bosque", new Color(0.3f, 0.36f, 0.26f), 5f));
             PaintLayer(terrain, 1, (u, v) => ((oz + v * len) - 25f) / 25f + (Mathf.PerlinNoise(u * 20f, v * 20f) - 0.5f));
             terrain.gameObject.AddComponent<TerrainSurfaces>().layerSurfaces = new[] { SurfaceType.Sand, SurfaceType.Leaves };
             float G(float x, float z) => Ground(terrain, x, z);
@@ -62,7 +62,9 @@ namespace Dream.EditorTools.Build
             const float u = 1.7f, mz0 = 26f; const int cells = 7, n = cells * 2 + 1;
             float mx0 = -n * u * 0.5f;
             var wall = Maze(cells, 23);
-            var hedge = ScanMat("M_Seto_Podado", "leafy_grass", new Color(0.32f, 0.5f, 0.3f), 1.1f, 0f, 0.25f);
+            var hedge = ScanMat("M_Seto_Podado", "leafy_grass", new Color(0.5f, 0.8f, 0.4f), 0.7f, 0.05f, 0.45f);
+            hedge.SetFloat("_NormalScale", 1.8f);
+            HDMaterial.ValidateMaterial(hedge);
             var maze = Group("Laberinto");
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
@@ -74,6 +76,14 @@ namespace Dream.EditorTools.Build
                         Box($"Almena_{i}_{j}", maze, new Vector3(x, g + 3.4f, z), new Vector3(u * 0.55f, 0.6f, u * 0.55f), hedge);
                 }
             float mazeTop = mz0 + n * u;
+            // encima de los setos, mechones de briznas que se mecen: el seto se ve tupido, no una caja pintada
+            var hedgeGrass = maze.gameObject.AddComponent<WindField>();
+            GrassKit.Meadow(hedgeGrass, 2400, r =>
+            {
+                int i = r.Next(n), j = r.Next(n);
+                if (!wall[i, j]) return null;
+                return new Vector2(mx0 + (i + (float)r.NextDouble()) * u, mz0 + (j + (float)r.NextDouble()) * u);
+            }, (x, z) => G(x, z) + 3.1f, new Color(0.06f, 0.16f, 0.05f), new Color(0.38f, 0.55f, 0.22f), 0.25f, 0.5f, 23, 20);
             // bombillos redondos colgados sobre los pasillos del laberinto: luz calida y suave, la justa para ver
             var bulb = Mat("M_Bombillo", new Color(1f, 0.9f, 0.7f), 0.8f, 0f, new Color(1f, 0.82f, 0.55f), 2200f);
             var wire = ScanMat("M_Hierro", "metal_plate", new Color(0.3f, 0.3f, 0.32f), 0.6f, 0.3f, 0.75f);

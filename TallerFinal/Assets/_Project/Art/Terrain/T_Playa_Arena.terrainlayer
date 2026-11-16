@@ -7,17 +7,17 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: T_Playa_Arena
-  m_DiffuseTexture: {fileID: 2800000, guid: 309b4cf79ccda6148849b419208aaf3f, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 9db8b1cd63d58e9429bf4dcb2bb05a1e, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: eb62453171fa97b4bb823326c47a0e3b, type: 3}
-  m_TileSize: {x: 5, y: 5}
+  m_DiffuseTexture: {fileID: 2800000, guid: 67661091940857a40ade8de54cc804ea, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 4d24d329c7ef8004bb593f9104a8d5d9, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: 1893820a4f8027a4888676e39d2bec59, type: 3}
+  m_TileSize: {x: 3, y: 3}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
   m_Metallic: 0
   m_Smoothness: 0.1
   m_NormalScale: 1
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_DiffuseRemapMax: {x: 1.2, y: 1.2, z: 1.1520001, w: 1}
+  m_DiffuseRemapMax: {x: 1.2, y: 1.1520001, z: 0.99200004, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_MaskMapRemapMax: {x: 0, y: 1, z: 1, w: 0.35}
   m_SmoothnessSource: 1

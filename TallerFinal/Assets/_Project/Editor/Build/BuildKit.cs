@@ -782,7 +782,7 @@ namespace Dream.EditorTools.Build
                 string lp = $"{TerrainDir}/{name}_{layers[i].name}.terrainlayer";
                 var tl = AssetDatabase.LoadAssetAtPath<TerrainLayer>(lp);
                 if (!tl) { tl = new TerrainLayer(); AssetDatabase.CreateAsset(tl, lp); }
-                string scan = layers[i].name switch { "Pasto" => "leafy_grass", "Arena" => "coast_sand_01", "Bosque" => "forest_leaves_02", _ => null };
+                string scan = layers[i].name switch { "Pasto" => "leafy_grass", "Arena" => "damp_beach_sand", "Bosque" => "forest_leaves_02", _ => null };
                 var (sa, sn, sk) = scan != null ? Scan(scan) : (null, null, null);
                 if (sa)
                 {
