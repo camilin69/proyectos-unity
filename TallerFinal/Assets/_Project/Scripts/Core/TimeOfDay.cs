@@ -17,6 +17,9 @@ namespace Dream
 
         float _target = -1f, _rate;
 
+        // Si no es cero, la luna se queda en esa direccion (el final: la luna grande en la ventana del cuarto).
+        [System.NonSerialized] public Vector3 moonDirection;
+
         void OnEnable() => Instance = this;
         void OnDisable() { if (Instance == this) Instance = null; }
 
@@ -75,7 +78,9 @@ namespace Dream
                 float night = Mathf.Clamp01((-elev - 2f) / 8f);
                 moon.enabled = night > 0.001f;
                 float mh = Mathf.Repeat(hour - 18f, 24f) / 12f;            // 18:00 -> 0, 06:00 -> 1
-                moon.transform.rotation = Quaternion.Euler(Mathf.Lerp(18f, 52f, Mathf.Sin(Mathf.PI * Mathf.Clamp01(mh))), 150f + 60f * mh, 0f);
+                moon.transform.rotation = moonDirection != Vector3.zero
+                    ? Quaternion.LookRotation(-moonDirection)
+                    : Quaternion.Euler(Mathf.Lerp(18f, 52f, Mathf.Sin(Mathf.PI * Mathf.Clamp01(mh))), 150f + 60f * mh, 0f);
                 moon.intensity = moonLux * night;
                 moon.useColorTemperature = true;
                 moon.colorTemperature = 8200f;

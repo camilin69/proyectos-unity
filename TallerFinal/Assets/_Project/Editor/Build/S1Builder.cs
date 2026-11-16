@@ -133,9 +133,11 @@ namespace Dream.EditorTools.Build
             }), 2f).gameObject;
             a.nightOnly = GlobalVolume("Cielo_Medianoche", a.transform, Profile("S1_Cielo_Medianoche", pr =>
             {
-                NightSky(pr, 1.4f);
-                ExposureLimits(pr, 0.5f, 6f, 0.4f);
+                NightSky(pr, 1.6f, "dream_noche_rosa.png");
+                ExposureLimits(pr, -1f, 6f, 0.4f);
             }), 2f).gameObject;
+            CottonSky(a.nightOnly.transform, Vector3.zero, 26, 160f, 700f, 40f, 160f, 5f, 10f,
+                      new[] { new Color(1f, 0.7f, 0.85f), new Color(0.92f, 0.55f, 0.82f), new Color(0.78f, 0.6f, 0.95f) }, 63);
             a.nightOnly.SetActive(false);
             room.RotateAround(Vector3.zero, Vector3.up, RoomYaw);
             a.transform.RotateAround(Vector3.zero, Vector3.up, RoomYaw);

@@ -35,6 +35,7 @@ namespace Dream.EditorTools.Build
             sun.GetComponent<HDAdditionalLightData>().angularDiameter = 2.2f;   // sombras de borde suave, como el sol de verdad
             var moon = AddLight("Luna", lightRoot, LightType.Directional, Vector3.zero, new Vector3(40, 200, 0), new Color(0.8f, 0.86f, 1f), 2.5f, 10f, 60f, null, false);
             moon.GetComponent<HDAdditionalLightData>().lightDimmer = 1f;
+            NightKit.ConfigureMoon(moon);                                  // luna llena grande, como un planeta
             var tod = lightRoot.gameObject.AddComponent<TimeOfDay>();
             tod.sun = sun; tod.moon = moon; tod.hour = 7f; tod.sunset = 18.2f; tod.sunrise = 5.2f;   // a las 07:00 el sol ya entra alto por la ventana del cuarto
 

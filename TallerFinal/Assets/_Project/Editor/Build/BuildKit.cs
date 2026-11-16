@@ -589,10 +589,10 @@ namespace Dream.EditorTools.Build
         }
 
         // Cielo de noche: el Physically Based Sky con un cubemap de estrellas como emision del espacio.
-        public static void NightSky(VolumeProfile p, float starNits)
+        public static void NightSky(VolumeProfile p, float starNits, string spaceFile = null)
         {
             var sky = p.Add<PhysicallyBasedSky>();
-            sky.spaceEmissionTexture.Override(Stars());
+            sky.spaceEmissionTexture.Override(spaceFile != null ? Hdri(spaceFile) : Stars());
             sky.spaceEmissionMultiplier.Override(starNits);
         }
 

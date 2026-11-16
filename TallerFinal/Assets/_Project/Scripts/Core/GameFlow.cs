@@ -71,6 +71,35 @@ namespace Dream
             JourneyManager.Instance?.Begin();
         }
 
+        // "Seguir soñando": de vuelta en el cuarto, ya sin viaje. Son las 3:33 para siempre: todo oscuro, la luna grande
+        // en la ventana, el cielo rosado con nubes de algodon. No hay recuerdo ni puerta: solo el cuarto para mirarlo.
+        public bool Lingering { get; private set; }
+
+        public void ContinueDreaming() => StartCoroutine(ContinueRoutine());
+
+        System.Collections.IEnumerator ContinueRoutine()
+        {
+            var fader = Cinematic.ScreenFader.Instance;
+            if (fader) yield return fader.Fade(Color.black, 1f, 1.2f);
+            Lingering = true;
+            var scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+            foreach (var g in FindObjectsByType<TransitionGate>(FindObjectsInactive.Include))
+                if (g.gameObject.scene == scene) g.gameObject.SetActive(false);
+            foreach (var m in FindObjectsByType<MemoryFragment>(FindObjectsInactive.Include))
+                if (m.gameObject.scene == scene) m.gameObject.SetActive(false);
+            var tod = TimeOfDay.Instance;
+            if (tod)
+            {
+                var room = GameObject.Find("Cuarto");
+                var win = room ? room.transform.TransformDirection(Vector3.forward) : Vector3.forward;
+                tod.moonDirection = (Quaternion.AngleAxis(-24f, Vector3.Cross(Vector3.up, win)) * win).normalized;
+                tod.GoTo(3f + 33f / 60f + 0.001f, 0f);                         // 03:33, y ahi se queda
+            }
+            SetState(GameState.Playing);
+            UI.HudView.Instance?.ShowHint("Son las 3:33. El tiempo se detuvo.");
+            if (fader) yield return fader.Fade(Color.black, 0f, 2f);
+        }
+
         public void Quit()
         {
 #if UNITY_EDITOR

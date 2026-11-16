@@ -3,8 +3,9 @@ using static Dream.EditorTools.Build.BuildKit;
 
 namespace Dream.EditorTools.Build
 {
-    // 8 · La escalera de moqueta rosa al cielo, 23:30 -> 00:00. Setos a los lados, nubes bajo los pies, figuras de
-    // luz que acompanan la subida y rayos que caen desde arriba. Arriba, la ultima puerta devuelve al cuarto.
+    // 8 · La escalera de moqueta rosa al cielo, 23:30 -> 00:00. Muros de piedra a los lados con antorchas de fuego,
+    // nubes bajo los pies y un cielo morado de estrellas que titilan. Mientras sube, un meteorito en llamas de tamano
+    // planetario se acerca; arriba, cuando se abre la ultima puerta, cae: la tierra tiembla y la luz lo blanquea todo.
     public static class S8Builder
     {
         public static void Build()
@@ -17,17 +18,24 @@ namespace Dream.EditorTools.Build
             const int steps = 70; const float rise = 0.3f, run = 0.45f, half = 2f;
             BoxMinMax("Base", st, new Vector3(-4f, -0.6f, -7f), new Vector3(4f, 0f, 0f), Palette.Stone, SurfaceType.Stone);
             var trim = ScanMat("M_Moldura_Crema", "painted_plaster_wall", new Color(1f, 0.95f, 0.88f), 0.8f, 0.35f, 0.65f);
+            var stone = ScanMat("M_Muro_Piedra", "mossy_stone_wall", new Color(0.92f, 0.86f, 0.9f), 2.2f, 0f, 0.35f);
+            var wood = ScanMat("M_Palo_Antorcha", "bark_willow", new Color(0.45f, 0.32f, 0.22f), 0.6f, 0f, 0.3f);
+            var iron = ScanMat("M_Hierro", "metal_plate", new Color(0.3f, 0.3f, 0.32f), 0.6f, 0.3f, 0.75f);
+            NightKit.ResetCache();
             for (int i = 0; i < steps; i++)
             {
                 float y = (i + 1) * rise, z0 = i * run;
                 BoxMinMax($"Peldano_{i:00}", st, new Vector3(-half, y - 0.6f, z0), new Vector3(half, y, z0 + run), Palette.Carpet, SurfaceType.Carpet);
                 BoxMinMax($"Moldura_I_{i:00}", st, new Vector3(-half - 0.16f, y - 0.6f, z0), new Vector3(-half, y + 0.05f, z0 + run), trim);
                 BoxMinMax($"Moldura_D_{i:00}", st, new Vector3(half, y - 0.6f, z0), new Vector3(half + 0.16f, y + 0.05f, z0 + run), trim);
-                if (i % 6 == 0)
+                // muros de piedra a los lados, escalonados con la escalera
+                for (int s = -1; s <= 1; s += 2)
+                    BoxMinMax($"Muro_{(s < 0 ? "I" : "D")}_{i:00}", st, new Vector3(s < 0 ? -half - 0.66f : half + 0.16f, y - 1.2f, z0),
+                              new Vector3(s < 0 ? -half - 0.16f : half + 0.66f, y + 2.4f, z0 + run), stone, SurfaceType.Stone);
+                if (i % 7 == 3)
                     for (int s = -1; s <= 1; s += 2)
-                        Box($"Seto_{i:00}", st, new Vector3(s * 2.65f, y + 0.25f, z0 + 1.35f), new Vector3(0.7f, 1.0f, 2.6f), Palette.Hedge);
+                        NightKit.Torch(st, new Vector3(s * (half + 0.16f), y + 1.5f, z0 + run * 0.5f), new Vector3(-s, 0f, 0f), wood, iron);
                 if (i % 15 == 7) CheckpointAt(a.transform, new Vector3(0f, y + 0.05f, z0 + run * 0.5f), 0f, new Vector3(4f, 3f, 1f));
-                if (i % 10 == 5) AddLight("Luz_calida", st, LightType.Point, new Vector3(0f, y + 1.2f, z0), Vector3.zero, new Color(1f, 0.78f, 0.82f), 420f, 7f, 60f, null, false);
             }
             float topY = steps * rise, topZ = steps * run;
             BoxMinMax("Descanso", st, new Vector3(-4f, topY - 0.6f, topZ), new Vector3(4f, topY, topZ + 5.5f), Palette.Carpet, SurfaceType.Carpet);
@@ -47,26 +55,9 @@ namespace Dream.EditorTools.Build
             }
             ShootingStarsIn(a.transform);
 
-            // los que acompanan: figuras de luz a los lados
-            var angels = Group("Acompanantes");
-            var glow = Mat("M_Figura_de_Luz", new Color(1f, 0.95f, 0.86f), 0.2f, 0f, new Color(1f, 0.9f, 0.78f), 1400f);
-            var wing = Mat("M_Ala_de_Luz", new Color(1f, 0.96f, 0.9f), 0.1f, 0f, new Color(1f, 0.93f, 0.85f), 700f, false, true);
-            for (int i = 0; i < 12; i++)
-            {
-                int side = i % 2 == 0 ? -1 : 1;
-                float z = 2f + i * 2.6f;
-                float y = (z / run) * rise + 1.5f + (float)rng.NextDouble() * 2.5f;
-                var root = Point($"Figura_{i:00}", angels, new Vector3(side * (5.5f + (float)rng.NextDouble() * 3f), y, z), side < 0 ? 90f : -90f);
-                Prim(PrimitiveType.Capsule, "Cuerpo", root, root.position, new Vector3(0.55f, 1.2f, 0.55f), glow, null, null, false);
-                Prim(PrimitiveType.Sphere, "Cabeza", root, root.position + Vector3.up * 1.45f, Vector3.one * 0.42f, glow, null, null, false);
-                for (int w = -1; w <= 1; w += 2)
-                    Prim(PrimitiveType.Quad, "Ala", root, root.position + Vector3.up * 0.7f + root.right * w * 0.75f - root.forward * 0.2f,
-                         new Vector3(1.4f, 1.1f, 1f), wing, null, new Vector3(0f, root.eulerAngles.y + w * 25f, w * -20f), false);
-                foreach (Transform c in root) Static(c.gameObject, false);
-                var b = root.gameObject.AddComponent<Bob>(); b.amplitude = 0.3f; b.speed = 0.25f + i * 0.02f;
-            }
-            for (int i = 0; i < 5; i++)
-                AddLight("Rayo", st, LightType.Spot, new Vector3(((i % 2) * 2 - 1) * 3f, 48f, 4f + i * 7f), new Vector3(78f, 180f, 0f), new Color(1f, 0.93f, 0.85f), 42000f, 80f, 22f);
+            // el cielo morado con estrellas que titilan y el meteorito que se acerca con la subida
+            NightKit.TwinklingStars(a.transform, 420, new Color(3f, 2.9f, 3.4f, 1f));
+            var meteor = NightKit.MeteorRig(a.transform, 0f, topZ, new Vector3(0f, 2200f, 6500f), new Vector3(0f, 1400f, 4200f), new Vector3(0f, 1100f, 2900f));
 
             // llegada: abajo, mirando la subida
             var stairTop = Point("Mira_arriba", a.transform, new Vector3(0f, topY, topZ + 5f));
@@ -84,7 +75,7 @@ namespace Dream.EditorTools.Build
             d1.to = CamPoint("Cam_Final_B", a.transform, new Vector3(1.0f, topY + 1.2f, topZ - 1.0f), Vector3.zero);
             d1.lookAtActorHead = true; d1.focalLength = 50f; d1.headLookAt = light;
             d1.actorWalkTo = Point("Ante_la_ultima", a.transform, new Vector3(0f, topY, topZ + 4.3f), 0f); d1.actorSpeed = 0.8f;
-            OnStart(d1, door.Open); OnStart(d1, cue.LightHum);
+            OnStart(d1, door.Open); OnStart(d1, cue.LightHum); OnStart(d1, meteor.Impact);
             var d2 = Shot(3.5f, "entra en la luz");
             d2.from = CamPoint("Cam_Final_C", a.transform, new Vector3(0.5f, topY + 1.6f, topZ + 1f), Vector3.zero);
             d2.lookAt = light; d2.focalLength = 35f;
@@ -92,7 +83,7 @@ namespace Dream.EditorTools.Build
             d2.fadeColor = Color.white; d2.fadeOutSeconds = 2.6f;
             memory.autoGate = Gate("La_ultima_puerta", a.transform, new Vector3(0f, topY + 1.1f, topZ + 4.1f), new Vector3(2f, 2.2f, 1.2f), Sequence("Cine_El_Regreso", a.transform, d1, d2));
 
-            GlobalVolume("Ambiente_Escalera", a.transform, Profile("S8_Escalera", p => { Fog(p, 180f, 70f, new Color(1f, 0.88f, 0.92f)); NightSky(p, 1.6f); ExposureLimits(p, 0.5f, 6f, 0.3f); }), 1f);
+            GlobalVolume("Ambiente_Escalera", a.transform, Profile("S8_Escalera", p => { Fog(p, 400f, 40f, new Color(0.72f, 0.58f, 0.92f)); NightSky(p, 2.4f, "dream_noche_morada.png"); ExposureLimits(p, 0f, 6f, 0.3f); }), 1f);
             Save(scene, "S8_Escalera");
         }
     }

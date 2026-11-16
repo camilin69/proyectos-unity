@@ -20,12 +20,13 @@ namespace Dream.UI
             bg.sprite = UIKit.Gradient(b, a);
             UIKit.Label(root, "Pregunta", UIKit.Spaced("¿DESPERTASTE?"), 84, TextAnchor.MiddleCenter, UIKit.Ink, new Vector2(0.05f, 0.62f), new Vector2(0.95f, 0.78f));
             _stats = UIKit.Label(root, "Datos", "", 32, TextAnchor.MiddleCenter, UIKit.Ink, new Vector2(0.15f, 0.40f), new Vector2(0.85f, 0.60f));
-            UIKit.Button(root, "Otra", "Soñar otra vez", new Vector2(0.30f, 0.22f), new Vector2(0.48f, 0.30f), () =>
+            UIKit.Button(root, "Seguir", "Seguir soñando", new Vector2(0.18f, 0.22f), new Vector2(0.38f, 0.30f), () => GameFlow.Instance?.ContinueDreaming());
+            UIKit.Button(root, "Otra", "Soñar otra vez", new Vector2(0.40f, 0.22f), new Vector2(0.60f, 0.30f), () =>
             {
                 Time.timeScale = 1f;
                 SceneManager.LoadScene("Boot");
             });
-            UIKit.Button(root, "Salir", "Despertar", new Vector2(0.52f, 0.22f), new Vector2(0.70f, 0.30f), () => GameFlow.Instance?.Quit());
+            UIKit.Button(root, "Salir", "Despertar", new Vector2(0.62f, 0.22f), new Vector2(0.82f, 0.30f), () => GameFlow.Instance?.Quit());
         }
 
         void Update()
