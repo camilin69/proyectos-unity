@@ -42,6 +42,7 @@ TEXTURES = {
     "dark_rock": ("1k", "paredes del tunel de la playa"),
     "marble_rock_01": ("2k", "marmol blanco con vetas del angel y la fuente"),
     "jolcham_oak_bark_01": ("2k", "corteza de roble del arbol monumental"),
+    "ganges_river_pebbles": ("1k", "cantos de rio de la fuente del angel"),
 }
 
 
@@ -117,6 +118,8 @@ MODELS = {
     "coast_rocks_02": "rocas grandes de la playa",
     "namaqualand_boulder_02": "pena grande de la playa",
     "gothic_statue": "angel de marmol de la fuente del pasillo (con alas)",
+    "stone_01": "piedras de rio de la orilla del laguito",
+    "weed_plant_02": "plantas de la orilla del laguito",
 }
 
 

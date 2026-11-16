@@ -206,21 +206,90 @@ namespace Dream.EditorTools.Build
             // (agua HDRP de piscina) sobre un fondo de guijarros; la estatua se alza en la orilla del fondo
             var pond = c + new Vector3(3.3f, 0f, 0f);
             const float rx = 3f, rz = 1.45f;
-            var pebbles = ScanMat("M_Fondo_Laguito", "clean_pebbles", new Color(0.95f, 1f, 1f), 0.8f, 0.3f, 0.8f);
+            var pebbles = ScanMat("M_Fondo_Laguito", "ganges_river_pebbles", new Color(1f, 1f, 1f), 0.9f, 0.3f, 0.8f);
+            var riverStone = ScanMat("M_Cantos_Rio", "ganges_river_pebbles", new Color(0.95f, 0.95f, 0.93f), 0.7f, 0.35f, 0.85f);
             var stone = ScanMat("M_Piedra_Orilla", "marble_01", new Color(0.82f, 0.82f, 0.8f), 0.6f, 0.4f, 0.8f);
             Prim(PrimitiveType.Cylinder, "Fondo_laguito", f, pond + Vector3.up * 0.03f, new Vector3(rx * 2f, 0.02f, rz * 2f), pebbles, null, null, false);
             var rng = new System.Random(8);
-            for (int i = 0; i < 46; i++)
+            var stoneSrc = AssetDatabase.LoadAssetAtPath<GameObject>(ModelDir + "/stone_01/stone_01.fbx");
+            var stoneMF = stoneSrc ? stoneSrc.GetComponentsInChildren<MeshFilter>().OrderBy(m => Mathf.Abs(m.sharedMesh.vertexCount - 2000)).First() : null;
+            var stoneMesh = stoneMF ? stoneMF.sharedMesh : null;
+            var stoneMat = ModelMat("stone_01", "stone_01", false, new Color(0.95f, 0.95f, 0.92f));
+            // tamano real de la piedra con la escala y el giro que trae el FBX
+            var stoneRot = stoneMF ? stoneMF.transform.rotation : Quaternion.identity;
+            var stoneScale = stoneMF ? stoneMF.transform.lossyScale : Vector3.one;
+            var wb = stoneMesh ? GeometryUtility.CalculateBounds(new[] { stoneMesh.bounds.min, stoneMesh.bounds.max }, Matrix4x4.TRS(Vector3.zero, stoneRot, stoneScale)) : new Bounds(Vector3.zero, Vector3.one);
+            float stoneUnit = 1f / Mathf.Max(0.01f, Mathf.Max(wb.size.x, wb.size.z));
+            for (int i = 0; i < 40; i++)
             {
-                float t = i / 46f * Mathf.PI * 2f, wob = 1f + 0.08f * Mathf.Sin(t * 3f) + 0.05f * Mathf.Sin(t * 7f);
-                var p = pond + new Vector3(Mathf.Cos(t) * rx * wob, 0.1f, Mathf.Sin(t) * rz * wob);
-                float sz = 0.32f + (float)rng.NextDouble() * 0.22f;
-                Prim(PrimitiveType.Sphere, "Piedra_orilla", f, p, new Vector3(sz * 1.3f, sz * 0.6f, sz), stone, SurfaceType.Stone,
-                     new Vector3(0f, (float)rng.NextDouble() * 180f, 0f), true);
+                float t = i / 40f * Mathf.PI * 2f, wob = 1f + 0.08f * Mathf.Sin(t * 3f) + 0.05f * Mathf.Sin(t * 7f);
+                var p = pond + new Vector3(Mathf.Cos(t) * rx * wob, 0.02f, Mathf.Sin(t) * rz * wob);
+                float sz = 0.42f + (float)rng.NextDouble() * 0.3f;
+                if (stoneMesh)
+                {
+                    var st = new GameObject("Piedra_de_rio");
+                    st.transform.SetParent(f, false);
+                    st.transform.rotation = Quaternion.Euler(0f, (float)rng.NextDouble() * 360f, 0f) * stoneRot;
+                    st.transform.localScale = stoneScale * sz * stoneUnit;
+                    st.transform.position = p + Vector3.up * (-wb.min.y * sz * stoneUnit - 0.08f);     // apoyada, un poco hundida
+                    st.AddComponent<MeshFilter>().sharedMesh = stoneMesh;
+                    st.AddComponent<MeshRenderer>().sharedMaterial = stoneMat;
+                    st.AddComponent<MeshCollider>().sharedMesh = stoneMesh;
+                    st.AddComponent<SurfaceTag>().type = SurfaceType.Stone;
+                }
+                else Prim(PrimitiveType.Sphere, "Piedra_orilla", f, p, new Vector3(sz * 1.3f, sz * 0.6f, sz), stone, SurfaceType.Stone);
             }
             var water = Water("Agua_laguito", f, WaterSurfaceType.Pool, pond + Vector3.up * 0.22f, new Vector2(rx * 2f, rz * 2f));
             water.scatteringColor = new Color(0.55f, 0.85f, 0.85f);
             water.absorptionDistance = 14f;                            // clara y transparente: se ve el fondo
+            var lake = Group("Vegetacion_del_laguito", f);
+            var pad = TexMat("M_Nenufar", "T_Nenufar_albedo.png", Color.white, 0.55f, true);
+            var petal = Mat("M_Petalo_Loto", new Color(1f, 0.72f, 0.85f), 0.45f, 0f, new Color(1f, 0.6f, 0.8f), 30f);
+            var heart = Mat("M_Centro_Loto", new Color(1f, 0.85f, 0.3f), 0.4f, 0f, new Color(1f, 0.8f, 0.3f), 40f);
+            for (int i = 0; i < 14; i++)
+            {
+                float t = (float)rng.NextDouble() * Mathf.PI * 2f, k = 0.35f + 0.55f * Mathf.Sqrt((float)rng.NextDouble());
+                var p = pond + new Vector3(Mathf.Cos(t) * rx * k, 0.225f, Mathf.Sin(t) * rz * k);
+                float sz = 0.32f + (float)rng.NextDouble() * 0.22f;
+                Prim(PrimitiveType.Quad, "Nenufar", lake, p, Vector3.one * sz, pad, null, new Vector3(90f, (float)rng.NextDouble() * 360f, 0f), false);
+                if (i % 3 == 0)
+                {
+                    // flor de loto: dos coronas de petalos que se abren y un centro dorado
+                    for (int ring = 0; ring < 2; ring++)
+                        for (int j = 0; j < 7; j++)
+                        {
+                            float ang = j * 360f / 7f + ring * 25f;
+                            var q = Quaternion.Euler(0f, ang, 0f) * Quaternion.Euler(ring == 0 ? 55f : 30f, 0f, 0f);
+                            Prim(PrimitiveType.Sphere, "Petalo", lake, p + Vector3.up * (0.04f + ring * 0.025f) + q * Vector3.forward * 0.045f,
+                                 new Vector3(0.045f, 0.012f, 0.1f - ring * 0.02f), petal, null, q.eulerAngles, false);
+                        }
+                    Prim(PrimitiveType.Sphere, "Centro", lake, p + Vector3.up * 0.06f, Vector3.one * 0.035f, heart, null, null, false);
+                }
+            }
+            // juncos con su espiga a lo largo de la orilla
+            var reed = Mat("M_Junco", new Color(0.35f, 0.5f, 0.25f), 0.3f);
+            var cat = Mat("M_Espiga", new Color(0.35f, 0.22f, 0.12f), 0.2f);
+            for (int i = 0; i < 16; i++)
+            {
+                float t = (float)rng.NextDouble() * Mathf.PI * 2f;
+                if (Mathf.Cos(t) < -0.6f) continue;                          // no tapan la estatua
+                var p = pond + new Vector3(Mathf.Cos(t) * rx * 0.86f, 0f, Mathf.Sin(t) * rz * 0.84f);
+                float h = 0.35f + (float)rng.NextDouble() * 0.4f, lean = ((float)rng.NextDouble() - 0.5f) * 14f;
+                var e = new Vector3(lean, 0f, ((float)rng.NextDouble() - 0.5f) * 14f);
+                var q = Quaternion.Euler(e);
+                Prim(PrimitiveType.Cylinder, "Junco", lake, p + q * Vector3.up * (h * 0.5f), new Vector3(0.016f, h * 0.5f, 0.016f), reed, null, e, false);
+                if (i % 2 == 0) Prim(PrimitiveType.Capsule, "Espiga", lake, p + q * Vector3.up * (h * 0.85f), new Vector3(0.035f, 0.09f, 0.035f), cat, null, e, false);
+            }
+            // plantas de orilla que se mecen
+            var shore = lake.gameObject.AddComponent<WindField>();
+            ScatterInstanced(shore, "weed_plant_02", 24, r2 =>
+            {
+                float t = (float)r2.NextDouble() * Mathf.PI * 2f;
+                if (Mathf.Cos(t) < -0.5f) return null;
+                float k = 1.08f + (float)r2.NextDouble() * 0.12f;
+                return new Vector2(pond.x + Mathf.Cos(t) * rx * k, pond.z + Mathf.Sin(t) * rz * k);
+            }, (x, z) => pond.y, new Vector2(2.2f, 3f), 77, 0.7f);
+
             // patitos (modelados en Blender) que nadan en vueltas lentas
             var ducksSrc = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/Art/Models/Generados/Patos.fbx");
             if (ducksSrc)
@@ -235,11 +304,12 @@ namespace Dream.EditorTools.Build
                     d.AddComponent<MeshFilter>().sharedMesh = src.GetComponent<MeshFilter>().sharedMesh;
                     d.AddComponent<MeshRenderer>().sharedMaterials = src.sharedMaterials.Select(m => DuckMat(m)).ToArray();
                     var sw = d.AddComponent<DuckSwim>();
-                    sw.center = pond + new Vector3(0f, 0.22f, 0f); sw.radius = 0.6f + i * 0.45f; sw.speed = 0.12f + i * 0.03f; sw.phase = i * 1.9f;
+                    sw.center = pond + new Vector3(0f, 0.22f, 0f); sw.radius = 0.9f + i * 0.45f; sw.speed = 0.22f + i * 0.04f; sw.phase = i * 1.9f;
+                    sw.bounds = new Vector2(rx * 0.72f, rz * 0.62f);
                     d.transform.position = sw.center + Vector3.right * sw.radius;
                 }
             }
-            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 0.75f, new Vector3(0.9f, 0.75f, 0.9f), carrara, SurfaceType.Stone);
+            Prim(PrimitiveType.Cylinder, "Pedestal", f, c + Vector3.up * 0.75f, new Vector3(0.9f, 0.75f, 0.9f), riverStone, SurfaceType.Stone);
             var body = c + Vector3.up * 1.5f;
 
             // la figura tallada
